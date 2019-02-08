@@ -31,7 +31,7 @@ Applied-Upstream: 3.31.2
  11 files changed, 69 insertions(+), 11 deletions(-)
 
 diff --git a/panels/power/cc-power-panel.c b/panels/power/cc-power-panel.c
-index 298c2bf..882d469 100644
+index 9da5a54..ecf046b 100644
 --- a/panels/power/cc-power-panel.c
 +++ b/panels/power/cc-power-panel.c
 @@ -302,7 +302,6 @@ get_details_string (gdouble percentage, UpDeviceState state, guint64 time)
@@ -110,10 +110,10 @@ index bd118c9..d68d648 100644
  msgstr "Κενό"
  
 diff --git a/po/eo.po b/po/eo.po
-index 325639b..d5840ce 100644
+index 83e7be3..aa8b53d 100644
 --- a/po/eo.po
 +++ b/po/eo.po
-@@ -3908,7 +3908,12 @@ msgid "Fully charged"
+@@ -3912,7 +3912,12 @@ msgid "Fully charged"
  msgstr "Tute ŝargita"
  
  #. TRANSLATORS: primary battery
@@ -128,10 +128,10 @@ index 325639b..d5840ce 100644
  msgstr "Malplena"
  
 diff --git a/po/es.po b/po/es.po
-index 72f997a..06e1649 100644
+index 471e6e0..a51b34f 100644
 --- a/po/es.po
 +++ b/po/es.po
-@@ -3942,7 +3942,12 @@ msgid "Fully charged"
+@@ -3928,7 +3928,12 @@ msgid "Fully charged"
  msgstr "Cargada completamente"
  
  #. TRANSLATORS: primary battery
@@ -180,15 +180,15 @@ index e5e65cd..6829451 100644
  msgctxt "Battery name"
  msgid "Main"
 diff --git a/po/ja.po b/po/ja.po
-index 5f4767f..8858273 100644
+index e7e3cff..927e424 100644
 --- a/po/ja.po
 +++ b/po/ja.po
-@@ -3904,7 +3904,12 @@ msgid "Fully charged"
+@@ -3926,7 +3926,12 @@ msgid "Fully charged"
  msgstr "フル充電"
  
  #. TRANSLATORS: primary battery
--#: ../panels/power/cc-power-panel.c:321 ../panels/power/cc-power-panel.c:349
-+#: panels/power/cc-power-panel.c:327 panels/power/cc-power-panel.c:357
+-#: panels/power/cc-power-panel.c:328 panels/power/cc-power-panel.c:355
++#: panels/power/cc-power-panel.c:328 panels/power/cc-power-panel.c:355
 +msgid "Not charging"
 +msgstr "放電中"
 +
