@@ -117,8 +117,8 @@ get_scaled_geometry (CcDisplayConfig  *config,
   if (cc_display_config_is_layout_logical (config))
     {
       double scale = cc_display_monitor_get_scale (output);
-      *w /= scale;
-      *h /= scale;
+      *w = round (*w / scale);
+      *h = round (*h / scale);
     }
 
   apply_rotation_to_geometry (output, w, h);
@@ -857,6 +857,8 @@ cc_display_arrangement_finalize (GObject *object)
   CcDisplayArrangement *self = CC_DISPLAY_ARRANGEMENT (object);
 
   g_clear_object (&self->config);
+
+  G_OBJECT_CLASS (cc_display_arrangement_parent_class)->finalize (object);
 }
 
 static void
@@ -927,6 +929,8 @@ cc_display_arrangement_set_selected_output (CcDisplayArrangement *self,
 
   /* XXX: Could check that it actually belongs to the right config object. */
   self->selected_output = output;
+
+  gtk_widget_queue_draw (GTK_WIDGET (self));
 
   g_object_notify_by_pspec (G_OBJECT (self), props[PROP_SELECTED_OUTPUT]);
 }
