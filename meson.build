@@ -1,6 +1,6 @@
 project(
   'gnome-control-center', 'c',
-        version : '3.30.2',
+        version : '3.30.3',
         license : 'GPL2+',
   meson_version : '>= 0.43.0'
 )
@@ -180,6 +180,11 @@ if enable_wayland
 endif
 config_h.set('HAVE_WAYLAND', enable_wayland,
              description: 'Define to 1 if Wayland is enabled')
+
+# thunderbolt
+config_h.set10('HAVE_FN_EXPLICIT_BZERO',
+               cc.has_function('explicit_bzero', prefix: '''#include <string.h>'''),
+               description: 'Define if explicit_bzero is available')
 
 if host_is_linux
   # network manager
