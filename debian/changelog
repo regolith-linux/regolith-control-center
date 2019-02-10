@@ -1,8 +1,16 @@
-gnome-control-center (1:3.30.3-1) UNRELEASED; urgency=medium
+gnome-control-center (1:3.30.3-1) unstable; urgency=medium
 
+  [ Jeremy Bicha ]
   * New upstream release
+  * Drop patches applied in new release:
+    - universal-access-Reverse-Repeat-Keys-Speed-direction.patch
+    - region-Autodisconnect-IBusBus-connected-handler.patch
+  * Refresh patch
 
- -- Jeremy Bicha <jbicha@debian.org>  Thu, 07 Feb 2019 21:57:13 -0500
+  [ Aurélien COUDERC ]
+  * Use original red color for debian swirl in about panel
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sun, 10 Feb 2019 18:35:05 -0500
 
 gnome-control-center (1:3.30.2-5) unstable; urgency=medium
 
