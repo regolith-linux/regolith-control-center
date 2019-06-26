@@ -1,10 +1,10 @@
-gnome-control-center (1:3.32.2-0ubuntu2) UNRELEASED; urgency=medium
+gnome-control-center (1:3.32.2-0ubuntu1.1) disco; urgency=medium
 
   * d/p/fix-broken-zoom-options.patch:
     - Update dconf settings properly from the zoom options GUI
       (LP: #1831144).
 
- -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Tue, 25 Jun 2019 23:23:00 +0200
+ -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Wed, 26 Jun 2019 13:33:00 +0200
 
 gnome-control-center (1:3.32.2-0ubuntu1) disco; urgency=medium
 
