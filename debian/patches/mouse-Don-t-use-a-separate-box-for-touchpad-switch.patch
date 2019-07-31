@@ -8,14 +8,15 @@ so let's handle it that way too.
 This eliminates an unnecessary split in the touchpad
 section that is noticeable when navigating with a keyboard.
 
-Proposed: https://gitlab.gnome.org/GNOME/gnome-control-center/merge_requests/334
+Forwarded: https://gitlab.gnome.org/GNOME/gnome-control-center/merge_requests/334
+Applied-upstream: 3.31.90, commit:dde97ecb2ed695088504c1074c8435a4fc37bcaf
 ---
  panels/mouse/gnome-mouse-properties.c  | 37 +++++++++++++++++++++++++++++-----
  panels/mouse/gnome-mouse-properties.ui | 13 ------------
  2 files changed, 32 insertions(+), 18 deletions(-)
 
 diff --git a/panels/mouse/gnome-mouse-properties.c b/panels/mouse/gnome-mouse-properties.c
-index 3005125..d0a9c58 100644
+index 5af1293..0b56e17 100644
 --- a/panels/mouse/gnome-mouse-properties.c
 +++ b/panels/mouse/gnome-mouse-properties.c
 @@ -60,8 +60,9 @@ struct _CcMouseProperties
@@ -29,7 +30,7 @@ index 3005125..d0a9c58 100644
  	GtkWidget *touchpad_speed_scale;
  	GtkWidget *touchpad_toggle_switch;
  	GtkWidget *two_finger_scrolling_row;
-@@ -278,7 +279,31 @@ setup_dialog (CcMouseProperties *self)
+@@ -283,7 +284,31 @@ setup_dialog (CcMouseProperties *self)
  				      touchpad_enabled_set_mapping,
  				      NULL, NULL);
  	g_settings_bind_with_mapping (self->touchpad_settings, "send-events",
@@ -62,7 +63,7 @@ index 3005125..d0a9c58 100644
  				      G_SETTINGS_BIND_GET,
  				      touchpad_enabled_get_mapping,
  				      touchpad_enabled_set_mapping,
-@@ -297,8 +322,6 @@ setup_dialog (CcMouseProperties *self)
+@@ -302,8 +327,6 @@ setup_dialog (CcMouseProperties *self)
  			 G_SETTINGS_BIND_DEFAULT);
  
  	setup_touchpad_options (self);
@@ -71,7 +72,7 @@ index 3005125..d0a9c58 100644
  }
  
  /* Callback issued when a button is clicked on the dialog */
-@@ -380,8 +403,12 @@ cc_mouse_properties_class_init (CcMousePropertiesClass *klass)
+@@ -382,8 +405,12 @@ cc_mouse_properties_class_init (CcMousePropertiesClass *klass)
  	gtk_widget_class_bind_template_child (widget_class, CcMouseProperties, tap_to_click_switch);
  	gtk_widget_class_bind_template_child (widget_class, CcMouseProperties, touchpad_frame);
  	gtk_widget_class_bind_template_child (widget_class, CcMouseProperties, touchpad_listbox);

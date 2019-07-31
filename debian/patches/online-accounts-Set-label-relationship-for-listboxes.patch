@@ -5,7 +5,7 @@ Subject: online-accounts: Set label relationship for listboxes
 Set the label relationships so that screen readers
 read the headers for the listboxes.
 
-(cherry picked from commit 27b476872ed24372ca3e47b88ffb14abe213481e)
+Applied-upstream: 3.31.90, commit:a9d6ed149bc2d169140160b44b8237b0ca893f90
 ---
  panels/online-accounts/online-accounts.ui | 16 ++++++++++++++--
  1 file changed, 14 insertions(+), 2 deletions(-)

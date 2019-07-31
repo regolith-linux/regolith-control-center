@@ -3,10 +3,11 @@ Date: Thu, 15 Mar 2018 23:54:34 +0000
 Subject: Handle the case where passwd re-asks for the current password when
  it was entered incorrectly (when using LDAP)
 
-Based on a patch from Ryan Tandy
+Based on a patch from Ryan Tandy.
+
 Bug-Ubuntu: https:/launchpad.net/bugs/607357
 Bug: https://bugzilla.gnome.org/show_bug.cgi?id=786530
-Forwarded: yes
+Forwarded: https://gitlab.gnome.org/GNOME/gnome-control-center/merge_requests/483
 ---
  panels/user-accounts/run-passwd.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

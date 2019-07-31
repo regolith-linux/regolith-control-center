@@ -10,7 +10,7 @@ accessible-description.
 This is the only place we used accessible-name in gnome-control-center
 but we use accessible-description in a few other places.
 
-(cherry picked from commit d9212cf3fa6a879ab846975cf8e8cfb879733c24)
+Applied-upstream: 3.31.4, commit:021140d859f82c1ae7b65a0f281c4b6e400e424e
 ---
  panels/datetime/datetime.ui | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)

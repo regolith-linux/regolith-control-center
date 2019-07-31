@@ -8,13 +8,13 @@ In particular, this also fixes an issue where a screenreader would
 emit "Crosshairs" every time a new tab was entered in the Zoom dialog
 because of some incorrect labelled-by relations.
 
-(cherry picked from commit 56703258220105101d68a7b2c9f09a907aef59e9)
+Applied-upstream: 3.31.90, commit:0f92ffb01afa3fb9337c9fa98f359bef499c4c9a
 ---
  panels/universal-access/zoom-options.ui | 24 ------------------------
  1 file changed, 24 deletions(-)
 
 diff --git a/panels/universal-access/zoom-options.ui b/panels/universal-access/zoom-options.ui
-index 37db882..b8a2ab9 100644
+index 85723e0..baeec2f 100644
 --- a/panels/universal-access/zoom-options.ui
 +++ b/panels/universal-access/zoom-options.ui
 @@ -131,9 +131,6 @@
@@ -27,7 +27,7 @@ index 37db882..b8a2ab9 100644
                </object>
                <packing>
                  <property name="expand">False</property>
-@@ -579,9 +576,6 @@
+@@ -582,9 +579,6 @@
                                      <property name="use_underline">True</property>
                                      <property name="mnemonic_widget">crosshair_length_slider</property>
                                      <property name="width_chars">12</property>
@@ -37,7 +37,7 @@ index 37db882..b8a2ab9 100644
                                      <attributes>
                                        <attribute name="scale" value="1.25"/>
                                      </attributes>
-@@ -719,9 +713,6 @@
+@@ -722,9 +716,6 @@
                                  <property name="visible">True</property>
                                  <property name="can_focus">True</property>
                                  <property name="use_action_appearance">False</property>
@@ -47,7 +47,7 @@ index 37db882..b8a2ab9 100644
                                </object>
                                <packing>
                                  <property name="expand">False</property>
-@@ -832,9 +823,6 @@
+@@ -835,9 +826,6 @@
                                      <property name="justify">right</property>
                                      <property name="use_underline">True</property>
                                      <property name="mnemonic_widget">inverse_enabled_switch</property>
@@ -57,7 +57,7 @@ index 37db882..b8a2ab9 100644
                                      <attributes>
                                        <attribute name="scale" value="1.25"/>
                                      </attributes>
-@@ -856,9 +844,6 @@
+@@ -859,9 +847,6 @@
                                      <property name="use_underline">True</property>
                                      <property name="mnemonic_widget">brightness_slider</property>
                                      <property name="width_chars">12</property>
@@ -67,7 +67,7 @@ index 37db882..b8a2ab9 100644
                                      <attributes>
                                        <attribute name="scale" value="1.25"/>
                                      </attributes>
-@@ -879,9 +864,6 @@
+@@ -882,9 +867,6 @@
                                      <property name="justify">right</property>
                                      <property name="use_underline">True</property>
                                      <property name="mnemonic_widget">contrast_slider</property>
@@ -77,7 +77,7 @@ index 37db882..b8a2ab9 100644
                                      <attributes>
                                        <attribute name="scale" value="1.25"/>
                                      </attributes>
-@@ -902,9 +884,6 @@
+@@ -905,9 +887,6 @@
                                      <property name="justify">right</property>
                                      <property name="use_underline">True</property>
                                      <property name="mnemonic_widget">grayscale_slider</property>
@@ -87,7 +87,7 @@ index 37db882..b8a2ab9 100644
                                      <attributes>
                                        <attribute name="scale" value="1.25"/>
                                      </attributes>
-@@ -993,9 +972,6 @@
+@@ -996,9 +975,6 @@
                                          <property name="visible">True</property>
                                          <property name="can_focus">True</property>
                                          <property name="use_action_appearance">False</property>

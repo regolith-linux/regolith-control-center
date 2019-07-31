@@ -5,7 +5,7 @@ Subject: printers: allow driver name to be selected from details dialog
 The field can be copy-and-pasted elsewhere
 and this allows screen readers to read this field.
 
-(cherry picked from commit f4d9b5be84056bddd51ef9d60c1089cb8c0867b7)
+Applied-upstream: 3.31.4, commit:2e250f9dc800188dbc310cf21e5318d7afa224ed
 ---
  panels/printers/details-dialog.ui | 1 +
  1 file changed, 1 insertion(+)
