@@ -1,6 +1,7 @@
 gnome-control-center (1:3.30.3-2) UNRELEASED; urgency=medium
 
   * d/patches: Mark more patches as forwarded upstream
+  * d/patches: Sort non-upstreamable patches to end of patch series
 
  -- Simon McVittie <smcv@debian.org>  Wed, 31 Jul 2019 10:25:54 +0100
 
