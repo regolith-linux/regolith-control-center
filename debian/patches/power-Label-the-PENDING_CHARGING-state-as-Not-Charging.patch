@@ -24,11 +24,11 @@ Applied-Upstream: 3.31.2
  po/es.po                      |  7 ++++++-
  po/fur.po                     |  7 ++++++-
  po/it.po                      |  5 +++++
- po/ja.po                      |  7 ++++++-
+ po/ja.po                      |  5 +++++
  po/sl.po                      |  7 ++++++-
  po/sv.po                      |  7 ++++++-
  po/tr.po                      |  8 +++++++-
- 11 files changed, 69 insertions(+), 11 deletions(-)
+ 11 files changed, 68 insertions(+), 10 deletions(-)
 
 diff --git a/panels/power/cc-power-panel.c b/panels/power/cc-power-panel.c
 index 9da5a54..ecf046b 100644
@@ -180,15 +180,13 @@ index e5e65cd..6829451 100644
  msgctxt "Battery name"
  msgid "Main"
 diff --git a/po/ja.po b/po/ja.po
-index e7e3cff..927e424 100644
+index 05f6d24..d8a9504 100644
 --- a/po/ja.po
 +++ b/po/ja.po
-@@ -3926,7 +3926,12 @@ msgid "Fully charged"
- msgstr "フル充電"
+@@ -3927,6 +3927,11 @@ msgstr "フル充電"
  
  #. TRANSLATORS: primary battery
--#: panels/power/cc-power-panel.c:328 panels/power/cc-power-panel.c:355
-+#: panels/power/cc-power-panel.c:328 panels/power/cc-power-panel.c:355
+ #: panels/power/cc-power-panel.c:328 panels/power/cc-power-panel.c:355
 +msgid "Not charging"
 +msgstr "放電中"
 +

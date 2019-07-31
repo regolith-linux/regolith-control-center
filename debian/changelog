@@ -2,6 +2,17 @@ gnome-control-center (1:3.30.3-2) UNRELEASED; urgency=medium
 
   * d/patches: Mark more patches as forwarded upstream
   * d/patches: Sort non-upstreamable patches to end of patch series
+  * d/patches: Update to upstream gnome-3-30 commit 3.30.3-7-gf41ae4269
+    - d/p/info-Fix-crashes-when-retrieving-disk-size.patch:
+      Fix crash when the Details -> Overview (info-overview) panel is
+      selected (Closes: #933529)
+    - d/p/universal-access-Fix-duplicate-settings-call.patch,
+      d/p/universal-access-Fix-leaks-checking-settings.patch:
+      Fix memory leaks in Universal Access panel
+    - d/p/universal-access-Don-t-use-widget-names-for-GSettings-key.patch:
+      Fix a regression that caused the Universal Access -> Zoom
+      mouse tracking options to have no effect
+    - Update translations: is, ja
 
  -- Simon McVittie <smcv@debian.org>  Wed, 31 Jul 2019 10:25:54 +0100
 

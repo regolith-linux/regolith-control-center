@@ -38,10 +38,10 @@ index acbe9c9..108fde2 100644
  	prop_scroll_methods = XInternAtom (display, "libinput Scroll Methods Available", False);
  	prop_tapping_enabled = XInternAtom (display, "libinput Tapping Enabled", False);
 diff --git a/panels/mouse/gnome-mouse-properties.c b/panels/mouse/gnome-mouse-properties.c
-index 5af1293..3005125 100644
+index 0b56e17..d0a9c58 100644
 --- a/panels/mouse/gnome-mouse-properties.c
 +++ b/panels/mouse/gnome-mouse-properties.c
-@@ -78,7 +78,6 @@ struct _CcMouseProperties
+@@ -79,7 +79,6 @@ struct _CcMouseProperties
  	gboolean have_mouse;
  	gboolean have_touchpad;
  	gboolean have_touchscreen;
@@ -49,7 +49,7 @@ index 5af1293..3005125 100644
  
  	gboolean left_handed;
  	GtkGesture *left_gesture;
-@@ -98,10 +97,6 @@ setup_touchpad_options (CcMouseProperties *self)
+@@ -99,10 +98,6 @@ setup_touchpad_options (CcMouseProperties *self)
  	gboolean have_edge_scrolling;
  	gboolean have_tap_to_click;
  
@@ -60,7 +60,7 @@ index 5af1293..3005125 100644
  	gtk_widget_set_visible (self->touchpad_frame, self->have_touchpad);
  	if (!self->have_touchpad)
  		return;
-@@ -312,7 +307,10 @@ device_changed (GsdDeviceManager *device_manager,
+@@ -335,7 +330,10 @@ device_changed (GsdDeviceManager *device_manager,
  		GsdDevice *device,
  		CcMouseProperties *self)
  {
@@ -72,7 +72,7 @@ index 5af1293..3005125 100644
  
  	setup_touchpad_options (self);
  
-@@ -412,11 +410,11 @@ cc_mouse_properties_init (CcMouseProperties *self)
+@@ -439,11 +437,11 @@ cc_mouse_properties_init (CcMouseProperties *self)
  						 G_CALLBACK (device_changed), self);
  
  	self->have_mouse = mouse_is_present ();
