@@ -36,3 +36,5 @@ git-user-accounts-Use-newly-designed-fingerprint-enroll-dialo.patch
 0032-online-accounts-maybe-leak-a-reference-to-the-panel.patch
 
 gitlab_ucm_mixer_control_select.patch
+
+0033-sound-update-the-profile-list-after-getting-the-sign.patch
