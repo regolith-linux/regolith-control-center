@@ -2,6 +2,7 @@
 # on master only
 git-nongnome-segfault.patch
 git-user-accounts-Use-newly-designed-fingerprint-enroll-dialo.patch
+git_row_collide.patch
 
 # Ubuntu changes
 0001-Expose-touchpad-settings-if-synaptics-is-in-use.patch
