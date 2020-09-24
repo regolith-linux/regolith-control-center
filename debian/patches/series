@@ -1,4 +1,6 @@
 # Upstream
+git_useraccount_segfault.patch
+
 # on master only
 git-nongnome-segfault.patch
 git-user-accounts-Use-newly-designed-fingerprint-enroll-dialo.patch

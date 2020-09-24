@@ -1,5 +1,8 @@
 gnome-control-center (1:3.36.4-0ubuntu2) UNRELEASED; urgency=medium
 
+  * debian/patches/git_useraccount_segfault.patch:
+    - don't segfault trying to get the user initials when accountsservice
+      is not responding (lp: #1873378)
   * debian/patches/git_row_collide.patch:
     - backport a fix for items of the connection details colliding
       (lp: #1873184)
