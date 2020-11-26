@@ -5,6 +5,10 @@ gnome-control-center (1:3.36.5-1) UNRELEASED; urgency=medium
     debian/patches/git_row_collide.patch,
     debian/patches/0033-sound-update-the-profile-list-after-getting-the-sign.patch:
     - removed, included in the new version
+  * debian/patches/revert_vino_deprecated.patch:
+    - revert the upstream change to remove the vino control option, it's
+      still working in Ubuntu because we reverted the g-s-d commit
+      which deprecated the backend handling
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 26 Nov 2020 13:47:43 +0100
 

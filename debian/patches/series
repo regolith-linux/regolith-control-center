@@ -35,6 +35,7 @@ git-user-accounts-Use-newly-designed-fingerprint-enroll-dialo.patch
 0029-applications-Use-new-snapd-glib-API-for-labelling-Sn.patch
 0030-temporarily-revert-alt-char-key.patch
 0032-online-accounts-maybe-leak-a-reference-to-the-panel.patch
+revert_vino_deprecated.patch
 
 gitlab_ucm_mixer_control_select.patch
 
