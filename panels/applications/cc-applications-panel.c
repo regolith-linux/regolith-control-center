@@ -1762,10 +1762,10 @@ cc_applications_panel_finalize (GObject *object)
   g_clear_object (&self->privacy_settings);
   g_clear_object (&self->search_settings);
 
-  g_free (self->current_app_id);
-  g_free (self->current_portal_app_id);
-  g_hash_table_unref (self->globs);
-  g_hash_table_unref (self->search_providers);
+  g_clear_pointer (&self->current_app_id, g_free);
+  g_clear_pointer (&self->current_portal_app_id, g_free);
+  g_clear_pointer (&self->globs, g_hash_table_unref);
+  g_clear_pointer (&self->search_providers, g_hash_table_unref);
 
   G_OBJECT_CLASS (cc_applications_panel_parent_class)->finalize (object);
 }
@@ -1920,6 +1920,9 @@ cc_applications_panel_init (CcApplicationsPanel *self)
   GtkListBoxRow *row;
 
   g_resources_register (cc_applications_get_resource ());
+
+  g_type_ensure(CC_TYPE_TOGGLE_ROW);
+  g_type_ensure(CC_TYPE_INFO_ROW);
 
   gtk_widget_init_template (GTK_WIDGET (self));
 
