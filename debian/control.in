@@ -64,8 +64,8 @@ Standards-Version: 4.5.1
 Rules-Requires-Root: no
 XS-Debian-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-control-center.git
 XS-Debian-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-control-center
-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-control-center.git -b ubuntu/master
-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-control-center/tree/ubuntu/master
+Vcs-Git: https://salsa.debian.org/gnome-team/gnome-control-center.git -b ubuntu/hirsute
+Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-control-center/tree/ubuntu/hirsute
 
 Package: gnome-control-center
 Architecture: any
