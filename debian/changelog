@@ -1,4 +1,4 @@
-gnome-control-center (1:3.38.5-1ubuntu2) UNRELEASED; urgency=medium
+gnome-control-center (1:3.38.5-1ubuntu2) hirsute; urgency=medium
 
   [ Marco Trevisan (Treviño) ]
   * debian/control, debian/gbp.conf:
@@ -11,7 +11,7 @@ gnome-control-center (1:3.38.5-1ubuntu2) UNRELEASED; urgency=medium
     Can't adjust the output volume via volume-slider after changing
     the current output-device. (LP: #1938747)
 
- -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Tue, 03 Aug 2021 13:58:40 +0200
+ -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Tue, 03 Aug 2021 15:23:41 +0200
 
 gnome-control-center (1:3.38.5-1ubuntu1) hirsute; urgency=medium
 
