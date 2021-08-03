@@ -1,6 +1,7 @@
 # Upstream
 git_power_profiles.patch
 git_fingerprint_improvements.patch
+git_Fix-volume-adjustment-failure-on-volume-slider.patch
 
 # Ubuntu changes
 0001-Expose-touchpad-settings-if-synaptics-is-in-use.patch

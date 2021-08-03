@@ -1,3 +1,12 @@
+gnome-control-center (1:3.38.5-1ubuntu2) hirsute; urgency=medium
+
+  [ Hui Wang ]
+  * d/p/git-Fix-volume-adjustment-failure-on-volume-slider.patch:
+    Can't adjust the output volume via volume-slider after changing
+    the current output-device. (LP: #1938747)
+
+ -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Tue, 03 Aug 2021 13:58:40 +0200
+
 gnome-control-center (1:3.38.5-1ubuntu1) hirsute; urgency=medium
 
   * New bugfix update based on Debian
