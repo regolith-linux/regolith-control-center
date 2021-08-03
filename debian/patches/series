@@ -1,7 +1,6 @@
 # Upstream
 git_power_profiles.patch
 git_fingerprint_improvements.patch
-git_Fix-volume-adjustment-failure-on-volume-slider.patch
 
 # Ubuntu changes
 0001-Expose-touchpad-settings-if-synaptics-is-in-use.patch
@@ -34,3 +33,5 @@ git_Fix-volume-adjustment-failure-on-volume-slider.patch
 0030-temporarily-revert-alt-char-key.patch
 0032-online-accounts-maybe-leak-a-reference-to-the-panel.patch
 0033-display-Ensure-we-list-available-scaling-values-keeping-t.patch
+# really upstream, but not included in the gnome-3-38 branch
+git_Fix-volume-adjustment-failure-on-volume-slider.patch
