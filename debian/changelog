@@ -1,4 +1,10 @@
-gnome-control-center (1:3.38.5-1ubuntu2) hirsute; urgency=medium
+gnome-control-center (1:3.38.5-1ubuntu2) UNRELEASED; urgency=medium
+
+  [ Marco Trevisan (Treviño) ]
+  * debian/control, debian/gbp.conf:
+    Update references to ubuntu/hirsute branch
+  * 0033-display-Ensure-we-list-available-scaling-values-keeping-t.patch:
+    Ensure we list all the usable scaling values (LP: #1795483)
 
   [ Hui Wang ]
   * d/p/git-Fix-volume-adjustment-failure-on-volume-slider.patch:
