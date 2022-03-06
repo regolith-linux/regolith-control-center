@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Header
 Comment=Panel that embeds a widget at the header bar
-Exec=gnome-control-center thunderbolt
+Exec=regolith-control-center thunderbolt
 Icon=view-sort-descending
 Terminal=false
 Type=Application

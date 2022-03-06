@@ -3,7 +3,7 @@ Date: Mon, 6 Jul 2020 17:54:19 +0200
 Subject: Revert the "Alternate Characters Key" commit temporarily
 
 Bug-Ubuntu: https://launchpad.net/bugs/1867548
-Bug-GNOME: https://gitlab.gnome.org/GNOME/gnome-control-center/issues/918
+Bug-GNOME: https://gitlab.gnome.org/GNOME/regolith-control-center/issues/918
 
 Currently the "Right Alt" key is set automatically as dconf value without
 user action, i.e. only by opening the Keyboard Shortcuts panel. This is
@@ -12,7 +12,7 @@ without the user asking for it. This patch reverts the commit awaiting
 such a modificaion.
 
 The reverted commit is:
-https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/2e99dd4f
+https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/2e99dd4f
 (plus commit 01193fb7 and part of commit 1862ec50)
 ---
  panels/keyboard/cc-alt-chars-key-dialog.c  | 211 -----------------------------

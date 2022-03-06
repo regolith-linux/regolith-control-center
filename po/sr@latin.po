@@ -1,6 +1,6 @@
-# Serbian translation of gnome-control-center
+# Serbian translation of regolith-control-center
 # Courtesy of Prevod.org team (http://prevod.org/) -- 2003—2017.
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 # Veljko M. Stanojević <veljko@vms.homelinux.net>
 # Danilo Šegan <danilo@gnome.org>, 2005.
 # Slobodan D. Sredojević <slobo@akrep.be>, 2006.
@@ -10,8 +10,8 @@
 # Borisav Živanović <borisavzivanovic@gmail.com>, 2017-2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2018-02-24 17:48+0000\n"
 "PO-Revision-Date: 2018-02-25 08:19+0100\n"
@@ -1692,7 +1692,7 @@ msgid "Launch help browser"
 msgstr "Pokreće pregledač pomoći"
 
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:223
-#: shell/cc-window.c:761 shell/gnome-control-center.desktop.in.in:3
+#: shell/cc-window.c:761 shell/regolith-control-center.desktop.in.in:3
 #: shell/window.ui:125
 msgid "Settings"
 msgstr "Podešavanja"
@@ -7381,15 +7381,15 @@ msgstr "Osećaj pritiska saveta"
 msgid "page 3"
 msgstr "strana 3"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Control Center"
 msgstr "Gnomov Upravljački Centar"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utilities to configure the GNOME desktop"
 msgstr "Alatke za podešavanje Gnom radnog okruženja"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid ""
 "The control center is GNOME’s main interface for configuration of various "
 "aspects of your desktop."
@@ -7438,12 +7438,12 @@ msgid "Quit"
 msgstr "Izađi"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: shell/gnome-control-center.desktop.in.in:5
-msgid "gnome-control-center"
-msgstr "gnome-control-center"
+#: shell/regolith-control-center.desktop.in.in:5
+msgid "regolith-control-center"
+msgstr "regolith-control-center"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "postavke;podešavanja;"
 

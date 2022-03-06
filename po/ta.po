@@ -1,7 +1,7 @@
-# translation of gnome-control-center.master.ta.po to Tamil
-# Tamil translation of gnome-control-center
+# translation of regolith-control-center.master.ta.po to Tamil
+# Tamil translation of regolith-control-center
 # Copyright (C) 2002
-# This file is distributed under the same license as the gnome-control-center.
+# This file is distributed under the same license as the regolith-control-center.
 #
 # Dinesh Nadarajah <dinesh_list@sbcglobal.net>, 2002, 2004.
 # Ma SivaKumar <tamil@leatherlink.net>, 2004.
@@ -13,7 +13,7 @@
 # Shantha kumar <shkumar@redhat.com>, 2012, 2013, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center.master.ta\n"
+"Project-Id-Version: regolith-control-center.master.ta\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-09-15 06:30+0000\n"
@@ -1547,7 +1547,7 @@ msgid "Launch help browser"
 msgstr "உதவி மேலோடியை துவக்கு"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1601
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "அமைவுகள்"
 
@@ -7276,7 +7276,7 @@ msgctxt "category"
 msgid "System"
 msgstr "கணினி"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "விருப்பங்கள்;அமைப்புகள்;"
 

@@ -1,5 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Source: https://download.gnome.org/sources/gnome-control-center/
+Source: https://download.gnome.org/sources/regolith-control-center/
 Comment:
  This package was debianized by Jim Pick jim@jimpick.com on
  Sat, 14 Mar 1998 20:12:23 -0800.

@@ -1489,7 +1489,7 @@ msgid "Launch help browser"
 msgstr "সহায় ব্ৰাউছাৰ আৰম্ভ কৰক"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1601
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "সংহতিসমূহ"
 
@@ -7136,7 +7136,7 @@ msgctxt "category"
 msgid "System"
 msgstr "চিস্টেম"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "পছন্দসমূহ;সংহতিসমূহ;"
 

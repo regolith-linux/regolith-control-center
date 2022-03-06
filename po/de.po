@@ -1,4 +1,4 @@
-# German gnome-control-center translation
+# German regolith-control-center translation
 # Copyright (C) 1998-2015 Free Software Foundation, Inc.
 #
 #
@@ -24,8 +24,8 @@
 # Tim Sabsch <tim@sabsch.com>, 2019-2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2020-02-14 15:23+0000\n"
 "PO-Revision-Date: 2020-02-14 23:08+0100\n"
@@ -93,7 +93,7 @@ msgstr "Dateisystem"
 #: panels/applications/cc-applications-panel.c:763
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:281
 #: shell/cc-window.c:964 shell/cc-window.ui:125
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -8225,20 +8225,20 @@ msgstr "Unterster Knopf"
 msgid "Tip Pressure Feel"
 msgstr "Druckschwelle der Spitze"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "GNOME-Einstellungen"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Dienstprogramme zur Einrichtung der GNOME Arbeitsumgebung"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr ""
 "Einstellungen ist die wichtigste Komponente zur Einrichtung Ihres Systems."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "Das GNOME-Pojekt"
 
@@ -8301,7 +8301,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Einstellungen;"
 

@@ -1,11 +1,11 @@
-# translation of gnome-control-center.HEAD.bs.po to Bosnian
+# translation of regolith-control-center.HEAD.bs.po to Bosnian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2004.
 # Kenan Hadžiavdić <kenan@bgnett.no>, 2004.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center.HEAD.bs\n"
+"Project-Id-Version: regolith-control-center.HEAD.bs\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2015-02-27 07:32+0000\n"
@@ -1494,7 +1494,7 @@ msgid "Launch help browser"
 msgstr "Pokreni preglednik pomoći"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1604
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "Postavke"
 
@@ -7158,6 +7158,6 @@ msgctxt "category"
 msgid "System"
 msgstr "Sistem"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Postavke;Podešavanja;"

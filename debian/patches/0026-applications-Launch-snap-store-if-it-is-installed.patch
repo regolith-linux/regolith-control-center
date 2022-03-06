@@ -6,10 +6,10 @@ Subject: [PATCH 26/26] applications: Launch snap-store if it is installed
  panels/applications/cc-applications-panel.c | 14 ++++++++++++--
  1 file changed, 12 insertions(+), 2 deletions(-)
 
-Index: gnome-control-center/panels/applications/cc-applications-panel.c
+Index: regolith-control-center/panels/applications/cc-applications-panel.c
 ===================================================================
---- gnome-control-center.orig/panels/applications/cc-applications-panel.c
-+++ gnome-control-center/panels/applications/cc-applications-panel.c
+--- regolith-control-center.orig/panels/applications/cc-applications-panel.c
++++ regolith-control-center/panels/applications/cc-applications-panel.c
 @@ -148,6 +148,13 @@ gnome_software_is_installed (void)
    return path != NULL;
  }

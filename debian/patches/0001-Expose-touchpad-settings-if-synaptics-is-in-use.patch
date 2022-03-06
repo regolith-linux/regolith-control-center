@@ -3,7 +3,7 @@ Date: Fri, 16 Mar 2018 13:53:10 -0400
 Subject: [PATCH 01/26] Expose touchpad settings if synaptics is in use
 
 Upstream is aggressively pushing for libinput over synaptics. However that
-creates a factually incorrect situation where gnome-control-center thinks
+creates a factually incorrect situation where regolith-control-center thinks
 there is no touchpad unless you're using the xserver-xorg-input-libinput.
 This patch adds support for both drivers, removing the code that would
 hide the touchpad settings when xserver-xorg-input-synaptics is in use.

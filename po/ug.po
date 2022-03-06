@@ -1,12 +1,12 @@
-# Uighur translation for gnome-control-center
+# Uighur translation for regolith-control-center
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 # Sahran <sahran@live.com>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-control-center&keywords=I18N+L10N&component=general\n"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=regolith-control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-02-15 20:13+0000\n"
 "PO-Revision-Date: 2013-02-16 10:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
@@ -1007,7 +1007,7 @@ msgstr "180 گرادۇس"
 #. * used as an adjective.  For example, the Spanish translation could be
 #. * "Pantallas en Espejo".
 #.
-#. Keep this string in sync with gnome-control-center/capplets/display/xrandr-capplet.c:get_display_name()
+#. Keep this string in sync with regolith-control-center/capplets/display/xrandr-capplet.c:get_display_name()
 #. Translators:  this is the feature where what you see on your
 #. * laptop's screen is the same as your external projector.
 #. * Here, "Mirrored" is being used as an adjective.  For example,
@@ -6819,26 +6819,26 @@ msgid "Control Center"
 msgstr "باشقۇرۇش مەركىزى"
 
 #. Add categories
-#: ../shell/gnome-control-center.c:887
+#: ../shell/regolith-control-center.c:887
 msgctxt "category"
 msgid "Personal"
 msgstr "شەخسىي"
 
-#: ../shell/gnome-control-center.c:888
+#: ../shell/regolith-control-center.c:888
 msgctxt "category"
 msgid "Hardware"
 msgstr "قاتتىق دېتال"
 
-#: ../shell/gnome-control-center.c:889
+#: ../shell/regolith-control-center.c:889
 msgctxt "category"
 msgid "System"
 msgstr "سىستېما"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:1 ../shell/shell.ui.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1 ../shell/shell.ui.h:1
 msgid "Settings"
 msgstr "تەڭشەكلەر"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Preferences;Settings;مايىللىق;تەڭشەكلەر;"
 

@@ -27,13 +27,13 @@ volume-slider. In this function, the sink hdmi-stereo is created
 already, so the stream is not NULL. And this change also applies to
 input as well.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/0f18a662
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/0f18a662
 Bug-Ubuntu: https://launchpad.net/bugs/1938747
 
-Index: gnome-control-center-40.0/panels/sound/cc-sound-panel.c
+Index: regolith-control-center-40.0/panels/sound/cc-sound-panel.c
 ===================================================================
---- gnome-control-center-40.0.orig/panels/sound/cc-sound-panel.c
-+++ gnome-control-center-40.0/panels/sound/cc-sound-panel.c
+--- regolith-control-center-40.0.orig/panels/sound/cc-sound-panel.c
++++ regolith-control-center-40.0/panels/sound/cc-sound-panel.c
 @@ -96,18 +96,12 @@ allow_amplified_changed_cb (CcSoundPanel
  }
  
@@ -138,10 +138,10 @@ Index: gnome-control-center-40.0/panels/sound/cc-sound-panel.c
  }
  
  static void
-Index: gnome-control-center-40.0/panels/sound/cc-volume-slider.c
+Index: regolith-control-center-40.0/panels/sound/cc-volume-slider.c
 ===================================================================
---- gnome-control-center-40.0.orig/panels/sound/cc-volume-slider.c
-+++ gnome-control-center-40.0/panels/sound/cc-volume-slider.c
+--- regolith-control-center-40.0.orig/panels/sound/cc-volume-slider.c
++++ regolith-control-center-40.0/panels/sound/cc-volume-slider.c
 @@ -247,6 +247,14 @@ cc_volume_slider_set_stream (CcVolumeSli
      }
  }
@@ -157,10 +157,10 @@ Index: gnome-control-center-40.0/panels/sound/cc-volume-slider.c
  void
  cc_volume_slider_set_is_amplified (CcVolumeSlider *self,
                                     gboolean        is_amplified)
-Index: gnome-control-center-40.0/panels/sound/cc-volume-slider.h
+Index: regolith-control-center-40.0/panels/sound/cc-volume-slider.h
 ===================================================================
---- gnome-control-center-40.0.orig/panels/sound/cc-volume-slider.h
-+++ gnome-control-center-40.0/panels/sound/cc-volume-slider.h
+--- regolith-control-center-40.0.orig/panels/sound/cc-volume-slider.h
++++ regolith-control-center-40.0/panels/sound/cc-volume-slider.h
 @@ -40,4 +40,6 @@ void cc_volume_slider_set_stream
  void cc_volume_slider_set_is_amplified  (CcVolumeSlider  *slider,
                                           gboolean         is_amplified);

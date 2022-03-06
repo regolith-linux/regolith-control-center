@@ -716,7 +716,7 @@ set_user_icon_data (ActUser   *user,
         GOutputStream *stream;
         GError *error;
 
-        path = g_build_filename (g_get_tmp_dir (), "gnome-control-center-user-icon-XXXXXX", NULL);
+        path = g_build_filename (g_get_tmp_dir (), "regolith-control-center-user-icon-XXXXXX", NULL);
         fd = g_mkstemp (path);
 
         if (fd == -1) {

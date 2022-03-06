@@ -9,8 +9,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2020-02-02 15:51+0000\n"
 "PO-Revision-Date: 2020-02-03 18:36+0000\n"
@@ -79,7 +79,7 @@ msgstr "File System"
 #: panels/applications/cc-applications-panel.c:765
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:281
 #: shell/cc-window.c:964 shell/cc-window.ui:125
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Settings"
 
@@ -8089,19 +8089,19 @@ msgstr "Lowest Button"
 msgid "Tip Pressure Feel"
 msgstr "Tip Pressure Feel"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "GNOME Settings"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Utility to configure the GNOME desktop"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Settings is the primary interface for configuring your system."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
 
@@ -8164,7 +8164,7 @@ msgid "Help"
 msgstr "Help"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Preferences;Settings;"
 
@@ -8798,8 +8798,8 @@ msgstr "System Sounds"
 #~ msgid "Quit"
 #~ msgstr "Quit"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "_Verify New Password"
 #~ msgstr "_Verify New Password"

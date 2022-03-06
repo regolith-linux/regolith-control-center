@@ -407,10 +407,10 @@ search_panel_add_one_app_info (CcSearchPanel *self,
   CcSearchPanelRow *row;
   g_autoptr(GIcon) icon = NULL;
 
-  /* gnome-control-center is special cased in the shell,
+  /* regolith-control-center is special cased in the shell,
      and is not configurable */
   if (g_strcmp0 (g_app_info_get_id (app_info),
-                 "gnome-control-center.desktop") == 0)
+                 "regolith-control-center.desktop") == 0)
     return;
 
   /* reset valignment of the list box */

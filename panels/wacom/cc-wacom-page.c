@@ -347,7 +347,7 @@ calibrate_button_clicked_cb (GtkButton   *button,
 }
 
 /* This avoids us crashing when a newer version of
- * gnome-control-center has been used, and we load up an
+ * regolith-control-center has been used, and we load up an
  * old one, as the action type if unknown to the old g-c-c */
 static gboolean
 action_type_is_valid (GDesktopPadButtonAction action)

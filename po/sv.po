@@ -1,6 +1,6 @@
-# Swedish messages for gnome-control-center.
+# Swedish messages for regolith-control-center.
 # Copyright © 1998-2020 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 #
 # Martin Wahlen <mva@sbbs.se>, 1998, 1999.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
@@ -13,8 +13,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2020-02-28 14:50+0000\n"
 "PO-Revision-Date: 2020-03-02 15:37+0100\n"
@@ -82,7 +82,7 @@ msgstr "Filsystem"
 #: panels/applications/cc-applications-panel.c:763
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:281
 #: shell/cc-window.c:964 shell/cc-window.ui:125
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Inställningar"
 
@@ -8077,20 +8077,20 @@ msgstr "Nedersta knappen"
 msgid "Tip Pressure Feel"
 msgstr "Tryckkänsla för spets"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "GNOME Inställningar"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Verktyg för att konfigurera GNOME-skrivbordet"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr ""
 "Inställningar är det primära gränssnittet för att konfigurera ditt system."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -8153,7 +8153,7 @@ msgid "Help"
 msgstr "Hjälp"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Inställningar;"
 
@@ -8804,8 +8804,8 @@ msgstr "Systemljud"
 #~ msgid "Quit"
 #~ msgstr "Avsluta"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "_Verify New Password"
 #~ msgstr "_Verifiera nytt lösenord"

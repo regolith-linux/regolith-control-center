@@ -20,4 +20,4 @@ override_dh_missing:
 	dh_missing --fail-missing
 
 override_dh_translations:
-	dh_translations --domain=gnome-control-center-2.0
+	dh_translations --domain=regolith-control-center-2.0

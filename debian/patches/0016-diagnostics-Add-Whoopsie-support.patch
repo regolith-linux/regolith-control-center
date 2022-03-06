@@ -10,10 +10,10 @@ Subject: [PATCH 16/26] diagnostics: Add Whoopsie support
  panels/diagnostics/meson.build             |   7 +-
  5 files changed, 175 insertions(+), 2 deletions(-)
 
-Index: gnome-control-center/meson.build
+Index: regolith-control-center/meson.build
 ===================================================================
---- gnome-control-center.orig/meson.build
-+++ gnome-control-center/meson.build
+--- regolith-control-center.orig/meson.build
++++ regolith-control-center/meson.build
 @@ -207,6 +207,14 @@ endif
  config_h.set('HAVE_SNAP', enable_snap,
               description: 'Define to 1 if Snap support is enabled')
@@ -36,19 +36,19 @@ Index: gnome-control-center/meson.build
 +output += '     Whoopsie  .................................. ' + enable_whoopsie.to_string() + '\n'
  
  message(output)
-Index: gnome-control-center/meson_options.txt
+Index: regolith-control-center/meson_options.txt
 ===================================================================
---- gnome-control-center.orig/meson_options.txt
-+++ gnome-control-center/meson_options.txt
+--- regolith-control-center.orig/meson_options.txt
++++ regolith-control-center/meson_options.txt
 @@ -7,3 +7,4 @@ option('tests', type: 'boolean', value:
  option('tracing', type: 'boolean', value: false, description: 'add extra debugging information')
  option('wayland', type: 'boolean', value: true, description: 'build with Wayland support')
  option('profile', type: 'combo', choices: ['default','development'], value: 'default')
 +option('whoopsie', type: 'boolean', value: false, description: 'build with Whoopsie support')
-Index: gnome-control-center/panels/diagnostics/cc-diagnostics-panel.c
+Index: regolith-control-center/panels/diagnostics/cc-diagnostics-panel.c
 ===================================================================
---- gnome-control-center.orig/panels/diagnostics/cc-diagnostics-panel.c
-+++ gnome-control-center/panels/diagnostics/cc-diagnostics-panel.c
+--- regolith-control-center.orig/panels/diagnostics/cc-diagnostics-panel.c
++++ regolith-control-center/panels/diagnostics/cc-diagnostics-panel.c
 @@ -18,6 +18,8 @@
   * Author: Matthias Clasen <mclasen@redhat.com>
   */
@@ -228,10 +228,10 @@ Index: gnome-control-center/panels/diagnostics/cc-diagnostics-panel.c
    os_name = cc_os_release_get_value ("NAME");
    url = cc_os_release_get_value ("PRIVACY_POLICY_URL");
    if (!url)
-Index: gnome-control-center/panels/diagnostics/cc-diagnostics-panel.ui
+Index: regolith-control-center/panels/diagnostics/cc-diagnostics-panel.ui
 ===================================================================
---- gnome-control-center.orig/panels/diagnostics/cc-diagnostics-panel.ui
-+++ gnome-control-center/panels/diagnostics/cc-diagnostics-panel.ui
+--- regolith-control-center.orig/panels/diagnostics/cc-diagnostics-panel.ui
++++ regolith-control-center/panels/diagnostics/cc-diagnostics-panel.ui
 @@ -52,7 +52,7 @@
                      <property name="can-focus">1</property>
                      <property name="selection-mode">none</property>
@@ -289,10 +289,10 @@ Index: gnome-control-center/panels/diagnostics/cc-diagnostics-panel.ui
                          </child>
                        </object>
                      </child>
-Index: gnome-control-center/panels/diagnostics/meson.build
+Index: regolith-control-center/panels/diagnostics/meson.build
 ===================================================================
---- gnome-control-center.orig/panels/diagnostics/meson.build
-+++ gnome-control-center/panels/diagnostics/meson.build
+--- regolith-control-center.orig/panels/diagnostics/meson.build
++++ regolith-control-center/panels/diagnostics/meson.build
 @@ -29,12 +29,17 @@ sources += gnome.compile_resources(
    export: true
  )

@@ -1,7 +1,7 @@
-# Persian translation of gnome-control-center.
+# Persian translation of regolith-control-center.
 # Copyright (C) 2003, 2005 Sharif FarsiWeb, Inc.
 # Copyright (C) 2010 Iranian Free Software Users Group (IFSUG.org) translation team
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 # Roozbeh Pournader <roozbeh@farsiweb.info>, 2003.
 # Masoud Ahmadzadeh <masoud@bamdad.org>, 2005.
 # Meelad Zakaria <meelad@farsiweb.info>, 2005.
@@ -13,8 +13,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center HEAD\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/issues\n"
+"Project-Id-Version: regolith-control-center HEAD\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/issues\n"
 "POT-Creation-Date: 2020-02-19 10:58+0000\n"
 "PO-Revision-Date: 2020-02-26 19:04+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
@@ -78,7 +78,7 @@ msgstr "سامانه پرونده"
 
 #: panels/applications/cc-applications-panel.c:763 panels/keyboard/01-launchers.xml.in:6
 #: shell/cc-window.c:281 shell/cc-window.c:964 shell/cc-window.ui:125
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -2217,7 +2217,7 @@ msgstr "کلید فهرست"
 msgid "Right Ctrl"
 msgstr "مهار راست"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/keyboard/cc-keyboard-manager.c:501 panels/keyboard/cc-keyboard-manager.c:509
 #: panels/keyboard/cc-keyboard-manager.c:809
 msgid "Custom Shortcuts"
@@ -2273,7 +2273,7 @@ msgctxt "keyboard key"
 msgid "Right Alt"
 msgstr "دگرساز راست"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/keyboard/cc-keyboard-panel.c:201
 msgid "Reset All Shortcuts?"
 msgstr "بازنشانی تمام میان‌برها؟"
@@ -2318,12 +2318,12 @@ msgstr "هیچ میان‌بر صفحه‌کلیدی پیدا نشد"
 msgid "%s is already being used for %s. If you replace it, %s will be disabled"
 msgstr "کلید %s از پیش برای %s استفاده می‌شد. اگر جایگزینش کنید، %s از کار خواهد افتاد"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/keyboard/cc-keyboard-shortcut-editor.c:581
 msgid "Set Custom Shortcut"
 msgstr "تنظیم میان‌بر سفارشی"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/keyboard/cc-keyboard-shortcut-editor.c:581
 msgid "Set Shortcut"
 msgstr "تنظیم میان‌بر"
@@ -2334,7 +2334,7 @@ msgstr "تنظیم میان‌بر"
 msgid "Enter new shortcut to change %s."
 msgstr "برای تغییر %s میان‌بر جدید را وارد کنید."
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/keyboard/cc-keyboard-shortcut-editor.c:1016
 msgid "Add Custom Shortcut"
 msgstr "افزودن میان‌بر سفارشی"
@@ -2353,12 +2353,12 @@ msgstr "نام"
 msgid "Command"
 msgstr "فرمان"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/keyboard/cc-keyboard-shortcut-editor.ui:180
 msgid "Shortcut"
 msgstr "میان‌بر"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/keyboard/cc-keyboard-shortcut-editor.ui:259
 msgid "Set Shortcut…"
 msgstr "تنظیم میان‌بر…"
@@ -6403,7 +6403,7 @@ msgstr "یک وقفه بین زمان فشردن کلید تا زمان پذیر
 msgid "A_cceptance delay:"
 msgstr "وقفه _پذیرش:"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/universal-access/cc-ua-panel.ui:2039
 msgctxt "slow keys delay"
 msgid "Short"
@@ -6438,7 +6438,7 @@ msgstr "کلید‌های _پرشی"
 msgid "Ignores fast duplicate keypresses"
 msgstr "نادیده گرفتن دوبار فشرده شدن یک کلید، در زمان کوتاه"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/universal-access/cc-ua-panel.ui:2252
 msgctxt "bounce keys delay"
 msgid "Short"
@@ -6473,7 +6473,7 @@ msgstr "کلیک دومین _شبیه‌سازی شده"
 msgid "Trigger a secondary click by holding down the primary button"
 msgstr "راه‌انداختن کلیک دوم با نگاه داشتن کلید اصلی"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/universal-access/cc-ua-panel.ui:2588
 msgctxt "secondary click"
 msgid "Short"
@@ -6500,7 +6500,7 @@ msgstr "راه‌انداختن یک کلیک در زمان شناور شدن ن
 msgid "D_elay:"
 msgstr "تأ_خیر:"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/universal-access/cc-ua-panel.ui:2752
 msgctxt "dwell click delay"
 msgid "Short"
@@ -6542,7 +6542,7 @@ msgstr ""
 "بزرگ‌نمایی;صفحه‌نمایش خوان;متن;قلم;اندازه;کلیدهای چسبان;کلیدهای آرام;کلیدهای پرشی;کلیدهای "
 "موشی;چشمک;سرعت;بینایی;شنوایی;صدا;تایپ;نوشتن;"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/universal-access/zoom-options.c:305
 msgctxt "Distance"
 msgid "Short"
@@ -7856,7 +7856,7 @@ msgstr "لطفاً برای پیکربندی، استایلوستان را به 
 msgid "Eraser Pressure Feel"
 msgstr "حساسیت فشار پاک‌کن"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #: panels/wacom/wacom-stylus-page.ui:180 panels/wacom/wacom-stylus-page.ui:341
 msgid "Soft"
 msgstr "نرم"
@@ -7881,19 +7881,19 @@ msgstr "پایین‌ترین دکمه"
 msgid "Tip Pressure Feel"
 msgstr "حساسیت فشار ضربه"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "تنظیمات گنوم"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "ابزاری برای پیکربندی میزکار گنوم"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "تنظیمات، واسط اصلی برای پیکربندی سامانه‌تان است."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "پروژهٔ گنوم"
 
@@ -7954,7 +7954,7 @@ msgid "Help"
 msgstr "راهنما"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Preferences;Settings;ترجیحات;تنظیمات;"
 
@@ -8945,11 +8945,11 @@ msgstr "صداهای سامانه"
 #~ msgid "C_ommand:"
 #~ msgstr "_فرمان:"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #~ msgid "Add Shortcut"
 #~ msgstr "اضافه‌کردن میان‌بر"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #~ msgid "Remove Shortcut"
 #~ msgstr "حذف میان‌بر"
 
@@ -9107,7 +9107,7 @@ msgstr "صداهای سامانه"
 #~ msgid "_Speed:"
 #~ msgstr "_سرعت:"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #~ msgctxt "keyboard, delay"
 #~ msgid "Short"
 #~ msgstr "کوتاه"
@@ -9127,7 +9127,7 @@ msgstr "صداهای سامانه"
 #~ msgid "S_peed:"
 #~ msgstr "سر‌_عت:"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #~ msgid "Shortcuts"
 #~ msgstr "میان‌برها"
 
@@ -9648,7 +9648,7 @@ msgstr "صداهای سامانه"
 #~ msgid "On Screen Keyboard"
 #~ msgstr "صفحه‌کلید مجازی"
 
-# ../capplets/keybindings/gnome-keybinding-properties.c:873gnome-control-center.gnome-2-10.fa.po:609:2: parse error
+# ../capplets/keybindings/gnome-keybinding-properties.c:873regolith-control-center.gnome-2-10.fa.po:609:2: parse error
 #~ msgctxt "universal access, delay"
 #~ msgid "Short"
 #~ msgstr "کوتاه"

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Static Initializer
 Comment=Panel with a static initializer function
-Exec=gnome-control-center static-init
+Exec=regolith-control-center static-init
 Icon=view-continuous
 Terminal=false
 Type=Application

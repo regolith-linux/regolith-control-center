@@ -2,7 +2,7 @@ From: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Date: Thu, 30 Jan 2020 10:16:06 +1300
 Subject: [PATCH 20/26] Disable non working camera/microphones panels
 
-Upstream: https://gitlab.gnome.org/GNOME/gnome-control-center/issues/381
+Upstream: https://gitlab.gnome.org/GNOME/regolith-control-center/issues/381
 ---
  shell/cc-panel-loader.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)

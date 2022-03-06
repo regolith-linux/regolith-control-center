@@ -5,7 +5,7 @@ Subject: [PATCH 04/26] Display locale @modifiers properly
 Make items in the UI represented by locale modifiers distinguishable from
 items without modifiers.
  This is a diff generated from the upstream merge request
- gnome-control-center!507, which has not been merged yet but will likely
+ regolith-control-center!507, which has not been merged yet but will likely
  be before the 3.34 release.
 
 Author: Gunnar Hjalmarsson <gunnarhj@ubuntu.com>

@@ -1,4 +1,4 @@
-# Bulgarian translation of gnome-control-center po-file.
+# Bulgarian translation of regolith-control-center po-file.
 # Copyright (C) 2002, 2004, 2005, 2006 Free Software Foundation, Inc.
 # Copyright (C) 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
 # Copyright (C) 2011, 2012, 2013, 2014 Free Software Foundation, Inc.
@@ -16,7 +16,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
+"Project-Id-Version: regolith-control-center master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-12 22:26+0300\n"
 "PO-Revision-Date: 2017-09-12 22:26+0300\n"
@@ -1698,7 +1698,7 @@ msgstr "Стартиране на програмата за помощ"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/alt/cc-window.c:1590
 #: ../shell/cc-window.c:251 ../shell/cc-window.c:828
-#: ../shell/gnome-control-center.desktop.in.in.h:1 ../shell/window.ui.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1 ../shell/window.ui.h:1
 msgid "Settings"
 msgstr "Настройки"
 
@@ -7337,15 +7337,15 @@ msgctxt "category"
 msgid "System"
 msgstr "Система"
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:1
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:1
 msgid "GNOME Control Center"
 msgstr "Център за управление на GNOME"
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:2
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:2
 msgid "Utilities to configure the GNOME desktop"
 msgstr "Инструменти за настройването на работната среда GNOME"
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:3
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:3
 msgid ""
 "The control center is GNOME’s main interface for configuration of various "
 "aspects of your desktop."
@@ -7393,7 +7393,7 @@ msgstr "Помощ"
 msgid "Quit"
 msgstr "Спиране на програмата"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "настройки;конфигурация;опции;preferences;settings;"
 

@@ -168,7 +168,7 @@ libhandy (0.0.9) experimental; urgency=medium
     Translations in all the applications using libhandy would be broken
     after a call to hdy_init() as it changed the default gettext translation
     domain.
-    See https://gitlab.gnome.org/GNOME/gnome-control-center/issues/393
+    See https://gitlab.gnome.org/GNOME/regolith-control-center/issues/393
 
   [ Adrien Plazas ]
   * examples: Update the Flatpak command.

@@ -65,7 +65,7 @@ main (gint   argc,
   g_autoptr(GtkApplication) application = NULL;
 
   /* Manually register GResources */
-  g_resources_register (gnome_control_center_get_resource ());
+  g_resources_register (regolith_control_center_get_resource ());
   g_resources_register (test_panels_get_resource ());
 
   /* Override the panels vtable with the test panels */

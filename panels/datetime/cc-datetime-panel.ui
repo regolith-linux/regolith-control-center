@@ -93,7 +93,7 @@
                 <property name="hexpand">True</property>
                 <property name="column_spacing">6</property>
                 <style>
-                  <class name="gnome-control-center-datetime-setup-time"/>
+                  <class name="regolith-control-center-datetime-setup-time"/>
                 </style>
                 <child>
                   <object class="GtkSpinButton" id="h_spinbutton">
@@ -175,7 +175,7 @@
                         <property name="receives_default">True</property>
                         <signal name="clicked" handler="am_pm_button_clicked" object="CcDateTimePanel" swapped="no"/>
                         <style>
-                          <class name="gnome-control-center-ampm-toggle-button"/>
+                          <class name="regolith-control-center-ampm-toggle-button"/>
                         </style>
                         <child>
                           <object class="GtkStack" id="am_pm_stack">

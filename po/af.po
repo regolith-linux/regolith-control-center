@@ -1,14 +1,14 @@
-# Afrikaans translation of gnome-control-center.
+# Afrikaans translation of regolith-control-center.
 # Copyright (C) 2004 Zuza Software Foundation
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 # Zuza Software Foundation <info@translate.org.za>, 2004
 # F Wolff <friedel@translate.org.za>, 2009, 2011, 2013, 2014, 2016.
 # Pieter Schoeman <pieter@sonbesie.co.za>, 2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center 2.6-branch\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center 2.6-branch\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2019-01-10 14:17+0000\n"
 "PO-Revision-Date: 2018-02-06 17:56+0200\n"
@@ -1682,7 +1682,7 @@ msgid "Launch help browser"
 msgstr "Laat loop hulpblaaier"
 
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:222
-#: shell/cc-window.c:760 shell/gnome-control-center.desktop.in.in:3
+#: shell/cc-window.c:760 shell/regolith-control-center.desktop.in.in:3
 #: shell/window.ui:125
 msgid "Settings"
 msgstr "Instellings"
@@ -7398,15 +7398,15 @@ msgstr "Punt druk gevoel"
 msgid "page 3"
 msgstr "bladsy 3"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Control Center"
 msgstr "GNOME-beheersentrum"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utilities to configure the GNOME desktop"
 msgstr "Nutsgoed om die GNOME-werkarea op te stel"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid ""
 "The control center is GNOME’s main interface for configuration of various "
 "aspects of your desktop."
@@ -7455,12 +7455,12 @@ msgid "Quit"
 msgstr "Sluit af"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: shell/gnome-control-center.desktop.in.in:5
-msgid "gnome-control-center"
+#: shell/regolith-control-center.desktop.in.in:5
+msgid "regolith-control-center"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "voorkeure;instelling;opstelling;"
 

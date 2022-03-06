@@ -8,7 +8,7 @@
   <shortdesc xml:lang="en">GObject layer for PulseAudio</shortdesc>
   <description>
     This library contains code to access PulseAudio using a GObject
-    based library, shared between gnome-control-center, gnome-settings-daemon
+    based library, shared between regolith-control-center, gnome-settings-daemon
     and gnome-shell. It is not API stable, and it is meant to be used
     as a submodule.
   </description>

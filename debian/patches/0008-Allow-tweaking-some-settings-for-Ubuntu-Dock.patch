@@ -1210,7 +1210,7 @@ index 0000000..78571f1
 +[Desktop Entry]
 +Name=Appearance
 +Comment=Appearance Settings
-+Exec=gnome-control-center ubuntu
++Exec=regolith-control-center ubuntu
 +Icon=preferences-ubuntu-panel
 +Terminal=false
 +Type=Application
@@ -1219,7 +1219,7 @@ index 0000000..78571f1
 +Categories=GNOME;GTK;Settings;DesktopSettings;X-GNOME-Settings-Panel;X-GNOME-PersonalSettings;X-GNOME-PersonalizationSettings;
 +OnlyShowIn=ubuntu;
 +X-GNOME-Bugzilla-Bugzilla=GNOME
-+X-GNOME-Bugzilla-Product=gnome-control-center
++X-GNOME-Bugzilla-Product=regolith-control-center
 +X-GNOME-Bugzilla-Version=@VERSION@
 +# Translators: those are keywords for the ubuntu control-center panel
 +Keywords=Dock;Launcher;Theme;

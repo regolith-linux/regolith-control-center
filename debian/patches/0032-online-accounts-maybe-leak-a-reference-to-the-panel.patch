@@ -3,8 +3,8 @@ Date: Mon, 27 Apr 2020 22:32:03 +0200
 Subject: [PATCH] online-accounts: maybe leak a reference to the panel,
  to prevent a crash.
 
-Fixes: https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/401
-Bug-Ubuntu: https://bugs.launchpad.net/gnome-control-center/+bug/1862553
+Fixes: https://gitlab.gnome.org/GNOME/regolith-control-center/-/issues/401
+Bug-Ubuntu: https://bugs.launchpad.net/regolith-control-center/+bug/1862553
 ---
  panels/online-accounts/cc-online-accounts-panel.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

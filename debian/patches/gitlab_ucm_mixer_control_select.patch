@@ -32,10 +32,10 @@ https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/merge_requests/10
  subprojects/gvc/gvc-mixer-control.c | 120 +++++++++++++++++++++++++++++++++++++++++---
  1 file changed, 114 insertions(+), 6 deletions(-)
 
-Index: gnome-control-center-3.36.4/subprojects/gvc/gvc-mixer-control.c
+Index: regolith-control-center-3.36.4/subprojects/gvc/gvc-mixer-control.c
 ===================================================================
---- gnome-control-center-3.36.4.orig/subprojects/gvc/gvc-mixer-control.c
-+++ gnome-control-center-3.36.4/subprojects/gvc/gvc-mixer-control.c
+--- regolith-control-center-3.36.4.orig/subprojects/gvc/gvc-mixer-control.c
++++ regolith-control-center-3.36.4/subprojects/gvc/gvc-mixer-control.c
 @@ -104,6 +104,11 @@ struct GvcMixerControlPrivate
          gboolean has_headsetmic;
          gboolean has_headphonemic;

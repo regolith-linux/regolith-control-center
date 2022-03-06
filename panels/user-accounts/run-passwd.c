@@ -24,7 +24,7 @@
  * along with this program; if not, see <http://www.gnu.org/licenses/>.
  *
  * Most of this code originally comes from gnome-about-me-password.c,
- * from gnome-control-center.
+ * from regolith-control-center.
  */
 
 #include <config.h>

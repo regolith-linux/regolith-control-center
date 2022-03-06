@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Keyboard Shortcuts
 Comment=View and change keyboard shortcuts and set your typing preferences
-Exec=gnome-control-center keyboard
+Exec=regolith-control-center keyboard
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=input-keyboard
 Terminal=false
@@ -11,7 +11,7 @@ StartupNotify=true
 Categories=GNOME;GTK;Settings;HardwareSettings;X-GNOME-Settings-Panel;X-GNOME-DevicesSettings;
 OnlyShowIn=GNOME;Unity;
 X-GNOME-Bugzilla-Bugzilla=GNOME
-X-GNOME-Bugzilla-Product=gnome-control-center
+X-GNOME-Bugzilla-Product=regolith-control-center
 X-GNOME-Bugzilla-Component=keyboard
 X-GNOME-Bugzilla-Version=@VERSION@
 # Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!

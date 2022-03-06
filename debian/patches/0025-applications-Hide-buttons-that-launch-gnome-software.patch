@@ -9,10 +9,10 @@ Fixes #417
  panels/applications/cc-applications-panel.ui |  2 +-
  2 files changed, 13 insertions(+), 2 deletions(-)
 
-Index: gnome-control-center/panels/applications/cc-applications-panel.c
+Index: regolith-control-center/panels/applications/cc-applications-panel.c
 ===================================================================
---- gnome-control-center.orig/panels/applications/cc-applications-panel.c
-+++ gnome-control-center/panels/applications/cc-applications-panel.c
+--- regolith-control-center.orig/panels/applications/cc-applications-panel.c
++++ regolith-control-center/panels/applications/cc-applications-panel.c
 @@ -75,6 +75,7 @@ struct _CcApplicationsPanel
    GSettings       *search_settings;
  
@@ -61,10 +61,10 @@ Index: gnome-control-center/panels/applications/cc-applications-panel.c
    provider = GTK_STYLE_PROVIDER (gtk_css_provider_new ());
    gtk_css_provider_load_from_resource (GTK_CSS_PROVIDER (provider),
                                         "/org/gnome/control-center/applications/cc-applications-panel.css");
-Index: gnome-control-center/panels/applications/cc-applications-panel.ui
+Index: regolith-control-center/panels/applications/cc-applications-panel.ui
 ===================================================================
---- gnome-control-center.orig/panels/applications/cc-applications-panel.ui
-+++ gnome-control-center/panels/applications/cc-applications-panel.ui
+--- regolith-control-center.orig/panels/applications/cc-applications-panel.ui
++++ regolith-control-center/panels/applications/cc-applications-panel.ui
 @@ -55,7 +55,7 @@
                        </packing>
                      </child>

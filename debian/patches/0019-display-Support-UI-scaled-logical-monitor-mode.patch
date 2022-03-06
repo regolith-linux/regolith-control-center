@@ -5,7 +5,7 @@ Subject: [PATCH 19/26] display: Support UI scaled logical monitor mode
 When this mode is selected we need to assume that all the monitors are scaled
 by their scaling and the global UI scale.
 
-Origin: https://gitlab.gnome.org/3v1n0/gnome-control-center/commits/layout-global-scale
+Origin: https://gitlab.gnome.org/3v1n0/regolith-control-center/commits/layout-global-scale
 Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/mutter/+bug/1820850
 Forwarded: No, MPs will follow shortly
 ---

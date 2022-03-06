@@ -12,7 +12,7 @@ configure_file(
 )
 
 install_data(
-  'gnome-control-center-search-provider.ini',
+  'regolith-control-center-search-provider.ini',
   install_dir: join_paths(control_center_datadir, 'gnome-shell', 'search-providers')
 )
 
@@ -36,7 +36,7 @@ libs = [
 ]
 
 executable(
-  'gnome-control-center-search-provider',
+  'regolith-control-center-search-provider',
                sources,
   include_directories : top_inc,
          dependencies : shell_deps,

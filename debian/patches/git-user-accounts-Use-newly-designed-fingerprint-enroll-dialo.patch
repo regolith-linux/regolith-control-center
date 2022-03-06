@@ -14,7 +14,7 @@ generated via gdbus-codegen) that is created when configuring the current
 user and that tracks the devices states, while move most of the UI into a new
 CcFingerprintDialog that does all the operations in async way.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/741
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/merge_requests/741
 Applied-Upstream: 3.37.3
 Ubuntu-Bug: http://launchpad.net/bugs/1873298
 ---
@@ -3247,12 +3247,18 @@ index 1a9cb2c..0000000
 --- a/panels/user-accounts/data/icons/left-index-finger.png
 +++ /dev/null
 @@ -1,6 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  hIDAThÕ™mˆTeÇwfggÜ×ñm}Û2ÝÒÀc¹B¤…†	EÒ¢™HTà·‚ˆ>”QYDBA–A¡_
--ôC%–VëËÑw7ßJ]_ÖÖÕuÛ™ÙÙ™>Ì¬Þ½ûÜ™{ïLFÿ/{žçœçyÎÿžs÷>çŒ•Ífù?£¢ÜŠHXÄ€íªš²ë›¿¶îËD¢«,+|ÙÌÁTâ£ÃË²'‚žWvÀóÀú¼üð€õš’yá÷c'µLl¸c\]$N"ymqçé_W4o¯\×º4µ9Èa¡ ‹D$."³DÄ2¨—ÛäÇ‡„ÙÍ/ÇWO›2w\¼}—Ö÷ÚQÇœ¦%µc&¿Ù¼­r^_|‘&à<pxÛ`Òh“ëæl³âÙXxuC|Ú¨xÏX¿ÒÁÙ]8ºéÑŽfÜ:¿ÁªŠn¸)€'€h^~Ò®‘(0Î6U²X3fj<'Ñšf09xÝ ÖSÅøHÕÕñI³¿±ªý:„€ý½i‘ÛmãÉ€=­*E$š‰T,ŒUÕUŒ
--UÑõs÷°Íê¢õÔ„j©­iéç.¿Î!à\s¯Ýƒ}}VÆ"”ÑyàÂ0e,#lU@63É(Õ™ kæÚäQûšL"½3Ýß—è=ÓG:™¦ÌF3dSôöþÕ“Js´Tg¼`Ð1n²ÉUûêÑWÙ›¼Ôuâòñ+#”éÑ)ºSIüÝÓ~¤%›2¬/#©‘5"²È îqŒgØdc¾[M¦^ï:ØÙïT^©ëf_ÇöÓW{Ÿõîö¸EàU`3ð­ˆ,uè.;ÆSE¤2/›"Pphizkr¿uÒ®×„²ß·}Úv­ÿâ£ûZ²úôp'Po“_pèœÂÀ´¼lŒÀu©'2Þ®HŸ¸Üuwë’ÔÁâ®šáF Ó&? "·ØÆNp#\	ˆÈ$`’¡¶=-ÙiånÎ:lVØÆÝŒÄ°A7YEÎ	7¿;Æö/®)wæÿš}]gtçÜ]ó7?öÐÎ‘{l‡¦öÍöŠ@“AWRú¸ˆª&Ó«òº4pÒ¡›%"µN!S|y(ô!ûÖ1^."C÷ c†}æR˜€)7•Àxà¡¼ì|G î&æ‘ÀTƒ.YÔÃ"(T‘ . ls+íÀûu.ûL>sÑ¹F _,=“?s:°xJU{ív®PÕ°Å1½LDfÝÖù„‘€ˆT‘Ë€ùäâcÀ#NÛb—9ç“«>'Wë–#R(ßØ,t¨2À>§}AªºhsžA®p)LØ€áI›TµÝ9éå:í|™Ë‰aòÇµ»NàEÓ^´ú÷Ë3®§ˆÔ]ìÖªêÈbo~	à˜WØ;ï S6_¨ê6·¼hz‹ZÃ Y <mÐà’:C°¼ôFEDÙ,†^àaàrÿëØ¨ªÏÚÀkMÜYÜ$jÝ˜OoÛà¿&P[UõL1#¯J¾·À»^Œ¼Ø_‚#A°[Uy1ôJ`'#‹˜[½z" ªW½Ýñ‡ð¥Wc?¹¯üû»Tõ¼Wc?>ŒŸó2â4°ÆÏÏòiô_|à,°PUOùYä·¹ûeè$pX¤ªÇý.ôE@U»ÈõLË‰3äž|GÅAÚë€rý¸|
--˜o*T¼Â7U=ìz `¥ªšžègVruq©øMU,u“ J>˜‘µv %ÐU†³ç½A	”ÜQ£LU^ ù¦W©—;ç…4Pzc6Sâz þ;Š„7Ð|B4    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  hIDAThï¿½Õ™mï¿½Teï¿½wfggï¿½ï¿½ï¿½m}ï¿½2ï¿½ï¿½ï¿½cï¿½Bï¿½ï¿½ï¿½	Eï¿½ï¿½ï¿½HTà·‚ï¿½>ï¿½QYDBAï¿½Aï¿½_
+-ï¿½Cï¿½%ï¿½Vï¿½ï¿½ï¿½w7ï¿½J]_ï¿½ï¿½ï¿½uÛ™ï¿½Ù™>Ì¬Þ½ï¿½Ü™{ï¿½LFï¿½/{ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½sï¿½>çŒ•ï¿½fï¿½?ï¿½ï¿½ï¿½ï¿½HXÄ€ï¿½ï¿½ï¿½ï¿½ë›¿ï¿½ï¿½ï¿½Dï¿½ï¿½,+|ï¿½ï¿½ï¿½Tï¿½ï¿½Ë²'ï¿½ï¿½Wvï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½c'ï¿½Llï¿½c\]$N"ymqï¿½ï¿½_W4oï¿½\×º4ï¿½9ï¿½aï¿½ ï¿½D$."ï¿½Dï¿½2ï¿½ï¿½ï¿½ï¿½Ç‡ï¿½ï¿½ï¿½/ï¿½WOï¿½2w\ï¿½}ï¿½ï¿½ï¿½ï¿½QÇœï¿½%ï¿½ï¿½c&ï¿½Ù¼ï¿½r^_|ï¿½&ï¿½<pxï¿½`ï¿½hï¿½ï¿½ï¿½lï¿½ï¿½ï¿½XxuC|Ú¨xï¿½Xï¿½ï¿½ï¿½ï¿½]8ï¿½ï¿½ÑŽfï¿½:ï¿½ï¿½ï¿½ï¿½nï¿½)ï¿½'ï¿½h^~Ò®ï¿½(0ï¿½6Uï¿½X3fj<'Ñšf09xï¿½ ï¿½Sï¿½ï¿½Hï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½mï¿½É€=ï¿½*E$ï¿½ï¿½T,ï¿½Uï¿½Uï¿½
+-Uï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Ô„jï¿½ï¿½iï¿½ï¿½.ï¿½ï¿½!ï¿½\sï¿½ï¿½ï¿½}ï¿½}Vï¿½"ï¿½ï¿½yï¿½ï¿½0e,#lU@63ï¿½É(Õ™ kï¿½ï¿½ï¿½Qï¿½ï¿½L"ï¿½3ï¿½ß—ï¿½=ï¿½G:ï¿½ï¿½ï¿½F3dSï¿½ï¿½ï¿½Õ“Jsï¿½Tgï¿½`ï¿½1nï¿½ï¿½Uï¿½ï¿½ï¿½WÙ›ï¿½ï¿½uï¿½ï¿½ï¿½+#ï¿½ï¿½ï¿½)ï¿½SIï¿½ï¿½ï¿½~ï¿½%ï¿½2ï¿½/#ï¿½ï¿½5"ï¿½È ï¿½qï¿½gï¿½dcï¿½[ï¿½Mï¿½^ï¿½:ï¿½ï¿½ï¿½T^ï¿½ï¿½f_ï¿½ï¿½ï¿½W{ï¿½ï¿½ï¿½ï¿½
+ï¿½Eï¿½U`3ï¿½,uï¿½.;ï¿½SEï¿½2/ï¿½"Pphizkrï¿½uÒ®×„ï¿½ß·}ï¿½vï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½p'Poï¿½_pï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½uï¿½'2Þ®Hï¿½ï¿½ï¿½uwï¿½ï¿½ï¿½â®šï¿½Fï¿½ï¿½&? "ï¿½ï¿½ï¿½Np#ï¿½\	ï¿½ï¿½$`ï¿½ï¿½ï¿½=-ï¿½iï¿½nï¿½:lVï¿½ï¿½ÝŒï¿½ï¿½ï¿½A7ï¿½YEï¿½	7ï¿½;ï¿½ï¿½/ï¿½)wï¿½ï¿½ï¿½}]gtï¿½ï¿½]ï¿½7?ï¿½ï¿½ï¿½ï¿½{lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½AWRï¿½ï¿½ï¿½ï¿½&ï¿½Ó«ï¿½4pÒ¡ï¿½%"ï¿½N!S|yï¿½(ï¿½!ï¿½ï¿½1^."Cï¿½ï¿½cï¿½}ï¿½Rï¿½ï¿½)7ï¿½ï¿½xà¡¼ï¿½|G ï¿½&ï¿½ï¿½ï¿½Tï¿½.Yï¿½ï¿½"(Tï¿½ . ls+ï¿½ï¿½ï¿½ï¿½u.ï¿½L>sÑ¹F _,=ï¿½?s:ï¿½xJU{ï¿½vï¿½Pï¿½ï¿½ï¿½1ï¿½LDfï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½Ë€ï¿½ï¿½ï¿½ï¿½cï¿½#Nï¿½bï¿½9ç“«>'Wï¿½#R(ï¿½ï¿½,tï¿½2ï¿½>ï¿½}Aï¿½ï¿½hsï¿½Aï¿½p)LØ€ï¿½Iï¿½Tï¿½ï¿½9ï¿½ï¿½:ï¿½|ï¿½Ë‰aï¿½Çµï¿½Nï¿½Eï¿½^ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½Öªï¿½ï¿½bo~	ï¿½ï¿½Wï¿½;ï¿½ S6_ï¿½ï¿½6ï¿½
+ï¿½hzï¿½Zï¿½ Y <mï¿½ï¿½ï¿½:Cï¿½ï¿½ï¿½FEDï¿½ï¿½,ï¿½^ï¿½aï¿½rï¿½ï¿½Ø¨ï¿½ï¿½ï¿½ï¿½kMï¿½Yï¿½$jï¿½Ý˜ï¿½Ooï¿½ï¿½&P[Uï¿½L1#ï¿½Jï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½_ï¿½#Aï¿½[Uy1ï¿½J`'#ï¿½ï¿½[ï¿½z"ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Wc?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½ï¿½Wc?>ï¿½ï¿½ï¿½2ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½_ï¿½|ï¿½,ï¿½PUOï¿½Yä·¹ï¿½eï¿½$pXï¿½ï¿½ï¿½ï¿½.ï¿½E@Uï¿½ï¿½ï¿½LË‰3ï¿½|Gï¿½ï¿½Aï¿½ï¿½ï¿½rï¿½ï¿½|
+-ï¿½o*Tï¿½ï¿½7U=ï¿½zï¿½
+`ï¿½ï¿½ï¿½ï¿½ï¿½gVruqï¿½ï¿½MU,uï¿½ï¿½J>ï¿½ï¿½ï¿½v %ï¿½Uï¿½ï¿½ï¿½A	ï¿½ï¿½Qï¿½LU^ ï¿½ï¿½Wï¿½ï¿½;ç…ï¿½4Pzc6Sï¿½z ï¿½;ï¿½ï¿½7ï¿½|B4    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/left-little-finger.png b/panels/user-accounts/data/icons/left-little-finger.png
 deleted file mode 100644
@@ -3260,13 +3266,26 @@ index 978942e..0000000
 --- a/panels/user-accounts/data/icons/left-little-finger.png
 +++ /dev/null
 @@ -1,7 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  YIDAThÕš[l”EÇ{éö–´”¶hUä"˜pÄšH ‘Dˆ‰D4ˆF‰š¨‰ñ‘_PbäÁQ|P¹•(±Ä€ˆmñ´Ê¥(—-h¥Ðnw}ØÝöët¶ý.KŒÿ§ùæ\æüçœï›™%“IþÏˆæÚ¡ˆD€' ^Uûr=†á;àó`/°xçø_‘»€àwU5kp…£ý,ð¶Å~!ð*Ð¤ªïù‰!Ï‘é@;Ð¼oQ™ìh·Ø× ßÏDd®×œðSBÏùéöj#¸| ÜÑ5Îb¿(t<Wùˆa~8Ën¢ˆLq<W!Çs,MÊ‰%Æs yVsv‡jå«Pg	Øf|°ODò€E†<·fï®©;XÚR:¹öhYí},k~¤>ºl›:G»‘(q´g E†ü¦§ˆ[…þ!o}QeåºÚJ)+V*àV¢·êtÛÑÍsê*-¹õ10`ø˜îh›Á;Ú³-òËþBOap6çì	U'b/VOœYV50™#4—rol
--³î~¢¢°xÜë3ö„Jk†iŽöX‹ü¢ÿðyÑuEÕ5µ¢åtlïâÈÆ&êßÜO_C‚IÑjî©‘©%‘üÕ@—á£VDbé¶-Nf®ªê­œ ÄCÅùe”†Ç¾ìÖ]Í”E&P^RC(/<—‘"ÀýéöX0	š}p“EÉ#Æøò¡Å¤UÏÐß'Ž&RÀH0TFY	ˆHPaÈÚ‚Ÿ
--;P<Ùßf€8…åCq$IZöÿAOï5’‰&ào‹ŸˆE–ÉÀ,‹,wˆ$¶v_iëø'ÑC´zøJÙ²ï$ç;Ž_HÄ{·cÏÀƒ7Yfšf‘ZÀA qiòX_W×Oí=gû™ÖO$(–ëçnpõðµÃK“çÓƒÆ?šþÈd`ºEÖë?tË€ôô­lû³ñ‹ßÚöµÏˆSìû|R€ªÆ¿?³D¤”ÑKÈ–@+v-O4,î}¹ãü©ºžÛ_ÓL²BD2/¾V‹Ÿ:F'`Ë@n	d Ë“'J6ÝÀâtû´Åìq`’¥‘ˆ¬j-²ÛnÍ†Ñ64Ç€ ÒÑ·
--¨ÎYô×gñ3ø2‹,kD$¼’s*pxAU»zY¿FU5ì0º—‰ÈLàJ6;°‘"à °˜GjŸž6uÇÚ˜3¶fyùÅˆJ
--ì ¢ÐhêJ@U›€æ¤6.¹€-›°Ì4ð©ªž4;ÝìÈxÊ†‘%ÀZ‹Þ%à-›7¼Çåƒ%$"ã-YôÖªêu›À_}æÎŒ¤ŽjL|£ªßfsà†ÀI {L-˜ "ó5y?YJ'ƒ›³QQìÛÁ èž>#µÖ›Ø¢ª¯æÀí±Ê%¹E)p{ð}À»c9ø¯	Œ†ª:æ†Ç-Àßí>ð%·šâ‡Tõ¸E·2rs'±Ó­¢+ªz8â;oHº[p/‡»ßyÅ~VÕv·Ê^|X_ç9Äà%/®	¤Ëè#¯yÀE`ªžõbäõ~àCrp’`Áe`¡ªžñjè‰€ªv[½2ÚHÍü)?Æ~nh6¹º\>Ì³mTÜÂ3Um%u	`•ªÚ\Ãï=ñ¶ ƒ¦Ñ¢ª¿uâ—@à¹×ö¿:s0¶ïºwÂ/À'jäh—ç‹@úÐ+èÇyYèAþìô`6Ð€¶seõEÊ¾    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  YIDAThï¿½Õš[lï¿½Eï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hUï¿½"ï¿½pÄšH ï¿½Dï¿½ï¿½D4ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_Pbï¿½ï¿½Q|Pï¿½ï¿½(ï¿½Ä€
+ï¿½mï¿½Ê¥(ï¿½-
+hï¿½ï¿½nw}ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½.Kï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½çœï›™
+%ï¿½Iï¿½Ïˆï¿½Ú¡ï¿½Dï¿½'ï¿½ï¿½^Uï¿½r=ï¿½ï¿½;ï¿½ï¿½
+`/ï¿½xï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½wU5kpï¿½ï¿½ï¿½,ï¿½ï¿½~!ï¿½*Ð¤ï¿½ï¿½ï¿½ï¿½!ï¿½ï¿½ï¿½@;ï¿½ï¿½oQï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ddï¿½ï¿½ï¿½ï¿½SBï¿½ï¿½ï¿½ï¿½j#ï¿½|ï¿½ï¿½ï¿½5ï¿½bï¿½(t<Wï¿½ï¿½a~8ï¿½nï¿½ï¿½Lq<W!ï¿½s,MÊ‰%ï¿½sï¿½yVsvï¿½jï¿½Pï¿½g	ï¿½f|ï¿½ODï¿½Eï¿½<ï¿½fï®ï¿½;Xï¿½R:ï¿½ï¿½hYï¿½}
+ï¿½,k~ï¿½>ï¿½lï¿½:Gï¿½ï¿½ï¿½(qï¿½g Eï¿½ï¿½ï¿½ï¿½ï¿½
+[ï¿½ï¿½!o}Qeï¿½ï¿½J)+ï¿½Vï¿½*ï¿½Vï¿½ï¿½ï¿½tï¿½ï¿½ï¿½sï¿½*ï¿½-ï¿½ï¿½10`ï¿½ï¿½ï¿½hï¿½ï¿½;Ú³-ï¿½ï¿½ï¿½BOap6ï¿½ï¿½	U'b/VOï¿½YV50ï¿½ï¿½#4ï¿½rol
+-ï¿½ï¿½~ï¿½ï¿½ï¿½xï¿½ï¿½3ï¿½ï¿½Jï¿½kï¿½ï¿½iï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½yï¿½uEï¿½5ï¿½ï¿½ï¿½tlï¿½ï¿½ï¿½ï¿½&ï¿½ï¿½ï¿½O_Cï¿½Iï¿½jî©‘ï¿½%ï¿½ï¿½ï¿½@ï¿½ï¿½VDbï¿½-Nfï¿½ï¿½ê­œ ï¿½Cï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]Í”E&P^RC(/<ï¿½ï¿½"ï¿½ï¿½ï¿½ï¿½X0	ï¿½}pï¿½
+Eï¿½#ï¿½ï¿½ï¿½Å¤Uï¿½ï¿½ï¿½'ï¿½&Rï¿½H0TFY	ï¿½HPaï¿½Ú‚ï¿½
+-;ï¿½P<ï¿½ï¿½ï¿½fï¿½8ï¿½ï¿½Cq$IZï¿½ï¿½AOï¿½5ï¿½ï¿½ï¿½&ï¿½oï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½,ï¿½,wï¿½$ï¿½v_iï¿½ï¿½'ï¿½Cï¿½zï¿½JÙ²ï¿½$ï¿½;ï¿½_Hï¿½{ï¿½cï¿½ï¿½ï¿½7Yfï¿½fï¿½Zï¿½ï¿½Aï¿½qiï¿½X_Wï¿½Oï¿½=gï¿½ï¿½ï¿½O$(ï¿½ï¿½ï¿½npï¿½ï¿½ÃKï¿½ï¿½Óƒï¿½
+?ï¿½ï¿½ï¿½ï¿½d`ï¿½Eï¿½ï¿½?tË€ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïˆ
+Sï¿½ï¿½|Rï¿½ï¿½Æï¿½?ï¿½Dï¿½ï¿½ï¿½KÈ–ï¿½@+v-O4,ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û_ï¿½Lï¿½BD2/ï¿½Vï¿½ï¿½:F'`ï¿½@n	dï¿½Ë“'J6ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½q`ï¿½ï¿½ï¿½ï¿½ï¿½j-ï¿½ï¿½nÍ†ï¿½64Ç€ï¿½ï¿½Ñ·
+-ï¿½ï¿½Yï¿½ï¿½gï¿½3ï¿½2ï¿½,kD$ï¿½ï¿½s*pxAUï¿½ï¿½zYï¿½FU5ï¿½0ï¿½ï¿½ï¿½ï¿½Lï¿½J6;ï¿½ï¿½ï¿½"ï¿½ ï¿½ï¿½Gjï¿½ï¿½6uï¿½ï¿½ï¿½3ï¿½fyï¿½ÅˆJ
+-ï¿½ ï¿½ï¿½hï¿½J@Uï¿½ï¿½ï¿½ï¿½6.ï¿½ï¿½-ï¿½ï¿½ï¿½4ð©ªž4;ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½%ï¿½Zï¿½ï¿½%ï¿½-ï¿½7ï¿½ï¿½ï¿½ï¿½%$"ï¿½-Yï¿½Öªï¿½uï¿½ï¿½
+ï¿½_}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jL|ï¿½ï¿½ï¿½fsï¿½ï¿½ï¿½Iï¿½{L-ï¿½ "ï¿½5y?YJ'ï¿½ï¿½ï¿½ï¿½QQï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>#ï¿½Ö›Ø¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%ï¿½ï¿½ï¿½E)p{ï¿½}ï¿½ï¿½c9ï¿½ï¿½	ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½>ï¿½ï¿½%ï¿½ï¿½ï¿½ï¿½Tï¿½ï¿½Eï¿½2rs'ï¿½Ó­ï¿½+ï¿½z8ï¿½;oHï¿½ï¿½[p/ï¿½ï¿½ï¿½yï¿½ï¿½~Vï¿½vï¿½ï¿½^|X_ï¿½9ï¿½ï¿½%/ï¿½	ï¿½ï¿½ï¿½#ï¿½yï¿½E`ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½~ï¿½Crpï¿½`ï¿½e`ï¿½ï¿½ï¿½ï¿½jè‰€ï¿½v[ï¿½2ï¿½Hï¿½ï¿½)?ï¿½~nh6ï¿½ï¿½\>Ì³mTï¿½ï¿½3Um%uï¿½	`ï¿½ï¿½ï¿½\ï¿½ï¿½=ï¿½ ï¿½ï¿½Ñ¢ï¿½ï¿½uï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:s0ï¿½ï¿½wï¿½/ï¿½ï¿½'jï¿½hï¿½ï¿½@ï¿½ï¿½+ï¿½ÇyYï¿½Aï¿½ï¿½ï¿½`6ï¿½ï¿½ï¿½seï¿½EÊ¾    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/left-middle-finger.png b/panels/user-accounts/data/icons/left-middle-finger.png
 deleted file mode 100644
@@ -3274,17 +3293,27 @@ index 406925e..0000000
 --- a/panels/user-accounts/data/icons/left-middle-finger.png
 +++ /dev/null
 @@ -1,11 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  HIDAThÅ™[lTEÇg/Ýv¡,”0H)—>¹Ä€
--ÄMª‰Ä ‰1M|UB4$&Å/Mï‰˜4¤uH¸È-T)¥\
--”ÒvOw»ëÃn›Ãìœí¹,ðÙ™ùþóÍ÷Ÿ™svæ;V.—£\X¼×šLe|g,žhŒXÑªl&Ý=œz¿m]úû²¢Á*—€~Œ.±_×ÏZ4»òÄ$bé8ÕË*éèj»Ú{½ëÓÃ¾V–4”EÀâ½V$›Œ·5Ì[*ñjøow7 Mëç0íÅZŽžoééé>ûLû“™–Ðƒiˆé$"Ed¡ˆX ¹xôÕŠ†©ó'Çêèméå]j½Ê´ø§?XO$·:ú¯‘¯Däõ».@Dš€nà(ð@.j=Z]S—¨‰NÄ¾:4ÊM÷g¨‹Ö3)VK¢j|Ýâ½VLD¦?ÏÛDdù] ¬…ò&€\,R[©$‘IêµG‰ö€MMdÉH’drR0XT9ü5= bŽrˆÌ±†³ýC=ip<R™t†l&‡E„tj`¸<¡ù"‚Ðû,·²¹£©ÔMûSEäë}×°s)l»ïFö­E6°F£ÜsK-{xk_gÇÙ[©¾"ò¥[Ýt\;–²Sý{€y@R£ˆÁ5/ÖêMíÍ¹žLjpGç¹ã7tò©ËG2§;´Û©mÀ"ƒ¿‹b…Q€ˆŒ‘Í"²Ú`Öƒœð÷ÚôÎƒéí:ùDûÁ_S7ioÎe1ø»à7h'ÜVà`7°ODô‡îºVŸ)" ¹C÷×}V¿½½9—)TõèQJ?8>à&`‚£¬tQ`v¡\E1Æ;Êº€P³îºå‡Eä~G] …mD	"Ò LÑl^‚,74ÎGýš?" j°¬ÀÂ1Æ	7§µú&GÙ´ó¿&ã
--¿s¶Po pð'0è¨/‘%ŽA3Y	#+Ðd°Ú|Á(@)eûµæç¶pN³-‘jJo!Ó
--„zAé?²}Zý991øYJi¦¸«¦ Êú3ðPoh_#"€™›mhó…X	[;p	˜êhÛüükà¿éâ§øÜÅæº…ËÒË…1ß”R·¸\W@)•¾ÔšŸ‘Àe·~>a "Iò;àC`ùIlžÒ¹cæô™« ¾ ¶ùÔE[HD¢ä'n•fÊ‡u~IJ©6à}`š¯0ÝaZføX)uRoôrœÖærâ6…ƒã¯0& ¼øË\ž1º…Dd°Ë…·E)Õk2xp(@`^1ÃQ~˜nà|£”úÎÍ'â»by°@DV/ìi\¶Î<eæDDa¾†E°ø„ü»^Ç.¥Ô+¥x½wM	„j sðCÀÛc9¸×JaRjÌW¡Ïíðž’Wm!	‚V¥Ô/D¯~£øs'±Ç+Ñ“ ¥ÔMàÀáøCøÖ+ÙOfîŽ}&ÒÐ¢”êöJö#à#Àøw^Fœ6ûéàY@a}à7"¸ ¬RJuøéä7¹»2d¸¬VJõÛÑ— ¥Ôò9Ór¢“üÌŸ
--Ò9Hz}·}‡	…`…é¢â¾(¥Î ¿Ð,°Q)eJxF Ï¬äïÅaqL)u ¬“ BLñ];‚
--¸R†±ï{'‚
--Q£L·¼@
--I¯°‡;ýca ]Ÿ˜Í†ìÀÿÞ^•æ4eÙÕ    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  HIDAThï¿½Å™[lTEï¿½g/ï¿½vï¿½,ï¿½0H)ï¿½>ï¿½Äï¿½
+-ï¿½Mï¿½ï¿½ï¿½ ï¿½1M|UB4$&ï¿½/Mï¿½ï¿½4ï¿½uHï¿½ï¿½-T)ï¿½\
+-ï¿½ï¿½vOwï¿½ï¿½ï¿½nï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ù™ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½svï¿½;V.ï¿½ï¿½\Xï¿½×šLe|g,ï¿½hï¿½XÑªl&ï¿½=ï¿½zï¿½m]ï¿½ï¿½ï¿½
+ï¿½ï¿½*ï¿½ï¿½~ï¿½.ï¿½_ï¿½ï¿½Z4ï¿½ï¿½ï¿½$bï¿½8ï¿½ï¿½*ï¿½ï¿½jï¿½ï¿½{ï¿½ï¿½ï¿½Ãï¿½Vï¿½ï¿½4ï¿½Eï¿½ï¿½V$ï¿½ï¿½ï¿½5ï¿½[*ï¿½jï¿½ow7 Mï¿½ï¿½0ï¿½ï¿½Zï¿½ï¿½oï¿½ï¿½ï¿½>ï¿½Lï¿½ï¿½ï¿½ï¿½Ðƒiï¿½ï¿½$"Edï¿½ï¿½X ï¿½xï¿½ÕŠï¿½ï¿½ï¿½'ï¿½ï¿½ï¿½mï¿½ï¿½]jï¿½Ê´ï¿½ï¿½?XO$ï¿½:ï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½.@Dï¿½ï¿½nï¿½(ï¿½@.j=Z]Sï¿½ï¿½ï¿½NÄ¾:4ï¿½Mï¿½gï¿½ï¿½ï¿½3)VKï¿½j|ï¿½ï¿½VLDï¿½?ï¿½ï¿½Ddï¿½] ï¿½ï¿½ï¿½&ï¿½\,R[ï¿½$ï¿½Iï¿½ï¿½Gï¿½ï¿½ï¿½MMdï¿½Hï¿½drR
+0XT9ï¿½5=ï¿½ bï¿½rï¿½ï¿½Ì±ï¿½ï¿½ï¿½C=ip<Rï¿½tï¿½l&ï¿½Eï¿½tj`ï¿½<ï¿½ï¿½"ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Mï¿½SEï¿½ï¿½}×°s)lï¿½ï¿½Fï¿½ï¿½E6ï¿½Fï¿½ï¿½sK-{xk_gï¿½ï¿½[ï¿½ï¿½"ï¿½[ï¿½t\;ï¿½ï¿½Sï¿½{ï¿½y@Rï¿½ï¿½ï¿½5/ï¿½ï¿½Mï¿½Í¹ï¿½LjpGï¿½ï¿½7tï¿½ï¿½G2ï¿½;ï¿½
+Û©mï¿½"ï¿½ï¿½ï¿½bï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½ï¿½`Öƒï¿½ï¿½ï¿½ï¿½ï¿½Îï¿½ï¿½ï¿½:ï¿½Dï¿½ï¿½_S7ioï¿½e1ï¿½ï¿½ï¿½7h'ï¿½Vï¿½
+`7ï¿½ODï¿½ï¿½Vï¿½)" ï¿½Cï¿½ï¿½
+}Vï¿½ï¿½ï¿½9ï¿½)Tï¿½ï¿½QJ?8>ï¿½&`ï¿½ï¿½ï¿½tQ`vï¿½\E1ï¿½;Êºï¿½Pï¿½ï¿½ï¿½ï¿½Eï¿½~G] ï¿½mD	"ï¿½ Lï¿½lï¿½^ï¿½,74ï¿½Gï¿½ï¿½ï¿½?" jï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½	7ï¿½ï¿½ï¿½&GÙ´ï¿½ï¿½&ï¿½
+-ï¿½s
+ï¿½Po pï¿½'0ï¿½/ï¿½%ï¿½A3Y	#+ï¿½dï¿½
+ï¿½|ï¿½(@)eï¿½ï¿½ï¿½ï¿½ï¿½pNï¿½-ï¿½jJo!ï¿½
+-ï¿½zAï¿½?ï¿½}Zï¿½99ï¿½1ï¿½YJiï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½3ï¿½Poh_#"ï¿½ï¿½ï¿½mhï¿½X	[;p	ï¿½ï¿½hï¿½ï¿½ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë…1ï¿½ßï¿½Rï¿½ï¿½\W@)ï¿½ï¿½Ôšï¿½ï¿½ï¿½eï¿½~>a "Iï¿½;ï¿½C`ï¿½Ilï¿½Ò¹cï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½E[HDï¿½ï¿½'nï¿½fï¿½ï¿½u~IJï¿½6ï¿½}`ï¿½ï¿½0ï¿½aZï¿½fï¿½X)uRoï¿½rï¿½ï¿½ï¿½rï¿½6ï¿½ï¿½ï¿½ï¿½0& ï¿½ï¿½ï¿½\ï¿½1ï¿½ï¿½Ddï¿½Ë…ï¿½E)ï¿½k2xp(@`^1ï¿½Q~ï¿½nï¿½|ï¿½ï¿½ï¿½ï¿½Í'ï¿½ï¿½byï¿½@DV/ï¿½i\ï¿½ï¿½<eï¿½DDaï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½.ï¿½ï¿½+ï¿½xï¿½wï¿½M	ï¿½jï¿½sï¿½Cï¿½ï¿½c9ï¿½ï¿½Jaï¿½Rjï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Wm!	ï¿½Vï¿½ï¿½/Dï¿½~ï¿½ï¿½s'ï¿½ï¿½+Ñ“ ï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½+ï¿½Ofï¿½}&ï¿½Ð¢ï¿½ï¿½ï¿½Jï¿½#ï¿½#ï¿½ï¿½w^Fï¿½6ï¿½ï¿½ï¿½Y@a}ï¿½7"ï¿½ ï¿½RJuï¿½ï¿½ï¿½7ï¿½ï¿½ï¿½2dï¿½ï¿½VJï¿½ï¿½ï¿½Ñ— ï¿½ï¿½ï¿½9ï¿½rï¿½ï¿½ï¿½ÌŸ
+-ï¿½9Hz}ï¿½}ï¿½	ï¿½`ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ ï¿½Ð,ï¿½Q)eJxFï¿½Ï¬ï¿½ï¿½ï¿½aqL)u ï¿½ï¿½ï¿½BLï¿½];ï¿½
+-ï¿½Rï¿½ï¿½ï¿½{'ï¿½
+-ï¿½Qï¿½Lï¿½ï¿½@
+-Iï¿½ï¿½ï¿½;ï¿½ca ]ï¿½ï¿½Í†ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½4eï¿½ï¿½    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/left-ring-finger.png b/panels/user-accounts/data/icons/left-ring-finger.png
 deleted file mode 100644
@@ -3292,14 +3321,24 @@ index 169ff68..0000000
 --- a/panels/user-accounts/data/icons/left-ring-finger.png
 +++ /dev/null
 @@ -1,8 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  eIDAThÕ™[lTU†¿3—¶L[JåV„¦  ²@yÐ€HTÀQ$P"jÂ›&Æ'õÁŒ1hb"Q|QÆ€hÀ¬‘K¸nHŠÜ+¥´Ü™BÛ¹æLsæ°ÏÌ¹ÿ—Ù{¯í½þ³ö¹¬=†išüŸóC^ö½=•ˆ®ŠDc‹#‰l6ó‹™Îl:ö¼y³À‘(ð4PìTJ¥*s<˜ù“1Æ¬‹oo3AF›¯‰Ö’ìíy¶«ãøë3ˆ¯>º$½ß¢¾	|hµ×ïT:h;"^‰¹êØ¶á“™ÕÒ4#>.ÓBS×h¦4ÎbúC‹Zk†Ö=c»1Ì¢®°¹-ÕÍ%"óDä;y;LðàQÀŒ±µñ‘MÓFT7S¹‘ß–¤mí>:7]el|<-Ÿh‰ÔÔ|jÑÇÚ\4Á7;€eÀzyü¾0cÆÒ†ÆæºÆh#·~¿C6àÌ®sŒˆbdbÕñÄÃ"R·¹ÕL÷0ÄÖ4xð, ò@1„„QKU®jp¼÷ÆÌËµ‘:ªª‡4FFõM›k•%ÊŽEŽ~¨›ÜÛ=`’¢FÃ,vé>ÑCŒ¦I6w3žÐxfADâÀ|‡ýþˆdr×²¹3M&—.²u´_$m¦È¤ú¯Ó‹kÜëlí§È»¾"vÆæ‰•fÃÍî×zsIRÆ@‘©§£‡ÎÛgÓéÔÝ6Mp µ¶öt½Ëk°:hˆH­ˆ¬‘y Ç§wõ_í9Ð•<ŸI%ú‹¸W;®Ó~v÷É»½}ïR|s`Ï€hìcÜ3ð°	h‘E ·Ô‹§oíìmïµûºûÍä™Ç_2Sè3`àÌÀ5¥T?!à&Àþü~àÔsàÐÂ¾åÉ½™â7«‰ÙØZ²\œB]}ppÉÖ~JDÆö.ÔžÐð'Y¿®Dd4Ðä°]ô¦;Üt:8+mýë~A@Tc+d`Z™uÁMÀ)Gÿe[û††?ÅúÕ	(<…&il¡ž@à.à ÐgëO‘Gm‹füY%æ+d`²ÆÖ§ó­ ¥Ô ð‡cøË–Î9lÓD¤žÒ[H—PO (ý"ksôWˆH¡~8­™ç1JÐeà_Ð<cµ÷À“À(Íø|Y	Œ×Ø4c¾Pª";
--t#mc«€Àÿ}—yZo\l®xÍZ³Ø¬VJ%í<×(¥rÀfÇð"2èqóó	­ IßŸ³É_Ä%Àb'·ÜÇœóÊUß’¯u+{¶u(°˜ë0å€ÃN~IJ©#@»s`Œ¯0Ý¡ËÀ'h®4ð¥Rê¤sÐËç´óf®$ŠXŽë4¼K€ö À‹€CþãòŒÁ-$"ÀFÞ:¥Ô-Á‹€ƒó
--û	ÆG@³†³U)µÝm/NÉ²¬`˜ "s€W5ö4.[§ ÃËÙ¨ˆ(ôå`X$…ÀWäŸõNlTJ½Qj¯'s—ÊS¡Øƒ>øðA¹	þk¥°E)U¶àñ* ôw{ |ì…äUÀ‘Á¥ÔŸ^ˆ^üÊ½EÌýÄ¯DO”R·ýe‰•AØæ•ìùÿàGÿ±Ân¥Ôe¯d?¾ ´¯ó
--âo`Ï¬mô™ßˆ| ˜«”:ïÇÉO 6P“º€yJ©3~}	PJ]!fZI\$åÿ
--âì7/8*õçòy`¶®Pñ
--ß”R§Ÿƒ.hCX¥”ÒxF@¾.‹J©½a'	* ôÂÜ[kBPW*°và}oGP¡OÔ¨P•H€uèöã.Òž0›éÀ?H&Á[Vä    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  eIDAThï¿½Õ™[lTUï¿½ï¿½3ï¿½ï¿½L[J
+ï¿½Vï¿½ï¿½ ï¿½ï¿½@yÐ€HTï¿½Q$P"jÂ›&ï¿½'ï¿½ï¿½ï¿½1hb"Q|QÆ€hï¿½ï¿½ï¿½Kï¿½nHï¿½ï¿½+ï¿½ï¿½Ü™BÛ¹ï¿½Lsï¿½ï¿½Ì¹ï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½=ï¿½iï¿½ï¿½ï¿½ï¿½C^ï¿½ï¿½=ï¿½ï¿½ï¿½ï¿½Dcï¿½#ï¿½l6ï¿½ï¿½l:ï¿½ï¿½yï¿½ï¿½ï¿½(ï¿½4Pï¿½TJï¿½*s<ï¿½ï¿½ï¿½1Æ¬ï¿½oo3AFï¿½ï¿½ï¿½Ö’ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½>ï¿½$ï¿½ß¢ï¿½	|hï¿½ï¿½ï¿½T:h;"^ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½4#>.ï¿½BSï¿½hï¿½4ï¿½bï¿½Cï¿½Zkï¿½ï¿½=cï¿½1Ì¢ï¿½ï¿½ï¿½-ï¿½ï¿½%"ï¿½Dï¿½;y;Lï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½Mï¿½FT7Sï¿½ï¿½ß–ï¿½mï¿½>:7]el|<-ï¿½hï¿½ï¿½ï¿½|jï¿½ï¿½ï¿½\4ï¿½7;ï¿½eï¿½zyï¿½ï¿½0cï¿½Ò†ï¿½ï¿½ï¿½h#ï¿½~ï¿½C6ï¿½ï¿½Ì®sï¿½ï¿½ï¿½bdbï¿½ï¿½ï¿½ï¿½"R
+ï¿½ï¿½ï¿½Lï¿½0ï¿½ï¿½4xï¿½, ï¿½@ï¿½1ï¿½ï¿½QKUï¿½jpï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½4FFï¿½Mï¿½kï¿½%ÊŽEï¿½~ï¿½ï¿½ï¿½ï¿½=`ï¿½ï¿½ï¿½Fï¿½,vï¿½>ï¿½Cï¿½ï¿½I6w3ï¿½ï¿½xfADï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½dr×²ï¿½3M&ï¿½.ï¿½uï¿½_$mï¿½È¤ï¿½ï¿½ï¿½ï¿½kï¿½ï¿½lï¿½ï¿½È»ï¿½"vï¿½æ‰•fï¿½ï¿½ï¿½ï¿½zsIRï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½6Mp ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½kï¿½:hï¿½Hï¿½ï¿½ï¿½ï¿½y ï¿½ï¿½wï¿½_ï¿½9Ð•<ï¿½I%ï¿½ï¿½ï¿½W;ï¿½ï¿½~vï¿½É»ï¿½}ï¿½R|s`Ï€hï¿½cï¿½3ï¿½ï¿½	hï¿½E ï¿½ï¿½Ô‹ï¿½ï¿½oï¿½ï¿½mï¿½ï¿½ï¿½ï¿½ï¿½ä™ï¿½_2Sï¿½3`ï¿½ï¿½ï¿½5ï¿½T?!ï¿½&ï¿½ï¿½ï¿½~ï¿½ï¿½sï¿½ï¿½Â¾ï¿½É½ï¿½ï¿½7ï¿½ï¿½ï¿½ï¿½Zï¿½\ï¿½B]}ppï¿½ï¿½~JDï¿½
+ï¿½.Ôžï¿½ï¿½'Yï¿½ï¿½Dd4ï¿½ï¿½]ï¿½ï¿½;ï¿½t:8+mï¿½ï¿½~A@Tc+d`Zï¿½uï¿½Mï¿½)Gï¿½e[ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½	(<ï¿½&ilï¿½ï¿½@ï¿½.ï¿½ ï¿½gï¿½Oï¿½Gmï¿½fï¿½Y%ï¿½+d`ï¿½ï¿½Ö§ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½cï¿½Ë–ï¿½9lï¿½Dï¿½ï¿½ï¿½[Hï¿½ï¿½PO (ï¿½"ksï¿½Wï¿½Hï¿½~8ï¿½ï¿½ï¿½1Jï¿½eï¿½_ï¿½<cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½|Y	ï¿½ï¿½ï¿½4cï¿½Pï¿½";
+-t#mcï¿½ï¿½ï¿½ï¿½
+ï¿½}ï¿½yZï¿½o\lï¿½xï¿½Zï¿½ï¿½ï¿½VJ%ï¿½<ï¿½(ï¿½rï¿½fï¿½ï¿½"2ï¿½qï¿½ï¿½	ï¿½ Iï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½%ï¿½b'ï¿½ï¿½Çœï¿½ï¿½Uß’ï¿½u+ï¿½{ï¿½ï¿½u(ï¿½ï¿½ï¿½0ï¿½ï¿½N~IJï¿½#@ï¿½s
+`ï¿½ï¿½0Ý¡ï¿½ï¿½'hï¿½4ï¿½Rï¿½sï¿½ï¿½ï¿½ï¿½fï¿½$ï¿½Xï¿½ï¿½4ï¿½Kï¿½ï¿½ ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½-$"
+ï¿½Fï¿½:ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+-ï¿½	ï¿½G@ï¿½ï¿½ï¿½U)ï¿½ï¿½m/NÉ²ï¿½`ï¿½ "sï¿½W5ï¿½4.[ï¿½ ï¿½ï¿½Ù¨ï¿½(ï¿½ï¿½`X$ï¿½ï¿½ï¿½Wï¿½ï¿½NlTJï¿½Qjï¿½'sï¿½ï¿½Sï¿½Øƒ>ï¿½ï¿½Aï¿½	ï¿½kï¿½ï¿½E)Uï¿½ï¿½ï¿½* ï¿½w{ |ï¿½ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½ÔŸ^ï¿½^ï¿½Ê½Eï¿½ï¿½ï¿½ï¿½DOï¿½Rï¿½ï¿½ï¿½eï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½nï¿½ï¿½eï¿½d?ï¿½ ï¿½ï¿½ï¿½
+-ï¿½o`ï¿½ï¿½ï¿½mï¿½ï¿½ßˆ|ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½O 6Pï¿½ï¿½
+ï¿½ï¿½yJï¿½3~}	PJ]!fZI\$ï¿½ï¿½
+-ï¿½ï¿½7ï¿½/8*ï¿½ï¿½ï¿½y`ï¿½ï¿½Pï¿½
+-ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½.hCXï¿½ï¿½ï¿½xFï¿½@ï¿½.ï¿½Jï¿½ï¿½a'	* ï¿½ï¿½ï¿½[kBPW*ï¿½vï¿½}oGPï¿½OÔ¨Pï¿½Hï¿½uï¿½ï¿½ï¿½.ï¿½ï¿½0ï¿½ï¿½ï¿½?H&ï¿½ï¿½[Vï¿½    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/left-thumb.png b/panels/user-accounts/data/icons/left-thumb.png
 deleted file mode 100644
@@ -3307,11 +3346,17 @@ index eaf875d..0000000
 --- a/panels/user-accounts/data/icons/left-thumb.png
 +++ /dev/null
 @@ -1,5 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  eIDAThÕš[l”EÇÛm·”¶,•r)-­)r±x9¤…@¼ ’ bŠ C$¾Â/ÆO ñòà‹ÆËUž¼E@"‹X<5J@KK¹jK·í®»[¦³ßn¿ïÛmŒÿ—3çÌÌùgf¾™óm ‹ñF~®;‘ ð0Ø­ª‘\a"oúÜì>^…þ‡ÁWDd<P	ü®ªö\k”Ÿ ¶:´Ø4«ê?>$á9"2è~^w0©2Êa‡ö•À×À`»ˆ,ôêƒ	?SèI 0Q~Ær®(7ªÆ9´_	r…†à‡€9í&‰ÈtCž
--9” eâQKÎj‘û!`·1§€Óª‘`‰¥ÿÏ	4å"RQb”gc-}Ò:ãƒ–<Ë(ÛÎå{ôç}ø0ÇmTDŠ‰/Ö³ªzÐRÿmÉ3òH}ûHNfBº¼| {Ñ]µä	%ÊN0	ØèRÕ›®<MƒtÌý{‹¥³	ÚDy¤Ø²zúž@‡Q~@D¦²M nM£´D¤˜héÎ¹q2Òh·lÖòû$ ƒ.9#Œãéœ²dóë;¿N’»ÐL]V;¤'ÐôrˆÔƒXöó2ô—ŒÀ,]¯C'8PÕ>àˆUýlB7 œ±tsD¤”ÌSÈ)iw ú=ùê÷ŽÙ?ÿÛÒãóöŽÝ_¿'´ÁÉ.Óqú °Ì×ŠÈ–V`†¡Ë#þFÎDÀ))ÞV?)™\¹¬br]¸4XJ,¥ãBKCÃÞ1+hë{ú§býæÀ™˜˜,O”í5°˜âP¿DDÖ5º>»bpjþ«EÕÕ«j*$\ºê‚ZjBÓ¹«ò¾pUÍÜUT†^2í38\°êÖ'~ÿt°…ømÌÆ`gš±†EàžÝ²hQð©‰ãkB“‚Sèþ&ÂÑÍÊ¾5‡8¹­ê¢ºPáØqëæ~?"UŸZÕ‹Hp1];F 8ÀÂ‚	eU¥ýaNlm¥é­f:NtÒsµ—¿Ž´sóè ååµÓÁ['à‘s;-94Ûsã¿5…
--ò,,WÐ¾£‹KÚ5LÈP9{*á’IyÁÐâd}FªÚüaUñ‹K.²ˆ#‡¸Út#ÅpÁcó™P}ùÖ¾ãæ8m/æ\bØçSþéß—º‘••—±üÅ¥Äúéî¹ÜŒJêÜd%ŽeïgZM!	˜°ÉÉhõ–•ôuÓ¹Á…Ë­m±A~HêÜDàÇ8šfãb©ü;×^XLç@§º4ÒÛ}½ñçÕ±¡;‰-@ê¤ÌˆÈ"`£­ä¨ÝXÅ™ÈiŽÛw­åÌá¯¢í=Û†Ù¸ÉŠˆâ|Ì7€À‡³¼»»½ø¹ë"W¢Ñ¾Æ¦½Ù6n3sŒRàp]dðDÉ‚CK[3ÞÜ^ê;F6É9v©êˆ·²>·ûÀ›nŒÜhÎÂ?8¬ª¿¸1tKà ©—˜ÑÄ.·†®¨êu¸õòeD‰[p/™¹/½ûâß©j§[c/Þ®y÷ÇÚ€ç½4pM 1Þõê‘´©êY/¼&wß&™œVÕÓ^z" ª—ˆçLs‰sÄŸüI?ý¤×ßrõqù,p¿ª¶øíÀ3Um%þ5[Dõªê” p¿ß‰³4ßTõûl;ñK ëI½kû‚_—r0¶ïyoÂ/”Œšää–ç‹@"é•íáÎþXèÙüÙ#«o[Äw¡¬ñ/r´p¼¿µ    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  eIDAThï¿½Õš[lï¿½Eï¿½ï¿½mï¿½ï¿½ï¿½,ï¿½r)-ï¿½)rï¿½x9ï¿½ï¿½@ï¿½ ï¿½ bï¿½ï¿½C$ï¿½ï¿½/ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Uï¿½ï¿½E@"ï¿½ï¿½X<5J@KKï¿½jKï¿½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½mï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½gfï¿½ï¿½ï¿½m ï¿½ï¿½F~ï¿½;ï¿½ ï¿½0Ø­ï¿½ï¿½\ï¿½a"oï¿½ï¿½ï¿½>^ï¿½ï¿½ï¿½ï¿½WDd<P	ï¿½ï¿½ï¿½ï¿½\kï¿½ï¿½ ï¿½:ï¿½ï¿½4ï¿½ï¿½?>$ï¿½9"2ï¿½~^w0ï¿½2ï¿½aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½,ï¿½ï¿½	?Sï¿½Iï¿½0Q~ï¿½rï¿½(7ï¿½ï¿½9ï¿½_	rï¿½ï¿½ï¿½ï¿½ï¿½9ï¿½&ï¿½ï¿½tCï¿½
+-9ï¿½ eï¿½QKï¿½jï¿½ï¿½!`ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½	4ï¿½"RQbï¿½gc-}ï¿½ï¿½:ï¿½ï¿½ï¿½<ï¿½(ï¿½ï¿½ï¿½{ï¿½ï¿½}ï¿½0ï¿½mTDï¿½ï¿½/Ö³ï¿½zï¿½Rï¿½mï¿½3ï¿½ï¿½H}ï¿½HNfBï¿½ï¿½| {ï¿½]ï¿½ï¿½	%ï¿½N0	ï¿½ï¿½RÕ›ï¿½<Mï¿½tï¿½ï¿½{ï¿½ï¿½ï¿½	ï¿½ï¿½Dyï¿½ï¿½ï¿½zï¿½ï¿½ï¿½@ï¿½Q~@Dï¿½ï¿½M nMï¿½ï¿½Dï¿½ï¿½hï¿½Î¹q2ï¿½hï¿½lï¿½ï¿½ï¿½$ï¿½ï¿½ï¿½.ï¿½9#ï¿½ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½ï¿½;ï¿½Nï¿½ï¿½ï¿½L]V;ï¿½'ï¿½ï¿½rï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½,]ï¿½Cï¿½'8Pï¿½>ï¿½ï¿½Uï¿½lB7 ï¿½ï¿½tsDï¿½ï¿½ï¿½Sï¿½)iwï¿½ï¿½=ï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½'ï¿½ï¿½ï¿½.ï¿½qï¿½ ï¿½Ì×ŠÈ–ï¿½V`ï¿½ï¿½ï¿½#ï¿½Fï¿½Dï¿½))ï¿½V?)ï¿½\ï¿½ï¿½br]ï¿½4XJ,ï¿½ï¿½BKCï¿½ï¿½1+hï¿½{ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Oï¿½ï¿½5ï¿½ï¿½ï¿½Pï¿½DDï¿½5ï¿½>ï¿½bpjï¿½ï¿½Eï¿½Õ«j*$\ï¿½ï¿½ï¿½ZjBÓ¹ï¿½ï¿½pUï¿½ï¿½UTï¿½^2ï¿½38\ï¿½ï¿½ï¿½'~ï¿½tï¿½ï¿½ï¿½mï¿½ï¿½`gï¿½ï¿½ï¿½Eï¿½ï¿½Ýï¿½hQï¿½ï¿½kBï¿½ï¿½Sï¿½ï¿½&ï¿½ï¿½ï¿½Ê¾5ï¿½8ï¿½ï¿½ï¿½ê¢ºPï¿½ï¿½qï¿½ï¿½~?"Uï¿½ï¿½ZÕï¿½Hp1];ï¿½F 8ï¿½Â‚	eUï¿½ï¿½aNlmï¿½ï¿½f:Ntï¿½sï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½['ï¿½ï¿½s;-94ï¿½sï¿½5ï¿½
+-ï¿½,,WÐ¾ï¿½ï¿½Kï¿½5Lï¿½P9{*ï¿½Iyï¿½ï¿½ï¿½d}Fï¿½ï¿½ï¿½aUï¿½K.ï¿½ï¿½ï¿½#ï¿½ï¿½ï¿½t#ï¿½pï¿½cï¿½P}ï¿½Ö¾ï¿½ï¿½8m/ï¿½\bï¿½ï¿½ï¿½Sï¿½ï¿½ß—ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½ï¿½d%ï¿½eï¿½gZM!	ï¿½ï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½Ë­mï¿½A~Hï¿½ï¿½Dï¿½ï¿½8ï¿½fï¿½
+bï¿½ï¿½;ï¿½^XLï¿½@ï¿½ï¿½4ï¿½ï¿½}ï¿½ï¿½ï¿½Õ±ï¿½;ï¿½-@ï¿½ï¿½
+ï¿½ï¿½"`ï¿½ï¿½ï¿½ï¿½ï¿½XÅ™ï¿½iï¿½ï¿½ï¿½wï¿½ï¿½ï¿½á¯¢ï¿½=Û†Ù¸Éï¿½ï¿½ï¿½|ï¿½7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"Wï¿½Ñ¾Æ¦ï¿½ï¿½6n3sï¿½ï¿½Rï¿½p]dï¿½DÉ‚CK[3ï¿½ï¿½^ï¿½;F6ï¿½9vï¿½ï¿½ï¿½ï¿½>ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½hï¿½ï¿½?8ï¿½ï¿½ï¿½ï¿½1tKï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½eDï¿½[p/ï¿½ï¿½/ï¿½ï¿½ï¿½ß©jï¿½[c/ï¿½ï¿½yï¿½ï¿½Ú€ï¿½4pM 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Y/ï¿½ï¿½&wï¿½&ï¿½ï¿½Vï¿½ï¿½^z"ï¿½ï¿½ï¿½ï¿½ï¿½Lsï¿½sÄŸï¿½I?ï¿½ï¿½ï¿½ï¿½ï¿½rï¿½qï¿½,pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3Um%ï¿½5[Dï¿½ï¿½ï¿½ï¿½ p
+ï¿½ß‰ï¿½4ï¿½ï¿½Tï¿½ï¿½l;ï¿½K ï¿½Iï¿½kï¿½ï¿½_ï¿½r0ï¿½ï¿½yoï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@"ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½#ï¿½o[ï¿½wï¿½ï¿½ï¿½/rï¿½pï¿½ï¿½ï¿½    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/print_error.png b/panels/user-accounts/data/icons/print_error.png
 deleted file mode 100644
@@ -3319,24 +3364,51 @@ index d67150b..0000000
 --- a/panels/user-accounts/data/icons/print_error.png
 +++ /dev/null
 @@ -1,18 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  ½IDATh½šyt\Õ}Ç?÷Í›EÛÈÚ%K¶dÙÂØ±³d¡qÉbHKIINÆÐ#8JHp˜Öch›” !S›²ÓPã„ÍÁ±ÍnVoØBXÖ:’f43Í¼­üîh1$Ø@{ÏyçZóî¼ù~ûï÷¬<Ïãã¬h4ê¦5úª@7ÐôD"‘ÜÇzø,u$¢Ñh5°8ø2P¢o9@\_.0ð¯ w÷G"‘ä§{bh4ZÜ|0ôÇ€_"Ÿ,D@ožNG~!ô pM$9ðÿF À…ˆÄŸ¾|Nƒy¸˜ìžüt/pp;6k‚_.ŠD"/|ZŒ?w#4èDú§hð ¯k gm@p*¢àûÀµÀ6DSÀ	Àœh4ÚüN øWv>ðUà€?ÀMˆ„×g.CìÿNàô÷[w€€åÀg€ÿ^¶D£ÑS>jBÑh´8ø¼x%ÐüðD¢MˆC"ÎZÔésoéÏ^Ö"æó]à|ÀžþX‰DRŸ„€ù!à— — !NY”«Ÿ¿×Ÿ-Ó_éF4±8Iì.B4sâ;÷g÷÷éß^\ÿíÖÖVâo·µµVxü à:`ðÀ
--âD#qÄŒnÚk€Ä¼–0a’ïkpUÀ¯iÏFÂ•ÀˆÏF£×G"‘±ÖÖÖbÄgŽÕß»ëpLñh4Ú#Ñ"l>‹Dœ"½Ÿ fs>p)â€?"Ò¼þqòëú9"ÝWZ}æhà¬[n¹åKšÐ±@¿~Öa­C5°‰(¿ ~Ì‚H(,DBdøÄNÒßÛäéSÛ¬¾¨Ÿk!¾ñ}D‹G÷ööÖö÷÷ÿ	Å»€«ÚÚÚ†—À¡QhÐÄv'êÏó%ÁW­„5øÏ~Œ˜É6Äî_ÑÏº
--1£Óg€ÅÀ“À)»víz¦££ãoÃ¨…Bï ÿ|$à§ÐµÍV¤Dx‚‰¨ÒûLàGHhôç¼qÚW‘,ÜŠ8öÅH:]ã¯À,Ïó:{{{O<ðWTTôwÜq]mmmÙ#?… ðwˆ4¿‚Äú£™0±½ ŽÓä~‡8î·x?P\Ž8`=RA|d°ßuÝ²ööö³b±˜éóùŒÙ³gÔÕÕ=‡ä‰#^“	¬ lÄ6{è’'0¨÷ÍLØý$ú¤3‘°û°~ÎSúŒŽ¶¥Óéæýû÷Û£££->ŸŠŠŠ›jjjæ#šùÄæ#’55¨²I÷ûõ¾)¡S@¡~,nFB«1/ÇO ;wî|¨³³óæt:=bšæàœ9shnnÞä”ƒÀÜh4üXtÑ6C)‰ý“é½ñ‹Wèðbç£Hx(Ð{È$“Éw]·Ì4Í·,Xð` ÈŸ+Fê$“	_;ì•7‘:x?"=WßË(Ó»¥ÏnD|ÄFBâHØ­?äüÎ¹]]]#~¿_M›6m´¾¾~³Rjš¾_­÷r +‰$Ž”@`“ÞÇsq™ˆÿ ù´)÷!9b3Rv” åôiˆ£Ïö<ÏÛ¾}ûY}}}E®ë¦Âk•RÇOz^©Þ¿¼Fó8ì•×@£Þi Ô¨þ</ÑýðW€–ÿü=’nµm{igggø–aTUUý²ªªê6Ä‡Nel¬V½ývÚ´i%EE/V‰Dµ
--ýaýŠOO›–{ÞG†Õ<¼óœ‚Tù/fôž·éB½	ñ2ãÄÆßº6™LvNoll|³°°0ì"“i1î½·Xmß¾Ë2€:Ã0LLÏXu®„Ü•@z½R·?]îyÖGH"fq2Ò6ž!Î»sÒ¹¼“ŸŽdÙÕHö}èïéé¹~ppðW€ë÷û{š››MÓ¼8G½þúcýú(*+
--Q^ZHq0€?èGbÉžë*+g‘³Êd‹†Ó™«3Ö+õåž·ã/H!Îx6RÃ\ üÉžÏ!‡&¢QRß¯ALië®]»Öår¹[Ã›¦ùìÜ¹sëÃ€\n·zòÉ›GqLŸa6Õ–S.Æ¬ŽY7£´WðF¸‰a
--{º)ïífx$Å{ñE¶ã¾¶^©+Û–{žûçìCLçX$ÛÞŠdÔ_#eÁ^ Ijßîæ ·¿ùæ›ƒJ©µ†a†ÃáçgÎœ¹)µ0î¾ûõâ‹ª¬(äk¬œFÁŒ˜sX£8f!N2‰»{7TÔbVÔbÕBåž‡¨Î„8Yƒ´ª+'ÈG¡$úõ¡ùH ýï‰H=ó9¤¾ù1Ð`Ûöííí3Ãø‰Ïç+(//Îœ9ó1¾OmÚ4¦^|±®:\Äœšr¨Ÿ1k®åà&“8‰æñÇS{ÞyÔ_r	¹šÜdR.ËÁlšG°®95eª:\péz¥NþKbH2Ù‡Äù¼ÔM¤\¼	,M¥RçïÝ»÷rà†ad«ªªVOŸ>½©ûºÊxâ‰H0à§¾"Œ“s1ªëq’)œd'™$ÕÝÍ´%KÆÁ„±†‡ÇïÛ©ª¦'ëP_&è7=àÞõJ'¼¼	u"Qå€&³[›ÑÀ\$¹%gmM¥RuttÜ¤”jö655=VTT´
--ñ‘×€KG}„XL5M¯DÙŽYˆ“œ:Û‹Çq­‰ c364D° `Ê9ÇÂ´FiªšfìîŽ5#ÛãˆD"2]Ûˆ$«°þ{'2”Š#áí¹‘‘‘ÏïÙ³g±RªÑó¼§[ZZ^)**úµ"À­ª«ë1µukuu¸ˆ’P€±þ8v";22åR™n:=ÔN&qS©œs#dûã”„T…‹<àòõJÍžlBhÉ ±Ò× m¡lîíí]µwïÞ˜ßïŸ
--…6-X°àeÓ4Ïv åø%À:õÄíxÕáBìä(n6‡cÇããæá$“x™V<> ÛÛ‹7::åŒãÄã89k$MM¸PiÜgJàeÄ~ŸGœ÷4¤ÄØêyžÑÑÑ±¶¿¿@mm­sÔQGÝ§”ºJ›ÙEH08CíÙÓl¡€;£s¢ç‘ëè0“	ŽÈvw£&ˆÇÉut€ý8™Á€S)ø:Lí‰_A’ÒuÀÝÀ€Ù‰Dâ§CCC¥ÉdrîØØØŽyóæÍ)--}™Ö½
--üéHËy‰D}ØïÀÍNØ¸gÛX}}¨@ #R“Œuua¤Rxž‡›Ëáårãàœœ…ÂÓÊZ‹§h ‰¼‹´‡ó‘bî»Ùlö`ggçoûûûß°m»}áÂ…M¥¥¥Z3ëIÂ#HÇv2ð=2™Â²üÄ²™²</›¤RX±Ø„ººpFFä^6;<€gÙày„‚€ië•
--:•¨žÞíëë«ëêêt]7ä÷ûßoiiÙXPPàÓ¤sÀ·ÓÙ„dðÕÀ÷TGÇÍÀª@À”ü¥(LÖðDïö÷`ú·çç~€®eŒÃ®<”À:àš¡¡¡‹b±Xe0$ÓÐÐ°À0ŒeL$·ðÒàoE
--:8Ù+/?À²Œ’©W
--†\ž™}{ pR)¼þnü	ðnþr&ˆ¦‰eå‹d†§üÂ¶mÛv”••½7::†JJJ6Ï˜1ã¥Ô"¤Y¯Bf77 -e2X‡D¬µÔÖž„ÏÇX6†Âð›¸–Ï'àó»a¡ÄKÛÈìbxÓ3¿Bò®#P>0ñ«ÔrÏ'ÐÚÚVŽŽžªkjj^ª©©É åÃãˆ½_ŒÔý·#=Ã¡«XI °2™ÍÎ0‚~”'|æT†¡Lœ—ÎÁÍå¨) ¿o’ô}BBi²ý $³–‹$[‰B­­­åZª-ÙlvoSSÓ†ÊÊÊ°–ø,M¢iÐÛ‘„—`¢ÏjZüÐ[ºtznÃr9a ÇÊà3ÁœD ¿×!mçBÀ˜j>Ž®Òà_aœecyžã›­­­
--™(4k³XUYY¹øð.R}Zú
--"m`­¾ß‚tsùF ïØcQ6Kg˜QÆÎŽ¢<kB“ˆxŸYÂô+~†3ÐËèõ—bõÛ½2ÀÑàñ™˜¥EtäGTüôûÖÖÖ…ÈKˆÚÚÚ’ Ñhô¤¹©CjÉÔ¹ÞG†½Z#A Ûwá…“ÉüÍÂÆ*Šüààói-èËUPø›g(ýÂR ºo½ŽÐ¯Wã:"}Ç–Ë¶²JR–â­Ž€–{Þ·ÇM¨­­ímd>yÝ‰ÔBG#öžÒ’wæßCJŽKBÐÓdv{k¯ö­^mïë‹›‹fUa”cŒ¥ÆÍÇçƒtÔîãF÷îÄçÁxp×áÔc¼ÛÙï"5×Åyõ’ïkˆ­ùñáNÄ¤òÓê2:"s¢ùÈ´b.0SmÙ’5îº«¤±ª˜™µaT6…o,‰iz˜~ÑÀ{éÓN[†32Lúùç˜Wéá8`[`;
--Û_‚,æ½ž:ûS g/÷¼‡‹€&ñy-õúc&bV
--ébšT©Z“HfN#ÆªU—©žž…4Õ—ÀÁ—Æ4,LÒ6ÄÇ `By!}ÞòL¬`¶g²ÿàÒ -÷¼oNÆw¸ï‰ÏEÂè âèõ-µÔ!}s“¦kžçá$“}¾;îÈšï¼3³0èó4•©’â ¦›ÅÀÂOCIã(?.~l¸F€DÚ¢}ÜMÙ†Ñ·ákaÈ›ú°ßÔG£ÑÅÀo™Â&ç]‰8ù™úï4z6jYÖ`,«™¼çoVoï¥”Ì®)¤¶,Hq±å3ÇÃ$€ç:$S9z†stô¤q!¾®¾	6 šñ<Ï9bš„qØÏ"Îíj°ùaØ2äÍf`Ù¶ýÇ}ûö=¾fÍš?år¹à¨9®*Ñn¿·8hÅ~ÌX¤Æ\ÏrQÚ-wÁ¯‰yfŽy“æDGDà2ÍÈ›™Hn0‘áÖF$¡í\±bE)7J5)àû:4žK+à¤ Ô˜b~ØËAo^ØÏn”V×E|0ƒþÿ[Gº”’ ñ‹ ’'ò­qÈ¿™vòî"I4‹„ïìÇòO@b2Ø<`õ!{ž€ÇÄ„<ÿw¾gw½C[ÿÀ¿¦Bœú<ç    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  ï¿½IDAThï¿½ï¿½ï¿½yt\ï¿½}ï¿½?ï¿½Í›Eï¿½ï¿½ï¿½%Kï¿½dï¿½ï¿½Ø±ï¿½dï¿½qï¿½bHKIINï¿½Ð#8JHpï¿½ï¿½ï¿½chï¿½ï¿½ !Sï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½nVoï¿½BXï¿½:ï¿½f43Í¼ï¿½ï¿½ï¿½h1$ï¿½@{ï¿½yï¿½Zï¿½ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½<ï¿½ï¿½ï¿½h4ï¿½ï¿½5ï¿½ï¿½@7ï¿½ï¿½D"ï¿½ï¿½ï¿½zï¿½,u$ï¿½ï¿½h5ï¿½8ï¿½2Pï¿½o9@\_.0ï¿½ï¿½ wï¿½G"ï¿½ï¿½{bï¿½h4Zï¿½|0ï¿½ï¿½ï¿½_"ï¿½,D@oï¿½NG~
+!ï¿½ pM$9ï¿½ï¿½F ï¿½ï¿½ï¿½ï¿½ÄŸï¿½|Nï¿½yï¿½ï¿½
+ï¿½ï¿½ï¿½t/pp;ï¿½6kï¿½_.ï¿½D"/|Zï¿½?w#ï¿½4ï¿½Dï¿½ï¿½hï¿½ ï¿½kï¿½gm@p*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½6DSï¿½	ï¿½ï¿½h4ï¿½ï¿½N ï¿½W
+v>ï¿½Uï¿½ï¿½?ï¿½Mï¿½ï¿½ï¿½g.Cï¿½ï¿½Nï¿½ï¿½ï¿½[ï¿½wï¿½ï¿½ï¿½ï¿½gï¿½ï¿½^ï¿½Dï¿½ï¿½S>
+jBï¿½hï¿½8ï¿½ï¿½x%ï¿½ï¿½ï¿½Dï¿½Mï¿½Cï¿½"ï¿½Zï¿½ï¿½soï¿½ï¿½^ï¿½"ï¿½ï¿½]ï¿½|ï¿½ï¿½ï¿½Xï¿½DRï¿½ï¿½ï¿½ï¿½!ï¿½ï¿½ ï¿½ !NYï¿½ï¿½ï¿½ï¿½ï¿½×Ÿ-ï¿½_ï¿½F4ï¿½8Iï¿½.B4sï¿½;ï¿½gï¿½ï¿½ï¿½ï¿½^\ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½oï¿½ï¿½ï¿½ï¿½Vxï¿½ ï¿½:`
+ï¿½ï¿½
+-
+ï¿½
+D#qÄŒnÚkï¿½Ä¼ï¿½0aï¿½ï¿½kpUï¿½ï¿½iï¿½FÂ•ï¿½ï¿½ï¿½ÏFï¿½ï¿½G"ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½gï¿½ï¿½ß»ï¿½pLï¿½h4ï¿½#ï¿½"l>ï¿½Dï¿½"ï¿½ï¿½ fs>p)ï¿½ï¿½?"Ò¼ï¿½qï¿½ï¿½ï¿½9"ï¿½Wï¿½Z}ï¿½hï¿½[nï¿½ï¿½Kï¿½Ð±@ï¿½~ï¿½aï¿½C5ï¿½ï¿½(ï¿½ ~ï¿½ï¿½H(,DBdï¿½ï¿½Nï¿½ï¿½ï¿½
+ï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½k!ï¿½ï¿½}Dï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	Å»ï¿½ï¿½ï¿½ï¿½Ú†ï¿½ï¿½ï¿½Qhï¿½ï¿½v'ï¿½ï¿½ï¿½%ï¿½Wï¿½ï¿½5ï¿½ï¿½~ï¿½ï¿½ï¿½6ï¿½ï¿½_ï¿½Ïº
+-1ï¿½Ógï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½vï¿½zï¿½ï¿½ï¿½ï¿½o
+Ã¨ï¿½Bï¿½ ï¿½|$ï¿½Ðµï¿½Vï¿½Dxï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½GHhï¿½ï¿½qï¿½Wï¿½,ÜŠ8ï¿½ï¿½H:]ã¯ï¿½ï¿½,ï¿½ï¿½:{{{O<ï¿½WTTï¿½wï¿½q]mmmï¿½#?ï¿½ ï¿½wï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ ï¿½ï¿½ï¿½~ï¿½8î·x?P
+\ï¿½8`=RA|dï¿½ï¿½uÝ²ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù³gï¿½ï¿½ï¿½ï¿½=ï¿½ï¿½#^ï¿½	ï¿½ lï¿½6{ï¿½ï¿½'0ï¿½ï¿½ï¿½Lï¿½ï¿½$ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½~ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û£ï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jjjï¿½#ï¿½ï¿½ï¿½ï¿½#ï¿½55ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½)ï¿½S@ï¿½~,nFBï¿½1/ï¿½O ï¿½;wï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½t:=bï¿½ï¿½ï¿½ï¿½9shnnÞä”ƒï¿½ï¿½h4ï¿½Xtï¿½6C)ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½bï¿½Hx(ï¿½{ï¿½
+
+$ï¿½ï¿½w]ï¿½ï¿½4Í·,Xï¿½` ÈŸ+Fï¿½$ï¿½	_;ï¿½7ï¿½:
+x?"=Wï¿½ï¿½(Ó»ï¿½ï¿½nD|ï¿½FBï¿½HØ­?ï¿½ï¿½Îï¿½ï¿½ï¿½]]]#~ï¿½_Mï¿½6mï¿½ï¿½ï¿½~ï¿½Rjï¿½ï¿½_ï¿½ï¿½rï¿½+ï¿½$ï¿½ï¿½@`ï¿½ï¿½ï¿½sqï¿½ï¿½ï¿½ ï¿½ï¿½)ï¿½!9b3Rvï¿½ ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½<ï¿½Û¾}ï¿½Y}}}Eï¿½ï¿½ï¿½
+
+
+kï¿½Rï¿½Oz^ï¿½Þ¿ï¿½ï¿½Fï¿½8ï¿½ï¿½@ï¿½ï¿½i Ô¨ï¿½</ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½=ï¿½nï¿½m{igggï¿½ï¿½aTUUï¿½ï¿½ï¿½ï¿½ï¿½6Ä‡Nelï¿½Vï¿½ï¿½vï¿½Ú´i%EEï¿½/Vï¿½Dï¿½
+-ï¿½aï¿½ï¿½OOï¿½ï¿½{ï¿½Gï¿½ï¿½<ï¿½ï¿½ï¿½Tï¿½ï¿½/fï¿½ï¿½ï¿½ï¿½Bï¿½	ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½6ï¿½LvNoll|ï¿½ï¿½ï¿½0ï¿½"ï¿½i1î½·Xmß¾ï¿½2ï¿½:ï¿½0LLï¿½Xuï¿½ï¿½Ü•@zï¿½Rï¿½?]ï¿½yï¿½GH"fq2ï¿½6ï¿½!Î»sÒ¹ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½Hï¿½}ï¿½ï¿½ï¿½ï¿½~ppï¿½Wï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½MÓ¼8Gï¿½ï¿½ï¿½cï¿½ï¿½(*+
+-Q^ZHq0ï¿½?ï¿½GbÉžï¿½*+gï¿½ï¿½ï¿½dï¿½ï¿½Ó™ï¿½ï¿½3ï¿½+ï¿½ï¿½åž·ï¿½/H!ï¿½x6Rï¿½\ ï¿½Éžï¿½!ï¿½&ï¿½QRß¯ALiï¿½]ï¿½ï¿½ï¿½rï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ü¹sï¿½Ã€\nï¿½zï¿½É›ï¿½GqLï¿½a6Õ–S.Æ¬ï¿½ï¿½Y7ï¿½ï¿½Wï¿½Fï¿½ï¿½a
+-{ï¿½)ï¿½ï¿½fx$ï¿½{ï¿½Eï¿½ã¾¶^ï¿½+ï¿½Û–{ï¿½ï¿½ï¿½ï¿½CLï¿½X$ï¿½ÞŠdï¿½_#eï¿½^ï¿½Ijï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½æ›ƒJï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½gÎœï¿½)ï¿½0ï¿½ï¿½ï¿½â‹ªï¿½(ï¿½kï¿½ï¿½Fï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Xï¿½8f!N2ï¿½ï¿½{7Tï¿½bVï¿½bï¿½Bï¿½ï¿½ï¿½Îï¿½8ï¿½Yï¿½ï¿½ï¿½+'ï¿½Gï¿½$ï¿½ï¿½ï¿½ï¿½H ï¿½ï¿½H=ï¿½9ï¿½ï¿½ï¿½1ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½+(//ï¿½Îœ9ï¿½1
+ï¿½Omï¿½4ï¿½^|ï¿½ï¿½:\Äœï¿½rï¿½ï¿½ï¿½1kï¿½ï¿½ï¿½&ï¿½8ï¿½ï¿½ï¿½ï¿½S{ï¿½yï¿½_r	ï¿½ï¿½ï¿½dR.ï¿½ï¿½lï¿½Gï¿½ï¿½ï¿½95eï¿½:\pï¿½zï¿½Nï¿½KbH2Ù‡ï¿½ï¿½ï¿½ï¿½Mï¿½
+\ï¿½	,Mï¿½Rï¿½ï¿½Ý»ï¿½rï¿½ï¿½adï¿½ï¿½ï¿½VOï¿½>ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½H0à§¾"ï¿½ï¿½s1ï¿½ï¿½qï¿½)ï¿½d'ï¿½$ï¿½ï¿½Í´%Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û©ï¿½ï¿½'ï¿½P_&ï¿½7=ï¿½ï¿½ï¿½Jï¿½'ï¿½ï¿½	u"Qï¿½&ï¿½[ï¿½ï¿½ï¿½\$ï¿½%gmMï¿½RuttÜ¤ï¿½jï¿½655=VTTï¿½
+-ï¿½×€Kï¿½G}ï¿½XL5Mï¿½Dï¿½ï¿½Yï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½qï¿½ï¿½ c364Dï¿½ï¿½`ï¿½9ï¿½Â´Fiï¿½ï¿½fï¿½ï¿½5#ï¿½ï¿½ï¿½ï¿½D"2]Ûˆ$ï¿½ï¿½ï¿½{'2ï¿½ï¿½#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù³gï¿½Rï¿½ï¿½ï¿½[ZZ^)**ï¿½ï¿½"ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ukuuï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½8v"ï¿½;22ï¿½Rï¿½n:=ï¿½N&qSï¿½ï¿½s#dï¿½ã”„Tï¿½ï¿½<ï¿½ï¿½ï¿½JÍžlBhï¿½
+ ï¿½ï¿½ï¿½ mï¿½lï¿½ï¿½ï¿½]ï¿½wï¿½Þ˜ï¿½ï¿½
+-ï¿½6-Xï¿½ï¿½eï¿½4ï¿½v ï¿½ï¿½%ï¿½:ï¿½ï¿½ï¿½xï¿½ï¿½Bï¿½ï¿½(n6ï¿½ï¿½cï¿½ï¿½ï¿½ï¿½ï¿½$ï¿½xï¿½V<> ï¿½Û‹7::ï¿½ï¿½ï¿½ï¿½ï¿½89k$MMï¿½Piï¿½gJï¿½eï¿½~ï¿½Gï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½Ñ±ï¿½ï¿½ï¿½@mmï¿½sï¿½QGÝ§ï¿½ï¿½Jï¿½ï¿½EH08Cï¿½ï¿½ï¿½lï¿½ï¿½;ï¿½sï¿½ï¿½ï¿½ï¿½0ï¿½	ï¿½ï¿½vwï¿½&ï¿½ï¿½ï¿½utï¿½ï¿½8ï¿½ï¿½ï¿½S)ï¿½:Lï¿½_Aï¿½ï¿½uï¿½ï¿½ï¿½ï¿½Ù‰Dï¿½CCCï¿½ï¿½drï¿½ï¿½ï¿½ØŽyï¿½ï¿½ï¿½)--}ï¿½Ö½
+-ï¿½ï¿½Hï¿½yï¿½D}ï¿½ï¿½ï¿½ï¿½NØ¸gï¿½X}}ï¿½@ #Rï¿½ï¿½uuaï¿½Rxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½h ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½lï¿½`ggï¿½oï¿½ï¿½ï¿½ß°mï¿½}ï¿½Â…Mï¿½ï¿½ï¿½Z3ï¿½Iï¿½#Hï¿½v2ï¿½=2ï¿½Â²ï¿½Ä²ï¿½ï¿½</ï¿½
+ï¿½RXï¿½Ø„ï¿½ï¿½pFFï¿½^6;<ï¿½gï¿½ï¿½yï¿½ï¿½ï¿½iï¿½
+-:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½t]7ï¿½ï¿½ï¿½ï¿½oiiï¿½XPPï¿½Ó¤sï¿½ï¿½ï¿½Ù„dï¿½ï¿½ï¿½ï¿½TGï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½(Lï¿½ï¿½Dï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½eï¿½Ã®<ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½Xe0$ï¿½ï¿½Ð°ï¿½0ï¿½eL$ï¿½ï¿½ï¿½ï¿½oE
+-:8ï¿½+/?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W
+-ï¿½\ï¿½ï¿½}{ pR)ï¿½ï¿½nï¿½ï¿½	ï¿½nï¿½r&ï¿½ï¿½ï¿½eï¿½dï¿½ï¿½ï¿½Â¶mï¿½vï¿½ï¿½ï¿½ï¿½7::ï¿½JJJ6Ï˜1ï¿½ï¿½ï¿½"ï¿½Yï¿½Bf77 -e2Xï¿½Dï¿½ï¿½ï¿½Öžï¿½ï¿½ï¿½X6ï¿½ï¿½ð›¸–ï¿½ï¿½'ï¿½ï¿½aï¿½ï¿½Kï¿½ï¿½ï¿½bxï¿½3
+ï¿½Bï¿½#P>0ï¿½ï¿½rï¿½'ï¿½ï¿½ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½kjj^ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ãˆ½_ï¿½ï¿½ï¿½ï¿½#=Ã¡ï¿½XI ï¿½2ï¿½ï¿½ï¿½0ï¿½~ï¿½'|ï¿½Tï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½oï¿½ï¿½}BBiï¿½ï¿½ $ï¿½ï¿½ï¿½$[ï¿½Bï¿½ï¿½ï¿½ï¿½Zï¿½-ï¿½lvoSSÓ†ï¿½ï¿½Ê°ï¿½ï¿½,Mï¿½iï¿½Û‘ï¿½ï¿½`ï¿½ï¿½ï¿½jZï¿½ï¿½[ï¿½tznï¿½r9a ï¿½ï¿½ï¿½3ï¿½ï¿½D ï¿½ï¿½!mï¿½Bï¿½ï¿½j>ï¿½ï¿½ï¿½ï¿½_aï¿½ï¿½ecyï¿½ï¿½ã›­ï¿½ï¿½
+-ï¿½(4kï¿½XUYYï¿½ï¿½ï¿½.R}Zï¿½
+-"m`ï¿½ï¿½ß‚tsï¿½F ï¿½ï¿½cQ6Kgï¿½Qï¿½ÎŽï¿½<kBï¿½ï¿½xï¿½Yï¿½ï¿½+~ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½Û½2ï¿½ï¿½ï¿½ñ™˜¥Etï¿½GTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö…ï¿½Kï¿½ï¿½ï¿½Ú’ ï¿½hï¿½ï¿½ï¿½ï¿½Cjï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½Z#Aï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*ï¿½ï¿½ï¿½
+
+ï¿½ï¿½i-ï¿½ï¿½UPï¿½ï¿½g(ï¿½ï¿½R ï¿½oï¿½ï¿½Ð¯Wï¿½:"}Ç–Ë¶ï¿½ï¿½JRï¿½â­Žï¿½ï¿½{Þ·ï¿½Mï¿½ï¿½ï¿½ï¿½md>yÝ‰ï¿½BG#ï¿½ï¿½Ò’wï¿½ï¿½ï¿½CJï¿½Kï¿½Bï¿½ï¿½dv{ï¿½kï¿½ï¿½ï¿½^mï¿½ë‹›ï¿½fUaï¿½cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½xpï¿½ï¿½ï¿½cï¿½ï¿½ï¿½ï¿½"5ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½NÄ¤ï¿½ï¿½ï¿½2:"sï¿½ï¿½È´b.0SmÙ’5îº«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aT6ï¿½o,ï¿½izï¿½~ï¿½ï¿½{ï¿½ï¿½N[ï¿½32Lï¿½ï¿½ï¿½Wï¿½ï¿½8`[`;
+-ï¿½_ï¿½,æ½ž:ï¿½S g/ï¿½ï¿½ï¿½ï¿½ï¿½&ï¿½y-ï¿½ï¿½ï¿½c&bV
+-ï¿½bï¿½Tï¿½Zï¿½HfN#ÆªUï¿½ï¿½ï¿½ï¿½
+ï¿½4Õ—ï¿½ï¿½ï¿½ï¿½4,Lï¿½6ï¿½ï¿½ `By!}ï¿½ï¿½Lï¿½`ï¿½gï¿½ï¿½ï¿½ï¿½ -ï¿½ï¿½oNï¿½wï¿½ï¿½ï¿½Eï¿½ï¿½ ï¿½ï¿½ï¿½-ï¿½ï¿½!}sï¿½ï¿½kï¿½ï¿½ï¿½$ï¿½}ï¿½;ï¿½Èšï¿½3ï¿½0ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½OCIï¿½ï¿½(?.~lï¿½Fï¿½DÚ¢}ï¿½Mï¿½Ù†Ñ·ï¿½kaÈ›ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½ï¿½oï¿½ï¿½&ï¿½]ï¿½8ï¿½ï¿½ï¿½ï¿½4z6jYï¿½`,ï¿½ï¿½ï¿½ï¿½oVoï¿½ï¿½Ì®)ï¿½ï¿½,Hqï¿½ï¿½3ï¿½ï¿½$ï¿½ï¿½:$S9zï¿½stï¿½ï¿½q!ï¿½ï¿½ï¿½	6 ï¿½ï¿½<ï¿½9bï¿½ï¿½qï¿½ï¿½"ï¿½ï¿½jï¿½ï¿½aï¿½2ï¿½ï¿½f`Ù¶ï¿½ï¿½}ï¿½ï¿½=ï¿½fÍš?ï¿½rï¿½ï¿½ï¿½9ï¿½*ï¿½nï¿½ï¿½8hï¿½~ï¿½ï¿½Xï¿½ï¿½\ï¿½rQï¿½-wï¿½ï¿½ï¿½ï¿½yfï¿½yï¿½ï¿½DGDï¿½2ï¿½È›ï¿½Hn0ï¿½ï¿½ï¿½F$ï¿½ï¿½\ï¿½bE)7J5)ï¿½ï¿½:4ï¿½K+ï¿½ Ô˜b~ï¿½ï¿½Ao^ï¿½ï¿½nï¿½Vï¿½E|0ï¿½ï¿½ï¿½[Gï¿½ï¿½ï¿½ ï¿½ ï¿½'ï¿½ï¿½qÈ¿ï¿½vï¿½ï¿½"I4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½O@b2ï¿½<`ï¿½!{ï¿½ï¿½ï¿½Ä„<ï¿½wï¿½gwï¿½C[ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½<ï¿½    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/print_ok.png b/panels/user-accounts/data/icons/print_ok.png
 deleted file mode 100644
@@ -3344,30 +3416,47 @@ index 4dd615e..0000000
 --- a/panels/user-accounts/data/icons/print_ok.png
 +++ /dev/null
 @@ -1,24 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   tEXtSoftware Adobe ImageReadyqÉe<  ÿIDATxÚÄZ˜åþffëÝÞÝî•½‡HG"
--‚ÔˆŠC¹(FôÑv±DDC|T¨Ñ Q1‚"æ	"J‘b8ªôz…ëeïö¶OÉ÷Ï½{.' ˜¬ÏËx;3ÿ|åýÚ?+†AmùÌ›7ÏÉ‡³Ù/#“QÏ8Ç¸qã"ô¤Ÿ£ -É¸–1”áÀ© Ãˆ»àÜwŒ¿1°2þÿ›,x>ü‚Køºˆ1“QÆèÉèÏ…ŒÏ×0\Œ+=3¦°"Åÿ3Xp…ÂÚÿbÜÁÌø±Œ1Ñ‘±ñC\ŸÌ(eÌ`¼ÎhÂ½½¿b<ÀJl8S
--È'^PàkF*ãMÆÿ.þ;š/]…:3îfükÌfäáþŽ¼v—_\þÌ‚}AƒQŒ/Áó)Œçÿf|/Õ2Þ}„[ïdìbL`Üš-ÅÖ²C~1
--ñâð!Ÿ1Œñ„\¼ÿ3ãÆpð&d¢F9cc#ã[ÐHÄÇíŒq Ù(ØéÔxF=ÀÂü–b¡H
--ãÆŸ‹ñÝpÜrú(¨öâã6X\Ðg…XT»”q„agL>ã`Ö‚çeÜÂx”Ø‚`~ß	«?Ë zh•¡„pYæñŒ'¡ìW Ü{X {!tF<ÀÂ÷ãƒÎ¸	Åh²ÇbPà#Ýˆ }†ñ"£¬.¨7‘QÇ˜Ï¨a¼½‚ÔZˆ€®oâçž{¦(tã}ÐãŸŒ^à¬à¹áÁñXð"ÜwÖ±2Á.è3.,¯263
--ëPÅ?U'Ÿ)ü°nŒq Á'>Q¯…7Ú1Îƒ¥û#•>‡ô)÷qÆVFã1Ä¨+ÂÚË¡¼ðàjq?{¡ëi)ÀË®…õãBæà´G¼O#ÈÕnF®?Œ˜ØŒ´YÁ¸‡ñZ-Èh»Q/Š3¢žXáÁ‘§ë}@£ÐÇ‚s>1.d¸Ÿ2.Ã}[Q³‘fÁ å –h%öBÑ,Tga°\ÆT(Þ÷tˆçè³àúž	
--Tá(ªê üÿË ŽA¿”ñ8¾<¡É«†1VBà8MãÏ¿u£Ïé*p²ƒ„{Î—ã¸
--–­ƒ½Ðç\€ÀÞ	J¨¸Þ‰k; ¸…wÖ ®ÄŸïåÎa[Ú¤ nÌ‡kÅGÃ99A¸"íPI‡á»%HX˜@ñó@±^ÔœwáÚ<(nm«òAŸC'P -!µCÐu‡€"ðoEµÍCÑËÄõ{P#„aîG]HCÛA	Šˆë‹ÚRÐâvÄ±	œVa™øâŽWn<¬
+-   
+IHDR   0   0   Wï¿½ï¿½   tEXtSoftware Adobe ImageReadyqï¿½e<  
+ï¿½IDATxï¿½ï¿½Zï¿½ï¿½ï¿½ffï¿½ï¿½ï¿½ï¿½î•½ï¿½HGï¿½"
+-ï¿½Ôˆï¿½Cï¿½(Fï¿½ï¿½vï¿½DDC|Tï¿½ï¿½ï¿½ Q1ï¿½"ï¿½	"Jï¿½b8ï¿½ï¿½zï¿½ï¿½eï¿½ï¿½ï¿½Oï¿½ï¿½Ï½{.' ï¿½ï¿½ï¿½ï¿½x;3ï¿½|ï¿½ï¿½ï¿½?+ï¿½Amï¿½Ì›7ï¿½É‡ï¿½ï¿½/#ï¿½Qï¿½8Ç¸qï¿½"ï¿½ï¿½ï¿½ï¿½ -É¸ï¿½1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½1ï¿½2ï¿½ï¿½ï¿½,x>ï¿½ï¿½Kï¿½ï¿½ï¿½1ï¿½Qï¿½ï¿½ï¿½ï¿½Ïï¿½ï¿½ï¿½ï¿½0\ï¿½+=3ï¿½ï¿½"ï¿½ï¿½3Xpï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½Ñ‘ï¿½ï¿½ï¿½
+C\ï¿½ï¿½(eï¿½`ï¿½ï¿½hÂ½ï¿½ï¿½b<ï¿½Jl8S
+-ï¿½'^Pï¿½kF*ï¿½Mï¿½ï¿½.ï¿½;
+ï¿½/]ï¿½:3ï¿½fï¿½kï¿½fï¿½ï¿½ï¿½ï¿½ï¿½vï¿½_\ï¿½Ì‚ï¿½}Aï¿½Qï¿½/ï¿½ï¿½)ï¿½ï¿½ï¿½f|/ï¿½2ï¿½}ï¿½[ï¿½dï¿½bL`ï¿½ï¿½-ï¿½Ö²C~1
+-ï¿½ï¿½ï¿½!ï¿½1ï¿½ï¿½ï¿½\ï¿½ï¿½3ï¿½ï¿½pï¿½&dï¿½F9cc#ï¿½[ï¿½Hï¿½ï¿½ï¿½qï¿½ï¿½(Øï¿½ï¿½xF=ï¿½ï¿½ï¿½ï¿½bï¿½H
+-ï¿½ÆŸï¿½ï¿½ï¿½pï¿½rï¿½(ï¿½ï¿½ï¿½ï¿½6X\ï¿½gï¿½XTï¿½ï¿½qï¿½agL>ï¿½`Ö‚ï¿½eï¿½ï¿½xï¿½Ø‚`~ï¿½	ï¿½?ï¿½ z
+hï¿½ï¿½ï¿½pYï¿½ï¿½'ï¿½ï¿½Wï¿½ï¿½{X {!tF<ï¿½ï¿½ï¿½ï¿½Î¸	ï¿½hï¿½ï¿½bPï¿½#Ýˆ }ï¿½ï¿½"ï¿½ï¿½.ï¿½7ï¿½QÇ˜Ï¨aï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½
+oï¿½ï¿½{ï¿½(tï¿½}ï¿½ãŸŒ^ï¿½à¹ï¿½ï¿½ï¿½Xï¿½"ï¿½wï¿½ï¿½2ï¿½.ï¿½3ï¿½.,ï¿½263
+-ï¿½Pï¿½?U'ï¿½)ï¿½ï¿½nï¿½q ï¿½'>Qï¿½ï¿½7ï¿½1Îƒï¿½ï¿½#ï¿½>ï¿½ï¿½)ï¿½qï¿½VFï¿½1Äï¿½+ï¿½ï¿½Ë¡ï¿½ï¿½ï¿½jq?{ï¿½ï¿½i)ï¿½Ë®ï¿½ï¿½ï¿½Bï¿½ï¿½Gï¿½O#ï¿½ï¿½nFï¿½?ï¿½ï¿½ØŒï¿½Yï¿½ï¿½ï¿½ï¿½Zï¿½-ï¿½hï¿½Q/ï¿½3ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½}@ï¿½ï¿½Ç‚s>1.dï¿½ï¿½2.ï¿½}[Qï¿½ï¿½ï¿½ï¿½fï¿½ å –h%ï¿½Bï¿½,Tgaï¿½\ï¿½T(ï¿½ï¿½tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+-Tï¿½(ï¿½ï¿½ ï¿½ï¿½Ë ï¿½Aï¿½ï¿½ï¿½8ï¿½<ï¿½É«ï¿½1VBï¿½8Mï¿½Ï¿uï¿½ï¿½ï¿½*pï¿½ï¿½ï¿½{Î—ï¿½
+-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½	Jï¿½ï¿½Þ‰k; ï¿½ï¿½wÖ ï¿½ÄŸï¿½ï¿½ï¿½a[Ú¤ nÌ‡kï¿½Gï¿½99Aï¿½ï¿½"ï¿½PIï¿½ï¿½%Hï¿½Xï¿½@ï¿½ï¿½@ï¿½^Ôï¿½wï¿½ï¿½<(nmï¿½ï¿½Aï¿½C'P -!ï¿½Cï¿½uï¿½ï¿½"ï¿½oEï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½{P#ï¿½aï¿½G]HCï¿½A	ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½vÄ±	ï¿½Vaï¿½ï¿½ï¿½Wn<ï¿½
 -
--¬@ÊL†"C‘aº#G@—È2¢Õ˜°^Ü0¢YÜŽég}âœ;Gáb1p¤Ã½‘VrC	®ÕQDžªÍ½„õoîÇ9¡ä•1#ì-‹î(ßþú!›”DAÝ×;¬7fX%ûçL/ø…på—‘SU Î½!¨’±!“ZÅÂð„1üq°MŸ¨¿G¡Ú3BçnðÏq•D4#&Ë’’›âðPJ²‡dÍ‘Û¬ÍAëòXkøtIÔ‘©¬Hì§ð#Ÿ/D¯"†™mPÀ€€ñŠ\…J*2ÑBø‚å½ÈNc‹#›Ö¼“›’»æö#·+ƒ\ÎfÇjz³|º¡K15B¬Õø+“+ë‹Ÿ1ÈÉŠŒe%vžLF¤È_ÃÝw£‡¹ÌÂôOe¨Æ¯!‹kFïÓq!*±¡Ñ’=¡å—m	|zQNjKÏüËÉjµÝ’Äp‘,ÉdUìl4M%•dwSjr&y\™t°|gß¨ÞÌJ<%žÇŠè'Rà ²L”ù70Ì@þç»Á3b6žƒà4ZŒ"8±"ÆÆ¹üï½SÛD½ÛQÚgv¢dG­PsÏbEÔàý=ÿçvfQzR.¥9½d³:¥’ªýÖº¦ÊWùt{Ðë¸JEÑÉCŽ§Ò]È³‘ef€:YR'¸ø€¢¡JWì£‰lð^Ðy[4MÈFÁè©ï®H’Dé.îN$]’e™jË'²'>a/¬kFiê÷ÂÚû@	qÝzxg-ÀÕh«‹ÑB\	á+ƒzýóß—ÞÞ!£'¥¹<t¸n;…b~V á”a•mÔ-k ¹“²)Ë“KV‹]¸m+áhí¢„.1„®±/†n°j Á:©r<<0;r³RåÛ‹–êJDêœÛ›Š}»)ªE(=õñ·cú¹4nàä´¦ÐwE_Ð»£O{¹¤ú`WÌO´x€+ †J¼Â¦£˜}X…V¡™+ÇÌ;íƒX°’1FŒ¢>µtéðšôyçSXóS©o/5„ªOÙòÝ½iüà—Máýá:zkÕ$ªð“Ãá¤Ô$·ðÂ£ì…N­›¹­"aKQÌŽB)ÑMþir"¶V!smÅl b`îŽàg…I6¹S2épívXT=J‡Ø¾“
--I§ÑT0hY˜>âžç¿Me‡8;E¨)ZO)®4	rj­À&Ì­ëPØD
--í
--Jª=€@W€J(òÆ$Œ‡‚†#jÔC½\\ ÖÛ©ky@XPm ŒÃµ&‚j3BZ>ïIº¥ÿf&Ÿ_M e«I‘%²(EÕÇ…³˜¤#Q iq*Ò§Bn€'² Üc€ Ð«l±Û°½“¨Ð7„t_ž+)•‚±F3M¶ôë9“Óîâ2äß@1ÙO1ÉOš¤.}›Ftßrí‚Í/ÑÊýó‰ËÙlÍbÆ´(iìM«Õü¢_kvC¸ L¼¨]ªÌB»ef£p-‚7D¿—Û…5QŒl©ÔihY<-)‹¦]·‚ž½j1Ù²Úe²Ø%¿IvÕríÚÃ‹hþ¦çH±H”ì²b•LE¥tCåïÍÜãæ8°·(À¬£­^‡ô)£Ø‡¶W(õG5Q/ÁÞÑzôPâûñµ±ÃbÃ—Ö$
--!ëAÚyº™ÔèéB÷\ð.›JŒé÷=» Eøƒµ[hæÚñ$3‰SÜV²9š¯³°ÑÅ:1-Æ”Râ—g¶ž€ÞG Þ:)­Î	ÛlP‰Vù¤Ò‹’•L1ÜpÎÅb3­'°·v#ªÝJ2úÑÐÎwPypS'D×w}¼eqQ'¦;Ž4)l
--o±Ê¤«\­5ƒ=À%ëf<¨M-½]ýñvæ®Fê”ÑàÕ +MFºž¨ÆlÐ› )˜«û~X}å{»‘ÇFG·± üP¢³{½tÍ×Í–@K#I?°øõwÑš#)É¥˜–‚4ÀÐ$´$ª®¬§h$ÖÄ9åx3¨¶ŠÑçtF»Å+ç8÷ŠLv¯"Ùž
--„;äz³Ù2Éü§S¦ý¾´úÈº´ã˜c7‡íâi}ÙÇäHVÈå±6¯	«³õ%^HßÅ4ÝýHŽvÂ¼Tàl¤Îa°pÚ†µ L|ö¡<_ÄMwç°¬ƒáoH×urØ“XˆóW¦Náó·?MÛ$‡ÅÕòÌòÀš»ó“ç¹v“¨ÂâÂúBpÍä®l*«Ü~ë2vAèD» »ÐQî…âÃ»¹Ø‰è†ÀOM\+ßvž±3¸Lò7(=-‡jcGHæ<.4UÓÂ]S© ÏËæµ"³¼Yx'E´ ¥{m&ïMj1ß™1¦àBÑE
--P(ÐÐÒŽ,9é+&öÂ+æ<XZG×ZÒ
--Å‹7¢+­XXsßR‹Õ2¬G—ž°–QDj4…ãNš|51Ùu"ÝÜý)zgëý´±â”ÌlNñ»)¡F¹‚ÇX‘(Ë¨*ÔX£ª"35/dþù)ò1™õ@Rè…7.IØ(…×öùµÊœeõ•áöZò;gQÎ^°°%Ù‘ˆÎ–Tai2ƒ<#ÇÁ9VMeXx=ÆI ÌÚY§«ª.J{OV æ¤¯˜8J°§3-Ãu Šš°[-š¼‹ìbÈù ;—§(Ù#ÎwÝÖPå;J¾ê yì¹¤HÍNNQ(-Ój
--,r»Çkÿ‘ð?8²ùoM‰ŸXxñÇ}qáOé5+{âXýb(Ñ­!>Ñ€é.¾}èÿ¬nò£AªíÕ.7²ò]±øÌüoV×Im¦YN›*{+¨Qù~?ùëÌ
--1ÌÜÚ–÷Äãð^¬
--\/AA“à•(•™°çÓùzSÉê†·´JuWÇTWºÑ¡K¦du«¤+ì\E3gá[œŽýì«SÙžFã@æ¿çÕî¥‡·½OuF‚Ð§ü¦ž•€é«<Rw]“ øÍØ±«Í4UUkƒÁ`§p8œ²¢z¦¡fd³ØR¼yäö:Ééfa9Û’j6±¨Î)Þ_¡º² ù*ÃœÈWžÙ<Ëìv…WYf­­?5°¢ÐÀÂA@_ƒ-wQ3Â¼öòÒÒÒ¥S¦LÙÀÊ8²ûRv÷›èi[2IÑj³èö$«lµ+¦‘HŒ"˜Á5ÀäV´‰Öìþ„¦Uï4éÂÈ[ÃëÆÚ¤Àq~7q#:S~±[ìbS`oAAAçÒ0nš³DÇ¡tVvÆ#Ã`ÅJÙÜ›™{©ºF5Ü«U„ëi}E!}U´Êìt*ÿ=F›=ð³_6G©ÊÙ1()	ÇJ«Mä¸°‰G=aŸUdÅH›bà4”H6.°tœc\ÐþÖâ
--Æ±[ÿ` Å!âÄ­¾«<    IEND®B`‚
+-ï¿½@ï¿½Lï¿½"Cï¿½aï¿½#G@ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½^ï¿½0ï¿½YÜŽï¿½ï¿½g}ï¿½;Gï¿½b1pï¿½Ã½ï¿½VrC	ï¿½ï¿½QDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½9ï¿½ï¿½1#ï¿½-ï¿½ï¿½(ï¿½ï¿½ï¿½!ï¿½ï¿½DAï¿½ï¿½;ï¿½7fX%ï¿½ï¿½L/ï¿½ï¿½på—ï¿½SU Î½!ï¿½ï¿½ï¿½!ï¿½Zï¿½ï¿½ï¿½ï¿½1ï¿½qï¿½Mï¿½ï¿½ï¿½Gï¿½ï¿½3Bï¿½nï¿½ï¿½qï¿½D4#&Ë’ï¿½ï¿½ï¿½ï¿½PJï¿½ï¿½dÍ‘ï¿½ï¿½ï¿½Aï¿½ï¿½Xkï¿½tIÔ‘ï¿½ï¿½Hï¿½ï¿½#ï¿½/Dï¿½"ï¿½ï¿½mPï¿½ï¿½ï¿½ï¿½\ï¿½J*2ï¿½Bï¿½ï¿½ï¿½ï¿½Ncï¿½#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½#ï¿½+ï¿½\ï¿½fï¿½jzï¿½|ï¿½ï¿½K15Bï¿½ï¿½ï¿½+ï¿½+ë‹Ÿ1ï¿½ÉŠï¿½e%vï¿½Lï¿½Fï¿½ï¿½_ï¿½ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oeï¿½Æ¯!ï¿½kFï¿½ï¿½q!*ï¿½ï¿½Ñ’=ï¿½ï¿½m	|zQNjKï¿½ï¿½ï¿½ï¿½jï¿½ï¿½Ý’ï¿½pï¿½,ï¿½dUï¿½lï¿½4M%ï¿½ï¿½ï¿½dwSjr&y\ï¿½tï¿½|gß¨ï¿½ï¿½J<%ï¿½ÇŠï¿½'Rï¿½ ï¿½Lï¿½ï¿½70ï¿½@ï¿½ï¿½ï¿½3b6ï¿½ï¿½ï¿½
+4Zï¿½"8ï¿½"ï¿½Æ¹ï¿½ï¿½Sï¿½Dï¿½ï¿½Qï¿½gvï¿½dGï¿½Psï¿½bEï¿½ï¿½ï¿½=ï¿½ï¿½vfQzR.ï¿½9ï¿½dï¿½:ï¿½ï¿½ï¿½ï¿½Öºï¿½ï¿½Wï¿½t{ï¿½ï¿½JEï¿½ï¿½Cï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½efï¿½:YR'ï¿½ï¿½ï¿½ï¿½ï¿½JWï¿½ï¿½ï¿½lï¿½^ï¿½y[4Mï¿½Fï¿½ï¿½ï¿½Hï¿½Dï¿½.ï¿½N$]ï¿½eï¿½jï¿½'ï¿½'>a/ï¿½kï¿½Fï¿½iï¿½ï¿½ï¿½ï¿½ï¿½@	qï¿½zxg-ï¿½ï¿½hï¿½ï¿½ï¿½B\	ï¿½+ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!ï¿½'ï¿½ï¿½<tï¿½n;ï¿½b~Vï¿½ï¿½aï¿½mï¿½-k ï¿½ï¿½ï¿½)Ë“KVï¿½]ï¿½m+ï¿½hí¢ï¿½.1ï¿½ï¿½ï¿½/ï¿½ï¿½nï¿½j ï¿½:ï¿½r<<0;rï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½JDï¿½Û›ï¿½}ï¿½)ï¿½E(=ï¿½ï¿½cï¿½ï¿½4nï¿½ä´¦ï¿½wE_Ð»ï¿½O{ï¿½ï¿½ï¿½`Wï¿½Oï¿½xï¿½+ï¿½ï¿½Jï¿½Â¦ï¿½ï¿½}ï¿½Xï¿½Vï¿½ï¿½+ï¿½ï¿½;ï¿½Xï¿½ï¿½1Fï¿½ï¿½>ï¿½tï¿½ï¿½ï¿½yï¿½SXï¿½Sï¿½o/5ï¿½ï¿½Oï¿½ï¿½Ý½iï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½:zkï¿½$ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½$ï¿½ï¿½Â£ï¿½Nï¿½ï¿½ï¿½ï¿½"aKQÌŽB)ï¿½Mï¿½ir"ï¿½V!smï¿½l b`ï¿½ï¿½gï¿½I6ï¿½S2ï¿½pï¿½vXï¿½T=Jï¿½ï¿½ï¿½ï¿½ï¿½
+-Iï¿½ï¿½T0hYï¿½>ï¿½ï¿½Me
+ï¿½8;Eï¿½)ZO)ï¿½4	rï¿½jï¿½ï¿½&Ì­ï¿½Pï¿½D
+-ï¿½
+-Jï¿½=ï¿½@Wï¿½J(ï¿½ï¿½$ï¿½ï¿½ï¿½ï¿½#jï¿½Cï¿½\\ï¿½ï¿½ï¿½ï¿½ky@X
+Pmï¿½ï¿½Ãµ&ï¿½ï¿½j3BZï¿½>ï¿½Iï¿½ï¿½ï¿½f&ï¿½_Mï¿½eï¿½Iï¿½%ï¿½(Eï¿½Çï¿½ï¿½ï¿½ï¿½#ï¿½Qï¿½iq*Ò§Bnï¿½'ï¿½ ï¿½cï¿½ï¿½Ð«lï¿½Û°ï¿½ï¿½ï¿½ï¿½7ï¿½t_ï¿½+)ï¿½ï¿½ï¿½F3Mï¿½ï¿½ï¿½9ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½@1ï¿½O1ï¿½Oï¿½ï¿½.}ï¿½Ftï¿½rï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½bÆ´(iï¿½Mï¿½ï¿½ï¿½ï¿½_kvCï¿½ï¿½Lï¿½ï¿½]ï¿½ï¿½Bï¿½ï¿½
+efï¿½p-ï¿½7Dï¿½ï¿½Û…5Qï¿½lï¿½ï¿½ihY<-)ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½j1Ùï¿½ï¿½eï¿½ï¿½%ï¿½Ivï¿½rï¿½ï¿½Ã‹hï¿½ï¿½ï¿½Hï¿½Hï¿½ì²bï¿½LEï¿½tCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½8ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½)ï¿½
+Ø‡ï¿½W(ï¿½G5Q/ï¿½ï¿½ï¿½zï¿½Pï¿½ï¿½ï¿½ï¿½bÃ—ï¿½$
+-!ï¿½Aï¿½yï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½\ï¿½.ï¿½Jï¿½ï¿½ï¿½
+=ï¿½ï¿½Eï¿½ï¿½ï¿½[hï¿½ï¿½ï¿½$3ï¿½Sï¿½Vï¿½9ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:1-Æ”Rï¿½gï¿½ï¿½ï¿½ï¿½G ï¿½:)ï¿½ï¿½	ï¿½lPï¿½Vï¿½ï¿½Ò‹ï¿½ï¿½L1ï¿½pï¿½ï¿½ï¿½b3ï¿½'ï¿½ï¿½v#ï¿½ï¿½Jï¿½2ï¿½ï¿½ï¿½ï¿½wPypS'Dï¿½w}ï¿½eqQ'ï¿½;ï¿½4)l
+-oï¿½Ê¤ï¿½\ï¿½5ï¿½=ï¿½%ï¿½f<ï¿½M-ï¿½]ï¿½ï¿½vï¿½Fï¿½ï¿½ï¿½ï¿½ +MFï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ )ï¿½ï¿½ï¿½~X}ï¿½{ï¿½ï¿½ÇFGï¿½ï¿½ ï¿½Pï¿½ï¿½{ï¿½tï¿½ï¿½Í–@K#I?ï¿½ï¿½ï¿½ï¿½wÑš#)É¥ï¿½ï¿½ï¿½4ï¿½ï¿½$ï¿½$ï¿½ï¿½ï¿½ï¿½h$ï¿½ï¿½9ï¿½x3ï¿½ï¿½ï¿½ï¿½ï¿½tFï¿½ï¿½+ï¿½8ï¿½ï¿½Lvï¿½"Ùž
+-ï¿½;ï¿½zï¿½ï¿½2ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½c7ï¿½ï¿½ï¿½i}ï¿½ï¿½ï¿½HVï¿½ï¿½6ï¿½	ï¿½ï¿½ï¿½%ï¿½^Hï¿½ï¿½4ï¿½ï¿½Hï¿½vÂ¼Tï¿½lï¿½ï¿½aï¿½pÚ†ï¿½ï¿½L|ï¿½
+ï¿½<_ï¿½Mwç°¬ï¿½ï¿½oHï¿½urØ“Xï¿½ï¿½Wï¿½Nï¿½ï¿½?MÛ$ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bpï¿½ï¿½l*ï¿½ï¿½~ï¿½2vAï¿½Dï¿½ ï¿½ï¿½Qï¿½ï¿½ï¿½Ãï¿½ï¿½Ø‰ï¿½ï¿½OM\+ï¿½vï¿½ï¿½3ï¿½Lï¿½7(=-ï¿½jcGHï¿½<.4Uï¿½ï¿½]Sï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½ï¿½Yx'Eï¿½ ï¿½{m&ï¿½Mj1ß™1ï¿½ï¿½Bï¿½E
+-P(ï¿½ï¿½ÒŽ,9ï¿½+&ï¿½ï¿½+ï¿½<XZGï¿½Zï¿½
+-ï¿½ï¿½7ï¿½+ï¿½XXsï¿½Rï¿½ï¿½2ï¿½Gï¿½ï¿½ï¿½ï¿½QDj4ï¿½ï¿½Nï¿½|51ï¿½u"ï¿½ï¿½ï¿½)zgï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lNï¿½ï¿½)ï¿½Fï¿½ï¿½ï¿½Xï¿½(Ë¨*ï¿½Xï¿½ï¿½"35/dï¿½ï¿½ï¿½)ï¿½1ï¿½ï¿½@
+ï¿½Rï¿½ï¿½7.Iï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Êœeï¿½ï¿½ï¿½ï¿½Zï¿½;gQï¿½ï¿½^ï¿½ï¿½%ï¿½ï¿½ï¿½Î–Tai2ï¿½<#ï¿½ï¿½9VMeXx=ï¿½I ï¿½ï¿½Yï¿½ï¿½ï¿½.J{OVï¿½æ¤¯ï¿½8Jï¿½ï¿½3-ï¿½uï¿½ï¿½ï¿½ï¿½[-ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ ;ï¿½ï¿½(ï¿½#ï¿½wï¿½ï¿½Pï¿½;Jï¿½ï¿½ yì¹¤Hï¿½NNQ(-ï¿½j
+-,rï¿½ï¿½kï¿½ï¿½ï¿½?8ï¿½ï¿½oMï¿½ï¿½Xxï¿½ï¿½}qï¿½Oï¿½5+{ï¿½Xï¿½b(ï¿½ï¿½!>Ñ€ï¿½.ï¿½}ï¿½ï¿½ï¿½nï¿½Aï¿½ï¿½ï¿½.7ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½oVï¿½Imï¿½YNï¿½*{+ï¿½Qï¿½~?ï¿½ï¿½ï¿½
+-1ï¿½ï¿½Ú–ï¿½ï¿½ï¿½ï¿½^ï¿½
+-\/AAï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½zSï¿½ê†·ï¿½JuWï¿½TWï¿½Ñ¡Kï¿½duï¿½ï¿½+ï¿½\E3gï¿½[ï¿½ï¿½ï¿½ï¿½SÙžFï¿½ï¿½@ï¿½ï¿½ï¿½î¥‡ï¿½ï¿½OuFï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<Rï¿½w]ï¿½ ï¿½ï¿½Ø±ï¿½ï¿½4UUkï¿½ï¿½`ï¿½p8ï¿½ï¿½ï¿½zï¿½ï¿½fï¿½dï¿½ï¿½Rï¿½yï¿½ï¿½:ï¿½ï¿½fa9ï¿½ï¿½j6ï¿½ï¿½ï¿½)ï¿½_ï¿½ï¿½ï¿½ ï¿½*Ãœï¿½ï¿½Wï¿½ï¿½ï¿½<ï¿½ï¿½vï¿½WYfï¿½ï¿½?5ï¿½ï¿½ï¿½
+ï¿½
+ï¿½A@_ï¿½-wQ3Â¼ï¿½ï¿½ï¿½ï¿½Ò¥Sï¿½Lï¿½ï¿½ï¿½8ï¿½ï¿½Rvï¿½ï¿½ï¿½i[2
+Iï¿½jï¿½ï¿½ï¿½$ï¿½lï¿½+ï¿½ï¿½Hï¿½"ï¿½ï¿½ï¿½5ï¿½ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Uï¿½4ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ú¤ï¿½q~7q#:S~ï¿½[ï¿½bS`oAAAï¿½ï¿½0nï¿½ï¿½DÇ¡tVvï¿½#ï¿½`ï¿½Jï¿½Ü›ï¿½{ï¿½ï¿½F5Ü«Uï¿½ï¿½i}E!}Uï¿½ï¿½ï¿½t*ï¿½=Fï¿½=ï¿½_ï¿½6Gï¿½ï¿½ï¿½1()	ï¿½Jï¿½Mä¸°ï¿½G=aï¿½Udï¿½Hï¿½bï¿½4ï¿½H6.ï¿½tï¿½c\ï¿½ï¿½ï¿½ï¿½
+-Æ±[ï¿½` ï¿½!ï¿½Ä­ï¿½ï¿½<    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/right-index-finger.png b/panels/user-accounts/data/icons/right-index-finger.png
 deleted file mode 100644
@@ -3375,11 +3464,17 @@ index 4aaeaac..0000000
 --- a/panels/user-accounts/data/icons/right-index-finger.png
 +++ /dev/null
 @@ -1,5 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  _IDAThÕšYlTUÇ³´t£¥,m‘"²©Q’~DÑHŒ/`\PA!Ë‹O<CŒÆ-Ñb|P0åA%Aƒ"Œ†²ä#b(”¶T¡µì0µ¶Ó¹>ôÞ¹sf¹wn1þ_î™o;ßî7çœï´!Ë²ø?#ZŒsÓ®ÐôH¤t]8½+Ùi&¶ylè€ÓFDJ¥@Ø£ªÃÅÌé†o²;º¦´jì¦ú©w7Ö–×“L$8ßÓ²lÞ·å;gôÆ_øb¹•Jt°Þo ^/6i'|oCsÃUÕoÜ:c~½õM)—Zú˜¶¤‘†¹µmUÇži?s´Øh›/s¸®ÄE@DBÀ]@—ª^ñšKØ+Ý<aêíõUgjhßz–®ýçiÞ¨Œ»8‘™šÆ”UÔ<=çËÐxÛ¼Æáz‹!ÜÛÀq [Dîðš‹gM{B•¡ò’É5%ã)½R~C><”$v¨	‘IÔÕÍž6¦4²ÈVU;ÜÇ‰H9éXe?Ç OyÍÇ3’~æ„Ë+kËCåTD+Ót6w16\MmeC”ÒèB)J]!R™	Ô9tžKÚ3d’x†"¡Ñhú|mGÛ	‡Á‚p2ÔTB8Kê¾bóñì0˜àD²?~=a% $™®‹r¡ó"±¿ÏÇ‡âñý@¥!D…c<¯Ø|<;_nÒ?¼JbÜP†þÜé.º»[:jcü„™€S6Û¥ó¼Gø[…zëz:ŽuÆj®fèNþm  ÷Í}«­8éßv
--¹d‘E"²VDÆšrñE@—[ç’ñkŸhý®%RJ;‹\?2Ð~xiÿ'†dS¨°‹Ó]º´}@D– û€€WM¹ø" Ð¼ÄÒ²®ØÜá¡á§ÜºR2Ññ1W	ÝFæªãÞÈ^Bö¸| Ø·ÚŠ3>éO‘ÉöØTB)Ù,ƒîi ;t™r(Š€³ÙûiªÛˆýt×?ÀeÇx…Ã Û4yLSG‚\î4èœ%´Ú¥k3M~ƒ,•œ‰@jÎù.yûË‘& É¡`@âY.© =A€UMØãg]º_TµÏ4ùh0­à^2W Ópcy]éÒ}Ÿmò dSDdðAW<h·ÚÏ‡I?àA§?©¶÷ÛA·[U5[ólz Ÿf‘¿œEÞi?W¸ä=À‘,>Æ7ððP< löÚukB6^qADfOºä;T5ir 3£dª;D$b°7•¼ì Ê\òí¹œ2¨j+ðÁöQà}ƒ<¨7Ð@æñºEU³–dÿoÀ¼Ã¾$"K]² ˜°7Ÿ‘€ªÆ€³ø|("Î®*¨2áP>ƒ¬Ë¨ªîvTS€wŸ½çU0šóäÛÖ™m¬‘öxAb€û¤›P¾»QÙ<oPµk€Ýd9«‰cª*ùŒ
--Ù‰_cä0åÆlàgF'y€®BŒòPÕ³ÀgE§ãÁ°ñ.p³ïáŒPÕßŠJÇ;rn`)x9~î3?H ?bè…ÀW˜—ÔÑÀ¯ªz½Ã‚	¨êen^}]¨¡×†æ9 #¯Uq¸ÆÈEVAðDÀ^Róoó1Ø\hù€–RU;!a:­‹~à=/þîFU;ékƒ~«ê/¾›zUmgüÆpÁÂÜ0åDQ·ªú#MxûÝ­ª§½:}­¢ª-6#ý°gq/p*€ý8EÀó«7à’§ ôÃWo ~Äÿ)¬7g"á÷¿Xþ{y`a©&    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  _IDAThï¿½ÕšYlTUï¿½ï¿½ï¿½tï¿½ï¿½,mï¿½"ï¿½ï¿½Qï¿½~Dï¿½Hï¿½/`\PA!ï¿½Ë‹O<Cï¿½ï¿½-ï¿½b|P0ï¿½A%Aï¿½"ï¿½ï¿½ï¿½ï¿½#b(ï¿½ï¿½Tï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½Ó¹>ï¿½Þ¹sfï¿½wn1ï¿½_ï¿½o;ï¿½ï¿½7ï¿½ï¿½!Ë²ï¿½?#Zï¿½sÓ®ï¿½ï¿½Hï¿½t]8ï¿½+ï¿½i
+&ï¿½ylï¿½ï¿½FDJï¿½ï¿½@Ø£ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½;ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½w7Ö–×“L$8ï¿½Ó²lÞ·ï¿½;gï¿½ï¿½_ï¿½bï¿½ï¿½Jtï¿½ï¿½o ^/6i'|ï¿½oCsï¿½Uï¿½oï¿½:c~ï¿½ï¿½M)ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mUÇži?sï¿½ï¿½hï¿½/sï¿½ï¿½ï¿½E@DBï¿½]@ï¿½ï¿½^ï¿½Kï¿½+ï¿½<aï¿½ï¿½ï¿½Ugjhï¿½zï¿½ï¿½ï¿½ï¿½iÞ¨ï¿½ï¿½8ï¿½ï¿½ï¿½Æ”Uï¿½<=ï¿½ï¿½ï¿½xÛ¼ï¿½ï¿½zï¿½!ï¿½ï¿½ï¿½qï¿½[Dï¿½ï¿½gM{Bï¿½ï¿½ï¿½ï¿½5%ï¿½)ï¿½R~C><ï¿½$vï¿½ï¿½	ï¿½Iï¿½ï¿½Íž6ï¿½4ï¿½ï¿½VU;ï¿½Ç‰H9ï¿½Xe?ï¿½ Oyï¿½ï¿½3ï¿½ï¿½~ï¿½ï¿½+kï¿½Cï¿½TD+ï¿½t6w16\MmeCï¿½ï¿½ï¿½B)J]!Rï¿½	ï¿½9tï¿½Kï¿½3ï¿½dï¿½xï¿½"ï¿½ï¿½hï¿½|mGï¿½	ï¿½ï¿½ï¿½p2ï¿½TB8Kï¿½bï¿½ï¿½ï¿½0ï¿½ï¿½Dï¿½?~=a%ï¿½$ï¿½ï¿½ï¿½rï¿½ï¿½"ï¿½ï¿½ï¿½Ç‡ï¿½ï¿½ï¿½@ï¿½!Dï¿½c<ï¿½ï¿½|<;_n
+ï¿½?ï¿½Jbï¿½Pï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½[:jcï¿½ï¿½ï¿½ï¿½S6Û¥ï¿½Gï¿½[ï¿½zï¿½z:ï¿½uï¿½jï¿½fï¿½Nï¿½mï¿½ï¿½ï¿½ï¿½}ï¿½ï¿½8ï¿½ï¿½v
+-ï¿½dï¿½E"ï¿½VDÆšrï¿½E@ï¿½[ï¿½ï¿½kï¿½ï¿½hï¿½ï¿½%RJ;ï¿½\?2ï¿½~xiï¿½'ï¿½dSï¿½ï¿½ï¿½ï¿½]ï¿½ï¿½}@Dï¿½ ï¿½ï¿½ï¿½ï¿½WMï¿½ï¿½" Ð¼ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÜºR2ï¿½ï¿½1W	ï¿½Fï¿½ï¿½ï¿½ï¿½^Bï¿½ï¿½| Ø·ÚŠ3>ï¿½Oï¿½ï¿½ï¿½ï¿½TB)ï¿½,ï¿½ï¿½i ;tï¿½r(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½Ûˆï¿½tï¿½?ï¿½eï¿½xï¿½ï¿½ï¿½ï¿½4yLï¿½SGï¿½\ï¿½4ï¿½%ï¿½Ú¥k3Mï¿½~ï¿½,ï¿½ï¿½ï¿½@jï¿½ï¿½.yï¿½ï¿½ï¿½&ï¿½É¡`@ï¿½Y.ï¿½ =Aï¿½UMï¿½ï¿½g]ï¿½_Tï¿½ï¿½4ï¿½h0ï¿½ï¿½^2Wï¿½ï¿½pcy]ï¿½ï¿½}ï¿½mï¿½ dSDdï¿½AW<hï¿½ï¿½ï¿½Ï‡I?ï¿½Aï¿½?ï¿½ï¿½ï¿½ï¿½Aï¿½[U5[ï¿½lz ï¿½fï¿½ï¿½ï¿½Eï¿½i?Wï¿½ï¿½=ï¿½ï¿½,>ï¿½7ï¿½ï¿½P< lï¿½ï¿½ukB6^qADfOï¿½ï¿½;T5ir 3ï¿½ï¿½dï¿½;D$bï¿½7ï¿½ï¿½ï¿½ï¿½ ï¿½\ï¿½ï¿½ï¿½ï¿½2ï¿½j+ï¿½ï¿½ï¿½ï¿½Qï¿½}ï¿½<ï¿½7ï¿½@ï¿½ï¿½EUï¿½ï¿½dï¿½oï¿½ï¿½Ã¾$"K]ï¿½ï¿½ï¿½ï¿½7ï¿½ï¿½ï¿½ï¿½ï¿½Æ€ï¿½ï¿½|("Î®*ï¿½2ï¿½P>ï¿½ï¿½Ë¨ï¿½ï¿½vTSï¿½wï¿½ï¿½ï¿½U0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½ï¿½xï¿½Abï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½Qï¿½<oPï¿½kï¿½ï¿½d9ï¿½ï¿½cï¿½*ï¿½ï¿½
+-Ù‰_cï¿½0ï¿½ï¿½lï¿½gF'yï¿½ï¿½Bï¿½ï¿½PÕ³ï¿½gEï¿½ï¿½ï¿½ï¿½ï¿½.pï¿½ï¿½ï¿½
+ï¿½Pï¿½ßï¿½Jï¿½;rn`)x9ï¿½~ï¿½3?H ?bï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½zï¿½Ã‚	ï¿½ï¿½en^}]ï¿½ï¿½×†ï¿½9ï¿½#ï¿½Uqï¿½ï¿½ï¿½EVAï¿½Dï¿½^Rï¿½oï¿½1ï¿½\hï¿½ï¿½ï¿½ï¿½RU;!a:ï¿½ï¿½~ï¿½=/ï¿½ï¿½FU;ï¿½kï¿½~ï¿½ï¿½/ï¿½ï¿½zUmgï¿½ï¿½pï¿½ï¿½ï¿½0ï¿½DQï¿½ï¿½ï¿½#Mxï¿½Ý­ï¿½ï¿½ï¿½:}ï¿½ï¿½ï¿½-6#ï¿½ï¿½gq/p*ï¿½ï¿½8Eï¿½ï¿½7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Woï¿½ ~ï¿½ï¿½)ï¿½ï¿½7g"ï¿½ï¿½ï¿½Xï¿½{ï¿½ï¿½y`aï¿½&    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/right-little-finger.png b/panels/user-accounts/data/icons/right-little-finger.png
 deleted file mode 100644
@@ -3387,16 +3482,26 @@ index 17946af..0000000
 --- a/panels/user-accounts/data/icons/right-little-finger.png
 +++ /dev/null
 @@ -1,10 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  DIDAThÕšhUeÇ?çž{¯wwnåæœÛth*|4%”Œ$‚PQŠÊ@Š¨¨Ê?ü#úGÄ 2òÂÊ Ê0$¬i*a!š®G,²ÔùÛéFÞ¥é~ÝíöÇÎÝÎÎÞ»{Ï=gFßÎû>?Þó|yŸ÷Çsîµ2™ÿgDGû"– À.UísüH˜ƒåÀZ`;Ð¬	{ðÀ3 "¯óÍªºË`ò˜«½Xïñ·€™À%UMù} ‘ÙÀ»ÀãÀN™b0»ÍÕ®5èß~ZDäN¿1M¡:W;,5Ø”»Ú·‹H‰G¿ÊyŽVø (´§ÿ°»#"	ú‰¹1Ñ¥ŸLpé|§tØ‰HÌÕkðq§Ôü|ñÌÝnÕÌÚiMÍ@ÐEÜéé'à˜Ó/5ø$]í¹Ý ÙÑåv<±.Y;¹"jÇíùû*S]766-îÜävJ Å ›ÅÈÜ²]/ÀœFû…è¸ÊµS'ßSUeO )¡+ÓUÝ|¹iýÜÆ’ºÃ‹;ÞÈ:M¡‹™¸ÚIƒ~$í;¬²¾Xluí¤»ªê¢“Iþ^N÷.‹ºžzfÖ,WZ^ùÔœÖÀnˆ€ªvyÄ³r›E@D¢€7·S%{E¼¦zZ…=žÞ#v¯ÞÏþ8³å"£µÜQ?¯>óZ(xg!¬l
--ÃS8…ÍÂdé8«,RFóösà\Õ¢1*ìñTŒ©ÆŽÅÎ‹Ñ P%"5NÛ”BYÙtƒ.…)‰Y12í\bU•U$¬1+†Ed`§ƒÀƒìnçYfÐÙÎÓ›ÿ W3½½»;oÐ²¯•LßàM9Y™¤'ÓMwº“L_ï™¬<¦(;Å#h0èRñtß¶›m—Ï_ÚÝ6D­±hïKÑ|ùHkOg×æ¬<Y68ì;ïõÈÓ@Ë¡å™óé&~ºÙ<xÄØÑÖÌ>N¶K_i=µ·iY÷á¬.ŒzÀ{˜ÁÈlI2t±œVÕ4@æÓú!³:¶!Áç·µ¶¦š¿K$®=ãÖ6rƒÎæÞ}¶×•nÅµtë×íN½rôÑÌ°õF
--udu"²
--xÐ › <`Ÿpž1ô‚GæøØ7MÁƒaD¤øXàºøHUsÏ¦ ø,‡üåò³ÎóIü
--p$‡q– ÕÀ}À&`“·&ä"àm"2xÂ#ßªª}¹œLšp.U.,¶Šˆm°7¥P1xØ
--$<ò-#9# ª'€¶Ë€yX30‘á×ëãªš3} ÷"~ó	û’ˆ,ñÈÂ"`Âž|Fªzx1‡Ï‡"â®ªÂJ!~ÎgsUÕÀWUðŽ«?É\ãP>ƒ|çÀ Ç VD:í…}¸ü‘ÏÈÊ÷mTD6ÏT'€§éÿâf:qƒâ¨ªJ>£BNâu@·A>ø‘Ñ	àR!Fy	¨êà‹ÀáøG8l` ¸»e0ÕÃPUýø>P8þ1â–…ŸÛè—ERÒÀÞBýøó–:8 ª×
--1,˜€ª^åÖ¥Ñ·…ú-hžNûôñ‹¿5öEÀÙR1X|ŒÞ/4} ˆ’RUÏÒOÂXâDðž‡¢jbU=M]öL|¢ªmùÍQtQ¯ª§€û3ÅŽáAsÁ4"‚~>GÆo¿ªzÒ¯SàÏ*ªzÐ ãÐ_ûFX?tÿÂ‹q
--‹€ï©7ÀûCIA‹À?!ŒQTm0ñJ ç—³‘.ö_,ÿóÔtv#ÛÙä    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  DIDAThï¿½ÕšhUeï¿½?ï¿½{ï¿½wwnï¿½ï¿½ï¿½th*
+|4%ï¿½ï¿½$ï¿½PQï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½?ï¿½#ï¿½GÄ 2ï¿½ï¿½ï¿½ ï¿½0$ï¿½i*a!ï¿½ï¿½G,ï¿½ï¿½ï¿½ï¿½ï¿½FÞ¥ï¿½~ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ»{ï¿½=gFï¿½ï¿½ï¿½>?ï¿½ï¿½|yï¿½ï¿½ï¿½sï¿½2ï¿½ï¿½gDGï¿½"ï¿½ ï¿½ï¿½.Uï¿½
+sï¿½Hï¿½ï¿½ï¿½ï¿½Z`;ï¿½ï¿½	{ï¿½ï¿½3 "ï¿½ï¿½Íªï¿½ï¿½`ò˜«½Xï¿½ñ·€™ï¿½%UMï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½b0ï¿½ï¿½Õ®5ï¿½ï¿½~ZDï¿½Nï¿½1Mï¿½:W;,5Ø”ï¿½Ú·ï¿½Hï¿½Gï¿½ï¿½yï¿½Vï¿½
+ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½#"	ï¿½ï¿½ï¿½1Ñ¥ï¿½Lpï¿½|ï¿½tï¿½ï¿½Hï¿½ï¿½kï¿½qï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½iMï¿½@ï¿½Eï¿½ï¿½ï¿½'ï¿½ï¿½ï¿½ï¿½/5ï¿½$]ï¿½ï¿½ï¿½ ï¿½Ùï¿½ï¿½v<ï¿½.Y;ï¿½"jï¿½ï¿½ï¿½ï¿½*S]766-ï¿½ï¿½ï¿½vJï¿½ï¿½ ï¿½ï¿½ï¿½Ü²]/ï¿½ï¿½Fï¿½ï¿½ï¿½ÊµS'ï¿½SUeO )ï¿½+ï¿½Uï¿½|ï¿½iï¿½ï¿½Æ’ï¿½Ã‹;ï¿½ï¿½:Mï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½~$ï¿½
+;ï¿½ï¿½ï¿½Xluï¿½ï¿½ï¿½ï¿½ê¢“Iï¿½^Nï¿½.ï¿½ï¿½ï¿½zfï¿½,WZ^ï¿½Ôœï¿½ï¿½nï¿½ï¿½ï¿½vyÄ³rï¿½E@Dï¿½ï¿½7ï¿½S%{Eï¿½ï¿½zZï¿½=ï¿½ï¿½#vï¿½ï¿½ï¿½ï¿½
+8ï¿½ï¿½"ï¿½ï¿½ï¿½Q?ï¿½>ï¿½Z(xg!ï¿½ï¿½l
+-ï¿½S8ï¿½ï¿½ï¿½dï¿½8ï¿½,RFï¿½ï¿½sï¿½\Õ¢1*ï¿½ï¿½Tï¿½ï¿½ÆŽï¿½Î‹ï¿½ P%"5NÛ”BYï¿½tï¿½.ï¿½)ï¿½Y12ï¿½\bUï¿½U$ï¿½1+ï¿½Ed`ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½Yfï¿½ï¿½ï¿½Ó›ï¿½ W3ï¿½ï¿½ï¿½;oÐ²ï¿½ï¿½Lï¿½ï¿½M9Yï¿½ï¿½'ï¿½Mwï¿½ï¿½L_ï™¬<ï¿½ï¿½(;ï¿½#h0ï¿½Rï¿½tß¶ï¿½mï¿½ï¿½_ï¿½ï¿½6Dï¿½ï¿½hï¿½Kï¿½|ï¿½HkOgï¿½ï¿½<Y68ï¿½ï¿½;ï¿½ï¿½ï¿½ï¿½@Ë¡ï¿½ï¿½ï¿½&~ï¿½ï¿½<xï¿½ï¿½ï¿½ï¿½ï¿½>Nï¿½K_i=ï¿½ï¿½iYï¿½ï¿½.ï¿½zï¿½{ï¿½ï¿½ï¿½lI2tï¿½ï¿½Vï¿½4@ï¿½ï¿½ï¿½!ï¿½:ï¿½!ï¿½ç·µï¿½ï¿½ï¿½ï¿½K$ï¿½=ï¿½Ö6ï¿½rï¿½ï¿½ï¿½ï¿½}ï¿½×•nÅµtï¿½ï¿½ï¿½Nï¿½rï¿½ï¿½Ì°ï¿½F
+-udu"ï¿½
+-xÐ ï¿½ <`ï¿½ï¿½pï¿½1ï¿½Gï¿½ï¿½ï¿½7Mï¿½ï¿½aDï¿½ï¿½Xï¿½ï¿½ï¿½HUsÏ¦ ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½
+-p$ï¿½ï¿½qï¿½ï¿½ ï¿½ï¿½}ï¿½&`ï¿½ï¿½ï¿½&ï¿½"ï¿½m"2xï¿½#ßªï¿½}ï¿½ï¿½Lï¿½p.U.,ï¿½ï¿½ï¿½mï¿½7ï¿½P1xï¿½
+-$<ï¿½-#9
+#ï¿½ï¿½'ï¿½ï¿½Ë€ï¿½yX30ï¿½ï¿½ï¿½ï¿½ãªš3} ï¿½"~ï¿½	ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½"`Âž|Fï¿½zx1ï¿½Ï‡"â®ªï¿½J!~ï¿½gï¿½sUÕï¿½WUï¿½ï¿½ï¿½?ï¿½\ï¿½P>ï¿½|ï¿½ï¿½ï¿½ï¿½ VD:ï¿½}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mTD6ï¿½T'ï¿½ï¿½ï¿½ï¿½ï¿½f:qï¿½â¨ªJ>ï¿½BNï¿½u@ï¿½A>ï¿½ï¿½ï¿½	ï¿½R!Fy	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½G8l`ï¿½ï¿½ï¿½e0ï¿½ï¿½PUï¿½
+ï¿½>P8ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ERï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½:8ï¿½ï¿½ï¿½
+-1,ï¿½ï¿½ï¿½^ï¿½Ö¥Ñ·ï¿½ï¿½-hï¿½Nï¿½ï¿½ñ‹¿ï¿½5ï¿½Eï¿½ï¿½R1X|ï¿½ï¿½/4}ï¿½ï¿½ï¿½RUï¿½ï¿½Oï¿½Xï¿½Dï¿½ï¿½ï¿½jbU=M]ï¿½L|ï¿½ï¿½mï¿½ï¿½QtQï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3ÅŽï¿½Asï¿½4"ï¿½~ï¿½>Gï¿½oï¿½ï¿½ï¿½zÒ¯Sï¿½ï¿½*ï¿½zÐ ï¿½ï¿½_ï¿½FX?tï¿½ï¿½ï¿½q
+-ï¿½ï¿½ï¿½7ï¿½ï¿½CIAï¿½ï¿½?!ï¿½QTmï¿½0ï¿½J ç—³ï¿½.ï¿½_,ï¿½ï¿½ï¿½tv#ï¿½ï¿½ï¿½    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/right-middle-finger.png b/panels/user-accounts/data/icons/right-middle-finger.png
 deleted file mode 100644
@@ -3404,15 +3509,26 @@ index 71bd41b..0000000
 --- a/panels/user-accounts/data/icons/right-middle-finger.png
 +++ /dev/null
 @@ -1,9 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  9IDAThÅ™[lTEÇg/miUŠP ©$‚b0ö«‘¨—xA“&^H”(†h"úÀ“¾h¢‰!/A"CŒ7}Ô€Ø|*D±”+V–µív·{éñ¡gëöìlwÏž³ø™™ï2óýwæÌÌ7kÙ¶M­ÐùydM(Ý‰Ô-Ä&•Ë¦N$S{»í¿ƒÃªù2úB}óÅëµvÌ·F‰ÖG­È2p¬§o<9ò`ï]ÙAŒS»Ã«Bóš?j_´²%µÝâä®A .¤‹îi@}v(“íìí¶³~Ç
--ùí@D6‰È.¹5/³ëÂ[æ¶¶·´„Û7<e{fïYZ£m´-ºòR«>ú¤ão‰È
--™sÞ	ˆH'°¸Ø-"‹¯úØŠØÑð¼Â³iÏ!—ÈMÙM17<Öæ¥u¡P$Ox3p‘ËÎ+ ­ ^¬–X³êBÌ
--5‘ËL¤FS4dfÑj"‰ÎuÄëœ²¸ßk ~	¸×ðmÀ •Î¦-,ì´M.“›fŒ¥°°°s	iæ¨#^š@×Ä³ãöxf$m§IŒ%Š†G‡‰'ÿbb"÷p­ßxüH¹ÚÀr+“Û;w2‹9ÄÆbôï9žK%Ÿ®ö_ƒY‡•ÎmŽŸ>¶ÿôPÆ­<ÜßO$ã¯övÛg€e.uÎm_~	œ6È¤·Û¶íäøÍƒ?ùÂ­ê‰¿vàöÄV§é&P4e"rƒˆl‘Mø" ª)à¬KÜÐÛmç²ï¶½ìö™88ûW'°°Ä¥>WØ‘;€o·gL1ø>È(ž…Ž‚z“Á>/[Lñ®sÎÕÞXNý"Óàµ Ð""­N½Ñ`Ÿ—-5è¦ˆÈB «@÷§ið œ2È®pJÓº;¥{ýÄ
--êklÁ¼aBÀÔqþJ0å]ázØ¥ë7¤A–ÎD ?æ5.yçÇ‘¦Kià;ÓàApf03°ˆ42=@€UÍŸì¹t=ª:f¼ÖL;GXIñt¦¶×\º¯Jqƒ¬MDÖ7tóò>§¼…é<˜@ÑíODš€÷€ëœNw o©j©ÔÍ4 ÛKÈŸ(!?á”k]ò3À%|Œ3°è «€mÀ^gÝšPŠ€W‰ÈRà>—|§ªN”r2è¥øRÕì‘°ÁÞ´„ªÁ‹ÀN Á%ß1“SUíÞ0ØÞ¼b5)¾^ÿ¦ª%—”þˆŸÆ|Ân‘;]² ˜°·œ‘€ªŽ —ðySDf´ƒZB&üPÎ ä6ªª»ª6à¥‚ö%Þãªe¿ÊOEY°ADV;õÕ}Ž”3*û2'"Û€Çª>`=°‡wuŸøIU¥œQ%'ñsL^¦ÜXì£6ÁüQ‰QYªz
--xßw8Þ[€Ú½Ã›aL`Ü¨ˆ€ª¾öŽwÌx€åáå6úA•Tƒ,ðM%†^|‚yK­¾WÕáòf¨jŒó·Œ>­ÔÐkBó(0àÑÇ+þaò!«"x"àl©]ü—|Ô¯Wº| Š”RUO0IÂt[õ‹$Pô9ªÊ‰Uu€É¼6è™xGU‡¼8TÔ«j?p=p¼Ú>\°1'L3ÂïëôI&“pÏïúìQÕ£^|?«¨ê~@ýöÃd>ìA¼ü@û«q
--Š€ç©7ÀýGIEŠÀh }T•[E ˆø%Pòå¬BdUµªá_å[˜x1Q\    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  9IDAThï¿½Å™[lTEï¿½g/miUï¿½Pï¿½ï¿½$ï¿½ï¿½b0ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½xAï¿½&^Hï¿½(ï¿½h"ï¿½ï¿½ï¿½ï¿½hï¿½ï¿½!/Aï¿½"Cï¿½7}ï¿½Ô€ï¿½|*Dï¿½ï¿½+Vï¿½ï¿½ï¿½vï¿½{ï¿½ï¿½gï¿½ï¿½ï¿½lwÏžï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½wï¿½ï¿½ï¿½7kÙ¶Mï¿½ï¿½ï¿½ydM(ï¿½ï¿½ï¿½-ï¿½&ï¿½Ë¦ï¿½N$S{ï¿½ï¿½ï¿½ï¿½Ãªï¿½2ï¿½B}ï¿½ï¿½ï¿½ï¿½vÌ·Fï¿½ï¿½Gï¿½ï¿½2pï¿½ï¿½o<9ï¿½`ï¿½]ï¿½Aï¿½Sï¿½ï¿½Ã«Bï¿½?j_ï¿½ï¿½%ï¿½ï¿½ï¿½ï¿½A .ï¿½ï¿½ï¿½ï¿½i@}v(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½
+-ï¿½ï¿½@D6ï¿½ï¿½.ï¿½5/ï¿½ï¿½ï¿½[æ¶¶ï¿½ï¿½ï¿½ï¿½7<e{fï¿½YZï¿½mï¿½-ï¿½ï¿½Rï¿½>ï¿½ï¿½ï¿½oï¿½ï¿½
+-ï¿½sï¿½	ï¿½H'ï¿½ï¿½ï¿½-"ï¿½ï¿½ï¿½ØŠï¿½ï¿½ï¿½Â³iï¿½!ï¿½ï¿½MÙï¿½M17<ï¿½ï¿½ï¿½uï¿½P$Ox3pï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½^ï¿½ï¿½Xï¿½ï¿½B
+ï¿½
+-5ï¿½ï¿½Lï¿½FS4dfï¿½j"ï¿½ï¿½uï¿½ëœ²ï¿½ï¿½k ~	ï¿½ï¿½ï¿½mï¿½ï¿½ï¿½Î¦-,ï¿½M.ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s	iï¿½ï¿½#^ï¿½@ï¿½Ä³ï¿½ï¿½xf$mï¿½Iï¿½%ï¿½ï¿½Gï¿½ï¿½'ï¿½bb"ï¿½pï¿½ï¿½xï¿½Hï¿½Úï¿½r+ï¿½ï¿½;w2ï¿½9ï¿½ï¿½bï¿½ï¿½9ï¿½K%ï¿½ï¿½ï¿½ï¿½_ï¿½Yï¿½ï¿½ï¿½mï¿½ï¿½>ï¿½ï¿½ï¿½PÆ­<ï¿½ï¿½O$ï¿½ï¿½vï¿½gï¿½e.uï¿½m_~	ï¿½6È¤ï¿½Û¶ï¿½ï¿½ï¿½Íƒ?ï¿½Â­ê‰¿vï¿½ï¿½ï¿½Vï¿½ï¿½&P4e"rï¿½ï¿½lï¿½Mï¿½"ï¿½ï¿½)ï¿½Kï¿½ï¿½ï¿½mï¿½ï¶½ï¿½ï¿½ï¿½88ï¿½W'ï¿½ï¿½Ä¥>Wï¿½ï¿½;ï¿½oï¿½ï¿½ï¿½gL1ï¿½>ï¿½(ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½>/[Lï¿½sï¿½ï¿½ï¿½XNï¿½"ï¿½ï¿½ ï¿½""ï¿½Nï¿½ï¿½`ï¿½ï¿½-5ï¿½ï¿½ï¿½Bï¿½ï¿½@ï¿½ï¿½iï¿½ ï¿½2È®pJÓº
+;ï¿½{ï¿½ï¿½
+-ï¿½klï¿½ï¿½aBï¿½ï¿½qï¿½J0ï¿½ï¿½]ï¿½zØ¥ï¿½7
+ï¿½ï¿½Aï¿½ï¿½D ?ï¿½5.yï¿½ï¿½ï¿½ï¿½Kiï¿½;ï¿½ï¿½Apf03ï¿½ï¿½ï¿½42=@ï¿½UÍŸï¿½ï¿½t=ï¿½:fï¿½ï¿½L;GXIï¿½tï¿½ï¿½ï¿½\ï¿½ï¿½J
+ï¿½qï¿½ï¿½MDï¿½7tï¿½
+ï¿½>ï¿½ï¿½ï¿½ï¿½<ï¿½ï¿½@ï¿½ï¿½ODï¿½ï¿½ï¿½ï¿½ï¿½Nw oï¿½jï¿½ï¿½ï¿½4 ï¿½KÈŸ(!?ï¿½k]ï¿½3ï¿½ï¿½%|ï¿½3ï¿½ï¿½ ï¿½ï¿½mï¿½^gÝšPï¿½ï¿½Wï¿½ï¿½Rï¿½>ï¿½|ï¿½ï¿½Nï¿½r2ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½%ï¿½1ï¿½SUï¿½ï¿½0ï¿½ï¿½
+ï¿½bï¿½5)ï¿½^ï¿½ï¿½ï¿½%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½nï¿½;]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ySDfï¿½ï¿½ZB&ï¿½PÎ ï¿½6ï¿½ï¿½ï¿½ï¿½
+ï¿½6à¥‚ï¿½%ï¿½ï¿½eï¿½ÊOEYï¿½ADV;ï¿½ï¿½}ï¿½ï¿½3*ï¿½2'"Û€ï¿½ï¿½>`=ï¿½ï¿½wuï¿½ï¿½IUï¿½ï¿½Q%'ï¿½sL^ï¿½ï¿½Xï¿½6ï¿½ï¿½Qï¿½QYï¿½z
+-xï¿½w8ï¿½[ï¿½Ú½Ã›aL`Ü¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½xï¿½ï¿½ï¿½ï¿½6ï¿½Aï¿½ï¿½Tï¿½,ï¿½M%ï¿½^|ï¿½yKï¿½ï¿½Wï¿½ï¿½ï¿½fï¿½jï¿½ï¿½>ï¿½ï¿½ï¿½kBï¿½(0ï¿½ï¿½ï¿½+ï¿½aï¿½!ï¿½"x"ï¿½lï¿½]ï¿½ï¿½|ï¿½ï¿½Wï¿½|ï¿½ï¿½ï¿½RUO0Iï¿½t[ï¿½ï¿½$Pï¿½9ï¿½Ê‰Uuï¿½É¼6ï¿½xGUï¿½ï¿½8Tï¿½Ô«j?p=pï¿½ï¿½>\ï¿½1'L3ï¿½ï¿½ï¿½ï¿½I&ï¿½pï¿½ï¿½ï¿½ï¿½QÕ£^ï¿½|?ï¿½ï¿½ï¿½~@ï¿½ï¿½ï¿½d>ï¿½Aï¿½ï¿½@ï¿½ï¿½q
+-ï¿½ï¿½ï¿½7ï¿½ï¿½GIEï¿½ï¿½h }Tï¿½[E ï¿½ï¿½ï¿½%Pï¿½ï¿½BdUï¿½ï¿½ï¿½_ï¿½[ï¿½x1Q\    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/right-ring-finger.png b/panels/user-accounts/data/icons/right-ring-finger.png
 deleted file mode 100644
@@ -3420,12 +3536,23 @@ index aa73ae6..0000000
 --- a/panels/user-accounts/data/icons/right-ring-finger.png
 +++ /dev/null
 @@ -1,6 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  _IDAThÕš[lTEÇgÏni»X+håŽ 0|PbDmŒÄÁ`„£& F}!1!†Äc|0j4¨> Bx@	xMh!	(µ\Š)´
--”Þ´ív/>tgÏÎéîÙ=‹ñÿ23ßeæûwæÌÌ7[+•JñF¸ÔˆH°è¾QÕÄná—VU,^²#VŠ¾d"¶çÖÞÄæ+R	Ï](9à5`]º¾x`ÞÖ|«¼|KÍ¤Ûêkª&`cÓÑqá‘æ–_Ÿ›÷…µüè²Ô…|:ˆ¬‘"²ØÃä1Gýq€¹»¬êTùˆíuõê§VßAMk¦2kÌÂðí3ß.«ÜeaY%' "sw€Àn™l0»ÑQ¿ UfoˆNš2uL¸–ËŸöp`Ía¾Zy€ªÖQL,ŸBÝøÙ³æî‰¼XrÀ8G½Xj°©rÔ«E¤"±çTWŒ¶FÙ£hÙ×@b Á¥WË„š™•v8üh>K îj?älˆH9ƒÄ®XÛ;™p¨ª<Tmaz;ú®ê*RQªBÕD­(vhÄMù4‰8Ú#ÝÉŽHÔJ’´±éø­+3˜dˆˆÁ¶ÂX¡¬¾(–@Ÿ«]	Ô;ÚÑlpÉdgœ8íW2TýÉ~úSýÄ’ý$bíùP,VƒlŽ£žM ¢¡xòëÎ®ÖÎ–îE/Ó‘hçLë/í‰Dß†|(–ÀyƒLõJƒ>ë‰¿Òq®©±û|O†¢¯²—Ó]'­5:²4¾@Dî‘Õ"rƒ)€¢¨jpÙ%Î5•ÇW¤bÉfkq¬-žq9Ós¬çèÉ=;/%»—§ƒøøxÕC'ñyàfG;çHnš2«Ë»_Ö—:ßwˆÖ:lœÛñU}“½ŒF‹H]ºnZBC²iYšæ‘Ç‡ª"R48´m¦Áƒ ÐbÍN—¦uk§ËésçYå°ó†SÇ3Òåpê:ç¾ú”KwÚ4xz²¡àL†Æ¼Ë%“þcˆÈ2¿¥ðƒið ¸3ž€-"•dpVU‡Nß']ºUõÓà¥&`Ú9l`Ù;à) 	“¾v;ð­×àAè7ÈÆ‰ÈÀÝà~ƒ¼)]>˜¶qÂ“@Ö9 "Q`pwºÓ­ÀGªê•<›f `³‡Üëž.]®rÉÿŽxøg`)°Ülö§×­	^üâ¢ˆLVºäÛT5éåd"pp'ÕÀ6±ö¦%TÞ¶å.ùÖáœ²¨jð¡ÁvðžAÔÔó]²“ªê¹|Àû#^ù„}AD–¸dA0a.#Uíž÷ðÙ$"ÎD=¨%dÂá\žÛ¨ªîvTã€·íñþãÊ?ç2Èu¬òÕ"²(]_dÐn 1—‘•ëmTD6ÏTMÀÓÀ^<îêEâ˜ªJ.£|Nâ×¼L¹18Hi‚æiQU[€ÏŠÇ?}}¸ÞïðÆÆ¼¨ê	`_QáøÇ°ØüÜF·H!ˆßåcè‡À.Ì[j)ð“ªvå6óA@UÛ¹~Ëèó|ý&4Ï g}úøE'ƒYyÁô–ÚÀµä£ø ßå¤”ªzŽA¦Ûj±èÞõãPPN¬ªgÌkƒž‰OTõ¢‡‚“zU=Ü4Ú‡)Ì	Ó°(öuú“ð¼×{Uõ”_§¢ŸUTõ ÅöÃ`>ìA¼ü@‡
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  _IDAThï¿½Õš[lTEï¿½gï¿½niï¿½X+hï¿½ 0|PbDmï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½&ï¿½F}!1!ï¿½ï¿½c|0j4ï¿½ï¿½> Bx@	xMï¿½h!	(ï¿½\ï¿½)ï¿½
+-ï¿½Þ´ï¿½v/>tgï¿½ï¿½ï¿½ï¿½ï¿½=ï¿½ï¿½ï¿½23ï¿½eï¿½ï¿½wï¿½ï¿½ï¿½7[+ï¿½Jï¿½Fï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½Qï¿½Änï¿½VU,^ï¿½#
+Vï¿½ï¿½d"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+R	ï¿½](9ï¿½5`]ï¿½ï¿½x`ï¿½ï¿½|ï¿½ï¿½|KÍ¤ï¿½ï¿½kï¿½&`cï¿½ï¿½qï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô…|:ï¿½ï¿½ï¿½ï¿½"ï¿½ï¿½ï¿½ï¿½1Gï¿½qï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½uï¿½ï¿½Vï¿½AMkï¿½2kï¿½ï¿½ï¿½ï¿½3ï¿½.ï¿½ï¿½eaY%' "sï¿½wï¿½ï¿½nï¿½l0ï¿½ï¿½Qï¿½ Ufoï¿½Nï¿½2uLï¿½ï¿½ËŸï¿½p`ï¿½aï¿½Zyï¿½ï¿½ï¿½QL,ï¿½Bï¿½ï¿½Ù³ï¿½î‰¼Xrï¿½8Gï¿½Xjï¿½ï¿½rÔ«Eï¿½"ï¿½ï¿½TWï¿½ï¿½FÙ£hï¿½ï¿½@b ï¿½ï¿½WË„ï¿½ï¿½ï¿½v8ï¿½h>K ï¿½j?ï¿½lï¿½H9ï¿½Ä®
+Xï¿½;ï¿½pï¿½ï¿½<Tmaz;ï¿½ï¿½ï¿½*RQï¿½Bï¿½Dï¿½(vhï¿½Mï¿½4ï¿½ï¿½8ï¿½#ï¿½ÉŽHï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+3ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½(ï¿½@ï¿½ï¿½]	ï¿½;ï¿½ï¿½lï¿½pï¿½dgï¿½8ï¿½W2Tï¿½ï¿½~ï¿½Sï¿½Ä’ï¿½$bï¿½ï¿½P,ï¿½Vï¿½lï¿½ï¿½ï¿½M ï¿½ï¿½xï¿½ï¿½Î®ÖÎ–ï¿½E/Ó‘hï¿½Lï¿½/ï¿½Dß†|(ï¿½ï¿½yï¿½Lï¿½Jï¿½>ë‰¿ï¿½qï¿½ï¿½ï¿½ï¿½|Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]'ï¿½5:ï¿½4ï¿½@Dï¿½ï¿½ï¿½"rï¿½)ï¿½ï¿½ï¿½jpï¿½%ï¿½5ï¿½ï¿½Wï¿½bï¿½fkqï¿½-ï¿½qï¿½9ï¿½sï¿½ï¿½ï¿½ï¿½=;/%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½C'ï¿½yï¿½fG;ï¿½Hnï¿½2ï¿½ï¿½ï¿½_Ö—:ï¿½wï¿½ï¿½:lï¿½ï¿½ï¿½U}ï¿½ï¿½ï¿½Fï¿½H]ï¿½nZBCï¿½iYï¿½ï¿½Ç‡ï¿½"R48ï¿½mï¿½ï¿½ï¿½ ï¿½bï¿½ï¿½Nï¿½ï¿½ukï¿½ï¿½ï¿½ï¿½sï¿½Yï¿½ï¿½Sï¿½3ï¿½ï¿½pï¿½
+:ï¿½ï¿½ï¿½Kwï¿½4xz
+ï¿½ï¿½ï¿½Lï¿½Æ¼ï¿½%ï¿½ï¿½ï¿½cï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½iï¿½ ï¿½3ï¿½ï¿½-"ï¿½dpVUï¿½Nï¿½']ï¿½Uï¿½ï¿½ï¿½&`ï¿½9l`ï¿½;ï¿½) 	ï¿½ï¿½v;ï¿½ï¿½ï¿½Aï¿½7ï¿½Æ‰ï¿½ï¿½ï¿½ï¿½~ï¿½ï¿½)]>ï¿½ï¿½qÂ“@ï¿½9 "Q`pwï¿½Ó­ï¿½Gï¿½ï¿½<ï¿½f `ï¿½ï¿½ï¿½ï¿½.]ï¿½rï¿½ï¿½ï¿½xï¿½g`)ï¿½ï¿½lï¿½ï¿½×­	^ï¿½â¢ˆLVï¿½ï¿½ï¿½T5ï¿½ï¿½d"pp'ï¿½
+ï¿½6ï¿½
+ï¿½ï¿½%Tï¿½ï¿½ï¿½.ï¿½ï¿½áœ²ï¿½jï¿½ï¿½vï¿½Aï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½#^ï¿½ï¿½ï¿½}ADï¿½ï¿½dA0a.#Uï¿½ï¿½ï¿½ï¿½ï¿½$"ï¿½D=ï¿½%dï¿½ï¿½\ï¿½Û¨ï¿½ï¿½vTã€·ï¿½ï¿½ï¿½ï¿½ï¿½?ï¿½2ï¿½uï¿½ï¿½ï¿½"ï¿½(]_dï¿½ï¿½nï¿½1ï¿½ï¿½ï¿½ï¿½mTD6ï¿½TMï¿½ï¿½ï¿½^<ï¿½ï¿½Eâ˜ªJ.ï¿½|Nï¿½ï¿½ï¿½Lï¿½18Hiï¿½ï¿½iQU[ï¿½ÏŠï¿½?}}ï¿½ï¿½ï¿½ï¿½ï¿½Æï¿½ï¿½ï¿½	`_Qï¿½ï¿½Ç°ï¿½ï¿½ï¿½Fï¿½H!ï¿½ï¿½ï¿½cï¿½ï¿½.ï¿½[j)ï¿½vï¿½6ï¿½A@UÛ¹~ï¿½ï¿½ï¿½|
+ï¿½&4ï¿½ g}ï¿½ï¿½E'ï¿½Yyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½zï¿½Aï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½PPNï¿½ï¿½gï¿½kï¿½ï¿½ï¿½OTï¿½ï¿½ï¿½ï¿½ï¿½zU=
+ï¿½4Ú‡)ï¿½	Ó°(ï¿½uï¿½ï¿½ï¿½ï¿½{Uï¿½ï¿½_ï¿½ï¿½ï¿½UTï¿½ï¿½ï¿½ï¿½ï¿½`>ï¿½Aï¿½ï¿½@ï¿½
 -q
--Š€ï©7ÀýCI^Š@On“œ((·Š@ñJÀóå,OÄÿÅâÿcK‹0	h¸p    IEND®B`‚
+-ï¿½ï¿½ï¿½7ï¿½ï¿½CI^ï¿½@Onï¿½ï¿½((ï¿½ï¿½@ï¿½Jï¿½ï¿½ï¿½,OÄï¿½ï¿½ï¿½ï¿½cKï¿½0	hï¿½p    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/icons/right-thumb.png b/panels/user-accounts/data/icons/right-thumb.png
 deleted file mode 100644
@@ -3433,13 +3560,25 @@ index 1c967d6..0000000
 --- a/panels/user-accounts/data/icons/right-thumb.png
 +++ /dev/null
 @@ -1,7 +0,0 @@
--‰PNG
+-ï¿½PNG
 -
--   IHDR   0   0   Wù‡   sBIT|dˆ   	pHYs  ×  ×B(›x   tEXtSoftware www.inkscape.org›î<  KIDAThÕšKlTeÇwæö5-mim­}PD•`ƒ$¦5Ñ*‘4‚WnØèÊÄ(¸5ºp#ºQ´’@‚Œ& rò¨µJmÓm)3-·w¾aæÎ½ÅøßÜïžs¾ó¿s¿Ç™Zñxœÿ3ì©@Dò5À°GU£Aúé,^¾v/íÜ÷ˆÈF`ðªî1˜<îh¯^wõ·€ù@—ªxß×ˆÈ"àm Ø)"3feŽv­A¿8œ‘¹^cð›BuŽv>ðÁ¦ÔÑ.‘"—¾%ù, žô€_c®÷/"RH‚˜5ým@µCç9¥ƒ&Ð("yŽ÷CgJ-ó_#®÷0Ïñ^lèq´ïö_ç²…Ž¶‰€S6Ç¥ó¼Gø]FÏdlK¶#ýõ¦8Y™´û\U/ºõ¾f@UG€>—8ÓD’ÙÀ,—nÒ> "MÀ^`+ðŠ)† vb÷,d›B3IÍ ÷F¶°’íR˜
--U"rK²mJ¡qÙlƒn‚€ˆÔ ]·ið œ5È$ŸÓºpòéÎ€~G{­ÃÌF LŽÇ×#0Ï s¦Ðz—®Í4x†²ñàLÆÇ¼×%#ùÇ‘…Lþ–FMƒ—ÑE;íõ!Ûn	‡íªx,Ú‹F[¯}?÷f–‰@XD"® ÚUu|gÚ¥Û§ªC	4~oÙƒ—Ã­‘šÚêjæ——„K!ã|ÏÉÅKw®¾t¥ùXs|ÔÓÊ–ºÇNÃÄòºÎ¥ûÚ|
--ËöËEõÏ¬¼+¿Æ®¥4TXTÔV•¶Nkêl?´	xÑåãŠÁoˆ´ «ºjà~ƒüTò¹šÉ¼ì,Ún•SRðÔME3ò{6_¤í¸RQ_Î«çRßÔ@¬"f÷vŸzlñÖ–_šã½¦ ø(ü…4òŽäs­Kþ7p8#Pœû¬ÊéõÖ¡|z÷%âëè¦ëh73ö6°dÓTUÏnèì_NâŠ˜‰€WôŠÈlà	—¼UUcé:M¬B±<{EAdZaùœ2¬5É¨óÈo>JYäæ<«À^éòaJ¡\ðÐ
--ºäÛ¶˜´ŒZ„(®+bþ#·§vî;G×Öþ9ÁÍ@©Çë?T5mú€ƒ@èêØÑ‘¡‘(Q>³€²êÔ¤g×¢;ª.¹ÄA0áÛL×RÈâ§Ñ¾¾³Ã±!®±j£;Sˆ¬Ü "Î[UP)dÂÏ™&y4>ý´gàÏÑþh%÷2gå­©=âÜ¼éÔiÌd0é˜^<öZ_Ç‰¯Žwí<sµƒYÏÖ²-S¿çDdy²½Üd .'2Y¦Úè’ùëóì‚–<;¿jèãŠÊèoÅ¦zÎ)`‰Š›ñ¬î¿ªªd22pBDêIœÝå‘©ÆnUmÊd”ñ4ªªgO	Éº²1Êö8ýp£ëðÆŒYPÕßo|…ã×ÝÀÆáåBóYŽä‚1à»l½Ø\Í)ïØ¯ªÿdc˜5UíçÆ¥ÑŽl½Þ‰ŸÚ=öñŠ$
--YYÁä’ÚÈµËÇTà½lÓr¨J¨j	¦z_ïxéSYEUÛIÜkƒž‰Uµ7³Ù5ä\RÕ6`ðW®>\ˆïzíä·:ÝIâÄo¿»Tõ´×N¾+sªz P¿~HÜ‡=#¨ºOàã@.‚"àyêpÿP’‚"à¾èç‚œîÖAâ#þO	¤­œe‰±\ÿ‹å_VŒq<—±¡v    IEND®B`‚
+-   
+IHDR   0   0   Wï¿½ï¿½   sBIT|dï¿½   	pHYs  
+ï¿½  
+ï¿½B(ï¿½x   tEXtSoftware www.inkscape.orgï¿½ï¿½<  KIDAThï¿½ÕšKlTeï¿½wï¿½ï¿½5-mimï¿½}PDï¿½`ï¿½$ï¿½5ï¿½*ï¿½4ï¿½Wnï¿½ï¿½ï¿½ï¿½(ï¿½5ï¿½p#ï¿½Qï¿½ï¿½@ï¿½ï¿½& rï¿½Jmï¿½m)ï¿½3-ï¿½wï¿½aï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½sï¿½Ç™Zï¿½xï¿½ï¿½3ï¿½@Dï¿½5ï¿½ï¿½GUï¿½Aï¿½ï¿½,
+^ï¿½v/ï¿½ï¿½ï¿½ï¿½ï¿½F`ï¿½ï¿½ï¿½ï¿½1ï¿½<ï¿½hï¿½^wï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½"ï¿½mï¿½ï¿½)"3
+feï¿½vï¿½Aï¿½8ï¿½ï¿½ï¿½^cï¿½Buï¿½v>ï¿½ï¿½ï¿½ï¿½ï¿½.ï¿½"ï¿½ï¿½%ï¿½, ï¿½ï¿½ï¿½_cï¿½ï¿½ï¿½/"RHï¿½ï¿½5ï¿½m@ï¿½Cï¿½9ï¿½ï¿½&ï¿½("yï¿½ï¿½CgJ-ï¿½ï¿½_#ï¿½ï¿½0ï¿½ï¿½^lï¿½qï¿½ï¿½ï¿½ï¿½_ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½S6Ç¥ï¿½Gï¿½]Fï¿½dlKï¿½#ï¿½ï¿½ï¿½8Yï¿½ï¿½ï¿½\U/ï¿½ï¿½ï¿½f@UGï¿½>ï¿½8ï¿½Dï¿½ï¿½ï¿½ï¿½,ï¿½nï¿½> "Mï¿½^`+ï¿½ï¿½)ï¿½ vbï¿½,dï¿½B3Iï¿½ ï¿½Fï¿½ï¿½ï¿½ï¿½Rï¿½
+-U"rKï¿½mJï¿½qï¿½lï¿½nï¿½ï¿½ï¿½ï¿½ ï¿½]ï¿½iï¿½ ï¿½5ï¿½$ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½~G{ï¿½ï¿½ï¿½F Lï¿½Çï¿½#0Ï sï¿½ï¿½zï¿½ï¿½ï¿½4xï¿½
+ï¿½ï¿½ï¿½Lï¿½Ç¼ï¿½%#ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½Fï¿½Mï¿½ï¿½ï¿½E;ï¿½ï¿½!ï¿½n	ï¿½ï¿½ï¿½x,ï¿½ï¿½F[ï¿½}?
+ï¿½fï¿½ï¿½@XD"ï¿½ ï¿½Uu|gÚ¥Û§ï¿½C	4~oÙƒï¿½Ã­ï¿½ï¿½ï¿½ï¿½jæ——ï¿½K!ï¿½|ï¿½ï¿½ï¿½Kwï¿½ï¿½tï¿½ï¿½Xs|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Î¥ï¿½ï¿½|
+-ï¿½ï¿½ï¿½ï¿½ï¿½E
+ï¿½Ï¬ï¿½+ï¿½Æ®ï¿½4TXTï¿½Vï¿½ï¿½Nkï¿½l?ï¿½	xï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ ï¿½ï¿½jï¿½~ï¿½ï¿½Tï¿½ï¿½ï¿½ï¿½,ï¿½nï¿½SRï¿½ï¿½ME3ï¿½{6_ï¿½ï¿½ï¿½RQ_ï¿½ï¿½ï¿½Rï¿½ï¿½@ï¿½"fï¿½vï¿½zlï¿½Ö–_ï¿½ï¿½ï¿½ ï¿½(ï¿½ï¿½ï¿½4ï¿½ï¿½sï¿½Kï¿½7p8#ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡|zï¿½%ï¿½ï¿½ï¿½ï¿½h73ï¿½6ï¿½dÓTUï¿½nï¿½ï¿½_NâŠ˜ï¿½ï¿½Wï¿½ï¿½lï¿½	ï¿½ï¿½UUcï¿½:Mï¿½Bï¿½<{EAdZaï¿½ï¿½2ï¿½ï¿½5É¨ï¿½ï¿½o>JYï¿½ï¿½<ï¿½ï¿½^ï¿½ï¿½aJï¿½\ï¿½ï¿½
+-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½(ï¿½+bï¿½#ï¿½ï¿½vï¿½;Gï¿½ï¿½ï¿½9ï¿½ï¿½@
+ï¿½ï¿½ï¿½?T5mï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½Ñ‘ï¿½ï¿½(Q>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½;ï¿½.ï¿½ï¿½A0ï¿½ï¿½Lï¿½Rï¿½ï¿½Ñ¾ï¿½ï¿½Ã±!ï¿½ï¿½jï¿½;Sï¿½ï¿½ï¿½ "ï¿½[UP)dï¿½Ï™&y4>ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½h%ï¿½2gå­©=ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½d0ï¿½ï¿½^<ï¿½Z_Ç‰ï¿½ï¿½wï¿½<sï¿½ï¿½Yï¿½ï¿½ï¿½-Sï¿½ï¿½Ddyï¿½ï¿½ï¿½d .'2Yï¿½ï¿½è’ï¿½ï¿½ï¿½ì‚–<;ï¿½jï¿½ï¿½ï¿½ï¿½oÅ¦zï¿½)`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½d22pBDï¿½Iï¿½ï¿½å‘©ï¿½nUmï¿½dï¿½ï¿½4ï¿½ï¿½gï¿½O	ï¿½ï¿½ï¿½1ï¿½ï¿½8ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½YPï¿½ßo|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½Yï¿½ï¿½ï¿½1ï¿½lï¿½ï¿½\ï¿½)ï¿½Ø¯ï¿½ï¿½dcï¿½5Uï¿½ï¿½Æ¥ÑŽl
+ï¿½Þ‰ï¿½ï¿½=ï¿½ï¿½$
+-YYï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½Tï¿½lï¿½rï¿½Jï¿½j	ï¿½zï¿½_ï¿½xï¿½SYEUï¿½Iï¿½kï¿½ï¿½ï¿½Uï¿½7ï¿½ï¿½5ï¿½\Rï¿½6`ï¿½Wï¿½>\ï¿½ï¿½zï¿½ï¿½:ï¿½Iï¿½ï¿½oï¿½ï¿½Tï¿½ï¿½ï¿½Nï¿½+sï¿½z Pï¿½~HÜ‡=#ï¿½ï¿½Oï¿½ï¿½@.ï¿½ï¿½"ï¿½yï¿½
+pï¿½Pï¿½ï¿½"ï¿½ï¿½ç‚œï¿½ï¿½Aï¿½#ï¿½O	ï¿½ï¿½ï¿½eï¿½ï¿½\ï¿½ï¿½ï¿½_Vï¿½q<ï¿½ï¿½ï¿½v    IENDï¿½B`ï¿½
 \ No newline at end of file
 diff --git a/panels/user-accounts/data/net.reactivated.Fprint.Device.xml b/panels/user-accounts/data/net.reactivated.Fprint.Device.xml
 new file mode 100644

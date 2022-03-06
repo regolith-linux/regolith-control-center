@@ -6,8 +6,8 @@
 # Yuras Shumovich <shumovichy@gmail.com>, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center.master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center.master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2018-08-27 23:05+0000\n"
 "PO-Revision-Date: 2018-09-05 19:07+0300\n"
@@ -1699,7 +1699,7 @@ msgstr "Запусціць аглядальнік даведкі"
 
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:251
 #: shell/cc-window.c:888 shell/cc-window.ui:124
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Настройкі"
 
@@ -7573,15 +7573,15 @@ msgstr "Самая ніжняя кнопка"
 msgid "Tip Pressure Feel"
 msgstr "Адчувальнасць ціску кончыка стыла"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Control Center"
 msgstr "Цэнтр кіравання GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utilities to configure the GNOME desktop"
 msgstr "Прылады настройкі асяроддзя GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid ""
 "The control center is GNOME’s main interface for configuration of various "
 "aspects of your desktop."
@@ -7647,12 +7647,12 @@ msgstr ""
 "з няправільнымі паводзінамі, стратай даных і іншымі нечаканымі праблемамі. "
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: shell/gnome-control-center.desktop.in.in:5
-msgid "gnome-control-center"
-msgstr "gnome-control-center"
+#: shell/regolith-control-center.desktop.in.in:5
+msgid "regolith-control-center"
+msgstr "regolith-control-center"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Настройкі;"
 

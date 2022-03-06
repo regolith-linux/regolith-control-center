@@ -1,12 +1,12 @@
-# Aragonese translation for gnome-control-center.
-# Copyright (C) 2013 gnome-control-center's COPYRIGHT HOLDER
-# This file is distributed under the same license as the gnome-control-center package.
+# Aragonese translation for regolith-control-center.
+# Copyright (C) 2013 regolith-control-center's COPYRIGHT HOLDER
+# This file is distributed under the same license as the regolith-control-center package.
 # Jorge Pérez Pérez <jorgtum@gmail.com>, 2013.
 # Daniel Martinez <entaltoaragon@gmail.com>, 2014, 2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
+"Project-Id-Version: regolith-control-center master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2015-06-14 06:46+0000\n"
@@ -1495,7 +1495,7 @@ msgid "Launch help browser"
 msgstr "Lanzar o visor d'aduya"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1605
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "Configuración"
 
@@ -7100,15 +7100,15 @@ msgstr "Botón inferior"
 msgid "Tip Pressure Feel"
 msgstr "Sensibilidat de presión d'o lapiz"
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:1
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:1
 msgid "GNOME Control Center"
 msgstr "Centro de control de GNOME"
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:2
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:2
 msgid "Utilities to configure the GNOME desktop"
 msgstr "Utilidatz ta configurar o escritorio GNOME"
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:3
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:3
 msgid ""
 "The control center is GNOME's main interface for configuration of various "
 "aspects of your desktop."
@@ -7191,7 +7191,7 @@ msgctxt "category"
 msgid "System"
 msgstr "Sistema"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Preferencias;Configuración;"
 

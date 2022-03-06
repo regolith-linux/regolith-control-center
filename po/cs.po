@@ -1,8 +1,8 @@
-# Czech translation of gnome-control-center.
-# Copyright (C) 1999, 2003, 2006, 2007, 2008, 2009, 2010, 2011 the author(s) of gnome-control-center.
+# Czech translation of regolith-control-center.
+# Copyright (C) 1999, 2003, 2006, 2007, 2008, 2009, 2010, 2011 the author(s) of regolith-control-center.
 # Copyright (C) 2003, 2004, 2005, 2006 Miloslav Trmac <mitr@volny.cz>.
 # Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.gnome.org>.
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 #
 # David Šauer <davids@penguin.cz>, 1999.
 # Jiří Lebl <jirka@5z.cz>, 2002.
@@ -21,8 +21,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2020-04-02 10:17+0000\n"
 "PO-Revision-Date: 2020-04-22 13:30+0200\n"
@@ -91,7 +91,7 @@ msgstr "Souborový systém"
 #: panels/applications/cc-applications-panel.c:763
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:281
 #: shell/cc-window.c:964 shell/cc-window.ui:125
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -8140,19 +8140,19 @@ msgstr "Dolní tlačítko"
 msgid "Tip Pressure Feel"
 msgstr "Pocit z přítlaku hrotu"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "Nastavení GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Nástroj pro nastavení uživatelského prostředí GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Aplikace Nastavení je hlavním rozhraním pro nastavení vašeho systému."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -8214,7 +8214,7 @@ msgid "Help"
 msgstr "Nápověda"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "předvolby;nastavení;"
 

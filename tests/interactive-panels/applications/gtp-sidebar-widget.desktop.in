@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Another Sidebar Widget
 Comment=Panel that embeds a widget at the sidebar
-Exec=gnome-control-center sidebar-widget
+Exec=regolith-control-center sidebar-widget
 Icon=go-first-symbolic
 Terminal=false
 Type=Application

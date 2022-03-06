@@ -1,11 +1,11 @@
-# translation of gnome-control-center.HEAD.hy.po to armenian
+# translation of regolith-control-center.HEAD.hy.po to armenian
 # Copyright (C) 2010
 # This file is distributed under the same license as the PACKAGE package.
 # Narine Martirosyan <training@instigate.am>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center.HEAD.hy\n"
+"Project-Id-Version: regolith-control-center.HEAD.hy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-01 11:35+0500\n"
 "PO-Revision-Date: 2010-09-02 11:06+0400\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 
-#: ../gnome-control-center.schemas.in.h:1
+#: ../regolith-control-center.schemas.in.h:1
 msgid "Current network location"
 msgstr "Ընթացիկ ցանցի տեղակայություն"
 
-#: ../gnome-control-center.schemas.in.h:2
+#: ../regolith-control-center.schemas.in.h:2
 msgid "More backgrounds URL"
 msgstr "Ավելի շատ ֆոների URL"
 
-#: ../gnome-control-center.schemas.in.h:3
+#: ../regolith-control-center.schemas.in.h:3
 msgid "More themes URL"
 msgstr "Ավելի շատ թեմաների URL"
 
-#: ../gnome-control-center.schemas.in.h:4
+#: ../regolith-control-center.schemas.in.h:4
 msgid ""
 "Set this to your current location name. This is used to determine the "
 "appropriate network proxy configuration."
@@ -37,7 +37,7 @@ msgstr ""
 "Կարգավորել սա ընթացիկ տեղակայության անվանման համար։ Սա օգտագործվում է "
 "համապատասխան ցանցի պրոքսի կոնֆիգուրացիան որոշելու համար։"
 
-#: ../gnome-control-center.schemas.in.h:5
+#: ../regolith-control-center.schemas.in.h:5
 msgid ""
 "URL for where to get more desktop backgrounds. If set to an empty string the "
 "link will not appear."
@@ -45,7 +45,7 @@ msgstr ""
 "URL որտեղից ստանալ աշխատասեղանի ավելի շատ ֆոների համար։ Եթե կարգավորված է "
 "դատարկ ծրագրատողում տողը չի երևա։"
 
-#: ../gnome-control-center.schemas.in.h:6
+#: ../regolith-control-center.schemas.in.h:6
 msgid ""
 "URL for where to get more desktop themes. If set to an empty string the link "
 "will not appear."
@@ -53,77 +53,77 @@ msgstr ""
 "URL՝ ավելի շատ աշխատանքային սեղանի թեմաներ գտնելու համար։ Դատարկ տողի "
 "դեպքում հղումը չի հայտնվի։"
 
-#: ../libgnome-control-center/gconf-property-editor.c:134
+#: ../libregolith-control-center/gconf-property-editor.c:134
 msgid "Key"
 msgstr "Ստեղն"
 
-#: ../libgnome-control-center/gconf-property-editor.c:135
+#: ../libregolith-control-center/gconf-property-editor.c:135
 msgid "GConf key to which this property editor is attached"
 msgstr "GConf ստեղն, որին կցված է հատկությունների այս խմբագիրը "
 
-#: ../libgnome-control-center/gconf-property-editor.c:141
+#: ../libregolith-control-center/gconf-property-editor.c:141
 msgid "Callback"
 msgstr "Մշակող"
 
-#: ../libgnome-control-center/gconf-property-editor.c:142
+#: ../libregolith-control-center/gconf-property-editor.c:142
 msgid "Issue this callback when the value associated with key gets changed"
 msgstr "Գործարկել այս մշակողը, երբ ստեղնի հետ կապված արժեքը փոխվում է"
 
-#: ../libgnome-control-center/gconf-property-editor.c:147
+#: ../libregolith-control-center/gconf-property-editor.c:147
 msgid "Change set"
 msgstr "Փոխել կարգավորումը"
 
-#: ../libgnome-control-center/gconf-property-editor.c:148
+#: ../libregolith-control-center/gconf-property-editor.c:148
 msgid ""
 "GConf change set containing data to be forwarded to the gconf client on apply"
 msgstr ""
 "gconf հաճախորդին իր դիմումի համաձայն ուղարկվղ GConf փոփոխություն պարունակող "
 "տվյալ"
 
-#: ../libgnome-control-center/gconf-property-editor.c:153
+#: ../libregolith-control-center/gconf-property-editor.c:153
 msgid "Conversion to widget callback"
 msgstr "Փոփոխություն վիջեթ մշակողում"
 
-#: ../libgnome-control-center/gconf-property-editor.c:154
+#: ../libregolith-control-center/gconf-property-editor.c:154
 msgid ""
 "Callback to be issued when data are to be converted from GConf to the widget"
 msgstr "Գործարկել մշակողը, երբ տվյալները GConf–ից վերածվում են վիջեթի"
 
-#: ../libgnome-control-center/gconf-property-editor.c:159
+#: ../libregolith-control-center/gconf-property-editor.c:159
 msgid "Conversion from widget callback"
 msgstr "Փոխակերպում վիջեթից մշակողի"
 
-#: ../libgnome-control-center/gconf-property-editor.c:160
+#: ../libregolith-control-center/gconf-property-editor.c:160
 msgid ""
 "Callback to be issued when data are to be converted to GConf from the widget"
 msgstr "Գործարկել մշակողը, երբ տվյալները GConf–ից վերածվում են վիջեթի"
 
-#: ../libgnome-control-center/gconf-property-editor.c:165
+#: ../libregolith-control-center/gconf-property-editor.c:165
 msgid "UI Control"
 msgstr "UI ղեկավարում"
 
-#: ../libgnome-control-center/gconf-property-editor.c:166
+#: ../libregolith-control-center/gconf-property-editor.c:166
 msgid "Object that controls the property (normally a widget)"
 msgstr "Օբյեկտ, որ ղեկավարում է հատկույունը (սովորաբար վիջեթ)"
 
-#: ../libgnome-control-center/gconf-property-editor.c:181
+#: ../libregolith-control-center/gconf-property-editor.c:181
 msgid "Property editor object data"
 msgstr "Հատկությունների խմբագրի օբյեկտի տվյալ"
 
-#: ../libgnome-control-center/gconf-property-editor.c:182
+#: ../libregolith-control-center/gconf-property-editor.c:182
 msgid "Custom data required by the specific property editor"
 msgstr "հատուկ հատկությունների խմբագրի սովորական տվյալ"
 
-#: ../libgnome-control-center/gconf-property-editor.c:188
+#: ../libregolith-control-center/gconf-property-editor.c:188
 msgid "Property editor data freeing callback"
 msgstr "Հատկության խմբագրի տվյալները ազատում են մշակողը"
 
-#: ../libgnome-control-center/gconf-property-editor.c:189
+#: ../libregolith-control-center/gconf-property-editor.c:189
 msgid "Callback to be issued when property editor object data is to be freed"
 msgstr ""
 "Գործարկել մշակողը, երբ պետք է ազատվեն հատկության խմբագրի օբյեկտի տվյալները"
 
-#: ../libgnome-control-center/gconf-property-editor.c:1406
+#: ../libregolith-control-center/gconf-property-editor.c:1406
 #, c-format
 msgid ""
 "Couldn't find the file '%s'.\n"
@@ -136,7 +136,7 @@ msgstr ""
 "Խնդրում ենք հաստատել, որ այն գոյություն ունի և նորից փորձել կամ ընտրել ֆոնի "
 "այլ նկար։"
 
-#: ../libgnome-control-center/gconf-property-editor.c:1414
+#: ../libregolith-control-center/gconf-property-editor.c:1414
 #, c-format
 msgid ""
 "I don't know how to open the file '%s'.\n"
@@ -149,11 +149,11 @@ msgstr ""
 "\n"
 "Խնդրում ենք փոխարենն այլ նկար ընտրել։"
 
-#: ../libgnome-control-center/gconf-property-editor.c:1536
+#: ../libregolith-control-center/gconf-property-editor.c:1536
 msgid "Please select an image."
 msgstr "Խնդրում ենք նկար ընտրել։"
 
-#: ../libgnome-control-center/gconf-property-editor.c:1541
+#: ../libregolith-control-center/gconf-property-editor.c:1541
 msgid "_Select"
 msgstr "_Ընտրել"
 
@@ -1910,12 +1910,12 @@ msgstr "սեղմված է"
 msgid "rejected"
 msgstr "մերժված է"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 #: ../shell/gnomecc.directory.in.h:1
 msgid "Control Center"
 msgstr "Կառավարման կենտրոն"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "The GNOME configuration tool"
 msgstr "GNOME-ի կոնֆիգուրացման գործիք"
 

@@ -56,8 +56,8 @@ info_panel_lib = static_library(
 panels_libs += info_panel_lib
 
 executable(
-  'gnome-control-center-print-renderer',
-  'gnome-control-center-print-renderer.c',
+  'regolith-control-center-print-renderer',
+  'regolith-control-center-print-renderer.c',
   include_directories: [ top_inc ],
   dependencies: [ deps, epoxy_dep ],
   c_args: cflags,

@@ -239,7 +239,7 @@ static char *
 get_renderer_from_helper (const char **env)
 {
   int status;
-  char *argv[] = { LIBEXECDIR "/gnome-control-center-print-renderer", NULL };
+  char *argv[] = { LIBEXECDIR "/regolith-control-center-print-renderer", NULL };
   g_auto(GStrv) envp = NULL;
   g_autofree char *renderer = NULL;
   g_autoptr(GError) error = NULL;
