@@ -74,7 +74,7 @@ Depends: ${misc:Depends},
          colord (>= 0.1.30),
 #         desktop-base (>= 10.0.0),
          desktop-file-utils,
-         regolith-control-center-data (<< ${gnome:NextVersion}),
+#         regolith-control-center-data (<< ${gnome:NextVersion}),  # KG: removed to build failure, missing variable
          regolith-control-center-data (>= ${source:Version}),
          gnome-desktop3-data,
          gnome-settings-daemon (>= 3.29),
