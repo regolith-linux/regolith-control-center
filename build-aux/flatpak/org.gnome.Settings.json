@@ -1,5 +1,5 @@
 {
-    "app-id" : "org.gnome.Settings",
+    "app-id" : "org.regolith.Settings",
     "runtime" : "org.gnome.Sdk",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
@@ -13,7 +13,7 @@
         "--device=dri",
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
         "--filesystem=host",
-        "--own-name=org.gnome.ControlCenter",
+        "--own-name=org.regolith.ControlCenter",
         "--own-name=org.gnome.SessionManager",
         "--share=ipc",
         "--share=network",
