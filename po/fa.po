@@ -156,7 +156,7 @@ msgstr "دیگر پرونده‌ها"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1564
 #: panels/applications/cc-applications-panel.ui:418
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:167
 msgid "Applications"
 msgstr "برنامه‌های کاربردی"
@@ -541,13 +541,13 @@ msgstr "دسترسی به داده‌های استفاده از انرژی"
 msgid "Read/write access to U2F devices exposed"
 msgstr "دسترسی خواندن و نوشتن به افزاره‌های U2F"
 
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr "واپایشاجازه‌ها و تنظیمات برنامه‌های مختلف"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr "کاره;برنامه;فلت‌پک;اجازه;مجوز;دسترسی;تنظیمات;application;flatpak;permission;setting;"
 

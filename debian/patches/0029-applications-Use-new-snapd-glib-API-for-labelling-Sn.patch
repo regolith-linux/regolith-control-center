@@ -271,6 +271,6 @@ index 915b235..61fc3b6 100644
  panels/applications/cc-applications-panel.c
  panels/applications/cc-applications-panel.ui
 -panels/applications/cc-snap-row.c
- panels/applications/gnome-applications-panel.desktop.in.in
+ panels/applications/regolith-applications-panel.desktop.in.in
  panels/background/bg-colors-source.c
  panels/background/cc-background-chooser.c

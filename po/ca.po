@@ -167,7 +167,7 @@ msgstr "Altres fitxers"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1564
 #: panels/applications/cc-applications-panel.ui:418
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:167
 msgid "Applications"
 msgstr "Aplicacions"
@@ -568,13 +568,13 @@ msgstr "Accedeix a les dades d'ús d'energia"
 msgid "Read/write access to U2F devices exposed"
 msgstr "Accés de lectura i escriptura als dispositius U2F exposats"
 
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr "Controla diversos permisos i paràmetres d'aplicació"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr "aplicació;flatpak;permís;paràmetre;"
 

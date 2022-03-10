@@ -160,7 +160,7 @@ msgstr "Druge datoteke"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1568
 #: panels/applications/cc-applications-panel.ui:418
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:167
 msgid "Applications"
 msgstr "Programi"
@@ -563,13 +563,13 @@ msgstr "Dostop do podatkov o porabi energije"
 msgid "Read/write access to U2F devices exposed"
 msgstr "Branje/Spreminjanje dostopa do naprav U2F"
 
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr "Nadzor nad dovoljenji in nastavitvami številnih programov"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr "program;flatpak;dovoljenja;nastavitve;"
 

@@ -154,7 +154,7 @@ msgstr "Altris file"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1564
 #: panels/applications/cc-applications-panel.ui:418
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:167
 msgid "Applications"
 msgstr "Aplicazions"
@@ -556,13 +556,13 @@ msgstr "Acedi ai dâts su la energjie doprade"
 msgid "Read/write access to U2F devices exposed"
 msgstr "Lei/scrivi l'acès ai dispositîfs U2F esposcj"
 
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr "Controle i permès e lis impostazions des varis aplicazions"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr "aplicazion;flatpak;permès;impostazion;"
 

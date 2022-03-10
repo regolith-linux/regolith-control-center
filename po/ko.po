@@ -176,7 +176,7 @@ msgstr "기타 파일"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1564
 #: panels/applications/cc-applications-panel.ui:418
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:167
 msgid "Applications"
 msgstr "프로그램"
@@ -626,13 +626,13 @@ msgid "Read/write access to U2F devices exposed"
 msgstr "노출된 U2F 장치에 읽기/쓰기 접근"
 
 # 권한 이름
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr "여러가지 프로그램 권한과 설정 조정"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr ""
 "application;애플리케이션;앱;프로그램;flatpak;permission;권한;setting;설정;"
