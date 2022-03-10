@@ -85,7 +85,7 @@ panels_libs += static_library(
   c_args: cflags
 )
 
-name = 'cc-remote-login-helper'
+name = 'regolith-cc-remote-login-helper'
 
 deps = [
   gio_dep,
