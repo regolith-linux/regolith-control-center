@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<locatingRules>
+  <locatingRule name="RegolithKeybindings" pattern="*.xml">
+    <documentRule localName="KeyListEntries" target="regolith-keybindings.its"/>
+  </locatingRule>
+</locatingRules>
