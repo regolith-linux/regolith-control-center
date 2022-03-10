@@ -74,8 +74,7 @@ Depends: ${misc:Depends},
          colord (>= 0.1.30),
 #         desktop-base (>= 10.0.0),
          desktop-file-utils,
-#         regolith-control-center-data (<< ${gnome:NextVersion}),  # KG: removed to build failure, missing variable
-         regolith-control-center-data (>= ${source:Version}),
+         gnome-control-center-data (>= ${source:Version}),
          gnome-desktop3-data,
          gnome-settings-daemon (>= 3.29),
          gsettings-desktop-schemas (>= 3.31.0),
@@ -94,7 +93,7 @@ Recommends: cups-pk-helper,
             network-manager-gnome (>= 0.9.8),
             cracklib-runtime,
             pulseaudio-module-bluetooth,
-            regolith-control-center-faces,
+            gnome-control-center-faces,
             rygel | rygel-tracker,
 Suggests: gnome-software | gnome-packagekit,
           gnome-user-share,
@@ -112,16 +111,6 @@ Description: utilities to configure the GNOME desktop
  It also contains a front end to these applets, which can also be
  accessed with the GNOME panel or the Nautilus file manager.
 
-Package: regolith-control-center-faces
-Architecture: all
-Multi-Arch: foreign
-Depends: ${misc:Depends}
-Conflicts: unity-control-center-faces
-Replaces: unity-control-center-faces
-Provides: unity-control-center-faces
-Description: utilities to configure the GNOME desktop - faces images
- This package contains images that can be used for user profile's icon
-
 Package: regolith-control-center-dev
 Architecture: all
 Multi-Arch: foreign
@@ -130,13 +119,3 @@ Depends: ${misc:Depends},
          regolith-control-center-data
 Description: utilities to configure the GNOME desktop
  This package contains the file required to get the keydirs location
-
-Package: regolith-control-center-data
-Architecture: all
-Multi-Arch: foreign
-Depends: ${misc:Depends}
-Breaks: regolith-control-center (<< 1:3.7.92-2~)
-Replaces: regolith-control-center (<< 1:3.7.92-2~)
-Description: configuration applets for GNOME - data files
- This package contains data files (icons, pixmaps, locales files) needed by
- the configuration applets in the regolith-control-center package.
