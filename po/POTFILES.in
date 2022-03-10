@@ -257,6 +257,6 @@ shell/cc-window.c
 shell/cc-window.ui
 shell/regolith-control-center.desktop.in.in
 shell/help-overlay.ui
-shell/org.gnome.ControlCenter.gschema.xml
+shell/org.regolith.ControlCenter.gschema.xml
 # Please do not remove this file from POTFILES.in. Run "git submodule init && git submodule update" to get it.
 subprojects/gvc/gvc-mixer-control.c
