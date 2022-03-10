@@ -1,3 +1,23 @@
+regolith-control-center (0.1.2) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Change filenames to avoid collision w/ gnome-control-center
+  * Tweak desktop file to differentiate from gnome-control-center
+  * Change filenames to avoid collision w/ gnome-control-center
+  * Update flatpack fields for regolith
+  * Rename gnome-power-manager icons to prevent collision w/ gnome-control-center
+  * Remove -data and -faces packages, use upstream
+  * Fix references to renamed schema
+  * Remove unshipped files
+  * Ignore files not installed in removed packages
+  * Rename cc-remote-login-helper to prevent collision w/ gnome-control-center
+  * Remove upstream file
+  * Rename desktop entry to avoid collision with gnome-control-center
+  * Rename desktop entry to avoid collision with gnome-control-center II
+  * Update dbus service name to prevent collisiosn with gnome-control-center
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Thu, 10 Mar 2022 08:58:15 -0800
+
 regolith-control-center (0.1.1) focal; urgency=medium
 
   [ Ken Gilmer ]
