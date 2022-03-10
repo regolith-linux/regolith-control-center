@@ -15,7 +15,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=737362
  panels/connectivity/cc-connectivity-panel.h        |  28 +++++
  panels/connectivity/cc-connectivity-panel.ui       |  67 +++++++++++
  panels/connectivity/connectivity.gresource.xml     |   6 +
- .../gnome-connectivity-panel.desktop.in.in         |  19 +++
+ .../regolith-connectivity-panel.desktop.in.in         |  19 +++
  panels/connectivity/meson.build                    |  45 +++++++
  panels/meson.build                                 |   1 +
  po/POTFILES.in                                     |   2 +
@@ -25,7 +25,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=737362
  create mode 100644 panels/connectivity/cc-connectivity-panel.h
  create mode 100644 panels/connectivity/cc-connectivity-panel.ui
  create mode 100644 panels/connectivity/connectivity.gresource.xml
- create mode 100644 panels/connectivity/gnome-connectivity-panel.desktop.in.in
+ create mode 100644 panels/connectivity/regolith-connectivity-panel.desktop.in.in
  create mode 100644 panels/connectivity/meson.build
 
 diff --git a/panels/connectivity/cc-connectivity-panel.c b/panels/connectivity/cc-connectivity-panel.c
@@ -284,11 +284,11 @@ index 0000000..e102045
 +    <file preprocess="xml-stripblanks">cc-connectivity-panel.ui</file>
 +  </gresource>
 +</gresources>
-diff --git a/panels/connectivity/gnome-connectivity-panel.desktop.in.in b/panels/connectivity/gnome-connectivity-panel.desktop.in.in
+diff --git a/panels/connectivity/regolith-connectivity-panel.desktop.in.in b/panels/connectivity/regolith-connectivity-panel.desktop.in.in
 new file mode 100644
 index 0000000..4e97c28
 --- /dev/null
-+++ b/panels/connectivity/gnome-connectivity-panel.desktop.in.in
++++ b/panels/connectivity/regolith-connectivity-panel.desktop.in.in
 @@ -0,0 +1,19 @@
 +[Desktop Entry]
 +Name=Connectivity
@@ -316,7 +316,7 @@ index 0000000..e9c30d8
 +++ b/panels/connectivity/meson.build
 @@ -0,0 +1,45 @@
 +panels_list += cappletname
-+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
++desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
 +
 +desktop_in = configure_file(
 +  input: desktop + '.in.in',
@@ -381,7 +381,7 @@ index 2440ec9..915b235 100644
  panels/common/cc-util.c
  panels/common/hostname-helper.c
 +panels/connectivity/cc-connectivity-panel.ui
-+panels/connectivity/gnome-connectivity-panel.desktop.in.in
++panels/connectivity/regolith-connectivity-panel.desktop.in.in
  panels/datetime/big.ui
  panels/datetime/cc-datetime-panel.c
  panels/datetime/cc-datetime-panel.ui

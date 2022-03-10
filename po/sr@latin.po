@@ -213,22 +213,22 @@ msgid "Turn off the Airplane mode switch to enable Bluetooth."
 msgstr "Isključite avionski režim rada biste uključili blutut."
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:3
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:3
 #: panels/network/network.ui:101 panels/printers/pp-new-printer-dialog.c:1816
 msgid "Bluetooth"
 msgstr "Blutut"
 
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:4
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:4
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "Uključite ili isključite blutut i povežite vaše uređaje"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:6
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:6
 msgid "bluetooth"
 msgstr "bluetooth"
 
 #. Translators: Search terms to find the Bluetooth panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:19
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:19
 msgid "share;sharing;bluetooth;obex;"
 msgstr ""
 "deljenje;blutut;obeks;deljenje;blutut;obeks;share;sharing;bluetooth;obex;"
@@ -861,23 +861,23 @@ msgstr "D65 (Fotografija i grafika)"
 msgid "D75"
 msgstr "D75"
 
-#: panels/color/gnome-color-panel.desktop.in.in:3
+#: panels/color/regolith-color-panel.desktop.in.in:3
 msgid "Color"
 msgstr "Boja"
 
-#: panels/color/gnome-color-panel.desktop.in.in:4
+#: panels/color/regolith-color-panel.desktop.in.in:4
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
 "Kalibrirajte boje vaših uređaja, kao što su ekrani, foto-aparati ili štampači"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/color/gnome-color-panel.desktop.in.in:7
+#: panels/color/regolith-color-panel.desktop.in.in:7
 msgid "preferences-color"
 msgstr "preferences-color"
 
 #. Translators: Search terms to find the Color panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/color/gnome-color-panel.desktop.in.in:19
+#: panels/color/regolith-color-panel.desktop.in.in:19
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "boja;icc;profil;kalibriraj;štampač;ekran;"
 
@@ -1031,7 +1031,7 @@ msgid "December"
 msgstr "Decembar"
 
 #: panels/datetime/datetime.ui:61
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:3
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:3
 msgid "Date & Time"
 msgstr "Datum i vreme"
 
@@ -1089,17 +1089,17 @@ msgstr "24-časovno"
 msgid "AM / PM"
 msgstr "PrP/PoP"
 
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:4
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:4
 msgid "Change the date and time, including time zone"
 msgstr "Izmenite datum i vreme, uključujući vremensku zonu"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:7
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:7
 msgid "preferences-system-time"
 msgstr "preferences-system-time"
 
 #. Translators: Search terms to find the Date and Time panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:15
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:15
 msgid "Clock;Timezone;Location;"
 msgstr "sat;vremenska zona;mesto;"
 
@@ -1301,21 +1301,21 @@ msgstr "PoP"
 msgid "To"
 msgstr "Do"
 
-#: panels/display/gnome-display-panel.desktop.in.in:3
+#: panels/display/regolith-display-panel.desktop.in.in:3
 msgid "Displays"
 msgstr "Ekrani"
 
-#: panels/display/gnome-display-panel.desktop.in.in:4
+#: panels/display/regolith-display-panel.desktop.in.in:4
 msgid "Choose how to use connected monitors and projectors"
 msgstr "Izaberite kako ćete koristiti povezane ekrane i projektore"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/display/gnome-display-panel.desktop.in.in:7
+#: panels/display/regolith-display-panel.desktop.in.in:7
 msgid "preferences-desktop-display"
 msgstr "preferences-desktop-display"
 
 #. Translators: Search terms to find the Displays panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/display/gnome-display-panel.desktop.in.in:19
+#: panels/display/regolith-display-panel.desktop.in.in:19
 msgid ""
 "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;Night;Light;Blue;"
 "redshift;color;sunset;sunrise;"
@@ -1447,34 +1447,34 @@ msgstr "Video CD"
 msgid "Windows software"
 msgstr "Vindouz programi"
 
-#: panels/info/gnome-default-apps-panel.desktop.in.in:3
+#: panels/info/regolith-default-apps-panel.desktop.in.in:3
 msgid "Default Applications"
 msgstr "Podrazumevani programi"
 
-#: panels/info/gnome-default-apps-panel.desktop.in.in:4
+#: panels/info/regolith-default-apps-panel.desktop.in.in:4
 msgid "Configure Default Applications"
 msgstr "Podesite osnovne programe"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-default-apps-panel.desktop.in.in:7
+#: panels/info/regolith-default-apps-panel.desktop.in.in:7
 msgid "starred"
 msgstr "starred"
 
 #. Translators: Search terms to find the Default Applications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/info/gnome-default-apps-panel.desktop.in.in:19
+#: panels/info/regolith-default-apps-panel.desktop.in.in:19
 msgid "default;application;preferred;media;"
 msgstr "osnovni;program;omiljeni;medij;"
 
-#: panels/info/gnome-info-overview-panel.desktop.in.in:3
+#: panels/info/regolith-info-overview-panel.desktop.in.in:3
 msgid "About"
 msgstr "O programu"
 
-#: panels/info/gnome-info-overview-panel.desktop.in.in:4
+#: panels/info/regolith-info-overview-panel.desktop.in.in:4
 msgid "View information about your system"
 msgstr "Pogledajte podatke o vašem sistemu"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-info-overview-panel.desktop.in.in:7
+#: panels/info/regolith-info-overview-panel.desktop.in.in:7
 msgid "help-about"
 msgstr "help-about"
 
@@ -1483,7 +1483,7 @@ msgstr "help-about"
 #. The list MUST also end with a semicolon!
 #. "Preferred Applications" is the old name for the preference, so make
 #. sure that you use the same "translation" for those keywords
-#: panels/info/gnome-info-overview-panel.desktop.in.in:23
+#: panels/info/regolith-info-overview-panel.desktop.in.in:23
 msgid ""
 "device;system;information;memory;processor;version;default;application;"
 "preferred;cd;dvd;usb;audio;video;disc;removable;media;autorun;"
@@ -1495,21 +1495,21 @@ msgstr ""
 "information;memory;processor;version;default;application;preferred;cd;dvd;"
 "usb;audio;video;disc;removable;media;autorun;"
 
-#: panels/info/gnome-removable-media-panel.desktop.in.in:3
+#: panels/info/regolith-removable-media-panel.desktop.in.in:3
 msgid "Removable Media"
 msgstr "Prenosni nosači"
 
-#: panels/info/gnome-removable-media-panel.desktop.in.in:4
+#: panels/info/regolith-removable-media-panel.desktop.in.in:4
 msgid "Configure Removable Media settings"
 msgstr "Podesite prenosne medije"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-removable-media-panel.desktop.in.in:7
+#: panels/info/regolith-removable-media-panel.desktop.in.in:7
 msgid "media-removable"
 msgstr "media-removable"
 
 #. Translators: Search terms to find the Removable Media panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/info/gnome-removable-media-panel.desktop.in.in:19
+#: panels/info/regolith-removable-media-panel.desktop.in.in:19
 msgid ""
 "device;system;default;application;preferred;cd;dvd;usb;audio;video;disc;"
 "removable;media;autorun;"
@@ -1714,7 +1714,7 @@ msgid "Home folder"
 msgstr "Lična fascikla"
 
 #: panels/keyboard/01-launchers.xml.in:16
-#: panels/search/gnome-search-panel.desktop.in.in:3 shell/window.ui:157
+#: panels/search/regolith-search-panel.desktop.in.in:3 shell/window.ui:157
 msgid "Search"
 msgstr "Pretraga"
 
@@ -1763,7 +1763,7 @@ msgid "Lock screen"
 msgstr "Zaključaj ekran"
 
 #: panels/keyboard/50-accessibility.xml.in:2
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:3
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:3
 msgid "Universal Access"
 msgstr "Univerzalni pristup"
 
@@ -1892,22 +1892,22 @@ msgstr "Unesite novu prečicu da izmenite <b>%s</b>."
 msgid "Add Custom Shortcut"
 msgstr "Dodajte proizvoljnu prečicu"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:3
 msgid "Keyboard"
 msgstr "Tastatura"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:4
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:4
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr ""
 "Pogledajte i izmenite prečice tastature i podesite vaše postavke kucanja"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:7
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:7
 msgid "input-keyboard"
 msgstr "input-keyboard"
 
 #. Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:19
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:19
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -1986,11 +1986,11 @@ msgstr "Postavi"
 msgid "Test Your _Settings"
 msgstr "Isprobaj _podešavanja"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:3
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:3
 msgid "Mouse & Touchpad"
 msgstr "Miš i dodirna tabla"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:4
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:4
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
@@ -1998,12 +1998,12 @@ msgstr ""
 "desnorukost"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:7
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:7
 msgid "input-mouse"
 msgstr "input-mouse"
 
 #. Translators: Search terms to find the Mouse and Touchpad panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:19
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:19
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr "ploča;pokazivač;klik;dodir;duplo;dugme;kuglica;klizanje;"
 
@@ -2129,7 +2129,7 @@ msgid "NetworkManager needs to be running."
 msgstr "Upravljač mrežom treba biti pokrenut."
 
 #: panels/network/cc-wifi-panel.c:213
-#: panels/network/gnome-wifi-panel.desktop.in.in:3
+#: panels/network/regolith-wifi-panel.desktop.in.in:3
 #: panels/network/network-wifi.ui:1766
 msgid "Wi-Fi"
 msgstr "Bežična"
@@ -2667,22 +2667,22 @@ msgstr "_BSSID"
 msgid "My Home Network"
 msgstr "Moja kućna mreža"
 
-#: panels/network/gnome-network-panel.desktop.in.in:3
+#: panels/network/regolith-network-panel.desktop.in.in:3
 #: panels/network/network-mobile.ui:241
 msgid "Network"
 msgstr "Mreža"
 
-#: panels/network/gnome-network-panel.desktop.in.in:4
+#: panels/network/regolith-network-panel.desktop.in.in:4
 msgid "Control how you connect to the Internet"
 msgstr "Upravljajte vašim povezivanjem na Internet"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/network/gnome-network-panel.desktop.in.in:7
+#: panels/network/regolith-network-panel.desktop.in.in:7
 msgid "network-workgroup"
 msgstr "network-workgroup"
 
 #. Translators: Search terms to find the Network panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-network-panel.desktop.in.in:19
+#: panels/network/regolith-network-panel.desktop.in.in:19
 msgid ""
 "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;"
 "DNS;"
@@ -2690,17 +2690,17 @@ msgstr ""
 "mreža;bežična;vaj-faj;ip;lan;posrednik;van;širokopojasna;modem;blutut;vpn;"
 "DNS;"
 
-#: panels/network/gnome-wifi-panel.desktop.in.in:4
+#: panels/network/regolith-wifi-panel.desktop.in.in:4
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "Upravljajte povezivanjem na bežične mreže"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/network/gnome-wifi-panel.desktop.in.in:7
+#: panels/network/regolith-wifi-panel.desktop.in.in:7
 msgid "network-wireless"
 msgstr "network-wireless"
 
 #. Translators: Search terms to find the Wi-Fi panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-wifi-panel.desktop.in.in:19
+#: panels/network/regolith-wifi-panel.desktop.in.in:19
 msgid "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Broadband;DNS;"
 msgstr "mreža;bežična;vaj-faj;ip;lan;širokopojasna;DNS;"
 
@@ -3745,21 +3745,21 @@ msgctxt "notifications"
 msgid "Show Message C_ontent on Lock Screen"
 msgstr "Prikaži sadržaj p_oruke na ekranu zaključavanja"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:3
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:3
 msgid "Notifications"
 msgstr "Obaveštenja"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:4
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:4
 msgid "Control which notifications are displayed and what they show"
 msgstr "Upravljajte prikazanim obaveštenjima i njihovim sadržajem"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:7
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:7
 msgid "preferences-system-notifications"
 msgstr "preferences-system-notifications"
 
 #. Translators: Search terms to find the Notifications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:20
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:20
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "obaveštenja;vrpca;poruka;fioka;iskočko;"
 
@@ -3801,17 +3801,17 @@ msgstr "Greška u uklanjanju naloga"
 msgid "<b>%s</b> removed"
 msgstr "<b>%s</b> je uklonjen"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:3
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:3
 msgid "Online Accounts"
 msgstr "Nalozi na mreži"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:4
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:4
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 "Povežite se na vaše naloge na mreži i odlučite za šta ćete ih koristiti"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:7
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:7
 msgid "goa-panel"
 msgstr "goa-panel"
 
@@ -3819,7 +3819,7 @@ msgstr "goa-panel"
 #. Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:22
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:22
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4132,21 +4132,21 @@ msgstr "_Kada je dugme za napajanje pritisnuto"
 msgid "Devices"
 msgstr "Uređaji"
 
-#: panels/power/gnome-power-panel.desktop.in.in:3
+#: panels/power/regolith-power-panel.desktop.in.in:3
 msgid "Power"
 msgstr "Napajanje"
 
-#: panels/power/gnome-power-panel.desktop.in.in:4
+#: panels/power/regolith-power-panel.desktop.in.in:4
 msgid "View your battery status and change power saving settings"
 msgstr "Pogledajte stanje vaše baterije i izmenite podešavanja uštede napajanja"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/power/gnome-power-panel.desktop.in.in:7
+#: panels/power/regolith-power-panel.desktop.in.in:7
 msgid "gnome-power-manager"
 msgstr "gnome-power-manager"
 
 #. Translators: Search terms to find the Power panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/power/gnome-power-panel.desktop.in.in:19
+#: panels/power/regolith-power-panel.desktop.in.in:19
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4312,23 +4312,23 @@ msgstr "Izaberi iz baze podataka…"
 msgid "Install PPD File…"
 msgstr "Instaliraj PPD datoteku…"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:3
+#: panels/printers/regolith-printers-panel.desktop.in.in:3
 msgid "Printers"
 msgstr "Štampači"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:4
+#: panels/printers/regolith-printers-panel.desktop.in.in:4
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr ""
 "Dodajte štampače, pogledajte poslove štampanja i odlučite kao želite da "
 "štampate"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/printers/gnome-printers-panel.desktop.in.in:7
+#: panels/printers/regolith-printers-panel.desktop.in.in:7
 msgid "printer"
 msgstr "printer"
 
 #. Translators: Search terms to find the Printers panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/printers/gnome-printers-panel.desktop.in.in:16
+#: panels/printers/regolith-printers-panel.desktop.in.in:16
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "štampač;red;štampa;papir;mastilo;toner;"
 
@@ -5227,23 +5227,23 @@ msgstr "Merenje"
 msgid "Paper"
 msgstr "Papir"
 
-#: panels/region/gnome-region-panel.desktop.in.in:3
+#: panels/region/regolith-region-panel.desktop.in.in:3
 msgid "Region & Language"
 msgstr "Region i jezik"
 
-#: panels/region/gnome-region-panel.desktop.in.in:4
+#: panels/region/regolith-region-panel.desktop.in.in:4
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr ""
 "Izaberite vaš prikazani jezik, zapise, rasporede tastature i izvore ulaza"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/region/gnome-region-panel.desktop.in.in:7
+#: panels/region/regolith-region-panel.desktop.in.in:7
 msgid "preferences-desktop-locale"
 msgstr "preferences-desktop-locale"
 
 #. Translators: Search terms to find the Region and Language panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/region/gnome-region-panel.desktop.in.in:19
+#: panels/region/regolith-region-panel.desktop.in.in:19
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "jezik;raspored;tastatura;unos;"
 
@@ -5369,7 +5369,7 @@ msgstr "U _redu"
 msgid "No applications found"
 msgstr "Nisam pronašao programe"
 
-#: panels/search/gnome-search-panel.desktop.in.in:4
+#: panels/search/regolith-search-panel.desktop.in.in:4
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
@@ -5377,12 +5377,12 @@ msgstr ""
 "aktivnosti"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/search/gnome-search-panel.desktop.in.in:7
+#: panels/search/regolith-search-panel.desktop.in.in:7
 msgid "preferences-system-search"
 msgstr "preferences-system-search"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/search/gnome-search-panel.desktop.in.in:19
+#: panels/search/regolith-search-panel.desktop.in.in:19
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "nađi;traži;pronađi;potraži;popis;indeks;sakrij;privatnost;rezultati;"
 
@@ -5477,21 +5477,21 @@ msgid "Copy"
 msgstr "Umnožavanje"
 
 #: panels/sharing/cc-sharing-panel.c:1236
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:3
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:3
 msgid "Sharing"
 msgstr "Deljenje"
 
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:4
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:4
 msgid "Control what you want to share with others"
 msgstr "Odlučite šta želite da delite s drugima"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:7
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:7
 msgid "preferences-system-sharing"
 msgstr "preferences-system-sharing"
 
 #. Translators: Search terms to find the Sharing panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:16
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:16
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -5593,21 +5593,21 @@ msgstr "Delite muziku, fotografije i snimke na mreži."
 msgid "Folders"
 msgstr "Fascikle"
 
-#: panels/sound/data/gnome-sound-panel.desktop.in.in:3
+#: panels/sound/data/regolith-sound-panel.desktop.in.in:3
 msgid "Sound"
 msgstr "Zvuk"
 
-#: panels/sound/data/gnome-sound-panel.desktop.in.in:4
+#: panels/sound/data/regolith-sound-panel.desktop.in.in:4
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "Izmenite nivoe zvuka, ulaze, izlaze i zvuke upozorenja"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/sound/data/gnome-sound-panel.desktop.in.in:7
+#: panels/sound/data/regolith-sound-panel.desktop.in.in:7
 msgid "multimedia-volume-control"
 msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find the Sound panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sound/data/gnome-sound-panel.desktop.in.in:20
+#: panels/sound/data/regolith-sound-panel.desktop.in.in:20
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "kartica;mikrofon;jačina zvuka;iščezavanje;balans;blutut;slušalice;zvuk;"
 
@@ -5834,17 +5834,17 @@ msgstr[1] "%d piksela"
 msgstr[2] "%d piksela"
 msgstr[3] "jedan piksel"
 
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:4
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:4
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "Olakšajte posmatranje, slušanje, kucanje, ukazivanje i klikanje"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:7
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:7
 msgid "preferences-desktop-accessibility"
 msgstr "preferences-desktop-accessibility"
 
 #. Translators: Search terms to find the Universal Access panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:19
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:19
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen;Reader;text;font;size;"
 "AccessX;Sticky;Keys;Slow;Bounce;Mouse;Double;click;Delay;Assist;Repeat;Blink;"
@@ -6470,21 +6470,21 @@ msgstr "Snimite sliku…"
 msgid "Select a File…"
 msgstr "Izaberite datoteku…"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:3
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:3
 msgid "Users"
 msgstr "Korisnici"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:4
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:4
 msgid "Add or remove users and change your password"
 msgstr "Dodajte ili uklonite korisnike i izmenite vašu lozinku"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:7
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:7
 msgid "system-users"
 msgstr "system-users"
 
 #. Translators: Search terms to find the Users panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:20
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:20
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "prijavljivanje;ime;otisak prstiju;avatar;logo;lice;lozinka;"
 
@@ -7245,23 +7245,23 @@ msgstr "Penkalo"
 msgid "Button"
 msgstr "Dugme"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:3
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:3
 #: panels/wacom/gnome-wacom-properties.ui:198
 msgid "Wacom Tablet"
 msgstr "Vakom tablica"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:4
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:4
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "podesite mapiranje dugmeta i podesite osetljivost olovke grafičkih tablica"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:7
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:7
 msgid "input-tablet"
 msgstr "input-tablet"
 
 #. Translators: Search terms to find the Wacom Tablet panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:19
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:19
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "tablica;vakom;penkalo;brisač;miš;"
 

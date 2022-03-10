@@ -53,7 +53,7 @@ msgid "Full access to /dev"
 msgstr "Дастрасии пурра ба /dev"
 
 #: panels/applications/cc-applications-panel.c:573
-#: panels/network/gnome-network-panel.desktop.in.in:3
+#: panels/network/regolith-network-panel.desktop.in.in:3
 #: panels/network/network-mobile.ui:241
 msgid "Network"
 msgstr "Шабака"
@@ -284,12 +284,12 @@ msgstr ""
 #: panels/applications/cc-applications-panel.ui:230
 #: panels/applications/cc-applications-panel.ui:236
 #: panels/keyboard/01-launchers.xml.in:16
-#: panels/search/gnome-search-panel.desktop.in.in:3 shell/cc-window.ui:161
+#: panels/search/regolith-search-panel.desktop.in.in:3 shell/cc-window.ui:161
 msgid "Search"
 msgstr "Ҷустуҷӯ"
 
 #: panels/applications/cc-applications-panel.ui:242
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:3
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:3
 msgid "Notifications"
 msgstr "Огоҳиҳо"
 
@@ -576,18 +576,18 @@ msgid "Turn Off Airplane Mode"
 msgstr "Ҳ_олати ҳавопаймо"
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:3
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:3
 #: panels/network/cc-network-panel.ui:101
 #: panels/printers/pp-new-printer-dialog.c:1697
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:4
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:4
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "Фаъол ва хомӯш кардани Bluetooth ва пайваст кардани дастгоҳҳо"
 
 #. Translators: Search terms to find the Bluetooth panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:19
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:19
 msgid "share;sharing;bluetooth;obex;"
 msgstr ""
 
@@ -1249,17 +1249,17 @@ msgstr "Давом додан"
 msgid "_Done"
 msgstr "_Тайёр"
 
-#: panels/color/gnome-color-panel.desktop.in.in:3
+#: panels/color/regolith-color-panel.desktop.in.in:3
 msgid "Color"
 msgstr "Ранг"
 
-#: panels/color/gnome-color-panel.desktop.in.in:4
+#: panels/color/regolith-color-panel.desktop.in.in:4
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr "Санҷиши ранги дастгоҳҳо, монанди дисплейҳо, камераҳо ё принтерҳо"
 
 #. Translators: Search terms to find the Color panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/color/gnome-color-panel.desktop.in.in:19
+#: panels/color/regolith-color-panel.desktop.in.in:19
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "Ранг;ICC;Профил;Танзими андоза;Принтер;Дисплей;"
 
@@ -1423,7 +1423,7 @@ msgid "December"
 msgstr "Декабр"
 
 #: panels/datetime/cc-datetime-panel.ui:65
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:3
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:3
 msgid "Date & Time"
 msgstr "Сана ва Вақт"
 
@@ -1492,12 +1492,12 @@ msgstr "24-соат"
 msgid "AM / PM"
 msgstr "AM / PM"
 
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:4
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:4
 msgid "Change the date and time, including time zone"
 msgstr "Тағйир додани вақт ва сана, аз ҷумла минтақаи вақт"
 
 #. Translators: Search terms to find the Date and Time panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:15
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:15
 msgid "Clock;Timezone;Location;"
 msgstr "Соат;Минтақаи вақт;Ҷойгиршавӣ;"
 
@@ -1749,16 +1749,16 @@ msgstr ""
 msgid "Color Temperature"
 msgstr ""
 
-#: panels/display/gnome-display-panel.desktop.in.in:3
+#: panels/display/regolith-display-panel.desktop.in.in:3
 msgid "Displays"
 msgstr "Дисплейҳо"
 
-#: panels/display/gnome-display-panel.desktop.in.in:4
+#: panels/display/regolith-display-panel.desktop.in.in:4
 msgid "Choose how to use connected monitors and projectors"
 msgstr "Интихоб кардани тарзи истифодаи мониторҳо ва проекторҳои пайвастшуда"
 
 #. Translators: Search terms to find the Displays panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/display/gnome-display-panel.desktop.in.in:19
+#: panels/display/regolith-display-panel.desktop.in.in:19
 #, fuzzy
 #| msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;"
 msgid ""
@@ -2004,26 +2004,26 @@ msgstr "_Амал:"
 msgid "_Type:"
 msgstr "_Навъ:"
 
-#: panels/info/gnome-default-apps-panel.desktop.in.in:3
+#: panels/info/regolith-default-apps-panel.desktop.in.in:3
 msgid "Default Applications"
 msgstr "Барномаҳои пешфарз"
 
-#: panels/info/gnome-default-apps-panel.desktop.in.in:4
+#: panels/info/regolith-default-apps-panel.desktop.in.in:4
 #, fuzzy
 #| msgid "Default Applications"
 msgid "Configure Default Applications"
 msgstr "Барномаҳои пешфарз"
 
 #. Translators: Search terms to find the Default Applications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/info/gnome-default-apps-panel.desktop.in.in:19
+#: panels/info/regolith-default-apps-panel.desktop.in.in:19
 msgid "default;application;preferred;media;"
 msgstr ""
 
-#: panels/info/gnome-info-overview-panel.desktop.in.in:3
+#: panels/info/regolith-info-overview-panel.desktop.in.in:3
 msgid "About"
 msgstr ""
 
-#: panels/info/gnome-info-overview-panel.desktop.in.in:4
+#: panels/info/regolith-info-overview-panel.desktop.in.in:4
 msgid "View information about your system"
 msgstr "Намоиш додани иттилоот дар бораи низом"
 
@@ -2032,7 +2032,7 @@ msgstr "Намоиш додани иттилоот дар бораи низом"
 #. The list MUST also end with a semicolon!
 #. "Preferred Applications" is the old name for the preference, so make
 #. sure that you use the same "translation" for those keywords
-#: panels/info/gnome-info-overview-panel.desktop.in.in:23
+#: panels/info/regolith-info-overview-panel.desktop.in.in:23
 msgid ""
 "device;system;information;memory;processor;version;default;application;"
 "preferred;cd;dvd;usb;audio;video;disc;removable;media;autorun;"
@@ -2040,18 +2040,18 @@ msgstr ""
 "дастгоҳ;низом;иттилоот;ҳофиза;просессор;версия;пешфарз;барнома;пазируфта;cd;"
 "dvd;usb;аудио;видео;диск;ҷқдошаванда;медиа;иҷрои худкор;"
 
-#: panels/info/gnome-removable-media-panel.desktop.in.in:3
+#: panels/info/regolith-removable-media-panel.desktop.in.in:3
 msgid "Removable Media"
 msgstr "Медиаи ҷудошаванда"
 
-#: panels/info/gnome-removable-media-panel.desktop.in.in:4
+#: panels/info/regolith-removable-media-panel.desktop.in.in:4
 #, fuzzy
 #| msgid "Removable Media"
 msgid "Configure Removable Media settings"
 msgstr "Медиаи ҷудошаванда"
 
 #. Translators: Search terms to find the Removable Media panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/info/gnome-removable-media-panel.desktop.in.in:19
+#: panels/info/regolith-removable-media-panel.desktop.in.in:19
 #, fuzzy
 #| msgid ""
 #| "device;system;information;memory;processor;version;default;application;"
@@ -2189,7 +2189,7 @@ msgid "Lock screen"
 msgstr "Экрани қулф"
 
 #: panels/keyboard/50-accessibility.xml.in:2
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:3
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:3
 msgid "Universal Access"
 msgstr "Дастрасии умумӣ"
 
@@ -2328,18 +2328,18 @@ msgstr ""
 msgid "Add Custom Shortcut"
 msgstr "Миёнбури шахсӣ"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:3
 msgid "Keyboard"
 msgstr "Клавиатура"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:4
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:4
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr ""
 "Миёнбурҳои клавиатураро намоиш диҳед ва тағйир диҳед, ва бартариҳои чопкунии "
 "худро таъин кунед"
 
 #. Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:19
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:19
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -2400,11 +2400,11 @@ msgstr "Интихоб кардан"
 msgid "Test Your _Settings"
 msgstr "Санҷиши _танзимот"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:3
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:3
 msgid "Mouse & Touchpad"
 msgstr "Муш ва панели ламсӣ"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:4
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:4
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
@@ -2412,7 +2412,7 @@ msgstr ""
 "ё чап"
 
 #. Translators: Search terms to find the Mouse and Touchpad panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:19
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:19
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr ""
 ":Панели пайгирӣ;Нишондиҳанда;Зер кардан;Зарба задан;Дубора;Тугма;Трекбол;"
@@ -2591,7 +2591,7 @@ msgid "Options…"
 msgstr "Имконот…"
 
 #: panels/network/cc-wifi-panel.c:281
-#: panels/network/gnome-wifi-panel.desktop.in.in:3
+#: panels/network/regolith-wifi-panel.desktop.in.in:3
 #: panels/network/network-wifi.ui:1738
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -3185,12 +3185,12 @@ msgstr "_SSID"
 msgid "_BSSID"
 msgstr "_BSSID"
 
-#: panels/network/gnome-network-panel.desktop.in.in:4
+#: panels/network/regolith-network-panel.desktop.in.in:4
 msgid "Control how you connect to the Internet"
 msgstr "Идора кунед, ки шумо чӣ тавр ба Интернет пайваст мешавед"
 
 #. Translators: Search terms to find the Network panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-network-panel.desktop.in.in:19
+#: panels/network/regolith-network-panel.desktop.in.in:19
 #, fuzzy
 #| msgid ""
 #| "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;"
@@ -3202,14 +3202,14 @@ msgstr ""
 "Шабака;Бесим;Wi-Fi;Wifi;IP;LAN;Прокси;WAN;Пайвасти паҳннавор;Модем;Bluetooth;"
 "vpn;vlan;bridge;bond;DNS;"
 
-#: panels/network/gnome-wifi-panel.desktop.in.in:4
+#: panels/network/regolith-wifi-panel.desktop.in.in:4
 #, fuzzy
 #| msgid "Control how you connect to the Internet"
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "Идора кунед, ки шумо чӣ тавр ба Интернет пайваст мешавед"
 
 #. Translators: Search terms to find the Wi-Fi panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-wifi-panel.desktop.in.in:19
+#: panels/network/regolith-wifi-panel.desktop.in.in:19
 #, fuzzy
 #| msgid ""
 #| "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;"
@@ -4258,13 +4258,13 @@ msgstr "Огоҳиҳо"
 msgid "_Lock Screen Notifications"
 msgstr "Огоҳиҳои экрани қулф"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:4
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:4
 msgid "Control which notifications are displayed and what they show"
 msgstr ""
 "Идора кунед, ки кадом огоҳиҳо намоиш дода мешаванд ва чиро намоиш медиҳанд"
 
 #. Translators: Search terms to find the Notifications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:20
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:20
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "Огоҳиҳо;Баннер;Паём;Қуттӣ;Зоҳиршаванда;"
 
@@ -4293,11 +4293,11 @@ msgstr "Ҳангоми тозакунии ҳисоб хатогӣ ба вуҷу�
 msgid "<b>%s</b> removed"
 msgstr ""
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:3
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:3
 msgid "Online Accounts"
 msgstr "Ҳисобҳои онлайн"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:4
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:4
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 "Ба ҳисобҳои онлайни худ пайваст шавед ва интихоб кунед, ки онҳоро барои чӣ "
@@ -4307,7 +4307,7 @@ msgstr ""
 #. Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:22
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:22
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4850,17 +4850,17 @@ msgstr "Аз _батарея кор мекунад"
 msgid "Delay"
 msgstr "Таъхир"
 
-#: panels/power/gnome-power-panel.desktop.in.in:3
+#: panels/power/regolith-power-panel.desktop.in.in:3
 msgid "Power"
 msgstr "Барқ"
 
-#: panels/power/gnome-power-panel.desktop.in.in:4
+#: panels/power/regolith-power-panel.desktop.in.in:4
 msgid "View your battery status and change power saving settings"
 msgstr ""
 "Намоиш додани вазъияти батарея ва тағйир додани танзимоти захиракунии барқ"
 
 #. Translators: Search terms to find the Power panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/power/gnome-power-panel.desktop.in.in:19
+#: panels/power/regolith-power-panel.desktop.in.in:19
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4942,16 +4942,16 @@ msgstr "Интихоб кардан аз пойгоҳи иттилоотӣ…"
 msgid "Install PPD File…"
 msgstr "Таъмини файли PPD…"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:3
+#: panels/printers/regolith-printers-panel.desktop.in.in:3
 msgid "Printers"
 msgstr "Принтерҳо"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:4
+#: panels/printers/regolith-printers-panel.desktop.in.in:4
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr "Илова кардани принтерҳо, намоиши вазифаҳои чоп ва тарзи чопкунӣ"
 
 #. Translators: Search terms to find the Printers panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/printers/gnome-printers-panel.desktop.in.in:16
+#: panels/printers/regolith-printers-panel.desktop.in.in:16
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Принтер;Навбат;Чоп кардан;Қоғаз;Ранг;Тюнер;"
 
@@ -6176,11 +6176,11 @@ msgstr "Alt-и рост + чап"
 msgid "These keyboard shortcuts can be changed in the keyboard settings"
 msgstr "Шумо метавонед ин миёнбурҳоро дар танзимоти клавиатура тағйир диҳед"
 
-#: panels/region/gnome-region-panel.desktop.in.in:3
+#: panels/region/regolith-region-panel.desktop.in.in:3
 msgid "Region & Language"
 msgstr "Забон ва минтақа"
 
-#: panels/region/gnome-region-panel.desktop.in.in:4
+#: panels/region/regolith-region-panel.desktop.in.in:4
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr ""
@@ -6188,7 +6188,7 @@ msgstr ""
 "вуруд"
 
 #. Translators: Search terms to find the Region and Language panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/region/gnome-region-panel.desktop.in.in:19
+#: panels/region/regolith-region-panel.desktop.in.in:19
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "Забон;Тарҳбандӣ;Клавиатура;Вуруд;"
 
@@ -6216,7 +6216,7 @@ msgstr "Ба поён"
 msgid "Preferences"
 msgstr "Хусусиятҳо"
 
-#: panels/search/gnome-search-panel.desktop.in.in:4
+#: panels/search/regolith-search-panel.desktop.in.in:4
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
@@ -6224,7 +6224,7 @@ msgstr ""
 "намоиш медиҳанд"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/search/gnome-search-panel.desktop.in.in:19
+#: panels/search/regolith-search-panel.desktop.in.in:19
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "Ҷустуҷӯ;Ёфтан;Индекс;Пинҳон кардан;Махфият;Натиҷаҳо;"
 
@@ -6326,7 +6326,7 @@ msgid "Copy"
 msgstr "Нусха бардоштан"
 
 #: panels/sharing/cc-sharing-panel.c:1285
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:3
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:3
 msgid "Sharing"
 msgstr "Дастрасии муштарак"
 
@@ -6440,12 +6440,12 @@ msgstr ""
 msgid "Folders"
 msgstr "Ҷузвдонҳо"
 
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:4
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:4
 msgid "Control what you want to share with others"
 msgstr "Идора кунед, ки шумо бо дигарон чиро мубодила мекунед"
 
 #. Translators: Search terms to find the Sharing panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:16
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:16
 #, fuzzy
 #| msgid ""
 #| "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;"
@@ -6587,16 +6587,16 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: panels/sound/gnome-sound-panel.desktop.in.in:3
+#: panels/sound/regolith-sound-panel.desktop.in.in:3
 msgid "Sound"
 msgstr "Садо"
 
-#: panels/sound/gnome-sound-panel.desktop.in.in:4
+#: panels/sound/regolith-sound-panel.desktop.in.in:4
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "Тағйир додани сатҳи садо, вурудҳо, бароришҳо ва садоҳои огоҳӣ"
 
 #. Translators: Search terms to find the Sound panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sound/gnome-sound-panel.desktop.in.in:20
+#: panels/sound/regolith-sound-panel.desktop.in.in:20
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "Корт;Микрофон;Ҳаҷм;Шаффофӣ;Баланс;Bluetooth;Гӯшмонак;Аудио;"
 
@@ -6788,16 +6788,16 @@ msgstr "Илова кардани дастгоҳ"
 msgid "No devices attached"
 msgstr ""
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:3
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:3
 msgid "Thunderbolt"
 msgstr ""
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:4
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:4
 msgid "Manage Thunderbolt devices"
 msgstr ""
 
 #. Translators: those are keywords for the thunderbolt control-center panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:19
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:19
 msgid "Thunderbolt;"
 msgstr ""
 
@@ -7187,12 +7187,12 @@ msgctxt "dwell click threshold"
 msgid "Large"
 msgstr "Бузург"
 
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:4
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:4
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "Осон кардани дидан, шунидан, нуқта гузоштан ва зер кардан"
 
 #. Translators: Search terms to find the Universal Access panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:19
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:19
 #, fuzzy
 #| msgid ""
 #| "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen;Reader;text;font;"
@@ -7950,16 +7950,16 @@ msgstr ""
 "Нақши ангушти шумо бо муваффақият захира шудааст. Акнун шумо метавонед "
 "тавассути хонандаи нақши ангуштон ворид шавед."
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:3
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:3
 msgid "Users"
 msgstr "Корбарон"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:4
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:4
 msgid "Add or remove users and change your password"
 msgstr "Илова ё тоза кардани корбарон ва тағйир додани ниҳонвожаи худ"
 
 #. Translators: Search terms to find the Users panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:20
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:20
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "Воридшавӣ;Ном;Нақши ангушт;Аватар;Тамға;Рӯй;Ниҳонвожа;"
 
@@ -8386,19 +8386,19 @@ msgstr "Қалам"
 msgid "Button"
 msgstr "Тугма"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:3
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:3
 #: panels/wacom/gnome-wacom-properties.ui:200
 msgid "Wacom Tablet"
 msgstr "Планшети Wacom"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:4
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:4
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "Таъин кардани нақшабандиҳои тугмаҳо ва танзим кардани ҳассосияти қалам барои "
 "планшетҳои графикӣ"
 
 #. Translators: Search terms to find the Wacom Tablet panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:19
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:19
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Планшет;Wacom;Қалам;Тозакунак;Муш;"
 

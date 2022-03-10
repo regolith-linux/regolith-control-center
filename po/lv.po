@@ -54,7 +54,7 @@ msgid "Full access to /dev"
 msgstr "Pilna pieeja /dev resursiem"
 
 #: panels/applications/cc-applications-panel.c:570
-#: panels/network/gnome-network-panel.desktop.in.in:3
+#: panels/network/regolith-network-panel.desktop.in.in:3
 #: panels/network/network-mobile.ui:241
 msgid "Network"
 msgstr "Tīkls"
@@ -274,12 +274,12 @@ msgstr "Sistēmas iespējas, ko izmanto šī lietotne."
 #: panels/applications/cc-applications-panel.ui:230
 #: panels/applications/cc-applications-panel.ui:236
 #: panels/keyboard/01-launchers.xml.in:16
-#: panels/search/gnome-search-panel.desktop.in.in:3 shell/cc-window.ui:146
+#: panels/search/regolith-search-panel.desktop.in.in:3 shell/cc-window.ui:146
 msgid "Search"
 msgstr "Meklēt"
 
 #: panels/applications/cc-applications-panel.ui:242
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:3
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:3
 msgid "Notifications"
 msgstr "Paziņojumi"
 
@@ -545,23 +545,23 @@ msgid "Turn Off Airplane Mode"
 msgstr "Izslēgt lidmašīnas režīmu"
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:3
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:3
 #: panels/network/cc-network-panel.ui:101
 #: panels/printers/pp-new-printer-dialog.c:1697
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:4
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:4
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "Ieslēdziet un izslēdziet Bluetooth un savienojiet savas ierīces"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:6
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:6
 msgid "bluetooth"
 msgstr "bluetooth"
 
 #. Translators: Search terms to find the Bluetooth panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:19
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:19
 msgid "share;sharing;bluetooth;obex;"
 msgstr "koplietot;koplietošana;šārēt;šārēšana;bluetooth;obex;"
 
@@ -1190,11 +1190,11 @@ msgstr "Tu_rpināt"
 msgid "_Done"
 msgstr "_Pabeigts"
 
-#: panels/color/gnome-color-panel.desktop.in.in:3
+#: panels/color/regolith-color-panel.desktop.in.in:3
 msgid "Color"
 msgstr "Krāsas"
 
-#: panels/color/gnome-color-panel.desktop.in.in:4
+#: panels/color/regolith-color-panel.desktop.in.in:4
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
@@ -1202,12 +1202,12 @@ msgstr ""
 "printeriem"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/color/gnome-color-panel.desktop.in.in:7
+#: panels/color/regolith-color-panel.desktop.in.in:7
 msgid "preferences-color"
 msgstr "preferences-color"
 
 #. Translators: Search terms to find the Color panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/color/gnome-color-panel.desktop.in.in:19
+#: panels/color/regolith-color-panel.desktop.in.in:19
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "Krāsas;ICC;Profils;Kalibrēt;Printeris;Ekrāns;Displejs;"
 
@@ -1368,7 +1368,7 @@ msgid "December"
 msgstr "Decembris"
 
 #: panels/datetime/cc-datetime-panel.ui:65
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:3
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:3
 msgid "Date & Time"
 msgstr "Datums un laiks"
 
@@ -1434,17 +1434,17 @@ msgstr "24 stundu"
 msgid "AM / PM"
 msgstr "AM / PM"
 
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:4
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:4
 msgid "Change the date and time, including time zone"
 msgstr "Mainīt datumu un laiku, tai skaitā laika joslas"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:7
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:7
 msgid "preferences-system-time"
 msgstr "preferences-system-time"
 
 #. Translators: Search terms to find the Date and Time panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:15
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:15
 msgid "Clock;Timezone;Location;"
 msgstr "Pulkstenis;Laika josla;Lokācija;"
 
@@ -1668,21 +1668,21 @@ msgstr "Līdz"
 msgid "Color Temperature"
 msgstr "Krāsu temperatūra"
 
-#: panels/display/gnome-display-panel.desktop.in.in:3
+#: panels/display/regolith-display-panel.desktop.in.in:3
 msgid "Displays"
 msgstr "Displeji"
 
-#: panels/display/gnome-display-panel.desktop.in.in:4
+#: panels/display/regolith-display-panel.desktop.in.in:4
 msgid "Choose how to use connected monitors and projectors"
 msgstr "Izvēlieties, kā izmantot pievienotos monitorus un projektorus"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/display/gnome-display-panel.desktop.in.in:7
+#: panels/display/regolith-display-panel.desktop.in.in:7
 msgid "preferences-desktop-display"
 msgstr "preferences-desktop-display"
 
 #. Translators: Search terms to find the Displays panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/display/gnome-display-panel.desktop.in.in:19
+#: panels/display/regolith-display-panel.desktop.in.in:19
 msgid ""
 "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;Night;Light;Blue;"
 "redshift;color;sunset;sunrise;"
@@ -1921,34 +1921,34 @@ msgstr "D_arbība:"
 msgid "_Type:"
 msgstr "_Tips:"
 
-#: panels/info/gnome-default-apps-panel.desktop.in.in:3
+#: panels/info/regolith-default-apps-panel.desktop.in.in:3
 msgid "Default Applications"
 msgstr "Noklusējuma lietotnes"
 
-#: panels/info/gnome-default-apps-panel.desktop.in.in:4
+#: panels/info/regolith-default-apps-panel.desktop.in.in:4
 msgid "Configure Default Applications"
 msgstr "Konfigurēt noklusējuma lietotnes"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-default-apps-panel.desktop.in.in:7
+#: panels/info/regolith-default-apps-panel.desktop.in.in:7
 msgid "starred"
 msgstr "starred"
 
 #. Translators: Search terms to find the Default Applications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/info/gnome-default-apps-panel.desktop.in.in:19
+#: panels/info/regolith-default-apps-panel.desktop.in.in:19
 msgid "default;application;preferred;media;"
 msgstr "noklusējuma;lietotne;vēlamais;mediji;defaulta;aplikācija;mēdiji;"
 
-#: panels/info/gnome-info-overview-panel.desktop.in.in:3
+#: panels/info/regolith-info-overview-panel.desktop.in.in:3
 msgid "About"
 msgstr "Par"
 
-#: panels/info/gnome-info-overview-panel.desktop.in.in:4
+#: panels/info/regolith-info-overview-panel.desktop.in.in:4
 msgid "View information about your system"
 msgstr "Aplūkot informāciju par šo sistēmu"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-info-overview-panel.desktop.in.in:7
+#: panels/info/regolith-info-overview-panel.desktop.in.in:7
 msgid "help-about"
 msgstr "help-about"
 
@@ -1957,7 +1957,7 @@ msgstr "help-about"
 #. The list MUST also end with a semicolon!
 #. "Preferred Applications" is the old name for the preference, so make
 #. sure that you use the same "translation" for those keywords
-#: panels/info/gnome-info-overview-panel.desktop.in.in:23
+#: panels/info/regolith-info-overview-panel.desktop.in.in:23
 msgid ""
 "device;system;information;memory;processor;version;default;application;"
 "preferred;cd;dvd;usb;audio;video;disc;removable;media;autorun;"
@@ -1967,21 +1967,21 @@ msgstr ""
 "automātiski palaist;device;system;information;memory;processor;version;"
 "default;application;preferred;disc;removable;media;autorun;"
 
-#: panels/info/gnome-removable-media-panel.desktop.in.in:3
+#: panels/info/regolith-removable-media-panel.desktop.in.in:3
 msgid "Removable Media"
 msgstr "Noņemamie datu nesēji"
 
-#: panels/info/gnome-removable-media-panel.desktop.in.in:4
+#: panels/info/regolith-removable-media-panel.desktop.in.in:4
 msgid "Configure Removable Media settings"
 msgstr "Konfigurēt noņemamo datu nesēju iestatījums"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-removable-media-panel.desktop.in.in:7
+#: panels/info/regolith-removable-media-panel.desktop.in.in:7
 msgid "media-removable"
 msgstr "media-removable"
 
 #. Translators: Search terms to find the Removable Media panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/info/gnome-removable-media-panel.desktop.in.in:19
+#: panels/info/regolith-removable-media-panel.desktop.in.in:19
 msgid ""
 "device;system;default;application;preferred;cd;dvd;usb;audio;video;disc;"
 "removable;media;autorun;"
@@ -2116,7 +2116,7 @@ msgid "Lock screen"
 msgstr "Bloķēt ekrānu"
 
 #: panels/keyboard/50-accessibility.xml.in:2
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:3
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:3
 msgid "Universal Access"
 msgstr "Universālā piekļuve"
 
@@ -2251,23 +2251,23 @@ msgstr "Ievadiet jaunu saīsni, lai mainītu <b>%s</b>."
 msgid "Add Custom Shortcut"
 msgstr "Pievienot pielāgoto saīsni"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:3
 msgid "Keyboard"
 msgstr "Tastatūra"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:4
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:4
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr ""
 "Skatiet un mainiet tastatūras īsinājumtaustiņus un izvēlieties savus "
 "rakstīšanas iestatījumus"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:7
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:7
 msgid "input-keyboard"
 msgstr "input-keyboard"
 
 #. Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:19
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:19
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -2324,11 +2324,11 @@ msgstr "Iestatīt"
 msgid "Test Your _Settings"
 msgstr "Izmēģiniet _savus iestatījumus"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:3
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:3
 msgid "Mouse & Touchpad"
 msgstr "Pele un skārienpaliktnis"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:4
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:4
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
@@ -2336,12 +2336,12 @@ msgstr ""
 "izmantot labroču vai kreiļu režīmu"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:7
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:7
 msgid "input-mouse"
 msgstr "input-mouse"
 
 #. Translators: Search terms to find the Mouse and Touchpad panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:19
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:19
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr ""
 "Skārienpaliktnis;Rādītājs;Klikšķis;Uzsitiens;Dubults;Poga;Kursorbumba;"
@@ -2503,7 +2503,7 @@ msgid "Options…"
 msgstr "Opcijas…"
 
 #: panels/network/cc-wifi-panel.c:281
-#: panels/network/gnome-wifi-panel.desktop.in.in:3
+#: panels/network/regolith-wifi-panel.desktop.in.in:3
 #: panels/network/network-wifi.ui:1738
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -3060,17 +3060,17 @@ msgstr "_SSID"
 msgid "_BSSID"
 msgstr "_BSSID"
 
-#: panels/network/gnome-network-panel.desktop.in.in:4
+#: panels/network/regolith-network-panel.desktop.in.in:4
 msgid "Control how you connect to the Internet"
 msgstr "Noteikt, kā savienoties ar internetu"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/network/gnome-network-panel.desktop.in.in:7
+#: panels/network/regolith-network-panel.desktop.in.in:7
 msgid "network-workgroup"
 msgstr "network-workgroup"
 
 #. Translators: Search terms to find the Network panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-network-panel.desktop.in.in:19
+#: panels/network/regolith-network-panel.desktop.in.in:19
 msgid ""
 "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;"
 "DNS;"
@@ -3078,17 +3078,17 @@ msgstr ""
 "Tīkls;Bezvadu;Wi-Fi;Wifi;IP;LAN;Starpnieks;WAN;Platjosla;Modems;Bluetooth;"
 "vpn;DNS;"
 
-#: panels/network/gnome-wifi-panel.desktop.in.in:4
+#: panels/network/regolith-wifi-panel.desktop.in.in:4
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "Noteikt, kā savienoties ar Wi-Fi tīkliem"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/network/gnome-wifi-panel.desktop.in.in:7
+#: panels/network/regolith-wifi-panel.desktop.in.in:7
 msgid "network-wireless"
 msgstr "network-wireless"
 
 #. Translators: Search terms to find the Wi-Fi panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-wifi-panel.desktop.in.in:19
+#: panels/network/regolith-wifi-panel.desktop.in.in:19
 msgid "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Broadband;DNS;"
 msgstr "Tīkls;Bezvadu;Wi-Fi;Wifi;IP;LAN;Platjosla;DNS;"
 
@@ -4099,17 +4099,17 @@ msgstr "Paziņojumu uznirstošie lodziņi"
 msgid "_Lock Screen Notifications"
 msgstr "_Ekrāna vairoga paziņojumi"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:4
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:4
 msgid "Control which notifications are displayed and what they show"
 msgstr "Nosakiet, kuri paziņojumi tiks parādīti, un kas tajos būs redzams"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:7
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:7
 msgid "preferences-system-notifications"
 msgstr "preferences-system-notifications"
 
 #. Translators: Search terms to find the Notifications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:20
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:20
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "Paziņojumi;Lentas;Baneri;Ziņojums;Paplāte;Uznirstošais logs;"
 
@@ -4137,17 +4137,17 @@ msgstr "Kļūda, noņemot kontu"
 msgid "<b>%s</b> removed"
 msgstr "<b>%s</b> ir izņemts"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:3
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:3
 msgid "Online Accounts"
 msgstr "Tiešsaistes konti"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:4
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:4
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 "Savienojieties ar saviem tiešsaistes kontiem un izvēlieties, kam tos izmantot"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:7
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:7
 msgid "goa-panel"
 msgstr "goa-panel"
 
@@ -4155,7 +4155,7 @@ msgstr "goa-panel"
 #. Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:22
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:22
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4666,21 +4666,21 @@ msgstr "Kad izmanto _bateriju"
 msgid "Delay"
 msgstr "Aizture"
 
-#: panels/power/gnome-power-panel.desktop.in.in:3
+#: panels/power/regolith-power-panel.desktop.in.in:3
 msgid "Power"
 msgstr "Barošana"
 
-#: panels/power/gnome-power-panel.desktop.in.in:4
+#: panels/power/regolith-power-panel.desktop.in.in:4
 msgid "View your battery status and change power saving settings"
 msgstr "Skatīt baterijas statusu un mainīt enerģijas taupīšanas iestatījumus"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/power/gnome-power-panel.desktop.in.in:7
+#: panels/power/regolith-power-panel.desktop.in.in:7
 msgid "gnome-power-manager"
 msgstr "gnome-power-manager"
 
 #. Translators: Search terms to find the Power panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/power/gnome-power-panel.desktop.in.in:19
+#: panels/power/regolith-power-panel.desktop.in.in:19
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4756,21 +4756,21 @@ msgstr "Izvēlēties no datubāzes…"
 msgid "Install PPD File…"
 msgstr "Instalēt PPD datni…"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:3
+#: panels/printers/regolith-printers-panel.desktop.in.in:3
 msgid "Printers"
 msgstr "Printeri"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:4
+#: panels/printers/regolith-printers-panel.desktop.in.in:4
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr "Pievienot printerus, skatīt printera darbus un izlemt, kā drukāt"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/printers/gnome-printers-panel.desktop.in.in:7
+#: panels/printers/regolith-printers-panel.desktop.in.in:7
 msgid "printer"
 msgstr "printer"
 
 #. Translators: Search terms to find the Printers panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/printers/gnome-printers-panel.desktop.in.in:16
+#: panels/printers/regolith-printers-panel.desktop.in.in:16
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Printeris;Rinda;Drukāt;Papīrs;Tinte;Toneris;"
 
@@ -5912,11 +5912,11 @@ msgstr "Kreisais+labais Alt"
 msgid "These keyboard shortcuts can be changed in the keyboard settings"
 msgstr "Šos tastatūras īsinājumtaustiņus var mainīt tastatūras iestatījumos"
 
-#: panels/region/gnome-region-panel.desktop.in.in:3
+#: panels/region/regolith-region-panel.desktop.in.in:3
 msgid "Region & Language"
 msgstr "Vieta un valoda"
 
-#: panels/region/gnome-region-panel.desktop.in.in:4
+#: panels/region/regolith-region-panel.desktop.in.in:4
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr ""
@@ -5924,12 +5924,12 @@ msgstr ""
 "avotus"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/region/gnome-region-panel.desktop.in.in:7
+#: panels/region/regolith-region-panel.desktop.in.in:7
 msgid "preferences-desktop-locale"
 msgstr "preferences-desktop-locale"
 
 #. Translators: Search terms to find the Region and Language panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/region/gnome-region-panel.desktop.in.in:19
+#: panels/region/regolith-region-panel.desktop.in.in:19
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "Valoda;Izkārtojums;Tastatūra;Ievade;"
 
@@ -5957,19 +5957,19 @@ msgstr "Pārvietot lejup"
 msgid "Preferences"
 msgstr "Iestatījumi"
 
-#: panels/search/gnome-search-panel.desktop.in.in:4
+#: panels/search/regolith-search-panel.desktop.in.in:4
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
 "Noteikt, kuras lietotnes rāda meklēšanas rezultātus aktivitāšu pārskatā"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/search/gnome-search-panel.desktop.in.in:7
+#: panels/search/regolith-search-panel.desktop.in.in:7
 msgid "preferences-system-search"
 msgstr "preferences-system-search"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/search/gnome-search-panel.desktop.in.in:19
+#: panels/search/regolith-search-panel.desktop.in.in:19
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "Meklēt;Atrast;Indekss;Rādītājs;Slēpt;Privātums;Rezultāti;"
 
@@ -6052,7 +6052,7 @@ msgid "Copy"
 msgstr "Kopēt"
 
 #: panels/sharing/cc-sharing-panel.c:1285
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:3
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:3
 msgid "Sharing"
 msgstr "Koplietošana"
 
@@ -6136,17 +6136,17 @@ msgstr "Dalīties tīklā ar mūziku, fotogrāfijām un video."
 msgid "Folders"
 msgstr "Mapes"
 
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:4
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:4
 msgid "Control what you want to share with others"
 msgstr "Nosakiet, kādu informāciju kopīgosiet ar citiem lietotājiem"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:7
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:7
 msgid "preferences-system-sharing"
 msgstr "preferences-system-sharing"
 
 #. Translators: Search terms to find the Sharing panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:16
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:16
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -6276,21 +6276,21 @@ msgctxt "volume"
 msgid "100%"
 msgstr "100%"
 
-#: panels/sound/gnome-sound-panel.desktop.in.in:3
+#: panels/sound/regolith-sound-panel.desktop.in.in:3
 msgid "Sound"
 msgstr "Skaņa"
 
-#: panels/sound/gnome-sound-panel.desktop.in.in:4
+#: panels/sound/regolith-sound-panel.desktop.in.in:4
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "Mainīt skaļumu, ievades, izvades un paziņojumu skaņas"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/sound/gnome-sound-panel.desktop.in.in:7
+#: panels/sound/regolith-sound-panel.desktop.in.in:7
 msgid "multimedia-volume-control"
 msgstr "multimedia-volume-control"
 
 #. Translators: Search terms to find the Sound panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sound/gnome-sound-panel.desktop.in.in:20
+#: panels/sound/regolith-sound-panel.desktop.in.in:20
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "Karte;Mikrofons;Skaļums;Klusināt;Balanss;Bluetooth;Austiņas;Audio;"
 
@@ -6456,21 +6456,21 @@ msgstr "Gaidošās ierīces"
 msgid "No devices attached"
 msgstr "Nav pievienotu ierīču"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:3
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:3
 msgid "Thunderbolt"
 msgstr "Thunderbolt"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:4
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:4
 msgid "Manage Thunderbolt devices"
 msgstr "Pārvaldīt Thunderbolt ierīces"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:7
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:7
 msgid "thunderbolt"
 msgstr "thunderbolt"
 
 #. Translators: those are keywords for the thunderbolt control-center panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:19
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:19
 msgid "Thunderbolt;"
 msgstr "Thunderbolt;"
 
@@ -6823,17 +6823,17 @@ msgctxt "dwell click threshold"
 msgid "Large"
 msgstr "Liels"
 
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:4
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:4
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "Padarīt vienkāršāku redzēšanu, dzirdēšanu, rakstīšanu un klikšķināšanu"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:7
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:7
 msgid "preferences-desktop-accessibility"
 msgstr "preferences-desktop-accessibility"
 
 #. Translators: Search terms to find the Universal Access panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:19
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:19
 #| msgid ""
 #| "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen;Reader;text;font;"
 #| "size;AccessX;Sticky;Keys;Slow;Bounce;Mouse;Double;click;Delay;Assist;"
@@ -7504,21 +7504,21 @@ msgstr ""
 "Jūsu pirksta nospiedums sekmīgi saglabāts. Tagad varēsiet ierakstīties "
 "sistēmā, lietojot pirkstu nospiedumu lasītāju."
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:3
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:3
 msgid "Users"
 msgstr "Lietotāji"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:4
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:4
 msgid "Add or remove users and change your password"
 msgstr "Pievienot vai izņemt lietotājus un mainīt savu paroli"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:7
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:7
 msgid "system-users"
 msgstr "system-users"
 
 #. Translators: Search terms to find the Users panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:20
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:20
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "Lietotājs;Vārds;Pirkstu nospiedums;Avatars;Logo;Seja;Parole;"
 
@@ -7910,23 +7910,23 @@ msgstr "Irbulis"
 msgid "Button"
 msgstr "Poga"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:3
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:3
 #: panels/wacom/gnome-wacom-properties.ui:200
 msgid "Wacom Tablet"
 msgstr "Wacom planšete"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:4
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:4
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "Iestatiet pogu attēlojumus un pielāgojiet irbuļa jutīgumu grafikas planšetēm"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:7
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:7
 msgid "input-tablet"
 msgstr "input-tablet"
 
 #. Translators: Search terms to find the Wacom Tablet panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:19
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:19
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Planšete;Wacom;Irbulis;Dzēšgumija;Pele;"
 

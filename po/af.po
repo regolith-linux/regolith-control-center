@@ -209,24 +209,24 @@ msgid "Turn off the Airplane mode switch to enable Bluetooth."
 msgstr "Skakel die vlugmodusskakelaar af om Bluetooth te aktiveer."
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:3
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:3
 #: panels/network/network.ui:101 panels/printers/pp-new-printer-dialog.c:1816
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:4
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:4
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "Skakel Bluetooth aan en af en koppel toestelle"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:6
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:6
 #, fuzzy
 #| msgid "Bluetooth"
 msgid "bluetooth"
 msgstr "Bluetooth"
 
 #. Translators: Search terms to find the Bluetooth panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:19
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:19
 msgid "share;sharing;bluetooth;obex;"
 msgstr "deel;deling;bluetooth;obex;"
 
@@ -858,24 +858,24 @@ msgstr "D65 (fotografie en grafika)"
 msgid "D75"
 msgstr "D75"
 
-#: panels/color/gnome-color-panel.desktop.in.in:3
+#: panels/color/regolith-color-panel.desktop.in.in:3
 msgid "Color"
 msgstr "Kleur"
 
-#: panels/color/gnome-color-panel.desktop.in.in:4
+#: panels/color/regolith-color-panel.desktop.in.in:4
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr "Kalibreer die kleur van toestelle, bv. skerms, kameras of drukkers"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/color/gnome-color-panel.desktop.in.in:7
+#: panels/color/regolith-color-panel.desktop.in.in:7
 #, fuzzy
 #| msgid "Preferences"
 msgid "preferences-color"
 msgstr "Voorkeure"
 
 #. Translators: Search terms to find the Color panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/color/gnome-color-panel.desktop.in.in:19
+#: panels/color/regolith-color-panel.desktop.in.in:19
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "kleur;ICC;profiel;kalibreer;drukker;skerm;"
 
@@ -1029,7 +1029,7 @@ msgid "December"
 msgstr "Desember"
 
 #: panels/datetime/datetime.ui:61
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:3
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:3
 msgid "Date & Time"
 msgstr "Datum en tyd"
 
@@ -1086,17 +1086,17 @@ msgstr "24-uur"
 msgid "AM / PM"
 msgstr "VM / NM"
 
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:4
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:4
 msgid "Change the date and time, including time zone"
 msgstr "Verander die datum en tyd, asook tydsone"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:7
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:7
 msgid "preferences-system-time"
 msgstr ""
 
 #. Translators: Search terms to find the Date and Time panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:15
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:15
 msgid "Clock;Timezone;Location;"
 msgstr "horlosie;tydsone;ligging;"
 
@@ -1297,23 +1297,23 @@ msgstr "NM"
 msgid "To"
 msgstr "Tot"
 
-#: panels/display/gnome-display-panel.desktop.in.in:3
+#: panels/display/regolith-display-panel.desktop.in.in:3
 #, fuzzy
 #| msgid "Dis­plays"
 msgid "Displays"
 msgstr "Skerms"
 
-#: panels/display/gnome-display-panel.desktop.in.in:4
+#: panels/display/regolith-display-panel.desktop.in.in:4
 msgid "Choose how to use connected monitors and projectors"
 msgstr "Kies hoe om ingepropte monitors en projektors te gebruik"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/display/gnome-display-panel.desktop.in.in:7
+#: panels/display/regolith-display-panel.desktop.in.in:7
 msgid "preferences-desktop-display"
 msgstr ""
 
 #. Translators: Search terms to find the Displays panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/display/gnome-display-panel.desktop.in.in:19
+#: panels/display/regolith-display-panel.desktop.in.in:19
 msgid ""
 "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;Night;Light;Blue;"
 "redshift;color;sunset;sunrise;"
@@ -1443,36 +1443,36 @@ msgstr "Video-CD"
 msgid "Windows software"
 msgstr "Windows-sagteware"
 
-#: panels/info/gnome-default-apps-panel.desktop.in.in:3
+#: panels/info/regolith-default-apps-panel.desktop.in.in:3
 msgid "Default Applications"
 msgstr "Verstektoepassings"
 
-#: panels/info/gnome-default-apps-panel.desktop.in.in:4
+#: panels/info/regolith-default-apps-panel.desktop.in.in:4
 msgid "Configure Default Applications"
 msgstr "Stel verstektoepassings in"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-default-apps-panel.desktop.in.in:7
+#: panels/info/regolith-default-apps-panel.desktop.in.in:7
 msgid "starred"
 msgstr ""
 
 #. Translators: Search terms to find the Default Applications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/info/gnome-default-apps-panel.desktop.in.in:19
+#: panels/info/regolith-default-apps-panel.desktop.in.in:19
 msgid "default;application;preferred;media;"
 msgstr "verstek;toepassing;voorkeur;media;"
 
-#: panels/info/gnome-info-overview-panel.desktop.in.in:3
+#: panels/info/regolith-info-overview-panel.desktop.in.in:3
 #, fuzzy
 #| msgid "/_About"
 msgid "About"
 msgstr "/_Aangaande"
 
-#: panels/info/gnome-info-overview-panel.desktop.in.in:4
+#: panels/info/regolith-info-overview-panel.desktop.in.in:4
 msgid "View information about your system"
 msgstr "Vertoon inligting oor die stelsel"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-info-overview-panel.desktop.in.in:7
+#: panels/info/regolith-info-overview-panel.desktop.in.in:7
 msgid "help-about"
 msgstr ""
 
@@ -1481,7 +1481,7 @@ msgstr ""
 #. The list MUST also end with a semicolon!
 #. "Preferred Applications" is the old name for the preference, so make
 #. sure that you use the same "translation" for those keywords
-#: panels/info/gnome-info-overview-panel.desktop.in.in:23
+#: panels/info/regolith-info-overview-panel.desktop.in.in:23
 msgid ""
 "device;system;information;memory;processor;version;default;application;"
 "preferred;cd;dvd;usb;audio;video;disc;removable;media;autorun;"
@@ -1489,21 +1489,21 @@ msgstr ""
 "toestel;stelsel;inligting;geheue;verwerker;weergawe;verstek;toepassing;"
 "voorkeur;cd;dvd;usb;klank;video;skyf;verwyderbaar;media;outoloop;"
 
-#: panels/info/gnome-removable-media-panel.desktop.in.in:3
+#: panels/info/regolith-removable-media-panel.desktop.in.in:3
 msgid "Removable Media"
 msgstr "Verwyderbare media"
 
-#: panels/info/gnome-removable-media-panel.desktop.in.in:4
+#: panels/info/regolith-removable-media-panel.desktop.in.in:4
 msgid "Configure Removable Media settings"
 msgstr "Verander verwyderbare media instellings"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/info/gnome-removable-media-panel.desktop.in.in:7
+#: panels/info/regolith-removable-media-panel.desktop.in.in:7
 msgid "media-removable"
 msgstr ""
 
 #. Translators: Search terms to find the Removable Media panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/info/gnome-removable-media-panel.desktop.in.in:19
+#: panels/info/regolith-removable-media-panel.desktop.in.in:19
 msgid ""
 "device;system;default;application;preferred;cd;dvd;usb;audio;video;disc;"
 "removable;media;autorun;"
@@ -1704,7 +1704,7 @@ msgid "Home folder"
 msgstr "Tuisgids"
 
 #: panels/keyboard/01-launchers.xml.in:16
-#: panels/search/gnome-search-panel.desktop.in.in:3 shell/window.ui:157
+#: panels/search/regolith-search-panel.desktop.in.in:3 shell/window.ui:157
 msgid "Search"
 msgstr "Soek"
 
@@ -1753,7 +1753,7 @@ msgid "Lock screen"
 msgstr "Sluit skerm"
 
 #: panels/keyboard/50-accessibility.xml.in:2
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:3
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:3
 msgid "Universal Access"
 msgstr "Universele toegang"
 
@@ -1884,23 +1884,23 @@ msgstr "Voeg 'n nuwe kortpad by om <b>%s</b> te verander."
 msgid "Add Custom Shortcut"
 msgstr "Voeg 'n pasgemaakte kortpad by"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:3
 #, fuzzy
 #| msgid "Key­board"
 msgid "Keyboard"
 msgstr "Sleutelbord"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:4
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:4
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr "Vertoon en verander sleutelbordkortpaaie en stel tikvoorkeure"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:7
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:7
 msgid "input-keyboard"
 msgstr ""
 
 #. Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:19
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:19
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -1980,13 +1980,13 @@ msgstr "Kies"
 msgid "Test Your _Settings"
 msgstr "Toet_s die instellings"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:3
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:3
 #, fuzzy
 #| msgid "Mouse & Touch­pad"
 msgid "Mouse & Touchpad"
 msgstr "Muis en Raakblad"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:4
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:4
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
@@ -1994,12 +1994,12 @@ msgstr ""
 "linkerhandigheid"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:7
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:7
 msgid "input-mouse"
 msgstr ""
 
 #. Translators: Search terms to find the Mouse and Touchpad panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:19
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:19
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr "raakblad;wyser;klik;kliek;raak;dubbel;knoppie;rolbal;rol;"
 
@@ -2125,7 +2125,7 @@ msgid "NetworkManager needs to be running."
 msgstr "NetworkManager moet loop."
 
 #: panels/network/cc-wifi-panel.c:213
-#: panels/network/gnome-wifi-panel.desktop.in.in:3
+#: panels/network/regolith-wifi-panel.desktop.in.in:3
 #: panels/network/network-wifi.ui:1769
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -2661,22 +2661,22 @@ msgstr "_BSSID"
 msgid "My Home Network"
 msgstr "Huisnetwerk"
 
-#: panels/network/gnome-network-panel.desktop.in.in:3
+#: panels/network/regolith-network-panel.desktop.in.in:3
 #: panels/network/network-mobile.ui:241
 msgid "Network"
 msgstr "Netwerk"
 
-#: panels/network/gnome-network-panel.desktop.in.in:4
+#: panels/network/regolith-network-panel.desktop.in.in:4
 msgid "Control how you connect to the Internet"
 msgstr "Bepaal hoe om te koppel aan die internet"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/network/gnome-network-panel.desktop.in.in:7
+#: panels/network/regolith-network-panel.desktop.in.in:7
 msgid "network-workgroup"
 msgstr ""
 
 #. Translators: Search terms to find the Network panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-network-panel.desktop.in.in:19
+#: panels/network/regolith-network-panel.desktop.in.in:19
 msgid ""
 "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;"
 "DNS;"
@@ -2684,19 +2684,19 @@ msgstr ""
 "netwerk;draadloos;Wi-Fi;IP;LAN;instaanbediener;WAN;breëband;modem;bluetooth;"
 "vpn;brug;DNS;"
 
-#: panels/network/gnome-wifi-panel.desktop.in.in:4
+#: panels/network/regolith-wifi-panel.desktop.in.in:4
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "Bepaal hoe om te koppel aan Wi-Fi verbindings"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/network/gnome-wifi-panel.desktop.in.in:7
+#: panels/network/regolith-wifi-panel.desktop.in.in:7
 #, fuzzy
 #| msgid "Network;Wireless;IP;LAN;"
 msgid "network-wireless"
 msgstr "Network;Wireless;IP;LAN;netwerk;draadloos;"
 
 #. Translators: Search terms to find the Wi-Fi panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-wifi-panel.desktop.in.in:19
+#: panels/network/regolith-wifi-panel.desktop.in.in:19
 msgid "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Broadband;DNS;"
 msgstr "netwerk;draadloos;Wi-Fi;wifi;LAN;breeband;DNS;"
 
@@ -3743,26 +3743,26 @@ msgctxt "notifications"
 msgid "Show Message C_ontent on Lock Screen"
 msgstr "Wys _boodskapinhoud op geslote skerm"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:3
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:3
 #, fuzzy
 #| msgctxt "notifications"
 #| msgid "_Notifications"
 msgid "Notifications"
 msgstr "Ke_nnisgewings"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:4
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:4
 msgid "Control which notifications are displayed and what they show"
 msgstr "Beheer watter kennisgewings wys en wat hulle bevat"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:7
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:7
 #, fuzzy
 #| msgid "Preferences;Settings;"
 msgid "preferences-system-notifications"
 msgstr "voorkeure;instelling;opstelling;"
 
 #. Translators: Search terms to find the Notifications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:20
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:20
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "kennisgewings;banier;boodskap;"
 
@@ -3804,18 +3804,18 @@ msgstr "Kon nie rekening verwyder nie"
 msgid "<b>%s</b> removed"
 msgstr "<b>%s</b> verwyder"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:3
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:3
 #, fuzzy
 #| msgid "On­line Accounts"
 msgid "Online Accounts"
 msgstr "Aanlynrekeninge"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:4
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:4
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr "Koppel met aanlynrekeninge en kies waarvoor hulle gebruik moet word"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:7
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:7
 msgid "goa-panel"
 msgstr ""
 
@@ -3823,7 +3823,7 @@ msgstr ""
 #. Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:22
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:22
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4131,21 +4131,21 @@ msgstr "_Wanneer die kragknoppie gedruk word"
 msgid "Devices"
 msgstr "Toestelle"
 
-#: panels/power/gnome-power-panel.desktop.in.in:3
+#: panels/power/regolith-power-panel.desktop.in.in:3
 msgid "Power"
 msgstr "Krag"
 
-#: panels/power/gnome-power-panel.desktop.in.in:4
+#: panels/power/regolith-power-panel.desktop.in.in:4
 msgid "View your battery status and change power saving settings"
 msgstr "Bekyk batterystatus en verander instellings vir kragbesparing"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/power/gnome-power-panel.desktop.in.in:7
+#: panels/power/regolith-power-panel.desktop.in.in:7
 msgid "gnome-power-manager"
 msgstr ""
 
 #. Translators: Search terms to find the Power panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/power/gnome-power-panel.desktop.in.in:19
+#: panels/power/regolith-power-panel.desktop.in.in:19
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4307,25 +4307,25 @@ msgstr "Kies uit 'n databasis…"
 msgid "Install PPD File…"
 msgstr "Verskaf PPD-lêer…"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:3
+#: panels/printers/regolith-printers-panel.desktop.in.in:3
 #, fuzzy
 #| msgid "Prin­ters"
 msgid "Printers"
 msgstr "Drukkers"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:4
+#: panels/printers/regolith-printers-panel.desktop.in.in:4
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr "Voeg drukkers by, bekyk druktake en kies hoe om te druk"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/printers/gnome-printers-panel.desktop.in.in:7
+#: panels/printers/regolith-printers-panel.desktop.in.in:7
 #, fuzzy
 #| msgid "No printers"
 msgid "printer"
 msgstr "Geen drukkers nie"
 
 #. Translators: Search terms to find the Printers panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/printers/gnome-printers-panel.desktop.in.in:16
+#: panels/printers/regolith-printers-panel.desktop.in.in:16
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "drukker;tou;druk;papier;ink;toner;"
 
@@ -5230,24 +5230,24 @@ msgstr "Mates"
 msgid "Paper"
 msgstr "Papier"
 
-#: panels/region/gnome-region-panel.desktop.in.in:3
+#: panels/region/regolith-region-panel.desktop.in.in:3
 #, fuzzy
 #| msgid "Re­gion & Lan­guage"
 msgid "Region & Language"
 msgstr "Streek en Taal"
 
-#: panels/region/gnome-region-panel.desktop.in.in:4
+#: panels/region/regolith-region-panel.desktop.in.in:4
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr "Kies die vertoontaal, formate, sleutelborduitlegte en toevoerbronne"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/region/gnome-region-panel.desktop.in.in:7
+#: panels/region/regolith-region-panel.desktop.in.in:7
 msgid "preferences-desktop-locale"
 msgstr ""
 
 #. Translators: Search terms to find the Region and Language panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/region/gnome-region-panel.desktop.in.in:19
+#: panels/region/regolith-region-panel.desktop.in.in:19
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "taal;uitleg;sleutelbord;toevoer;"
 
@@ -5374,18 +5374,18 @@ msgstr "_OK"
 msgid "No applications found"
 msgstr "Geen toepassings gevind nie"
 
-#: panels/search/gnome-search-panel.desktop.in.in:4
+#: panels/search/regolith-search-panel.desktop.in.in:4
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr "Kies watter programme soekresultate wys in die Aktiwiteitoorsig"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/search/gnome-search-panel.desktop.in.in:7
+#: panels/search/regolith-search-panel.desktop.in.in:7
 msgid "preferences-system-search"
 msgstr ""
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/search/gnome-search-panel.desktop.in.in:19
+#: panels/search/regolith-search-panel.desktop.in.in:19
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "soek;vind;indeks;versteek;privaatheid;resultate;"
 
@@ -5483,21 +5483,21 @@ msgid "Copy"
 msgstr "Kopieer"
 
 #: panels/sharing/cc-sharing-panel.c:1236
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:3
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:3
 msgid "Sharing"
 msgstr "Deling"
 
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:4
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:4
 msgid "Control what you want to share with others"
 msgstr "Kies wat om te deel met ander"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:7
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:7
 msgid "preferences-system-sharing"
 msgstr ""
 
 #. Translators: Search terms to find the Sharing panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:16
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:16
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -5593,21 +5593,21 @@ msgstr "Deel musiek, foto's en video's oor die netwerk."
 msgid "Folders"
 msgstr "Gidse"
 
-#: panels/sound/data/gnome-sound-panel.desktop.in.in:3
+#: panels/sound/data/regolith-sound-panel.desktop.in.in:3
 msgid "Sound"
 msgstr "Klank"
 
-#: panels/sound/data/gnome-sound-panel.desktop.in.in:4
+#: panels/sound/data/regolith-sound-panel.desktop.in.in:4
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "Verander klankvolume, toevoer, afvoer en kennisgewingklanke"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/sound/data/gnome-sound-panel.desktop.in.in:7
+#: panels/sound/data/regolith-sound-panel.desktop.in.in:7
 msgid "multimedia-volume-control"
 msgstr ""
 
 #. Translators: Search terms to find the Sound panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sound/data/gnome-sound-panel.desktop.in.in:20
+#: panels/sound/data/regolith-sound-panel.desktop.in.in:20
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "kaart;mikrofoon;volume;doof;balans;bluetooth;kopstuk;klank;"
 
@@ -5832,17 +5832,17 @@ msgid_plural "%d pixels"
 msgstr[0] "%d beeldpunt"
 msgstr[1] "%d beeldpunte"
 
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:4
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:4
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "Maak sien, hoor, tik, wys en klik makliker"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:7
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:7
 msgid "preferences-desktop-accessibility"
 msgstr ""
 
 #. Translators: Search terms to find the Universal Access panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:19
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:19
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen;Reader;text;font;size;"
 "AccessX;Sticky;Keys;Slow;Bounce;Mouse;Double;click;Delay;Assist;Repeat;Blink;"
@@ -6474,21 +6474,21 @@ msgstr "Neem 'n foto…"
 msgid "Select a File…"
 msgstr "Kies PPD-lêer"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:3
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:3
 msgid "Users"
 msgstr "Gebruikers"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:4
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:4
 msgid "Add or remove users and change your password"
 msgstr "Voeg by of skrap gebruikers en verander u wagwoord"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:7
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:7
 msgid "system-users"
 msgstr ""
 
 #. Translators: Search terms to find the Users panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:20
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:20
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "aanmeld;naam;vingerafdruk;embleem;gesig;wagwoord;"
 
@@ -7260,23 +7260,23 @@ msgstr "Pen"
 msgid "Button"
 msgstr "Knoppie"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:3
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:3
 #: panels/wacom/gnome-wacom-properties.ui:198
 msgid "Wacom Tablet"
 msgstr "Wacom-tablet"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:4
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:4
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "Stel knoppiekoppelings en pas pengevoeligheid vir grafiese tablette aan"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:7
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:7
 msgid "input-tablet"
 msgstr ""
 
 #. Translators: Search terms to find the Wacom Tablet panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:19
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:19
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "tablet;wacom;pen;uitveër;muis;"
 

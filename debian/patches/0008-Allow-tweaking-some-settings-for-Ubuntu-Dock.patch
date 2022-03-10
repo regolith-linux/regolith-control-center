@@ -14,7 +14,7 @@ Forwarded: not-needed
  panels/ubuntu/cc-ubuntu-panel.c                | 709 +++++++++++++++++++++++++
  panels/ubuntu/cc-ubuntu-panel.h                |  35 ++
  panels/ubuntu/cc-ubuntu-panel.ui               | 393 ++++++++++++++
- panels/ubuntu/gnome-ubuntu-panel.desktop.in.in |  16 +
+ panels/ubuntu/regolith-ubuntu-panel.desktop.in.in |  16 +
  panels/ubuntu/meson.build                      |  43 ++
  panels/ubuntu/theme-dark.svg                   | 174 ++++++
  panels/ubuntu/theme-light.svg                  | 171 ++++++
@@ -27,7 +27,7 @@ Forwarded: not-needed
  create mode 100644 panels/ubuntu/cc-ubuntu-panel.c
  create mode 100644 panels/ubuntu/cc-ubuntu-panel.h
  create mode 100644 panels/ubuntu/cc-ubuntu-panel.ui
- create mode 100644 panels/ubuntu/gnome-ubuntu-panel.desktop.in.in
+ create mode 100644 panels/ubuntu/regolith-ubuntu-panel.desktop.in.in
  create mode 100644 panels/ubuntu/meson.build
  create mode 100644 panels/ubuntu/theme-dark.svg
  create mode 100644 panels/ubuntu/theme-light.svg
@@ -1201,11 +1201,11 @@ index 0000000..239535c
 +    </columns>
 +  </object>
 +</interface>
-diff --git a/panels/ubuntu/gnome-ubuntu-panel.desktop.in.in b/panels/ubuntu/gnome-ubuntu-panel.desktop.in.in
+diff --git a/panels/ubuntu/regolith-ubuntu-panel.desktop.in.in b/panels/ubuntu/regolith-ubuntu-panel.desktop.in.in
 new file mode 100644
 index 0000000..78571f1
 --- /dev/null
-+++ b/panels/ubuntu/gnome-ubuntu-panel.desktop.in.in
++++ b/panels/ubuntu/regolith-ubuntu-panel.desktop.in.in
 @@ -0,0 +1,16 @@
 +[Desktop Entry]
 +Name=Appearance
@@ -1230,7 +1230,7 @@ index 0000000..b57e85b
 +++ b/panels/ubuntu/meson.build
 @@ -0,0 +1,43 @@
 +panels_list += cappletname
-+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
++desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
 +
 +desktop_in = configure_file(
 +  input: desktop + '.in.in',
@@ -1828,13 +1828,13 @@ index 33b121b..2440ec9 100644
 @@ -209,6 +209,9 @@ panels/thunderbolt/cc-bolt-device-entry.c
  panels/thunderbolt/cc-bolt-panel.c
  panels/thunderbolt/cc-bolt-panel.ui
- panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in
+ panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in
 +panels/ubuntu/cc-ubuntu-panel.c
 +panels/ubuntu/cc-ubuntu-panel.ui
-+panels/ubuntu/gnome-ubuntu-panel.desktop.in.in
++panels/ubuntu/regolith-ubuntu-panel.desktop.in.in
  panels/universal-access/cc-ua-panel.c
  panels/universal-access/cc-ua-panel.ui
- panels/universal-access/gnome-universal-access-panel.desktop.in.in
+ panels/universal-access/regolith-universal-access-panel.desktop.in.in
 diff --git a/shell/cc-panel-list.c b/shell/cc-panel-list.c
 index 2578590..4056d9e 100644
 --- a/shell/cc-panel-list.c
