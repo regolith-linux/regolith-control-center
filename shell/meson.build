@@ -4,7 +4,7 @@ subdir('completions')
 service_conf = configuration_data()
 service_conf.set('bindir', control_center_bindir)
 
-service = 'org.gnome.ControlCenter.service'
+service = 'org.regolith.ControlCenter.service'
 
 configure_file(
           input : service + '.in',

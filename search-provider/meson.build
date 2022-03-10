@@ -1,7 +1,7 @@
 service_conf = configuration_data()
 service_conf.set('libexecdir', control_center_libexecdir)
 
-service = 'org.gnome.ControlCenter.SearchProvider.service'
+service = 'org.regolith.ControlCenter.SearchProvider.service'
 
 configure_file(
           input : service + '.in',
