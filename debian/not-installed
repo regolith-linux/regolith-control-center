@@ -287,3 +287,7 @@ usr/share/sounds/gnome/default/alerts/bark.ogg
 usr/share/sounds/gnome/default/alerts/drip.ogg
 usr/share/sounds/gnome/default/alerts/glass.ogg
 usr/share/sounds/gnome/default/alerts/sonar.ogg
+usr/share/gettext/its/regolith-keybindings.its
+usr/share/gettext/its/regolith-keybindings.loc
+usr/share/gettext/its/regolith-sounds.its
+usr/share/gettext/its/regolith-sounds.loc
