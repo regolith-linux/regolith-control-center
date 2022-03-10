@@ -1,3 +1,15 @@
+regolith-control-center (0.1.1) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove upstream readme
+  * Remove failing or redundant patches
+  * Remove failing dep
+  * Add context to readme
+  * Move gettext files due to collision with gnome-control-center
+  * Add build automation
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Wed, 09 Mar 2022 19:29:35 -0800
+
 regolith-control-center (0.1.0) focal; urgency=medium
 
   * Initial release from 'ubuntu/focal' branch
