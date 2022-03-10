@@ -92,7 +92,7 @@ deps = [
 
 executable(
   name,
-  name + '.c',
+  'cc-remote-login-helper.c',
   include_directories: top_inc,
   dependencies: deps,
   c_args: cflags,
