@@ -170,6 +170,6 @@ libtestshell_deps = common_deps + [ libwidgets_dep, libtestshell_dep ]
 
 
 install_data (
-  'org.gnome.ControlCenter.gschema.xml',
+  'org.regolith.ControlCenter.gschema.xml',
   install_dir : control_center_schemadir
 )
