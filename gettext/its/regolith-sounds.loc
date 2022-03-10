@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <locatingRules>
   <locatingRule name="sounds" pattern="*.xml">
-    <documentRule localName="sounds" target="sounds.its"/>
+    <documentRule localName="sounds" target="regolith-sounds.its"/>
   </locatingRule>
 </locatingRules>
