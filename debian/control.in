@@ -77,7 +77,6 @@ Depends: ${misc:Depends},
          gnome-desktop3-data,
          gnome-settings-daemon (>= 3.29),
          gsettings-desktop-schemas (>= 3.31.0),
-         language-selector-gnome (>= 0.179~),
          system-config-printer (>= 1.4)
 Recommends: cups-pk-helper,
             gnome-online-accounts (>= 3.25.3),
