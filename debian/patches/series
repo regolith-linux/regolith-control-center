@@ -19,7 +19,6 @@ git-nongnome-segfault.patch
 0013-notifications-Handle-.desktop-files-that-got-renamed.patch
 0014-shell-Change-the-default-height-so-all-category-are-.patch
 0015-connectivity-add-network-connectivity-checking-toggl.patch
-0016-diagnostics-Add-Whoopsie-support.patch
 0017-online-accounts-Hide-window-after-adding-an-online-a.patch
 0018-applications-Add-hack-detect-snaps-before-X-SnapInst.patch
 0019-display-Support-UI-scaled-logical-monitor-mode.patch
