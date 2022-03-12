@@ -1,7 +1,8 @@
 regolith-control-center (0.1.5) focal; urgency=medium
 
   [ Ken Gilmer ]
-  * WIP
+  * Remove unused fractional scaling
+  * Remove ubuntu and connectivity panels for debian support
 
  -- Regolith Linux <regolith.linux@gmail.com>  Fri, 11 Mar 2022 22:54:58 -0800
 

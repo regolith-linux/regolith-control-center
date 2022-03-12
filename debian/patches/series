@@ -19,7 +19,6 @@ git-nongnome-segfault.patch
 0019-display-Support-UI-scaled-logical-monitor-mode.patch
 0022-info-overview-Show-updates-in-software-propeties-ins.patch
 0023-sound-Add-a-button-to-select-the-default-theme.patch
-0024-display-Allow-fractional-scaling-to-be-enabled.patch
 0025-applications-Hide-buttons-that-launch-gnome-software.patch
 0026-applications-Launch-snap-store-if-it-is-installed.patch
 0027-window-Stop-using-HdyLeaflet.patch
