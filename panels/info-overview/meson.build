@@ -29,7 +29,7 @@ sources = files(
 )
 
 resource_data = files(
-  'GnomeLogoVerticalMedium.svg',
+  'RegolithLogoVerticalMedium.png',
   'cc-info-overview-panel.ui'
 )
 

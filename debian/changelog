@@ -1,3 +1,12 @@
+regolith-control-center (0.1.6) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove unneeded notifications panel
+  * Remove unneeded lock panel
+  * Swap ubuntu logo for regolith
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 12 Mar 2022 08:32:21 -0800
+
 regolith-control-center (0.1.5) focal; urgency=medium
 
   [ Ken Gilmer ]
