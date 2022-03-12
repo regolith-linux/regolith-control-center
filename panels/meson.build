@@ -3,7 +3,6 @@ subdir('common')
 panels = [
   'applications',
   'background',
-  'camera',
   'color',
   'datetime',
   'default-apps',
@@ -13,9 +12,7 @@ panels = [
   'keyboard',
   'location',
   'lock',
-  'microphone',
   'mouse',
-  'notifications',
   'online-accounts',
   'power',
   'printers',
