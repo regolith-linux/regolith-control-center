@@ -399,7 +399,7 @@ cc_mouse_panel_init (CcMousePanel *self)
   gtk_widget_init_template (GTK_WIDGET (self));
 
   self->mouse_settings = g_settings_new ("org.gnome.desktop.peripherals.mouse");
-  self->gsd_mouse_settings = g_settings_new ("org.gnome.settings-daemon.peripherals.mouse");
+  self->gsd_mouse_settings = g_settings_new ("org.gnome.desktop.peripherals.mouse");
   self->touchpad_settings = g_settings_new ("org.gnome.desktop.peripherals.touchpad");
 
   self->device_manager = gsd_device_manager_get ();

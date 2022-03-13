@@ -93,7 +93,7 @@
 #define KEY_DWELL_THRESHOLD          "dwell-threshold"
 
 /* gnome-settings-daemon settings */
-#define GSD_MOUSE_SETTINGS           "org.gnome.settings-daemon.peripherals.mouse"
+#define GSD_MOUSE_SETTINGS           "org.gnome.desktop.peripherals.mouse"
 #define KEY_DOUBLE_CLICK_DELAY       "double-click"
 
 #define SCROLL_HEIGHT 490
