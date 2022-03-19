@@ -20,7 +20,6 @@ git-nongnome-segfault.patch
 0026-applications-Launch-snap-store-if-it-is-installed.patch
 0027-window-Stop-using-HdyLeaflet.patch
 0029-applications-Use-new-snapd-glib-API-for-labelling-Sn.patch
-0030-temporarily-revert-alt-char-key.patch
 0032-online-accounts-maybe-leak-a-reference-to-the-panel.patch
 revert_vino_deprecated.patch
 
