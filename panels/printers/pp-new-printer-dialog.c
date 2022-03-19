@@ -187,6 +187,14 @@ pp_new_printer_dialog_class_init (PpNewPrinterDialogClass *klass)
                   G_TYPE_NONE, 1, G_TYPE_INT);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
 
 PpNewPrinterDialog *
 pp_new_printer_dialog_new (GtkWindow *parent,
@@ -200,7 +208,10 @@ pp_new_printer_dialog_new (GtkWindow *parent,
   self->parent = parent;
 
   gtk_window_set_transient_for (GTK_WINDOW (self->dialog), GTK_WINDOW (parent));
-
+  g_signal_connect (GTK_WINDOW (self->dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->dialog));
   gtk_widget_show_all (self->dialog);
 
   return PP_NEW_PRINTER_DIALOG (self);

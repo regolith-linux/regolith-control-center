@@ -822,6 +822,15 @@ keynav_failed (GtkWidget        *listbox,
   return FALSE;
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 run_dialog (CcDateTimePanel *self,
             GtkWidget       *dialog)
@@ -831,6 +840,11 @@ run_dialog (CcDateTimePanel *self,
   parent = cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (self)));
 
   gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (parent));
+  g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
+
   gtk_dialog_run (GTK_DIALOG (dialog));
 }
 

@@ -927,6 +927,15 @@ gcm_prefs_calib_export_link_cb (GtkLabel *widget,
                           NULL);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 gcm_prefs_profile_add_cb (GtkWidget *widget, CcColorPanel *prefs)
 {
@@ -940,6 +949,10 @@ gcm_prefs_profile_add_cb (GtkWidget *widget, CcColorPanel *prefs)
   gtk_widget_set_sensitive (prefs->button_assign_ok, FALSE);
 
   /* show the dialog */
+  g_signal_connect (GTK_WINDOW (prefs->dialog_assign),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (prefs->dialog_assign));  
   gtk_widget_show (prefs->dialog_assign);
   gtk_window_set_transient_for (GTK_WINDOW (prefs->dialog_assign), GTK_WINDOW (prefs->main_window));
 }

@@ -297,6 +297,15 @@ webcam_response_cb (GtkDialog        *dialog,
         gtk_popover_popdown (GTK_POPOVER (self));
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 webcam_icon_selected (CcAvatarChooser *self)
 {
@@ -305,6 +314,10 @@ webcam_icon_selected (CcAvatarChooser *self)
         window = cheese_avatar_chooser_new ();
         gtk_window_set_transient_for (GTK_WINDOW (window),
                                       GTK_WINDOW (gtk_widget_get_toplevel (self->popup_button)));
+        g_signal_connect (GTK_WINDOW (window),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (window));
         gtk_window_set_modal (GTK_WINDOW (window), TRUE);
         g_signal_connect (G_OBJECT (window), "response",
                           G_CALLBACK (webcam_response_cb), self);

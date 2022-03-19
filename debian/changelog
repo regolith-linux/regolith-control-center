@@ -1,3 +1,11 @@
+regolith-control-center (0.1.8) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * dependency fixes
+  * For better i3 interop, all modal dialogs close if they lose focus, preventing poor UX from hidden window
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 19 Mar 2022 10:42:09 -0700
+
 regolith-control-center (0.1.6) focal; urgency=medium
 
   [ Ken Gilmer ]

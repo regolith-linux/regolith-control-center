@@ -445,6 +445,15 @@ get_effective_language (CcRegionPanel *self)
                 return self->language;
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 show_language_chooser (CcRegionPanel *self)
 {
@@ -452,6 +461,10 @@ show_language_chooser (CcRegionPanel *self)
 
         chooser = cc_language_chooser_new ();
         gtk_window_set_transient_for (GTK_WINDOW (chooser), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
+        g_signal_connect (GTK_WINDOW (chooser),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (chooser));
         cc_language_chooser_set_language (chooser, get_effective_language (self));
         g_signal_connect_object (chooser, "response",
                                  G_CALLBACK (language_response), self, G_CONNECT_SWAPPED);
@@ -484,6 +497,10 @@ show_region_chooser (CcRegionPanel *self)
 
         chooser = cc_format_chooser_new ();
         gtk_window_set_transient_for (GTK_WINDOW (chooser), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
+        g_signal_connect (GTK_WINDOW (chooser),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (chooser));
         cc_format_chooser_set_region (chooser, get_effective_region (self));
         g_signal_connect_object (chooser, "response",
                                  G_CALLBACK (format_response), self, G_CONNECT_SWAPPED);
@@ -985,7 +1002,10 @@ show_input_chooser (CcRegionPanel *self)
 #endif
                                         );
         gtk_window_set_transient_for (GTK_WINDOW (chooser), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
-
+        g_signal_connect (GTK_WINDOW (chooser),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (chooser));
         if (gtk_dialog_run (GTK_DIALOG (chooser)) == GTK_RESPONSE_OK) {
                 CcInputSource *source;
 
