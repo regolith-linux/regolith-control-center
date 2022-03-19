@@ -24,6 +24,3 @@ git-nongnome-segfault.patch
 revert_vino_deprecated.patch
 
 gitlab_ucm_mixer_control_select.patch
-
-# really upstream, but not included in the gnome-3-36 branch
-git-Fix-volume-adjustment-failure-on-volume-slider.patch
