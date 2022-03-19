@@ -183,10 +183,23 @@ panel_proxy_mode_radio_changed_cb (NetProxy *self, GtkRadioButton *radio)
         panel_update_status_label (self, value);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 show_dialog_cb (NetProxy *self)
 {
         gtk_window_set_transient_for (GTK_WINDOW (self->dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
+        g_signal_connect (GTK_WINDOW (self->dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->dialog));
         gtk_window_present (GTK_WINDOW (self->dialog));
 }
 

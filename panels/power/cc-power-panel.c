@@ -2096,6 +2096,15 @@ on_suspend_settings_changed (GSettings    *settings,
     }
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 activate_row (CcPowerPanel *self,
               GtkListBoxRow *row)
@@ -2108,6 +2117,10 @@ activate_row (CcPowerPanel *self,
       w = self->automatic_suspend_dialog;
       toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
       gtk_window_set_transient_for (GTK_WINDOW (w), GTK_WINDOW (toplevel));
+      g_signal_connect (GTK_WINDOW (w),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (w));
       gtk_window_set_modal (GTK_WINDOW (w), TRUE);
       gtk_window_present (GTK_WINDOW (w));
     }

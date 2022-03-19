@@ -402,6 +402,15 @@ button_mapping_dialog_closed (GtkDialog   *dialog,
 	g_clear_object (&page->mapping_builder);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 show_button_mapping_dialog (CcWacomPage *page)
 {
@@ -426,6 +435,10 @@ show_button_mapping_dialog (CcWacomPage *page)
 	dialog = MWID ("button-mapping-dialog");
 	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (page));
 	gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (toplevel));
+	g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
 	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 	g_signal_connect (G_OBJECT (dialog), "response",
 			  G_CALLBACK (button_mapping_dialog_closed), page);

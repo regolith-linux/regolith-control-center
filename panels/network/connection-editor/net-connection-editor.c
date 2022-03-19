@@ -789,6 +789,15 @@ permission_changed (NMClient                 *client,
         validate (self);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 NetConnectionEditor *
 net_connection_editor_new (GtkWindow        *parent_window,
                            NMConnection     *connection,
@@ -807,6 +816,11 @@ net_connection_editor_new (GtkWindow        *parent_window,
                 self->parent_window = GTK_WIDGET (g_object_ref (parent_window));
                 gtk_window_set_transient_for (GTK_WINDOW (self),
                                               parent_window);
+                g_signal_connect (GTK_WINDOW (self),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self));
+
         }
         if (ap)
                 self->ap = g_object_ref (ap);

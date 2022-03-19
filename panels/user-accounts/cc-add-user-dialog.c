@@ -1011,6 +1011,15 @@ on_join_response (GtkDialog *dialog,
                         g_object_ref (self));
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 join_show_prompt (CcAddUserDialog *self,
                   GError          *error)
@@ -1052,6 +1061,10 @@ join_show_prompt (CcAddUserDialog *self,
 
         g_debug ("Showing admin password dialog");
         gtk_window_set_transient_for (GTK_WINDOW (self->join_dialog), GTK_WINDOW (self));
+        g_signal_connect (GTK_WINDOW (self->join_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->join_dialog));
         gtk_window_set_modal (GTK_WINDOW (self->join_dialog), TRUE);
         gtk_window_present (GTK_WINDOW (self->join_dialog));
 

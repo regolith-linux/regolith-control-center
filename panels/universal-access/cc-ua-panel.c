@@ -601,6 +601,15 @@ toggle_switch (GtkWidget *sw)
   gtk_switch_set_active (GTK_SWITCH (sw), !active);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 activate_row (CcUaPanel *self, GtkListBoxRow *row)
 {
@@ -648,6 +657,10 @@ activate_row (CcUaPanel *self, GtkListBoxRow *row)
 
   gtk_window_set_transient_for (GTK_WINDOW (dialog),
                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
+  g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
   gtk_window_present (GTK_WINDOW (dialog));
 }
 

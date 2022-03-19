@@ -699,6 +699,15 @@ assistant_prepare (GtkAssistant *ass, GtkWidget *page, EnrollData *data)
         }
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 enroll_fingerprints (GtkWindow    *parent,
                      GtkWidget    *fingerprint_row,
@@ -774,6 +783,10 @@ enroll_fingerprints (GtkWindow    *parent,
         ass = WID ("assistant");
         gtk_window_set_title (GTK_WINDOW (ass), _("Enable Fingerprint Login"));
         gtk_window_set_transient_for (GTK_WINDOW (ass), parent);
+        g_signal_connect (GTK_WINDOW (ass),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (ass));
         gtk_window_set_modal (GTK_WINDOW (ass), TRUE);
         gtk_window_set_resizable (GTK_WINDOW (ass), FALSE);
         gtk_window_set_type_hint (GTK_WINDOW (ass), GDK_WINDOW_TYPE_HINT_DIALOG);

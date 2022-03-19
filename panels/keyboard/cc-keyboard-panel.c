@@ -620,6 +620,15 @@ shortcut_row_activated (GtkWidget       *button,
   gtk_widget_show (self->shortcut_editor);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 alternate_chars_activated (GtkWidget       *button,
                            GtkListBoxRow   *row,
@@ -630,6 +639,11 @@ alternate_chars_activated (GtkWidget       *button,
   window = GTK_WINDOW (cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (self))));
 
   gtk_window_set_transient_for (GTK_WINDOW (self->alt_chars_key_dialog), window);
+  g_signal_connect (GTK_WINDOW (self->alt_chars_key_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->alt_chars_key_dialog));
+  
   gtk_widget_show (GTK_WIDGET (self->alt_chars_key_dialog));
 }
 
@@ -725,6 +739,11 @@ cc_keyboard_panel_constructed (GObject *object)
   shell = cc_panel_get_shell (CC_PANEL (self));
   toplevel = GTK_WINDOW (cc_shell_get_toplevel (shell));
   gtk_window_set_transient_for (GTK_WINDOW (self->shortcut_editor), toplevel);
+  g_signal_connect (GTK_WINDOW (self->shortcut_editor),
+                      "focus-out-event",
+                      G_CALLBACK(on_focus_out_event),
+                      GTK_WINDOW (self->shortcut_editor));
+
 
   cc_shell_embed_widget_in_header (shell, self->reset_button, GTK_POS_LEFT);
   cc_shell_embed_widget_in_header (shell, self->search_button, GTK_POS_RIGHT);
