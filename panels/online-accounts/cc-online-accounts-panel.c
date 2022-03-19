@@ -457,6 +457,15 @@ cc_goa_panel_get_help_uri (CcPanel *panel)
   return "help:gnome-help/accounts";
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 cc_goa_panel_constructed (GObject *object)
 {
@@ -467,7 +476,10 @@ cc_goa_panel_constructed (GObject *object)
   parent = GTK_WINDOW (cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (self))));
 
   gtk_window_set_transient_for (GTK_WINDOW (self->edit_account_dialog), parent);
-
+  g_signal_connect (GTK_WINDOW (self->edit_account_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->edit_account_dialog));
   goa_provider_get_all (get_all_providers_cb, g_object_ref_sink (self));
 
   G_OBJECT_CLASS (cc_goa_panel_parent_class)->constructed (object);

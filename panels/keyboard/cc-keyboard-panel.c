@@ -108,6 +108,15 @@ static const gchar *custom_css =
 "    padding-bottom: 12px;"
 "}";
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 special_chars_activated (GtkWidget       *button,
                          GtkListBoxRow   *row,
@@ -126,7 +135,10 @@ special_chars_activated (GtkWidget       *button,
     return;
 
   dialog = GTK_WINDOW (cc_xkb_modifier_dialog_new (self->input_source_settings, modifier));
-
+  g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
   gtk_window_set_transient_for (dialog, window);
   gtk_widget_show (GTK_WIDGET (dialog));
 }
@@ -144,6 +156,10 @@ keyboard_shortcuts_activated (GtkWidget       *button,
       window = GTK_WINDOW (cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (self))));
 
       shortcut_dialog = cc_keyboard_shortcut_dialog_new ();
+      g_signal_connect (GTK_WINDOW (shortcut_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (shortcut_dialog));
       gtk_window_set_transient_for (GTK_WINDOW (shortcut_dialog), window);
       gtk_widget_show (GTK_WIDGET (shortcut_dialog));
     }

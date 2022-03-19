@@ -733,6 +733,15 @@ iio_proxy_vanished_cb (GDBusConnection *connection,
   als_enabled_state_changed (self);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 automatic_suspend_row_activated_cb (CcPowerPanel *self)
 {
@@ -740,6 +749,10 @@ automatic_suspend_row_activated_cb (CcPowerPanel *self)
 
   toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
   gtk_window_set_transient_for (GTK_WINDOW (self->automatic_suspend_dialog), GTK_WINDOW (toplevel));
+  g_signal_connect (GTK_WINDOW (self),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self));
   gtk_window_set_modal (GTK_WINDOW (self->automatic_suspend_dialog), TRUE);
   gtk_window_present (GTK_WINDOW (self->automatic_suspend_dialog));
 }

@@ -903,6 +903,15 @@ cc_bolt_panel_dispose (GObject *object)
   G_OBJECT_CLASS (cc_bolt_panel_parent_class)->dispose (object);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 cc_bolt_panel_constructed (GObject *object)
 {
@@ -912,6 +921,10 @@ cc_bolt_panel_constructed (GObject *object)
 
   parent = GTK_WINDOW (cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (panel))));
   gtk_window_set_transient_for (GTK_WINDOW (panel->device_dialog), parent);
+  g_signal_connect (GTK_WINDOW (panel->device_dialog),
+                      "focus-out-event",
+                      G_CALLBACK(on_focus_out_event),
+                      GTK_WINDOW (panel->device_dialog));
 
   G_OBJECT_CLASS (cc_bolt_panel_parent_class)->constructed (object);
 

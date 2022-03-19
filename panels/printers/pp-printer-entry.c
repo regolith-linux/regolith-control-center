@@ -361,6 +361,15 @@ on_printer_rename_cb (GObject      *source_object,
   g_signal_emit_by_name (self, "printer-renamed", pp_printer_get_name (PP_PRINTER (source_object)));
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 on_show_printer_details_dialog (GtkButton      *button,
                                 PpPrinterEntry *self)
@@ -376,7 +385,10 @@ on_show_printer_details_dialog (GtkButton      *button,
 
   gtk_window_set_transient_for (GTK_WINDOW (dialog),
                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
-
+  g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
   gtk_dialog_run (GTK_DIALOG (dialog));
 
   new_location = pp_details_dialog_get_printer_location (dialog);
@@ -410,7 +422,10 @@ on_show_printer_options_dialog (GtkButton      *button,
 
   gtk_window_set_transient_for (GTK_WINDOW (dialog),
                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
-
+  g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
   gtk_dialog_run (GTK_DIALOG (dialog));
 
   gtk_widget_destroy (GTK_WIDGET (dialog));
@@ -580,6 +595,10 @@ pp_printer_entry_show_jobs_dialog (PpPrinterEntry *self)
       self->pp_jobs_dialog = pp_jobs_dialog_new (self->printer_name);
       g_signal_connect_object (self->pp_jobs_dialog, "response", G_CALLBACK (jobs_dialog_response_cb), self, 0);
       gtk_window_set_transient_for (GTK_WINDOW (self->pp_jobs_dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
+      g_signal_connect (GTK_WINDOW (self->pp_jobs_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->pp_jobs_dialog));
       gtk_window_present (GTK_WINDOW (self->pp_jobs_dialog));
     }
 }

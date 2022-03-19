@@ -1712,6 +1712,15 @@ ppd_selection_cb (GtkDialog *_dialog,
   self->user_callback (GTK_DIALOG (self), response_id, self->user_data);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 new_printer_dialog_response_cb (PpNewPrinterDialog *self,
                                 gint                response_id)
@@ -1750,6 +1759,10 @@ new_printer_dialog_response_cb (PpNewPrinterDialog *self,
 
               gtk_window_set_transient_for (GTK_WINDOW (self->ppd_selection_dialog),
                                             GTK_WINDOW (self));
+               g_signal_connect (GTK_WINDOW (self->ppd_selection_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->ppd_selection_dialog));
 
               /* New device will be set at return from ppd selection */
               gtk_widget_show (GTK_WIDGET (self->ppd_selection_dialog));

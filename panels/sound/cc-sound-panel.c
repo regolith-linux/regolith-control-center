@@ -196,6 +196,15 @@ input_device_update_cb (CcSoundPanel *self,
     set_input_stream (self, stream);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 test_output_configuration_button_clicked_cb (CcSoundPanel *self)
 {
@@ -209,6 +218,10 @@ test_output_configuration_button_clicked_cb (CcSoundPanel *self)
 
   dialog = cc_output_test_dialog_new (device, stream);
   gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
+  g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
   gtk_dialog_run (GTK_DIALOG (dialog));
   gtk_widget_destroy (GTK_WIDGET (dialog));
 }

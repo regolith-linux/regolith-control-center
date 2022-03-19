@@ -779,6 +779,15 @@ permission_changed (NetConnectionEditor      *self,
         validate (self);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 NetConnectionEditor *
 net_connection_editor_new (NMConnection     *connection,
                            NMDevice         *device,

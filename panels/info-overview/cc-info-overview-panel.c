@@ -836,6 +836,15 @@ on_device_name_entry_changed (CcInfoOverviewPanel *self)
                             g_strcmp0 (current_hostname, new_hostname) != 0);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 open_hostname_edit_dialog (CcInfoOverviewPanel *self)
 {
@@ -849,6 +858,10 @@ open_hostname_edit_dialog (CcInfoOverviewPanel *self)
   shell = cc_panel_get_shell (CC_PANEL (self));
   toplevel = GTK_WINDOW (cc_shell_get_toplevel (shell));
   gtk_window_set_transient_for (GTK_WINDOW (self->hostname_editor), toplevel);
+  g_signal_connect (GTK_WINDOW (self->hostname_editor),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->hostname_editor));
 
   hostname = gtk_entry_get_text (GTK_ENTRY (self->hostname_entry));
   gtk_entry_set_text (self->device_name_entry, hostname);

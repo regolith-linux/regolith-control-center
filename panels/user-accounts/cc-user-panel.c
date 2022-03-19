@@ -366,6 +366,15 @@ user_changed (CcUserPanel *self, ActUser *user)
         reload_users (self, self->selected_user);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 add_user (CcUserPanel *self)
 {
@@ -377,7 +386,10 @@ add_user (CcUserPanel *self)
         dialog = cc_add_user_dialog_new (self->permission);
         toplevel = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self)));
         gtk_window_set_transient_for (GTK_WINDOW (dialog), toplevel);
-
+        g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
         gtk_dialog_run (GTK_DIALOG (dialog));
 
         user = cc_add_user_dialog_get_user (dialog);
@@ -1132,6 +1144,10 @@ change_language (CcUserPanel *self)
                                          G_CALLBACK (language_response), self, G_CONNECT_SWAPPED);
                 g_signal_connect (self->language_chooser, "delete-event",
                                   G_CALLBACK (gtk_widget_hide_on_delete), NULL);
+                g_signal_connect (GTK_WINDOW (self->language_chooser),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->language_chooser));
 
                 gdk_window_set_cursor (gtk_widget_get_window (gtk_widget_get_toplevel (GTK_WIDGET (self))), NULL);
         }
@@ -1153,7 +1169,10 @@ change_password (CcUserPanel *self)
 
         parent = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self)));
         gtk_window_set_transient_for (GTK_WINDOW (dialog), parent);
-
+        g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
         gtk_dialog_run (GTK_DIALOG (dialog));
         gtk_widget_destroy (GTK_WIDGET (dialog));
 }
@@ -1172,6 +1191,10 @@ change_fingerprint (CcUserPanel *self)
 
         dialog = cc_fingerprint_dialog_new (self->fingerprint_manager);
         gtk_window_set_transient_for (GTK_WINDOW (dialog), top_level);
+                g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
         gtk_widget_show (GTK_WIDGET (dialog));
 }
 
@@ -1190,7 +1213,10 @@ show_history (CcUserPanel *self)
         gtk_window_get_size (parent, &parent_width, NULL);
         gtk_window_set_default_size (GTK_WINDOW (dialog), parent_width * 0.6, -1);
         gtk_window_set_transient_for (GTK_WINDOW (dialog), parent);
-
+        g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
         gtk_dialog_run (GTK_DIALOG (dialog));
 
         gtk_widget_destroy (GTK_WIDGET (dialog));

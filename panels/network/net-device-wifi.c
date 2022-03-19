@@ -1015,6 +1015,15 @@ on_connection_list_row_activated_cb (NetDeviceWifi        *self,
   cc_wifi_connection_row_set_checked (row, !cc_wifi_connection_row_get_checked (row));
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 history_button_clicked_cb (NetDeviceWifi *self)
 {
@@ -1031,6 +1040,10 @@ history_button_clicked_cb (NetDeviceWifi *self)
         dialog = g_object_new (GTK_TYPE_DIALOG, "use-header-bar", 1, NULL);
         window = gtk_widget_get_toplevel (GTK_WIDGET (self));
         gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (window));
+        g_signal_connect (GTK_WINDOW (dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (dialog));
         gtk_window_set_title (GTK_WINDOW (dialog), _("Known Wi-Fi Networks"));
         gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
         gtk_window_set_default_size (GTK_WINDOW (dialog), 500, 400);
