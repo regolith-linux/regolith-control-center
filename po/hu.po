@@ -1493,11 +1493,11 @@ msgstr "Dátum, idő és időzóna módosítása"
 msgid "Clock;Timezone;Location;"
 msgstr "Óra;Időzóna;Hely;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Rendszer dátum- és időbeállításainak módosítása"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Hitelesítés szükséges a dátum- és időbeállítások módosításához."
 
@@ -6203,11 +6203,11 @@ msgstr ""
 "megosztás;ssh;host;név;távoli;asztal;média;audio;hang;video;kép;fénykép;"
 "filmek;kiszolgáló;szerver;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Távoli bejelentkezés engedélyezése vagy tiltása"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr ""
 "Hitelesítés szükséges a távoli bejelentkezés engedélyezéséhez vagy tiltásához"
@@ -7933,11 +7933,11 @@ msgstr "Rendszergazda _neve"
 msgid "Administrator Password"
 msgstr "Rendszergazdai jelszó"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Felhasználói fiókok kezelése"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Hitelesítés szükséges a felhasználói adatok módosításához"
 
@@ -8939,11 +8939,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Keresés megszakítása"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "Az azonosító a megnyitandó legutolsó Beállítások panelhez"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8952,12 +8952,12 @@ msgstr ""
 "felismerhetetlen értékek mellőzve lesznek, és a listában lévő első panel "
 "kerül kiválasztásra."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr ""
 "Figyelmeztetés megjelenítése, ha a Beállítások fejlesztői verzióját futtatja"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

@@ -1503,11 +1503,11 @@ msgstr "Schimbați data și ora, inclusiv fusul orar"
 msgid "Clock;Timezone;Location;"
 msgstr "Clock;Timezone;Location;Ceas;Timp;Fus orar;Locație;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Modifică data și ora sistemului"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Pentru a schimba data sau ora, trebuie să vă autentificați."
 
@@ -6204,11 +6204,11 @@ msgstr ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;partajare;împărtășire;nume;poze;imagini;filme;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Activare sau dezactivare autentificare la distanță"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr ""
 "Este necesară autentificarea pentru a permite sau dezactiva autentificarea "
@@ -7947,11 +7947,11 @@ msgstr "_Nume administrator"
 msgid "Administrator Password"
 msgstr "Parolă administrator"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Administrare conturi de utilizator"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Pentru modificarea datelor utilizatorilor trebuie să vă autentificați"
 
@@ -8904,11 +8904,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Anulează căutarea"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "Identificatorul ultimului panou de configurări de deschis"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8916,12 +8916,12 @@ msgstr ""
 "Identificatorul ultimului panou de configurări de deschis. Valorile "
 "nerecunoscute vor fi ignorate și primul panou din listă va fi selectat."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr ""
 "Arată avertismentul când se rulează o versiune de dezvoltare a Configurări"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

@@ -1477,11 +1477,11 @@ msgstr "改变日期、时间和时区"
 msgid "Clock;Timezone;Location;"
 msgstr "Clock;Timezone;Location;时钟;时区;位置;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "更改系统时间和日期设置"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "更改时间或日期设置需要认证。"
 
@@ -6073,11 +6073,11 @@ msgstr ""
 "movies;server;renderer;共享;主机;名称;远程;桌面;介质;媒体;音频;视频;图片;照"
 "片;电影;服务器;渲染;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "启用或禁用远程登录"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "启用或禁用远程登录需要认证"
 
@@ -7780,11 +7780,11 @@ msgstr "管理员名称(_N)"
 msgid "Administrator Password"
 msgstr "管理员密码"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "管理用户帐号"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "改变用户数据需要认证"
 
@@ -8718,21 +8718,21 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "取消搜索"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "要打开最后面板的身份"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
 msgstr "要打开最近面板的身份。未识别的值将被忽略，然后选中第一个面板。"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "运行开发版本的 GNOME 设置时显示警告"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr "是否在运行开发版本的 GNOME 设置时显示警告。"

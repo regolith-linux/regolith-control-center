@@ -723,11 +723,11 @@ msgstr "Дата жана убакыт параметрлеринин панел
 msgid "Clock;Timezone;Location;"
 msgstr "Саат;Убакыт зонасы;Жайгашуу;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "Системанын убакыт жана дата параметрлерин өзгөртүү"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr ""
 "Убакыт жана дата параметрлерин өзгөртүү үчүн, аутентификациядан өтүү зарыл"
@@ -4480,11 +4480,11 @@ msgstr ""
 msgid "_Language"
 msgstr ""
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr ""
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr ""
 

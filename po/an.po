@@ -1035,11 +1035,11 @@ msgstr "Cambiar a calendata y a hora, incluindo a zona horaria"
 msgid "Clock;Timezone;Location;"
 msgstr "Reloch;Zona horaria;Ubicación;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "Cambiar a configuración d'a hora y a calendata d'o sistema"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr ""
 "Ta cambiar a configuración d'a calendata u d'a hora, debes autenticar-te."
@@ -5160,11 +5160,11 @@ msgstr ""
 "compartir;compartición;ssh;equipo;remoto;escritorio:bluetooth;obex;multimeya;"
 "son:video;imachens;fotos;cintas;servidor;renderizau;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr "Activar u desactivar l'inicio de sesión remota"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 msgid "Authentication is required to enable or disable remote login"
 msgstr ""
 "Se requier autenticación ta activar u desactivar l'inicio de sesión remota"
@@ -6180,11 +6180,11 @@ msgstr "_Idioma"
 msgid "Last Login"
 msgstr "Zaguer inicio de sesión"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "Chestionar as cuentas d'usuario"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "Se requier autenticación ta cambiar os datos de l'usuario"
 

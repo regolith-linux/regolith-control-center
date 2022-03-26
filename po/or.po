@@ -1078,11 +1078,11 @@ msgstr "ସମୟ ମଣ୍ଡଳକୁ ଅନ୍ତର୍ଭୁକ୍ତ କର
 msgid "Clock;Timezone;Location;"
 msgstr "ଘଡ଼ି;ସମୟ ମଣ୍ଡଳ;ଅବସ୍ଥାନ;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "ତନ୍ତ୍ର ସମୟ ଏବଂ ତାରିଖ ସେଟିଙ୍ଗକୁ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr ""
 "ସମୟ କିମ୍ବା ତାରିଖ ବିନ୍ୟାସକୁ ପରିବର୍ତ୍ତନ କରିବା ପାଇଁ, ଆପଣଙ୍କୁ ବୈଧିକରଣ କରିବା "
@@ -5252,11 +5252,11 @@ msgstr ""
 "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;video;"
 "pictures;photos;movies;server;renderer;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr "ସୁଦୂର ଲଗଇନ୍‌କୁ ସକ୍ରିୟ ଅଥବା ନିଷ୍କ୍ରିୟ କରନ୍ତୁ"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 msgid "Authentication is required to enable or disable remote login"
 msgstr "ସୁଦୂର ଲଗଇନକୁ ସକ୍ରିୟ କିମ୍ବା ନିଷ୍କ୍ରିୟ କରିବା ପାଇଁ ବୈଧିକରଣ ଆବଶ୍ଯକ"
 
@@ -6342,11 +6342,11 @@ msgstr "ଭାଷା (_L)"
 msgid "Last Login"
 msgstr "ଅନ୍ତିମ ଲଗଇନ"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "ବ୍ୟବହାରକାରୀ ଖାତାଗୁଡ଼ିକୁ ପରିଚାଳନା କରନ୍ତୁ"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "ବ୍ୟବହାରକାରୀ ତଥ୍ୟ ପରିବର୍ତ୍ତନ କରିବା ପାଇଁ ବୈଧିକରଣ ଆବଶ୍ଯକ"
 

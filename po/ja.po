@@ -1500,11 +1500,11 @@ msgid "Clock;Timezone;Location;"
 msgstr ""
 "Clock;Timezone;Location;時計;日付;時刻;時間;日時;タイムゾーン;場所;Date;Time;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "システムの時刻と日付の設定を変更"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "時刻と日付の設定を変更するには、認証が必要です。"
 
@@ -6166,11 +6166,11 @@ msgstr ""
 "遠隔;デスクトップ;メディア;コンテンツ;オーディオ;音声;音楽;楽曲;ミュージック;"
 "ビデオ;動画;映像;画像;静止画;写真;フォト;ムービー;映画;サーバー;レンダラー;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "リモートログインの有効化/無効化"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "リモートログインを有効化または無効化するには認証が必要になります"
 
@@ -7907,11 +7907,11 @@ msgstr "管理者名(_N)"
 msgid "Administrator Password"
 msgstr "管理者のパスワード"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "ユーザーアカウントの管理"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "ユーザーのデータを変更するには認証が必要になります"
 
@@ -8863,11 +8863,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "検索をキャンセルする"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "最後に開いた設定パネルの識別子"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8875,11 +8875,11 @@ msgstr ""
 "最後に開いた設定パネルの識別子です。値を認識できない場合は無視して一覧の最初"
 "のパネルを選択します。"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "“設定”の開発版を起動したときに警告を表示する"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr "開発版を起動したときに“設定”が警告を表示するかどうかです。"

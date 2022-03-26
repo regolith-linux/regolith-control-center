@@ -973,11 +973,11 @@ msgstr "چېسلا ۋە ۋاقىت مايىللىق تاختىسى"
 msgid "Clock;Timezone;Location;"
 msgstr "سائەت;ۋاقىت رايونى;ئورۇن;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "سىستېمىنىڭ ۋاقىت ۋە چېسلا تەڭشىكىنى ئۆزگەرت"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr "ۋاقىت ۋە چېسلا تەڭشىكى ئۆزگەرتىش ئۈچۈن سالاھىيەت دەلىللەش زۆرۈردۇر"
 
@@ -4926,11 +4926,11 @@ msgid ""
 "pictures;photos;movies;server;renderer;"
 msgstr "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;video;pictures;photos;movies;server;renderer;ھەمبەھىر;يىراق;ئۈستەلئۈستى;كۆكچىش;ئۈن;سىن;سۈرەت;رەسىم;كىنو;مۇلازىمېتىر;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr "يىراقتىن كىرىشنى ئىناۋەتلىك ۋە ئىناۋەتسىز قىلىدۇ"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 msgid "Authentication is required to enable or disable remote login"
 msgstr "يىراقتىن كىرىشنى ئىناۋەتلىك ۋە ئىناۋەتسىز قىلىش ئۈچۈن سالاھىيەت دەلىللەش زۆرۈردۇر"
 
@@ -6051,11 +6051,11 @@ msgstr "تىل(_L)"
 msgid "Last Login"
 msgstr "ئەڭ ئاخىرقى قېتىم كىرگەن ۋاقىت"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "ئىشلەتكۈچى ھېساباتىنى باشقۇر"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "ئىشلەتكۈچى سانلىق-مەلۇماتىنى ئۆزگەرتىش ئۈچۈن سالاھىيەت دەلىللەش زۆرۈر"
 

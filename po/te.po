@@ -1073,11 +1073,11 @@ msgstr "తేదీ మరియు సమయం మార్చు, సమయ 
 msgid "Clock;Timezone;Location;"
 msgstr "గడియారం;సమయక్షేత్రం;ప్రదేశం;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "వ్యవస్థ సమయం మరియు తేదీ అమరికలను మార్చు"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr "సమయం లేదా తేదీ అమరికలను మార్చుటకు, మీరు ధృవీకరించాలి."
 
@@ -5217,11 +5217,11 @@ msgstr ""
 "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;video;"
 "pictures;photos;movies;server;renderer;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr "రిమోట్ లాగిన్ చేతనం లేదా అచేతనం చేయి"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 msgid "Authentication is required to enable or disable remote login"
 msgstr "రిమోట్ లాగిన్ చేతనం లేదా అచేతనం చేయుటకు ధృవీకరమ అవసరమైంది"
 
@@ -6300,11 +6300,11 @@ msgstr "భాష  (_L)"
 msgid "Last Login"
 msgstr "చివరి ప్రవేశం"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "వాడుకరి ఖాతాలను నిర్వహించు"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "వాడుకరి సమాచారాన్ని మార్చాలంటే ధృవీకరణ అవసరం"
 

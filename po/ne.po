@@ -1391,11 +1391,11 @@ msgstr "समय क्षेत्र सहित मिति र समय 
 msgid "Clock;Timezone;Location;"
 msgstr "घडी;समय क्षेत्र;स्थान;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "समय र मिति सेटिङहरू बदल्नुहोस्"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "समय वा मिति सेटिङहरू बदल्न, प्रमाणिकरण गर्नु आवश्यक छ ।"
 
@@ -5705,11 +5705,11 @@ msgid ""
 "renderer;"
 msgstr "साझेदारी;साझेदारी;ssh;होस्ट;नाम;टाढाको;डेस्कटप;मिडिया;अडियो;भिडियो;तस्विर;फोटो;चलचित्र;सर्भर;रेन्डरर;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "टाढाको लगइन सक्षम वा अक्षम पार्नुहोस्"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "टाढाको लगइन सक्षम वा अक्षम पार्न प्रमाणीकरण आवश्यक हुन्छ"
 
@@ -7357,11 +7357,11 @@ msgstr "प्रशासक नाम"
 msgid "Administrator Password"
 msgstr "प्रशासक पासवर्ड"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "प्रयोगकर्ता खाताहरू प्रवन्ध गर्नुहोस्"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "प्रयोगकर्ता डाटा परिवर्तन गर्न प्रमाणीकरण चाहिन्छ"
 
@@ -7852,11 +7852,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "खोजी रद्द गर्नुहोस्"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "खोलिने अन्तिम सेटिङ प्यानलका लागि पहिचायक"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values will be ignored and "
 "the first panel in the list selected."
@@ -7864,11 +7864,11 @@ msgstr ""
 "खोलिने अन्तिम सेटिङ प्यानलका लागि पहिचायक । अज्ञात मानहरू उपेक्षा गरिनेछ र सूचीमा पहिलो प्यानल चयन गरिएको "
 "हुनेछ ।"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "सेटिङको विकास निर्माण चलाउदा चेतावनी देखाउनुहोस्"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid "Whether Settings should show a warning when running a development build."
 msgstr "विकास निर्माण चलाउदा सेटिङले चेतावनी देखाउनु पर्दछ या पर्दैन ।"
 

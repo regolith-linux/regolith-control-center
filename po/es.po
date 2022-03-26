@@ -1495,11 +1495,11 @@ msgstr "Cambiar la fecha y la hora, incluyendo la zona horaria"
 msgid "Clock;Timezone;Location;"
 msgstr "Reloj;Zona horaria;Ubicación;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Cambiar la configuración de la hora y la fecha del sistema"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr ""
 "Para cambiar la configuración de la fecha o de la hora, debe autenticarse."
@@ -6174,11 +6174,11 @@ msgstr ""
 "compartir;compartición;ssh;equipo;remoto;escritorio:bluetooth;obex;"
 "multimedia;sonido:vídeo;imágenes;fotos;películas;servidor;renderizador;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Activar o desactivar el inicio de sesión remota"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr ""
 "Se requiere autenticación para activar o desactivar el inicio de sesión "
@@ -7909,11 +7909,11 @@ msgstr "_Nombre del administrador"
 msgid "Administrator Password"
 msgstr "Contraseña de administrador"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Gestionar cuentas de usuario"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Se requiere autenticación para cambiar los datos del usuario"
 
@@ -8861,11 +8861,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Cancelar búsqueda"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "El identificador del último panel de Configuración que abrir"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8873,12 +8873,12 @@ msgstr ""
 "El identificador del último panel de Configuración que abrir. Los valores no "
 "reconocidos se ignorarán y se seleccionará el primer panel de la lista."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr ""
 "Mostrar advertencia al ejecutar una versión de desarrollo de Configuración"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

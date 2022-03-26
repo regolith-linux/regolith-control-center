@@ -916,7 +916,7 @@ cc_window_init (CcWindow *self)
 
   gtk_widget_add_events (GTK_WIDGET (self), GDK_BUTTON_RELEASE_MASK);
 
-  self->settings = g_settings_new ("org.gnome.ControlCenter");
+  self->settings = g_settings_new ("org.regolith.ControlCenter");
   self->custom_widgets = g_ptr_array_new_with_free_func ((GDestroyNotify) g_object_unref);
   self->previous_panels = g_queue_new ();
   self->previous_list_view = cc_panel_list_get_view (self->panel_list);

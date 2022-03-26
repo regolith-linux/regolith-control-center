@@ -296,7 +296,7 @@ GtkApplication *
 cc_application_new (void)
 {
   return g_object_new (CC_TYPE_APPLICATION,
-                       "application-id", "org.gnome.ControlCenter",
+                       "application-id", "org.regolith.ControlCenter",
                        "flags", G_APPLICATION_HANDLES_COMMAND_LINE,
                        NULL);
 }

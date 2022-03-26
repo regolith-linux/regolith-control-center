@@ -1483,11 +1483,11 @@ msgstr "Ŝanĝi la aktualan tempon, inkluzivante horzonon"
 msgid "Clock;Timezone;Location;"
 msgstr "Horloĝo;Horo;Horzono;Loko;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Ŝanĝi sistemajn agordoj pri horo kaj dato"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Por ŝanĝi tempajn aŭ datajn agordojn, vi devas aŭtentigi."
 
@@ -5979,11 +5979,11 @@ msgstr ""
 "medio;aŭdo;vido;video;filmoj;aŭdovida;bildoj;fotoj;kinofilmoj;servilo;"
 "bildigilo;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Ŝalti aŭ malŝalti deforan salutadon"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "Aŭtentigo necesas por ŝalti aŭ malŝalti deforan salutadon"
 
@@ -7716,11 +7716,11 @@ msgstr "Administranto-_nomo"
 msgid "Administrator Password"
 msgstr "Administranto-pasvorto"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Mastrumi uzanto-kontojn"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Aŭtentigo necesas por ŝanĝi uzanto-datumojn"
 
@@ -8231,11 +8231,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Nuligi serĉon"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "La identifilo por la stircentra panelo, kiu malfermendiĝas laste"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8244,11 +8244,11 @@ msgstr ""
 "Nerekonataj valoroj estos malatentita kaj la unua panelo en la listo estos "
 "elektita."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "Montri averton kiam rulante programistan version de la stircentro"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

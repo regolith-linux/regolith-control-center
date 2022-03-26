@@ -1600,11 +1600,11 @@ msgstr "preferences-system-time"
 msgid "Clock;Timezone;Location;"
 msgstr "کاتژمێر;ناوچەی کات;شوێن;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "ڕێکخستنەکانی کات و بەرواری سیستەم بگۆڕە"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "بۆ گۆڕینی ڕێکخسنەکانی کات یان بەروار، پێویستت بە ساغکردنەوە دەبێت."
 
@@ -6218,11 +6218,11 @@ msgstr ""
 msgid "Networks"
 msgstr "ڕایەڵەکان"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "چالاک کردن و ناچالاک کردنی چوونەناوی دوور"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "چالاک کردن و ناچالاک کردنی چوونەناوی دوور پێویستی بە دەسەڵاتی ڕێپێدانە"
 
@@ -7642,11 +7642,11 @@ msgstr "ناوی _بەڕێوبەر"
 msgid "Administrator Password"
 msgstr "تێپەڕەوشەی بەڕێوبەر"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "ڕێکخستنی هەژمارەکانی بەکارهێنەر"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "ڕێپێدان داواکراوە بۆ گۆڕینی زانیاری بەکارهێنەر"
 
@@ -8232,21 +8232,21 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "گەڕان هەڵبوەشێنەوە"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr ""
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
 msgstr ""
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr ""
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

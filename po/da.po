@@ -1499,11 +1499,11 @@ msgstr "Skift dato og klokkeslæt inklusive tidszone"
 msgid "Clock;Timezone;Location;"
 msgstr "Ur;Tidszone;Sted;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Skift systemindstillinger for tidspunkt og dato"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Du skal godkende for at kunne ændre indstillinger for tid og dato."
 
@@ -6157,11 +6157,11 @@ msgstr ""
 "del;deling;ssh;vært;navn;fjern;skrivebord;medie;lyd;video;billeder;fotos;"
 "film;videoer;server;rendering;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Slå fjernlogin til eller fra"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr ""
 "Der kræves godkendelse for at kunne aktivere eller deaktivere fjernlogin"
@@ -7887,11 +7887,11 @@ msgstr "_Navn på administrator"
 msgid "Administrator Password"
 msgstr "Adgangskode for administrator"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Håndtér brugerkonti"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Godkendelse påkrævet for at kunne ændre brugerdata"
 
@@ -8851,11 +8851,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Afbryd søgning"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "Id for det sidst åbnede indstillingspanel"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8863,11 +8863,11 @@ msgstr ""
 "Id for det indstillingspanel der sidst blev åbnet. Ukendte værdier "
 "ignoreres, og første panel i listen vælges i stedet."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "Vis advarsel ved kørsel af udviklingsversionen af Indstillinger"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

@@ -1047,11 +1047,11 @@ msgstr "তাৰিখ আৰু সময় পৰিবৰ্তন কৰক, 
 msgid "Clock;Timezone;Location;"
 msgstr "ঘড়ি;সময়অঞ্চল;অৱস্থান;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "চিস্টেম সময় আৰু তাৰিখ সংহতিসমূহ পৰিবৰ্তন কৰক"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr "সময় আৰু তাৰিখ সংহতিসমূহ পৰিবৰ্তন কৰিবলে, আপুনি প্ৰমাণীত হব লাগিব।"
 
@@ -5131,11 +5131,11 @@ msgstr ""
 "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;video;"
 "pictures;photos;movies;server;renderer;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr "দূৰৱৰ্তী লগিন সামৰ্থবান অথবা অসামৰ্থবান কৰক"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 msgid "Authentication is required to enable or disable remote login"
 msgstr "দূৰৱৰ্তী লগিন সামৰ্থবান অথবা অসামৰ্থবান কৰিবলে প্ৰমাণীকৰণৰ প্ৰয়োজন"
 
@@ -6155,11 +6155,11 @@ msgstr "ভাষা (_L)"
 msgid "Last Login"
 msgstr "সৰ্বশেষ লগিন"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "ব্যৱহাৰকাৰী একাওন্টসমূহ ব্যৱস্থাপনা কৰক"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "ব্যৱহাৰকাৰী তথ্য পৰিবৰ্তন কৰিবলে প্ৰমাণীকৰণৰ প্ৰয়োজন"
 

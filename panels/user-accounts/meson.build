@@ -81,7 +81,7 @@ meson.add_install_script('sh', '-c',
                           ln -sf legacy/$(basename $f) $DESTDIR@1@/$(basename $f);
                           done'''.format(legacy_image_dir, image_dir))
 
-polkit = 'org.gnome.controlcenter.@0@.policy'.format(cappletname)
+polkit = 'org.regolith.ControlCenter.@0@.policy'.format(cappletname)
 
 i18n.merge_file(
   input: polkit + '.in',

@@ -1442,11 +1442,11 @@ msgstr "Aldatu data eta ordua, ordu-zona barne"
 msgid "Clock;Timezone;Location;"
 msgstr "Erlojua;Ordu-zona;Kokalekua;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Aldatu sistemaren ordua eta dataren ezarpenak"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Sistemaren ordua eta dataren ezarpenak aldatzeko, autentifikatu egin behar zara."
 
@@ -5987,11 +5987,11 @@ msgid ""
 "movies;server;renderer;"
 msgstr "partekatu;partekatzea;ssh;ostalaria;izena;urrunekoa;mahaigaina;multimedia;bideoa;irudiak;argazkiak;filmak;zerbitzaria;errendatzea;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Gaitu edo desgaitu urruneko saio-hasiera"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "Autentifikazioa behar da urruneko saioa gaitu edo desgaitzeko"
 
@@ -7671,11 +7671,11 @@ msgstr "Administratzailearen _izena"
 msgid "Administrator Password"
 msgstr "Administratzailearen pasahitza"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Kudeatu erabiltzaileen kontuak"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Autentifikazioa behar da erabiltzailearen datuak aldatzeko"
 
@@ -8604,21 +8604,21 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Utzi bilaketa"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "Irekiko den ezarpenen azken panelaren identifikatzailea"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
 msgstr "Irekiko den ezarpenen azken panelaren identifikatzailea. Ezagutzen ez diren balioak ezikusi egingo dira eta zerrendako lehen panela hautatuko da."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "Erakutsi abisu bat ezarpenen garapen-bertsio bat exekutatzean"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr "Ezarpenek abisu bat erakutsi behar duen ala ez garapen-bertsio bat exekutatzen denean."

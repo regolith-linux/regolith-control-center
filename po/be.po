@@ -1486,11 +1486,11 @@ msgstr "Змяненне даты і часу, у тым ліку часаваг
 msgid "Clock;Timezone;Location;"
 msgstr "Clock;Timezone;Гадзіннік;Часавы пояс;Месцазнаходжанне;Месца;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Змяненне налад сістэмнага часу і даты"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Каб змяніць час або дату, трэба прайсці праверку сапраўднасці."
 
@@ -6167,11 +6167,11 @@ msgstr ""
 "гук;аўдыя;відэа;выявы;відарысы;малюнкі;рысункі;фота;фатаграфіі;фотаздымкі;"
 "фільмы;кліпы;сервер;рэндэрынг;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Уключыць або выключыць аддалены ўваход у сістэму"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr ""
 "Для ўключэння ці адключэння аддаленага ўваходу патрабуецца праверка "
@@ -7895,11 +7895,11 @@ msgstr "І_мя адміністратара"
 msgid "Administrator Password"
 msgstr "Пароль адміністратара"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Налады ўліковых запісаў карыстальніка"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Для змянення даных карыстальніка патрабуецца праверка сапраўднасці"
 
@@ -8854,11 +8854,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Скасаваць пошук"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "Ідэнтыфікатар апошняй адкрытай панэлі Налад"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8866,11 +8866,11 @@ msgstr ""
 "Ідэнтыфікатар апошняй адкрытай панэлі Налад. Непазнаныя значэнні будуць "
 "праігнараваны і выбіраецца самая першая панэль у спісе."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "Паказваць папярэджанне пры запуску версіі Налад для распрацоўшчыкаў"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr "Ці паказваць папярэджанне пры запуску версіі для распрацоўшчыкаў."

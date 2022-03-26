@@ -1049,11 +1049,11 @@ msgstr "ಕಾಲವಲಯವೂ ಸೇರಿದಂತೆ ದಿನಾಂಕ ಮ
 msgid "Clock;Timezone;Location;"
 msgstr "ಗಡಿಯಾರ;ಕಾಲವಲಯ;ಸ್ಥಳ;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "ನಿಮ್ಮ ಪ್ರದೇಶ ಹಾಗೆ ಭಾಷೆಯ ಸಿದ್ಧತೆಗಳನ್ನು ಬದಲಾಯಿಸಿ"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr "ಸಮಯ ಅಥವ ದಿನಾಂಕದ ಸಿದ್ಧತೆಗಳನ್ನು ಬದಲಾಯಿಸಲು, ನೀವು ದೃಢೀಕರಿಸಬೇಕಾಗುತ್ತದೆ."
 
@@ -5153,11 +5153,11 @@ msgstr ""
 "ಹಂಚು;ಹಂಚಿಕೆ;ssh;ಆತಿಥೇಯ;ಹೆಸರು;ದೂರಸ್ಥ;ಗಣಕತೆರೆ;ಬ್ಲೂಟೂತ್;obex;ಮಾಧ್ಯಮ;ಆಡಿಯೊ;ವೀಡಿಯೊ;"
 "ಚಿತ್ರಗಳು;ಫೋಟೊಗಳು;ಚಲನಚಿತ್ರಗಳು;ಪೂರೈಕೆಗಣಕ;ನಿರೂಪಕ;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr "ದೂರಸ್ಥ ಪ್ರವೇಶವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ ಅಥವ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 msgid "Authentication is required to enable or disable remote login"
 msgstr ""
 "ದೂರಸ್ಥ ಪ್ರವೇಶವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಅಥವ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ"
@@ -6183,11 +6183,11 @@ msgstr "ಭಾಷೆ (_L)"
 msgid "Last Login"
 msgstr "ಕೊನೆಯ ಪ್ರವೇಶ"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "ಬಳಕೆದಾರ ಖಾತೆಗಳನ್ನು ನಿರ್ವಹಿಸಿ"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "ಬಳಕೆದಾರರ ಮಾಹಿತಿಯನ್ನು ಬದಲಾಯಿಸಲು ದೃಢೀಕರಣದ ಅಗತ್ಯವಿದೆ"
 

@@ -1075,11 +1075,11 @@ msgstr "preferences-system-time"
 msgid "Clock;Timezone;Location;"
 msgstr "Clock;Timezone;Location;gleoc;cleoc;roinn-tìde;ionad;àite;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Atharraich roghainnean àm ’s ceann-là an t-siostaim"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Feumaidh tu dearbhadh a dhèanamh gus roghainnean an ama no a’ chinn-là atharrachadh."
 
@@ -5379,11 +5379,11 @@ msgstr "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;ph
 msgid "Networks"
 msgstr "Lìonraidhean"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Cuir an comas no à comas clàradh a-steach cèin"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "Tha feum air dearbhadh mus gabh clàradh cèin a chur an comas no à comas"
 
@@ -6445,11 +6445,11 @@ msgstr "Cha deach cleachdaiche a lorg"
 msgid "Unlock to add a user account."
 msgstr "Thoir a’ ghlas dheth gus cunntas cleachdaiche a chur ris."
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Stiùirich cunntasan nan cleachdaichean"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Feumaidh tu dearbhadh a dhèanamh mus urrainn dhut dàta a’ chleachdaiche atharrachadh"
 
@@ -7307,11 +7307,11 @@ msgctxt "hotspot"
 msgid "Hotspot"
 msgstr "Hotspot"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "Aithnichear a’ phanail roghainnean mu dheireadh a thèid fhosgladh"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."

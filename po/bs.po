@@ -1036,11 +1036,11 @@ msgstr "Promijeni datum i vrijeme, uključujući vremensku zonu"
 msgid "Clock;Timezone;Location;"
 msgstr "Sat;Vrijemenskazona;Lokacija;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "Promjena postavki vremena i datuma"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Za promjenu vremena i datuma trebate potvrditi identitet."
 
@@ -5140,11 +5140,11 @@ msgstr ""
 "podijeli;djeljenje;ssh;domaćin;ime;udaljeno;radna površina;bluetooth;medij;"
 "audio;video;slike;fotografije;filmovi;server;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr "Omogući ili onemogući prijavu iz daljine"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 msgid "Authentication is required to enable or disable remote login"
 msgstr ""
 "Autentifikacija je potrebna za omogućenje ili onemogućenje prijave  iz "
@@ -6163,11 +6163,11 @@ msgstr "_Jezik"
 msgid "Last Login"
 msgstr "Zadnja prijava"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "Upravljanje korisničkim nalozima"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "Prijava je potrebna za promjenu korisničkih podataka."
 

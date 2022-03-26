@@ -1484,11 +1484,11 @@ msgstr "Promijenite datum i vrijeme, uključujući vremensku zonu"
 msgid "Clock;Timezone;Location;"
 msgstr "Sat;vremenska zona;lokacija;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Promijeni postavke vremena i datuma sustava"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Morate se ovjeriti kako bi promijenili postavke vremena ili datuma."
 
@@ -6159,11 +6159,11 @@ msgstr ""
 "dijeli;dijeljenje;ssh;računalo;naziv;udaljeno;radna površina;medija;zvuk;"
 "snimka;slika;fotografije;filmovi;poslužitelj;prikazivanje;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Omogući ili onemogući udaljenu prijavu"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "Potrebna je ovjera za omogućavanje ili onemogućavanje udaljene prijave"
 
@@ -7887,11 +7887,11 @@ msgstr "Administratorovo _ime"
 msgid "Administrator Password"
 msgstr "Administratorova lozinka"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Upravljanje korisničkim računima"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Potrebna je ovjera za promjenu podataka korisnika"
 
@@ -8838,11 +8838,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Prekini pretragu"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "Identifikator za posljednji panel postavki koji treba biti otvoren"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8850,11 +8850,11 @@ msgstr ""
 "Identifikator za posljednji panel postavki koji treba biti otvoren. "
 "Neprepoznate vrijednosti će biti zanemarene i prvi panel na popisu odabran."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "Prikaži upozorenje kada je pokrenuta razvojna inačica Postavki"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

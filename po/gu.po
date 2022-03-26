@@ -1146,11 +1146,11 @@ msgstr "તારીખ અને સમયને બદલો, ટાઇમ ઝ
 msgid "Clock;Timezone;Location;"
 msgstr "ઘડિયાળ;ટાઇમઝોન;સ્થાન;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "સિસ્ટમ સમય અને તારીખ સુયોજનોને બદલો"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr "સમય અથવા તારીખ સુયોજનોને બદલવા માટે, તમારે સત્તાધિકરણ કરવુ જરૂરી છે."
 
@@ -5427,12 +5427,12 @@ msgstr ""
 "વહેંચો;ભાગીદારી;ssh;યજમાન;નામ;દૂરસ્થ;ડેસ્કટોપ;બ્લુટુથ;ઑબેક્સ;મીડિયા;ઓડિયો;વિડિયો;"
 "ચિત્રો;ફોટા;ચિત્રપટ;સર્વર;રેન્ડરર;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 #| msgid "Enable h_orizontal scrolling"
 msgid "Enable or disable remote login"
 msgstr "દૂરસ્થ પ્રવેશને સક્રિય અથવા નિષ્ક્રિય કરો"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 #| msgid "Authentication is required to change user data"
 msgid "Authentication is required to enable or disable remote login"
 msgstr "દૂરસ્થ પ્રવેશને સક્રિય અથવા નિષ્ક્રિય કરવા માટે સત્તાધિકરણ જરૂરી છે"
@@ -6524,11 +6524,11 @@ msgstr "ભાષા (_L)"
 msgid "Last Login"
 msgstr "છેલ્લો પ્રવેશ"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "વપરાશકર્તા ખાતાઓ સંચાલિત કરો"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "વપરાશકર્તા માહિતીને બદલવા માટે સત્તાધિકરણ જરૂરી છે"
 

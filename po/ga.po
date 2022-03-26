@@ -1056,11 +1056,11 @@ msgstr "Athraigh an dáta agus an t-am, crios ama ina measc"
 msgid "Clock;Timezone;Location;"
 msgstr "Clog;Crios Ama;Suíomh;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "Athraigh socruithe ama agus dáta an chórais"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Is gá fíordeimhniú chun socruithe ama nó dáta a athrú."
 
@@ -5185,11 +5185,11 @@ msgid ""
 "movies;server;renderer;"
 msgstr ""
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr ""
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 #, fuzzy
 msgid "Authentication is required to enable or disable remote login"
 msgstr "Fíordheimhnithe!"
@@ -6211,11 +6211,11 @@ msgstr "_Teanga"
 msgid "Last Login"
 msgstr "Logáil Isteach Is Déanaí"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "Bainistigh cuntais úsáideora"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 #, fuzzy
 msgid "Authentication is required to change user data"
 msgstr "Fíordheimhnithe!"

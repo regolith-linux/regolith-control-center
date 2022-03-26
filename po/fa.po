@@ -1397,11 +1397,11 @@ msgstr "تغییر ساعت و تاریخ، شامل منطقه زمانی"
 msgid "Clock;Timezone;Location;"
 msgstr "سایت;منطقهٔ زمانی;مکان;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "تغییر تنظیمات تاریخ و زمان سامانه"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "برای تغییر تنظیمات تاریخ و ساعت، احتیاج به تصدیق هویت دارید."
 
@@ -5802,11 +5802,11 @@ msgstr ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;movies;server;renderer;"
 "هم‌رسانی;اشتراک;میزبان;نام;دور;میزکار;ریانه;صدا;آهنگ;ویدیو;فیلم;عکس;تصویر;کارساز;سرور;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "به یا از کار انداختن ورود دوردست"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "برای به یا از کار انداختن ورود دوردست، تأیید هویت لازم است"
 
@@ -7470,11 +7470,11 @@ msgstr "_نام مدیر"
 msgid "Administrator Password"
 msgstr "گذرواژه مدیر"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "مدیریت حساب‌های کاربر"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "جهت تغییر اطلاعات کاربر تصدیق‌هویت لازم است"
 
@@ -8397,11 +8397,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "لغو جست‌وجو"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "برگشت به تابلوی پیشین"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values will be ignored and the "
 "first panel in the list selected."
@@ -8409,11 +8409,11 @@ msgstr ""
 "شناسهٔ آخرین تابلوی تنظیمات برای گشودن. مقادیر ناشناخته درنظر گرفته نشده و نخستین تابلو در فهرست گزیده "
 "خواهد شد."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "نمایش هشدار هنگام اجرای یک ساخت در حال توسعه از تنظیمات"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid "Whether Settings should show a warning when running a development build."
 msgstr "تنظیمات آب‌وهوا باید هنگام اجرای یک ساخت در حال توسعه، هشداری نشان دهد."
 

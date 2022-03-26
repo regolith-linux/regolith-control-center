@@ -1485,11 +1485,11 @@ msgstr ""
 "Clock;Đồng;hồ;Dong;ho;Timezone;Múi;giờ;Mui;gio;Location;Vị;trí;Vi;tri;nước;"
 "nuoc;tỉnh;tỉnh;thành;phố;thanh;pho;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Thay đổi thời gian và ngày tháng"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "Bạn cần xác thực để có thể sửa đổi thời gian hoặc ngày tháng."
 
@@ -6167,11 +6167,11 @@ msgstr ""
 "điều;khiển;desktop;media;đa phương tiện;da phuong tien;audio;nhạc;nhạc;video;"
 "phim;pictures;photos;ảnh;anh;movies;server;renderer;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Bật hoặc tắt đăng nhập từ xa"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "Cần xác thực để bật hoặc tắt đăng nhập từ xa"
 
@@ -7893,11 +7893,11 @@ msgstr "_Tên quản trị"
 msgid "Administrator Password"
 msgstr "Mật khẩu quản trị"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Quản lý tài khoản người dùng"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Cần xác thực để thay đổi dữ liệu người dùng"
 
@@ -8840,11 +8840,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Ngừng tìm kiếm"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "Định danh cho bảng Cài đặt cuối được mở"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8852,11 +8852,11 @@ msgstr ""
 "Định danh cho bảng Cài đặt cuối được mở. Các giá trị không nhận ra sẽ được "
 "bỏ qua và bảng đầu tiên trong danh sách đã chọn."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "Hiển thị cảnh báo khi chạy bản biên dịch phát triển của Cài đặt"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

@@ -7,7 +7,7 @@
   <vendor>The GNOME Project</vendor>
   <vendor_url>http://www.gnome.org/</vendor_url>
 
-  <action id="org.gnome.controlcenter.datetime.configure">
+  <action id="org.regolith.ControlCenter.datetime.configure">
     <description>Change system time and date settings</description>
     <message>To change time or date settings, you need to authenticate.</message>
     <defaults>

@@ -1476,11 +1476,11 @@ msgstr "Cambie date e ore, cussì ancje il fûs orari"
 msgid "Clock;Timezone;Location;"
 msgstr "Orloi;Ore;Timp;Date;Fûs;Posizion;Orari;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "Cambie lis impostazions di sisteme pe ore e pe date"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr ""
 "Par cambiâ lis impostazions de ore e de date al è necessari autenticâsi."
@@ -6060,11 +6060,11 @@ msgstr ""
 "condivision;share;ssh;host;non;esterni;lontan;desktop;scritori;medie;"
 "multimedie;audio;video;imagjins;fotos;film;servidôr;server;renderer;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "Abilitâ o no l'acès esterni"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "Al è necessari autenticâsi par abilitâ o no abilitâ l'acès di lontan"
 
@@ -7781,11 +7781,11 @@ msgstr "_Non aministradôr"
 msgid "Administrator Password"
 msgstr "Password aministradôr"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "Ministre i account online"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "Si scugne autenticâsi par cambiâ i dâts utent"
 
@@ -8298,11 +8298,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "Anule ricercje"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "L'identificadôr pal ultin panel di Impostazions di vierzi"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8311,12 +8311,12 @@ msgstr ""
 "ricognossûts a vignaran ignorâts e al vignarà selezionât il prin panel inte "
 "liste."
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr ""
 "Mostre avertiment cuant che si eseguìs une version di svilup di Impostazions"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr ""

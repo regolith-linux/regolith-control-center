@@ -1024,11 +1024,11 @@ msgstr "改變時刻與日期，包含時區"
 msgid "Clock;Timezone;Location;"
 msgstr "Clock;Timezone;Location;時鐘;時區;位置;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 msgid "Change system time and date settings"
 msgstr "改變系統時刻與日期設定值"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr "要改變時刻或日期設定值，你需要通過核對。"
 
@@ -5029,11 +5029,11 @@ msgid ""
 "pictures;photos;movies;server;renderer;"
 msgstr "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;video;pictures;photos;movies;server;renderer;分享;主機;名稱;遠端;桌面;藍牙;媒體;音樂;視像;圖片;相片;影片;伺服器;"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:1
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:1
 msgid "Enable or disable remote login"
 msgstr "啟用或停用遠端登入"
 
-#: ../panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in.h:2
+#: ../panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in.h:2
 msgid "Authentication is required to enable or disable remote login"
 msgstr "啟用或停用遠端登入需要核對"
 
@@ -6031,11 +6031,11 @@ msgstr "語言(_L)"
 msgid "Last Login"
 msgstr "上次登入"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 msgid "Manage user accounts"
 msgstr "管理使用者帳號"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 msgid "Authentication is required to change user data"
 msgstr "改變使用者資料需要核對"
 

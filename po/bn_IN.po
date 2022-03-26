@@ -1511,11 +1511,11 @@ msgstr "সময় অঞ্চল সমেত তারিখ এবং স�
 msgid "Clock;Timezone;Location;"
 msgstr "ঘড়ি;সময় অঞ্চল;অবস্থান;"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:11
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:11
 msgid "Change system time and date settings"
 msgstr "সিস্টেম সময় এবং তারিখ সেটিং পরিবর্তন করুন"
 
-#: panels/datetime/org.gnome.controlcenter.datetime.policy.in:12
+#: panels/datetime/org.regolith.ControlCenter.datetime.policy.in:12
 msgid "To change time or date settings, you need to authenticate."
 msgstr "সময় বা তারিখ সেটিং পরিবর্তন করতে, আপনার প্রমাণীকরণের প্রয়োজন।"
 
@@ -6143,11 +6143,11 @@ msgstr ""
 "ভাগ;অংশীদারি;ssh;হোস্ট;নাম;রিমোট;ডেস্কটপ;ব্লুটুথ;obex;মিডিয়া;অডিও;ভিডিও;ছবি;ফোটো;"
 "মুভি;সার্ভার;রেন্ডরার;"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:11
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:11
 msgid "Enable or disable remote login"
 msgstr "রিমোট লগিন সক্রিয় বা নিষ্ক্রিয় করুন"
 
-#: panels/sharing/org.gnome.controlcenter.remote-login-helper.policy.in.in:12
+#: panels/sharing/org.regolith.ControlCenter.remote-login-helper.policy.in.in:12
 msgid "Authentication is required to enable or disable remote login"
 msgstr "রিমোট লগিন সক্রিয় বা নিষ্ক্রিয় করতে অনুমোদনের প্রয়োজন"
 
@@ -7901,11 +7901,11 @@ msgstr "প্রশাসকের নাম (_N)"
 msgid "Administrator Password"
 msgstr "প্রশাসকের পাসওয়ার্ড"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:11
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:11
 msgid "Manage user accounts"
 msgstr "ব্যবহারকারী অ্যাকাউন্টগুলি পরিচালনা করুন"
 
-#: panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in:12
+#: panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in:12
 msgid "Authentication is required to change user data"
 msgstr "ব্যবহারকারী ডেটা পরিবর্তন করতে প্রমাণীকরণের প্রয়োজন"
 
@@ -8430,11 +8430,11 @@ msgctxt "shortcut window"
 msgid "Cancel search"
 msgstr "অনুসন্ধান বাতিল করুন"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:5
+#: shell/org.regolith.ControlCenter.gschema.xml:5
 msgid "The identifier for the last Settings panel to be opened"
 msgstr "শেষ সেটিংস প্যানেলটি খোলার জন্য শনাক্তকারী"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:6
+#: shell/org.regolith.ControlCenter.gschema.xml:6
 msgid ""
 "The identifier for the last Settings panel to be opened. Unrecognised values "
 "will be ignored and the first panel in the list selected."
@@ -8442,11 +8442,11 @@ msgstr ""
 "শেষ সেটিংস প্যানেলটি খোলার জন্য শনাক্তকারী। অজ্ঞাত মানগুলিকে উপেক্ষা করা হবে এবং "
 "তালিকার প্রথম প্যানেল নির্বাচিত হবে।"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:13
+#: shell/org.regolith.ControlCenter.gschema.xml:13
 msgid "Show warning when running a development build of Settings"
 msgstr "সেটিংসের বিকাশ তৈরির সময় সতর্কতা দেখান"
 
-#: shell/org.gnome.ControlCenter.gschema.xml:14
+#: shell/org.regolith.ControlCenter.gschema.xml:14
 msgid ""
 "Whether Settings should show a warning when running a development build."
 msgstr "উন্নয়ন বিল্ড চলাকালীন সেটিংস কোনও সতর্কতা প্রদর্শন করবে কিনা।"

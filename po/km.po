@@ -739,12 +739,12 @@ msgstr "ផ្ទាំង​ចំណូលចិត្ត​កាលបរិ
 msgid "Clock;Timezone;Location;"
 msgstr "Clock;Timezone;Location;"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:1
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:1
 #| msgid "Change your region and language settings"
 msgid "Change system time and date settings"
 msgstr "ផ្លាស់ប្ដូរ​ការ​កំណត់​ពេលវេលា និង​កាលបរិច្ឆេទ​​ប្រព័ន្ធ"
 
-#: ../panels/datetime/org.gnome.controlcenter.datetime.policy.in.h:2
+#: ../panels/datetime/org.regolith.ControlCenter.datetime.policy.in.h:2
 msgid "To change time or date settings, you need to authenticate."
 msgstr ""
 "ដើម្បី​ផ្លាស់ប្ដូរ​កា​រកំណត់​ពេលវាលា ឬ​កាលបរិច្ឆេទ "
@@ -4619,12 +4619,12 @@ msgstr "រូបតំណាង​អ្នកប្រើ"
 msgid "_Language"
 msgstr "ភាសា"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:1
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:1
 #| msgid "Manage online accounts"
 msgid "Manage user accounts"
 msgstr "គ្រប់គ្រង​គណនី​អ្នក​ប្រើ"
 
-#: ../panels/user-accounts/org.gnome.controlcenter.user-accounts.policy.in.h:2
+#: ../panels/user-accounts/org.regolith.ControlCenter.user-accounts.policy.in.h:2
 #| msgid "Authentication required"
 msgid "Authentication is required to change user data"
 msgstr "តម្រូវ​ឲ្យ​ផ្ទៀងផ្ទាត់ ដើម្បី​ផ្លាស់ប្ដូរ​ទិន្នន័យ​អ្នក​ប្រើ"
