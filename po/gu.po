@@ -763,7 +763,7 @@ msgstr "વધારે શીખો"
 msgid "Learn more about color management"
 msgstr "રંગ સંચાલન વિશે વધારે શીખો"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/color/color.ui.h:33
 msgid "Set for all users"
 msgstr "બધા વપરાશકર્તાઓ માટે સુયોજિત કરો"
@@ -772,7 +772,7 @@ msgstr "બધા વપરાશકર્તાઓ માટે સુયોજ
 msgid "Set this profile for all users on this computer"
 msgstr "આ કમ્પ્યૂટર પર બધા વપરાશકર્તાઓ માટે આ રૂપરેખાને સુયોજિત કરો"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
 #: ../panels/color/color.ui.h:35
 #| msgid "Enabled"
 msgid "Enable"
@@ -1727,7 +1727,7 @@ msgstr "લખાણ માપ ઘટાડો"
 msgid "High contrast on or off"
 msgstr "ઉચ્ચ વિરોધાભાસ ચાલુ અથવા બંધ"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # gtk/gtkinputdialog.c:238
 #. translators:
 #. * The device has been disabled
@@ -1833,7 +1833,7 @@ msgctxt "keyboard, delay"
 msgid "Long"
 msgstr "લાંબુ"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/keyboard/gnome-keyboard-panel.ui.h:14
 #| msgid "Fast"
 msgctxt "keyboard, speed"
@@ -1980,7 +1980,7 @@ msgstr "ધીમુ"
 msgid "Double-click timeout"
 msgstr "બે ક્લિકની સમયસમાપ્તિ"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/mouse/gnome-mouse-properties.ui.h:4
 #| msgid "Fast"
 msgctxt "double click, speed"
@@ -2021,7 +2021,7 @@ msgctxt "mouse pointer, speed"
 msgid "Slow"
 msgstr "ધીમુ"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/mouse/gnome-mouse-properties.ui.h:12
 #| msgid "Fast"
 msgctxt "mouse pointer, speed"
@@ -2038,7 +2038,7 @@ msgctxt "touchpad pointer, speed"
 msgid "Slow"
 msgstr "ધીમુ"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/mouse/gnome-mouse-properties.ui.h:15
 #| msgid "Fast"
 msgctxt "touchpad pointer, speed"
@@ -4060,7 +4060,7 @@ msgstr "સેલફોન"
 msgid "Media player"
 msgstr "મીડિયા પ્લેયર"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
 #. TRANSLATORS: secondary battery
 #: ../panels/power/cc-power-panel.c:488
 msgid "Tablet"
@@ -5387,7 +5387,7 @@ msgctxt "service is disabled"
 msgid "Off"
 msgstr "બંધ"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
 #: ../panels/sharing/cc-sharing-panel.c:304
 #| msgid "Enabled"
 msgctxt "service is enabled"
@@ -5806,7 +5806,7 @@ msgstr "ચકાસો"
 msgid "Subwoofer"
 msgstr "સબવુફર"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # libgnomeprint/gpa/gpa-media.c:241
 # #-#-#-#-#  libgnomeprint.gnome-2-2.hi.po (libgnomeprint VERSION)  #-#-#-#-#
 # libgnomeprint/gpa/gpa-media.c:241
@@ -6782,7 +6782,7 @@ msgstr "ઉપકરણ એ પહેલેથી વપરાશમાં છ�
 msgid "An internal error occurred."
 msgstr "આંતરિક ભૂલ ઉદ્દભવી હતી."
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # gtk/gtkinputdialog.c:238
 #: ../panels/user-accounts/um-fingerprint-dialog.c:217
 #: ../panels/user-accounts/um-fingerprint-dialog.c:218
@@ -6936,7 +6936,7 @@ msgstr "પાસવર્ડો બંધબેસતા નથી."
 msgid "Browse for more pictures"
 msgstr "વધારે ચિત્રો માટે બ્રાઉઝ કરો"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # gtk/gtkinputdialog.c:238
 #: ../panels/user-accounts/um-photo-dialog.c:453
 msgid "Disable image"
@@ -7834,7 +7834,7 @@ msgstr "પસંદગીઓ;સુયોજનો;"
 #~ msgid "Select the interface to use for the new service"
 #~ msgstr "નવી સેવા માટે વાપરવા ઇન્ટરફેસને પસંદ કરો"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #~ msgid "C_reate..."
 #~ msgstr "બનાવો (_r)..."
 
@@ -8303,7 +8303,7 @@ msgstr "પસંદગીઓ;સુયોજનો;"
 #~ msgid "Map Buttons..."
 #~ msgstr "માપન બટનો..."
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #~| msgid "Create..."
 #~ msgid "Calibrate..."
 #~ msgstr "માપદંડ કરો..."
@@ -8399,7 +8399,7 @@ msgstr "પસંદગીઓ;સુયોજનો;"
 #~ msgid "Scrolling"
 #~ msgstr "સ્ક્રોલ કરી રહ્યા છે"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # gtk/gtkinputdialog.c:238
 #~ msgid "_Disabled"
 #~ msgstr "નિષ્ક્રિય થયેલ (_D)"
@@ -8414,7 +8414,7 @@ msgstr "પસંદગીઓ;સુયોજનો;"
 #~ msgid "_Network Name"
 #~ msgstr "નેટવર્ક નામ (_N)"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
 #~| msgid "Disabled"
 #~ msgid "Disable VPN"
 #~ msgstr "VPN નિષ્ક્રિય કરો"
@@ -8571,7 +8571,7 @@ msgstr "પસંદગીઓ;સુયોજનો;"
 #~ msgstr "ખાતા પ્રકાર (_A)"
 
 # #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-#
-# libgnomeui/gnome-app-helper.c:166
+# libgnomeui/regolith-app-helper.c:166
 #~ msgid "Cr_eate"
 #~ msgstr "બનાવો (_e)"
 
@@ -8743,7 +8743,7 @@ msgstr "પસંદગીઓ;સુયોજનો;"
 #~ msgstr "મહેરબાની કરીને ચિત્ર પસંદ કરો."
 
 # #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-#
-# libgnomeui/gnome-app-helper.c:166
+# libgnomeui/regolith-app-helper.c:166
 #~ msgid "Create a user"
 #~ msgstr "વપરાશકર્તાને બનાવો"
 

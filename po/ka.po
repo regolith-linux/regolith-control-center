@@ -1008,11 +1008,11 @@ msgstr "ფა_ნჯრები:"
 msgid "dots per inch"
 msgstr "წერტილი დუიმში"
 
-#: ../capplets/appearance/data/gnome-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/regolith-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr "გარემოს იერსახე"
 
-#: ../capplets/appearance/data/gnome-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/regolith-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr "სამუშაო მაგიდის ხედის გალამაზება"
 

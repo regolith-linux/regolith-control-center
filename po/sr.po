@@ -159,7 +159,7 @@ msgstr "Друге датотеке"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1660
 #: panels/applications/cc-applications-panel.ui:416
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:70
 msgid "Applications"
 msgstr "Програми"
@@ -340,13 +340,13 @@ msgstr "<b>Укупно</b>"
 msgid "Clear Cache…"
 msgstr "Очисти кеш…"
 
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr "Управља разним овлашћењима и подешавањима програма"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr ""
 "application;flatpak;permission;setting;апликација;програм;флатпак;флетпек;"

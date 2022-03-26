@@ -1286,11 +1286,11 @@ msgstr "Vo_kny:"
 msgid "dots per inch"
 msgstr "punktaŭ na cal"
 
-#: ../capplets/appearance/data/gnome-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/regolith-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr "Vyhlad"
 
-#: ../capplets/appearance/data/gnome-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/regolith-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr "Źmiani vyhlad stała"
 

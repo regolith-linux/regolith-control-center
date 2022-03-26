@@ -73,7 +73,7 @@ msgctxt "background, style"
 msgid "Scale"
 msgstr "मापक"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #: ../panels/background/background.ui.h:10
 msgctxt "background, style"
@@ -645,13 +645,13 @@ msgstr ""
 "स्थिति के "
 "लिए प्रोफाइल बना सकते हैं."
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #: ../panels/color/color.ui.h:19
 msgid "Profile Name:"
 msgstr "प्रोफाइल नाम:"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #: ../panels/color/color.ui.h:20
 msgid "Profile Name"
@@ -732,7 +732,7 @@ msgstr "अधिक जानें"
 msgid "Learn more about color management"
 msgstr "रंग प्रबंधन के बारे में अधिक जानें"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/color/color.ui.h:35
 msgid "Set for all users"
 msgstr "सभी उपयोगकर्ताओं के लिए सेट करें"
@@ -741,7 +741,7 @@ msgstr "सभी उपयोगकर्ताओं के लिए से�
 msgid "Set this profile for all users on this computer"
 msgstr "इस कंप्यूटर पर सभी उपयोगकर्ताओं के लिए इस प्रोफ़ाइल को सेट करें"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
 #: ../panels/color/color.ui.h:37
 msgid "Enable"
 msgstr "सक्रिय करें"
@@ -1254,7 +1254,7 @@ msgstr "अज्ञात"
 
 # #-#-#-#-#  gnome-session.gnome-2-2.hi.po (gnome-session VERSION)  #-#-#-#-# gnome-session/session-properties-capplet.c:303
 # gnome-session/session-properties-capplet.c:376
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:84 libgnomeui/gnome-app-helper.h:516
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:84 libgnomeui/regolith-app-helper.h:516
 #: ../panels/info/cc-info-panel.c:472
 #, c-format
 msgid "%s %d-bit"
@@ -1264,7 +1264,7 @@ msgstr "%s %d-bit"
 # gnome-session/session-properties-capplet.c:303
 # gnome-session/session-properties-capplet.c:376
 # #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-#
-# libgnomeui/gnome-app-helper.c:84 libgnomeui/gnome-app-helper.h:516
+# libgnomeui/regolith-app-helper.c:84 libgnomeui/regolith-app-helper.h:516
 #: ../panels/info/cc-info-panel.c:474
 #, c-format
 msgid "%d-bit"
@@ -1682,7 +1682,7 @@ msgstr "पाठ का आकार घटाएँ"
 msgid "High contrast on or off"
 msgstr "अधिक कंट्रास्ट चालू या बंद करें"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # gtk/gtkinputdialog.c:238
 #. translators:
 #. * The device has been disabled
@@ -1776,7 +1776,7 @@ msgctxt "keyboard, delay"
 msgid "Long"
 msgstr "लंबा"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/keyboard/gnome-keyboard-panel.ui.h:14
 msgctxt "keyboard, speed"
 msgid "Fast"
@@ -1931,7 +1931,7 @@ msgstr "धीमा"
 msgid "Double-click timeout"
 msgstr "दोहरा क्लिक टाइमआउट"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/mouse/gnome-mouse-properties.ui.h:4
 #| msgctxt "keyboard, speed"
 #| msgid "Fast"
@@ -1972,7 +1972,7 @@ msgctxt "mouse pointer, speed"
 msgid "Slow"
 msgstr "धीमा"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/mouse/gnome-mouse-properties.ui.h:12
 #| msgctxt "keyboard, speed"
 #| msgid "Fast"
@@ -1991,7 +1991,7 @@ msgctxt "touchpad pointer, speed"
 msgid "Slow"
 msgstr "धीमा"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #: ../panels/mouse/gnome-mouse-properties.ui.h:15
 #| msgctxt "keyboard, speed"
 #| msgid "Fast"
@@ -2528,7 +2528,7 @@ msgstr "IPv_6"
 msgid "Unable to open connection editor"
 msgstr "कनेक्शन संपादक खोलने में असमर्थ"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #: ../panels/network/connection-editor/net-connection-editor.c:287
 msgid "New Profile"
@@ -2767,7 +2767,7 @@ msgstr "तारसहित"
 msgid "Options…"
 msgstr "विकल्प…"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #: ../panels/network/net-device-ethernet.c:474
 #, c-format
@@ -3948,7 +3948,7 @@ msgstr "सेलफोन"
 msgid "Media player"
 msgstr "मीडिया प्लेयर"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
 #. TRANSLATORS: secondary battery
 #: ../panels/power/cc-power-panel.c:488
 msgid "Tablet"
@@ -4715,7 +4715,7 @@ msgstr "PS स्तर 1 में बदलें"
 msgid "Convert to PS level 2"
 msgstr "पीएस स्तर 2 पर परिवर्तित करें"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #. Translators: this is an option of "GhostScript"
 #: ../panels/printers/pp-ppd-option-widget.c:96
@@ -4844,7 +4844,7 @@ msgstr "ट्रैश व अस्थाई फ़ाइलें मिट�
 msgid "All the temporary files will be permanently deleted."
 msgstr "सभी अस्थाई फ़ाइल स्थाई रूप से मिटा दी जाएगी."
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #: ../panels/privacy/cc-privacy-panel.c:514 ../panels/privacy/privacy.ui.h:35
 msgid "_Purge Temporary Files"
@@ -5253,7 +5253,7 @@ msgctxt "service is disabled"
 msgid "Off"
 msgstr "बंद"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
 #: ../panels/sharing/cc-sharing-panel.c:304
 #| msgid "Enabled"
 msgctxt "service is enabled"
@@ -5531,7 +5531,7 @@ msgid "Unamplified"
 msgstr "बिना संवर्द्धित"
 
 # #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-#
-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #: ../panels/sound/gvc-combo-box.c:166 ../panels/sound/gvc-mixer-dialog.c:260
 #: ../panels/sound/gvc-mixer-dialog.c:526
@@ -5671,7 +5671,7 @@ msgstr "जांच"
 msgid "Subwoofer"
 msgstr "Subwoofer"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # libgnomeprint/gpa/gpa-media.c:241
 # #-#-#-#-#  libgnomeprint.gnome-2-2.hi.po (libgnomeprint VERSION)  #-#-#-#-#
 # libgnomeprint/gpa/gpa-media.c:241
@@ -6652,7 +6652,7 @@ msgstr "यह युक्ति पहले से प्रयोग मे�
 msgid "An internal error occurred."
 msgstr "आंतरिक त्रुटि आयी."
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # gtk/gtkinputdialog.c:238
 #: ../panels/user-accounts/um-fingerprint-dialog.c:216
 msgid "Enabled"
@@ -6806,7 +6806,7 @@ msgstr "कूटशब्द मेल नहीं खाता है."
 msgid "Browse for more pictures"
 msgstr "अधिक छवियाँ के लिए ब्राउज़ करें"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # gtk/gtkinputdialog.c:238
 #: ../panels/user-accounts/um-photo-dialog.c:453
 msgid "Disable image"
@@ -6893,7 +6893,7 @@ msgid "_Delete Files"
 msgstr "फ़ाइल मिटाएँ (_D)"
 
 # #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-#
-# libgnomeui/gnome-app-helper.c:82 libgnomeui/gnome-app-helper.h:513
+# libgnomeui/regolith-app-helper.c:82 libgnomeui/regolith-app-helper.h:513
 # test-gnome/testgnome.xml.h:5
 #: ../panels/user-accounts/um-user-panel.c:512
 msgid "_Keep Files"
@@ -7600,7 +7600,7 @@ msgstr "वरीयताएँ;सेटिंग्स;"
 #~ msgid "Slow"
 #~ msgstr "धीमा"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #~ msgctxt "mouse, speed"
 #~ msgid "Fast"
 #~ msgstr "तेज"
@@ -8133,7 +8133,7 @@ msgstr "वरीयताएँ;सेटिंग्स;"
 #~ msgid "_Options..."
 #~ msgstr "विकल्प... (_O)"
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #~ msgid "C_reate..."
 #~ msgstr "बनाएँ (_r)..."
 
@@ -8431,7 +8431,7 @@ msgstr "वरीयताएँ;सेटिंग्स;"
 #~ msgid "Map Buttons..."
 #~ msgstr "नक्शे बटन..."
 
-# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/gnome-app-helper.c:166
+# #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-# libgnomeui/regolith-app-helper.c:166
 #~ msgid "Calibrate..."
 #~ msgstr "कैलिब्रेट..."
 
@@ -8522,7 +8522,7 @@ msgstr "वरीयताएँ;सेटिंग्स;"
 #~ msgid "Scrolling"
 #~ msgstr "स्क्रॉल कर रहे"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-#
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-#
 # gtk/gtkinputdialog.c:238
 #~ msgid "_Disabled"
 #~ msgstr "निष्क्रिय (_D)"
@@ -8553,7 +8553,7 @@ msgstr "वरीयताएँ;सेटिंग्स;"
 #~ msgid "_Stop Hotspot..."
 #~ msgstr "हॉटस्पॉट रोकें... (_S)"
 
-# #-#-#-#-#  gnome-applets.gnome-2-2.hi.po (gnome-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
+# #-#-#-#-#  regolith-applets.gnome-2-2.hi.po (regolith-applets 2.x)  #-#-#-#-# gtk/gtkinputdialog.c:238
 #~| msgid "Disabled"
 #~ msgid "Disable VPN"
 #~ msgstr "अक्षम VPN"
@@ -8718,7 +8718,7 @@ msgstr "वरीयताएँ;सेटिंग्स;"
 #~ msgstr "खाता प्रकार (_A)"
 
 # #-#-#-#-#  libgnomeui.gnome-2-2.hi.po (libgnomeui HEAD)  #-#-#-#-#
-# libgnomeui/gnome-app-helper.c:166
+# libgnomeui/regolith-app-helper.c:166
 #~ msgid "Cr_eate"
 #~ msgstr "बनाएँ (_e)"
 

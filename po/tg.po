@@ -184,7 +184,7 @@ msgstr "_Нест кардани файлҳо"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1376
 #: panels/applications/cc-applications-panel.ui:406
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:167
 #: panels/privacy/cc-privacy-panel.ui:1085
 msgid "Applications"
@@ -371,13 +371,13 @@ msgstr ""
 msgid "Clear Cache…"
 msgstr ""
 
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr ""
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr ""
 

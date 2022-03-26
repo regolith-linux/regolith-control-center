@@ -1136,11 +1136,11 @@ msgstr "අඟලට තිත්"
 msgid "gtk-delete"
 msgstr ""
 
-#: ../capplets/appearance/data/gnome-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/regolith-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr ""
 
-#: ../capplets/appearance/data/gnome-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/regolith-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr ""
 

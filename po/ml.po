@@ -10204,7 +10204,7 @@ msgstr "ഫലങ്ങള്‍ ഒന്നും ലഭിച്ചില്�
 #~ "[Change Theme;gtk-theme-selector.desktop,Set Preferred Applications;default-applications.desktop,Add "
 #~ "Printer;gnome-cups-manager.desktop]"
 #~ msgstr ""
-#~ "[രംഗവിതാനം മാറ്റുക;gnome-appearance-properties.desktop,മുന്‍ഗണനാ പ്രയോഗങ്ങള്‍ സജ്ജമാക്കുക;gnome-default-applications."
+#~ "[രംഗവിതാനം മാറ്റുക;regolith-appearance-properties.desktop,മുന്‍ഗണനാ പ്രയോഗങ്ങള്‍ സജ്ജമാക്കുക;gnome-default-applications."
 #~ "desktop,പ്രിന്റര്‍ ചേര്‍ക്കുക;system-config-printer.desktop]"
 
 #~ msgid "if true, the control-center will close when a \"Common Task\" is activated."

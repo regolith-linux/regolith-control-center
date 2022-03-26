@@ -1281,11 +1281,11 @@ msgstr "_𐑢𐑦𐑯𐑛𐑴𐑟:"
 msgid "dots per inch"
 msgstr "𐑛𐑪𐑑𐑕 𐑐𐑻 𐑦𐑯𐑗"
 
-#: ../capplets/appearance/data/gnome-appearance-properties.desktop.in.in.h:1
+#: ../capplets/appearance/data/regolith-appearance-properties.desktop.in.in.h:1
 msgid "Appearance"
 msgstr "𐑩𐑐𐑽𐑩𐑯𐑕"
 
-#: ../capplets/appearance/data/gnome-appearance-properties.desktop.in.in.h:2
+#: ../capplets/appearance/data/regolith-appearance-properties.desktop.in.in.h:2
 msgid "Customize the look of the desktop"
 msgstr "𐑒𐑩𐑕𐑑𐑩𐑥𐑲𐑟 𐑞 𐑤𐑫𐑒 𐑝 𐑞 𐑛𐑧𐑕𐑒𐑑𐑪𐑐"
 

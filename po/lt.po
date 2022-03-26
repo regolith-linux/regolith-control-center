@@ -163,7 +163,7 @@ msgstr "Kiti failai"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1660
 #: panels/applications/cc-applications-panel.ui:416
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:70
 msgid "Applications"
 msgstr "Programos"
@@ -346,13 +346,13 @@ msgstr "<b>Iš viso</b>"
 msgid "Clear Cache…"
 msgstr "Išvalyti podėlį…"
 
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr "Valdyti įvairius programos leidimus bei nustatymus"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr "programa;flatpak;leidimas;nustatymas;"
 

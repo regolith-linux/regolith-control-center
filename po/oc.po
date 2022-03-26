@@ -156,7 +156,7 @@ msgstr "Autres fichièrs"
 #. List of applications.
 #: panels/applications/cc-applications-panel.c:1660
 #: panels/applications/cc-applications-panel.ui:416
-#: panels/applications/gnome-applications-panel.desktop.in.in:3
+#: panels/applications/regolith-applications-panel.desktop.in.in:3
 #: panels/notifications/cc-notifications-panel.ui:70
 msgid "Applications"
 msgstr "Aplicacions"
@@ -339,13 +339,13 @@ msgstr "<b>Total</b>"
 msgid "Clear Cache…"
 msgstr "Escafar lo cache…"
 
-#: panels/applications/gnome-applications-panel.desktop.in.in:4
+#: panels/applications/regolith-applications-panel.desktop.in.in:4
 msgid "Control various application permissions and settings"
 msgstr "Contròla divèrsas permissions e reglatges d’aplicacion"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/applications/gnome-applications-panel.desktop.in.in:16
+#: panels/applications/regolith-applications-panel.desktop.in.in:16
 msgid "application;flatpak;permission;setting;"
 msgstr "aplicacion;flatpak;permission;reglatge;"
 
