@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
 desktop_in = configure_file(
   input: desktop + '.in.in',
@@ -17,7 +17,6 @@ i18n.merge_file(
 )
 
 cflags += [
-  '-DBINDIR="@0@"'.format(control_center_bindir),
   '-DDATADIR="@0@"'.format(control_center_datadir),
   '-DLIBEXECDIR="@0@"'.format(control_center_libexecdir),
 ]
@@ -28,7 +27,6 @@ sources = files(
 )
 
 resource_data = files(
-  'RegolithLogoVerticalMedium.png',
   'cc-info-overview-panel.ui'
 )
 
@@ -41,7 +39,7 @@ sources += gnome.compile_resources(
 )
 
 deps = common_deps + [
-  dependency('udisks2', version: '>= 2.1.8'),
+  dependency('udisks2', version: '>= 2.8.2'),
   dependency('libgtop-2.0')
 ]
 
@@ -54,12 +52,22 @@ info_panel_lib = static_library(
 )
 panels_libs += info_panel_lib
 
+print_renderer_deps = [
+  dependency('gtk+-3.0'),
+  epoxy_dep
+]
+
 executable(
-  'regolith-control-center-print-renderer',
-  'regolith-control-center-print-renderer.c',
+  'gnome-control-center-print-renderer',
+  'gnome-control-center-print-renderer.c',
   include_directories: [ top_inc ],
-  dependencies: [ deps, epoxy_dep ],
+  dependencies: [ print_renderer_deps ],
   c_args: cflags,
   install: true,
   install_dir: control_center_libexecdir,
+)
+
+install_data(
+  [ 'gnome-logo-text.svg', 'gnome-logo-text-dark.svg' ],
+  install_dir: join_paths(control_center_datadir, 'icons')
 )

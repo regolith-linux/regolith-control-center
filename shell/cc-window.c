@@ -33,7 +33,6 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 #include <gdk/gdkx.h>
-#define HANDY_USE_UNSTABLE_API
 #include <handy.h>
 #include <string.h>
 #include <time.h>
@@ -48,7 +47,7 @@
 
 #define MOUSE_BACK_BUTTON 8
 
-#define DEFAULT_WINDOW_ICON_NAME "regolith-control-center"
+#define DEFAULT_WINDOW_ICON_NAME "gnome-control-center"
 
 struct _CcWindow
 {
@@ -58,7 +57,6 @@ struct _CcWindow
   GtkMessageDialog  *development_warning_dialog;
   GtkHeaderBar      *header;
   HdyLeaflet        *header_box;
-  HdyHeaderGroup    *header_group;
   GtkSizeGroup      *header_sizegroup;
   HdyLeaflet        *main_leaflet;
   GtkHeaderBar      *panel_headerbar;
@@ -200,8 +198,8 @@ activate_panel (CcWindow          *self,
 
   sidebar_widget = cc_panel_get_sidebar_widget (CC_PANEL (self->current_panel));
   cc_panel_list_add_sidebar_widget (self->panel_list, sidebar_widget);
-  /* Ensure we show the panel when when the leaflet is folded and a sidebar
-   * widget's row is activated.
+  /* Ensure we show the panel when the leaflet is folded and a sidebar widget's
+   * row is activated.
    */
   g_signal_connect_object (self->current_panel, "sidebar-activated", G_CALLBACK (on_sidebar_activated_cb), self, G_CONNECT_SWAPPED);
 
@@ -514,31 +512,7 @@ switch_to_previous_panel (CcWindow *self)
 
 /* Callbacks */
 static void
-update_fold_state (CcWindow *self)
-{
-  GtkWidget *header_child = hdy_leaflet_get_visible_child (self->header_box);
-  HdyFold fold = hdy_leaflet_get_fold (self->header_box);
-
-  hdy_header_group_set_focus (self->header_group, fold == HDY_FOLD_FOLDED ? GTK_HEADER_BAR (header_child) : NULL);
-
-  gtk_widget_set_visible (GTK_WIDGET (self->back_revealer), fold == HDY_FOLD_FOLDED);
-  gtk_revealer_set_reveal_child (self->back_revealer, fold == HDY_FOLD_FOLDED);
-}
-
-static void
-notify_header_visible_child_cb (CcWindow *self)
-{
-  update_fold_state (self);
-}
-
-static void
-notify_fold_cb (CcWindow *self)
-{
-  update_fold_state (self);
-}
-
-static void
-on_main_leaflet_fold_changed_cb (CcWindow *self)
+on_main_leaflet_folded_changed_cb (CcWindow *self)
 {
   GtkSelectionMode selection_mode;
 
@@ -546,7 +520,7 @@ on_main_leaflet_fold_changed_cb (CcWindow *self)
 
   selection_mode = GTK_SELECTION_SINGLE;
 
-  if (hdy_leaflet_get_fold (self->main_leaflet) == HDY_FOLD_FOLDED)
+  if (hdy_leaflet_get_folded (self->main_leaflet))
     selection_mode = GTK_SELECTION_NONE;
 
   cc_panel_list_set_selection_mode (self->panel_list, selection_mode);
@@ -607,16 +581,21 @@ gdk_window_set_cb (CcWindow *self)
     return;
 
   str = g_strdup_printf ("%u", (guint) GDK_WINDOW_XID (window));
-  g_setenv ("regolith_control_center_XID", str, TRUE);
+  g_setenv ("GNOME_CONTROL_CENTER_XID", str, TRUE);
 }
 
 static gboolean
-window_map_event_cb (CcWindow *self)
+window_map_event_cb (CcWindow *self,
+                     GdkEvent *event)
 {
-  /* If focus ends up in a category icon view one of the items is
-   * immediately selected which looks odd when we are starting up, so
-   * we explicitly unset the focus here. */
-  gtk_window_set_focus (GTK_WINDOW (self), NULL);
+  if (event->any.window == gtk_widget_get_window (GTK_WIDGET (self)))
+    {
+      /* If focus ends up in a category icon view one of the items is
+       * immediately selected which looks odd when we are starting up, so
+       * we  explicitly unset the focus here. */
+      gtk_window_set_focus (GTK_WINDOW (self), NULL);
+    }
+
   return GDK_EVENT_PROPAGATE;
 }
 
@@ -903,7 +882,6 @@ cc_window_class_init (CcWindowClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcWindow, development_warning_dialog);
   gtk_widget_class_bind_template_child (widget_class, CcWindow, header);
   gtk_widget_class_bind_template_child (widget_class, CcWindow, header_box);
-  gtk_widget_class_bind_template_child (widget_class, CcWindow, header_group);
   gtk_widget_class_bind_template_child (widget_class, CcWindow, header_sizegroup);
   gtk_widget_class_bind_template_child (widget_class, CcWindow, main_leaflet);
   gtk_widget_class_bind_template_child (widget_class, CcWindow, panel_headerbar);
@@ -919,9 +897,7 @@ cc_window_class_init (CcWindowClass *klass)
 
   gtk_widget_class_bind_template_callback (widget_class, back_button_clicked_cb);
   gtk_widget_class_bind_template_callback (widget_class, gdk_window_set_cb);
-  gtk_widget_class_bind_template_callback (widget_class, notify_header_visible_child_cb);
-  gtk_widget_class_bind_template_callback (widget_class, notify_fold_cb);
-  gtk_widget_class_bind_template_callback (widget_class, on_main_leaflet_fold_changed_cb);
+  gtk_widget_class_bind_template_callback (widget_class, on_main_leaflet_folded_changed_cb);
   gtk_widget_class_bind_template_callback (widget_class, on_development_warning_dialog_responded_cb);
   gtk_widget_class_bind_template_callback (widget_class, previous_button_clicked_cb);
   gtk_widget_class_bind_template_callback (widget_class, search_entry_activate_cb);
@@ -948,8 +924,6 @@ cc_window_init (CcWindow *self)
   /* Add a custom CSS class on development builds */
   if (in_flatpak_sandbox ())
     gtk_style_context_add_class (gtk_widget_get_style_context (GTK_WIDGET (self)), "devel");
-
-  update_fold_state (self);
 }
 
 CcWindow *

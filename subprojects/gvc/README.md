@@ -9,4 +9,4 @@ POTFILES.in for translation.
 
 - [gnome-shell](https://gitlab.gnome.org/GNOME/gnome-shell)
 - [gnome-settings-daemon](https://gitlab.gnome.org/GNOME/gnome-settings-daemon)
-- [regolith-control-center](https://gitlab.gnome.org/GNOME/regolith-control-center)
+- [gnome-control-center](https://gitlab.gnome.org/GNOME/gnome-control-center)

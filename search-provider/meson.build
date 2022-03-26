@@ -1,7 +1,7 @@
 service_conf = configuration_data()
 service_conf.set('libexecdir', control_center_libexecdir)
 
-service = 'org.regolith.ControlCenter.SearchProvider.service'
+service = 'org.gnome.ControlCenter.SearchProvider.service'
 
 configure_file(
           input : service + '.in',
@@ -12,7 +12,7 @@ configure_file(
 )
 
 install_data(
-  'regolith-control-center-search-provider.ini',
+  'gnome-control-center-search-provider.ini',
   install_dir: join_paths(control_center_datadir, 'gnome-shell', 'search-providers')
 )
 
@@ -36,7 +36,7 @@ libs = [
 ]
 
 executable(
-  'regolith-control-center-search-provider',
+  'gnome-control-center-search-provider',
                sources,
   include_directories : top_inc,
          dependencies : shell_deps,

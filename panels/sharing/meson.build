@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
 desktop_in = configure_file(
   input: desktop + '.in.in',
@@ -83,7 +83,7 @@ panels_libs += static_library(
   c_args: cflags
 )
 
-name = 'regolith-cc-remote-login-helper'
+name = 'cc-remote-login-helper'
 
 deps = [
   gio_dep,
@@ -92,7 +92,7 @@ deps = [
 
 executable(
   name,
-  'cc-remote-login-helper.c',
+  name + '.c',
   include_directories: top_inc,
   dependencies: deps,
   c_args: cflags,

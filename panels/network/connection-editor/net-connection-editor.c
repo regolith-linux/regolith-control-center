@@ -59,7 +59,6 @@ struct _NetConnectionEditor
         GtkNotebook      *notebook;
         GtkStack         *toplevel_stack;
 
-        GtkWidget        *parent_window;
         NMClient         *client;
         NMDevice         *device;
 
@@ -70,13 +69,10 @@ struct _NetConnectionEditor
         NMAccessPoint    *ap;
 
         GSList *initializing_pages;
-        GSList *pages;
 
-        guint                    permission_id;
         NMClientPermissionResult can_modify;
 
         gboolean          title_set;
-        gboolean          show_when_initialized;
 };
 
 G_DEFINE_TYPE (NetConnectionEditor, net_connection_editor, GTK_TYPE_DIALOG)
@@ -193,16 +189,9 @@ static void
 net_connection_editor_finalize (GObject *object)
 {
         NetConnectionEditor *self = NET_CONNECTION_EDITOR (object);
-        GSList *l;
 
-        for (l = self->pages; l != NULL; l = l->next)
-                g_signal_handlers_disconnect_by_func (l->data, page_changed, self);
-
-        if (self->permission_id > 0 && self->client)
-                g_signal_handler_disconnect (self->client, self->permission_id);
         g_clear_object (&self->connection);
         g_clear_object (&self->orig_connection);
-        g_clear_object (&self->parent_window);
         g_clear_object (&self->device);
         g_clear_object (&self->client);
         g_clear_object (&self->ap);
@@ -253,7 +242,7 @@ net_connection_editor_error_dialog (NetConnectionEditor *self,
         if (gtk_widget_is_visible (GTK_WIDGET (self)))
                 parent = GTK_WINDOW (self);
         else
-                parent = GTK_WINDOW (self->parent_window);
+                parent = gtk_window_get_transient_for (GTK_WINDOW (self));
 
         dialog = gtk_message_dialog_new (parent,
                                          GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
@@ -334,7 +323,7 @@ update_sensitivity (NetConnectionEditor *self)
 {
         NMSettingConnection *sc;
         gboolean sensitive;
-        GSList *l;
+        GList *pages;
 
         if (!editor_is_initialized (self))
                 return;
@@ -347,29 +336,34 @@ update_sensitivity (NetConnectionEditor *self)
                 sensitive = self->can_modify;
         }
 
-        for (l = self->pages; l; l = l->next)
-                gtk_widget_set_sensitive (GTK_WIDGET (l->data), sensitive);
+        pages = gtk_container_get_children (GTK_CONTAINER (self->notebook));
+        for (GList *l = pages; l; l = l->next) {
+                CEPage *page = l->data;
+                gtk_widget_set_sensitive (GTK_WIDGET (page), sensitive);
+        }
 }
 
 static void
 validate (NetConnectionEditor *self)
 {
         gboolean valid = FALSE;
-        GSList *l;
+        GList *pages;
 
         if (!editor_is_initialized (self))
                 goto done;
 
         valid = TRUE;
-        for (l = self->pages; l; l = l->next) {
+        pages = gtk_container_get_children (GTK_CONTAINER (self->notebook));
+        for (GList *l = pages; l; l = l->next) {
+                CEPage *page = l->data;
                 g_autoptr(GError) error = NULL;
 
-                if (!ce_page_validate (CE_PAGE (l->data), self->connection, &error)) {
+                if (!ce_page_validate (page, self->connection, &error)) {
                         valid = FALSE;
                         if (error) {
-                                g_debug ("Invalid setting %s: %s", ce_page_get_title (CE_PAGE (l->data)), error->message);
+                                g_debug ("Invalid setting %s: %s", ce_page_get_title (page), error->message);
                         } else {
-                                g_debug ("Invalid setting %s", ce_page_get_title (CE_PAGE (l->data)));
+                                g_debug ("Invalid setting %s", ce_page_get_title (page));
                         }
                 }
         }
@@ -401,10 +395,8 @@ recheck_initialization (NetConnectionEditor *self)
         if (!editor_is_initialized (self))
                 return;
 
+        gtk_stack_set_visible_child (self->toplevel_stack, GTK_WIDGET (self->notebook));
         gtk_notebook_set_current_page (self->notebook, 0);
-
-        if (self->show_when_initialized)
-                gtk_window_present (GTK_WINDOW (self));
 
         g_idle_add (idle_validate, self);
 }
@@ -432,7 +424,6 @@ page_initialized (NetConnectionEditor *self, GError *error, CEPage *page)
         gtk_notebook_insert_page (self->notebook, GTK_WIDGET (page), label, i);
 
         self->initializing_pages = g_slist_remove (self->initializing_pages, page);
-        self->pages = g_slist_append (self->pages, page);
 
         recheck_initialization (self);
 }
@@ -491,8 +482,8 @@ add_page (NetConnectionEditor *self, CEPage *page)
 
         self->initializing_pages = g_slist_append (self->initializing_pages, page);
 
-        g_signal_connect_swapped (page, "changed", G_CALLBACK (page_changed), self);
-        g_signal_connect_swapped (page, "initialized", G_CALLBACK (page_initialized), self);
+        g_signal_connect_object (page, "changed", G_CALLBACK (page_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (page, "initialized", G_CALLBACK (page_initialized), self, G_CONNECT_SWAPPED);
 }
 
 static void
@@ -645,7 +636,7 @@ vpn_import_complete (NMConnection *connection, gpointer user_data)
 }
 
 static void
-vpn_type_activated (GtkListBox *list, GtkWidget *row, NetConnectionEditor *self)
+vpn_type_activated (NetConnectionEditor *self, GtkWidget *row)
 {
         const char *service_name = g_object_get_data (G_OBJECT (row), "service_name");
         NMConnection *connection;
@@ -746,8 +737,8 @@ select_vpn_type (NetConnectionEditor *self, GtkListBox *list)
         g_object_set_data (G_OBJECT (row), "service_name", "import");
         gtk_container_add (GTK_CONTAINER (list), row);
 
-        g_signal_connect (list, "row-activated",
-                          G_CALLBACK (vpn_type_activated), self);
+        g_signal_connect_object (list, "row-activated",
+                                 G_CALLBACK (vpn_type_activated), self, G_CONNECT_SWAPPED);
 }
 
 static void
@@ -773,10 +764,9 @@ net_connection_editor_add_connection (NetConnectionEditor *self)
 }
 
 static void
-permission_changed (NMClient                 *client,
+permission_changed (NetConnectionEditor      *self,
                     NMClientPermission        permission,
-                    NMClientPermissionResult  result,
-                    NetConnectionEditor      *self)
+                    NMClientPermissionResult  result)
 {
         if (permission != NM_CLIENT_PERMISSION_SETTINGS_MODIFY_SYSTEM)
                 return;
@@ -789,18 +779,8 @@ permission_changed (NMClient                 *client,
         validate (self);
 }
 
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
-}
-
 NetConnectionEditor *
-net_connection_editor_new (GtkWindow        *parent_window,
-                           NMConnection     *connection,
+net_connection_editor_new (NMConnection     *connection,
                            NMDevice         *device,
                            NMAccessPoint    *ap,
                            NMClient         *client)
@@ -812,16 +792,6 @@ net_connection_editor_new (GtkWindow        *parent_window,
                              "use-header-bar", 1,
                              NULL);
 
-        if (parent_window) {
-                self->parent_window = GTK_WIDGET (g_object_ref (parent_window));
-                gtk_window_set_transient_for (GTK_WINDOW (self),
-                                              parent_window);
-                g_signal_connect (GTK_WINDOW (self),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (self));
-
-        }
         if (ap)
                 self->ap = g_object_ref (ap);
         if (device)
@@ -829,8 +799,8 @@ net_connection_editor_new (GtkWindow        *parent_window,
         self->client = g_object_ref (client);
 
         self->can_modify = nm_client_get_permission_result (client, NM_CLIENT_PERMISSION_SETTINGS_MODIFY_SYSTEM);
-        self->permission_id = g_signal_connect (self->client, "permission-changed",
-                                                G_CALLBACK (permission_changed), self);
+        g_signal_connect_object (self->client, "permission-changed",
+                                 G_CALLBACK (permission_changed), self, G_CONNECT_SWAPPED);
 
         if (connection)
                 net_connection_editor_set_connection (self, connection);
@@ -838,16 +808,6 @@ net_connection_editor_new (GtkWindow        *parent_window,
                 net_connection_editor_add_connection (self);
 
         return self;
-}
-
-void
-net_connection_editor_run (NetConnectionEditor *self)
-{
-        if (!editor_is_initialized (self)) {
-                self->show_when_initialized = TRUE;
-                return;
-        }
-        gtk_window_present (GTK_WINDOW (self));
 }
 
 static void

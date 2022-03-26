@@ -9,7 +9,12 @@ icon_sizes = [
 
 foreach icon_size: icon_sizes
   install_data(
-    join_paths(icon_size, 'regolith-gnome-power-manager.png'),
+    join_paths(icon_size, 'gnome-power-manager.png'),
     install_dir: join_paths(control_center_icondir, 'hicolor', icon_size, 'apps')
   )
 endforeach
+
+install_data(
+  'info-symbolic.svg',
+  install_dir: join_paths(control_center_icondir, 'hicolor', 'scalable', 'status')
+)

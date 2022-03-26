@@ -61,10 +61,6 @@ struct _PpOptionsDialog {
   GHashTable  *ipp_attributes;
   gboolean     ipp_attributes_set;
 
-  gboolean     populating_dialog;
-
-  GtkResponseType response;
-
   gboolean sensitive;
 };
 
@@ -81,7 +77,7 @@ enum
  *       the display settings. All of these should have contexts, but it
  *       was late in the release cycle and this partial solution was
  *       preferable. See:
- *       https://gitlab.gnome.org/GNOME/regolith-control-center/merge_requests/414#note_446778
+ *       https://gitlab.gnome.org/GNOME/gnome-control-center/merge_requests/414#note_446778
  */
 static const struct {
   const char *keyword;
@@ -97,7 +93,7 @@ static const struct {
 };
 
 /* keep sorted when changing */
-static const char *page_setup_option_whitelist[] = {
+static const char *allowed_page_setup_options[] = {
   "InputSlot",
   "MediaType",
   "OutputBin",
@@ -105,7 +101,7 @@ static const char *page_setup_option_whitelist[] = {
 };
 
 /* keep sorted when changing */
-static const char *color_option_whitelist[] = {
+static const char *allowed_color_options[] = {
   "BRColorEnhancement",
   "BRColorMatching",
   "BRColorMatching",
@@ -125,7 +121,7 @@ static const char *color_option_whitelist[] = {
 };
 
 /* keep sorted when changing */
-static const char *color_group_whitelist[] = {
+static const char *allowed_color_groups[] = {
   "Color",
   "Color1",
   "Color2",
@@ -149,7 +145,7 @@ static const char *color_group_whitelist[] = {
 };
 
 /* keep sorted when changing */
-static const char *image_quality_option_whitelist[] = {
+static const char *allowed_image_quality_options[] = {
   "BRDocument",
   "BRHalfTonePattern",
   "BRNormalPrt",
@@ -180,7 +176,7 @@ static const char *image_quality_option_whitelist[] = {
 };
 
 /* keep sorted when changing */
-static const char *image_quality_group_whitelist[] = {
+static const char *allowed_image_quality_groups[] = {
   "EPQualitySettings",
   "FPImageQuality1",
   "FPImageQuality2",
@@ -190,7 +186,7 @@ static const char *image_quality_group_whitelist[] = {
 };
 
 /* keep sorted when changing */
-static const char * finishing_option_whitelist[] = {
+static const char * allowed_finishing_options[] = {
   "BindColor",
   "BindEdge",
   "BindType",
@@ -210,13 +206,13 @@ static const char * finishing_option_whitelist[] = {
 };
 
 /* keep sorted when changing */
-static const char *job_group_whitelist[] = {
+static const char *allowed_job_groups[] = {
   "JobHandling",
   "JobLog",
 };
 
 /* keep sorted when changing */
-static const char *finishing_group_whitelist[] = {
+static const char *allowed_finishing_groups[] = {
   "Booklet",
   "BookletCover",
   "BookletModeOptions",
@@ -234,12 +230,12 @@ static const char *finishing_group_whitelist[] = {
 };
 
 /* keep sorted when changing */
-static const char *installable_options_group_whitelist[] = {
+static const char *allowed_installable_options_groups[] = {
   "InstallableOptions",
 };
 
 /* keep sorted when changing */
-static const char *page_setup_group_whitelist[] = {
+static const char *allowed_page_setup_groups[] = {
   "HPMarginAndLayout",
   "OutputControl",
   "PaperHandling",
@@ -248,7 +244,7 @@ static const char *page_setup_group_whitelist[] = {
 };
 
 /* keep sorted when changing */
-static const char *ppd_option_blacklist[] = {
+static const char *disallowed_ppd_options[] = {
   "Collate",
   "Copies",
   "Duplex",
@@ -359,7 +355,7 @@ ipp_option_add (IPPAttribute *attr_supported,
                                                    printer_name);
   if (widget)
     {
-      gtk_widget_show_all (widget);
+      gtk_widget_show (widget);
       gtk_widget_set_sensitive (widget, sensitive);
       position = grid_get_height (grid);
 
@@ -394,7 +390,7 @@ ppd_option_add (ppd_option_t  option,
   widget = (GtkWidget *) pp_ppd_option_widget_new (&option, printer_name);
   if (widget)
     {
-      gtk_widget_show_all (widget);
+      gtk_widget_show (widget);
       gtk_widget_set_sensitive (widget, sensitive);
       position = grid_get_height (grid);
 
@@ -580,38 +576,38 @@ populate_options_real (PpOptionsDialog *self)
                   grid = NULL;
 
                   if (STRING_IN_TABLE (ppd_file->groups[i].name,
-                                       color_group_whitelist))
+                                       allowed_color_groups))
                     grid = color_tab_grid;
                   else if (STRING_IN_TABLE (ppd_file->groups[i].name,
-                                            image_quality_group_whitelist))
+                                            allowed_image_quality_groups))
                     grid = image_quality_tab_grid;
                   else if (STRING_IN_TABLE (ppd_file->groups[i].name,
-                                            job_group_whitelist))
+                                            allowed_job_groups))
                     grid = job_tab_grid;
                   else if (STRING_IN_TABLE (ppd_file->groups[i].name,
-                                            finishing_group_whitelist))
+                                            allowed_finishing_groups))
                     grid = finishing_tab_grid;
                   else if (STRING_IN_TABLE (ppd_file->groups[i].name,
-                                            installable_options_group_whitelist))
+                                            allowed_installable_options_groups))
                     grid = installable_options_tab_grid;
                   else if (STRING_IN_TABLE (ppd_file->groups[i].name,
-                                            page_setup_group_whitelist))
+                                            allowed_page_setup_groups))
                     grid = page_setup_tab_grid;
 
                   if (!STRING_IN_TABLE (ppd_file->groups[i].options[j].keyword,
-                                        ppd_option_blacklist))
+                                        disallowed_ppd_options))
                     {
                       if (!grid && STRING_IN_TABLE (ppd_file->groups[i].options[j].keyword,
-                                                    color_option_whitelist))
+                                                    allowed_color_options))
                         grid = color_tab_grid;
                       else if (!grid && STRING_IN_TABLE (ppd_file->groups[i].options[j].keyword,
-                                                         image_quality_option_whitelist))
+                                                         allowed_image_quality_options))
                         grid = image_quality_tab_grid;
                       else if (!grid && STRING_IN_TABLE (ppd_file->groups[i].options[j].keyword,
-                                                         finishing_option_whitelist))
+                                                         allowed_finishing_options))
                         grid = finishing_tab_grid;
                       else if (!grid && STRING_IN_TABLE (ppd_file->groups[i].options[j].keyword,
-                                                         page_setup_option_whitelist))
+                                                         allowed_page_setup_options))
                         grid = page_setup_tab_grid;
 
                       if (!grid)
@@ -679,8 +675,6 @@ populate_options_real (PpOptionsDialog *self)
   if ((model = gtk_tree_view_get_model (self->categories_treeview)) != NULL &&
       gtk_tree_model_get_iter_first (model, &iter))
     gtk_tree_selection_select_iter (self->categories_selection, &iter);
-
-  self->populating_dialog = FALSE;
 }
 
 static void
@@ -733,7 +727,7 @@ get_ipp_attributes_cb (GHashTable *table,
   if (self->ipp_attributes)
     g_hash_table_unref (self->ipp_attributes);
 
-  self->ipp_attributes = table;
+  self->ipp_attributes = g_hash_table_ref (table);
   self->ipp_attributes_set = TRUE;
 
   if (self->ppd_filename_set &&
@@ -795,11 +789,7 @@ pp_maintenance_command_execute_cb (GObject      *source_object,
                                    GAsyncResult *res,
                                    gpointer      user_data)
 {
-  PpMaintenanceCommand *command = (PpMaintenanceCommand *) source_object;
-
-  pp_maintenance_command_execute_finish (command, res, NULL);
-
-  g_object_unref (command);
+  pp_maintenance_command_execute_finish (PP_MAINTENANCE_COMMAND(source_object), res, NULL);
 }
 
 static gchar *
@@ -830,8 +820,6 @@ print_test_page_cb (GObject      *source_object,
 {
   pp_printer_print_file_finish (PP_PRINTER (source_object),
                                 result, NULL);
-
-  g_object_unref (source_object);
 }
 
 static void
@@ -860,7 +848,7 @@ test_page_cb (PpOptionsDialog *self)
 
       if (filename != NULL)
         {
-          PpPrinter *printer;
+          g_autoptr(PpPrinter) printer = NULL;
 
           printer = pp_printer_new (self->printer_name);
           pp_printer_print_file_async (printer,
@@ -873,7 +861,7 @@ test_page_cb (PpOptionsDialog *self)
         }
       else
         {
-          PpMaintenanceCommand *command;
+          g_autoptr(PpMaintenanceCommand) command = NULL;
 
           command = pp_maintenance_command_new (self->printer_name,
                                                 "PrintSelfTestPage",
@@ -898,20 +886,10 @@ pp_options_dialog_new (gchar   *printer_name,
 
   self->printer_name = g_strdup (printer_name);
 
-  self->ppd_filename = NULL;
-  self->ppd_filename_set = FALSE;
-
-  self->destination = NULL;
-  self->destination_set = FALSE;
-
-  self->ipp_attributes = NULL;
-  self->ipp_attributes_set = FALSE;
-
   self->sensitive = sensitive;
 
   gtk_window_set_title (GTK_WINDOW (self), printer_name);
 
-  self->populating_dialog = TRUE;
   populate_options (self);
 
   return self;

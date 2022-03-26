@@ -4,7 +4,7 @@ subdir('completions')
 service_conf = configuration_data()
 service_conf.set('bindir', control_center_bindir)
 
-service = 'org.regolith.ControlCenter.service'
+service = 'org.gnome.ControlCenter.service'
 
 configure_file(
           input : service + '.in',
@@ -14,7 +14,7 @@ configure_file(
   configuration : service_conf
 )
 
-desktop = 'regolith-control-center.desktop'
+desktop = 'gnome-control-center.desktop'
 
 desktop_in = configure_file(
           input : desktop + '.in.in',
@@ -34,7 +34,7 @@ i18n.merge_file(
 cflags = ['-DGNOMELOCALEDIR="@0@"'.format(control_center_localedir)]
 
 
-# Common sources between regolith-control-center and
+# Common sources between gnome-control-center and
 # libtestshell.
 common_sources = files(
   'cc-application.c',
@@ -101,7 +101,7 @@ libshell_dep = declare_dependency(
 
 
 ########################
-# regolith-control-center #
+# gnome-control-center #
 ########################
 
 shell_sources = common_sources + files('main.c')
@@ -170,6 +170,6 @@ libtestshell_deps = common_deps + [ libwidgets_dep, libtestshell_dep ]
 
 
 install_data (
-  'org.regolith.ControlCenter.gschema.xml',
+  'org.gnome.ControlCenter.gschema.xml',
   install_dir : control_center_schemadir
 )

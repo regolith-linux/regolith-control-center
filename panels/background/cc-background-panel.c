@@ -35,8 +35,6 @@
 #include "cc-background-resources.h"
 #include "cc-background-xml.h"
 
-#include "bg-pictures-source.h"
-
 #define WP_PATH_ID "org.gnome.desktop.background"
 #define WP_LOCK_PATH_ID "org.gnome.desktop.screensaver"
 #define WP_URI_KEY "picture-uri"
@@ -59,11 +57,8 @@ struct _CcBackgroundPanel
   CcBackgroundItem *current_background;
 
   CcBackgroundChooser *background_chooser;
-  GtkWidget *add_picture_button;
+  GtkButton *add_picture_button;
   CcBackgroundPreview *desktop_preview;
-
-  GtkWidget *spinner;
-  GtkWidget *chooser;
 };
 
 CC_PANEL_REGISTER (CcBackgroundPanel, cc_background_panel)
@@ -81,7 +76,7 @@ static gchar *
 get_save_path (void)
 {
   return g_build_filename (g_get_user_config_dir (),
-                           "regolith-control-center",
+                           "gnome-control-center",
                            "backgrounds",
                            "last-edited.xml",
                            NULL);
@@ -145,7 +140,7 @@ create_save_dir (void)
   g_autofree char *path = NULL;
 
   path = g_build_filename (g_get_user_config_dir (),
-			   "regolith-control-center",
+			   "gnome-control-center",
 			   "backgrounds",
 			   NULL);
   if (g_mkdir_with_parents (path, USER_DIR_MODE) < 0)
@@ -203,17 +198,15 @@ set_background (CcBackgroundPanel *panel,
 
 
 static void
-on_chooser_background_chosen_cb (CcBackgroundChooser        *chooser,
-                                 CcBackgroundItem           *item,
-                                 CcBackgroundPanel          *self)
+on_chooser_background_chosen_cb (CcBackgroundPanel          *self,
+                                 CcBackgroundItem           *item)
 {
   set_background (self, self->settings, item);
   set_background (self, self->lock_settings, item);
 }
 
 static void
-on_add_picture_button_clicked_cb (GtkWidget         *button,
-                                  CcBackgroundPanel *self)
+on_add_picture_button_clicked_cb (CcBackgroundPanel *self)
 {
   cc_background_chooser_select_file (self->background_chooser);
 }
@@ -233,7 +226,7 @@ cc_background_panel_constructed (GObject *object)
   self = CC_BACKGROUND_PANEL (object);
   shell = cc_panel_get_shell (CC_PANEL (self));
 
-  cc_shell_embed_widget_in_header (shell, self->add_picture_button, GTK_POS_RIGHT);
+  cc_shell_embed_widget_in_header (shell, GTK_WIDGET (self->add_picture_button), GTK_POS_RIGHT);
 
   G_OBJECT_CLASS (cc_background_panel_parent_class)->constructed (object);
 }
@@ -246,8 +239,6 @@ cc_background_panel_dispose (GObject *object)
   g_clear_object (&panel->settings);
   g_clear_object (&panel->lock_settings);
   g_clear_object (&panel->thumb_factory);
-
-  g_clear_pointer (&panel->chooser, gtk_widget_destroy);
 
   G_OBJECT_CLASS (cc_background_panel_parent_class)->dispose (object);
 }
@@ -289,9 +280,7 @@ cc_background_panel_class_init (CcBackgroundPanelClass *klass)
 }
 
 static void
-on_settings_changed (GSettings         *settings,
-                     gchar             *key,
-                     CcBackgroundPanel *panel)
+on_settings_changed (CcBackgroundPanel *panel)
 {
   reload_current_bg (panel);
   update_preview (panel);
@@ -319,5 +308,5 @@ cc_background_panel_init (CcBackgroundPanel *panel)
   update_preview (panel);
 
   /* Background settings */
-  g_signal_connect (panel->settings, "changed", G_CALLBACK (on_settings_changed), panel);
+  g_signal_connect_object (panel->settings, "changed", G_CALLBACK (on_settings_changed), panel, G_CONNECT_SWAPPED);
 }

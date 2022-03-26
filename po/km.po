@@ -1,13 +1,13 @@
-# translation of po_regolith-control-center-2.0-km.po to Khmer
-# Khmer translation for regolith-control-center
+# translation of po_gnome-control-center-2.0-km.po to Khmer
+# Khmer translation for gnome-control-center
 # Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
-# This file is distributed under the same license as the regolith-control-center package.
+# This file is distributed under the same license as the gnome-control-center package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 # Khoem Sokhem <khoemsokhem@khmeros.info>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: po_regolith-control-center-2.0-km\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=regolith-control-center&keywords=I18N+L10N&component=general\n"
+"Project-Id-Version: po_gnome-control-center-2.0-km\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-09-10 13:48+0000\n"
 "PO-Revision-Date: 2012-04-19 02:15+0000\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
@@ -453,7 +453,7 @@ msgid "Webcam"
 msgstr "វិបខេម"
 
 #: ../panels/color/color.ui.h:3
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:1
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:1
 msgid "Color"
 msgstr "ពណ៌"
 
@@ -527,12 +527,12 @@ msgid ""
 "Image files can be dragged on this window to auto-complete the above fields."
 msgstr "ឯកសារ​រូបភាព​អាច​ត្រូវ​បាន​អូស​នៅ​លើ​បង្អួច​នេះ ដើម្បី​បំពេញ​វាល​ខាងលើ​ដោយ​ស្វ័យប្រវត្តិ ។"
 
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
 msgid "Color management settings"
 msgstr "ការ​កំណត់​ការ​គ្រប់គ្រង​ពណ៌"
 
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:4
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:4
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "Color;ICC;Profile;Calibrate;Printer;Display;"
 
@@ -725,17 +725,17 @@ msgstr "វិច្ឆិកា"
 msgid "December"
 msgstr "ធ្នូ"
 
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:1
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:1
 #| msgid "Date and Time"
 msgid "Date & Time"
 msgstr "កាលបរិច្ឆេទ និង​ពេលវេលា"
 
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
 msgid "Date and Time preferences panel"
 msgstr "ផ្ទាំង​ចំណូលចិត្ត​កាលបរិច្ឆេទ និង​ពេលវេលា"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:4
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:4
 msgid "Clock;Timezone;Location;"
 msgstr "Clock;Timezone;Location;"
 
@@ -853,16 +853,16 @@ msgstr "ចំណាំ ៖ អាច​នឹង​កំណត់​ជម្�
 msgid "_Detect Displays"
 msgstr "រក​ឃើញ​ទិដ្ឋភាព"
 
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
 msgid "Displays"
 msgstr "ទិដ្ឋភាព"
 
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
 msgid "Change resolution and position of monitors and projectors"
 msgstr "ផ្លាស់ប្ដូរ​គុណភាព​បង្ហាញ និង​ទីតាំង​របស់​ម៉ូនីទ័រ និង​ឧបករណ៍​បញ្ចាំង​ស្លាយ"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:4
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:4
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 msgstr "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 
@@ -1304,7 +1304,7 @@ msgid "Lock screen"
 msgstr "ចាក់​សោ​អេក្រង់"
 
 #: ../panels/keyboard/50-accessibility.xml.in.h:1
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:1
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:1
 msgid "Universal Access"
 msgstr "ចូល​ដំណើរការ​សកល"
 
@@ -1360,17 +1360,17 @@ msgstr "គន្លឹះ​តួអក្សរ​ជំនួស"
 msgid "Compose Key"
 msgstr "គ្រាប់​ចុច​តែង"
 
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
 #: ../panels/keyboard/gnome-keyboard-panel.ui.h:4
 msgid "Keyboard"
 msgstr "ក្ដារចុច"
 
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
 msgid "Change keyboard settings"
 msgstr "ផ្លាស់ប្ដូរ​ការ​កំណត់​ក្ដារចុច"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:4
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:4
 msgid "Shortcut;Repeat;Blink;"
 msgstr "Shortcut;Repeat;Blink;"
 
@@ -1517,17 +1517,17 @@ msgstr "កំណត់​ឡើងវិញ"
 msgid "_Test Your Settings"
 msgstr "សាកល្បង​ការ​កំណត់​របស់​អ្នក"
 
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
 #| msgid "Mouse and Touchpad"
 msgid "Mouse & Touchpad"
 msgstr "កណ្ដុរ និង​បន្ទះ​ប៉ះ"
 
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
 msgid "Set your mouse and touchpad preferences"
 msgstr "កំណត់​ចំណូលចិត្ត​កណ្ដុរ និង​បន្ទះ​ប៉ះ​របស់​អ្នក"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:4
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:4
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;"
 msgstr "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;"
 
@@ -1653,17 +1653,17 @@ msgstr "សេវា​បណ្ដាញ​ប្រព័ន្ធ​មិន
 msgid "Air_plane Mode"
 msgstr "នៅ​ពេល​ជិះ​យន្ដហោះ"
 
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
 #: ../panels/network/network-mobile.ui.h:7
 msgid "Network"
 msgstr "បណ្ដាញ"
 
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
 msgid "Network settings"
 msgstr "ការ​កំណត់​បណ្ដាញ"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:4
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:4
 msgid "Network;Wireless;IP;LAN;Proxy;"
 msgstr "Network;Wireless;IP;LAN;Proxy;"
 
@@ -2392,16 +2392,16 @@ msgstr "វា​នឹង​មិន​យក​គណនី​នៅ​លើ
 msgid "_Remove"
 msgstr "យកចេញ"
 
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:1
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:1
 msgid "Online Accounts"
 msgstr "គណនី​លើ​បណ្ដាញ"
 
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
 msgid "Manage online accounts"
 msgstr "គ្រប់គ្រង​គណនី​លើ​បណ្ដាញ"
 
 #. Translators: those are keywords for the online-accounts control-center panel
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:4
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:4
 msgid "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;"
 msgstr "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;"
 
@@ -2617,16 +2617,16 @@ msgctxt "Battery power"
 msgid "Empty"
 msgstr "អស់"
 
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:1
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:1
 msgid "Power"
 msgstr "ថាមពល"
 
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
 msgid "Power management settings"
 msgstr "ការ​កំណត់​ការ​គ្រប់គ្រង​ថាមពល"
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:4
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:4
 msgid "Power;Sleep;Suspend;Hibernate;Battery;"
 msgstr "Power;Sleep;Suspend;Hibernate;Battery;"
 
@@ -2865,16 +2865,16 @@ msgstr "ទំព័រ​សាកល្បង"
 msgid "Could not load ui: %s"
 msgstr "មិន​អាច​ផ្ទុក ui ៖ %s"
 
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:1
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:1
 msgid "Printers"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព"
 
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:2
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:2
 msgid "Change printer settings"
 msgstr "ផ្លាស់ប្ដូរ​ការ​កំណត់​ម៉ាស៊ីន​បោះពុម្ព"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:4
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:4
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Printer;Queue;Print;Paper;Ink;Toner;"
 
@@ -3289,17 +3289,17 @@ msgstr ""
 "សូម​អភ័យទោស ! សេវា​បោះពុម្ព​តាម​ប្រព័ន្ធ\n"
 "ហាក់​ដូចជា​មិន​ដំណើរការ ។"
 
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:1
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:1
 #| msgid "Region and Language"
 msgid "Region & Language"
 msgstr "តំបន់ និង​ភាសា"
 
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:2
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:2
 msgid "Change your region and language settings"
 msgstr "ផ្លាស់ប្ដូរ​ការ​កំណត់​តំបន់ និង​ភាសា​របស់​អ្នក"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:4
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:4
 msgid "Language;Layout;Keyboard;"
 msgstr "Language;Layout;Keyboard;"
 
@@ -3570,16 +3570,16 @@ msgstr "កា​រ​គ្រប់គ្រង​កម្រិត​សំ
 msgid "Show desktop volume control"
 msgstr "បង្ហាញ​ការ​គ្រប់គ្រង​កម្រិត​សំឡេង​នៅ​លើ​ផ្ទៃតុ"
 
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "សំឡេង"
 
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
 msgstr "ផ្លាស់ប្ដូរ​កម្រិត​សំឡេង ​និង​ព្រឹត្តិការណ៍​សំឡេង"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
 #| msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;"
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;"
@@ -3826,12 +3826,12 @@ msgstr "ផ្ទាល់ខ្លួន"
 msgid "No shortcut set"
 msgstr "គ្មាន​ការ​កំណត់​ផ្លូវកាត់"
 
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
 msgid "Universal Access Preferences"
 msgstr "ចំណូលចិត្ត​ចូល​ដំណើរការ​សកល"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:4
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:4
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen Reader;text;font;size;"
 "AccessX;Sticky Keys;Slow Keys;Bounce Keys;Mouse Keys;"
@@ -4471,16 +4471,16 @@ msgstr ""
 "ស្នាម​ម្រាមដៃ​របស់​អ្នក​ត្រូវ​បាន​រក្សាទុក​ដោយ​ជោគជ័យ ។  ឥឡូវនេះ អ្នក​អាច​នឹង​ចូល​ដោយ​ប្រើ​កម្មវិធី​អាន​ស្នាម​"
 "ម្រាមដៃ​របស់​អ្នក​បាន ។"
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
 msgid "User Accounts"
 msgstr "គណនី​អ្នកប្រើ"
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:2
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:2
 msgid "Add or remove users"
 msgstr "បន្ថែម ឬ​យក​គណនី​អ្នកប្រើ​ចេញ"
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 
@@ -5136,17 +5136,17 @@ msgstr "សកម្មភាព"
 msgid "Display Mapping"
 msgstr "ការ​ផ្គូផ្គង​ទិដ្ឋភាព"
 
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:1
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:1
 #: ../panels/wacom/gnome-wacom-properties.ui.h:7
 msgid "Wacom Tablet"
 msgstr "Wacom Tablet"
 
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:2
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:2
 msgid "Set your Wacom tablet preferences"
 msgstr "កំណត់​ចំណូលចិត្ត Wacom tablet របស់​អ្នក"
 
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:4
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:4
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Tablet;Wacom;Stylus;Eraser;Mouse;"
 
@@ -5373,11 +5373,11 @@ msgstr "ចេញ"
 msgid "Control Center"
 msgstr "មជ្ឈមណ្ឌល​បញ្ជា"
 
-#: ../shell/regolith-control-center.desktop.in.in.h:1 ../shell/shell.ui.h:1
+#: ../shell/gnome-control-center.desktop.in.in.h:1 ../shell/shell.ui.h:1
 msgid "System Settings"
 msgstr "ការ​កំណត់​ប្រព័ន្ធ"
 
-#: ../shell/regolith-control-center.desktop.in.in.h:2
+#: ../shell/gnome-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "ចំណូលចិត្ត;ការ​កំណត់;"
 

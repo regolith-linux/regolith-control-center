@@ -44,6 +44,7 @@ struct _CcMousePanel
   GtkSwitch         *mouse_natural_scrolling_switch;
   GtkScale          *mouse_speed_scale;
   CcMouseTest       *mouse_test;
+  GtkBox            *primary_button_box;
   GtkRadioButton    *primary_button_left;
   GtkRadioButton    *primary_button_right;
   GtkScrolledWindow *scrolled_window;
@@ -62,12 +63,7 @@ struct _CcMousePanel
   GtkSwitch         *two_finger_scrolling_switch;
 
   GSettings         *mouse_settings;
-  GSettings         *gsd_mouse_settings;
   GSettings         *touchpad_settings;
-
-  GsdDeviceManager  *device_manager;
-  guint              device_added_id;
-  guint              device_removed_id;
 
   gboolean           have_mouse;
   gboolean           have_touchpad;
@@ -210,6 +206,8 @@ setup_dialog (CcMousePanel *self)
 {
   GtkRadioButton *button;
 
+  gtk_widget_set_direction (GTK_WIDGET (self->primary_button_box), GTK_TEXT_DIR_LTR);
+
   self->left_handed = g_settings_get_boolean (self->mouse_settings, "left-handed");
   button = self->left_handed ? self->primary_button_right : self->primary_button_left;
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
@@ -233,17 +231,12 @@ setup_dialog (CcMousePanel *self)
        self->mouse_natural_scrolling_switch, "active",
        G_SETTINGS_BIND_DEFAULT);
 
-  gtk_list_box_set_header_func (self->general_listbox, cc_list_box_update_header_func, NULL, NULL);
-  gtk_list_box_set_header_func (self->touchpad_listbox, cc_list_box_update_header_func, NULL, NULL);
-
   /* Mouse section */
   gtk_widget_set_visible (GTK_WIDGET (self->mouse_frame), self->have_mouse);
 
   g_settings_bind (self->mouse_settings, "speed",
                    gtk_range_get_adjustment (GTK_RANGE (self->mouse_speed_scale)), "value",
                    G_SETTINGS_BIND_DEFAULT);
-
-  gtk_list_box_set_header_func (self->mouse_listbox, cc_list_box_update_header_func, NULL, NULL);
 
   /* Touchpad section */
   gtk_widget_set_visible (GTK_WIDGET (self->touchpad_toggle_switch), show_touchpad_enabling_switch (self));
@@ -310,9 +303,7 @@ setup_dialog (CcMousePanel *self)
 
 /* Callback issued when a button is clicked on the dialog */
 static void
-device_changed (GsdDeviceManager *device_manager,
-                GsdDevice        *device,
-                CcMousePanel     *self)
+device_changed (CcMousePanel *self)
 {
   self->have_touchpad = touchpad_is_present ();
 
@@ -346,18 +337,9 @@ cc_mouse_panel_dispose (GObject *object)
   CcMousePanel *self = CC_MOUSE_PANEL (object);
 
   g_clear_object (&self->mouse_settings);
-  g_clear_object (&self->gsd_mouse_settings);
   g_clear_object (&self->touchpad_settings);
   g_clear_object (&self->right_gesture);
   g_clear_object (&self->left_gesture);
-
-  if (self->device_manager != NULL) {
-    g_signal_handler_disconnect (self->device_manager, self->device_added_id);
-    self->device_added_id = 0;
-    g_signal_handler_disconnect (self->device_manager, self->device_removed_id);
-    self->device_removed_id = 0;
-    self->device_manager = NULL;
-  }
 
   G_OBJECT_CLASS (cc_mouse_panel_parent_class)->dispose (object);
 }
@@ -393,20 +375,21 @@ cc_mouse_panel_constructed (GObject *object)
 static void
 cc_mouse_panel_init (CcMousePanel *self)
 {
+  GsdDeviceManager  *device_manager;
+
   g_resources_register (cc_mouse_get_resource ());
 
   cc_mouse_test_get_type ();
   gtk_widget_init_template (GTK_WIDGET (self));
 
   self->mouse_settings = g_settings_new ("org.gnome.desktop.peripherals.mouse");
-  self->gsd_mouse_settings = g_settings_new ("org.gnome.desktop.peripherals.mouse");
   self->touchpad_settings = g_settings_new ("org.gnome.desktop.peripherals.touchpad");
 
-  self->device_manager = gsd_device_manager_get ();
-  self->device_added_id = g_signal_connect (self->device_manager, "device-added",
-                 G_CALLBACK (device_changed), self);
-  self->device_removed_id = g_signal_connect (self->device_manager, "device-removed",
-             G_CALLBACK (device_changed), self);
+  device_manager = gsd_device_manager_get ();
+  g_signal_connect_object (device_manager, "device-added",
+                           G_CALLBACK (device_changed), self, G_CONNECT_SWAPPED);
+  g_signal_connect_object (device_manager, "device-removed",
+                           G_CALLBACK (device_changed), self, G_CONNECT_SWAPPED);
 
   self->have_mouse = mouse_is_present ();
   self->have_touchpad = touchpad_is_present ();
@@ -440,6 +423,7 @@ cc_mouse_panel_class_init (CcMousePanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcMousePanel, mouse_natural_scrolling_switch);
   gtk_widget_class_bind_template_child (widget_class, CcMousePanel, mouse_speed_scale);
   gtk_widget_class_bind_template_child (widget_class, CcMousePanel, mouse_test);
+  gtk_widget_class_bind_template_child (widget_class, CcMousePanel, primary_button_box);
   gtk_widget_class_bind_template_child (widget_class, CcMousePanel, primary_button_left);
   gtk_widget_class_bind_template_child (widget_class, CcMousePanel, primary_button_right);
   gtk_widget_class_bind_template_child (widget_class, CcMousePanel, scrolled_window);

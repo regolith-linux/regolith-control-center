@@ -16,7 +16,7 @@ panel_names = [
 panels_list += panel_names
 
 foreach name: panel_names
-  desktop = 'regolith-' + name + '-panel.desktop'
+  desktop = 'gnome-' + name + '-panel.desktop'
 
   desktop_in = configure_file(
     input: desktop + '.in.in',
@@ -35,6 +35,7 @@ foreach name: panel_names
 endforeach
 
 sources = files(
+  'cc-qr-code.c',
   'cc-network-panel.c',
   'cc-wifi-connection-row.c',
   'cc-wifi-connection-list.c',

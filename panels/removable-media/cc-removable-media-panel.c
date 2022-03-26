@@ -332,24 +332,11 @@ on_extra_options_dialog_response (CcRemovableMediaPanel *self)
   }
 }
 
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
-}
-
 static void
 on_extra_options_button_clicked (CcRemovableMediaPanel *self)
 {
   gtk_window_set_transient_for (GTK_WINDOW (self->other_type_dialog),
                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
-  g_signal_connect (GTK_WINDOW (self->other_type_dialog),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (self->other_type_dialog));                              
   gtk_window_set_modal (GTK_WINDOW (self->other_type_dialog), TRUE);
   gtk_window_set_title (GTK_WINDOW (self->other_type_dialog), _("Other Media"));
   /* update other_application_chooser */

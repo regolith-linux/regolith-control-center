@@ -282,12 +282,11 @@ row_data_new (CcPanelCategory     category,
   data->keywords = g_strdupv (keywords);
 
   /* Setup the row */
-  grid = g_object_new (GTK_TYPE_GRID,
-                       "visible", TRUE,
-                       "hexpand", TRUE,
-                       "border-width", 12,
-                       "column-spacing", 12,
-                       NULL);
+  grid = gtk_grid_new ();
+  gtk_widget_show (grid);
+  gtk_widget_set_hexpand (grid, TRUE);
+  gtk_container_set_border_width (GTK_CONTAINER (grid), 12);
+  gtk_grid_set_column_spacing (GTK_GRID (grid), 12);
 
   /* Icon */
   image = gtk_image_new_from_icon_name (icon, GTK_ICON_SIZE_BUTTON);
@@ -298,21 +297,16 @@ row_data_new (CcPanelCategory     category,
   gtk_widget_show (image);
 
   /* Name label */
-  label = g_object_new (GTK_TYPE_LABEL,
-                        "label", name,
-                        "visible", TRUE,
-                        "xalign", 0.0,
-                        "hexpand", TRUE,
-                        NULL);
+  label = gtk_label_new (name);
+  gtk_widget_show (label);
+  gtk_label_set_xalign (GTK_LABEL (label), 0.0);
+  gtk_widget_set_hexpand (label, TRUE);
   gtk_grid_attach (GTK_GRID (grid), label, 1, 0, 1, 1);
 
   /* Description label */
-  label = g_object_new (GTK_TYPE_LABEL,
-                        "label", description,
-                        "visible", FALSE,
-                        "xalign", 0.0,
-                        "hexpand", TRUE,
-                        NULL);
+  label = gtk_label_new (description);
+  gtk_label_set_xalign (GTK_LABEL (label), 0.0);
+  gtk_widget_set_hexpand (label, TRUE);
   gtk_label_set_max_width_chars (GTK_LABEL (label), 25);
   gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
 
@@ -387,11 +381,13 @@ static const gchar * const panel_order[] = {
   /* Main page */
   "wifi",
   "network",
+  "wwan",
   "mobile-broadband",
   "bluetooth",
   "background",
   "notifications",
   "search",
+  "multitasking",
   "applications",
   "privacy",
   "online-accounts",
@@ -732,7 +728,7 @@ cc_panel_list_class_init (CcPanelListClass *klass)
   /**
    * CcPanelList:show-panel:
    *
-   * Emited when a panel is selected.
+   * Emitted when a panel is selected.
    */
   signals[SHOW_PANEL] = g_signal_new ("show-panel",
                                       CC_TYPE_PANEL_LIST,
@@ -1005,7 +1001,7 @@ cc_panel_list_set_active_panel (CcPanelList *self,
 
       current_row_data = g_hash_table_lookup (self->id_to_data, self->current_panel_id);
 
-      /* We cannot be showing a non-existant panel */
+      /* We cannot be showing a non-existent panel */
       g_assert (current_row_data != NULL);
 
       gtk_widget_set_visible (current_row_data->row, current_row_data->visibility == CC_PANEL_VISIBLE);
@@ -1074,19 +1070,18 @@ void
 cc_panel_list_add_sidebar_widget (CcPanelList *self,
                                   GtkWidget   *widget)
 {
+  GtkWidget *previous;
+
   g_return_if_fail (CC_IS_PANEL_LIST (self));
+
+  previous = get_widget_from_view (self, CC_PANEL_LIST_WIDGET);
+  if (previous)
+    gtk_container_remove (GTK_CONTAINER (self), previous);
 
   if (widget)
     {
       gtk_stack_add_named (GTK_STACK (self), widget, "custom-widget");
       switch_to_view (self, CC_PANEL_LIST_WIDGET);
-    }
-  else
-    {
-      widget = get_widget_from_view (self, CC_PANEL_LIST_WIDGET);
-
-      if (widget)
-        gtk_container_remove (GTK_CONTAINER (self), widget);
     }
 }
 

@@ -24,6 +24,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
+#include <handy.h>
 
 #include "cc-application.h"
 #include "cc-log.h"
@@ -102,7 +103,7 @@ launch_panel_activated (GSimpleAction *action,
 
   g_variant_get (parameter, "(&s@av)", &panel_id, &parameters);
 
-  g_debug ("regolith-control-center: 'launch-panel' activated for panel '%s' with %"G_GSIZE_FORMAT" arguments",
+  g_debug ("gnome-control-center: 'launch-panel' activated for panel '%s' with %"G_GSIZE_FORMAT" arguments",
            panel_id,
            g_variant_n_children (parameters));
 
@@ -223,6 +224,8 @@ cc_application_startup (GApplication *application)
                                    self);
 
   G_APPLICATION_CLASS (cc_application_parent_class)->startup (application);
+
+  hdy_init ();
 
   gtk_application_set_accels_for_action (GTK_APPLICATION (application),
                                          "app.help", help_accels);

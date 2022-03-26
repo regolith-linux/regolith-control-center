@@ -25,8 +25,6 @@
 #include <stdlib.h>
 #include <gdesktop-enums.h>
 #include <math.h>
-
-#define HANDY_USE_UNSTABLE_API 1
 #include <handy.h>
 
 #include "shell/cc-object-storage.h"
@@ -44,8 +42,8 @@
  * Note that WIDTH is assumed to be the larger size and we accept portrait
  * mode too effectively (in principle we should probably restrict the rotation
  * setting in that case). */
-#define MINIMUM_WIDTH 740
-#define MINIMUM_HEIGHT 530
+#define MINIMUM_WIDTH  720
+#define MINIMUM_HEIGHT 360
 
 #define PANEL_PADDING   32
 #define SECTION_PADDING 32
@@ -84,10 +82,6 @@ struct _CcDisplayPanel
 
   GDBusProxy *shell_proxy;
 
-  guint       sensor_watch_id;
-  GDBusProxy *iio_sensor_proxy;
-  gboolean    has_accelerometer;
-
   gchar     *main_title;
   GtkWidget *main_titlebar;
   GtkWidget *apply_titlebar;
@@ -105,11 +99,13 @@ struct _CcDisplayPanel
   GtkWidget      *config_type_switcher_frame;
   GtkLabel       *current_output_label;
   GtkWidget      *display_settings_frame;
+  GtkBox         *multi_selection_box;
   GtkSwitch      *output_enabled_switch;
   GtkComboBox    *output_selection_combo;
   GtkStack       *output_selection_stack;
-  GtkButtonBox   *output_selection_two_first;
-  GtkButtonBox   *output_selection_two_second;
+  GtkButtonBox   *output_selection_two_buttonbox;
+  GtkRadioButton *output_selection_two_first;
+  GtkRadioButton *output_selection_two_second;
   HdyComboRow    *primary_display_row;
   GtkWidget      *stack_switcher;
 };
@@ -176,6 +172,8 @@ config_ensure_of_type (CcDisplayPanel *panel, CcDisplayConfigType type)
 {
   CcDisplayConfigType current_type = config_get_current_type (panel);
   GList *outputs, *l;
+  CcDisplayMonitor *current_primary = NULL;
+  gdouble old_primary_scale = -1;
 
   /* Do not do anything if the current detected configuration type is
    * identitcal to what we expect. */
@@ -185,6 +183,17 @@ config_ensure_of_type (CcDisplayPanel *panel, CcDisplayConfigType type)
   reset_current_config (panel);
 
   outputs = cc_display_config_get_ui_sorted_monitors (panel->current_config);
+  for (l = outputs; l; l = l->next)
+    {
+      CcDisplayMonitor *output = l->data;
+
+      if (cc_display_monitor_is_primary (output))
+        {
+          current_primary = output;
+          old_primary_scale = cc_display_monitor_get_scale (current_primary);
+          break;
+        }
+    }
 
   switch (type)
     {
@@ -220,15 +229,41 @@ config_ensure_of_type (CcDisplayPanel *panel, CcDisplayConfigType type)
       for (l = outputs; l; l = l->next)
         {
           CcDisplayMonitor *output = l->data;
+          gdouble scale;
+          CcDisplayMode *mode;
+
+          mode = cc_display_monitor_get_preferred_mode (output);
+          /* If the monitor was active, try using the current scale, otherwise
+           * try picking the preferred scale. */
+          if (cc_display_monitor_is_active (output))
+            scale = cc_display_monitor_get_scale (output);
+          else
+            scale = cc_display_mode_get_preferred_scale (mode);
+
+          /* If we cannot use the current/preferred scale, try to fall back to
+           * the previously scale of the primary monitor instead.
+           * This is not guaranteed to result in a valid configuration! */
+          if (!cc_display_config_is_scaled_mode_valid (panel->current_config,
+                                                       mode,
+                                                       scale))
+            {
+              if (current_primary &&
+                  cc_display_config_is_scaled_mode_valid (panel->current_config,
+                                                          mode,
+                                                          old_primary_scale))
+                scale = old_primary_scale;
+            }
 
           cc_display_monitor_set_active (output, cc_display_monitor_is_usable (output));
-          cc_display_monitor_set_mode (output, cc_display_monitor_get_preferred_mode (output));
+          cc_display_monitor_set_mode (output, mode);
+          cc_display_monitor_set_scale (output, scale);
         }
       break;
 
     case CC_DISPLAY_CONFIG_CLONE:
       {
         g_debug ("Creating new clone config");
+        gdouble scale;
         GList *modes = cc_display_config_get_cloning_modes (panel->current_config);
         gint bw, bh;
         CcDisplayMode *best = NULL;
@@ -250,7 +285,23 @@ config_ensure_of_type (CcDisplayPanel *panel, CcDisplayConfigType type)
 
             modes = modes->next;
           }
-        cc_display_config_set_mode_on_all_outputs (panel->current_config, best);
+
+        /* Take the preferred scale by default, */
+        scale = cc_display_mode_get_preferred_scale (best);
+        /* but prefer the old primary scale if that is valid. */
+        if (current_primary &&
+            cc_display_config_is_scaled_mode_valid (panel->current_config,
+                                                    best,
+                                                    old_primary_scale))
+          scale = old_primary_scale;
+
+        for (l = outputs; l; l = l->next)
+          {
+            CcDisplayMonitor *output = l->data;
+
+            cc_display_monitor_set_mode (output, best);
+            cc_display_monitor_set_scale (output, scale);
+          }
       }
       break;
 
@@ -258,7 +309,8 @@ config_ensure_of_type (CcDisplayPanel *panel, CcDisplayConfigType type)
       g_assert_not_reached ();
     }
 
-  rebuild_ui (panel);
+  if (!panel->rebuilding_counter)
+    rebuild_ui (panel);
 }
 
 static void
@@ -330,7 +382,10 @@ monitor_labeler_show (CcDisplayPanel *self)
   g_variant_builder_close (&builder);
 
   if (number < 2)
-    return monitor_labeler_hide (self);
+    {
+      g_variant_builder_clear (&builder);
+      return monitor_labeler_hide (self);
+    }
 
   g_dbus_proxy_call (self->shell_proxy,
                      "ShowMonitorLabels",
@@ -387,12 +442,12 @@ reset_titlebar (CcDisplayPanel *self)
 }
 
 static void
-active_panel_changed (CcShell    *shell,
-                      GParamSpec *pspec,
-                      CcPanel    *self)
+active_panel_changed (CcPanel *self)
 {
+  CcShell *shell;
   g_autoptr(CcPanel) panel = NULL;
 
+  shell = cc_panel_get_shell (CC_PANEL (self));
   g_object_get (shell, "active-panel", &panel, NULL);
   if (panel != self)
     reset_titlebar (CC_DISPLAY_PANEL (self));
@@ -402,26 +457,11 @@ static void
 cc_display_panel_dispose (GObject *object)
 {
   CcDisplayPanel *self = CC_DISPLAY_PANEL (object);
-  CcShell *shell;
-  GtkWidget *toplevel;
 
   reset_titlebar (CC_DISPLAY_PANEL (object));
 
-  if (self->sensor_watch_id > 0)
-    {
-      g_bus_unwatch_name (self->sensor_watch_id);
-      self->sensor_watch_id = 0;
-    }
-
-  g_clear_object (&self->iio_sensor_proxy);
-
   if (self->focus_id)
     {
-      shell = cc_panel_get_shell (CC_PANEL (object));
-      toplevel = cc_shell_get_toplevel (shell);
-      if (toplevel != NULL)
-        g_signal_handler_disconnect (G_OBJECT (toplevel),
-                                     self->focus_id);
       self->focus_id = 0;
       monitor_labeler_hide (CC_DISPLAY_PANEL (object));
     }
@@ -609,7 +649,7 @@ static void
 cc_display_panel_constructed (GObject *object)
 {
   g_signal_connect_object (cc_panel_get_shell (CC_PANEL (object)), "notify::active-panel",
-                           G_CALLBACK (active_panel_changed), object, 0);
+                           G_CALLBACK (active_panel_changed), object, G_CONNECT_SWAPPED);
 
   G_OBJECT_CLASS (cc_display_panel_parent_class)->constructed (object);
 }
@@ -653,10 +693,12 @@ cc_display_panel_class_init (CcDisplayPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, config_type_single);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, current_output_label);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, display_settings_frame);
+  gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, multi_selection_box);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, night_light_page);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, output_enabled_switch);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, output_selection_combo);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, output_selection_stack);
+  gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, output_selection_two_buttonbox);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, output_selection_two_first);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, output_selection_two_second);
   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, primary_display_row);
@@ -825,9 +867,9 @@ rebuild_ui (CcDisplayPanel *panel)
 
       /* We need a switcher except in CLONE mode */
       if (type == CC_DISPLAY_CONFIG_CLONE)
-        gtk_stack_set_visible_child_name (panel->output_selection_stack, "no-selection");
+        gtk_stack_set_visible_child (panel->output_selection_stack, GTK_WIDGET (panel->current_output_label));
       else
-        gtk_stack_set_visible_child_name (panel->output_selection_stack, "two-selection");
+        gtk_stack_set_visible_child (panel->output_selection_stack, GTK_WIDGET (panel->output_selection_two_buttonbox));
     }
   else if (n_usable_outputs > 1)
     {
@@ -841,7 +883,7 @@ rebuild_ui (CcDisplayPanel *panel)
       if (type == CC_DISPLAY_CONFIG_CLONE || type > CC_DISPLAY_CONFIG_LAST_VALID)
         type = CC_DISPLAY_CONFIG_JOIN;
 
-      gtk_stack_set_visible_child_name (panel->output_selection_stack, "multi-selection");
+      gtk_stack_set_visible_child (panel->output_selection_stack, GTK_WIDGET (panel->multi_selection_box));
     }
   else
     {
@@ -853,13 +895,20 @@ rebuild_ui (CcDisplayPanel *panel)
       gtk_widget_set_visible (panel->config_type_switcher_frame, FALSE);
       gtk_widget_set_visible (panel->arrangement_frame, FALSE);
 
-      gtk_stack_set_visible_child_name (panel->output_selection_stack, "no-selection");
+      gtk_stack_set_visible_child (panel->output_selection_stack, GTK_WIDGET (panel->current_output_label));
     }
 
   cc_panel_set_selected_type (panel, type);
 
   panel->rebuilding_counter--;
   update_apply_button (panel);
+}
+
+static void
+update_panel_orientation_managed (CcDisplayPanel *panel,
+                                  gboolean        managed)
+{
+  cc_display_settings_set_has_accelerometer (panel->settings, managed);
 }
 
 static void
@@ -876,8 +925,18 @@ reset_current_config (CcDisplayPanel *panel)
   panel->current_output = NULL;
 
   current = cc_display_config_manager_get_current (panel->manager);
+
+  if (!current)
+    return;
+  
   cc_display_config_set_minimum_size (current, MINIMUM_WIDTH, MINIMUM_HEIGHT);
   panel->current_config = current;
+
+  g_signal_connect_object (current, "panel-orientation-managed",
+                           G_CALLBACK (update_panel_orientation_managed), panel,
+                           G_CONNECT_SWAPPED);
+  update_panel_orientation_managed (panel,
+                                    cc_display_config_get_panel_orientation_managed (current));
 
   g_list_store_remove_all (panel->primary_display_list);
   gtk_list_store_clear (panel->output_selection_list);
@@ -1033,18 +1092,16 @@ mapped_cb (CcDisplayPanel *panel)
   shell = cc_panel_get_shell (CC_PANEL (panel));
   toplevel = cc_shell_get_toplevel (shell);
   if (toplevel && !panel->focus_id)
-    panel->focus_id = g_signal_connect_swapped (toplevel, "notify::has-toplevel-focus",
-                                               G_CALLBACK (dialog_toplevel_focus_changed), panel);
+    panel->focus_id = g_signal_connect_object (toplevel, "notify::has-toplevel-focus",
+                                               G_CALLBACK (dialog_toplevel_focus_changed), panel, G_CONNECT_SWAPPED);
 }
 
 static void
-cc_display_panel_up_client_changed (UpClient       *client,
-                                    GParamSpec     *pspec,
-                                    CcDisplayPanel *self)
+cc_display_panel_up_client_changed (CcDisplayPanel *self)
 {
   gboolean lid_is_closed;
 
-  lid_is_closed = up_client_get_lid_is_closed (client);
+  lid_is_closed = up_client_get_lid_is_closed (self->up_client);
 
   if (lid_is_closed != self->lid_is_closed)
     {
@@ -1073,86 +1130,6 @@ shell_proxy_ready (GObject        *source,
   self->shell_proxy = proxy;
 
   ensure_monitor_labels (self);
-}
-
-static void
-update_has_accel (CcDisplayPanel *self)
-{
-  g_autoptr(GVariant) v = NULL;
-
-  if (self->iio_sensor_proxy == NULL)
-    {
-      g_debug ("Has no accelerometer");
-      self->has_accelerometer = FALSE;
-      cc_display_settings_set_has_accelerometer (self->settings, self->has_accelerometer);
-      return;
-    }
-
-  v = g_dbus_proxy_get_cached_property (self->iio_sensor_proxy, "HasAccelerometer");
-  if (v)
-    {
-      self->has_accelerometer = g_variant_get_boolean (v);
-    }
-  else
-    {
-      self->has_accelerometer = FALSE;
-    }
-
-  cc_display_settings_set_has_accelerometer (self->settings, self->has_accelerometer);
-
-  g_debug ("Has %saccelerometer", self->has_accelerometer ? "" : "no ");
-}
-
-static void
-sensor_proxy_properties_changed_cb (GDBusProxy     *proxy,
-                                    GVariant       *changed_properties,
-                                    GStrv           invalidated_properties,
-                                    CcDisplayPanel *self)
-{
-  GVariantDict dict;
-
-  g_variant_dict_init (&dict, changed_properties);
-
-  if (g_variant_dict_contains (&dict, "HasAccelerometer"))
-    update_has_accel (self);
-}
-
-static void
-sensor_proxy_appeared_cb (GDBusConnection *connection,
-                          const gchar     *name,
-                          const gchar     *name_owner,
-                          gpointer         user_data)
-{
-  CcDisplayPanel *self = user_data;
-
-  g_debug ("SensorProxy appeared");
-
-  self->iio_sensor_proxy = g_dbus_proxy_new_sync (connection,
-                                                        G_DBUS_PROXY_FLAGS_NONE,
-                                                        NULL,
-                                                        "net.hadess.SensorProxy",
-                                                        "/net/hadess/SensorProxy",
-                                                        "net.hadess.SensorProxy",
-                                                        NULL,
-                                                        NULL);
-  g_return_if_fail (self->iio_sensor_proxy);
-
-  g_signal_connect (self->iio_sensor_proxy, "g-properties-changed",
-                    G_CALLBACK (sensor_proxy_properties_changed_cb), self);
-  update_has_accel (self);
-}
-
-static void
-sensor_proxy_vanished_cb (GDBusConnection *connection,
-                          const gchar     *name,
-                          gpointer         user_data)
-{
-  CcDisplayPanel *self = user_data;
-
-  g_debug ("SensorProxy vanished");
-
-  g_clear_object (&self->iio_sensor_proxy);
-  update_has_accel (self);
 }
 
 static void
@@ -1232,9 +1209,9 @@ cc_display_panel_init (CcDisplayPanel *self)
   self->up_client = up_client_new ();
   if (up_client_get_lid_is_present (self->up_client))
     {
-      g_signal_connect (self->up_client, "notify::lid-is-closed",
-                        G_CALLBACK (cc_display_panel_up_client_changed), self);
-      cc_display_panel_up_client_changed (self->up_client, NULL, self);
+      g_signal_connect_object (self->up_client, "notify::lid-is-closed",
+                               G_CALLBACK (cc_display_panel_up_client_changed), self, G_CONNECT_SWAPPED);
+      cc_display_panel_up_client_changed (self);
     }
   else
     g_clear_object (&self->up_client);
@@ -1256,14 +1233,6 @@ cc_display_panel_init (CcDisplayPanel *self)
              cc_panel_get_cancellable (CC_PANEL (self)),
              (GAsyncReadyCallback) session_bus_ready,
              self);
-
-  self->sensor_watch_id = g_bus_watch_name (G_BUS_TYPE_SYSTEM,
-                                            "net.hadess.SensorProxy",
-                                            G_BUS_NAME_WATCHER_FLAGS_NONE,
-                                            sensor_proxy_appeared_cb,
-                                            sensor_proxy_vanished_cb,
-                                            self,
-                                            NULL);
 
   provider = gtk_css_provider_new ();
   gtk_css_provider_load_from_resource (provider, "/org/gnome/control-center/display/display-arrangement.css");

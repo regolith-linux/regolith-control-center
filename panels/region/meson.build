@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
 desktop_in = configure_file(
   input: desktop + '.in.in',
@@ -19,17 +19,12 @@ i18n.merge_file(
 sources = files(
   'cc-region-panel.c',
   'cc-format-chooser.c',
-  'cc-ibus-utils.c',
-  'cc-input-chooser.c',
-  'cc-input-row.c',
-  'cc-input-source.c',
-  'cc-input-source-ibus.c',
-  'cc-input-source-xkb.c',
+  'cc-format-preview.c',
 )
 
 resource_data = files(
   'cc-format-chooser.ui',
-  'cc-input-chooser.ui',
+  'cc-format-preview.ui',
   'cc-region-panel.ui',
   'view-layout-symbolic.svg',
 )

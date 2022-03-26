@@ -32,13 +32,12 @@ struct _CcWifiConnectionRow
   GPtrArray       *aps;
   NMConnection    *connection;
 
-  GtkImage        *active_icon;
-  GtkStack        *button_stack;
+  GtkLabel        *active_label;
   GtkCheckButton  *checkbutton;
-  GtkButton       *configure_button;
   GtkSpinner      *connecting_spinner;
   GtkImage        *encrypted_icon;
   GtkLabel        *name_label;
+  GtkButton       *options_button;
   GtkImage        *strength_icon;
 };
 
@@ -60,12 +59,15 @@ typedef enum
   NM_AP_SEC_WEP,
   NM_AP_SEC_WPA,
   NM_AP_SEC_WPA2,
-  NM_AP_SEC_SAE
+  NM_AP_SEC_SAE,
+  NM_AP_SEC_OWE
 } NMAccessPointSecurity;
 
 G_DEFINE_TYPE (CcWifiConnectionRow, cc_wifi_connection_row, GTK_TYPE_LIST_BOX_ROW)
 
 static GParamSpec *props[PROP_LAST];
+
+static void configure_clicked_cb (CcWifiConnectionRow *self);
 
 static NMAccessPointSecurity
 get_access_point_security (NMAccessPoint *ap)
@@ -103,6 +105,12 @@ get_access_point_security (NMAccessPoint *ap)
       type = NM_AP_SEC_SAE;
     }
 #endif
+#if NM_CHECK_VERSION(1,24,0)
+  else if (rsn_flags & NM_802_11_AP_SEC_KEY_MGMT_OWE)
+    {
+      type = NM_AP_SEC_OWE;
+    }
+#endif
   else
     {
       type = NM_AP_SEC_WPA2;
@@ -137,6 +145,8 @@ get_connection_security (NMConnection *con)
     return NM_AP_SEC_WPA;
   else if (g_str_equal (key_mgmt, "sae"))
     return NM_AP_SEC_SAE;
+  else if (g_str_equal (key_mgmt, "owe"))
+    return NM_AP_SEC_OWE;
   else
     return NM_AP_SEC_UNKNOWN;
 }
@@ -230,55 +240,51 @@ update_ui (CcWifiConnectionRow *self)
       strength = nm_access_point_get_strength (best_ap);
     }
 
+  gtk_widget_set_visible (GTK_WIDGET (self->connecting_spinner), connecting);
   if (connecting)
     {
-      gtk_stack_set_visible_child_name (self->button_stack, "connecting");
       gtk_spinner_start (self->connecting_spinner);
     }
   else
     {
       gtk_spinner_stop (self->connecting_spinner);
-
-      if (self->connection)
-        gtk_stack_set_visible_child_name (self->button_stack, "configure");
-      else
-        gtk_stack_set_visible_child_name (self->button_stack, "empty");
     }
 
-  gtk_widget_set_visible (GTK_WIDGET (self->active_icon), active);
+  gtk_widget_set_visible (GTK_WIDGET (self->active_label), active);
+  gtk_widget_set_visible (GTK_WIDGET (self->options_button), active || connecting);
 
-  if (security != NM_AP_SEC_UNKNOWN && security != NM_AP_SEC_NONE)
+  if (security != NM_AP_SEC_UNKNOWN && security != NM_AP_SEC_NONE && security != NM_AP_SEC_OWE)
     {
-      gchar *icon_name;
+      const gchar *icon_path;
 
       gtk_widget_set_child_visible (GTK_WIDGET (self->encrypted_icon), TRUE);
       if (security == NM_AP_SEC_WEP)
 	{
-          icon_name = "channel-insecure-symbolic";
+          icon_path = "/org/gnome/control-center/network/warning-small-symbolic.svg";
 	  gtk_widget_set_tooltip_text (GTK_WIDGET (self->encrypted_icon), _("Insecure network (WEP)"));
 	}
       else if (security == NM_AP_SEC_WPA)
 	{
-          icon_name = "network-wireless-encrypted-symbolic";
+          icon_path = "/org/gnome/control-center/network/lock-small-symbolic.svg";
           gtk_widget_set_tooltip_text (GTK_WIDGET (self->encrypted_icon), _("Secure network (WPA)"));
 	}
       else if (security == NM_AP_SEC_WPA2)
 	{
-          icon_name = "network-wireless-encrypted-symbolic";
+          icon_path = "/org/gnome/control-center/network/lock-small-symbolic.svg";
           gtk_widget_set_tooltip_text (GTK_WIDGET (self->encrypted_icon), _("Secure network (WPA2)"));
 	}
 	  else if (security == NM_AP_SEC_SAE)
 	{
-          icon_name = "network-wireless-encrypted-symbolic";
+          icon_path = "/org/gnome/control-center/network/lock-small-symbolic.svg";
           gtk_widget_set_tooltip_text (GTK_WIDGET (self->encrypted_icon), _("Secure network (WPA3)"));
 	}
       else
 	{
-          icon_name = "network-wireless-encrypted-symbolic";
+          icon_path = "/org/gnome/control-center/network/lock-small-symbolic.svg";
           gtk_widget_set_tooltip_text (GTK_WIDGET (self->encrypted_icon), _("Secure network"));
 	}
 
-      g_object_set (self->encrypted_icon, "icon-name", icon_name, NULL);
+      gtk_image_set_from_resource (self->encrypted_icon, icon_path);
     }
   else
     {
@@ -448,14 +454,15 @@ cc_wifi_connection_row_class_init (CcWifiConnectionRowClass *klass)
 
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/control-center/network/cc-wifi-connection-row.ui");
 
-  gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, active_icon);
-  gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, button_stack);
+  gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, active_label);
   gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, checkbutton);
-  gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, configure_button);
   gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, connecting_spinner);
   gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, encrypted_icon);
+  gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, options_button);
   gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, name_label);
   gtk_widget_class_bind_template_child (widget_class, CcWifiConnectionRow, strength_icon);
+
+  gtk_widget_class_bind_template_callback (widget_class, configure_clicked_cb);
 
   props[PROP_CHECKABLE] = g_param_spec_boolean ("checkable", "checkable",
                                                 "Whether to show a checkbox to select the row",
@@ -504,8 +511,6 @@ void
 cc_wifi_connection_row_init (CcWifiConnectionRow *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
-
-  g_signal_connect_swapped (self->configure_button, "clicked", G_CALLBACK (configure_clicked_cb), self);
 
   self->aps = g_ptr_array_new_with_free_func (g_object_unref);
 

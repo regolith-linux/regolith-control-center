@@ -40,7 +40,6 @@ struct _NetProxy
 
         GtkRadioButton   *automatic_radio;
         GtkDialog        *dialog;
-        GtkButton        *dialog_button;
         GtkRadioButton   *manual_radio;
         GtkRadioButton   *none_radio;
         GtkEntry         *proxy_ftp_entry;
@@ -183,23 +182,10 @@ panel_proxy_mode_radio_changed_cb (NetProxy *self, GtkRadioButton *radio)
         panel_update_status_label (self, value);
 }
 
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
-}
-
 static void
 show_dialog_cb (NetProxy *self)
 {
         gtk_window_set_transient_for (GTK_WINDOW (self->dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
-        g_signal_connect (GTK_WINDOW (self->dialog),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (self->dialog));
         gtk_window_present (GTK_WINDOW (self->dialog));
 }
 
@@ -225,7 +211,6 @@ net_proxy_class_init (NetProxyClass *klass)
 
         gtk_widget_class_bind_template_child (widget_class, NetProxy, automatic_radio);
         gtk_widget_class_bind_template_child (widget_class, NetProxy, dialog);
-        gtk_widget_class_bind_template_child (widget_class, NetProxy, dialog_button);
         gtk_widget_class_bind_template_child (widget_class, NetProxy, manual_radio);
         gtk_widget_class_bind_template_child (widget_class, NetProxy, none_radio);
         gtk_widget_class_bind_template_child (widget_class, NetProxy, proxy_ftp_entry);
@@ -241,6 +226,9 @@ net_proxy_class_init (NetProxyClass *klass)
         gtk_widget_class_bind_template_child (widget_class, NetProxy, proxy_warning_label);
         gtk_widget_class_bind_template_child (widget_class, NetProxy, stack);
         gtk_widget_class_bind_template_child (widget_class, NetProxy, status_label);
+
+        gtk_widget_class_bind_template_callback (widget_class, panel_proxy_mode_radio_changed_cb);
+        gtk_widget_class_bind_template_callback (widget_class, show_dialog_cb);
 }
 
 static gboolean
@@ -303,10 +291,11 @@ net_proxy_init (NetProxy *self)
         gtk_widget_init_template (GTK_WIDGET (self));
 
         self->settings = g_settings_new ("org.gnome.system.proxy");
-        g_signal_connect_swapped (self->settings,
-                                  "changed",
-                                  G_CALLBACK (settings_changed_cb),
-                                  self);
+        g_signal_connect_object (self->settings,
+                                 "changed",
+                                 G_CALLBACK (settings_changed_cb),
+                                 self,
+                                 G_CONNECT_SWAPPED);
 
         /* actions */
         value = g_settings_get_enum (self->settings, "mode");
@@ -375,21 +364,12 @@ net_proxy_init (NetProxy *self)
         panel_proxy_mode_setup_widgets (self, value);
         panel_update_status_label (self, value);
 
-        g_signal_connect_swapped (self->none_radio, "toggled", G_CALLBACK (panel_proxy_mode_radio_changed_cb), self);
-        g_signal_connect_swapped (self->manual_radio, "toggled", G_CALLBACK (panel_proxy_mode_radio_changed_cb), self);
-        g_signal_connect_swapped (self->automatic_radio, "toggled", G_CALLBACK (panel_proxy_mode_radio_changed_cb), self);
-
-        /* show dialog button */
-        g_signal_connect_swapped (self->dialog_button,
-                                  "clicked",
-                                  G_CALLBACK (show_dialog_cb),
-                                  self);
-
         /* prevent the dialog from being destroyed */
-        g_signal_connect (self->dialog,
-                          "delete-event",
-                          G_CALLBACK (gtk_widget_hide_on_delete),
-                          self->dialog);
+        g_signal_connect_object (self->dialog,
+                                 "delete-event",
+                                 G_CALLBACK (gtk_widget_hide_on_delete),
+                                 self->dialog,
+                                 G_CONNECT_SWAPPED);
 }
 
 NetProxy *

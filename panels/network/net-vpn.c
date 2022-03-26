@@ -38,7 +38,6 @@ struct _NetVpn
         GtkBox                  *box;
         GtkLabel                *device_label;
         GtkSwitch               *device_off_switch;
-        GtkButton               *options_button;
         GtkSeparator            *separator;
 
         NMClient                *client;
@@ -89,9 +88,9 @@ nm_device_refresh_vpn_ui (NetVpn *self)
                         auuid = nm_active_connection_get_uuid (a);
                         if (NM_IS_VPN_CONNECTION (a) && strcmp (auuid, uuid) == 0) {
                                 self->active_connection = g_object_ref (a);
-                                g_signal_connect_swapped (a, "notify::vpn-state",
-                                                          G_CALLBACK (nm_device_refresh_vpn_ui),
-                                                          self);
+                                g_signal_connect_object (a, "notify::vpn-state",
+                                                         G_CALLBACK (nm_device_refresh_vpn_ui),
+                                                         self, G_CONNECT_SWAPPED);
                                 state = nm_vpn_connection_get_vpn_state (NM_VPN_CONNECTION (a));
                                 break;
                         }
@@ -151,20 +150,16 @@ editor_done (NetVpn *self)
 static void
 edit_connection (NetVpn *self)
 {
-        GtkWidget *window;
         NetConnectionEditor *editor;
         g_autofree gchar *title = NULL;
 
-        window = gtk_widget_get_toplevel (GTK_WIDGET (self->options_button));
-
-        editor = net_connection_editor_new (GTK_WINDOW (window),
-                                            self->connection,
-                                            NULL, NULL, self->client);
+        editor = net_connection_editor_new (self->connection, NULL, NULL, self->client);
+        gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
         title = g_strdup_printf (_("%s VPN"), nm_connection_get_id (self->connection));
         net_connection_editor_set_title (editor, title);
 
         g_signal_connect_object (editor, "done", G_CALLBACK (editor_done), self, G_CONNECT_SWAPPED);
-        net_connection_editor_run (editor);
+        gtk_window_present (GTK_WINDOW (editor));
 }
 
 static void
@@ -196,20 +191,16 @@ net_vpn_class_init (NetVpnClass *klass)
 
         gtk_widget_class_bind_template_child (widget_class, NetVpn, device_label);
         gtk_widget_class_bind_template_child (widget_class, NetVpn, device_off_switch);
-        gtk_widget_class_bind_template_child (widget_class, NetVpn, options_button);
         gtk_widget_class_bind_template_child (widget_class, NetVpn, separator);
+
+        gtk_widget_class_bind_template_callback (widget_class, device_off_toggled);
+        gtk_widget_class_bind_template_callback (widget_class, edit_connection);
 }
 
 static void
 net_vpn_init (NetVpn *self)
 {
         gtk_widget_init_template (GTK_WIDGET (self));
-
-        g_signal_connect_swapped (self->device_off_switch, "notify::active",
-                                  G_CALLBACK (device_off_toggled), self);
-
-        g_signal_connect_swapped (self->options_button, "clicked",
-                                  G_CALLBACK (edit_connection), self);
 }
 
 NetVpn *

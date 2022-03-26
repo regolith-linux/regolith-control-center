@@ -60,12 +60,10 @@ struct _CcSharingPanel
   GtkWidget *hostname_entry;
   GtkWidget *main_list_box;
   GtkWidget *master_switch;
-  GtkWidget *media_sharing_button;
   GtkWidget *media_sharing_dialog;
   GtkWidget *media_sharing_headerbar;
-  GtkWidget *media_sharing_status_label;
+  GtkWidget *media_sharing_row;
   GtkWidget *media_sharing_switch;
-  GtkWidget *personal_file_sharing_button;
   GtkWidget *personal_file_sharing_dialog;
   GtkWidget *personal_file_sharing_grid;
   GtkWidget *personal_file_sharing_headerbar;
@@ -73,24 +71,22 @@ struct _CcSharingPanel
   GtkWidget *personal_file_sharing_password_entry;
   GtkWidget *personal_file_sharing_password_label;
   GtkWidget *personal_file_sharing_require_password_switch;
-  GtkWidget *personal_file_sharing_status_label;
+  GtkWidget *personal_file_sharing_row;
   GtkWidget *personal_file_sharing_switch;
   GtkWidget *password_grid;
   GtkWidget *remote_control_box;
   GtkWidget *remote_control_checkbutton;
   GtkWidget *remote_control_password_entry;
-  GtkWidget *remote_login_button;
   GtkWidget *remote_login_dialog;
   GtkWidget *remote_login_label;
-  GtkWidget *remote_login_status_label;
+  GtkWidget *remote_login_row;
   GtkWidget *remote_login_switch;
   GtkWidget *require_password_radiobutton;
-  GtkWidget *screen_sharing_button;
   GtkWidget *screen_sharing_dialog;
   GtkWidget *screen_sharing_grid;
   GtkWidget *screen_sharing_headerbar;
   GtkWidget *screen_sharing_label;
-  GtkWidget *screen_sharing_status_label;
+  GtkWidget *screen_sharing_row;
   GtkWidget *screen_sharing_switch;
   GtkWidget *shared_folders_grid;
   GtkWidget *shared_folders_listbox;
@@ -106,20 +102,18 @@ CC_PANEL_REGISTER (CcSharingPanel, cc_sharing_panel)
 #define OFF_IF_VISIBLE(x, y) { if (gtk_widget_is_visible(x) && (y) != NULL && gtk_widget_is_sensitive(y)) gtk_switch_set_active (GTK_SWITCH(y), FALSE); }
 
 static void
-cc_sharing_panel_master_switch_notify (GtkSwitch      *gtkswitch,
-                                       GParamSpec     *pspec,
-                                       CcSharingPanel *self)
+cc_sharing_panel_master_switch_notify (CcSharingPanel *self)
 {
   gboolean active;
 
-  active = gtk_switch_get_active (gtkswitch);
+  active = gtk_switch_get_active (GTK_SWITCH (self->master_switch));
 
   if (!active)
     {
       /* disable all services if the master switch is not active */
-      OFF_IF_VISIBLE(self->media_sharing_button, self->media_sharing_switch);
-      OFF_IF_VISIBLE(self->personal_file_sharing_button, self->personal_file_sharing_switch);
-      OFF_IF_VISIBLE(self->screen_sharing_button, self->screen_sharing_switch);
+      OFF_IF_VISIBLE(self->media_sharing_row, self->media_sharing_switch);
+      OFF_IF_VISIBLE(self->personal_file_sharing_row, self->personal_file_sharing_switch);
+      OFF_IF_VISIBLE(self->screen_sharing_row, self->screen_sharing_switch);
 
       gtk_switch_set_active (GTK_SWITCH (self->remote_login_switch), FALSE);
     }
@@ -203,11 +197,9 @@ cc_sharing_panel_class_init (CcSharingPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, screen_sharing_grid);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, shared_folders_grid);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, main_list_box);
-  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, media_sharing_button);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, media_sharing_dialog);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, media_sharing_headerbar);
-  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, media_sharing_status_label);
-  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_button);
+  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, media_sharing_row);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_dialog);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_grid);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_headerbar);
@@ -215,35 +207,24 @@ cc_sharing_panel_class_init (CcSharingPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_password_entry);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_password_label);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_require_password_switch);
-  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_status_label);
+  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, personal_file_sharing_row);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, password_grid);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_control_box);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_control_checkbutton);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_control_password_entry);
-  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_login_button);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_login_dialog);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_login_label);
-  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_login_status_label);
+  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_login_row);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, remote_login_switch);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, require_password_radiobutton);
-  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, screen_sharing_button);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, screen_sharing_dialog);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, screen_sharing_headerbar);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, screen_sharing_label);
-  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, screen_sharing_status_label);
+  gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, screen_sharing_row);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, shared_folders_listbox);
   gtk_widget_class_bind_template_child (widget_class, CcSharingPanel, show_password_checkbutton);
 
   g_type_ensure (CC_TYPE_HOSTNAME_ENTRY);
-}
-
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
 }
 
 static void
@@ -261,34 +242,29 @@ cc_sharing_panel_run_dialog (CcSharingPanel *self,
 
 
   parent = cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (self)));
- 
+
   gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (parent));
-  g_signal_connect (GTK_WINDOW (dialog),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (dialog));
   gtk_dialog_run (GTK_DIALOG (dialog));
 }
 
 static void
-cc_sharing_panel_main_list_box_row_activated (GtkListBox     *listbox,
-                                              GtkListBoxRow  *row,
-                                              CcSharingPanel *self)
+cc_sharing_panel_main_list_box_row_activated (CcSharingPanel *self,
+                                              GtkListBoxRow  *row)
 {
   GtkWidget *dialog;
 
-  if (row == GTK_LIST_BOX_ROW (self->media_sharing_button))
+  if (row == GTK_LIST_BOX_ROW (self->media_sharing_row))
     dialog = self->media_sharing_dialog;
-  else if (row == GTK_LIST_BOX_ROW (self->personal_file_sharing_button))
+  else if (row == GTK_LIST_BOX_ROW (self->personal_file_sharing_row))
     dialog = self->personal_file_sharing_dialog;
-  else if (row == GTK_LIST_BOX_ROW (self->remote_login_button))
+  else if (row == GTK_LIST_BOX_ROW (self->remote_login_row))
     dialog = self->remote_login_dialog;
-  else if (row == GTK_LIST_BOX_ROW (self->screen_sharing_button))
+  else if (row == GTK_LIST_BOX_ROW (self->screen_sharing_row))
     dialog = self->screen_sharing_dialog;
   else
     return;
 
-  gtk_list_box_select_row (listbox, NULL);
+  gtk_list_box_select_row (GTK_LIST_BOX (self->main_list_box), NULL);
 
   cc_sharing_panel_run_dialog (self, dialog);
 }
@@ -361,9 +337,9 @@ cc_sharing_panel_networks_to_label_transform_func (GBinding       *binding,
 static void
 cc_sharing_panel_bind_switch_to_label (CcSharingPanel *self,
                                        GtkWidget      *gtkswitch,
-                                       GtkWidget      *label)
+                                       GtkWidget      *row)
 {
-  g_object_bind_property_full (gtkswitch, "active", label, "label",
+  g_object_bind_property_full (gtkswitch, "active", row, "secondary-label",
                                G_BINDING_SYNC_CREATE,
                                (GBindingTransformFunc) cc_sharing_panel_switch_to_label_transform_func,
                                NULL, self, NULL);
@@ -372,9 +348,9 @@ cc_sharing_panel_bind_switch_to_label (CcSharingPanel *self,
 static void
 cc_sharing_panel_bind_networks_to_label (CcSharingPanel *self,
 					 GtkWidget      *networks,
-					 GtkWidget      *label)
+					 GtkWidget      *list_row)
 {
-  g_object_bind_property_full (networks, "status", label, "label",
+  g_object_bind_property_full (networks, "status", list_row, "secondary-label",
                                G_BINDING_SYNC_CREATE,
                                (GBindingTransformFunc) cc_sharing_panel_networks_to_label_transform_func,
                                NULL, self, NULL);
@@ -403,9 +379,8 @@ cc_sharing_panel_bind_switch_to_widgets (GtkWidget *gtkswitch,
 }
 
 static void
-cc_sharing_panel_add_folder (GtkListBox     *box,
-                             GtkListBoxRow  *row,
-                             CcSharingPanel *self)
+cc_sharing_panel_add_folder (CcSharingPanel *self,
+                             GtkListBoxRow  *row)
 {
   GtkWidget *dialog;
   g_autofree gchar *folder = NULL;
@@ -416,7 +391,7 @@ cc_sharing_panel_add_folder (GtkListBox     *box,
     return;
 
   dialog = gtk_file_chooser_dialog_new (_("Choose a Folder"),
-                                        GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (box))),
+                                        GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self->shared_folders_listbox))),
                                         GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER,
                                         _("_Cancel"), GTK_RESPONSE_CANCEL,
                                         _("_Open"), GTK_RESPONSE_ACCEPT,
@@ -466,8 +441,8 @@ bail:
 }
 
 static void
-cc_sharing_panel_remove_folder (GtkButton      *button,
-                                CcSharingPanel *self)
+cc_sharing_panel_remove_folder (CcSharingPanel *self,
+                                GtkButton      *button)
 {
   GtkWidget *row;
 
@@ -477,9 +452,8 @@ cc_sharing_panel_remove_folder (GtkButton      *button,
 }
 
 static void
-cc_sharing_panel_media_sharing_dialog_response (GtkDialog      *dialog,
-                                                gint            reponse_id,
-                                                CcSharingPanel *self)
+cc_sharing_panel_media_sharing_dialog_response (CcSharingPanel *self,
+                                                gint            reponse_id)
 {
   g_autoptr(GPtrArray) folders = NULL;
   GtkWidget *box;
@@ -593,8 +567,8 @@ cc_sharing_panel_new_media_sharing_row (const char     *uri_or_path,
   gtk_widget_set_margin_end (w, 12);
   gtk_widget_set_valign (w, GTK_ALIGN_CENTER);
   gtk_box_pack_end (GTK_BOX (box), w, FALSE, FALSE, 0);
-  g_signal_connect (G_OBJECT (w), "clicked",
-                    G_CALLBACK (cc_sharing_panel_remove_folder), self);
+  g_signal_connect_object (G_OBJECT (w), "clicked",
+                           G_CALLBACK (cc_sharing_panel_remove_folder), self, G_CONNECT_SWAPPED);
   g_object_set_data (G_OBJECT (w), "row", row);
 
   g_object_set_data_full (G_OBJECT (row), "path", g_steal_pointer (&path), g_free);
@@ -638,13 +612,13 @@ cc_sharing_panel_setup_media_sharing_dialog (CcSharingPanel *self)
   path = g_find_program_in_path ("rygel");
   if (path == NULL)
     {
-      gtk_widget_hide (self->media_sharing_button);
+      gtk_widget_hide (self->media_sharing_row);
       return;
     }
 
-  g_signal_connect (self->media_sharing_dialog, "response",
-                    G_CALLBACK (cc_sharing_panel_media_sharing_dialog_response),
-                    self);
+  g_signal_connect_object (self->media_sharing_dialog, "response",
+                           G_CALLBACK (cc_sharing_panel_media_sharing_dialog_response),
+                           self, G_CONNECT_SWAPPED);
 
   cc_media_sharing_get_preferences (&folders);
 
@@ -668,8 +642,8 @@ cc_sharing_panel_setup_media_sharing_dialog (CcSharingPanel *self)
 
   cc_list_box_adjust_scrolling (GTK_LIST_BOX (self->shared_folders_listbox));
 
-  g_signal_connect (G_OBJECT (self->shared_folders_listbox), "row-activated",
-                    G_CALLBACK (cc_sharing_panel_add_folder), self);
+  g_signal_connect_object (self->shared_folders_listbox, "row-activated",
+                           G_CALLBACK (cc_sharing_panel_add_folder), self, G_CONNECT_SWAPPED);
 
   networks = cc_sharing_networks_new (self->sharing_proxy, "rygel");
   gtk_grid_attach (GTK_GRID (self->shared_folders_grid), networks, 0, 4, 2, 1);
@@ -680,7 +654,7 @@ cc_sharing_panel_setup_media_sharing_dialog (CcSharingPanel *self)
   self->media_sharing_switch = w;
 
   cc_sharing_panel_bind_networks_to_label (self, networks,
-                                           self->media_sharing_status_label);
+                                           self->media_sharing_row);
 }
 
 static gboolean
@@ -933,32 +907,30 @@ cc_sharing_panel_setup_personal_file_sharing_dialog (CcSharingPanel *self)
 
   cc_sharing_panel_bind_networks_to_label (self,
                                            networks,
-                                           self->personal_file_sharing_status_label);
+                                           self->personal_file_sharing_row);
 }
 
 static void
-remote_login_switch_activate (GtkSwitch      *remote_login_switch,
-                              GParamSpec     *pspec,
-                              CcSharingPanel *self)
+remote_login_switch_activate (CcSharingPanel *self)
 {
-  cc_remote_login_set_enabled (cc_panel_get_cancellable (CC_PANEL (self)), remote_login_switch);
+  cc_remote_login_set_enabled (cc_panel_get_cancellable (CC_PANEL (self)), GTK_SWITCH (self->remote_login_switch));
 }
 
 static void
 cc_sharing_panel_setup_remote_login_dialog (CcSharingPanel *self)
 {
   cc_sharing_panel_bind_switch_to_label (self, self->remote_login_switch,
-                                         self->remote_login_status_label);
+                                         self->remote_login_row);
 
   cc_sharing_panel_setup_label_with_hostname (self, self->remote_login_label);
 
-  g_signal_connect (self->remote_login_switch, "notify::active",
-                    G_CALLBACK (remote_login_switch_activate), self);
+  g_signal_connect_object (self->remote_login_switch, "notify::active",
+                           G_CALLBACK (remote_login_switch_activate), self, G_CONNECT_SWAPPED);
   gtk_widget_set_sensitive (self->remote_login_switch, FALSE);
 
   cc_remote_login_get_enabled (cc_panel_get_cancellable (CC_PANEL (self)),
                                GTK_SWITCH (self->remote_login_switch),
-                               self->remote_login_button);
+                               self->remote_login_row);
 }
 
 static gboolean
@@ -980,14 +952,14 @@ cc_sharing_panel_check_schema_available (CcSharingPanel *self,
 }
 
 static void
-screen_sharing_show_cb (GtkWidget *widget, CcSharingPanel *self)
+screen_sharing_show_cb (CcSharingPanel *self)
 {
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->show_password_checkbutton),
                                 FALSE);
 }
 
 static void
-screen_sharing_hide_cb (GtkWidget *widget, CcSharingPanel *self)
+screen_sharing_hide_cb (CcSharingPanel *self)
 {
   GtkToggleButton *ac_radio;
   GtkEntry    *pw_entry;
@@ -1003,39 +975,45 @@ screen_sharing_hide_cb (GtkWidget *widget, CcSharingPanel *self)
 
 #define MAX_PASSWORD_SIZE 8
 static void
-screen_sharing_password_insert_text_cb (GtkEditable *editable,
-                                        gchar       *new_text,
-                                        gint         new_text_length,
-                                        gpointer     position,
-                                        gpointer     user_data)
+screen_sharing_password_insert_text_cb (CcSharingPanel *self,
+                                        gchar          *new_text,
+                                        gint            new_text_length,
+                                        gpointer        position)
 {
   int l, available_size;
 
-  l = gtk_entry_buffer_get_bytes (gtk_entry_get_buffer (GTK_ENTRY (editable)));
+  l = gtk_entry_buffer_get_bytes (gtk_entry_get_buffer (GTK_ENTRY (self->remote_control_password_entry)));
 
   if (l + new_text_length <= MAX_PASSWORD_SIZE)
     return;
 
-  g_signal_stop_emission_by_name (editable, "insert-text");
-  gtk_widget_error_bell (GTK_WIDGET (editable));
+  g_signal_stop_emission_by_name (self->remote_control_password_entry, "insert-text");
+  gtk_widget_error_bell (GTK_WIDGET (self->remote_control_password_entry));
 
   available_size = g_utf8_strlen (new_text, MAX_PASSWORD_SIZE - l);
   if (available_size == 0)
     return;
 
-  g_signal_handlers_block_by_func (editable,
+  g_signal_handlers_block_by_func (self->remote_control_password_entry,
                                    (gpointer) screen_sharing_password_insert_text_cb,
-                                   user_data);
-  gtk_editable_insert_text (editable, new_text, available_size, position);
-  g_signal_handlers_unblock_by_func (editable,
+                                   self);
+  gtk_editable_insert_text (GTK_EDITABLE (self->remote_control_password_entry), new_text, available_size, position);
+  g_signal_handlers_unblock_by_func (self->remote_control_password_entry,
                                      (gpointer) screen_sharing_password_insert_text_cb,
-                                     user_data);
+                                     self);
 }
 #undef MAX_PASSWORD_SIZE
 
 static void
+on_vnc_password_entry_notify_text (CcSharingPanel *self)
+{
+  cc_grd_store_vnc_password (gtk_entry_get_text (GTK_ENTRY (self->remote_control_password_entry)), cc_panel_get_cancellable (CC_PANEL (self)));
+}
+
+static void
 cc_sharing_panel_setup_screen_sharing_dialog_gnome_remote_desktop (CcSharingPanel *self)
 {
+  g_autofree gchar *password = NULL;
   g_autoptr(GSettings) vnc_settings = NULL;
   GtkWidget *networks, *w;
 
@@ -1050,23 +1028,28 @@ cc_sharing_panel_setup_screen_sharing_dialog_gnome_remote_desktop (CcSharingPane
                           G_BINDING_SYNC_CREATE);
 
   /* make sure the password entry is hidden by default */
-  g_signal_connect (self->screen_sharing_dialog,
-                    "show",
-                    G_CALLBACK (screen_sharing_show_cb),
-                    self);
+  g_signal_connect_object (self->screen_sharing_dialog,
+                           "show",
+                           G_CALLBACK (screen_sharing_show_cb),
+                           self,
+                           G_CONNECT_SWAPPED);
 
-  g_signal_connect (self->screen_sharing_dialog,
-                    "hide",
-                    G_CALLBACK (screen_sharing_hide_cb),
-                    self);
+  g_signal_connect_object (self->screen_sharing_dialog,
+                           "hide",
+                           G_CALLBACK (screen_sharing_hide_cb),
+                           self,
+                           G_CONNECT_SWAPPED);
 
-  cc_grd_update_password_entry (GTK_ENTRY (self->remote_control_password_entry));
+  password = cc_grd_lookup_vnc_password (cc_panel_get_cancellable (CC_PANEL (self)));
+  if (password != NULL)
+    gtk_entry_set_text (GTK_ENTRY (self->remote_control_password_entry), password);
 
   /* accept at most 8 bytes in password entry */
-  g_signal_connect (self->remote_control_password_entry,
-                    "insert-text",
-                    G_CALLBACK (screen_sharing_password_insert_text_cb),
-                    self);
+  g_signal_connect_object (self->remote_control_password_entry,
+                           "insert-text",
+                           G_CALLBACK (screen_sharing_password_insert_text_cb),
+                           self,
+                           G_CONNECT_SWAPPED);
 
   /* Bind settings to widgets */
   vnc_settings = g_settings_new (GNOME_REMOTE_DESKTOP_VNC_SCHEMA_ID);
@@ -1097,10 +1080,11 @@ cc_sharing_panel_setup_screen_sharing_dialog_gnome_remote_desktop (CcSharingPane
                                 NULL,
                                 NULL);
 
-  g_signal_connect (self->remote_control_password_entry,
-                    "notify::text",
-                    G_CALLBACK (cc_grd_on_vnc_password_entry_notify_text),
-                    self);
+  g_signal_connect_object (self->remote_control_password_entry,
+                           "notify::text",
+                           G_CALLBACK (on_vnc_password_entry_notify_text),
+                           self,
+                           G_CONNECT_SWAPPED);
 
   networks = cc_sharing_networks_new (self->sharing_proxy, "gnome-remote-desktop");
   gtk_box_pack_end (GTK_BOX (self->remote_control_box), networks, TRUE, TRUE, 0);
@@ -1111,7 +1095,7 @@ cc_sharing_panel_setup_screen_sharing_dialog_gnome_remote_desktop (CcSharingPane
   self->screen_sharing_switch = w;
 
   cc_sharing_panel_bind_networks_to_label (self, networks,
-                                           self->screen_sharing_status_label);
+                                           self->screen_sharing_row);
 }
 
 static void
@@ -1126,7 +1110,7 @@ remote_desktop_name_appeared (GDBusConnection *connection,
   self->remote_desktop_name_watch = 0;
 
   cc_sharing_panel_setup_screen_sharing_dialog_gnome_remote_desktop (self);
-  gtk_widget_show (self->screen_sharing_button);
+  gtk_widget_show (self->screen_sharing_row);
 }
 
 static void
@@ -1173,14 +1157,14 @@ sharing_proxy_ready (GObject      *source,
   if (cc_sharing_panel_check_schema_available (self, FILE_SHARING_SCHEMA_ID))
     cc_sharing_panel_setup_personal_file_sharing_dialog (self);
   else
-    gtk_widget_hide (self->personal_file_sharing_button);
+    gtk_widget_hide (self->personal_file_sharing_row);
 
   /* remote login */
   cc_sharing_panel_setup_remote_login_dialog (self);
 
   /* screen sharing */
   check_remote_desktop_available (self);
-  gtk_widget_hide (self->screen_sharing_button);
+  gtk_widget_hide (self->screen_sharing_row);
 }
 
 static void
@@ -1192,8 +1176,8 @@ cc_sharing_panel_init (CcSharingPanel *self)
 
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  g_signal_connect (self->main_list_box, "row-activated",
-                    G_CALLBACK (cc_sharing_panel_main_list_box_row_activated), self);
+  g_signal_connect_object (self->main_list_box, "row-activated",
+                           G_CALLBACK (cc_sharing_panel_main_list_box_row_activated), self, G_CONNECT_SWAPPED);
 
   g_signal_connect (self->media_sharing_dialog, "response",
                     G_CALLBACK (gtk_widget_hide), NULL);
@@ -1223,8 +1207,8 @@ cc_sharing_panel_init (CcSharingPanel *self)
   /* start the panel in the disabled state */
   gtk_switch_set_active (GTK_SWITCH (self->master_switch), FALSE);
   gtk_widget_set_sensitive (self->main_list_box, FALSE);
-  g_signal_connect (self->master_switch, "notify::active",
-                    G_CALLBACK (cc_sharing_panel_master_switch_notify), self);
+  g_signal_connect_object (self->master_switch, "notify::active",
+                           G_CALLBACK (cc_sharing_panel_master_switch_notify), self, G_CONNECT_SWAPPED);
 
   gsd_sharing_proxy_new_for_bus (G_BUS_TYPE_SESSION,
                                  G_DBUS_PROXY_FLAGS_NONE,

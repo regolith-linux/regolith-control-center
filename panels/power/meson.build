@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
 desktop_in = configure_file(
   input: desktop + '.in.in',
@@ -16,9 +16,17 @@ i18n.merge_file(
   install_dir: control_center_desktopdir
 )
 
-sources = files('cc-power-panel.c')
+sources = files(
+  'cc-battery-row.c',
+  'cc-power-panel.c',
+  'cc-power-profile-row.c',
+  'cc-power-profile-info-row.c'
+)
 
-resource_data = files('cc-power-panel.ui')
+resource_data = files(
+  'cc-battery-row.ui',
+  'cc-power-panel.ui'
+)
 
 sources += gnome.compile_resources(
   'cc-' + cappletname + '-resources',
@@ -32,14 +40,6 @@ deps = common_deps + [
   gnome_settings_dep,
   upower_glib_dep
 ]
-
-if host_is_linux
-  deps += network_manager_deps
-endif
-
-if host_is_linux_not_s390
-  deps += gnome_bluetooth_dep
-endif
 
 panels_libs += static_library(
   cappletname,

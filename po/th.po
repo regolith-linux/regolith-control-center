@@ -1,6 +1,6 @@
-# Thai regolith-control-center translation.
+# Thai gnome-control-center translation.
 # Copyright (C) 2003-2016 Free Software Foundation, Inc.
-# This file is distributed under the same license as the regolith-control-center package.
+# This file is distributed under the same license as the gnome-control-center package.
 # Paisa Seeluangsawat <paisa@users.sf.net>, 2003, 2004.
 # Supakorn Siddhichai <supakorn.siddhichai@nectec.or.th>, 2004.
 # Supranee Thirawatthanasuk <supranee@opentle.org>, 2004.
@@ -11,7 +11,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: regolith-control-center\n"
+"Project-Id-Version: gnome-control-center\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2016-09-10 00:29+0000\n"
@@ -209,16 +209,16 @@ msgid "Turn off the Airplane mode switch to enable Bluetooth."
 msgstr "ปิดสวิตช์โหมดเครื่องบินหากต้องการเปิดใช้งานบลูทูท"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:2
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:2
 msgid "Blue­tooth"
 msgstr "บลู­ทูท"
 
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:3
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:3
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "เปิด-ปิดบูลทูท และเชื่อมต่ออุปกรณ์ของคุณ"
 
 #. Translators: those are keywords for the bluetooth control-center panel
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:5
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:5
 msgid "share;sharing;bluetooth;obex;"
 msgstr "แบ่งปัน;ใช้ร่วม;บลูทูท;obex;"
 
@@ -839,17 +839,17 @@ msgid "D75"
 msgstr "D75"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
 msgid "Co­lor"
 msgstr "สี"
 
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:3
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:3
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr "เทียบมาตรฐานสีอุปกรณ์ของคุณ เช่น จอภาพ กล้องถ่ายรูป หรือเครื่องพิมพ์"
 
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:5
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:5
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "สี;ICC;โพรไฟล์;เทียบมาตรฐาน;เครื่องพิมพ์;จอภาพ;"
 
@@ -1005,7 +1005,7 @@ msgstr "ธันวาคม"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
 #: ../panels/datetime/datetime.ui.h:13
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
 msgid "Date & Time"
 msgstr "วันที่ & เวลา"
 
@@ -1062,12 +1062,12 @@ msgstr "24 ชั่วโมง"
 msgid "AM / PM"
 msgstr "AM / PM"
 
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:3
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:3
 msgid "Change the date and time, including time zone"
 msgstr "ตั้งวันที่และเวลา รวมถึงเขตเวลา"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:5
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:5
 msgid "Clock;Timezone;Location;"
 msgstr "นาฬิกา;เขตเวลา;ตำแหน่งที่ตั้ง;"
 
@@ -1220,16 +1220,16 @@ msgid "_Arrange Combined Displays"
 msgstr "_จัดเรียงจอแสดงผลประกอบกัน"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
 msgid "Dis­plays"
 msgstr "จอ­แสดง­ผล"
 
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:3
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:3
 msgid "Choose how to use connected monitors and projectors"
 msgstr "เลือกวิธีใช้งานจอภาพและเครื่องฉายที่เชื่อมต่ออยู่"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:5
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:5
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;"
 msgstr "แผงควบคุม;เครื่องฉาย;xrandr;หน้าจอ;ความละเอียด;รีเฟรช;จอภาพ;"
 
@@ -1559,7 +1559,7 @@ msgstr "เรียกโปรแกรมแสดงวิธีใช้"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/alt/cc-window.c:274
 #: ../shell/alt/cc-window.c:829 ../shell/cc-window.c:1584
-#: ../shell/regolith-control-center.desktop.in.in.h:1 ../shell/window.ui.h:1
+#: ../shell/gnome-control-center.desktop.in.in.h:1 ../shell/window.ui.h:1
 msgid "Settings"
 msgstr "ตั้งค่า"
 
@@ -1739,16 +1739,16 @@ msgid "Add Custom Shortcut"
 msgstr "เพิ่มปุ่มลัดกำหนดเอง"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
 msgid "Key­board"
 msgstr "แป้น­พิมพ์"
 
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:3
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:3
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr "ดูและตั้งปุ่มลัดและปรับแต่งการป้อนข้อความของคุณ"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:5
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:5
 msgid "Shortcut;Repeat;Blink;"
 msgstr "ปุ่มลัด;ซ้ำปุ่ม;กะพริบ;"
 
@@ -1820,17 +1820,17 @@ msgid "Test Your _Settings"
 msgstr "_ทดสอบค่าตั้งของคุณ"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
 msgid "Mouse & Touch­pad"
 msgstr "เมาส์ & ทัช­แพด"
 
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:3
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:3
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr "ตั้งความไวของเมาส์หรือทัชแพดของคุณ และเลือกใช้เมาส์มือขวาหรือมือซ้าย"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:5
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:5
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr "ทัชแพด;ตัวชี้;คลิก;แตะ;ดับเบิล;ปุ่ม;แทร็กบอล;เลื่อน;"
 
@@ -2532,16 +2532,16 @@ msgid "Make available to _other users"
 msgstr "เปิดให้ผู้ใ_ช้อื่นใช้ด้วย"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
 msgid "Net­work"
 msgstr "เครือ­ข่าย"
 
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:3
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:3
 msgid "Control how you connect to the Internet"
 msgstr "ควบคุมวิธีการเชื่อมต่อกับอินเทอร์เน็ตของคุณ"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:5
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:5
 msgid ""
 "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;"
 "DNS;"
@@ -3609,16 +3609,16 @@ msgid "Show Message C_ontent on Lock Screen"
 msgstr "แสดงเนื้อ_หาข้อความในหน้าล็อคหน้าจอ"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:2
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:2
 msgid "No­ti­fi­ca­tions"
 msgstr "การ­แจ้ง­เหตุ"
 
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:3
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:3
 msgid "Control which notifications are displayed and what they show"
 msgstr "ควบคุมการแจ้งเหตุว่าจะแสดงรายการใดหรือสิ่งใดบ้าง"
 
 #. Translators: those are keywords for the notifications control-center panel
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:5
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:5
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "การแจ้งเหตุ;พาดหัว;ข้อความ;ถาด;กล่องผุดขึ้น;"
 
@@ -3688,16 +3688,16 @@ msgid "_Remove"
 msgstr "_ลบออก"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
 msgid "On­line Accounts"
 msgstr "บัญชี­ออน­ไลน์"
 
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:3
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:3
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr "เชื่อมต่อไปยังบัญชีออนไลน์ของคุณและตัดสินใจว่าจะใช้เพื่อทำอะไร"
 
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:5
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:5
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -3984,16 +3984,16 @@ msgid "Devices"
 msgstr "อุปกรณ์"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
 msgid "Po­wer"
 msgstr "พลัง­งาน"
 
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:3
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:3
 msgid "View your battery status and change power saving settings"
 msgstr "ดูสถานะแบตเตอรี่และตั้งค่าการประหยัดพลังงาน"
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:5
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:5
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4262,16 +4262,16 @@ msgid "Could not load ui: %s"
 msgstr "อ่านส่วนติดต่อผู้ใช้ไม่สำเร็จ: %s"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:2
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:2
 msgid "Prin­ters"
 msgstr "เครื่อง­พิมพ์"
 
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:3
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:3
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr "เพิ่มเครื่องพิมพ์, ดูงานพิมพ์ที่เครื่องพิมพ์ และเลือกวิธีการพิมพ์"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:5
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:5
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "เครื่องพิมพ์;คิว;พิมพ์;กระดาษ;หมึก;ผงหมึก;"
 
@@ -4965,17 +4965,17 @@ msgid "Paper"
 msgstr "กระดาษ"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:2
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:2
 msgid "Re­gion & Lan­guage"
 msgstr "ภูมิ­ภาค & ภา­ษา"
 
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:3
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:3
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr "เลือกภาษาที่แสดง, รูปแบบ, ผังแป้นพิมพ์ และช่องทางป้อนข้อความของคุณ"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:5
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:5
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "ภาษา;ผังแป้นพิมพ์;แป้นพิมพ์;ป้อนข้อความ;"
 
@@ -5093,17 +5093,17 @@ msgid "No applications found"
 msgstr "ไม่พบโปรแกรม"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:2
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:2
 msgid "Search"
 msgstr "ค้นหา"
 
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:3
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:3
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr "กำหนดโปรแกรมที่จะแสดงผลการค้นหาในหน้าภาพรวมกิจกรรม"
 
 #. Translators: those are keywords for the search control-center panel
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:5
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:5
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "ค้นหา;หา;ดัชนี;ซ่อน;ความเป็นส่วนตัว;ผล;"
 
@@ -5202,16 +5202,16 @@ msgid "Sharing"
 msgstr "การแบ่งปัน"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:2
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:2
 msgid "Sha­ring"
 msgstr "การ­แบ่ง­ปัน"
 
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:3
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:3
 msgid "Control what you want to share with others"
 msgstr "ควบคุมสิ่งที่คุณต้องการแบ่งปันกับผู้อื่น"
 
 #. Translators: those are keywords for the sharing control-center panel
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:5
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:5
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -5307,16 +5307,16 @@ msgstr "แบ่งปันดนตรี, ภาพถ่าย และว
 msgid "Folders"
 msgstr "โฟลเดอร์"
 
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "เสียง"
 
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "ปรับระดับเสียง เสียงเข้า เสียงออก และเสียงแจ้งเหตุ"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "การ์ด;ไมโครโฟน;ความดัง;เฟด;สมดุล;บลูทูท;ชุดหูฟัง;เสียง;"
 
@@ -5528,16 +5528,16 @@ msgid "Custom"
 msgstr "กำหนดเอง"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
 msgid "Uni­ver­sal Access"
 msgstr "การ­เข้า­ถึง­หลาก­หลาย"
 
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:3
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:3
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "ทำให้ง่ายต่อการเห็น, ได้ยิน, พิมพ์, ชี้ และคลิก"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:5
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:5
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen;Reader;text;font;size;"
 "AccessX;Sticky;Keys;Slow;Bounce;Mouse;"
@@ -6133,16 +6133,16 @@ msgid ""
 "using your fingerprint reader."
 msgstr "บันทึกลายนิ้วมือของคุณสำเร็จแล้ว คุณควรสามารถเข้าระบบโดยใช้เครื่องอ่านลายนิ้วมือได้แล้ว"
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
 msgid "Users"
 msgstr "ผู้ใช้"
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:2
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:2
 msgid "Add or remove users and change your password"
 msgstr "เพิ่มหรือลบผู้ใช้และเปลี่ยนรหัสผ่านของคุณ"
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "เข้าระบบ;ชื่อ;ลายนิ้วมือ;รูปแทนตัว;โลโก้;รูปหน้า;รหัสผ่าน;"
 
@@ -6904,16 +6904,16 @@ msgid "Button"
 msgstr "ปุ่ม"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:2
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:2
 msgid "Wa­com Tab­let"
 msgstr "แท็บ­เล็ต Wa­com"
 
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:3
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:3
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr "ตั้งผังปุ่มและปรับความไวของสไตลัสสำหรับแท็บเล็ตกราฟิก"
 
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:5
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:5
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "แท็บเล็ต;Wacom;ปากกา;สไตลัส;ยางลบ;เมาส์;"
 
@@ -7139,15 +7139,15 @@ msgstr "การรับแรงกดของปลายปากกา"
 msgid "All Settings"
 msgstr "ค่าตั้งทั้งหมด"
 
-#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:1
+#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:1
 msgid "GNOME Control Center"
 msgstr "ศูนย์ควบคุมของ GNOME"
 
-#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:2
+#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:2
 msgid "Utilities to configure the GNOME desktop"
 msgstr "เครื่องมือสำหรับตั้งค่าเดสก์ท็อป GNOME"
 
-#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:3
+#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:3
 msgid ""
 "The control center is GNOME's main interface for configuration of various "
 "aspects of your desktop."
@@ -7209,7 +7209,7 @@ msgctxt "category"
 msgid "System"
 msgstr "ระบบ"
 
-#: ../shell/regolith-control-center.desktop.in.in.h:2
+#: ../shell/gnome-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "ปรับแต่ง;ตั้งค่า;"
 

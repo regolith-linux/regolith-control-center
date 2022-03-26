@@ -25,7 +25,6 @@
 #include <glib/gi18n.h>
 
 #include "keyboard-shortcuts.h"
-#include "cc-keyboard-option.h"
 
 #define CUSTOM_KEYS_BASENAME  "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
 
@@ -210,25 +209,6 @@ parse_start_tag (GMarkupParseContext *ctx,
   g_array_append_val (keylist->entries, key);
 }
 
-void
-fill_xkb_options_shortcuts (GtkTreeModel *model)
-{
-  GList *l;
-  GtkTreeIter iter;
-
-  for (l = cc_keyboard_option_get_all (); l; l = l->next)
-    {
-      CcKeyboardOption *option = l->data;
-
-      gtk_list_store_append (GTK_LIST_STORE (model), &iter);
-      gtk_list_store_set (GTK_LIST_STORE (model), &iter,
-                          DETAIL_DESCRIPTION_COLUMN, cc_keyboard_option_get_description (option),
-                          DETAIL_KEYENTRY_COLUMN, option,
-                          DETAIL_TYPE_COLUMN, SHORTCUT_TYPE_XKB_OPTION,
-                          -1);
-    }
-}
-
 static const guint forbidden_keyvals[] = {
   /* Navigation keys */
   GDK_KEY_Home,
@@ -262,7 +242,7 @@ keyval_is_forbidden (guint keyval)
 }
 
 gboolean
-is_valid_binding (CcKeyCombo *combo)
+is_valid_binding (const CcKeyCombo *combo)
 {
   if ((combo->mask == 0 || combo->mask == GDK_SHIFT_MASK) && combo->keycode != 0)
     {
@@ -287,7 +267,7 @@ is_valid_binding (CcKeyCombo *combo)
 }
 
 gboolean
-is_empty_binding (CcKeyCombo *combo)
+is_empty_binding (const CcKeyCombo *combo)
 {
   if (combo->keyval == 0 &&
       combo->mask == 0 &&
@@ -297,7 +277,7 @@ is_empty_binding (CcKeyCombo *combo)
 }
 
 gboolean
-is_valid_accel (CcKeyCombo *combo)
+is_valid_accel (const CcKeyCombo *combo)
 {
   /* Unlike gtk_accelerator_valid(), we want to allow Tab when combined
    * with some modifiers (Alt+Tab and friends)
@@ -330,44 +310,6 @@ find_free_settings_path (GSettings *settings)
     }
 
   return g_steal_pointer (&dir);
-}
-
-static gboolean
-poke_xkb_option_row (GtkTreeModel *model,
-                     GtkTreePath  *path,
-                     GtkTreeIter  *iter,
-                     gpointer      option)
-{
-  gpointer item;
-
-  gtk_tree_model_get (model, iter,
-                      DETAIL_KEYENTRY_COLUMN, &item,
-                      -1);
-
-  if (item != option)
-    return FALSE;
-
-  gtk_tree_model_row_changed (model, path, iter);
-  return TRUE;
-}
-
-static void
-xkb_option_changed (CcKeyboardOption *option,
-                    gpointer          data)
-{
-  GtkTreeModel *model = data;
-
-  gtk_tree_model_foreach (model, poke_xkb_option_row, option);
-}
-
-void
-setup_keyboard_options (GtkListStore *store)
-{
-  GList *l;
-
-  for (l = cc_keyboard_option_get_all (); l; l = l->next)
-    g_signal_connect (l->data, "changed",
-                      G_CALLBACK (xkb_option_changed), store);
 }
 
 KeyList*
@@ -413,7 +355,7 @@ parse_keylist_from_file (const gchar *path)
  * https://git.gnome.org/browse/gtk+/tree/gtk/gtkcellrendereraccel.c#n261
  */
 gchar*
-convert_keysym_state_to_string (CcKeyCombo *combo)
+convert_keysym_state_to_string (const CcKeyCombo *combo)
 {
   gchar *name;
 

@@ -96,7 +96,7 @@ cc_display_mode_get_resolution (CcDisplayMode *self, int *w, int *h)
   return CC_DISPLAY_MODE_GET_CLASS (self)->get_resolution (self, w, h);
 }
 
-const double *
+GArray *
 cc_display_mode_get_supported_scales (CcDisplayMode *self)
 {
   return CC_DISPLAY_MODE_GET_CLASS (self)->get_supported_scales (self);
@@ -486,6 +486,11 @@ cc_display_config_class_init (CcDisplayConfigClass *klass)
                 G_SIGNAL_RUN_LAST,
                 0, NULL, NULL, NULL,
                 G_TYPE_NONE, 0);
+  g_signal_new ("panel-orientation-managed",
+                CC_TYPE_DISPLAY_CONFIG,
+                G_SIGNAL_RUN_LAST,
+                0, NULL, NULL, NULL,
+                G_TYPE_NONE, 1, G_TYPE_BOOLEAN);
 
   gobject_class->constructed = cc_display_config_constructed;
   gobject_class->finalize = cc_display_config_finalize;
@@ -614,6 +619,7 @@ cc_display_config_set_minimum_size (CcDisplayConfig *self,
                                     int              width,
                                     int              height)
 {
+  g_return_if_fail (CC_IS_DISPLAY_CONFIG (self));
   CC_DISPLAY_CONFIG_GET_CLASS (self)->set_minimum_size (self, width, height);
 }
 
@@ -622,5 +628,13 @@ cc_display_config_is_scaled_mode_valid (CcDisplayConfig *self,
                                         CcDisplayMode   *mode,
                                         double           scale)
 {
+  g_return_val_if_fail (CC_IS_DISPLAY_CONFIG (self), FALSE);
+  g_return_val_if_fail (CC_IS_DISPLAY_MODE (mode), FALSE);
   return CC_DISPLAY_CONFIG_GET_CLASS (self)->is_scaled_mode_valid (self, mode, scale);
+}
+
+gboolean
+cc_display_config_get_panel_orientation_managed (CcDisplayConfig *self)
+{
+  return CC_DISPLAY_CONFIG_GET_CLASS (self)->get_panel_orientation_managed (self);
 }

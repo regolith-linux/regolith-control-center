@@ -23,7 +23,6 @@
 
 #include <glib-object.h>
 #include <glib/gi18n.h>
-#define HANDY_USE_UNSTABLE_API
 #include <handy.h>
 #include <NetworkManager.h>
 
@@ -64,6 +63,7 @@ add_details_row (GtkWidget *details, gint top, const gchar *heading, const gchar
         heading_label = gtk_label_new (heading);
         gtk_style_context_add_class (gtk_widget_get_style_context (heading_label), "dim-label");
         gtk_widget_set_halign (heading_label, GTK_ALIGN_END);
+        gtk_widget_set_valign (heading_label, GTK_ALIGN_START);
         gtk_widget_set_hexpand (heading_label, TRUE);
 
         gtk_grid_attach (GTK_GRID (details), heading_label, 0, top, 1, 1);
@@ -116,7 +116,9 @@ add_details (GtkWidget *details, NMDevice *device, NMConnection *connection)
         const gchar *ip4_address = NULL;
         const gchar *ip4_route = NULL;
         g_autofree gchar *ip4_dns = NULL;
-        const gchar *ip6_address = NULL;
+        g_autofree gchar *ip6_addresses = NULL;
+        const gchar *ip6_route = NULL;
+        g_autofree gchar *ip6_dns = NULL;
         gint i = 0;
 
         ip4_config = nm_device_get_ip4_config (device);
@@ -129,32 +131,48 @@ add_details (GtkWidget *details, NMDevice *device, NMConnection *connection)
 
                 ip4_route = nm_ip_config_get_gateway (ip4_config);
                 ip4_dns = g_strjoinv (" ", (char **) nm_ip_config_get_nameservers (ip4_config));
+                if (!*ip4_dns)
+                        ip4_dns = NULL;
         }
         ip6_config = nm_device_get_ip6_config (device);
         if (ip6_config) {
-                GPtrArray *addresses;
-
-                addresses = nm_ip_config_get_addresses (ip6_config);
-                if (addresses->len > 0)
-                        ip6_address = nm_ip_address_get_address (g_ptr_array_index (addresses, 0));
+                ip6_addresses = net_device_get_ip6_addresses (ip6_config);
+                ip6_route = nm_ip_config_get_gateway (ip6_config);
+                ip6_dns = g_strjoinv (" ", (char **) nm_ip_config_get_nameservers (ip6_config));
+                if (!*ip6_dns)
+                        ip6_dns = NULL;
         }
 
-        if (ip4_address && ip6_address) {
+        if (ip4_address && ip6_addresses) {
                 add_details_row (details, i++, _("IPv4 Address"), ip4_address);
-                add_details_row (details, i++, _("IPv6 Address"), ip6_address);
+                gtk_widget_set_valign (details, GTK_ALIGN_START);
+                add_details_row (details, i++, _("IPv6 Address"), ip6_addresses);
+                gtk_widget_set_valign (details, GTK_ALIGN_START);
         } else if (ip4_address) {
                 add_details_row (details, i++, _("IP Address"), ip4_address);
-        } else if (ip6_address) {
-                add_details_row (details, i++, _("IPv6 Address"), ip6_address);
+        } else if (ip6_addresses) {
+                add_details_row (details, i++, _("IP Address"), ip6_addresses);
         }
 
-        add_details_row (details, i++, _("Hardware Address"),
-                         nm_device_ethernet_get_hw_address (NM_DEVICE_ETHERNET (device)));
+        add_details_row (details, i++, _("Hardware Address"), nm_device_get_hw_address (device));
 
-        if (ip4_route)
+        if (ip4_route && ip6_route) {
+                g_autofree gchar *ip_routes = g_strjoin ("\n", ip4_route, ip6_route, NULL);
+                add_details_row (details, i++, _("Default Route"), ip_routes);
+        } else if (ip4_route) {
                 add_details_row (details, i++, _("Default Route"), ip4_route);
-        if (ip4_dns)
+        } else if (ip6_route) {
+                add_details_row (details, i++, _("Default Route"), ip6_route);
+        }
+
+        if (ip4_dns && ip6_dns) {
+                add_details_row (details, i++, _("DNS4"), ip4_dns);
+                add_details_row (details, i++, _("DNS6"), ip6_dns);
+        } else if (ip4_dns) {
                 add_details_row (details, i++, _("DNS"), ip4_dns);
+        } else if (ip6_dns) {
+                add_details_row (details, i++, _("DNS"), ip6_dns);
+        }
 
         if (nm_device_get_state (device) != NM_DEVICE_STATE_ACTIVATED) {
                 g_autofree gchar *last_used = NULL;
@@ -203,7 +221,7 @@ device_ethernet_refresh_ui (NetDeviceEthernet *self)
                 }
         }
         status = panel_device_status_to_localized_string (self->device, speed_text);
-        hdy_action_row_set_title (self->details_row, status);
+        hdy_preferences_row_set_title (HDY_PREFERENCES_ROW (self->details_row), status);
 
         populate_ui (self);
 }
@@ -212,7 +230,6 @@ static void
 editor_done (NetDeviceEthernet *self)
 {
         device_ethernet_refresh_ui (self);
-        g_object_unref (self);
 }
 
 static void
@@ -220,19 +237,17 @@ show_details (NetDeviceEthernet *self, GtkButton *button, const gchar *title)
 {
         GtkWidget *row;
         NMConnection *connection;
-        GtkWidget *window;
         NetConnectionEditor *editor;
-
-        window = gtk_widget_get_toplevel (GTK_WIDGET (self));
 
         row = g_object_get_data (G_OBJECT (button), "row");
         connection = NM_CONNECTION (g_object_get_data (G_OBJECT (row), "connection"));
 
-        editor = net_connection_editor_new (GTK_WINDOW (window), connection, self->device, NULL, self->client);
+        editor = net_connection_editor_new (connection, self->device, NULL, self->client);
+        gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
         if (title)
                 net_connection_editor_set_title (editor, title);
-        g_signal_connect_swapped (editor, "done", G_CALLBACK (editor_done), g_object_ref (self));
-        net_connection_editor_run (editor);
+        g_signal_connect_object (editor, "done", G_CALLBACK (editor_done), self, G_CONNECT_SWAPPED);
+        gtk_window_present (GTK_WINDOW (editor));
 }
 
 static void
@@ -319,7 +334,7 @@ add_row (NetDeviceEthernet *self, NMConnection *connection)
         gtk_box_pack_start (GTK_BOX (box), widget, FALSE, TRUE, 0);
         g_object_set_data (G_OBJECT (widget), "edit", widget);
         g_object_set_data (G_OBJECT (widget), "row", row);
-        g_signal_connect_swapped (widget, "clicked", G_CALLBACK (show_details_for_row), self);
+        g_signal_connect_object (widget, "clicked", G_CALLBACK (show_details_for_row), self, G_CONNECT_SWAPPED);
 
         gtk_widget_show_all (row);
 
@@ -394,7 +409,6 @@ add_profile_button_clicked_cb (NetDeviceEthernet *self)
         g_autofree gchar *uuid = NULL;
         g_autofree gchar *id = NULL;
         NetConnectionEditor *editor;
-        GtkWidget *window;
         const GPtrArray *connections;
 
         connection = nm_simple_connection_new ();
@@ -415,11 +429,10 @@ add_profile_button_clicked_cb (NetDeviceEthernet *self)
 
         nm_connection_add_setting (connection, nm_setting_wired_new ());
 
-        window = gtk_widget_get_toplevel (GTK_WIDGET (self));
-
-        editor = net_connection_editor_new (GTK_WINDOW (window), connection, self->device, NULL, self->client);
-        g_signal_connect_swapped (editor, "done", G_CALLBACK (editor_done), g_object_ref (self));
-        net_connection_editor_run (editor);
+        editor = net_connection_editor_new (connection, self->device, NULL, self->client);
+        gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
+        g_signal_connect_object (editor, "done", G_CALLBACK (editor_done), self, G_CONNECT_SWAPPED);
+        gtk_window_present (GTK_WINDOW (editor));
 }
 
 static void

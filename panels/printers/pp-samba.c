@@ -33,9 +33,6 @@ struct _PpSamba
   PpHost    parent_instance;
 
   /* Auth info */
-  gchar    *server;
-  gchar    *share;
-  gchar    *workgroup;
   gchar    *username;
   gchar    *password;
   gboolean  waiting;
@@ -48,9 +45,6 @@ pp_samba_finalize (GObject *object)
 {
   PpSamba *self = PP_SAMBA (object);
 
-  g_clear_pointer (&self->server, g_free);
-  g_clear_pointer (&self->share, g_free);
-  g_clear_pointer (&self->workgroup, g_free);
   g_clear_pointer (&self->username, g_free);
   g_clear_pointer (&self->password, g_free);
 
@@ -81,7 +75,7 @@ pp_samba_new (const gchar *hostname)
 typedef struct
 {
   PpSamba       *samba;
-  PpDevicesList *devices;
+  GPtrArray     *devices;
   GMainContext  *context;
   gboolean       auth_if_needed;
   gboolean       hostname_set;
@@ -93,7 +87,7 @@ smb_data_free (SMBData *data)
 {
   if (data)
     {
-      pp_devices_list_free (data->devices);
+      g_ptr_array_unref (data->devices);
 
       g_free (data);
     }
@@ -150,9 +144,6 @@ auth_fn (SMBCCTX    *smb_context,
 
   if (!data->cancelled)
     {
-      samba->server = g_strdup (server);
-      samba->share = g_strdup (share);
-      samba->workgroup = g_strdup (workgroup);
       samba->username = g_strdup (username);
       samba->password = g_strdup (password);
 
@@ -230,7 +221,6 @@ list_dir (SMBCCTX      *smb_context,
   smbc_closedir_fn    smbclient_closedir;
   smbc_readdir_fn     smbclient_readdir;
   smbc_opendir_fn     smbclient_opendir;
-  PpPrintDevice      *device;
   const gchar        *host_name;
   SMBCFILE           *dir;
 
@@ -257,12 +247,11 @@ list_dir (SMBCCTX      *smb_context,
 
               if (data->cancelled)
                 {
-                  device = g_object_new (PP_TYPE_PRINT_DEVICE,
-                                         "host-name", host_name,
-                                         "is-authenticated-server", TRUE,
-                                         NULL);
-
-                  data->devices->devices = g_list_append (data->devices->devices, device);
+                  PpPrintDevice *device = g_object_new (PP_TYPE_PRINT_DEVICE,
+                                                        "host-name", host_name,
+                                                        "is-authenticated-server", TRUE,
+                                                        NULL);
+                  g_ptr_array_add (data->devices, device);
 
                   if (dir)
                     smbclient_closedir (smb_context, dir);
@@ -271,12 +260,11 @@ list_dir (SMBCCTX      *smb_context,
             }
           else
             {
-              device = g_object_new (PP_TYPE_PRINT_DEVICE,
-                                     "host-name", host_name,
-                                     "is-authenticated-server", TRUE,
-                                     NULL);
-
-              data->devices->devices = g_list_append (data->devices->devices, device);
+              PpPrintDevice *device = g_object_new (PP_TYPE_PRINT_DEVICE,
+                                                    "host-name", host_name,
+                                                    "is-authenticated-server", TRUE,
+                                                    NULL);
+              g_ptr_array_add (data->devices, device);
             }
         }
 
@@ -302,6 +290,7 @@ list_dir (SMBCCTX      *smb_context,
               g_autofree gchar *uri = NULL;
               g_autofree gchar *device_name = NULL;
               g_autofree gchar *device_uri = NULL;
+              PpPrintDevice *device;
 
               uri = g_strdup_printf ("%s/%s", dirname, dirent->name);
               device_uri = g_uri_escape_string (uri,
@@ -322,7 +311,7 @@ list_dir (SMBCCTX      *smb_context,
                                      "host-name", dirname,
                                      NULL);
 
-              data->devices->devices = g_list_append (data->devices->devices, device);
+              g_ptr_array_add (data->devices, device);
             }
 
           if (subdirname)
@@ -350,8 +339,7 @@ _pp_samba_get_devices_thread (GTask        *task,
   SMBData        *data = (SMBData *) task_data;
   SMBCCTX        *smb_context;
 
-  data->devices = g_new0 (PpDevicesList, 1);
-  data->devices->devices = NULL;
+  data->devices = g_ptr_array_new_with_free_func (g_object_unref);
   data->samba = PP_SAMBA (source_object);
 
   g_mutex_lock (&mutex);
@@ -388,7 +376,7 @@ _pp_samba_get_devices_thread (GTask        *task,
 
   g_mutex_unlock (&mutex);
 
-  g_task_return_pointer (task, g_steal_pointer (&data->devices), (GDestroyNotify) pp_devices_list_free);
+  g_task_return_pointer (task, g_ptr_array_ref (data->devices), (GDestroyNotify) g_ptr_array_unref);
 }
 
 void
@@ -415,7 +403,7 @@ pp_samba_get_devices_async (PpSamba             *samba,
   g_task_run_in_thread (task, _pp_samba_get_devices_thread);
 }
 
-PpDevicesList *
+GPtrArray *
 pp_samba_get_devices_finish (PpSamba       *samba,
                              GAsyncResult  *res,
                              GError       **error)

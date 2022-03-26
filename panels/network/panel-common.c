@@ -290,30 +290,6 @@ get_mac_address_of_connection (NMConnection *connection)
         return NULL;
 }
 
-static const gchar *
-get_mac_address_of_device (NMDevice *device)
-{
-        const gchar *mac = NULL;
-        switch (nm_device_get_device_type (device)) {
-        case NM_DEVICE_TYPE_WIFI:
-        {
-                NMDeviceWifi *device_wifi = NM_DEVICE_WIFI (device);
-                mac = nm_device_wifi_get_hw_address (device_wifi);
-                break;
-        }
-        case NM_DEVICE_TYPE_ETHERNET:
-        {
-                NMDeviceEthernet *device_ethernet = NM_DEVICE_ETHERNET (device);
-                mac = nm_device_ethernet_get_hw_address (device_ethernet);
-                break;
-        }
-        default:
-                break;
-        }
-        /* no MAC address found */
-        return mac;
-}
-
 /* returns TRUE if both MACs are equal */
 static gboolean
 compare_mac_device_with_mac_connection (NMDevice *device,
@@ -322,7 +298,7 @@ compare_mac_device_with_mac_connection (NMDevice *device,
         const gchar *mac_dev = NULL;
         g_autofree gchar *mac_conn = NULL;
 
-        mac_dev = get_mac_address_of_device (device);
+        mac_dev = nm_device_get_hw_address (device);
         if (mac_dev == NULL)
                 return FALSE;
 
@@ -451,4 +427,23 @@ net_device_get_valid_connections (NMClient *client, NMDevice *device)
         g_ptr_array_free (filtered, FALSE);
 
         return g_slist_reverse (valid);
+}
+
+gchar *
+net_device_get_ip6_addresses (NMIPConfig *ipv6_config)
+{
+        g_autoptr(GPtrArray) ipv6 = NULL;
+        GPtrArray *addresses;
+
+        addresses = nm_ip_config_get_addresses (ipv6_config);
+        if (addresses->len == 0) {
+                return NULL;
+        }
+        ipv6 = g_ptr_array_sized_new (addresses->len + 1);
+
+        for (int i = 0; i < addresses->len; i++) {
+                g_ptr_array_add (ipv6, (char *) nm_ip_address_get_address (g_ptr_array_index (addresses, i)));
+        }
+        g_ptr_array_add (ipv6, NULL);
+        return g_strjoinv ("\n", (char **) ipv6->pdata);
 }

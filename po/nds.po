@@ -1,11 +1,11 @@
-# Low German translation for regolith-control-center.
-# Copyright (C) 2009 regolith-control-center's COPYRIGHT HOLDER
-# This file is distributed under the same license as the regolith-control-center package.
+# Low German translation for gnome-control-center.
+# Copyright (C) 2009 gnome-control-center's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-control-center package.
 # Nils-Christoph Fiedler <fiedler@medienkompanie.de>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: regolith-control-center gnome-2-28\n"
+"Project-Id-Version: gnome-control-center gnome-2-28\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&component=general\n"
 "POT-Creation-Date: 2009-11-22 16:05+0000\n"
@@ -18,31 +18,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../regolith-control-center.schemas.in.h:1
+#: ../gnome-control-center.schemas.in.h:1
 msgid "Current network location"
 msgstr "Aktueller Netwarkort"
 
-#: ../regolith-control-center.schemas.in.h:2
+#: ../gnome-control-center.schemas.in.h:2
 msgid "More backgrounds URL"
 msgstr "Mehr Achtergründe URL"
 
-#: ../regolith-control-center.schemas.in.h:3
+#: ../gnome-control-center.schemas.in.h:3
 msgid "More themes URL"
 msgstr "Mehr Themen URL"
 
-#: ../regolith-control-center.schemas.in.h:4
+#: ../gnome-control-center.schemas.in.h:4
 msgid ""
 "Set this to your current location name. This is used to determine the "
 "appropriate network proxy configuration."
 msgstr ""
 
-#: ../regolith-control-center.schemas.in.h:5
+#: ../gnome-control-center.schemas.in.h:5
 msgid ""
 "URL for where to get more desktop backgrounds. If set to an empty string the "
 "link will not appear."
 msgstr ""
 
-#: ../regolith-control-center.schemas.in.h:6
+#: ../gnome-control-center.schemas.in.h:6
 msgid ""
 "URL for where to get more desktop themes. If set to an empty string the link "
 "will not appear."

@@ -78,7 +78,7 @@ struct _CcDisplayModeClass
   GObjectClass parent_class;
 
   void          (*get_resolution)       (CcDisplayMode *self, int *w, int *h);
-  const double* (*get_supported_scales) (CcDisplayMode *self);
+  GArray*       (*get_supported_scales) (CcDisplayMode *self);
   double        (*get_preferred_scale)  (CcDisplayMode *self);
   gboolean      (*is_interlaced)        (CcDisplayMode *self);
   int           (*get_freq)             (CcDisplayMode *self);
@@ -160,6 +160,7 @@ struct _CcDisplayConfigClass
   gboolean (*is_scaled_mode_valid) (CcDisplayConfig  *self,
                                     CcDisplayMode    *mode,
                                     double            scale);
+  gboolean (* get_panel_orientation_managed) (CcDisplayConfig    *self);
 };
 
 
@@ -186,6 +187,8 @@ void              cc_display_config_set_minimum_size        (CcDisplayConfig    
 gboolean          cc_display_config_is_scaled_mode_valid    (CcDisplayConfig    *self,
                                                              CcDisplayMode      *mode,
                                                              double              scale);
+gboolean          cc_display_config_get_panel_orientation_managed
+                                                            (CcDisplayConfig    *self);
 
 const char*       cc_display_monitor_get_display_name       (CcDisplayMonitor   *monitor);
 gboolean          cc_display_monitor_is_active              (CcDisplayMonitor   *monitor);
@@ -241,7 +244,7 @@ char*             cc_display_monitor_dup_ui_number_name     (CcDisplayMonitor  *
 void              cc_display_mode_get_resolution            (CcDisplayMode     *mode,
                                                              int               *width,
                                                              int               *height);
-const double*     cc_display_mode_get_supported_scales      (CcDisplayMode     *self);
+GArray*           cc_display_mode_get_supported_scales      (CcDisplayMode     *self);
 double            cc_display_mode_get_preferred_scale       (CcDisplayMode     *self);
 gboolean          cc_display_mode_is_interlaced             (CcDisplayMode     *mode);
 int               cc_display_mode_get_freq                  (CcDisplayMode     *mode);

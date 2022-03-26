@@ -57,20 +57,6 @@ typedef struct {
   guint new_keycode;
 } CcUniquenessData;
 
-typedef enum
-{
-  SHORTCUT_TYPE_KEY_ENTRY,
-  SHORTCUT_TYPE_XKB_OPTION,
-} ShortcutType;
-
-enum
-{
-  DETAIL_DESCRIPTION_COLUMN,
-  DETAIL_KEYENTRY_COLUMN,
-  DETAIL_TYPE_COLUMN,
-  DETAIL_N_COLUMNS
-};
-
 enum
 {
   SECTION_DESCRIPTION_COLUMN,
@@ -81,16 +67,12 @@ enum
 
 gchar*   find_free_settings_path        (GSettings *settings);
 
-void     fill_xkb_options_shortcuts     (GtkTreeModel *model);
+gboolean is_valid_binding               (const CcKeyCombo *combo);
 
-void     setup_keyboard_options         (GtkListStore *store);
+gboolean is_empty_binding               (const CcKeyCombo *combo);
 
-gboolean is_valid_binding               (CcKeyCombo *combo);
-
-gboolean is_empty_binding               (CcKeyCombo *combo);
-
-gboolean is_valid_accel                 (CcKeyCombo *combo);
+gboolean is_valid_accel                 (const CcKeyCombo *combo);
 
 KeyList* parse_keylist_from_file        (const gchar *path);
 
-gchar*   convert_keysym_state_to_string (CcKeyCombo *combo);
+gchar*   convert_keysym_state_to_string (const CcKeyCombo *combo);

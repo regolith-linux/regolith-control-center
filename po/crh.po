@@ -1,10 +1,10 @@
-# Qırımtatarca regolith-control-center.
-# This file is distributed under the same license as the regolith-control-center package.
+# Qırımtatarca gnome-control-center.
+# This file is distributed under the same license as the gnome-control-center package.
 # Reşat SABIQ <tilde.birlik@gmail.com>, 2009, 2010, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: regolith-control-center\n"
+"Project-Id-Version: gnome-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-21 19:21-0500\n"
 "PO-Revision-Date: 2013-05-23 18:26-0500\n"
@@ -227,11 +227,11 @@ msgstr ""
 "gerekecek."
 
 # tr
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:1
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:1
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:2
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:2
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr ""
 
@@ -737,7 +737,7 @@ msgstr ""
 "pencereye sürükleyebilirsiniz."
 
 #: ../panels/color/color.ui.h:34
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:1
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:1
 msgid "Color"
 msgstr "Tüs"
 
@@ -889,14 +889,14 @@ msgstr ""
 msgid "D75"
 msgstr "D75"
 
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
 
 # tr
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:4
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:4
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "Renk;ICC;Profil;Ayar;Yazıcı;Görünüm;"
 
@@ -1152,16 +1152,16 @@ msgstr "Qasım"
 msgid "December"
 msgstr "Aralıq"
 
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:1
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:1
 msgid "Date & Time"
 msgstr "Tarih & Saat"
 
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
 msgid "Change the date and time, including time zone"
 msgstr ""
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:4
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:4
 msgid "Clock;Timezone;Location;"
 msgstr "Saat;Saat Tilimi;Qonum;"
 
@@ -1199,7 +1199,7 @@ msgstr "180 Derece"
 #. * used as an adjective.  For example, the Spanish translation could be
 #. * "Pantallas en Espejo".
 #.
-#. Keep this string in sync with regolith-control-center/capplets/display/xrandr-capplet.c:get_display_name()
+#. Keep this string in sync with gnome-control-center/capplets/display/xrandr-capplet.c:get_display_name()
 #. Translators:  this is the feature where what you see on your
 #. * laptop's screen is the same as your external projector.
 #. * Here, "Mirrored" is being used as an adjective.  For example,
@@ -1284,16 +1284,16 @@ msgid "_Detect Displays"
 msgstr "Ekranları _Alğıla"
 
 # tr
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
 msgid "Displays"
 msgstr "Ekranlar"
 
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
 msgid "Choose how to use connected monitors and projectors"
 msgstr "Bağlanğan monitorlar ve proyektorlarnıñ nasıl qullanılacağını sayla"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:4
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:4
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 msgstr "Panel;Proyektor;xrandr;Ekran;Çezinirlik;Tazeleme;"
 
@@ -1722,7 +1722,7 @@ msgid "Lock screen"
 msgstr "Ekrannı kilitle"
 
 #: ../panels/keyboard/50-accessibility.xml.in.h:1
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:1
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:1
 msgid "Universal Access"
 msgstr "Cihanşümul İrişim"
 
@@ -1784,19 +1784,19 @@ msgstr "Telif Tuşu"
 msgid "Modifiers-only switch to next source"
 msgstr "Soñraki menbağa faqat-başqalaştırıcılar almaştırıcısı"
 
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
 #: ../panels/keyboard/gnome-keyboard-panel.ui.h:4
 msgid "Keyboard"
 msgstr "Klavye"
 
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr ""
 "Klavye qısqayollarını seyretiñiz hem deñiştiriñiz ve tuşlama tercihleriñizni "
 "tesbit etiñiz"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:4
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:4
 msgid "Shortcut;Repeat;Blink;"
 msgstr "Qısqayol;Tekrar;Qıpma;"
 
@@ -1948,18 +1948,18 @@ msgstr "_Kene tayin et"
 msgid "Test Your _Settings"
 msgstr "Ayarlarıñıznı _Sınañız"
 
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
 msgid "Mouse & Touchpad"
 msgstr "Sıçan & Tiyüv-şiltesi"
 
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
 
 # tr
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:4
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:4
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;"
 msgstr "Trackpad;İşaretçi;Tıklama;Vurma;Çift;Düğme;Trackball;"
 
@@ -2701,17 +2701,17 @@ msgstr "Ev Şebekem"
 msgid "Make available to _other users"
 msgstr ""
 
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
 #: ../panels/network/network-mobile.ui.h:7
 msgid "Network"
 msgstr "Şebeke"
 
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
 msgid "Control how you connect to the Internet"
 msgstr "İnternet'ke nasıl bağlanğanıñıznı muraqabe etiñiz"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:4
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:4
 msgid ""
 "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;"
 "vlan;bridge;bond;"
@@ -3717,16 +3717,16 @@ msgid "Off"
 msgstr "Qapalı"
 
 # tr
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:1
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:1
 msgid "Notifications"
 msgstr "Tebliğler"
 
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:2
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:2
 msgid "Control which notifications are displayed and what they show"
 msgstr ""
 
 #. Translators: those are keywords for the notifications control-center panel
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:4
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:4
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr ""
 
@@ -3803,17 +3803,17 @@ msgid "_Remove"
 msgstr "_Çetleştir"
 
 # tr
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:1
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:1
 msgid "Online Accounts"
 msgstr "Çevrimiçi Hesaplar"
 
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 
 # tr
 #. Translators: those are keywords for the online-accounts control-center panel
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:4
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:4
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 msgstr ""
@@ -4095,17 +4095,17 @@ msgstr "Söndür"
 msgid "Devices"
 msgstr "Cihazlar"
 
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:1
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:1
 msgid "Power"
 msgstr "Qudret"
 
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
 msgid "View your battery status and change power saving settings"
 msgstr ""
 
 # tüklü
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:4
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:4
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4425,17 +4425,17 @@ msgstr "Deñeme sahifesi"
 msgid "Could not load ui: %s"
 msgstr "Arayüz yüklenemedi: %s"
 
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:1
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:1
 msgid "Printers"
 msgstr "Bastırıcılar"
 
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:2
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:2
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr ""
 
 # tr
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:4
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:4
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Yazıcı;Kuyruk;Yazdur;Kâğıt;Mürekkep;Toner;"
 
@@ -5091,17 +5091,17 @@ msgstr "Ölçüm"
 msgid "Paper"
 msgstr "Kâğıt"
 
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:1
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:1
 msgid "Region & Language"
 msgstr "Bölge & Til"
 
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:2
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:2
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr ""
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:4
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:4
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "Til;Tizilim;Klavye;Kirdi;"
 
@@ -5195,17 +5195,17 @@ msgid "No applications found"
 msgstr "Tapılğan uyğulamalar yoq"
 
 # tr
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:1
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:1
 msgid "Search"
 msgstr "Qıdır"
 
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:2
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:2
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
 
 #. Translators: those are keywords for the search control-center panel
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:4
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:4
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr ""
 
@@ -5244,16 +5244,16 @@ msgstr "Bir Cilbent Saylañız"
 msgid "Copy"
 msgstr "Kopiyala"
 
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:1
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:1
 msgid "Sharing"
 msgstr "Üleşim"
 
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:2
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:2
 msgid "Control what you want to share with others"
 msgstr ""
 
 #. Translators: those are keywords for the sharing control-center panel
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:4
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:4
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;video;"
 "pictures;photos;movies;server;renderer;"
@@ -5390,18 +5390,18 @@ msgid "Show Password"
 msgstr "Sır-sözni Köster"
 
 # tr
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "Davuş"
 
 # tr
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr ""
 "Davuş seviyelerini, kirdilerni, çıqtılarnı ve iqaz davuşlarını deñiştir"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "Kart;Mikrofon;Gürlük;Solma;Muvazenet;Bluetooth;Baş-Seti;Davuş;"
 
@@ -5663,12 +5663,12 @@ msgstr "Özel"
 msgid "No shortcut set"
 msgstr "Kısayol belirlenmemiş"
 
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
 msgid "Make it easier to see, hear, type, point and click"
 msgstr ""
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:4
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:4
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen Reader;text;font;size;"
 "AccessX;Sticky Keys;Slow Keys;Bounce Keys;Mouse Keys;"
@@ -6320,18 +6320,18 @@ msgstr ""
 "Parmak iziniz başarıyla kaydedildi. Artık parmak izi okuyucusunu kullanarak "
 "giriş yapabilirsiniz."
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
 msgid "Users"
 msgstr "Qullanıcılar"
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:2
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:2
 msgid "Add or remove users and change your password"
 msgstr ""
 "Qullanıcılarnı ekleñiz ya da çetleştiriñiz ve sır-sözüñizni deñiştiriñiz"
 
 # tr
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "Giriş;İsim;Parmak izi;Kullanıcı simgesi;Logo;Yüz;Parola;"
 
@@ -7072,18 +7072,18 @@ msgid "Display Mapping"
 msgstr "Eşlemeyi görüntüle"
 
 # tr
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:1
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:1
 #: ../panels/wacom/gnome-wacom-properties.ui.h:7
 msgid "Wacom Tablet"
 msgstr "Wacom Tablet"
 
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:2
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:2
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 
 # tr
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:4
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:4
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Tablet;Wacom;Kalem;Silgi;Fare;"
 
@@ -7374,7 +7374,7 @@ msgstr "Yardım"
 msgid "Quit"
 msgstr "Terk et"
 
-#: ../shell/cc-window.c:61 ../shell/regolith-control-center.desktop.in.in.h:1
+#: ../shell/cc-window.c:61 ../shell/gnome-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "Ayarlar"
 
@@ -7399,7 +7399,7 @@ msgstr "Sistem"
 msgid "All Settings"
 msgstr "Hepsi Ayarlar"
 
-#: ../shell/regolith-control-center.desktop.in.in.h:2
+#: ../shell/gnome-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Tercihler;Ayarlar;"
 

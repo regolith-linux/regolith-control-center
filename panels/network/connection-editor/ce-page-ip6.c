@@ -28,6 +28,7 @@
 #include <NetworkManager.h>
 
 #include "list-box-helper.h"
+#include "ce-ip-address-entry.h"
 #include "ce-page.h"
 #include "ce-page-ip6.h"
 #include "ui-helpers.h"
@@ -50,6 +51,7 @@ struct _CEPageIP6
         GtkRadioButton    *disabled_radio;
         GtkEntry          *dns_entry;
         GtkRadioButton    *local_radio;
+        GtkGrid           *main_box;
         GtkRadioButton    *manual_radio;
         GtkCheckButton    *never_default_check;
         GtkBox            *routes_box;
@@ -79,7 +81,7 @@ enum {
         IP6_METHOD_MANUAL,
         IP6_METHOD_LINK_LOCAL,
         IP6_METHOD_SHARED,
-        IP6_METHOD_IGNORE
+        IP6_METHOD_DISABLED
 };
 
 static void
@@ -111,11 +113,11 @@ method_changed (CEPageIP6 *self)
 static void
 update_row_sensitivity (CEPageIP6 *self, GtkWidget *list)
 {
-        GList *children, *l;
+        g_autoptr(GList) children = NULL;
         gint rows = 0, i = 0;
 
         children = gtk_container_get_children (GTK_CONTAINER (list));
-        for (l = children; l; l = l->next) {
+        for (GList *l = children; l; l = l->next) {
                 GtkWidget *row = l->data;
                 GtkWidget *button;
 
@@ -123,7 +125,7 @@ update_row_sensitivity (CEPageIP6 *self, GtkWidget *list)
                 if (button != NULL)
                         rows++;
         }
-        for (l = children; l; l = l->next) {
+        for (GList *l = children; l; l = l->next) {
                 GtkWidget *row = l->data;
                 GtkWidget *button;
 
@@ -131,7 +133,6 @@ update_row_sensitivity (CEPageIP6 *self, GtkWidget *list)
                 if (button != NULL)
                         gtk_widget_set_sensitive (button, rows > 1 && ++i < rows);
         }
-        g_list_free (children);
 }
 
 static void
@@ -156,45 +157,21 @@ static gboolean
 validate_row (GtkWidget *row)
 {
         GtkWidget *box;
-        GList *children, *l;
+        g_autoptr(GList) children = NULL;
         gboolean valid;
 
         valid = FALSE;
         box = gtk_bin_get_child (GTK_BIN (row));
         children = gtk_container_get_children (GTK_CONTAINER (box));
 
-        for (l = children; l != NULL; l = l->next) {
+        for (GList *l = children; l != NULL; l = l->next) {
                 if (!GTK_IS_ENTRY (l->data))
                         continue;
 
                 valid = valid || gtk_entry_get_text_length (l->data) > 0;
         }
 
-        g_list_free (children);
-
         return valid;
-}
-
-static gint
-sort_first_last (gconstpointer a, gconstpointer b, gpointer data)
-{
-        gboolean afirst, bfirst, alast, blast;
-
-        afirst = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (a), "first"));
-        bfirst = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (b), "first"));
-        alast = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (a), "last"));
-        blast = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (b), "last"));
-
-        if (afirst)
-                return -1;
-        if (bfirst)
-                return 1;
-        if (alast)
-                return 1;
-        if (blast)
-                return -1;
-
-        return 0;
 }
 
 static void
@@ -214,9 +191,9 @@ add_address_row (CEPageIP6   *self,
         row_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
         gtk_style_context_add_class (gtk_widget_get_style_context (row_box), "linked");
 
-        widget = gtk_entry_new ();
-        g_signal_connect_swapped (widget, "changed", G_CALLBACK (ce_page_changed), self);
-        g_signal_connect_swapped (widget, "activate", G_CALLBACK (ensure_empty_address_row), self);
+        widget = GTK_WIDGET (ce_ip_address_entry_new (AF_INET6));
+        g_signal_connect_object (widget, "changed", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (widget, "activate", G_CALLBACK (ensure_empty_address_row), self, G_CONNECT_SWAPPED);
         g_object_set_data (G_OBJECT (row), "address", widget);
         gtk_entry_set_text (GTK_ENTRY (widget), address);
         gtk_entry_set_width_chars (GTK_ENTRY (widget), 16);
@@ -224,17 +201,17 @@ add_address_row (CEPageIP6   *self,
         gtk_container_add (GTK_CONTAINER (row_box), widget);
 
         widget = gtk_entry_new ();
-        g_signal_connect_swapped (widget, "changed", G_CALLBACK (ce_page_changed), self);
-        g_signal_connect_swapped (widget, "activate", G_CALLBACK (ensure_empty_address_row), self);
+        g_signal_connect_object (widget, "changed", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (widget, "activate", G_CALLBACK (ensure_empty_address_row), self, G_CONNECT_SWAPPED);
         g_object_set_data (G_OBJECT (row), "prefix", widget);
         gtk_entry_set_text (GTK_ENTRY (widget), network);
         gtk_entry_set_width_chars (GTK_ENTRY (widget), 16);
         gtk_widget_set_hexpand (widget, TRUE);
         gtk_container_add (GTK_CONTAINER (row_box), widget);
 
-        widget = gtk_entry_new ();
-        g_signal_connect_swapped (widget, "changed", G_CALLBACK (ce_page_changed), self);
-        g_signal_connect_swapped (widget, "activate", G_CALLBACK (ensure_empty_address_row), self);
+        widget = GTK_WIDGET (ce_ip_address_entry_new (AF_INET6));
+        g_signal_connect_object (widget, "changed", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (widget, "activate", G_CALLBACK (ensure_empty_address_row), self, G_CONNECT_SWAPPED);
         g_object_set_data (G_OBJECT (row), "gateway", widget);
         gtk_entry_set_text (GTK_ENTRY (widget), gateway ? gateway : "");
         gtk_entry_set_width_chars (GTK_ENTRY (widget), 16);
@@ -244,7 +221,7 @@ add_address_row (CEPageIP6   *self,
         delete_button = gtk_button_new ();
         gtk_widget_set_sensitive (delete_button, FALSE);
         gtk_style_context_add_class (gtk_widget_get_style_context (delete_button), "image-button");
-        g_signal_connect_swapped (delete_button, "clicked", G_CALLBACK (remove_row), self);
+        g_signal_connect_object (delete_button, "clicked", G_CALLBACK (remove_row), self, G_CONNECT_SWAPPED);
         image = gtk_image_new_from_icon_name ("edit-delete-symbolic", GTK_ICON_SIZE_MENU);
         atk_object_set_name (gtk_widget_get_accessible (delete_button), _("Delete Address"));
         gtk_button_set_image (GTK_BUTTON (delete_button), image);
@@ -263,19 +240,15 @@ add_address_row (CEPageIP6   *self,
 static void
 ensure_empty_address_row (CEPageIP6 *self)
 {
-        GList *children, *l;
+        g_autoptr(GList) children = NULL;
+        GList *l;
 
         children = gtk_container_get_children (GTK_CONTAINER (self->address_list));
-        l = children;
-
-        while (l && l->next)
-                l = l->next;
+        l = g_list_last (children);
 
         /* Add the last, stub row if needed*/
         if (!l || validate_row (l->data))
                 add_address_row (self, "", "", "");
-
-        g_list_free (children);
 }
 
 static void
@@ -287,7 +260,6 @@ add_address_box (CEPageIP6 *self)
         self->address_list = list = gtk_list_box_new ();
         gtk_list_box_set_selection_mode (GTK_LIST_BOX (list), GTK_SELECTION_NONE);
         gtk_list_box_set_header_func (GTK_LIST_BOX (list), cc_list_box_update_header_func, NULL, NULL);
-        gtk_list_box_set_sort_func (GTK_LIST_BOX (list), (GtkListBoxSortFunc)sort_first_last, NULL, NULL);
         gtk_container_add (GTK_CONTAINER (self->address_box), list);
 
         for (i = 0; i < nm_setting_ip_config_get_num_addresses (self->setting); i++) {
@@ -312,7 +284,7 @@ add_dns_section (CEPageIP6 *self)
         gint i;
 
         gtk_switch_set_active (self->auto_dns_switch, !nm_setting_ip_config_get_ignore_auto_dns (self->setting));
-        g_signal_connect_swapped (self->auto_dns_switch, "notify::active", G_CALLBACK (ce_page_changed), self);
+        g_signal_connect_object (self->auto_dns_switch, "notify::active", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
 
         string = g_string_new ("");
 
@@ -330,7 +302,7 @@ add_dns_section (CEPageIP6 *self)
 
         gtk_entry_set_text (self->dns_entry, string->str);
 
-        g_signal_connect_swapped (self->dns_entry, "notify::text", G_CALLBACK (ce_page_changed), self);
+        g_signal_connect_object (self->dns_entry, "notify::text", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
 
         g_string_free (string, TRUE);
 }
@@ -353,9 +325,9 @@ add_route_row (CEPageIP6   *self,
         row_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
         gtk_style_context_add_class (gtk_widget_get_style_context (row_box), "linked");
 
-        widget = gtk_entry_new ();
-        g_signal_connect_swapped (widget, "changed", G_CALLBACK (ce_page_changed), self);
-        g_signal_connect_swapped (widget, "activate", G_CALLBACK (ensure_empty_routes_row), self);
+        widget = GTK_WIDGET (ce_ip_address_entry_new (AF_INET6));
+        g_signal_connect_object (widget, "changed", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (widget, "activate", G_CALLBACK (ensure_empty_routes_row), self, G_CONNECT_SWAPPED);
         g_object_set_data (G_OBJECT (row), "address", widget);
         gtk_entry_set_text (GTK_ENTRY (widget), address);
         gtk_entry_set_width_chars (GTK_ENTRY (widget), 16);
@@ -363,17 +335,17 @@ add_route_row (CEPageIP6   *self,
         gtk_container_add (GTK_CONTAINER (row_box), widget);
 
         widget = gtk_entry_new ();
-        g_signal_connect_swapped (widget, "changed", G_CALLBACK (ce_page_changed), self);
-        g_signal_connect_swapped (widget, "activate", G_CALLBACK (ensure_empty_routes_row), self);
+        g_signal_connect_object (widget, "changed", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (widget, "activate", G_CALLBACK (ensure_empty_routes_row), self, G_CONNECT_SWAPPED);
         g_object_set_data (G_OBJECT (row), "prefix", widget);
         gtk_entry_set_text (GTK_ENTRY (widget), prefix ? prefix : "");
         gtk_entry_set_width_chars (GTK_ENTRY (widget), 16);
         gtk_widget_set_hexpand (widget, TRUE);
         gtk_container_add (GTK_CONTAINER (row_box), widget);
 
-        widget = gtk_entry_new ();
-        g_signal_connect_swapped (widget, "changed", G_CALLBACK (ce_page_changed), self);
-        g_signal_connect_swapped (widget, "activate", G_CALLBACK (ensure_empty_routes_row), self);
+        widget = GTK_WIDGET (ce_ip_address_entry_new (AF_INET6));
+        g_signal_connect_object (widget, "changed", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (widget, "activate", G_CALLBACK (ensure_empty_routes_row), self, G_CONNECT_SWAPPED);
         g_object_set_data (G_OBJECT (row), "gateway", widget);
         gtk_entry_set_text (GTK_ENTRY (widget), gateway);
         gtk_entry_set_width_chars (GTK_ENTRY (widget), 16);
@@ -381,8 +353,8 @@ add_route_row (CEPageIP6   *self,
         gtk_container_add (GTK_CONTAINER (row_box), widget);
 
         widget = gtk_entry_new ();
-        g_signal_connect_swapped (widget, "changed", G_CALLBACK (ce_page_changed), self);
-        g_signal_connect_swapped (widget, "activate", G_CALLBACK (ensure_empty_routes_row), self);
+        g_signal_connect_object (widget, "changed", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (widget, "activate", G_CALLBACK (ensure_empty_routes_row), self, G_CONNECT_SWAPPED);
         g_object_set_data (G_OBJECT (row), "metric", widget);
         gtk_entry_set_text (GTK_ENTRY (widget), metric ? metric : "");
         gtk_entry_set_width_chars (GTK_ENTRY (widget), 5);
@@ -393,7 +365,7 @@ add_route_row (CEPageIP6   *self,
 
         delete_button = gtk_button_new ();
         gtk_style_context_add_class (gtk_widget_get_style_context (delete_button), "image-button");
-        g_signal_connect_swapped (delete_button, "clicked", G_CALLBACK (remove_row), self);
+        g_signal_connect_object (delete_button, "clicked", G_CALLBACK (remove_row), self, G_CONNECT_SWAPPED);
         image = gtk_image_new_from_icon_name ("edit-delete-symbolic", GTK_ICON_SIZE_MENU);
         atk_object_set_name (gtk_widget_get_accessible (delete_button), _("Delete Route"));
         gtk_button_set_image (GTK_BUTTON (delete_button), image);
@@ -414,10 +386,11 @@ add_route_row (CEPageIP6   *self,
 static void
 ensure_empty_routes_row (CEPageIP6 *self)
 {
-        GList *children, *l;
+        g_autoptr(GList) children = NULL;
+        GList *l;
 
         children = gtk_container_get_children (GTK_CONTAINER (self->routes_list));
-        l = children;
+        l = g_list_last (children);
 
         while (l && l->next)
                 l = l->next;
@@ -425,8 +398,6 @@ ensure_empty_routes_row (CEPageIP6 *self)
         /* Add the last, stub row if needed*/
         if (!l || validate_row (l->data))
                 add_route_row (self, "", NULL, "", NULL);
-
-        g_list_free (children);
 }
 
 static void
@@ -444,10 +415,9 @@ add_routes_box (CEPageIP6 *self)
         self->routes_list = list = gtk_list_box_new ();
         gtk_list_box_set_selection_mode (GTK_LIST_BOX (list), GTK_SELECTION_NONE);
         gtk_list_box_set_header_func (GTK_LIST_BOX (list), cc_list_box_update_header_func, NULL, NULL);
-        gtk_list_box_set_sort_func (GTK_LIST_BOX (list), (GtkListBoxSortFunc)sort_first_last, NULL, NULL);
         gtk_container_add (GTK_CONTAINER (self->routes_box), list);
         gtk_switch_set_active (self->auto_routes_switch, !nm_setting_ip_config_get_ignore_auto_routes (self->setting));
-        g_signal_connect_swapped (self->auto_routes_switch, "notify::active", G_CALLBACK (ce_page_changed), self);
+        g_signal_connect_object (self->auto_routes_switch, "notify::active", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
 
         for (i = 0; i < nm_setting_ip_config_get_num_routes (self->setting); i++) {
                 NMIPRoute *route;
@@ -456,7 +426,7 @@ add_routes_box (CEPageIP6 *self)
 
                 route = nm_setting_ip_config_get_route (self->setting, i);
                 prefix = g_strdup_printf ("%u", nm_ip_route_get_prefix (route));
-                metric = g_strdup_printf ("%u", (guint32) MIN (0, nm_ip_route_get_metric (route)));
+                metric = g_strdup_printf ("%" G_GINT64_FORMAT, nm_ip_route_get_metric (route));
                 add_route_row (self, nm_ip_route_get_dest (route),
                                prefix,
                                nm_ip_route_get_next_hop (route),
@@ -474,17 +444,20 @@ connect_ip6_page (CEPageIP6 *self)
         const gchar *str_method;
         guint method;
 
+        gtk_container_set_focus_vadjustment (GTK_CONTAINER (self->main_box),
+                                             gtk_scrolled_window_get_vadjustment (GTK_SCROLLED_WINDOW (self)));
+
         add_address_box (self);
         add_dns_section (self);
         add_routes_box (self);
 
         str_method = nm_setting_ip_config_get_method (self->setting);
-        g_signal_connect_swapped (self->disabled_radio, "notify::active", G_CALLBACK (ce_page_changed), self);
+        g_signal_connect_object (self->disabled_radio, "notify::active", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
         g_object_bind_property (self->disabled_radio, "active",
                                 self->content_box, "sensitive",
                                 G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
 
-        g_signal_connect_swapped (self->shared_radio, "notify::active", G_CALLBACK (ce_page_changed), self);
+        g_signal_connect_object (self->shared_radio, "notify::active", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
         g_object_bind_property (self->shared_radio, "active",
                                 self->content_box, "sensitive",
                                 G_BINDING_SYNC_CREATE | G_BINDING_INVERT_BOOLEAN);
@@ -498,20 +471,20 @@ connect_ip6_page (CEPageIP6 *self)
                 method = IP6_METHOD_MANUAL;
         } else if (g_strcmp0 (str_method, NM_SETTING_IP6_CONFIG_METHOD_SHARED) == 0) {
                 method = IP6_METHOD_SHARED;
-        } else if (g_strcmp0 (str_method, NM_SETTING_IP6_CONFIG_METHOD_IGNORE) == 0) {
-                method = IP6_METHOD_IGNORE;
+        } else if (g_strcmp0 (str_method, NM_SETTING_IP6_CONFIG_METHOD_DISABLED) == 0 ||
+                   g_strcmp0 (str_method, NM_SETTING_IP6_CONFIG_METHOD_IGNORE) == 0) {
+                method = IP6_METHOD_DISABLED;
         }
 
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->never_default_check),
                                       nm_setting_ip_config_get_never_default (self->setting));
-        g_signal_connect_swapped (self->never_default_check, "toggled", G_CALLBACK (ce_page_changed), self);
+        g_signal_connect_object (self->never_default_check, "toggled", G_CALLBACK (ce_page_changed), self, G_CONNECT_SWAPPED);
 
-
-        g_signal_connect_swapped (self->automatic_radio, "toggled", G_CALLBACK (method_changed), self);
-        g_signal_connect_swapped (self->dhcp_radio, "toggled", G_CALLBACK (method_changed), self);
-        g_signal_connect_swapped (self->local_radio, "toggled", G_CALLBACK (method_changed), self);
-        g_signal_connect_swapped (self->manual_radio, "toggled", G_CALLBACK (method_changed), self);
-        g_signal_connect_swapped (self->disabled_radio, "toggled", G_CALLBACK (method_changed), self);
+        g_signal_connect_object (self->automatic_radio, "toggled", G_CALLBACK (method_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (self->dhcp_radio, "toggled", G_CALLBACK (method_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (self->local_radio, "toggled", G_CALLBACK (method_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (self->manual_radio, "toggled", G_CALLBACK (method_changed), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (self->disabled_radio, "toggled", G_CALLBACK (method_changed), self, G_CONNECT_SWAPPED);
 
         switch (method) {
         case IP6_METHOD_AUTO:
@@ -529,7 +502,7 @@ connect_ip6_page (CEPageIP6 *self)
         case IP6_METHOD_SHARED:
                 gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->shared_radio), TRUE);
                 break;
-        case IP6_METHOD_IGNORE:
+        case IP6_METHOD_DISABLED:
                 gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->disabled_radio), TRUE);
                 break;
         default:
@@ -546,14 +519,15 @@ ui_to_setting (CEPageIP6 *self)
         gboolean ignore_auto_dns;
         gboolean ignore_auto_routes;
         gboolean never_default;
-        GList *children, *l;
+        g_autoptr(GList) address_children = NULL;
+        g_autoptr(GList) routes_children = NULL;
         gboolean ret = TRUE;
         GStrv dns_addresses = NULL;
         gchar *dns_text = NULL;
         guint i;
 
         if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->disabled_radio)))
-                method = NM_SETTING_IP6_CONFIG_METHOD_IGNORE;
+                method = NM_SETTING_IP6_CONFIG_METHOD_DISABLED;
         else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->manual_radio)))
                 method = NM_SETTING_IP6_CONFIG_METHOD_MANUAL;
         else if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->local_radio)))
@@ -567,47 +541,37 @@ ui_to_setting (CEPageIP6 *self)
 
         nm_setting_ip_config_clear_addresses (self->setting);
         if (g_str_equal (method, NM_SETTING_IP6_CONFIG_METHOD_MANUAL)) {
-                children = gtk_container_get_children (GTK_CONTAINER (self->address_list));
+                address_children = gtk_container_get_children (GTK_CONTAINER (self->address_list));
         } else {
                 g_object_set (G_OBJECT (self->setting),
                               NM_SETTING_IP_CONFIG_GATEWAY, NULL,
                               NULL);
-                children = NULL;
        }
 
-        for (l = children; l; l = l->next) {
+        for (GList *l = address_children; l; l = l->next) {
                 GtkWidget *row = l->data;
-                GtkEntry *entry;
-                const gchar *text_address;
+                CEIPAddressEntry *address_entry;
+                CEIPAddressEntry *gateway_entry;
                 const gchar *text_prefix;
-                const gchar *text_gateway;
                 guint32 prefix;
                 gchar *end;
                 NMIPAddress *addr;
-                gboolean have_gateway = FALSE;
 
-                entry = GTK_ENTRY (g_object_get_data (G_OBJECT (row), "address"));
-                if (!entry)
+                address_entry = CE_IP_ADDRESS_ENTRY (g_object_get_data (G_OBJECT (row), "address"));
+                if (!address_entry)
                         continue;
 
-                text_address = gtk_entry_get_text (entry);
                 text_prefix = gtk_entry_get_text (GTK_ENTRY (g_object_get_data (G_OBJECT (row), "prefix")));
-                text_gateway = gtk_entry_get_text (GTK_ENTRY (g_object_get_data (G_OBJECT (row), "gateway")));
+                gateway_entry = CE_IP_ADDRESS_ENTRY (g_object_get_data (G_OBJECT (row), "gateway"));
 
-                if (!*text_address && !*text_prefix && !*text_gateway) {
+                if (ce_ip_address_entry_is_empty (address_entry) && !*text_prefix && ce_ip_address_entry_is_empty (gateway_entry)) {
                         /* ignore empty rows */
-                        widget_unset_error (GTK_WIDGET (entry));
                         widget_unset_error (g_object_get_data (G_OBJECT (row), "prefix"));
-                        widget_unset_error (g_object_get_data (G_OBJECT (row), "gateway"));
                         continue;
                 }
 
-                if (!*text_address || !nm_utils_ipaddr_valid (AF_INET6, text_address)) {
-                        widget_set_error (GTK_WIDGET (entry));
+                if (!ce_ip_address_entry_is_valid (address_entry))
                         ret = FALSE;
-                } else {
-                        widget_unset_error (GTK_WIDGET (entry));
-                }
 
                 prefix = strtoul (text_prefix, &end, 10);
                 if (!end || *end || prefix == 0 || prefix > 128) {
@@ -617,29 +581,22 @@ ui_to_setting (CEPageIP6 *self)
                         widget_unset_error (g_object_get_data (G_OBJECT (row), "prefix"));
                 }
 
-                if (*text_gateway && !nm_utils_ipaddr_valid (AF_INET6, text_gateway)) {
-                        widget_set_error (g_object_get_data (G_OBJECT (row), "gateway"));
+                if (!ce_ip_address_entry_is_valid (gateway_entry))
                         ret = FALSE;
-                } else {
-                        widget_unset_error (g_object_get_data (G_OBJECT (row), "gateway"));
-                        if (*text_gateway)
-                                have_gateway = TRUE;
-                }
 
                 if (!ret)
                         continue;
 
-                addr = nm_ip_address_new (AF_INET6, text_address, prefix, NULL);
-                if (have_gateway)
+                addr = nm_ip_address_new (AF_INET6, gtk_entry_get_text (GTK_ENTRY (address_entry)), prefix, NULL);
+                if (!ce_ip_address_entry_is_empty (gateway_entry))
                         g_object_set (G_OBJECT (self->setting),
-                                      NM_SETTING_IP_CONFIG_GATEWAY, text_gateway,
+                                      NM_SETTING_IP_CONFIG_GATEWAY, gtk_entry_get_text (GTK_ENTRY (gateway_entry)),
                                       NULL);
                 nm_setting_ip_config_add_address (self->setting, addr);
 
                 if (!l || !l->next)
                         ensure_empty_address_row (self);
         }
-        g_list_free (children);
 
         nm_setting_ip_config_clear_dns (self->setting);
         dns_text = g_strstrip (g_strdup (gtk_entry_get_text (GTK_ENTRY (self->dns_entry))));
@@ -675,45 +632,36 @@ ui_to_setting (CEPageIP6 *self)
         if (g_str_equal (method, NM_SETTING_IP6_CONFIG_METHOD_AUTO) ||
             g_str_equal (method, NM_SETTING_IP6_CONFIG_METHOD_DHCP) ||
             g_str_equal (method, NM_SETTING_IP6_CONFIG_METHOD_MANUAL))
-                children = gtk_container_get_children (GTK_CONTAINER (self->routes_list));
-        else
-                children = NULL;
+                routes_children = gtk_container_get_children (GTK_CONTAINER (self->routes_list));
 
-        for (l = children; l; l = l->next) {
+        for (GList *l = routes_children; l; l = l->next) {
                 GtkWidget *row = l->data;
-                GtkEntry *entry;
-                const gchar *text_address;
+                CEIPAddressEntry *address_entry;
+                CEIPAddressEntry *gateway_entry;
                 const gchar *text_prefix;
-                const gchar *text_gateway;
                 const gchar *text_metric;
-                guint32 prefix, metric;
+                guint32 prefix;
+                gint64 metric;
                 gchar *end;
                 NMIPRoute *route;
 
-                entry = GTK_ENTRY (g_object_get_data (G_OBJECT (row), "address"));
-                if (!entry)
+                address_entry = CE_IP_ADDRESS_ENTRY (g_object_get_data (G_OBJECT (row), "address"));
+                if (!address_entry)
                         continue;
 
-                text_address = gtk_entry_get_text (entry);
                 text_prefix = gtk_entry_get_text (GTK_ENTRY (g_object_get_data (G_OBJECT (row), "prefix")));
-                text_gateway = gtk_entry_get_text (GTK_ENTRY (g_object_get_data (G_OBJECT (row), "gateway")));
+                gateway_entry = CE_IP_ADDRESS_ENTRY (g_object_get_data (G_OBJECT (row), "gateway"));
                 text_metric = gtk_entry_get_text (GTK_ENTRY (g_object_get_data (G_OBJECT (row), "metric")));
 
-                if (!*text_address && !*text_prefix && !*text_gateway && !*text_metric) {
+                if (ce_ip_address_entry_is_empty (address_entry) && !*text_prefix && ce_ip_address_entry_is_empty (gateway_entry) && !*text_metric) {
                         /* ignore empty rows */
-                        widget_unset_error (GTK_WIDGET (entry));
                         widget_unset_error (g_object_get_data (G_OBJECT (row), "prefix"));
-                        widget_unset_error (g_object_get_data (G_OBJECT (row), "gateway"));
                         widget_unset_error (g_object_get_data (G_OBJECT (row), "metric"));
                         continue;
                 }
 
-                if (!nm_utils_ipaddr_valid (AF_INET6, text_address)) {
-                        widget_set_error (GTK_WIDGET (entry));
+                if (!ce_ip_address_entry_is_valid (address_entry))
                         ret = FALSE;
-                } else {
-                        widget_unset_error (GTK_WIDGET (entry));
-                }
 
                 prefix = strtoul (text_prefix, &end, 10);
                 if (!end || *end || prefix == 0 || prefix > 128) {
@@ -723,17 +671,13 @@ ui_to_setting (CEPageIP6 *self)
                         widget_unset_error (g_object_get_data (G_OBJECT (row), "prefix"));
                 }
 
-                if (!nm_utils_ipaddr_valid (AF_INET6, text_gateway)) {
-                        widget_set_error (g_object_get_data (G_OBJECT (row), "gateway"));
+                if (!ce_ip_address_entry_is_valid (gateway_entry))
                         ret = FALSE;
-                } else {
-                        widget_unset_error (g_object_get_data (G_OBJECT (row), "gateway"));
-                }
 
-                metric = 0;
+                metric = -1;
                 if (*text_metric) {
                         errno = 0;
-                        metric = strtoul (text_metric, NULL, 10);
+                        metric = g_ascii_strtoull (text_metric, NULL, 10);
                         if (errno) {
                                 widget_set_error (g_object_get_data (G_OBJECT (row), "metric"));
                                 ret = FALSE;
@@ -747,14 +691,13 @@ ui_to_setting (CEPageIP6 *self)
                 if (!ret)
                         continue;
 
-                route = nm_ip_route_new (AF_INET6, text_address, prefix, text_gateway, metric, NULL);
+                route = nm_ip_route_new (AF_INET6, gtk_entry_get_text (GTK_ENTRY (address_entry)), prefix, gtk_entry_get_text (GTK_ENTRY (gateway_entry)), metric, NULL);
                 nm_setting_ip_config_add_route (self->setting, route);
                 nm_ip_route_unref (route);
 
                 if (!l || !l->next)
                         ensure_empty_routes_row (self);
         }
-        g_list_free (children);
 
         if (!ret)
                 goto out;
@@ -817,6 +760,7 @@ ce_page_ip6_class_init (CEPageIP6Class *klass)
         gtk_widget_class_bind_template_child (widget_class, CEPageIP6, disabled_radio);
         gtk_widget_class_bind_template_child (widget_class, CEPageIP6, dns_entry);
         gtk_widget_class_bind_template_child (widget_class, CEPageIP6, local_radio);
+        gtk_widget_class_bind_template_child (widget_class, CEPageIP6, main_box);
         gtk_widget_class_bind_template_child (widget_class, CEPageIP6, manual_radio);
         gtk_widget_class_bind_template_child (widget_class, CEPageIP6, never_default_check);
         gtk_widget_class_bind_template_child (widget_class, CEPageIP6, routes_box);

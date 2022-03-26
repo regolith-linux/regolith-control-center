@@ -1,6 +1,6 @@
 panels_list += cappletname
 
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 desktop_in = configure_file(
   input: desktop + '.in.in',
   output: desktop + '.in',
@@ -58,10 +58,6 @@ deps = common_deps + [
   gnome_desktop_dep,
   polkit_gobject_dep,
   m_dep,
-]
-
-cflags += [
-  '-DBINDIR="@0@"'.format(control_center_bindir)
 ]
 
 panels_libs += static_library(

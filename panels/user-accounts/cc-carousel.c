@@ -110,7 +110,7 @@ static void
 cc_carousel_move_arrow (CcCarousel *self)
 {
         GtkStyleContext *context;
-        gchar *css;
+        g_autofree gchar *css = NULL;
         gint end_x;
         GtkSettings *settings;
         gboolean animations;
@@ -149,8 +149,6 @@ cc_carousel_move_arrow (CcCarousel *self)
         self->provider = GTK_STYLE_PROVIDER (gtk_css_provider_new ());
         gtk_css_provider_load_from_data (GTK_CSS_PROVIDER (self->provider), css, -1, NULL);
         gtk_style_context_add_provider (context, self->provider, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        g_free (css);
 }
 
 static gint
@@ -172,7 +170,7 @@ update_buttons_visibility (CcCarousel *self)
 /**
  * cc_carousel_find_item:
  * @carousel: an CcCarousel instance
- * @data: user data passed to the comparation function
+ * @data: user data passed to the comparison function
  * @func: the function to call for each element.
  *      It should return 0 when the desired element is found
  *
@@ -202,12 +200,10 @@ cc_carousel_find_item (CcCarousel    *self,
 }
 
 static void
-on_item_toggled (CcCarouselItem *item,
+on_item_toggled (CcCarousel     *self,
                  GdkEvent       *event,
-                 gpointer        user_data)
+                 CcCarouselItem *item)
 {
-        CcCarousel *self = CC_CAROUSEL (user_data);
-
         cc_carousel_select_item (self, item);
 }
 
@@ -311,7 +307,7 @@ cc_carousel_add (GtkContainer *container,
         CC_CAROUSEL_ITEM (widget)->page = get_last_page_number (self);
         if (self->selected_item != NULL)
                 gtk_radio_button_join_group (GTK_RADIO_BUTTON (widget), GTK_RADIO_BUTTON (self->selected_item));
-        g_signal_connect (widget, "button-press-event", G_CALLBACK (on_item_toggled), self);
+        g_signal_connect_object (widget, "button-press-event", G_CALLBACK (on_item_toggled), self, G_CONNECT_SWAPPED);
 
         last_box_is_full = ((g_list_length (self->children) - 1) % ITEMS_PER_PAGE == 0);
         if (last_box_is_full) {
@@ -415,7 +411,7 @@ on_transition_running (CcCarousel *self)
 static void
 cc_carousel_init (CcCarousel *self)
 {
-        GtkStyleProvider *provider;
+        g_autoptr(GtkStyleProvider) provider = NULL;
 
         gtk_widget_init_template (GTK_WIDGET (self));
 
@@ -427,10 +423,8 @@ cc_carousel_init (CcCarousel *self)
                                                    provider,
                                                    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        g_object_unref (provider);
-
-        g_signal_connect_swapped (self->stack, "size-allocate", G_CALLBACK (on_size_allocate), self);
-        g_signal_connect_swapped (self->stack, "notify::transition-running", G_CALLBACK (on_transition_running), self);
+        g_signal_connect_object (self->stack, "size-allocate", G_CALLBACK (on_size_allocate), self, G_CONNECT_SWAPPED);
+        g_signal_connect_object (self->stack, "notify::transition-running", G_CALLBACK (on_transition_running), self, G_CONNECT_SWAPPED);
 }
 
 guint

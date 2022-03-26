@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
 desktop_in = configure_file(
   input: desktop + '.in.in',
@@ -23,6 +23,7 @@ sources = files(
   'pp-host.c',
   'pp-ipp-option-widget.c',
   'pp-job.c',
+  'pp-job-row.c',
   'pp-jobs-dialog.c',
   'pp-maintenance-command.c',
   'pp-new-printer-dialog.c',
@@ -42,6 +43,7 @@ resource_data = files(
   'new-printer-dialog.ui',
   'ppd-selection-dialog.ui',
   'pp-details-dialog.ui',
+  'pp-job-row.ui',
   'pp-jobs-dialog.ui',
   'pp-options-dialog.ui',
   'printer-entry.ui',

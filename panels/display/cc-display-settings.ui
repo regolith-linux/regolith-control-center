@@ -40,7 +40,7 @@
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="title" translatable="yes">Adjust for TV</property>
-        <child type="action">
+        <child>
           <object class="GtkSwitch" id="underscanning_switch">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -52,12 +52,12 @@
       </object>
     </child>
     <child>
-      <object class="HdyActionRow" id="scale_row">
+      <object class="HdyActionRow" id="scale_buttons_row">
         <property name="width_request">100</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="title" translatable="yes" context="display setting">Scale</property>
-        <child type="action">
+        <child>
           <object class="GtkButtonBox" id="scale_bbox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -66,6 +66,15 @@
             <property name="layout_style">expand</property>
           </object>
         </child>
+      </object>
+    </child>
+    <child>
+      <object class="HdyComboRow" id="scale_combo_row">
+        <property name="width_request">100</property>
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="title" translatable="yes" context="display setting">Scale</property>
+        <signal name="notify::selected-index" handler="on_scale_selection_changed_cb" swapped="no"/>
       </object>
     </child>
   </template>

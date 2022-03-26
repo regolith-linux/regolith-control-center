@@ -1,4 +1,4 @@
-appdata = 'regolith-control-center.appdata.xml'
+appdata = 'gnome-control-center.appdata.xml'
 
 i18n.merge_file(
   input: appdata + '.in',

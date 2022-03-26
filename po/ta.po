@@ -1,7 +1,7 @@
-# translation of regolith-control-center.master.ta.po to Tamil
-# Tamil translation of regolith-control-center
+# translation of gnome-control-center.master.ta.po to Tamil
+# Tamil translation of gnome-control-center
 # Copyright (C) 2002
-# This file is distributed under the same license as the regolith-control-center.
+# This file is distributed under the same license as the gnome-control-center.
 #
 # Dinesh Nadarajah <dinesh_list@sbcglobal.net>, 2002, 2004.
 # Ma SivaKumar <tamil@leatherlink.net>, 2004.
@@ -13,7 +13,7 @@
 # Shantha kumar <shkumar@redhat.com>, 2012, 2013, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: regolith-control-center.master.ta\n"
+"Project-Id-Version: gnome-control-center.master.ta\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-09-15 06:30+0000\n"
@@ -198,12 +198,12 @@ msgid "Bluetooth is disabled by hardware switch"
 msgstr "ப்ளூடூத் வன்பொருள் மாற்றியால் செயல் நீக்கப்பட்டது"
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:1
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:1
 #: ../panels/printers/pp-new-printer-dialog.c:1688
 msgid "Bluetooth"
 msgstr "ப்ளூடூத்"
 
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:2
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:2
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr ""
 "Bluetooth ஐ ஆன் மற்றும் ஆஃப் செய்யவும் மற்றும் உங்கள் சாதனங்களை இணைக்கவும்"
@@ -856,11 +856,11 @@ msgstr "D65 (புகைப்படம் மற்றும் வரைப�
 msgid "D75"
 msgstr "D75"
 
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:1
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:1
 msgid "Color"
 msgstr "நிறம்"
 
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
@@ -868,7 +868,7 @@ msgstr ""
 "அளவைவகுக்கவும்"
 
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:4
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:4
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "நிறம்;ஐசிசி;வரிவுரு;அளவீடுசெய்;அச்சுப்பொறி;தோற்றம்;"
 
@@ -1018,7 +1018,7 @@ msgid "December"
 msgstr "திசம்பர்"
 
 #: ../panels/datetime/datetime.ui.h:13
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:1
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:1
 msgid "Date & Time"
 msgstr "தேதி மற்றும் நேரம்"
 
@@ -1087,12 +1087,12 @@ msgstr "24-மணி"
 msgid "AM / PM"
 msgstr "AM / PM"
 
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
 msgid "Change the date and time, including time zone"
 msgstr "நேர மண்டலம் உட்பட தேதி மற்றூம் நேரத்தை மாற்றவும்"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:4
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:4
 msgid "Clock;Timezone;Location;"
 msgstr "கடிகாரம்;நேரமண்டலம்;இடம்;"
 
@@ -1211,11 +1211,11 @@ msgstr "திரை தகவலை பெற முடியவில்லை
 msgid "_Arrange Combined Displays"
 msgstr "சேர்க்கை திரைகாட்டிகளை அடுக்கு (_A)"
 
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
 msgid "Displays"
 msgstr "காட்டிகள்"
 
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
 msgid "Choose how to use connected monitors and projectors"
 msgstr ""
 "இணைக்கப்பட்ட திரைகளையும் ஒளிப்படக்காட்டிகளையும் எப்படிப் பயன்படுத்த வேண்டும் "
@@ -1223,7 +1223,7 @@ msgstr ""
 "செய்யவும்"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:4
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:4
 #| msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;"
 msgstr "பலகம்;ஒளிப்படக்காட்டி;எக்ஸ்ரான்டர்;திரை;தெளிதிறன்;புதுப்பி;திரை"
@@ -1547,7 +1547,7 @@ msgid "Launch help browser"
 msgstr "உதவி மேலோடியை துவக்கு"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1601
-#: ../shell/regolith-control-center.desktop.in.in.h:1
+#: ../shell/gnome-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "அமைவுகள்"
 
@@ -1620,7 +1620,7 @@ msgid "Lock screen"
 msgstr "திரையை பூட்டு"
 
 #: ../panels/keyboard/50-accessibility.xml.in.h:1
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:1
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:1
 msgid "Universal Access"
 msgstr "உலகளாவிய அணுகல்"
 
@@ -1687,11 +1687,11 @@ msgstr "உருவாக்க விசை"
 msgid "Modifiers-only switch to next source"
 msgstr "மாற்றிகள்-அடுத்த மூலத்திற்கு மட்டும் மாற்றவும்"
 
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
 msgid "Keyboard"
 msgstr "விசைப்பலகை"
 
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr ""
 "விசைப்பலகை குறூக்கு வழிகளைக் கண்டு மாற்றவும், அத்துடன் உங்கள் தட்டச்சு "
@@ -1699,7 +1699,7 @@ msgstr ""
 "அமைக்கவும்"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:4
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:4
 msgid "Shortcut;Repeat;Blink;"
 msgstr "சுருக்குவழி;மீண்டும்நிகழ்த்து;கண்ணிமை;"
 
@@ -1870,11 +1870,11 @@ msgstr "உங்களுடைய அமைவுகளை சோதிக்�
 msgid "Test Your Settings"
 msgstr "உங்கள் அமைவுகளை சோதிக்கவும்"
 
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
 msgid "Mouse & Touchpad"
 msgstr "சொடுக்கி மற்றும் தொடுதிட்டு"
 
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
@@ -1883,7 +1883,7 @@ msgstr ""
 "பழக்கமா எனத் தேர்ந்தெடுக்கவும்"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:4
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:4
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 
@@ -2639,17 +2639,17 @@ msgstr "என் இல்ல பிணையம்"
 msgid "Make available to _other users"
 msgstr "மற்ற பயனர்களுக்கு கிடைக்கும்படி அமை (_o)"
 
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
 #: ../panels/network/network-mobile.ui.h:7
 msgid "Network"
 msgstr "பிணையம்"
 
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
 msgid "Control how you connect to the Internet"
 msgstr "நீங்கள் எப்படி இணையத்துடன் இணைகிறீர்கள் என்பதைக் கட்டுப்படுத்துங்கள்"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:4
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:4
 #| msgid ""
 #| "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;"
 #| "vpn;vlan;bridge;bond;"
@@ -3661,11 +3661,11 @@ msgstr "திரைப்பூட்டில் விவரங்களை�
 msgid "On"
 msgstr "ஆன்"
 
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:1
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:1
 msgid "Notifications"
 msgstr "அறிவிப்புகள்"
 
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:2
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:2
 msgid "Control which notifications are displayed and what they show"
 msgstr ""
 "எந்தெந்த அறிவிப்புகள் காண்பிக்கப்பட வேண்டும் என்பதையும் அவை எவற்றைக் "
@@ -3673,7 +3673,7 @@ msgstr ""
 "என்பதையும் கட்டுப்படுத்தவும்"
 
 #. Translators: those are keywords for the notifications control-center panel
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:4
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:4
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "அறிவிப்புகள்;பதாகை;செய்தி;பலகம்;மேலெழு;"
 
@@ -3748,18 +3748,18 @@ msgstr "இது சேவையகத்தில் கணக்கை நீ
 msgid "_Remove"
 msgstr "நீக்கு (_R)"
 
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:1
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:1
 msgid "Online Accounts"
 msgstr "ஆன் லைன்  கணக்குகள்"
 
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 "உங்கள் ஆன்லைன் கணக்குகளில் இணைந்து அவற்றை எதற்கு பயன்படுத்த வேண்டும் என "
 "முடிவு செய்யவும்"
 
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:4
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:4
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4031,16 +4031,16 @@ msgstr "மின்சக்தி நிறுத்து"
 msgid "Devices"
 msgstr "சாதனங்கள்"
 
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:1
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:1
 msgid "Power"
 msgstr "சக்தி"
 
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
 msgid "View your battery status and change power saving settings"
 msgstr "பேட்டரி நிலையைக் கண்டு மின்சக்தி சேமிப்பு அமைவுகளை மாற்றவும்"
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:4
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:4
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4331,11 +4331,11 @@ msgstr "சோதனை பக்கம்"
 msgid "Could not load ui: %s"
 msgstr "ui ஏற்ற முடியவில்லை: %s"
 
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:1
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:1
 msgid "Printers"
 msgstr "அச்சுப்பொறிகள்"
 
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:2
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:2
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr ""
 "அச்சுப்பொறிகளைச் சேர்க்கவும், அச்சுப்பொறி பணிகளைக் காணவும் மற்றும் அவை எப்படி "
@@ -4343,7 +4343,7 @@ msgstr ""
 "வேண்டும் என முடிவு செய்யவும்"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:4
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:4
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "அச்சுப்பொறி;வரிசை;அச்சடி;காகிதம்;மசி;டோனர்;"
 
@@ -5040,11 +5040,11 @@ msgstr "அளவு "
 msgid "Paper"
 msgstr "காகிதம்"
 
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:1
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:1
 msgid "Region & Language"
 msgstr " வட்டாரம் மற்றும் மொழி "
 
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:2
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:2
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr ""
@@ -5053,7 +5053,7 @@ msgstr ""
 "தேர்ந்தெடுக்கவும்"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:4
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:4
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "மொழி;இடஅமைவு;விசைப்பலகை;உள்ளீடு;"
 
@@ -5150,11 +5150,11 @@ msgstr "சரி (_O)"
 msgid "No applications found"
 msgstr "பயன்பாடு எதுவும் இல்லை"
 
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:1
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:1
 msgid "Search"
 msgstr "தேடு"
 
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:2
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:2
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
@@ -5163,7 +5163,7 @@ msgstr ""
 "என்பதைக் கட்டுப்படுத்தவும்"
 
 #. Translators: those are keywords for the search control-center panel
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:4
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:4
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "தேடு;கண்டறி;அட்டவணை;மறை;தனியுரிமை;முடிவுகள்;"
 
@@ -5214,17 +5214,17 @@ msgstr "ஒரு கோப்புறையைத் தேர்ந்தெ�
 msgid "Copy"
 msgstr "நகலெடு"
 
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:1
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:1
 msgid "Sharing"
 msgstr "பகிர்வு"
 
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:2
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:2
 msgid "Control what you want to share with others"
 msgstr ""
 "நீங்கள் மற்றவர்களுடன் எவற்றைப் பகிர வேண்டும் என்பதைக் கட்டுப்படுத்தவும்"
 
 #. Translators: those are keywords for the sharing control-center panel
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:4
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:4
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;video;"
 "pictures;photos;movies;server;renderer;"
@@ -5374,17 +5374,17 @@ msgstr "பிணையத்தின் வழியாக இசை, பு�
 msgid "Folders"
 msgstr "கோப்புறைகள்"
 
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "ஒலி"
 
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr ""
 "ஒலி அளவுகள், உள்ளீடுகள், வெளியீடுகள் மற்றும் விழிப்பூட்டல் ஒலிகளை மாற்று"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "அட்டை;ஒலிவாங்கி;ஒலிஅளவு;மறைவுறு;சமனம்;ப்ளூடூத்;ஹெட்செட்;ஆடியோ;"
 
@@ -5606,7 +5606,7 @@ msgstr "சப்வூஃபர்"
 msgid "Custom"
 msgstr "தனிப்பயன்"
 
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
 msgid "Make it easier to see, hear, type, point and click"
 msgstr ""
 "பார்ப்பது, கேட்பது, தட்டச்சு செய்வது, சுட்டுவது மற்றும் சொடுக்குவது "
@@ -5614,7 +5614,7 @@ msgstr ""
 "எளிதாக்கவும்"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:4
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:4
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen;Reader;text;font;size;"
 "AccessX;Sticky;Keys;Slow;Bounce;Mouse;"
@@ -6206,17 +6206,17 @@ msgstr ""
 "மூலம் "
 "புகுபதிவு செய்ய முடியும்."
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
 msgid "Users"
 msgstr "பயனர்கள்"
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:2
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:2
 msgid "Add or remove users and change your password"
 msgstr ""
 "பயனர்களைச் சேர்க்கவும் அல்லது நீக்கவும் மற்றும் உங்கள் கடவுச்சொல்லை மாற்றவும்"
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "உள்புகுகை;பெயர்;விரல்ரேகை;அவதாரம்;லோகோ;முகம்;கடவுச்சொல்;"
 
@@ -6981,19 +6981,19 @@ msgstr "வரைபடத்தை காட்டு"
 msgid "Button"
 msgstr "பொத்தான்"
 
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:1
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:1
 #: ../panels/wacom/gnome-wacom-properties.ui.h:8
 msgid "Wacom Tablet"
 msgstr "வாகாம் தொடுதட்டு"
 
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:2
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:2
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "கிராஃபிக்ஸ் டாப்ளெட்டுகளுக்கு பொத்தான் இணைப்புகளை அமைத்து ஸ்டைலஸின் உணர்திறனை "
 "சரிசெய்யவும்"
 
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:4
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:4
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "தொடுதட்டு;வாகாம்;எழுத்தாணி;துடைப்பி;சொடுக்கி;"
 
@@ -7276,7 +7276,7 @@ msgctxt "category"
 msgid "System"
 msgstr "கணினி"
 
-#: ../shell/regolith-control-center.desktop.in.in.h:2
+#: ../shell/gnome-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "விருப்பங்கள்;அமைப்புகள்;"
 

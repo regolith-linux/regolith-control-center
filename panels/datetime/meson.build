@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
 desktop_in = configure_file(
   input: desktop + '.in.in',
@@ -110,11 +110,7 @@ resource_data = files(
   'data/timezone_-9.png',
   'data/timezone_9.png',
   'backward',
-  'big.ui',
   'cc-datetime-panel.ui',
-  'little.ui',
-  'middle.ui',
-  'ydm.ui'
 )
 
 resources = gnome.compile_resources(

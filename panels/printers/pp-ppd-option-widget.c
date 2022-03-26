@@ -146,20 +146,6 @@ pp_ppd_option_widget_init (PpPPDOptionWidget *self)
 {
   gtk_orientable_set_orientation (GTK_ORIENTABLE (self),
                                   GTK_ORIENTATION_HORIZONTAL);
-
-  self->switch_button = NULL;
-  self->combo = NULL;
-  self->image = NULL;
-  self->box = NULL;
-
-  self->printer_name = NULL;
-  self->option_name = NULL;
-
-  self->destination = NULL;
-  self->destination_set = FALSE;
-
-  self->ppd_filename = NULL;
-  self->ppd_filename_set = FALSE;
 }
 
 static void
@@ -240,14 +226,13 @@ static GtkWidget *
 combo_box_new (void)
 {
   GtkCellRenderer *cell;
-  GtkListStore    *store;
+  g_autoptr(GtkListStore) store = NULL;
   GtkWidget       *combo_box;
 
   combo_box = gtk_combo_box_new ();
 
   store = gtk_list_store_new (N_COLUMNS, G_TYPE_STRING, G_TYPE_STRING);
   gtk_combo_box_set_model (GTK_COMBO_BOX (combo_box), GTK_TREE_MODEL (store));
-  g_object_unref (store);
 
   cell = gtk_cell_renderer_text_new ();
   gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo_box), cell, TRUE);
@@ -342,24 +327,19 @@ printer_add_option_async_cb (gboolean success,
 }
 
 static void
-switch_changed_cb (GtkWidget         *switch_button,
-                   GParamSpec        *pspec,
-                   PpPPDOptionWidget *self)
+switch_changed_cb (PpPPDOptionWidget *self)
 {
   gchar                    **values;
 
   values = g_new0 (gchar *, 2);
 
-  if (gtk_switch_get_active (GTK_SWITCH (switch_button)))
+  if (gtk_switch_get_active (GTK_SWITCH (self->switch_button)))
     values[0] = g_strdup ("True");
   else
     values[0] = g_strdup ("False");
 
-  if (self->cancellable)
-    {
-      g_cancellable_cancel (self->cancellable);
-      g_object_unref (self->cancellable);
-    }
+  g_cancellable_cancel (self->cancellable);
+  g_clear_object (&self->cancellable);
 
   self->cancellable = g_cancellable_new ();
   printer_add_option_async (self->printer_name,
@@ -374,19 +354,15 @@ switch_changed_cb (GtkWidget         *switch_button,
 }
 
 static void
-combo_changed_cb (GtkWidget         *combo,
-                  PpPPDOptionWidget *self)
+combo_changed_cb (PpPPDOptionWidget *self)
 {
   gchar                    **values;
 
   values = g_new0 (gchar *, 2);
-  values[0] = combo_box_get (combo);
+  values[0] = combo_box_get (self->combo);
 
-  if (self->cancellable)
-    {
-      g_cancellable_cancel (self->cancellable);
-      g_object_unref (self->cancellable);
-    }
+  g_cancellable_cancel (self->cancellable);
+  g_clear_object (&self->cancellable);
 
   self->cancellable = g_cancellable_new ();
   printer_add_option_async (self->printer_name,
@@ -412,12 +388,15 @@ construct_widget (PpPPDOptionWidget *self)
         {
           case PPD_UI_BOOLEAN:
               self->switch_button = gtk_switch_new ();
-              g_signal_connect (self->switch_button, "notify::active", G_CALLBACK (switch_changed_cb), self);
+              gtk_widget_show (self->switch_button);
+
+              g_signal_connect_object (self->switch_button, "notify::active", G_CALLBACK (switch_changed_cb), self, G_CONNECT_SWAPPED);
               gtk_box_pack_start (GTK_BOX (self), self->switch_button, FALSE, FALSE, 0);
               break;
 
           case PPD_UI_PICKONE:
               self->combo = combo_box_new ();
+              gtk_widget_show (self->combo);
 
               for (i = 0; i < self->option->num_choices; i++)
                 {
@@ -427,11 +406,12 @@ construct_widget (PpPPDOptionWidget *self)
                 }
 
               gtk_box_pack_start (GTK_BOX (self), self->combo, FALSE, FALSE, 0);
-              g_signal_connect (self->combo, "changed", G_CALLBACK (combo_changed_cb), self);
+              g_signal_connect_object (self->combo, "changed", G_CALLBACK (combo_changed_cb), self, G_CONNECT_SWAPPED);
               break;
 
           case PPD_UI_PICKMANY:
               self->combo = combo_box_new ();
+              gtk_widget_show (self->combo);
 
               for (i = 0; i < self->option->num_choices; i++)
                 {
@@ -441,7 +421,7 @@ construct_widget (PpPPDOptionWidget *self)
                 }
 
               gtk_box_pack_start (GTK_BOX (self), self->combo, TRUE, TRUE, 0);
-              g_signal_connect (self->combo, "changed", G_CALLBACK (combo_changed_cb), self);
+              g_signal_connect_object (self->combo, "changed", G_CALLBACK (combo_changed_cb), self, G_CONNECT_SWAPPED);
               break;
 
           default:
@@ -451,6 +431,7 @@ construct_widget (PpPPDOptionWidget *self)
       self->image = gtk_image_new_from_icon_name ("dialog-warning-symbolic", GTK_ICON_SIZE_MENU);
       if (!self->image)
         self->image = gtk_image_new_from_icon_name ("dialog-warning", GTK_ICON_SIZE_MENU);
+      gtk_widget_show (self->image);
       gtk_box_pack_start (GTK_BOX (self), self->image, FALSE, FALSE, 0);
       gtk_widget_set_no_show_all (GTK_WIDGET (self->image), TRUE);
 

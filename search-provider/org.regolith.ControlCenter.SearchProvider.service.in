@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=org.regolith.ControlCenter.SearchProvider
-Exec=@libexecdir@/regolith-control-center-search-provider

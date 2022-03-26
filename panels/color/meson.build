@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
 desktop_in = configure_file(
   input: desktop + '.in.in',
@@ -44,10 +44,6 @@ deps = common_deps + [
   m_dep,
   dependency('colord-gtk', version: '>= 0.1.24'),
   dependency('libsoup-2.4')
-]
-
-cflags += [
-  '-DBINDIR="@0@"'.format(control_center_bindir)
 ]
 
 panels_libs += static_library(

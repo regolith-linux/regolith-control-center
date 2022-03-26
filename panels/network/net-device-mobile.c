@@ -41,8 +41,10 @@ struct _NetDeviceMobile
 
         GtkLabel     *device_label;
         GtkSwitch    *device_off_switch;
-        GtkLabel     *dns_heading_label;
-        GtkLabel     *dns_label;
+        GtkLabel     *dns4_heading_label;
+        GtkLabel     *dns4_label;
+        GtkLabel     *dns6_heading_label;
+        GtkLabel     *dns6_label;
         GtkLabel     *imei_heading_label;
         GtkLabel     *imei_label;
         GtkLabel     *ipv4_heading_label;
@@ -72,7 +74,6 @@ struct _NetDeviceMobile
 
         /* New MM >= 0.7 support */
         MMObject   *mm_object;
-        guint       operator_name_updated;
 
         NMAMobileProvidersDatabase *mpd;
 };
@@ -350,6 +351,8 @@ nm_device_mobile_refresh_ui (NetDeviceMobile *self)
         g_autofree gchar *status = NULL;
         NMIPConfig *ipv4_config = NULL, *ipv6_config = NULL;
         gboolean have_ipv4_address = FALSE, have_ipv6_address = FALSE;
+        gboolean have_dns4 = FALSE, have_dns6 = FALSE;
+        const gchar *route4_text = NULL, *route6_text = NULL;
 
         /* set up the device on/off switch */
         gtk_widget_show (GTK_WIDGET (self->device_off_switch));
@@ -381,8 +384,7 @@ nm_device_mobile_refresh_ui (NetDeviceMobile *self)
         if (ipv4_config != NULL) {
                 GPtrArray *addresses;
                 const gchar *ipv4_text = NULL;
-                g_autofree gchar *dns_text = NULL;
-                const gchar *route_text;
+                g_autofree gchar *ip4_dns = NULL;
 
                 addresses = nm_ip_config_get_addresses (ipv4_config);
                 if (addresses->len > 0)
@@ -392,39 +394,48 @@ nm_device_mobile_refresh_ui (NetDeviceMobile *self)
                 gtk_widget_set_visible (GTK_WIDGET (self->ipv4_label), ipv4_text != NULL);
                 have_ipv4_address = ipv4_text != NULL;
 
-                dns_text = g_strjoinv (" ", (char **) nm_ip_config_get_nameservers (ipv4_config));
-                gtk_label_set_label (self->dns_label, dns_text);
-                gtk_widget_set_visible (GTK_WIDGET (self->dns_heading_label), dns_text != NULL);
-                gtk_widget_set_visible (GTK_WIDGET (self->dns_label), dns_text != NULL);
+                ip4_dns = g_strjoinv (" ", (char **) nm_ip_config_get_nameservers (ipv4_config));
+                if (!*ip4_dns)
+                        ip4_dns = NULL;
+                gtk_label_set_label (self->dns4_label, ip4_dns);
+                gtk_widget_set_visible (GTK_WIDGET (self->dns4_heading_label), ip4_dns != NULL);
+                gtk_widget_set_visible (GTK_WIDGET (self->dns4_label), ip4_dns != NULL);
+                have_dns4 = ip4_dns != NULL;
 
-                route_text = nm_ip_config_get_gateway (ipv4_config);
-                gtk_label_set_label (self->route_label, route_text);
-                gtk_widget_set_visible (GTK_WIDGET (self->route_heading_label), route_text != NULL);
-                gtk_widget_set_visible (GTK_WIDGET (self->route_label), route_text != NULL);
+                route4_text = nm_ip_config_get_gateway (ipv4_config);
         } else {
                 gtk_widget_hide (GTK_WIDGET (self->ipv4_heading_label));
                 gtk_widget_hide (GTK_WIDGET (self->ipv4_label));
-                gtk_widget_hide (GTK_WIDGET (self->dns_heading_label));
-                gtk_widget_hide (GTK_WIDGET (self->dns_label));
-                gtk_widget_hide (GTK_WIDGET (self->route_heading_label));
-                gtk_widget_hide (GTK_WIDGET (self->route_label));
+                gtk_widget_hide (GTK_WIDGET (self->dns4_heading_label));
+                gtk_widget_hide (GTK_WIDGET (self->dns4_label));
         }
 
         ipv6_config = nm_device_get_ip6_config (self->device);
         if (ipv6_config != NULL) {
-                GPtrArray *addresses;
-                const gchar *ipv6_text = NULL;
+                g_autofree gchar *ipv6_text = NULL;
+                g_autofree gchar *ip6_dns = NULL;
 
-                addresses = nm_ip_config_get_addresses (ipv6_config);
-                if (addresses->len > 0)
-                        ipv6_text = nm_ip_address_get_address (g_ptr_array_index (addresses, 0));
+                ipv6_text = net_device_get_ip6_addresses (ipv6_config);
                 gtk_label_set_label (self->ipv6_label, ipv6_text);
                 gtk_widget_set_visible (GTK_WIDGET (self->ipv6_heading_label), ipv6_text != NULL);
+                gtk_widget_set_valign (GTK_WIDGET (self->ipv6_heading_label), GTK_ALIGN_START);
                 gtk_widget_set_visible (GTK_WIDGET (self->ipv6_label), ipv6_text != NULL);
                 have_ipv6_address = ipv6_text != NULL;
+
+                ip6_dns = g_strjoinv (" ", (char **) nm_ip_config_get_nameservers (ipv6_config));
+                if (!*ip6_dns)
+                        ip6_dns = NULL;
+                gtk_label_set_label (self->dns6_label, ip6_dns);
+                gtk_widget_set_visible (GTK_WIDGET (self->dns6_heading_label), ip6_dns != NULL);
+                gtk_widget_set_visible (GTK_WIDGET (self->dns6_label), ip6_dns != NULL);
+                have_dns6 = ip6_dns != NULL;
+
+                route6_text =  nm_ip_config_get_gateway (ipv6_config);
         } else {
                 gtk_widget_hide (GTK_WIDGET (self->ipv6_heading_label));
                 gtk_widget_hide (GTK_WIDGET (self->ipv6_label));
+                gtk_widget_hide (GTK_WIDGET (self->dns6_heading_label));
+                gtk_widget_hide (GTK_WIDGET (self->dns6_label));
         }
 
         if (have_ipv4_address && have_ipv6_address) {
@@ -434,6 +445,33 @@ nm_device_mobile_refresh_ui (NetDeviceMobile *self)
         else {
                 gtk_label_set_label (self->ipv4_heading_label, _("IP Address"));
                 gtk_label_set_label (self->ipv6_heading_label, _("IP Address"));
+        }
+
+        if (have_dns4 && have_dns6) {
+                gtk_label_set_label (self->dns4_heading_label, _("DNS4"));
+                gtk_label_set_label (self->dns6_heading_label, _("DNS6"));
+        } else {
+                gtk_label_set_label (self->dns4_heading_label, _("DNS"));
+                gtk_label_set_label (self->dns6_heading_label, _("DNS"));
+        }
+
+        if (route4_text != NULL || route6_text != NULL) {
+                g_autofree const gchar *routes_text = NULL;
+
+                if (route4_text == NULL) {
+                        routes_text = g_strdup (route6_text);
+                } else if (route6_text == NULL) {
+                        routes_text = g_strdup (route4_text);
+                } else {
+                        routes_text = g_strjoin ("\n", route4_text, route6_text, NULL);
+                }
+                gtk_label_set_label (self->route_label, routes_text);
+                gtk_widget_set_visible (GTK_WIDGET (self->route_heading_label), routes_text != NULL);
+                gtk_widget_set_valign (GTK_WIDGET (self->route_heading_label), GTK_ALIGN_START);
+                gtk_widget_set_visible (GTK_WIDGET (self->route_label), routes_text != NULL);
+        } else {
+                gtk_widget_hide (GTK_WIDGET (self->route_heading_label));
+                gtk_widget_hide (GTK_WIDGET (self->route_label));
         }
 }
 
@@ -624,10 +662,11 @@ device_mobile_device_got_modem_manager_gsm_cb (GObject      *source_object,
         }
 
         /* Setup value updates */
-        g_signal_connect_swapped (self->gsm_proxy,
-                                  "g-signal",
-                                  G_CALLBACK (device_mobile_gsm_signal_cb),
-                                  self);
+        g_signal_connect_object (self->gsm_proxy,
+                                 "g-signal",
+                                 G_CALLBACK (device_mobile_gsm_signal_cb),
+                                 self,
+                                 G_CONNECT_SWAPPED);
 
         /* Load initial value */
         g_dbus_proxy_call (self->gsm_proxy,
@@ -720,12 +759,6 @@ net_device_mobile_dispose (GObject *object)
         g_clear_object (&self->cancellable);
         g_clear_object (&self->gsm_proxy);
         g_clear_object (&self->cdma_proxy);
-
-        if (self->operator_name_updated) {
-                g_assert (self->mm_object != NULL);
-                g_signal_handler_disconnect (mm_object_peek_modem_3gpp (self->mm_object), self->operator_name_updated);
-                self->operator_name_updated = 0;
-        }
         g_clear_object (&self->mm_object);
         g_clear_object (&self->mpd);
 
@@ -744,8 +777,10 @@ net_device_mobile_class_init (NetDeviceMobileClass *klass)
 
         gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, device_label);
         gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, device_off_switch);
-        gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, dns_heading_label);
-        gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, dns_label);
+        gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, dns4_heading_label);
+        gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, dns4_label);
+        gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, dns6_heading_label);
+        gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, dns6_label);
         gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, imei_heading_label);
         gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, imei_label);
         gtk_widget_class_bind_template_child (widget_class, NetDeviceMobile, ipv4_heading_label);
@@ -803,11 +838,11 @@ net_device_mobile_new (NMClient *client, NMDevice *device, GDBusObject *modem)
                 /* Follow changes in operator name and load initial values */
                 modem_3gpp = mm_object_peek_modem_3gpp (self->mm_object);
                 if (modem_3gpp != NULL) {
-                        g_assert (self->operator_name_updated == 0);
-                        self->operator_name_updated = g_signal_connect_swapped (modem_3gpp,
-                                                                                "notify::operator-name",
-                                                                                G_CALLBACK (operator_name_updated),
-                                                                                self);
+                        g_signal_connect_object (modem_3gpp,
+                                                 "notify::operator-name",
+                                                 G_CALLBACK (operator_name_updated),
+                                                 self,
+                                                 G_CONNECT_SWAPPED);
                         device_mobile_refresh_operator_name (self);
                 }
         }

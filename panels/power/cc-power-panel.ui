@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkListStore" id="liststore_time">
+  <object class="GtkListStore" id="time_liststore">
     <columns>
       <!-- column-name name -->
       <column type="gchararray"/>
@@ -51,88 +51,190 @@
       </row>
     </data>
   </object>
-  <object class="GtkListStore" id="liststore_idle_time">
-    <columns>
-      <!-- column-name name -->
-      <column type="gchararray"/>
-      <!-- column-name value -->
-      <column type="gint"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">1 minute</col>
-        <col id="1">60</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">2 minutes</col>
-        <col id="1">120</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">3 minutes</col>
-        <col id="1">180</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">4 minutes</col>
-        <col id="1">240</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">5 minutes</col>
-        <col id="1">300</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">8 minutes</col>
-        <col id="1">480</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">10 minutes</col>
-        <col id="1">600</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">12 minutes</col>
-        <col id="1">720</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">15 minutes</col>
-        <col id="1">900</col>
-      </row>
-      <row>
-        <col id="0" translatable="yes" context="blank_screen" comments="Translators: Option for &quot;Blank screen&quot; in &quot;Power&quot; panel.">Never</col>
-        <col id="1">0</col>
-      </row>
-    </data>
-  </object>
-  <object class="GtkListStore" id="liststore_power_button">
-    <columns>
-      <!-- column-name name -->
-      <column type="gchararray"/>
-      <!-- column-name value -->
-      <column type="gint"/>
-    </columns>
-  </object>
   <template class="CcPowerPanel" parent="CcPanel">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <child>
-      <object class="GtkScrolledWindow" id="main_scroll">
+      <object class="HdyPreferencesPage">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="hscrollbar_policy">never</property>
         <child>
-          <object class="HdyColumn" id="main_box">
+          <object class="HdyPreferencesGroup" id="battery_section">
             <property name="visible">True</property>
-            <property name="maximum_width">600</property>
-            <property name="linear_growth_width">400</property>
-            <property name="margin_top">32</property>
-            <property name="margin_bottom">32</property>
-            <property name="margin_start">12</property>
-            <property name="margin_end">12</property>
+            <property name="title" translatable="yes">Battery</property>
+            <accessibility>
+              <relation target="battery_listbox" type="label-for"/>
+            </accessibility>
             <child>
-              <object class="GtkBox" id="vbox_power">
+              <object class="GtkListBox" id="battery_listbox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="orientation">vertical</property>
-                <property name="spacing">3</property>
-                <property name="hexpand">True</property>
+                <property name="selection-mode">none</property>
+                <signal name="keynav-failed" handler="keynav_failed_cb" object="CcPowerPanel" swapped="yes"/>
+                <accessibility>
+                  <relation target="battery_section" type="labelled-by"/>
+                </accessibility>
+                <style>
+                  <class name="content"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="HdyPreferencesGroup" id="device_section">
+            <property name="visible">True</property>
+            <property name="title" translatable="yes">Devices</property>
+            <accessibility>
+              <relation target="device_listbox" type="label-for"/>
+            </accessibility>
+            <child>
+              <object class="GtkListBox" id="device_listbox">
+                <property name="visible">True</property>
+                <property name="selection-mode">none</property>
+                <signal name="keynav-failed" handler="keynav_failed_cb" object="CcPowerPanel" swapped="yes"/>
+                <accessibility>
+                  <relation target="device_section" type="labelled-by"/>
+                </accessibility>
+                <style>
+                  <class name="content"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="HdyPreferencesGroup" id="power_profile_section">
+            <property name="visible">False</property>
+            <property name="title" translatable="yes">Power Mode</property>
+            <property name="description" translatable="yes">Affects system performance and power usage.</property>
+            <accessibility>
+              <relation target="power_profile_listbox" type="label-for"/>
+            </accessibility>
+            <child>
+              <object class="GtkListBox" id="power_profile_listbox">
+                <property name="visible">True</property>
+                <property name="selection-mode">none</property>
+                <signal name="keynav-failed" handler="keynav_failed_cb" object="CcPowerPanel" swapped="yes"/>
+                <signal name="row-activated" handler="power_profiles_row_activated_cb" object="CcPowerPanel" swapped="yes"/>
+                <accessibility>
+                  <relation target="power_profile_section" type="labelled-by"/>
+                </accessibility>
+                <style>
+                  <class name="content"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBox" id="power_profile_info_listbox">
+                <property name="visible">False</property>
+                <property name="selection-mode">none</property>
+                <property name="margin_top">12</property>
+                <signal name="keynav-failed" handler="keynav_failed_cb" object="CcPowerPanel" swapped="yes"/>
+                <style>
+                  <class name="content"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="HdyPreferencesGroup" id="power_saving_section">
+            <property name="visible">True</property>
+            <property name="title" translatable="yes">Power Saving Options</property>
+            <child>
+              <object class="HdyActionRow" id="als_row">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes">Automatic Screen Brightness</property>
+                <property name="subtitle" translatable="yes">Screen brightness adjusts to the surrounding light.</property>
+                <child>
+                  <object class="GtkSwitch" id="als_switch">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                    <signal name="notify::active" handler="als_switch_changed_cb" object="CcPowerPanel" swapped="yes"/>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="HdyActionRow" id="dim_screen_row">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes">Dim Screen</property>
+                <property name="subtitle" translatable="yes">Reduces the screen brightness when the computer is inactive.</property>
+                <property name="activatable_widget">dim_screen_switch</property>
+                <child>
+                  <object class="GtkSwitch" id="dim_screen_switch">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="HdyComboRow" id="blank_screen_row">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes">Screen _Blank</property>
+                <property name="subtitle" translatable="yes">Turns the screen off after a period of inactivity.</property>
+                <property name="use_underline">True</property>
+                <signal name="notify::selected-index" handler="blank_screen_row_changed_cb" object="CcPowerPanel" swapped="yes"/>
+              </object>
+            </child>
+            <child>
+              <object class="HdyActionRow" id="power_saver_low_battery_row">
+                <property name="visible">False</property>
+                <property name="title" translatable="yes">Automatic Power Saver</property>
+                <property name="subtitle" translatable="yes">Enables power saver mode when battery is low.</property>
+                <property name="use_underline">True</property>
+                <property name="activatable_widget">power_saver_low_battery_switch</property>
+                <child>
+                  <object class="GtkSwitch" id="power_saver_low_battery_switch">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="HdyActionRow" id="automatic_suspend_row">
+                <property name="visible">False</property>
+                <property name="title" translatable="yes">_Automatic Suspend</property>
+                <property name="subtitle" translatable="yes">Pauses the computer after a period of inactivity.</property>
+                <property name="use_underline">True</property>
+                <property name="activatable">True</property>
+                <signal name="activated" handler="automatic_suspend_row_activated_cb" swapped="yes"/>
+                <child>
+                  <object class="GtkLabel" id="automatic_suspend_label">
+                    <property name="visible">True</property>
+                    <property name="halign">end</property>
+                    <signal name="mnemonic-activate" handler="automatic_suspend_label_mnemonic_activate_cb" object="CcPowerPanel" swapped="yes"/>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="HdyPreferencesGroup" id="general_section">
+            <property name="visible">True</property>
+            <property name="title" translatable="yes">Suspend &amp; Power Button</property>
+            <child>
+              <object class="HdyComboRow" id="power_button_row">
+                <property name="visible">False</property>
+                <property name="title" translatable="yes">Po_wer Button Behavior</property>
+                <property name="use_underline">True</property>
+                <signal name="notify::selected-index" handler="power_button_row_changed_cb" object="CcPowerPanel" swapped="yes"/>
+              </object>
+            </child>
+            <child>
+              <object class="HdyActionRow" id="battery_percentage_row">
+                <property name="visible">False</property>
+                <property name="title" translatable="yes">Show Battery _Percentage</property>
+                <property name="use_underline">True</property>
+                <property name="activatable_widget">battery_percentage_switch</property>
+                <child>
+                  <object class="GtkSwitch" id="battery_percentage_switch">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -140,6 +242,25 @@
       </object>
     </child>
   </template>
+  <object class="GtkSizeGroup" id="battery_row_sizegroup">
+    <property name="mode">vertical</property>
+  </object>
+  <object class="GtkSizeGroup" id="level_sizegroup">
+    <property name="mode">horizontal</property>
+    <widgets>
+    </widgets>
+  </object>
+  <object class="GtkSizeGroup" id="row_sizegroup">
+    <property name="mode">vertical</property>
+    <widgets>
+      <widget name="als_row"/>
+      <widget name="dim_screen_row"/>
+      <widget name="blank_screen_row"/>
+      <widget name="automatic_suspend_row"/>
+      <widget name="power_button_row"/>
+      <widget name="battery_percentage_row"/>
+    </widgets>
+  </object>
 
   <object class="GtkDialog" id="automatic_suspend_dialog">
     <property name="can_focus">False</property>
@@ -149,12 +270,12 @@
     <property name="resizable">False</property>
     <property name="use_header_bar">1</property>
     <child internal-child="vbox">
-      <object class="GtkBox" id="asdf">
+      <object class="GtkBox">
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
-          <object class="GtkGrid" id="grid1">
+          <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="margin_start">12</property>
@@ -215,7 +336,7 @@
                 <property name="can_focus">False</property>
                 <property name="entry_text_column">0</property>
                 <property name="id_column">1</property>
-                <property name="model">liststore_time</property>
+                <property name="model">time_liststore</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -263,7 +384,7 @@
                 <property name="can_focus">False</property>
                 <property name="entry_text_column">0</property>
                 <property name="id_column">1</property>
-                <property name="model">liststore_time</property>
+                <property name="model">time_liststore</property>
               </object>
               <packing>
                 <property name="left_attach">2</property>
@@ -285,7 +406,7 @@
               <placeholder/>
             </child>
             <child>
-              <object class="GtkLabel" id="suspend_on_ac_delay_label">
+              <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_start">20</property>
@@ -314,4 +435,3 @@
     </child>
   </object>
 </interface>
-

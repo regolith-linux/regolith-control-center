@@ -70,10 +70,8 @@
             <property name="hscrollbar_policy">never</property>
             <property name="min_content_height">500</property>
             <child>
-              <object class="HdyColumn">
+              <object class="HdyClamp">
                 <property name="visible">True</property>
-                <property name="maximum_width">600</property>
-                <property name="linear_growth_width">400</property>
                 <property name="margin_top">32</property>
                 <property name="margin_bottom">32</property>
                 <property name="margin_start">12</property>
@@ -155,21 +153,6 @@
                             <accessibility>
                               <relation target="providers_label" type="labelled-by"/>
                             </accessibility>
-                            <child>
-                              <object class="GtkListBoxRow" id="more_providers_row">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <child>
-                                  <object class="GtkImage">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="hexpand">True</property>
-                                    <property name="margin">22</property>
-                                    <property name="icon-name">view-more-symbolic</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </child>
                           </object>
                         </child>
                       </object>
@@ -213,12 +196,9 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
               </object>
-              <packing>
-                <property name="name">new-account</property>
-              </packing>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="editor_box">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin-bottom">24</property>
@@ -248,9 +228,6 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="name">editor</property>
-              </packing>
             </child>
           </object>
         </child>

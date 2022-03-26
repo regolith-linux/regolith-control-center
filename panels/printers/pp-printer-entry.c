@@ -45,10 +45,7 @@ struct _PpPrinterEntry
 {
   GtkListBoxRow parent;
 
-  gchar    *printer_uri;
   gchar    *printer_name;
-  gchar    *ppd_file_name;
-  int       num_jobs;
   gboolean  is_accepting_jobs;
   gchar    *printer_make_and_model;
   gchar    *printer_location;
@@ -80,9 +77,7 @@ struct _PpPrinterEntry
   GtkLabel       *error_status;
 
   /* Dialogs */
-  PpDetailsDialog *pp_details_dialog;
   PpJobsDialog    *pp_jobs_dialog;
-  PpOptionsDialog *pp_options_dialog;
 
   GCancellable *get_jobs_cancellable;
 };
@@ -97,12 +92,6 @@ struct _PpPrinterEntryClass
 };
 
 G_DEFINE_TYPE (PpPrinterEntry, pp_printer_entry, GTK_TYPE_LIST_BOX_ROW)
-
-enum {
-  PROP_0,
-  PROP_PRINTER_NAME,
-  PROP_PRINTER_LOCATION,
-};
 
 enum {
   IS_DEFAULT_PRINTER,
@@ -127,49 +116,6 @@ ink_level_data_free (InkLevelData *data)
   g_clear_pointer (&data->marker_colors, g_free);
   g_clear_pointer (&data->marker_types, g_free);
   g_slice_free (InkLevelData, data);
-}
-
-static void
-pp_printer_entry_get_property (GObject    *object,
-                               guint       prop_id,
-                               GValue     *value,
-                               GParamSpec *pspec)
-{
-  PpPrinterEntry *self = PP_PRINTER_ENTRY (object);
-
-  switch (prop_id)
-    {
-      case PROP_PRINTER_NAME:
-        g_value_set_string (value, self->printer_name);
-        break;
-      case PROP_PRINTER_LOCATION:
-        g_value_set_string (value, self->printer_location);
-        break;
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
-}
-
-static void
-pp_printer_entry_set_property (GObject      *object,
-                               guint         prop_id,
-                               const GValue *value,
-                               GParamSpec   *pspec)
-{
-  PpPrinterEntry *self = PP_PRINTER_ENTRY (object);
-
-  switch (prop_id)
-    {
-      case PROP_PRINTER_NAME:
-        self->printer_name = g_value_dup_string (value);
-        break;
-      case PROP_PRINTER_LOCATION:
-        self->printer_location = g_value_dup_string (value);
-        break;
-      default:
-        G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-        break;
-    }
 }
 
 static void
@@ -208,7 +154,7 @@ sanitize_printer_model (const gchar *printer_make_and_model)
   g_autofree gchar *tmp = NULL;
   gchar             backup;
   size_t            length = 0;
-  gchar            *forbiden[] = {
+  gchar            *forbidden[] = {
     "foomatic",
     ",",
     "hpijs",
@@ -220,9 +166,9 @@ sanitize_printer_model (const gchar *printer_make_and_model)
 
   tmp = g_ascii_strdown (printer_make_and_model, -1);
 
-  for (i = 0; i < g_strv_length (forbiden); i++)
+  for (i = 0; i < g_strv_length (forbidden); i++)
     {
-      tmp2 = g_strrstr (tmp, forbiden[i]);
+      tmp2 = g_strrstr (tmp, forbidden[i]);
       if (breakpoint == NULL ||
          (tmp2 != NULL && tmp2 < breakpoint))
            breakpoint = tmp2;
@@ -275,9 +221,8 @@ tone_down_color (GdkRGBA *color,
 }
 
 static gboolean
-supply_levels_draw_cb (GtkWidget      *widget,
-                       cairo_t        *cr,
-                       PpPrinterEntry *self)
+supply_levels_draw_cb (PpPrinterEntry *self,
+                       cairo_t        *cr)
 {
   GtkStyleContext        *context;
   gboolean                is_empty = TRUE;
@@ -286,10 +231,10 @@ supply_levels_draw_cb (GtkWidget      *widget,
   gint                    height;
   int                     i;
 
-  context = gtk_widget_get_style_context (widget);
+  context = gtk_widget_get_style_context (GTK_WIDGET (self->supply_drawing_area));
 
-  width = gtk_widget_get_allocated_width (widget);
-  height = gtk_widget_get_allocated_height (widget);
+  width = gtk_widget_get_allocated_width (GTK_WIDGET (self->supply_drawing_area));
+  height = gtk_widget_get_allocated_height (GTK_WIDGET (self->supply_drawing_area));
 
   gtk_render_background (context, cr, 0, 0, width, height);
 
@@ -388,12 +333,12 @@ supply_levels_draw_cb (GtkWidget      *widget,
 
     if (tooltip_text)
       {
-        gtk_widget_set_tooltip_text (widget, tooltip_text);
+        gtk_widget_set_tooltip_text (GTK_WIDGET (self->supply_drawing_area), tooltip_text);
       }
     else
       {
-        gtk_widget_set_tooltip_text (widget, NULL);
-        gtk_widget_set_has_tooltip (widget, FALSE);
+        gtk_widget_set_tooltip_text (GTK_WIDGET (self->supply_drawing_area), NULL);
+        gtk_widget_set_has_tooltip (GTK_WIDGET (self->supply_drawing_area), FALSE);
       }
     }
 
@@ -409,25 +354,11 @@ on_printer_rename_cb (GObject      *source_object,
                       gpointer      user_data)
 {
   PpPrinterEntry *self = user_data;
-  g_autofree gchar *printer_name = NULL;
 
   if (!pp_printer_rename_finish (PP_PRINTER (source_object), result, NULL))
     return;
 
-  g_object_get (PP_PRINTER (source_object),
-                "printer-name", &printer_name,
-                NULL);
-
-  g_signal_emit_by_name (self, "printer-renamed", printer_name);
-}
-
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
+  g_signal_emit_by_name (self, "printer-renamed", pp_printer_get_name (PP_PRINTER (source_object)));
 }
 
 static void
@@ -445,10 +376,7 @@ on_show_printer_details_dialog (GtkButton      *button,
 
   gtk_window_set_transient_for (GTK_WINDOW (dialog),
                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
-  g_signal_connect (GTK_WINDOW (dialog),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (dialog));
+
   gtk_dialog_run (GTK_DIALOG (dialog));
 
   new_location = pp_details_dialog_get_printer_location (dialog);
@@ -458,7 +386,7 @@ on_show_printer_details_dialog (GtkButton      *button,
   new_name = pp_details_dialog_get_printer_name (dialog);
   if (g_strcmp0 (self->printer_name, new_name) != 0)
     {
-      PpPrinter *printer = pp_printer_new (self->printer_name);
+      g_autoptr(PpPrinter) printer = pp_printer_new (self->printer_name);
 
       pp_printer_rename_async (printer,
                                new_name,
@@ -482,10 +410,7 @@ on_show_printer_options_dialog (GtkButton      *button,
 
   gtk_window_set_transient_for (GTK_WINDOW (dialog),
                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
-  g_signal_connect (GTK_WINDOW (dialog),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (dialog));
+
   gtk_dialog_run (GTK_DIALOG (dialog));
 
   gtk_widget_destroy (GTK_WIDGET (dialog));
@@ -506,24 +431,20 @@ check_clean_heads_maintenance_command_cb (GObject      *source_object,
                                           gpointer      user_data)
 {
   PpPrinterEntry       *self = user_data;
-  PpMaintenanceCommand *command = (PpMaintenanceCommand *) source_object;
   gboolean              is_supported = FALSE;
   g_autoptr(GError)     error = NULL;
 
-  is_supported = pp_maintenance_command_is_supported_finish (command, res, &error);
+  is_supported = pp_maintenance_command_is_supported_finish (PP_MAINTENANCE_COMMAND (source_object), res, &error);
   if (error != NULL)
     {
       g_debug ("Could not check 'Clean' maintenance command: %s", error->message);
-      goto out;
+      return;
     }
 
   if (is_supported)
     {
       gtk_widget_show (GTK_WIDGET (self->clean_heads_menuitem));
     }
-
- out:
-  g_object_unref (source_object);
 }
 
 static void
@@ -546,15 +467,11 @@ clean_heads_maintenance_command_cb (GObject      *source_object,
                                     GAsyncResult *res,
                                     gpointer      user_data)
 {
-  PpPrinterEntry       *self = user_data;
-  PpMaintenanceCommand *command = (PpMaintenanceCommand *) source_object;
-  g_autoptr(GError)     error = NULL;
+  PpPrinterEntry *self = user_data;
+  g_autoptr(GError) error = NULL;
 
-  if (!pp_maintenance_command_execute_finish (command, res, &error))
-    {
-      g_warning ("Error cleaning print heads for %s: %s", self->printer_name, error->message);
-    }
-  g_object_unref (source_object);
+  if (!pp_maintenance_command_execute_finish (PP_MAINTENANCE_COMMAND (source_object), res, &error))
+    g_warning ("Error cleaning print heads for %s: %s", self->printer_name, error->message);
 }
 
 static void
@@ -584,14 +501,11 @@ get_jobs_cb (GObject      *source_object,
              gpointer      user_data)
 {
   PpPrinterEntry      *self = user_data;
-  PpPrinter           *printer = PP_PRINTER (source_object);
   g_autoptr(GError)    error = NULL;
   g_autoptr(GPtrArray) jobs = NULL;
   g_autofree gchar    *button_label = NULL;
 
-  jobs = pp_printer_get_jobs_finish (printer, result, &error);
-
-  g_object_unref (source_object);
+  jobs = pp_printer_get_jobs_finish (PP_PRINTER (source_object), result, &error);
 
   if (error != NULL)
     {
@@ -628,7 +542,7 @@ get_jobs_cb (GObject      *source_object,
 void
 pp_printer_entry_update_jobs_count (PpPrinterEntry *self)
 {
-  PpPrinter *printer;
+  g_autoptr(PpPrinter) printer = NULL;
 
   g_cancellable_cancel (self->get_jobs_cancellable);
   g_clear_object (&self->get_jobs_cancellable);
@@ -666,10 +580,6 @@ pp_printer_entry_show_jobs_dialog (PpPrinterEntry *self)
       self->pp_jobs_dialog = pp_jobs_dialog_new (self->printer_name);
       g_signal_connect_object (self->pp_jobs_dialog, "response", G_CALLBACK (jobs_dialog_response_cb), self, 0);
       gtk_window_set_transient_for (GTK_WINDOW (self->pp_jobs_dialog), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
-      g_signal_connect (GTK_WINDOW (self->pp_jobs_dialog),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (self->pp_jobs_dialog));
       gtk_window_present (GTK_WINDOW (self->pp_jobs_dialog));
     }
 }
@@ -725,12 +635,51 @@ PpPrinterEntry *
 pp_printer_entry_new (cups_dest_t  printer,
                       gboolean     is_authorized)
 {
-  PpPrinterEntry   *self;
+  PpPrinterEntry *self;
+
+  self = g_object_new (PP_PRINTER_ENTRY_TYPE, NULL);
+
+  self->printer_name = g_strdup (printer.name);
+
+  self->clean_command = pp_maintenance_command_new (self->printer_name,
+                                                    "Clean",
+                                                    "all",
+                                                    /* Translators: Name of job which makes printer to clean its heads */
+                                                    _("Clean print heads"));
+  check_clean_heads_maintenance_command (self);
+
+  g_signal_connect_object (self->supply_drawing_area, "draw", G_CALLBACK (supply_levels_draw_cb), self, G_CONNECT_SWAPPED);
+
+  pp_printer_entry_update (self, printer, is_authorized);
+
+  return self;
+}
+
+const gchar *
+pp_printer_entry_get_name (PpPrinterEntry *self)
+{
+  g_return_val_if_fail (PP_IS_PRINTER_ENTRY (self), NULL);
+  return self->printer_name;
+}
+
+const gchar *
+pp_printer_entry_get_location (PpPrinterEntry *self)
+{
+  g_return_val_if_fail (PP_IS_PRINTER_ENTRY (self), NULL);
+  return self->printer_location;
+}
+
+void
+pp_printer_entry_update (PpPrinterEntry *self,
+                         cups_dest_t     printer,
+                         gboolean        is_authorized)
+{
   cups_ptype_t      printer_type = 0;
   gboolean          is_accepting_jobs = TRUE;
   gboolean          ink_supply_is_empty;
   g_autofree gchar *instance = NULL;
   const gchar      *printer_uri = NULL;
+  const gchar      *device_uri = NULL;
   const gchar      *location = NULL;
   g_autofree gchar *printer_icon_name = NULL;
   const gchar      *printer_make_and_model = NULL;
@@ -796,8 +745,6 @@ pp_printer_entry_new (cups_dest_t  printer,
       N_("The optical photo conductor is no longer functioning")
     };
 
-  self = g_object_new (PP_PRINTER_ENTRY_TYPE, "printer-name", printer.name, NULL);
-
   if (printer.instance)
     {
       instance = g_strdup_printf ("%s / %s", printer.name, printer.instance);
@@ -812,7 +759,7 @@ pp_printer_entry_new (cups_dest_t  printer,
   for (i = 0; i < printer.num_options; i++)
     {
       if (g_strcmp0 (printer.options[i].name, "device-uri") == 0)
-        self->printer_uri = printer.options[i].value;
+        device_uri = printer.options[i].value;
       else if (g_strcmp0 (printer.options[i].name, "printer-uri-supported") == 0)
         printer_uri = printer.options[i].value;
       else if (g_strcmp0 (printer.options[i].name, "printer-type") == 0)
@@ -822,13 +769,25 @@ pp_printer_entry_new (cups_dest_t  printer,
       else if (g_strcmp0 (printer.options[i].name, "printer-state-reasons") == 0)
         reason = printer.options[i].value;
       else if (g_strcmp0 (printer.options[i].name, "marker-names") == 0)
-        self->inklevel->marker_names = g_strcompress (printer.options[i].value);
+        {
+          g_free (self->inklevel->marker_names);
+          self->inklevel->marker_names = g_strcompress (g_strdup (printer.options[i].value));
+        }
       else if (g_strcmp0 (printer.options[i].name, "marker-levels") == 0)
-        self->inklevel->marker_levels = g_strdup (printer.options[i].value);
+        {
+          g_free (self->inklevel->marker_levels);
+          self->inklevel->marker_levels = g_strdup (printer.options[i].value);
+        }
       else if (g_strcmp0 (printer.options[i].name, "marker-colors") == 0)
-        self->inklevel->marker_colors = g_strdup (printer.options[i].value);
+        {
+          g_free (self->inklevel->marker_colors);
+          self->inklevel->marker_colors = g_strdup (printer.options[i].value);
+        }
       else if (g_strcmp0 (printer.options[i].name, "marker-types") == 0)
-        self->inklevel->marker_types = g_strdup (printer.options[i].value);
+        {
+          g_free (self->inklevel->marker_types);
+          self->inklevel->marker_types = g_strdup (printer.options[i].value);
+        }
       else if (g_strcmp0 (printer.options[i].name, "printer-make-and-model") == 0)
         printer_make_and_model = printer.options[i].value;
       else if (g_strcmp0 (printer.options[i].name, "printer-state") == 0)
@@ -892,6 +851,11 @@ pp_printer_entry_new (cups_dest_t  printer,
       gtk_label_set_label (self->error_status, status);
       gtk_widget_set_visible (GTK_WIDGET (self->printer_error), TRUE);
     }
+  else
+    {
+      gtk_label_set_label (self->error_status, "");
+      gtk_widget_set_visible (GTK_WIDGET (self->printer_error), FALSE);
+    }
 
   switch (self->printer_state)
     {
@@ -917,24 +881,19 @@ pp_printer_entry_new (cups_dest_t  printer,
         break;
     }
 
-  if (printer_is_local (printer_type, self->printer_uri))
+  if (printer_is_local (printer_type, device_uri))
     printer_icon_name = g_strdup ("printer");
   else
     printer_icon_name = g_strdup ("printer-network");
 
-  g_object_set (self, "printer-location", location, NULL);
+  g_free (self->printer_location);
+  self->printer_location = g_strdup (location);
 
   self->is_accepting_jobs = is_accepting_jobs;
   self->is_authorized = is_authorized;
 
-  self->printer_hostname = printer_get_hostname (printer_type, self->printer_uri, printer_uri);
-
-  self->clean_command = pp_maintenance_command_new (self->printer_name,
-                                                    "Clean",
-                                                    "all",
-                                                    /* Translators: Name of job which makes printer to clean its heads */
-                                                    _("Clean print heads"));
-  check_clean_heads_maintenance_command (self);
+  g_free (self->printer_hostname);
+  self->printer_hostname = printer_get_hostname (printer_type, device_uri, printer_uri);
 
   gtk_image_set_from_icon_name (self->printer_icon, printer_icon_name, GTK_ICON_SIZE_DIALOG);
   gtk_label_set_text (self->printer_status, printer_status);
@@ -965,7 +924,6 @@ pp_printer_entry_new (cups_dest_t  printer,
       gtk_label_set_text (self->printer_location_address_label, location);
     }
 
-  g_signal_connect (self->supply_drawing_area, "draw", G_CALLBACK (supply_levels_draw_cb), self);
   ink_supply_is_empty = supply_level_is_empty (self);
   gtk_widget_set_visible (GTK_WIDGET (self->printer_inklevel_label), !ink_supply_is_empty);
   gtk_widget_set_visible (GTK_WIDGET (self->supply_frame), !ink_supply_is_empty);
@@ -974,8 +932,6 @@ pp_printer_entry_new (cups_dest_t  printer,
 
   gtk_widget_set_sensitive (GTK_WIDGET (self->printer_default_checkbutton), self->is_authorized);
   gtk_widget_set_sensitive (GTK_WIDGET (self->remove_printer_menuitem), self->is_authorized);
-
-  return self;
 }
 
 static void
@@ -1031,25 +987,7 @@ pp_printer_entry_class_init (PpPrinterEntryClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, show_jobs_dialog);
   gtk_widget_class_bind_template_callback (widget_class, restart_printer);
 
-  object_class->get_property = pp_printer_entry_get_property;
-  object_class->set_property = pp_printer_entry_set_property;
   object_class->dispose = pp_printer_entry_dispose;
-
-  g_object_class_install_property (object_class,
-                                   PROP_PRINTER_NAME,
-                                   g_param_spec_string ("printer-name",
-                                                        "Printer Name",
-                                                        "The Printer unique name",
-                                                        NULL,
-                                                        G_PARAM_READWRITE));
-
-  g_object_class_install_property (object_class,
-                                   PROP_PRINTER_LOCATION,
-                                   g_param_spec_string ("printer-location",
-                                                        "Printer Location",
-                                                        "Printer location string",
-                                                        NULL,
-                                                        G_PARAM_READWRITE));
 
   signals[IS_DEFAULT_PRINTER] =
     g_signal_new ("printer-changed",

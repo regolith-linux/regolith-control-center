@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
+desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
 desktop_in = configure_file(
   input: desktop + '.in.in',
@@ -23,7 +23,7 @@ pc_conf.set('datadir', control_center_datadir)
 pc_conf.set('PACKAGE', meson.project_name())
 pc_conf.set('VERSION', meson.project_version())
 
-pc = 'regolith-keybindings.pc'
+pc = 'gnome-keybindings.pc'
 
 configure_file(
   input: pc + '.in',
@@ -54,20 +54,29 @@ foreach file: xml_files
 endforeach
 
 sources = files(
-  'cc-alt-chars-key-dialog.c',
+  'cc-xkb-modifier-dialog.c',
+  'cc-keyboard-shortcut-row.c',
+  'cc-keyboard-shortcut-dialog.c',
   'cc-keyboard-panel.c',
   'cc-keyboard-item.c',
   'cc-keyboard-manager.c',
-  'cc-keyboard-option.c',
   'cc-keyboard-shortcut-editor.c',
   'wm-common.c',
-  'keyboard-shortcuts.c'
+  'keyboard-shortcuts.c',
+  'cc-ibus-utils.c',
+  'cc-input-chooser.c',
+  'cc-input-row.c',
+  'cc-input-source.c',
+  'cc-input-source-ibus.c',
+  'cc-input-list-box.c',
+  'cc-input-source-xkb.c',
 )
 
 resource_data = files(
   'enter-keyboard-shortcut.svg',
   'cc-keyboard-panel.ui',
   'cc-keyboard-shortcut-editor.ui',
+  'cc-input-chooser.ui',
 )
 
 sources += gnome.compile_resources(
@@ -82,6 +91,10 @@ deps = common_deps + [
   gnome_desktop_dep,
   x11_dep
 ]
+
+if enable_ibus
+  deps += ibus_dep
+endif
 
 panels_libs += static_library(
   cappletname,

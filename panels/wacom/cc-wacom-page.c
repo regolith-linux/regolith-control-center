@@ -68,7 +68,7 @@ struct _CcWacomPage
 
 	CcWacomPanel   *panel;
 	CcWacomDevice  *stylus;
-	CcWacomDevice  *pad;
+	GList          *pads;
 	GtkBuilder     *builder;
 	GtkWidget      *nav;
 	GtkWidget      *notebook;
@@ -87,6 +87,9 @@ struct _CcWacomPage
 	GtkWidget      *dialog;
 
 	GCancellable   *cancellable;
+
+	/* To reach other grouped devices */
+	GsdDeviceManager *manager;
 };
 
 G_DEFINE_TYPE (CcWacomPage, cc_wacom_page, GTK_TYPE_BOX)
@@ -119,8 +122,8 @@ enum {
 };
 
 static void
-update_tablet_ui (CcWacomPage *page,
-		  int          layout);
+set_page_layout (CcWacomPage *page,
+		 int          layout);
 
 static int
 get_layout_type (CcWacomDevice *device)
@@ -155,7 +158,7 @@ set_calibration (CcWacomDevice  *device,
 	current = g_settings_get_value (settings, "area");
 	g_variant_get_fixed_array (current, &nvalues, sizeof (gdouble));
 	if ((ncal != 4) || (nvalues != 4)) {
-		g_warning("Unable set set device calibration property. Got %"G_GSIZE_FORMAT" items to put in %"G_GSIZE_FORMAT" slots; expected %d items.\n", ncal, nvalues, 4);
+		g_warning("Unable to set device calibration property. Got %"G_GSIZE_FORMAT" items to put in %"G_GSIZE_FORMAT" slots; expected %d items.\n", ncal, nvalues, 4);
 		return;
 	}
 
@@ -340,14 +343,13 @@ calibrate (CcWacomPage *page)
 }
 
 static void
-calibrate_button_clicked_cb (GtkButton   *button,
-			     CcWacomPage *page)
+calibrate_button_clicked_cb (CcWacomPage *page)
 {
 	calibrate (page);
 }
 
 /* This avoids us crashing when a newer version of
- * regolith-control-center has been used, and we load up an
+ * gnome-control-center has been used, and we load up an
  * old one, as the action type if unknown to the old g-c-c */
 static gboolean
 action_type_is_valid (GDesktopPadButtonAction action)
@@ -373,15 +375,17 @@ static void
 setup_button_mapping (CcWacomPage *page)
 {
 	GDesktopPadButtonAction action;
+	CcWacomDevice *pad;
 	GtkWidget *list_box;
 	guint i, n_buttons;
 	GSettings *settings;
 
 	list_box = MWID ("shortcuts_list");
-	n_buttons = cc_wacom_device_get_num_buttons (page->pad);
+	pad = page->pads->data;
+	n_buttons = cc_wacom_device_get_num_buttons (pad);
 
 	for (i = 0; i < n_buttons; i++) {
-		settings = cc_wacom_device_get_button_settings (page->pad, i);
+		settings = cc_wacom_device_get_button_settings (pad, i);
 		if (!settings)
 			continue;
 
@@ -394,21 +398,10 @@ setup_button_mapping (CcWacomPage *page)
 }
 
 static void
-button_mapping_dialog_closed (GtkDialog   *dialog,
-			      int          response_id,
-			      CcWacomPage *page)
+button_mapping_dialog_closed (CcWacomPage *page)
 {
 	gtk_widget_destroy (MWID ("button-mapping-dialog"));
 	g_clear_object (&page->mapping_builder);
-}
-
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
 }
 
 static void
@@ -435,13 +428,9 @@ show_button_mapping_dialog (CcWacomPage *page)
 	dialog = MWID ("button-mapping-dialog");
 	toplevel = gtk_widget_get_toplevel (GTK_WIDGET (page));
 	gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (toplevel));
-	g_signal_connect (GTK_WINDOW (dialog),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (dialog));
 	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
-	g_signal_connect (G_OBJECT (dialog), "response",
-			  G_CALLBACK (button_mapping_dialog_closed), page);
+	g_signal_connect_object (dialog, "response",
+	                         G_CALLBACK (button_mapping_dialog_closed), page, G_CONNECT_SWAPPED);
 
 	gtk_widget_show (dialog);
 
@@ -480,7 +469,9 @@ set_osd_visibility (CcWacomPage *page)
 	const gchar        *device_path;
 
 	proxy = cc_wacom_panel_get_gsd_wacom_bus_proxy (page->panel);
-	gsd_device = cc_wacom_device_get_device (page->pad);
+
+	/* Pick the first device, the OSD may change later between them */
+	gsd_device = cc_wacom_device_get_device (page->pads->data);
 
 	device_path = gsd_device_get_device_file (gsd_device);
 
@@ -500,16 +491,13 @@ set_osd_visibility (CcWacomPage *page)
 }
 
 static void
-map_buttons_button_clicked_cb (GtkButton   *button,
-			       CcWacomPage *page)
+map_buttons_button_clicked_cb (CcWacomPage *page)
 {
 	set_osd_visibility (page);
 }
 
 static void
-display_mapping_dialog_closed (GtkDialog   *dialog,
-			       int          response_id,
-			       CcWacomPage *page)
+display_mapping_dialog_closed (CcWacomPage *page)
 {
 	int layout;
 
@@ -517,12 +505,11 @@ display_mapping_dialog_closed (GtkDialog   *dialog,
 	page->dialog = NULL;
 	page->mapping = NULL;
 	layout = get_layout_type (page->stylus);
-	update_tablet_ui (page, layout);
+	set_page_layout (page, layout);
 }
 
 static void
-display_mapping_button_clicked_cb (GtkButton   *button,
-				   CcWacomPage *page)
+display_mapping_button_clicked_cb (CcWacomPage *page)
 {
 	g_assert (page->mapping == NULL);
 
@@ -537,22 +524,21 @@ display_mapping_button_clicked_cb (GtkButton   *button,
 					   page->stylus);
 	gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (page->dialog))),
 			   page->mapping);
-	g_signal_connect (G_OBJECT (page->dialog), "response",
-			  G_CALLBACK (display_mapping_dialog_closed), page);
+	g_signal_connect_object (page->dialog, "response",
+	                         G_CALLBACK (display_mapping_dialog_closed), page, G_CONNECT_SWAPPED);
 	gtk_widget_show_all (page->dialog);
 
 	g_object_add_weak_pointer (G_OBJECT (page->mapping), (gpointer *) &page->dialog);
 }
 
 static void
-tabletmode_changed_cb (GtkComboBox *combo, gpointer user_data)
+tabletmode_changed_cb (CcWacomPage *page)
 {
-	CcWacomPage *page = CC_WACOM_PAGE (user_data);
 	GtkListStore *liststore;
 	GtkTreeIter iter;
 	gint mode;
 
-	if (!gtk_combo_box_get_active_iter (combo, &iter))
+	if (!gtk_combo_box_get_active_iter (GTK_COMBO_BOX (WID ("combo-tabletmode")), &iter))
 		return;
 
 	liststore = GTK_LIST_STORE (WID ("liststore-tabletmode"));
@@ -564,12 +550,11 @@ tabletmode_changed_cb (GtkComboBox *combo, gpointer user_data)
 }
 
 static void
-left_handed_toggled_cb (GtkSwitch *sw, GParamSpec *pspec, gpointer *user_data)
+left_handed_toggled_cb (CcWacomPage *page)
 {
-	CcWacomPage *page = CC_WACOM_PAGE (user_data);
 	gboolean left_handed;
 
-	left_handed = gtk_switch_get_active (sw);
+	left_handed = gtk_switch_get_active (GTK_SWITCH (WID ("switch-left-handed")));
 	g_settings_set_boolean (page->wacom_settings, "left-handed", left_handed);
 }
 
@@ -631,27 +616,23 @@ combobox_text_cellrenderer (GtkComboBox *combo, int name_column)
 }
 
 static gboolean
-display_clicked_cb (GtkButton   *button,
-		    CcWacomPage *page)
+display_clicked_cb (CcWacomPage *page)
 {
 	cc_wacom_panel_switch_to_panel (page->panel, "display");
 	return TRUE;
 }
 
 static gboolean
-mouse_clicked_cb (GtkButton   *button,
-		  CcWacomPage *page)
+mouse_clicked_cb (CcWacomPage *page)
 {
 	cc_wacom_panel_switch_to_panel (page->panel, "mouse");
 	return TRUE;
 }
 
 static void
-decouple_display_toggled_cb (GtkSwitch	 *sw,
-			     GParamSpec	 *pspec,
-			     CcWacomPage *page)
+decouple_display_toggled_cb (CcWacomPage *page)
 {
-	gboolean active = gtk_switch_get_active (sw);
+	gboolean active = gtk_switch_get_active (GTK_SWITCH (WID ("switch-decouple-display")));
 
 	update_display_decoupled_sensitivity (page, active);
 
@@ -664,7 +645,7 @@ decouple_display_toggled_cb (GtkSwitch	 *sw,
 		g_autoptr(GError) error = NULL;
 		int i;
 
-		screen = gtk_widget_get_screen (GTK_WIDGET (sw));
+		screen = gtk_widget_get_screen (GTK_WIDGET (WID ("switch-decouple-display")));
 		rr_screen = gnome_rr_screen_new (screen, &error);
 		if (rr_screen == NULL) {
 			g_warning ("Could not connect to display manager: %s", error->message);
@@ -730,6 +711,8 @@ cc_wacom_page_dispose (GObject *object)
 	g_clear_pointer (&self->dialog, gtk_widget_destroy);
 	g_clear_object (&self->builder);
 	g_clear_object (&self->header_group);
+	g_list_free_full (self->pads, g_object_unref);
+	self->pads = NULL;
 
 	self->panel = NULL;
 
@@ -765,7 +748,6 @@ cc_wacom_page_init (CcWacomPage *page)
 	g_autoptr(GError) error = NULL;
 	GtkComboBox *combo;
 	GtkWidget *box;
-	GtkSwitch *sw;
 	char *objects[] = {
 		"main-grid",
 		"liststore-tabletmode",
@@ -790,34 +772,33 @@ cc_wacom_page_init (CcWacomPage *page)
 	gtk_container_add (GTK_CONTAINER (page), box);
 	gtk_widget_set_vexpand (GTK_WIDGET (box), TRUE);
 
-	g_signal_connect (WID ("button-calibrate"), "clicked",
-			  G_CALLBACK (calibrate_button_clicked_cb), page);
-	g_signal_connect (WID ("map-buttons-button"), "clicked",
-			  G_CALLBACK (map_buttons_button_clicked_cb), page);
+	g_signal_connect_object (WID ("button-calibrate"), "clicked",
+	                         G_CALLBACK (calibrate_button_clicked_cb), page, G_CONNECT_SWAPPED);
+	g_signal_connect_object (WID ("map-buttons-button"), "clicked",
+	                         G_CALLBACK (map_buttons_button_clicked_cb), page, G_CONNECT_SWAPPED);
 
 	combo = GTK_COMBO_BOX (WID ("combo-tabletmode"));
 	combobox_text_cellrenderer (combo, MODELABEL_COLUMN);
-	g_signal_connect (G_OBJECT (combo), "changed",
-			  G_CALLBACK (tabletmode_changed_cb), page);
+	g_signal_connect_object (combo, "changed",
+	                         G_CALLBACK (tabletmode_changed_cb), page, G_CONNECT_SWAPPED);
 
-	sw = GTK_SWITCH (WID ("switch-left-handed"));
-	g_signal_connect (G_OBJECT (sw), "notify::active",
-			  G_CALLBACK (left_handed_toggled_cb), page);
+	g_signal_connect_object (WID ("switch-left-handed"), "notify::active",
+	                         G_CALLBACK (left_handed_toggled_cb), page, G_CONNECT_SWAPPED);
 
-	g_signal_connect (G_OBJECT (WID ("display-link")), "activate-link",
-			  G_CALLBACK (display_clicked_cb), page);
+	g_signal_connect_object (WID ("display-link"), "activate-link",
+	                         G_CALLBACK (display_clicked_cb), page, G_CONNECT_SWAPPED);
 	remove_link_padding (WID ("display-link"));
 
-	g_signal_connect (G_OBJECT (WID ("mouse-link")), "activate-link",
-			  G_CALLBACK (mouse_clicked_cb), page);
+	g_signal_connect_object (WID ("mouse-link"), "activate-link",
+	                         G_CALLBACK (mouse_clicked_cb), page, G_CONNECT_SWAPPED);
 	remove_link_padding (WID ("mouse-link"));
 
-	g_signal_connect (G_OBJECT (WID ("display-mapping-button")), "clicked",
-			  G_CALLBACK (display_mapping_button_clicked_cb), page);
-	g_signal_connect (G_OBJECT (WID ("display-mapping-button-2")), "clicked",
-			  G_CALLBACK (display_mapping_button_clicked_cb), page);
-	g_signal_connect (WID ("switch-decouple-display"), "notify::active",
-			  G_CALLBACK (decouple_display_toggled_cb), page);
+	g_signal_connect_object (WID ("display-mapping-button"), "clicked",
+	                         G_CALLBACK (display_mapping_button_clicked_cb), page, G_CONNECT_SWAPPED);
+	g_signal_connect_object (WID ("display-mapping-button-2"), "clicked",
+	                         G_CALLBACK (display_mapping_button_clicked_cb), page, G_CONNECT_SWAPPED);
+	g_signal_connect_object (WID ("switch-decouple-display"), "notify::active",
+	                         G_CALLBACK (decouple_display_toggled_cb), page, G_CONNECT_SWAPPED);
 
 	page->nav = cc_wacom_nav_button_new ();
         gtk_widget_set_halign (page->nav, GTK_ALIGN_END);
@@ -878,8 +859,8 @@ has_monitor (CcWacomPage *page)
 }
 
 static void
-update_tablet_ui (CcWacomPage *page,
-		  int          layout)
+set_page_layout (CcWacomPage *page,
+		 int          layout)
 {
 	WacomIntegrationFlags integration_flags;
 
@@ -890,9 +871,6 @@ update_tablet_ui (CcWacomPage *page,
 		/* FIXME: Check we've got a puck, or a corresponding touchpad device */
 		remove_mouse_link (page);
 	}
-
-	/* Hide the pad buttons if no pad is present */
-	gtk_widget_set_visible (WID ("map-buttons-button"), page->pad != NULL);
 
 	switch (layout) {
 	case LAYOUT_NORMAL:
@@ -925,44 +903,69 @@ update_tablet_ui (CcWacomPage *page,
 	}
 }
 
-gboolean
-cc_wacom_page_update_tools (CcWacomPage   *page,
-			    CcWacomDevice *stylus,
-			    CcWacomDevice *pad)
+static void
+update_pad_availability (CcWacomPage *page)
 {
-	int layout;
-	gboolean changed;
+	gtk_widget_set_visible (WID ("map-buttons-button"), page->pads != NULL);
+}
 
-	/* Type of layout */
-	layout = get_layout_type (stylus);
+static void
+check_add_pad (CcWacomPage *page,
+	       GsdDevice   *gsd_device)
+{
+	g_autoptr(CcWacomDevice) wacom_device = NULL;
 
-	changed = (page->stylus != stylus || page->pad != pad);
-	if (!changed)
-		return FALSE;
+	if ((gsd_device_get_device_type (gsd_device) & GSD_DEVICE_TYPE_PAD) == 0)
+		return;
 
-	page->stylus = stylus;
-	page->pad = pad;
+	if (!gsd_device_shares_group (cc_wacom_device_get_device (page->stylus),
+				      gsd_device))
+		return;
 
-	update_tablet_ui (CC_WACOM_PAGE (page), layout);
+	wacom_device = cc_wacom_device_new (gsd_device);
+	if (!wacom_device)
+		return;
 
-	return TRUE;
+	page->pads = g_list_prepend (page->pads, g_steal_pointer (&wacom_device));
+	update_pad_availability (page);
+}
+
+static void
+check_remove_pad (CcWacomPage *page,
+		  GsdDevice   *gsd_device)
+{
+	GList *l;
+
+	if ((gsd_device_get_device_type (gsd_device) & GSD_DEVICE_TYPE_PAD) == 0)
+		return;
+
+	for (l = page->pads; l; l = l->next) {
+		CcWacomDevice *wacom_device = l->data;
+		if (cc_wacom_device_get_device (wacom_device) == gsd_device) {
+			page->pads = g_list_delete_link (page->pads, l);
+			g_object_unref (wacom_device);
+		}
+	}
+
+	update_pad_availability (page);
 }
 
 GtkWidget *
 cc_wacom_page_new (CcWacomPanel  *panel,
-		   CcWacomDevice *stylus,
-		   CcWacomDevice *pad)
+		   CcWacomDevice *stylus)
 {
+	g_autoptr (GList) pads = NULL;
 	CcWacomPage *page;
+	GList *l;
 
 	g_return_val_if_fail (CC_IS_WACOM_DEVICE (stylus), NULL);
-	g_return_val_if_fail (!pad || CC_IS_WACOM_DEVICE (pad), NULL);
 
 	page = g_object_new (CC_TYPE_WACOM_PAGE, NULL);
 
 	page->panel = panel;
+	page->stylus = stylus;
 
-	cc_wacom_page_update_tools (page, stylus, pad);
+	set_page_layout (page, get_layout_type (stylus));
 
 	/* FIXME move this to construct */
 	page->wacom_settings  = cc_wacom_device_get_settings (stylus);
@@ -979,6 +982,19 @@ cc_wacom_page_new (CcWacomPanel  *panel,
 
 	/* Tablet icon */
 	set_icon_name (page, "image-tablet", cc_wacom_device_get_icon_name (stylus));
+
+	/* Listen to changes in related/paired pads */
+	page->manager = gsd_device_manager_get ();
+	g_signal_connect_object (G_OBJECT (page->manager), "device-added",
+				 G_CALLBACK (check_add_pad), page,
+				 G_CONNECT_SWAPPED);
+	g_signal_connect_object (G_OBJECT (page->manager), "device-removed",
+				 G_CALLBACK (check_remove_pad), page,
+				 G_CONNECT_SWAPPED);
+
+	pads = gsd_device_manager_list_devices (page->manager, GSD_DEVICE_TYPE_PAD);
+	for (l = pads; l ; l = l->next)
+		check_add_pad (page, l->data);
 
 	return GTK_WIDGET (page);
 }

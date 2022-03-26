@@ -167,9 +167,9 @@ finish_action (CcAddUserDialog *self)
 }
 
 static void
-user_loaded_cb (ActUser         *user,
+user_loaded_cb (CcAddUserDialog *self,
                 GParamSpec      *pspec,
-                CcAddUserDialog *self)
+                ActUser         *user)
 {
   const gchar *password;
 
@@ -191,11 +191,10 @@ create_user_done (ActUserManager  *manager,
                   CcAddUserDialog *self)
 {
         ActUser *user;
-        GError *error;
+        g_autoptr(GError) error = NULL;
 
         /* Note that user is returned without an extra reference */
 
-        error = NULL;
         user = act_user_manager_create_user_finish (manager, res, &error);
 
         if (user == NULL) {
@@ -203,16 +202,15 @@ create_user_done (ActUserManager  *manager,
                 g_debug ("Failed to create user: %s", error->message);
                 if (!g_error_matches (error, ACT_USER_MANAGER_ERROR, ACT_USER_MANAGER_ERROR_PERMISSION_DENIED))
                        show_error_dialog (self, _("Failed to add account"), error);
-                g_error_free (error);
                 gtk_widget_grab_focus (GTK_WIDGET (self->local_name_entry));
         } else {
                 g_debug ("Created user: %s", act_user_get_user_name (user));
 
                 /* Check if the returned object is fully loaded before returning it */
                 if (act_user_is_loaded (user))
-                        user_loaded_cb (user, NULL, self);
+                        user_loaded_cb (self, NULL, user);
                 else
-                        g_signal_connect (user, "notify::is-loaded", G_CALLBACK (user_loaded_cb), self);
+                        g_signal_connect_object (user, "notify::is-loaded", G_CALLBACK (user_loaded_cb), self, G_CONNECT_SWAPPED);
         }
 }
 
@@ -311,7 +309,7 @@ static void local_username_is_valid_cb (GObject *source_object,
                                         GAsyncResult *result,
                                         gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
         g_autoptr(GError) error = NULL;
         g_autofree gchar *tip = NULL;
         g_autofree gchar *name = NULL;
@@ -330,8 +328,6 @@ static void local_username_is_valid_cb (GObject *source_object,
                 gtk_label_set_label (self->local_username_hint_label, tip);
                 dialog_validate (self);
         }
-
-        g_object_unref (self);
 }
 
 static gboolean
@@ -412,17 +408,23 @@ generate_username_choices (const gchar  *name,
                            GtkListStore *store)
 {
         gboolean in_use, same_as_initial;
-        char *lc_name, *ascii_name, *stripped_name;
-        char **words1;
-        char **words2 = NULL;
+        g_autofree gchar *lc_name = NULL;
+        g_autofree gchar *ascii_name = NULL;
+        g_autofree gchar *stripped_name = NULL;
+        g_auto(GStrv) words1 = NULL;
         char **w1, **w2;
         char *c;
         char *unicode_fallback = "?";
-        GString *first_word, *last_word;
-        GString *item0, *item1, *item2, *item3, *item4;
+        g_autoptr(GString) first_word = NULL;
+        g_autoptr(GString) last_word = NULL;
+        g_autoptr(GString) item0 = NULL;
+        g_autoptr(GString) item1 = NULL;
+        g_autoptr(GString) item2 = NULL;
+        g_autoptr(GString) item3 = NULL;
+        g_autoptr(GString) item4 = NULL;
         int len;
         int nwords1, nwords2, i;
-        GHashTable *items;
+        g_autoptr(GHashTable) items = NULL;
         GtkTreeIter iter;
         gsize max_name_length;
 
@@ -454,9 +456,6 @@ generate_username_choices (const gchar  *name,
         }
 
         if (strlen (stripped_name) == 0) {
-                g_free (ascii_name);
-                g_free (lc_name);
-                g_free (stripped_name);
                 return;
         }
 
@@ -469,10 +468,6 @@ generate_username_choices (const gchar  *name,
 
         /* The default item is a concatenation of all words without ? */
         item0 = g_string_sized_new (strlen (stripped_name));
-
-        g_free (ascii_name);
-        g_free (lc_name);
-        g_free (stripped_name);
 
         /* Concatenate the whole first word with the first letter of each
          * word (item1), and the last word with the first letter of each
@@ -496,6 +491,8 @@ generate_username_choices (const gchar  *name,
         nwords1 = 0;
         nwords2 = 0;
         for (w1 = words1; *w1; w1++) {
+                g_auto(GStrv) words2 = NULL;
+
                 if (strlen (*w1) == 0)
                         continue;
 
@@ -543,8 +540,6 @@ generate_username_choices (const gchar  *name,
                         /* always save current word so that we have it if last one reveals empty */
                         last_word = g_string_append (last_word, *w2);
                 }
-
-                g_strfreev (words2);
         }
         item2 = g_string_append (item2, last_word->str);
         item3 = g_string_append (item3, first_word->str);
@@ -623,16 +618,6 @@ generate_username_choices (const gchar  *name,
                         g_hash_table_insert (items, first_word->str, first_word->str);
                 }
         }
-
-        g_hash_table_destroy (items);
-        g_strfreev (words1);
-        g_string_free (first_word, TRUE);
-        g_string_free (last_word, TRUE);
-        g_string_free (item0, TRUE);
-        g_string_free (item1, TRUE);
-        g_string_free (item2, TRUE);
-        g_string_free (item3, TRUE);
-        g_string_free (item4, TRUE);
 }
 
 static void
@@ -684,7 +669,7 @@ update_password_match (CcAddUserDialog *self)
 static void
 local_password_entry_icon_press_cb (CcAddUserDialog *self)
 {
-        gchar *pwd;
+        g_autofree gchar *pwd = NULL;
 
         pwd = pw_generate ();
         if (pwd == NULL)
@@ -694,8 +679,6 @@ local_password_entry_icon_press_cb (CcAddUserDialog *self)
         gtk_entry_set_text (self->local_verify_entry, pwd);
         gtk_entry_set_visibility (self->local_password_entry, TRUE);
         gtk_widget_set_sensitive (GTK_WIDGET (self->local_verify_entry), TRUE);
-
-        g_free (pwd);
 }
 
 static gboolean
@@ -813,11 +796,10 @@ enterprise_add_realm (CcAddUserDialog *self,
 {
         GtkTreeModel *model;
         GtkTreeIter iter;
-        CcRealmCommon *common;
+        g_autoptr(CcRealmCommon) common = NULL;
         const gchar *realm_name;
         gboolean match;
         gboolean ret;
-        gchar *name;
 
         common = cc_realm_object_get_common (realm);
         g_return_if_fail (common != NULL);
@@ -834,12 +816,12 @@ enterprise_add_realm (CcAddUserDialog *self,
         model = GTK_TREE_MODEL (self->enterprise_realm_model);
         ret = gtk_tree_model_get_iter_first (model, &iter);
         while (ret) {
+                g_autofree gchar *name = NULL;
+
                 gtk_tree_model_get (model, &iter, 0, &name, -1);
                 match = (g_strcmp0 (name, realm_name) == 0);
-                g_free (name);
                 if (match) {
                         g_debug ("ignoring duplicate realm: %s", realm_name);
-                        g_object_unref (common);
                         return;
                 }
                 ret = gtk_tree_model_iter_next (model, &iter);
@@ -858,16 +840,12 @@ enterprise_add_realm (CcAddUserDialog *self,
 
         g_debug ("added realm to drop down: %s %s", realm_name,
                  g_dbus_object_get_object_path (G_DBUS_OBJECT (realm)));
-
-        g_object_unref (common);
 }
 
 static void
-on_manager_realm_added (CcRealmManager  *manager,
-                        CcRealmObject   *realm,
-                        gpointer         user_data)
+on_manager_realm_added (CcAddUserDialog *self,
+                        CcRealmObject   *realm)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
         enterprise_add_realm (self, realm);
 }
 
@@ -877,12 +855,11 @@ on_register_user (GObject *source,
                   GAsyncResult *result,
                   gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
-        GError *error = NULL;
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(GError) error = NULL;
         ActUser *user;
 
         if (g_cancellable_is_cancelled (self->cancellable)) {
-                g_object_unref (self);
                 return;
         }
 
@@ -898,10 +875,7 @@ on_register_user (GObject *source,
                 show_error_dialog (self, _("Failed to register account"), error);
                 g_message ("Couldn't cache user account: %s", error->message);
                 finish_action (self);
-                g_error_free (error);
         }
-
-        g_object_unref (self);
 }
 
 static void
@@ -909,20 +883,18 @@ on_permit_user_login (GObject *source,
                       GAsyncResult *result,
                       gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
         CcRealmCommon *common;
         ActUserManager *manager;
-        GError *error = NULL;
-        gchar *login;
+        g_autoptr(GError) error = NULL;
 
         if (g_cancellable_is_cancelled (self->cancellable)) {
-                g_object_unref (self);
                 return;
         }
 
         common = CC_REALM_COMMON (source);
-        cc_realm_common_call_change_login_policy_finish (common, result, &error);
-        if (error == NULL) {
+        if (cc_realm_common_call_change_login_policy_finish (common, result, &error)) {
+                g_autofree gchar *login = NULL;
 
                 /*
                  * Now tell the account service about this user. The account service
@@ -938,23 +910,18 @@ on_permit_user_login (GObject *source,
                 act_user_manager_cache_user_async (manager, login, self->cancellable,
                                                    on_register_user, g_object_ref (self));
 
-                g_free (login);
-
         } else {
                 show_error_dialog (self, _("Failed to register account"), error);
                 g_message ("Couldn't permit logins on account: %s", error->message);
                 finish_action (self);
-                g_error_free (error);
         }
-
-        g_object_unref (self);
 }
 
 static void
 enterprise_permit_user_login (CcAddUserDialog *self)
 {
-        CcRealmCommon *common;
-        gchar *login;
+        g_autoptr(CcRealmCommon) common = NULL;
+        g_autofree gchar *login = NULL;
         const gchar *add[2];
         const gchar *remove[1];
         GVariant *options;
@@ -982,18 +949,13 @@ enterprise_permit_user_login (CcAddUserDialog *self)
                                                   self->cancellable,
                                                   on_permit_user_login,
                                                   g_object_ref (self));
-
-        g_object_unref (common);
-        g_free (login);
 }
 
 static void
-on_join_response (GtkDialog *dialog,
+on_join_response (CcAddUserDialog *self,
                   gint response,
-                  gpointer user_data)
+                  GtkDialog *dialog)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
-
         gtk_widget_hide (GTK_WIDGET (dialog));
         if (response != GTK_RESPONSE_OK) {
                 finish_action (self);
@@ -1011,21 +973,12 @@ on_join_response (GtkDialog *dialog,
                         g_object_ref (self));
 }
 
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
-}
-
 static void
 join_show_prompt (CcAddUserDialog *self,
                   GError          *error)
 {
-        CcRealmKerberosMembership *membership;
-        CcRealmKerberos *kerberos;
+        g_autoptr(CcRealmKerberosMembership) membership = NULL;
+        g_autoptr(CcRealmKerberos) kerberos = NULL;
         const gchar *name;
 
         gtk_entry_set_text (self->join_password, "");
@@ -1061,16 +1014,10 @@ join_show_prompt (CcAddUserDialog *self,
 
         g_debug ("Showing admin password dialog");
         gtk_window_set_transient_for (GTK_WINDOW (self->join_dialog), GTK_WINDOW (self));
-        g_signal_connect (GTK_WINDOW (self->join_dialog),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (self->join_dialog));
         gtk_window_set_modal (GTK_WINDOW (self->join_dialog), TRUE);
         gtk_window_present (GTK_WINDOW (self->join_dialog));
 
         self->join_prompted = TRUE;
-        g_object_unref (kerberos);
-        g_object_unref (membership);
 
         /* And now we wait for on_join_response() */
 }
@@ -1080,19 +1027,18 @@ on_join_login (GObject *source,
                GAsyncResult *result,
                gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
-        GError *error = NULL;
-        GBytes *creds;
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(GError) error = NULL;
+        g_autoptr(GBytes) creds = NULL;
 
         if (g_cancellable_is_cancelled (self->cancellable)) {
-                g_object_unref (self);
                 return;
         }
 
         creds = cc_realm_login_finish (result, &error);
 
         /* Logged in as admin successfully, use creds to join domain */
-        if (error == NULL) {
+        if (creds != NULL) {
                 if (!cc_realm_join_as_admin (self->selected_realm,
                                              gtk_entry_get_text (self->join_name),
                                              gtk_entry_get_text (self->join_password),
@@ -1103,23 +1049,18 @@ on_join_login (GObject *source,
                         finish_action (self);
                 }
 
-                g_bytes_unref (creds);
-
         /* Couldn't login as admin, show prompt again */
         } else {
                 join_show_prompt (self, error);
                 g_message ("Couldn't log in as admin to join domain: %s", error->message);
-                g_error_free (error);
         }
-
-        g_object_unref (self);
 }
 
 static void
 join_init (CcAddUserDialog *self)
 {
-        GtkBuilder *builder;
-        GError *error = NULL;
+        g_autoptr(GtkBuilder) builder = NULL;
+        g_autoptr(GError) error = NULL;
 
         builder = gtk_builder_new ();
 
@@ -1127,7 +1068,6 @@ join_init (CcAddUserDialog *self)
                                             "/org/gnome/control-center/user-accounts/join-dialog.ui",
                                             &error)) {
                 g_error ("%s", error->message);
-                g_error_free (error);
                 return;
         }
 
@@ -1136,10 +1076,8 @@ join_init (CcAddUserDialog *self)
         self->join_name = GTK_ENTRY (gtk_builder_get_object (builder, "join-name"));
         self->join_password = GTK_ENTRY (gtk_builder_get_object (builder, "join-password"));
 
-        g_signal_connect (self->join_dialog, "response",
-                          G_CALLBACK (on_join_response), self);
-
-        g_object_unref (builder);
+        g_signal_connect_object (self->join_dialog, "response",
+                                 G_CALLBACK (on_join_response), self, G_CONNECT_SWAPPED);
 }
 
 static void
@@ -1147,11 +1085,10 @@ on_realm_joined (GObject *source,
                  GAsyncResult *result,
                  gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
-        GError *error = NULL;
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(GError) error = NULL;
 
         if (g_cancellable_is_cancelled (self->cancellable)) {
-                g_object_unref (self);
                 return;
         }
 
@@ -1175,9 +1112,6 @@ on_realm_joined (GObject *source,
                 g_message ("Failed to join the domain: %s", error->message);
                 finish_action (self);
         }
-
-        g_clear_error (&error);
-        g_object_unref (self);
 }
 
 static void
@@ -1185,13 +1119,12 @@ on_realm_login (GObject *source,
                 GAsyncResult *result,
                 gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
-        GError *error = NULL;
-        GBytes *creds = NULL;
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(GError) error = NULL;
+        g_autoptr(GBytes) creds = NULL;
         const gchar *message;
 
         if (g_cancellable_is_cancelled (self->cancellable)) {
-                g_object_unref (self);
                 return;
         }
 
@@ -1227,8 +1160,6 @@ on_realm_login (GObject *source,
                         join_show_prompt (self, NULL);
                 }
 
-                g_bytes_unref (creds);
-
         /* A problem with the user's login name or password */
         } else if (g_error_matches (error, CC_REALM_ERROR, CC_REALM_ERROR_BAD_LOGIN)) {
                 g_debug ("Problem with the user's login: %s", error->message);
@@ -1251,9 +1182,6 @@ on_realm_login (GObject *source,
                 g_message ("Couldn't log in as user: %s", error->message);
                 finish_action (self);
         }
-
-        g_clear_error (&error);
-        g_object_unref (self);
 }
 
 static void
@@ -1274,13 +1202,11 @@ on_realm_discover_input (GObject *source,
                          GAsyncResult *result,
                          gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
-        GError *error = NULL;
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(GError) error = NULL;
         GList *realms;
-        gchar *message;
 
         if (g_cancellable_is_cancelled (self->cancellable)) {
-                g_object_unref (self);
                 return;
         }
 
@@ -1301,6 +1227,8 @@ on_realm_discover_input (GObject *source,
 
         /* The domain is likely invalid*/
         } else {
+                g_autofree gchar *message = NULL;
+
                 g_message ("Couldn't discover domain: %s", error->message);
                 g_dbus_error_strip_remote_error (error);
 
@@ -1310,9 +1238,6 @@ on_realm_discover_input (GObject *source,
                         message = g_strdup_printf ("%s.", error->message);
                 }
                 gtk_label_set_text (self->enterprise_domain_hint_label, message);
-
-                g_free (message);
-                g_error_free (error);
 
                 if (self->enterprise_check_credentials) {
                         finish_action (self);
@@ -1324,8 +1249,6 @@ on_realm_discover_input (GObject *source,
                 finish_action (self);
                 dialog_validate (self);
         }
-
-        g_object_unref (self);
 }
 
 static void
@@ -1366,8 +1289,7 @@ clear_realm_manager (CcAddUserDialog *self)
                 g_signal_handlers_disconnect_by_func (self->realm_manager,
                                                       on_manager_realm_added,
                                                       self);
-                g_object_unref (self->realm_manager);
-                self->realm_manager = NULL;
+                g_clear_object (&self->realm_manager);
         }
 }
 
@@ -1376,8 +1298,8 @@ on_realm_manager_created (GObject *source,
                           GAsyncResult *result,
                           gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
-        GError *error = NULL;
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(GError) error = NULL;
         GList *realms, *l;
 
         clear_realm_manager (self);
@@ -1385,13 +1307,10 @@ on_realm_manager_created (GObject *source,
         self->realm_manager = cc_realm_manager_new_finish (result, &error);
         if (error != NULL) {
                 g_warning ("Couldn't contact realmd service: %s", error->message);
-                g_object_unref (self);
-                g_error_free (error);
                 return;
         }
 
         if (g_cancellable_is_cancelled (self->cancellable)) {
-                g_object_unref (self);
                 return;
         }
 
@@ -1400,8 +1319,8 @@ on_realm_manager_created (GObject *source,
         for (l = realms; l != NULL; l = g_list_next (l))
                 enterprise_add_realm (self, l->data);
         g_list_free (realms);
-        g_signal_connect (self->realm_manager, "realm-added",
-                          G_CALLBACK (on_manager_realm_added), self);
+        g_signal_connect_object (self->realm_manager, "realm-added",
+                                 G_CALLBACK (on_manager_realm_added), self, G_CONNECT_SWAPPED);
 
         /* When no realms try to discover a sensible default, triggers realm-added signal */
         cc_realm_manager_discover (self->realm_manager, "", self->cancellable,
@@ -1410,7 +1329,6 @@ on_realm_manager_created (GObject *source,
         /* Show the 'Enterprise Login' stuff, and update mode */
         gtk_widget_show (GTK_WIDGET (self->enterprise_button));
         mode_change (self, self->mode);
-        g_object_unref (self);
 }
 
 static void
@@ -1612,8 +1530,8 @@ on_permission_acquired (GObject *source_object,
                         GAsyncResult *res,
                         gpointer user_data)
 {
-        CcAddUserDialog *self = CC_ADD_USER_DIALOG (user_data);
-        GError *error = NULL;
+        g_autoptr(CcAddUserDialog) self = CC_ADD_USER_DIALOG (user_data);
+        g_autoptr(GError) error = NULL;
 
         /* Paired with begin_action in cc_add_user_dialog_response () */
         finish_action (self);
@@ -1624,9 +1542,6 @@ on_permission_acquired (GObject *source_object,
         } else if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED)) {
                 g_warning ("Failed to acquire permission: %s", error->message);
         }
-
-        g_clear_error (&error);
-        g_object_unref (self);
 }
 
 static void
@@ -1670,8 +1585,7 @@ cc_add_user_dialog_dispose (GObject *obj)
                 g_signal_handlers_disconnect_by_func (self->realm_manager,
                                                       on_manager_realm_added,
                                                       self);
-                g_object_unref (self->realm_manager);
-                self->realm_manager = NULL;
+                g_clear_object (&self->realm_manager);
         }
 
         if (self->local_password_timeout_id != 0) {
@@ -1704,8 +1618,7 @@ cc_add_user_dialog_finalize (GObject *obj)
 {
         CcAddUserDialog *self = CC_ADD_USER_DIALOG (obj);
 
-        if (self->cancellable)
-                g_object_unref (self->cancellable);
+        g_clear_object (&self->cancellable);
         g_clear_object (&self->permission);
 
         G_OBJECT_CLASS (cc_add_user_dialog_parent_class)->finalize (obj);

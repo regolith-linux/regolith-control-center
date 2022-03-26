@@ -23,7 +23,6 @@
 #include <config.h>
 
 #include "cc-hostname-entry.h"
-#include "cc-os-release.h"
 
 #include "cc-info-overview-resources.h"
 #include "info-cleanup.h"
@@ -63,11 +62,13 @@ struct _CcInfoOverviewPanel
   CcListRow       *gnome_version_row;
   CcListRow       *graphics_row;
   GtkListBox      *hardware_box;
+  CcListRow       *hardware_model_row;
   GtkDialog       *hostname_editor;
   CcHostnameEntry *hostname_entry;
   CcListRow       *hostname_row;
   CcListRow       *memory_row;
   GtkListBox      *os_box;
+  GtkImage        *os_logo;
   CcListRow       *os_name_row;
   CcListRow       *os_type_row;
   CcListRow       *processor_row;
@@ -80,7 +81,6 @@ typedef struct
 {
   char *major;
   char *minor;
-  char *micro;
   char *distributor;
   char *date;
   char **current;
@@ -91,7 +91,6 @@ version_data_free (VersionData *data)
 {
   g_free (data->major);
   g_free (data->minor);
-  g_free (data->micro);
   g_free (data->distributor);
   g_free (data->date);
   g_free (data);
@@ -114,8 +113,6 @@ version_start_element_handler (GMarkupParseContext      *ctx,
     data->current = &data->major;
   else if (g_str_equal (element_name, "minor"))
     data->current = &data->minor;
-  else if (g_str_equal (element_name, "micro"))
-    data->current = &data->micro;
   else if (g_str_equal (element_name, "distributor"))
     data->current = &data->distributor;
   else if (g_str_equal (element_name, "date"))
@@ -186,7 +183,7 @@ load_gnome_version (char **version,
   else
     {
       if (version != NULL)
-        *version = g_strdup_printf ("%s.%s.%s", data->major, data->minor, data->micro);
+        *version = g_strdup_printf ("%s.%s", data->major, data->minor);
       if (distributor != NULL)
         *distributor = g_strdup (data->distributor);
       if (date != NULL)
@@ -239,7 +236,7 @@ static char *
 get_renderer_from_helper (const char **env)
 {
   int status;
-  char *argv[] = { LIBEXECDIR "/regolith-control-center-print-renderer", NULL };
+  char *argv[] = { LIBEXECDIR "/gnome-control-center-print-renderer", NULL };
   g_auto(GStrv) envp = NULL;
   g_autofree char *renderer = NULL;
   g_autoptr(GError) error = NULL;
@@ -343,7 +340,7 @@ get_renderer_from_switcheroo (void)
       g_autoptr(GVariant) name = NULL;
       g_autoptr(GVariant) env = NULL;
       g_autoptr(GVariant) default_variant = NULL;
-      const char *name_s = 0;
+      const char *name_s;
       g_autofree const char **env_s = NULL;
       gsize env_len;
       g_autofree char *renderer = NULL;
@@ -420,20 +417,17 @@ get_graphics_hardware_string (void)
 static char *
 get_os_name (void)
 {
-  g_autoptr(GHashTable) os_info = NULL;
-  const gchar *name, *version_id, *pretty_name, *build_id;
-  gchar *result = NULL;
+  g_autofree gchar *name = NULL;
+  g_autofree gchar *version_id = NULL;
+  g_autofree gchar *pretty_name = NULL;
+  g_autofree gchar *build_id = NULL;
   g_autofree gchar *name_version = NULL;
+  gchar *result = NULL;
 
-  os_info = cc_os_release_get_values ();
-
-  if (!os_info)
-    return g_strdup (_("Unknown"));
-
-  name = g_hash_table_lookup (os_info, "NAME");
-  version_id = g_hash_table_lookup (os_info, "VERSION_ID");
-  pretty_name = g_hash_table_lookup (os_info, "PRETTY_NAME");
-  build_id = g_hash_table_lookup (os_info, "BUILD_ID");
+  name = g_get_os_info (G_OS_INFO_KEY_NAME);
+  version_id = g_get_os_info (G_OS_INFO_KEY_VERSION_ID);
+  pretty_name = g_get_os_info (G_OS_INFO_KEY_PRETTY_NAME);
+  build_id = g_get_os_info ("BUILD_ID");
 
   if (pretty_name)
     name_version = g_strdup (pretty_name);
@@ -517,6 +511,57 @@ get_primary_disc_info (CcInfoOverviewPanel *self)
   else
     {
       cc_list_row_set_secondary_label (self->disk_row,  _("Unknown"));
+    }
+}
+
+static void
+get_hardware_model (CcInfoOverviewPanel *self)
+{
+  g_autoptr(GDBusProxy) hostnamed_proxy = NULL;
+  g_autoptr(GVariant) vendor_variant = NULL;
+  g_autoptr(GVariant) model_variant = NULL;
+  const char *vendor_string, *model_string;
+  g_autoptr(GError) error = NULL;
+
+  hostnamed_proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
+                                                   G_DBUS_PROXY_FLAGS_NONE,
+                                                   NULL,
+                                                   "org.freedesktop.hostname1",
+                                                   "/org/freedesktop/hostname1",
+                                                   "org.freedesktop.hostname1",
+                                                   NULL,
+                                                   &error);
+  if (hostnamed_proxy == NULL)
+    {
+      g_debug ("Couldn't get hostnamed to start, bailing: %s", error->message);
+      return;
+    }
+
+  vendor_variant = g_dbus_proxy_get_cached_property (hostnamed_proxy, "HardwareVendor");
+  if (!vendor_variant)
+    {
+      g_debug ("Unable to retrieve org.freedesktop.hostname1.HardwareVendor property");
+      return;
+    }
+
+  model_variant = g_dbus_proxy_get_cached_property (hostnamed_proxy, "HardwareModel");
+  if (!model_variant)
+    {
+      g_debug ("Unable to retrieve org.freedesktop.hostname1.HardwareModel property");
+      return;
+    }
+
+  vendor_string = g_variant_get_string (vendor_variant, NULL),
+  model_string = g_variant_get_string (model_variant, NULL);
+
+  if (vendor_string && g_strcmp0 (vendor_string, "") != 0)
+    {
+      g_autofree gchar *vendor_model = NULL;
+
+      vendor_model = g_strdup_printf ("%s %s", vendor_string, model_string);
+
+      cc_list_row_set_secondary_label (self->hardware_model_row, vendor_model);
+      gtk_widget_set_visible (GTK_WIDGET (self->hardware_model_row), TRUE);
     }
 }
 
@@ -698,6 +743,8 @@ info_overview_panel_setup_overview (CcInfoOverviewPanel *self)
 
   cc_list_row_set_secondary_label (self->windowing_system_row, get_windowing_system ());
 
+  get_hardware_model (self);
+
   glibtop_get_mem (&mem);
   memory_text = g_format_size_full (mem.total, G_FORMAT_SIZE_IEC_UNITS);
   cc_list_row_set_secondary_label (self->memory_row, memory_text);
@@ -720,15 +767,39 @@ info_overview_panel_setup_overview (CcInfoOverviewPanel *self)
 }
 
 static gboolean
+does_gnome_software_allow_updates (void)
+{
+  const gchar *schema_id  = "org.gnome.software";
+  GSettingsSchemaSource *source;
+  g_autoptr(GSettingsSchema) schema = NULL;
+  g_autoptr(GSettings) settings = NULL;
+
+  source = g_settings_schema_source_get_default ();
+
+  if (source == NULL)
+    return FALSE;
+
+  schema = g_settings_schema_source_lookup (source, schema_id, FALSE);
+
+  if (schema == NULL)
+    return FALSE;
+
+  settings = g_settings_new (schema_id);
+  return g_settings_get_boolean (settings, "allow-updates");
+}
+
+static gboolean
 does_gnome_software_exist (void)
 {
-  return g_file_test (BINDIR "/gnome-software", G_FILE_TEST_EXISTS);
+  g_autofree gchar *path = g_find_program_in_path ("gnome-software");
+  return path != NULL;
 }
 
 static gboolean
 does_gpk_update_viewer_exist (void)
 {
-  return g_file_test (BINDIR "/gpk-update-viewer", G_FILE_TEST_EXISTS);
+  g_autofree gchar *path = g_find_program_in_path ("gpk-update-viewer");
+  return path != NULL;
 }
 
 static void
@@ -736,19 +807,20 @@ open_software_update (CcInfoOverviewPanel *self)
 {
   g_autoptr(GError) error = NULL;
   gboolean ret;
-  g_auto(GStrv) argv = NULL;
+  char *argv[3];
 
-  argv = g_new0 (gchar *, 3);
   if (does_gnome_software_exist ())
     {
-      argv[0] = g_build_filename (BINDIR, "gnome-software", NULL);
-      argv[1] = g_strdup_printf ("--mode=updates");
+      argv[0] = "gnome-software";
+      argv[1] = "--mode=updates";
+      argv[2] = NULL;
     }
   else
     {
-      argv[0] = g_build_filename (BINDIR, "gpk-update-viewer", NULL);
+      argv[0] = "gpk-update-viewer";
+      argv[1] = NULL;
     }
-  ret = g_spawn_async (NULL, argv, NULL, 0, NULL, NULL, NULL, &error);
+  ret = g_spawn_async (NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error);
   if (!ret)
       g_warning ("Failed to spawn %s: %s", argv[0], error->message);
 }
@@ -764,15 +836,6 @@ on_device_name_entry_changed (CcInfoOverviewPanel *self)
                             g_strcmp0 (current_hostname, new_hostname) != 0);
 }
 
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
-}
-
 static void
 open_hostname_edit_dialog (CcInfoOverviewPanel *self)
 {
@@ -786,10 +849,6 @@ open_hostname_edit_dialog (CcInfoOverviewPanel *self)
   shell = cc_panel_get_shell (CC_PANEL (self));
   toplevel = GTK_WINDOW (cc_shell_get_toplevel (shell));
   gtk_window_set_transient_for (GTK_WINDOW (self->hostname_editor), toplevel);
-  g_signal_connect (GTK_WINDOW (self->hostname_editor),
-                    "focus-out-event",
-                    G_CALLBACK(on_focus_out_event),
-                    GTK_WINDOW (self->hostname_editor));
 
   hostname = gtk_entry_get_text (GTK_ENTRY (self->hostname_entry));
   gtk_entry_set_text (self->device_name_entry, hostname);
@@ -821,6 +880,48 @@ cc_info_panel_row_activated_cb (CcInfoOverviewPanel *self,
     open_software_update (self);
 }
 
+static gboolean
+use_dark_theme (CcInfoOverviewPanel *panel)
+{
+  GdkScreen *screen;
+  GtkSettings *settings;
+  g_autofree char *theme_name = NULL;
+
+  theme_name = g_strdup (g_getenv ("GTK_THEME"));
+  if (theme_name != NULL)
+    return g_str_has_suffix (theme_name, "dark") ? TRUE : FALSE;
+
+  screen = gtk_widget_get_screen (GTK_WIDGET (panel));
+  settings = gtk_settings_get_for_screen (screen);
+
+  g_object_get (settings, "gtk-theme-name", &theme_name, NULL);
+  return (theme_name != NULL && g_str_has_suffix (theme_name, "dark")) ? TRUE : FALSE;
+}
+
+static void
+setup_os_logo (CcInfoOverviewPanel *panel)
+{
+  g_autofree char *logo_name = g_get_os_info ("LOGO");
+  g_autoptr(GPtrArray) array = NULL;
+  g_autoptr(GIcon) icon = NULL;
+  gboolean dark;
+
+  dark = use_dark_theme (panel);
+  if (logo_name == NULL)
+    logo_name = g_strdup ("gnome-logo");
+
+  array = g_ptr_array_new_with_free_func (g_free);
+  if (dark)
+    g_ptr_array_add (array, (gpointer) g_strdup_printf ("%s-text-dark", logo_name));
+  g_ptr_array_add (array, (gpointer) g_strdup_printf ("%s-text", logo_name));
+  if (dark)
+    g_ptr_array_add (array, (gpointer) g_strdup_printf ("%s-dark", logo_name));
+  g_ptr_array_add (array, (gpointer) g_strdup_printf ("%s", logo_name));
+
+  icon = g_themed_icon_new_from_names ((char **) array->pdata, array->len);
+  gtk_image_set_from_gicon (panel->os_logo, icon, GTK_ICON_SIZE_INVALID);
+}
+
 static void
 cc_info_overview_panel_class_init (CcInfoOverviewPanelClass *klass)
 {
@@ -833,11 +934,13 @@ cc_info_overview_panel_class_init (CcInfoOverviewPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, gnome_version_row);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, graphics_row);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, hardware_box);
+  gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, hardware_model_row);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, hostname_editor);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, hostname_entry);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, hostname_row);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, memory_row);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, os_box);
+  gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, os_logo);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, os_name_row);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, os_type_row);
   gtk_widget_class_bind_template_child (widget_class, CcInfoOverviewPanel, processor_row);
@@ -857,16 +960,16 @@ static void
 cc_info_overview_panel_init (CcInfoOverviewPanel *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
-  gtk_list_box_set_header_func (self->hardware_box, cc_list_box_update_header_func, NULL, NULL);
-  gtk_list_box_set_header_func (self->os_box, cc_list_box_update_header_func, NULL, NULL);
 
   g_resources_register (cc_info_overview_get_resource ());
 
-  if (!does_gnome_software_exist () && !does_gpk_update_viewer_exist ())
+  if ((!does_gnome_software_exist () || !does_gnome_software_allow_updates ()) && !does_gpk_update_viewer_exist ())
     gtk_widget_hide (GTK_WIDGET (self->software_updates_row));
 
   info_overview_panel_setup_overview (self);
   info_overview_panel_setup_virt (self);
+
+  setup_os_logo (self);
 }
 
 GtkWidget *

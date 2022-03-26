@@ -288,9 +288,9 @@ handle_launch_search (CcShellSearchProvider2  *skeleton,
   gdk_app_launch_context_set_timestamp (launch_context, timestamp);
 
   joined_terms = g_strjoinv (" ", terms);
-  command_line = g_strdup_printf ("regolith-control-center -s '%s'", joined_terms);
+  command_line = g_strdup_printf ("gnome-control-center -s '%s'", joined_terms);
   app = g_app_info_create_from_commandline (command_line,
-                                            "regolith-control-center.desktop",
+                                            "gnome-control-center.desktop",
                                             G_APP_INFO_CREATE_SUPPORTS_STARTUP_NOTIFICATION,
                                             &error);
   if (!app)

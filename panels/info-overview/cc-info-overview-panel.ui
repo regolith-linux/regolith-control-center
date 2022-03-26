@@ -11,10 +11,8 @@
         <property name="min-content-height">480</property>
         <property name="hscrollbar-policy">never</property>
         <child>
-          <object class="HdyColumn">
+          <object class="HdyClamp">
             <property name="visible">True</property>
-            <property name="maximum_width">600</property>
-            <property name="linear_growth_width">400</property>
             <property name="margin_top">32</property>
             <property name="margin_bottom">32</property>
             <property name="margin_start">12</property>
@@ -27,10 +25,10 @@
                 <property name="spacing">30</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkImage">
+                  <object class="GtkImage" id="os_logo">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="resource">/org/gnome/control-center/info-overview/RegolithLogoVerticalMedium.png</property>
+                    <property name="use_fallback">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -44,7 +42,7 @@
                     <property name="selection-mode">none</property>
                     <signal name="row-activated" handler="cc_info_panel_row_activated_cb" swapped="yes"/>
                     <style>
-                      <class name="frame" />
+                      <class name="content" />
                     </style>
 
                     <!-- Device name -->
@@ -65,8 +63,17 @@
                     <property name="visible">True</property>
                     <property name="selection-mode">none</property>
                     <style>
-                      <class name="frame" />
+                      <class name="content" />
                     </style>
+
+                    <!-- Hardware Model -->
+                    <child>
+                      <object class="CcListRow" id="hardware_model_row">
+                        <property name="visible">False</property>
+                        <property name="activatable">False</property>
+                        <property name="title" translatable="yes">Hardware Model</property>
+                      </object>
+                    </child>
 
                     <!-- Memory -->
                     <child>
@@ -114,7 +121,7 @@
                     <property name="selection-mode">none</property>
                     <signal name="row-activated" handler="cc_info_panel_row_activated_cb" swapped="yes"/>
                     <style>
-                      <class name="frame" />
+                      <class name="content" />
                     </style>
 
                     <!-- OS Name -->
@@ -184,7 +191,7 @@
     </child>
   </template>
 
-  <object class="HdyDialog" id="hostname_editor">
+  <object class="GtkDialog" id="hostname_editor">
     <property name="visible">False</property>
     <property name="modal">True</property>
     <property name="use-header-bar">1</property>

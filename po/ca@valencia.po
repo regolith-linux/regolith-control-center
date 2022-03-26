@@ -1,4 +1,4 @@
-# Traducció del regolith-control-center de l'equip de Softcatalà.
+# Traducció del gnome-control-center de l'equip de Softcatalà.
 # Copyright © 1999-2009 Free Software Foundation, Inc.
 # Ivan Vilata i Balaguer <ivan@selidor.net>, 1999, 2000.
 # Softcatalà <linux@softcatala.org>, 2000, 2001.
@@ -18,7 +18,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: regolith-control-center\n"
+"Project-Id-Version: gnome-control-center\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2017-09-22 13:24+0000\n"
@@ -217,16 +217,16 @@ msgid "Turn off the Airplane mode switch to enable Bluetooth."
 msgstr "Desactiveu el mode d'avió per a habilitar el Bluetooth."
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:2
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:2
 msgid "Blue­tooth"
 msgstr "Bluetooth"
 
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:3
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:3
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "Activeu i desactiveu el Bluetooth i connecteu els dispositius"
 
 #. Translators: those are keywords for the bluetooth control-center panel
-#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:5
+#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:5
 msgid "share;sharing;bluetooth;obex;"
 msgstr "comparteix;compartició;bluetooth;obex;"
 
@@ -867,18 +867,18 @@ msgid "D75"
 msgstr "D75"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
 msgid "Co­lor"
 msgstr "Color"
 
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:3
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:3
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
 "Calibreu el color dels dispositius, com ara pantalles, càmeres o impressores"
 
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/regolith-color-panel.desktop.in.in.h:5
+#: ../panels/color/gnome-color-panel.desktop.in.in.h:5
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "Color;ICC;Perfil;Calibratge;Impressora;Pantalla;"
 
@@ -1034,7 +1034,7 @@ msgstr "Desembre"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
 #: ../panels/datetime/datetime.ui.h:13
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
 msgid "Date & Time"
 msgstr "Data i hora"
 
@@ -1091,12 +1091,12 @@ msgstr "24 hores"
 msgid "AM / PM"
 msgstr "AM / PM"
 
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:3
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:3
 msgid "Change the date and time, including time zone"
 msgstr "Canvieu la data i l'hora, incloent-hi la zona horària"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:5
+#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:5
 msgid "Clock;Timezone;Location;"
 msgstr "Rellotge;Zona horària;Ubicació;"
 
@@ -1303,16 +1303,16 @@ msgid "To"
 msgstr "A"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
 msgid "Dis­plays"
 msgstr "Pantalles"
 
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:3
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:3
 msgid "Choose how to use connected monitors and projectors"
 msgstr "Trieu com utilitzar els monitors i projectors connectats"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/regolith-display-panel.desktop.in.in.h:5
+#: ../panels/display/gnome-display-panel.desktop.in.in.h:5
 msgid ""
 "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;Night;Light;Blue;"
 "redshift;color;sunset;sunrise;"
@@ -1461,31 +1461,31 @@ msgid "Windows software"
 msgstr "Programari del Windows"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/info/regolith-default-apps-panel.desktop.in.in.h:2
+#: ../panels/info/gnome-default-apps-panel.desktop.in.in.h:2
 msgid "Defa­ult Applications"
 msgstr "Aplicacions per defecte"
 
-#: ../panels/info/regolith-default-apps-panel.desktop.in.in.h:3
+#: ../panels/info/gnome-default-apps-panel.desktop.in.in.h:3
 msgid "Configure Default Applications"
 msgstr "Configura les aplicacions per defecte"
 
 #. Translators: those are keywords for the Default Applications panel
-#: ../panels/info/regolith-default-apps-panel.desktop.in.in.h:5
+#: ../panels/info/gnome-default-apps-panel.desktop.in.in.h:5
 msgid "default;application;preferred;media;"
 msgstr "per defecte; aplicació; preferida;multimèdia;"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/info/regolith-info-overview-panel.desktop.in.in.h:2
+#: ../panels/info/gnome-info-overview-panel.desktop.in.in.h:2
 msgid "Ab­out"
 msgstr "Quant a"
 
-#: ../panels/info/regolith-info-overview-panel.desktop.in.in.h:3
+#: ../panels/info/gnome-info-overview-panel.desktop.in.in.h:3
 #: ../panels/info/gnome-info-panel.desktop.in.in.h:3
 msgid "View information about your system"
 msgstr "Visualitzeu informació sobre el sistema"
 
 #. sure that you use the same "translation" for those keywords
-#: ../panels/info/regolith-info-overview-panel.desktop.in.in.h:5
+#: ../panels/info/gnome-info-overview-panel.desktop.in.in.h:5
 #: ../panels/info/gnome-info-panel.desktop.in.in.h:5
 msgid ""
 "device;system;information;memory;processor;version;default;application;"
@@ -1501,16 +1501,16 @@ msgid "De­tails"
 msgstr "Detalls"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/info/regolith-removable-media-panel.desktop.in.in.h:2
+#: ../panels/info/gnome-removable-media-panel.desktop.in.in.h:2
 msgid "Remo­vable Media"
 msgstr "Suport extraïble"
 
-#: ../panels/info/regolith-removable-media-panel.desktop.in.in.h:3
+#: ../panels/info/gnome-removable-media-panel.desktop.in.in.h:3
 msgid "Configure Removable Media settings"
 msgstr "Configura els paràmetres del suport extraïble"
 
 #. Translators: those are keywords for the Removable Media panel
-#: ../panels/info/regolith-removable-media-panel.desktop.in.in.h:5
+#: ../panels/info/gnome-removable-media-panel.desktop.in.in.h:5
 msgid ""
 "device;system;default;application;preferred;cd;dvd;usb;audio;video;disc;"
 "removable;media;autorun;"
@@ -1692,7 +1692,7 @@ msgstr "Inicia el navegador d'ajuda"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/alt/cc-window.c:1590
 #: ../shell/cc-window.c:251 ../shell/cc-window.c:831
-#: ../shell/regolith-control-center.desktop.in.in.h:1 ../shell/window.ui.h:1
+#: ../shell/gnome-control-center.desktop.in.in.h:1 ../shell/window.ui.h:1
 msgid "Settings"
 msgstr "Paràmetres"
 
@@ -1895,18 +1895,18 @@ msgid "Add Custom Shortcut"
 msgstr "Afig drecera personalitzada"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
 msgid "Key­board"
 msgstr "Teclat"
 
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:3
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:3
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr ""
 "Visualitzeu i canvieu les dreceres de teclat i establiu les preferències "
 "d'escriptura"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:5
+#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:5
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -1987,11 +1987,11 @@ msgid "Test Your _Settings"
 msgstr "_Comprova els paràmetres"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
 msgid "Mouse & Touch­pad"
 msgstr "Ratolí i ratolí tàctil"
 
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:3
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:3
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
@@ -1999,7 +1999,7 @@ msgstr ""
 "per dretans o esquerrans"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:5
+#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:5
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr "Ratolí tàctil;Punter;Clic;Toc;Doble;Botó;Ratolí de bola;Desplaça;"
 
@@ -2125,7 +2125,7 @@ msgstr "Cal que el NetworkManager estiga executant-se."
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
 #: ../panels/network/cc-wifi-panel.c:209
-#: ../panels/network/regolith-wifi-panel.desktop.in.in.h:2
+#: ../panels/network/gnome-wifi-panel.desktop.in.in.h:2
 #: ../panels/network/network-wifi.ui.h:58
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -2650,16 +2650,16 @@ msgid "My Home Network"
 msgstr "La meua xarxa"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
 msgid "Net­work"
 msgstr "Xarxa"
 
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:3
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:3
 msgid "Control how you connect to the Internet"
 msgstr "Controleu com vos connecteu a Internet"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/regolith-network-panel.desktop.in.in.h:5
+#: ../panels/network/gnome-network-panel.desktop.in.in.h:5
 msgid ""
 "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;"
 "DNS;"
@@ -2667,12 +2667,12 @@ msgstr ""
 "Xarxa;Sense fil;Wi-Fi;Wifi;IP;LAN;Servidor intermediari;WAN;Banda ampla;"
 "Mòdem;Bluetooth;vpn;DNS;"
 
-#: ../panels/network/regolith-wifi-panel.desktop.in.in.h:3
+#: ../panels/network/gnome-wifi-panel.desktop.in.in.h:3
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "Controleu com vos connecteu a les xarxes sense fil"
 
 #. Translators: those are keywords for the wi-fi control-center panel
-#: ../panels/network/regolith-wifi-panel.desktop.in.in.h:5
+#: ../panels/network/gnome-wifi-panel.desktop.in.in.h:5
 msgid "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Broadband;DNS;"
 msgstr ""
 "Xarxa;Sense fil;Wi-Fi;Wifi;IP;LAN;Servidor intermediari;WAN;Banda ampla;DNS;"
@@ -3740,16 +3740,16 @@ msgid "Show Message C_ontent on Lock Screen"
 msgstr "_Mostra el contingut dels missatges a la pantalla de bloqueig"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:2
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:2
 msgid "No­ti­fi­ca­tions"
 msgstr "Notificacions"
 
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:3
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:3
 msgid "Control which notifications are displayed and what they show"
 msgstr "Controleu quines notificacions es mostren i què mostren"
 
 #. Translators: those are keywords for the notifications control-center panel
-#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:5
+#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:5
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "Notificacions;Bàner;Missatge;Safata;Emergent;"
 
@@ -3792,16 +3792,16 @@ msgid "<b>%s</b> removed"
 msgstr "<b>%s</b> s'ha suprimit"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
 msgid "On­line Accounts"
 msgstr "Comptes en línia"
 
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:3
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:3
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr "Connecteu-vos als comptes en línia i decidiu quin ús en voleu fer"
 
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:5
+#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:5
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4100,18 +4100,18 @@ msgid "Devices"
 msgstr "Dispositius"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
 msgid "Po­wer"
 msgstr "Energia"
 
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:3
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:3
 msgid "View your battery status and change power saving settings"
 msgstr ""
 "Visualitzeu l'estat de la bateria i canvieu els paràmetres d'estalvi "
 "d'energia"
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/regolith-power-panel.desktop.in.in.h:5
+#: ../panels/power/gnome-power-panel.desktop.in.in.h:5
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4253,18 +4253,18 @@ msgid "Install PPD File…"
 msgstr "Instal·la un fitxer PPD..."
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:2
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:2
 msgid "Prin­ters"
 msgstr "Impressores"
 
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:3
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:3
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr ""
 "Afegiu impressores, visualitzeu tasques d'impressió i decidiu com voleu "
 "imprimir"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:5
+#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:5
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Impressora;Cua;Imprimir;Paper;Tinta;Tòner;"
 
@@ -5117,11 +5117,11 @@ msgid "Paper"
 msgstr "Paper"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:2
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:2
 msgid "Re­gion & Lan­guage"
 msgstr "Regió i idioma"
 
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:3
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:3
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr ""
@@ -5129,7 +5129,7 @@ msgstr ""
 "les fonts d'entrada"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/regolith-region-panel.desktop.in.in.h:5
+#: ../panels/region/gnome-region-panel.desktop.in.in.h:5
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "Idioma;Disposició;Teclat;Entrada;"
 
@@ -5256,11 +5256,11 @@ msgid "No applications found"
 msgstr "No s'han trobat aplicacions"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:2
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:2
 msgid "Search"
 msgstr "Busca"
 
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:3
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:3
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
@@ -5268,7 +5268,7 @@ msgstr ""
 "d'activitats"
 
 #. Translators: those are keywords for the search control-center panel
-#: ../panels/search/regolith-search-panel.desktop.in.in.h:5
+#: ../panels/search/gnome-search-panel.desktop.in.in.h:5
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "Busca;Troba;Índex;Oculta;Privacitat;Resultats;"
 
@@ -5368,16 +5368,16 @@ msgid "Sharing"
 msgstr "Compartició"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:2
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:2
 msgid "Sha­ring"
 msgstr "Compartició"
 
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:3
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:3
 msgid "Control what you want to share with others"
 msgstr "Controleu què voleu compartir amb els altres"
 
 #. Translators: those are keywords for the sharing control-center panel
-#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:5
+#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:5
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -5473,17 +5473,17 @@ msgstr "Compartiu música, fotografies i vídeos a través de la xarxa."
 msgid "Folders"
 msgstr "Carpetes"
 
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "So"
 
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr ""
 "Canvieu els nivells de so, les entrades, les eixides i les alertes sonores"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "Targeta;Micròfon;Volum;Esvair;Balanç;Bluetooth;Auriculars;Àudio;"
 
@@ -5733,16 +5733,16 @@ msgstr[0] "%d píxel"
 msgstr[1] "%d píxels"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
 msgid "Uni­ver­sal Access"
 msgstr "Accés universal"
 
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:3
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:3
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "Feu més fàcil veure, escoltar, teclejar, apuntar i fer clic"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:5
+#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:5
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen;Reader;text;font;size;"
 "AccessX;Sticky;Keys;Slow;Bounce;Mouse;Double;click;Delay;Assist;Repeat;Blink;"
@@ -6361,16 +6361,16 @@ msgstr ""
 "La vostra empremta dactilar s'ha guardat correctament. Hauríeu de poder entrar "
 "utilitzant el lector d'empremtes dactilars."
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
 msgid "Users"
 msgstr "Usuaris"
 
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:2
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:2
 msgid "Add or remove users and change your password"
 msgstr "Afegiu o suprimiu usuaris i canvieu la contrasenya"
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "Entrada;Nom;Empremta dactilar;Avatar;Logotip;Cara;Contrasenya;"
 
@@ -7142,18 +7142,18 @@ msgid "Button"
 msgstr "Botó"
 
 #. Translators: Add soft hyphens to your translations so that the icon view won't clip your translations. See https://bugzilla.gnome.org/show_bug.cgi?id=647087#c13 for details
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:2
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:2
 msgid "Wa­com Tab­let"
 msgstr "Tauleta gràfica Wacom"
 
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:3
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:3
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "Establiu el mapa de botons i ajusteu la sensibilitat de l'estilogràfica per "
 "a tauletes gràfiques"
 
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:5
+#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:5
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Tauleta gràfica;Wacom;Estilogràfica;Esborrador;Ratolí;"
 
@@ -7294,15 +7294,15 @@ msgctxt "category"
 msgid "System"
 msgstr "Sistema"
 
-#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:1
+#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:1
 msgid "GNOME Control Center"
 msgstr "Centre de control del GNOME"
 
-#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:2
+#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:2
 msgid "Utilities to configure the GNOME desktop"
 msgstr "Utilitats per configurar l'escriptori GNOME"
 
-#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:3
+#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:3
 msgid ""
 "The control center is GNOME’s main interface for configuration of various "
 "aspects of your desktop."
@@ -7350,7 +7350,7 @@ msgstr "Ajuda"
 msgid "Quit"
 msgstr "Ix"
 
-#: ../shell/regolith-control-center.desktop.in.in.h:2
+#: ../shell/gnome-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Preferències;Paràmetres;"
 
