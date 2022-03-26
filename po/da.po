@@ -72,7 +72,7 @@ msgid "Full access to /dev"
 msgstr "Fuld adgang til /dev"
 
 #: panels/applications/cc-applications-panel.c:833
-#: panels/network/gnome-network-panel.desktop.in.in:3
+#: panels/network/regolith-network-panel.desktop.in.in:3
 #: panels/network/network-mobile.ui:288 panels/wwan/cc-wwan-device-page.ui:114
 #: panels/wwan/cc-wwan-network-dialog.ui:4
 msgid "Network"
@@ -206,7 +206,7 @@ msgstr ""
 
 #: panels/applications/cc-applications-panel.ui:121
 #: panels/applications/cc-applications-panel.ui:127
-#: panels/camera/gnome-camera-panel.desktop.in.in:3
+#: panels/camera/regolith-camera-panel.desktop.in.in:3
 msgid "Camera"
 msgstr "Kamera"
 
@@ -233,13 +233,13 @@ msgstr "Deaktiveret"
 
 #: panels/applications/cc-applications-panel.ui:133
 #: panels/applications/cc-applications-panel.ui:139
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:3
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:3
 msgid "Microphone"
 msgstr "Mikrofon"
 
 #: panels/applications/cc-applications-panel.ui:145
 #: panels/applications/cc-applications-panel.ui:151
-#: panels/location/gnome-location-panel.desktop.in.in:3
+#: panels/location/regolith-location-panel.desktop.in.in:3
 msgid "Location Services"
 msgstr "Placeringstjenester"
 
@@ -271,12 +271,12 @@ msgstr "Systemfunktioner som bruges af programmet."
 #: panels/applications/cc-applications-panel.ui:225
 #: panels/applications/cc-applications-panel.ui:231
 #: panels/keyboard/01-launchers.xml.in:16
-#: panels/search/gnome-search-panel.desktop.in.in:3 shell/cc-window.ui:151
+#: panels/search/regolith-search-panel.desktop.in.in:3 shell/cc-window.ui:151
 msgid "Search"
 msgstr "Søgning"
 
 #: panels/applications/cc-applications-panel.ui:237
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:3
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:3
 msgid "Notifications"
 msgstr "Påmindelser"
 
@@ -443,16 +443,16 @@ msgstr "Tilføj billede …"
 msgid "Activities"
 msgstr "Aktiviteter"
 
-#: panels/background/gnome-background-panel.desktop.in.in:3
+#: panels/background/regolith-background-panel.desktop.in.in:3
 msgid "Background"
 msgstr "Baggrund"
 
-#: panels/background/gnome-background-panel.desktop.in.in:4
+#: panels/background/regolith-background-panel.desktop.in.in:4
 msgid "Change your background image to a wallpaper or photo"
 msgstr "Skift dit baggrundsbillede til et tapet eller billede"
 
 #. Translators: Search terms to find the Background panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/background/gnome-background-panel.desktop.in.in:15
+#: panels/background/regolith-background-panel.desktop.in.in:15
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "Tapet;Baggrund;Skærm;Skrivebord;"
 
@@ -493,17 +493,17 @@ msgid "Turn off the Airplane mode switch to enable Bluetooth."
 msgstr "Sluk for kontakten Flytilstand for at aktivere Bluetooth."
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:3
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:3
 #: panels/printers/pp-new-printer-dialog.c:1392
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:4
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:4
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "Slå Bluetooth til eller fra og tilslut dine enheder"
 
 #. Translators: Search terms to find the Bluetooth panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:19
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:19
 msgid "share;sharing;bluetooth;obex;"
 msgstr "del;deling;bluetooth;obex;"
 
@@ -531,14 +531,14 @@ msgstr "Giv tilladelse til at programmerne nedenfor må bruge dit kamera."
 msgid "No Applications Have Asked for Camera Access"
 msgstr "Ingen programmer har spurgt om adgang til kamera"
 
-#: panels/camera/gnome-camera-panel.desktop.in.in:4
+#: panels/camera/regolith-camera-panel.desktop.in.in:4
 msgid "Protect your pictures"
 msgstr "Beskyt dine billeder"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/camera/gnome-camera-panel.desktop.in.in:20
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:20
+#: panels/camera/regolith-camera-panel.desktop.in.in:20
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:20
 msgid ""
 "screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;"
 "network;identity;"
@@ -1168,18 +1168,18 @@ msgstr "Skærmkorrektion er ikke mulig i fuldskærm med denne profil"
 msgid "This profile may no longer be accurate"
 msgstr "Denne profil er måske ikke længere nøjagtig"
 
-#: panels/color/gnome-color-panel.desktop.in.in:3
+#: panels/color/regolith-color-panel.desktop.in.in:3
 msgid "Color"
 msgstr "Farver"
 
-#: panels/color/gnome-color-panel.desktop.in.in:4
+#: panels/color/regolith-color-panel.desktop.in.in:4
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
 "Kalibrér farver til dine enheder, såsom skærme, kameraer eller printere"
 
 #. Translators: Search terms to find the Color panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/color/gnome-color-panel.desktop.in.in:19
+#: panels/color/regolith-color-panel.desktop.in.in:19
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "Farve;ICC;Profil;Kalibrer;Printer;Skærm;"
 
@@ -1430,7 +1430,7 @@ msgid "December"
 msgstr "December"
 
 #: panels/datetime/cc-datetime-panel.ui:136
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:3
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:3
 msgid "Date & Time"
 msgstr "Dato & klokkeslæt"
 
@@ -1490,12 +1490,12 @@ msgstr "24-timers"
 msgid "AM / PM"
 msgstr "AM / PM"
 
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:4
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:4
 msgid "Change the date and time, including time zone"
 msgstr "Skift dato og klokkeslæt inklusive tidszone"
 
 #. Translators: Search terms to find the Date and Time panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:15
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:15
 msgid "Clock;Timezone;Location;"
 msgstr "Ur;Tidszone;Sted;"
 
@@ -1532,16 +1532,16 @@ msgstr "_Video"
 msgid "_Photos"
 msgstr "_Billeder"
 
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:3
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:3
 msgid "Default Applications"
 msgstr "Standardprogrammer"
 
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:4
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:4
 msgid "Configure Default Applications"
 msgstr "Opsætning af standardprogrammer"
 
 #. Translators: Search terms to find the Default Applications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:19
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:19
 msgid "default;application;preferred;media;"
 msgstr "standard;program;applikation;foretrukne;foretrukken;medie;medier;"
 
@@ -1563,20 +1563,20 @@ msgstr "Problemrapportering"
 msgid "_Automatic Problem Reporting"
 msgstr "_Automatisk problemrapportering"
 
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:3
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:3
 msgid "Diagnostics"
 msgstr "Diagnostik"
 
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:4
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:4
 msgid "Report your problems"
 msgstr "Rapportér dine problemer"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:20
-#: panels/location/gnome-location-panel.desktop.in.in:20
-#: panels/lock/gnome-lock-panel.desktop.in.in:20
-#: panels/usage/gnome-usage-panel.desktop.in.in:20
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:20
+#: panels/location/regolith-location-panel.desktop.in.in:20
+#: panels/lock/regolith-lock-panel.desktop.in.in:20
+#: panels/usage/regolith-usage-panel.desktop.in.in:20
 msgid ""
 "screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;"
 "network;identity;privacy;"
@@ -1651,7 +1651,7 @@ msgid "Display Configuration"
 msgstr "Skærmkonfiguration"
 
 #: panels/display/cc-display-panel.ui:440
-#: panels/display/gnome-display-panel.desktop.in.in:3
+#: panels/display/regolith-display-panel.desktop.in.in:3
 msgid "Displays"
 msgstr "Skærme"
 
@@ -1792,12 +1792,12 @@ msgstr "Til"
 msgid "Color Temperature"
 msgstr "Farvetemperatur"
 
-#: panels/display/gnome-display-panel.desktop.in.in:4
+#: panels/display/regolith-display-panel.desktop.in.in:4
 msgid "Choose how to use connected monitors and projectors"
 msgstr "Vælg hvordan forbundne skærme og projektorer skal bruges"
 
 #. Translators: Search terms to find the Displays panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/display/gnome-display-panel.desktop.in.in:19
+#: panels/display/regolith-display-panel.desktop.in.in:19
 msgid ""
 "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;Night;Light;Blue;"
 "redshift;color;sunset;sunrise;"
@@ -1916,11 +1916,11 @@ msgstr ""
 msgid "_Rename"
 msgstr "_Omdøb"
 
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:3
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:3
 msgid "About"
 msgstr "Om"
 
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:4
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:4
 msgid "View information about your system"
 msgstr "Vis information om systemet"
 
@@ -1929,7 +1929,7 @@ msgstr "Vis information om systemet"
 #. The list MUST also end with a semicolon!
 #. "Preferred Applications" is the old name for the preference, so make
 #. sure that you use the same "translation" for those keywords
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:23
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:23
 msgid ""
 "device;system;information;hostname;memory;processor;version;default;"
 "application;preferred;cd;dvd;usb;audio;video;disc;removable;media;autorun;"
@@ -2073,7 +2073,7 @@ msgid "Lock screen"
 msgstr "Lås skærm"
 
 #: panels/keyboard/50-accessibility.xml.in:2
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:3
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:3
 msgid "Accessibility"
 msgstr "Tilgængelighed"
 
@@ -2423,11 +2423,11 @@ msgstr "Angiv"
 msgid "Reset the shortcut to its default value"
 msgstr "Nulstil genvejen til dens standardværdi"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:3
 msgid "Keyboard"
 msgstr "Tastatur"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:4
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:4
 msgid ""
 "Change keyboard shortcuts and set your typing preferences, keyboard layouts "
 "and input sources"
@@ -2436,7 +2436,7 @@ msgstr ""
 "tastaturlayout"
 
 #. Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:19
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:19
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -2475,7 +2475,7 @@ msgstr "Giv tilladelse til at programmerne nedenfor må fastslå din placering."
 msgid "No Applications Have Asked for Location Access"
 msgstr "Ingen programmer har spurgt om adgang til placering"
 
-#: panels/location/gnome-location-panel.desktop.in.in:4
+#: panels/location/regolith-location-panel.desktop.in.in:4
 msgid "Protect your location information"
 msgstr "Beskyt din placeringsinformation"
 
@@ -2632,11 +2632,11 @@ msgctxt "blank_screen"
 msgid "Never"
 msgstr "Aldrig"
 
-#: panels/lock/gnome-lock-panel.desktop.in.in:3
+#: panels/lock/regolith-lock-panel.desktop.in.in:3
 msgid "Screen Lock"
 msgstr "Skærmlåsning"
 
-#: panels/lock/gnome-lock-panel.desktop.in.in:4
+#: panels/lock/regolith-lock-panel.desktop.in.in:4
 msgid "Lock your screen"
 msgstr "Lås din skærm"
 
@@ -2666,7 +2666,7 @@ msgstr "Giv tilladelse til at programmerne nedenfor må bruge din mikrofon."
 msgid "No Applications Have Asked for Microphone Access"
 msgstr "Ingen programmer har spurgt om adgang til mikrofon"
 
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:4
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:4
 msgid "Protect your conversations"
 msgstr "Beskyt dine samtaler"
 
@@ -2770,11 +2770,11 @@ msgstr "Dobbeltklik, sekundær knap"
 msgid "Single click, secondary button"
 msgstr "Enkeltklik, sekundær knap"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:3
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:3
 msgid "Mouse & Touchpad"
 msgstr "Mus & pegeplade"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:4
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:4
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
@@ -2782,7 +2782,7 @@ msgstr ""
 "venstrehåndstilstand"
 
 #. Translators: Search terms to find the Mouse and Touchpad panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:19
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:19
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr "Pegeplade;Markør;Klik;Prik;Dobbelt;Knap;Trackball;Rul;Rulning;"
 
@@ -2853,16 +2853,16 @@ msgstr "_Medtag programmer fra alle arbejdsområder"
 msgid "Include applications from the _current workspace only"
 msgstr "Medtag _kun programmer fra aktuelle arbejdsområde"
 
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:3
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:3
 msgid "Multitasking"
 msgstr "Multitasking"
 
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:4
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:4
 msgid "Manage preferences for productivity and multitasking"
 msgstr "Håndtér indstillinger for produktivitet og multitasking"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:15
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:15
 msgid "Multitasking;Multitask;Productivity;Customize;Desktop;"
 msgstr "Multitasking;Multitaske;Produktivitet;Tilpas;Skrivebord;"
 
@@ -2987,7 +2987,7 @@ msgid "_Turn On"
 msgstr "_Tænd"
 
 #: panels/network/cc-wifi-panel.c:544
-#: panels/network/gnome-wifi-panel.desktop.in.in:3
+#: panels/network/regolith-wifi-panel.desktop.in.in:3
 #: panels/network/network-wifi.ui:53
 msgid "Wi-Fi"
 msgstr "Wi-fi"
@@ -3581,21 +3581,21 @@ msgstr "_SSID"
 msgid "_BSSID"
 msgstr "_BSSID"
 
-#: panels/network/gnome-network-panel.desktop.in.in:4
+#: panels/network/regolith-network-panel.desktop.in.in:4
 msgid "Control how you connect to the Internet"
 msgstr "Angiv hvordan du forbinder til internettet"
 
 #. Translators: Search terms to find the Network panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-network-panel.desktop.in.in:19
+#: panels/network/regolith-network-panel.desktop.in.in:19
 msgid "Network;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;DNS;"
 msgstr "Netværk;IP;LAN;Proxy;WAN;Bredbånd;Modem;Bluetooth;vpn;DNS;"
 
-#: panels/network/gnome-wifi-panel.desktop.in.in:4
+#: panels/network/regolith-wifi-panel.desktop.in.in:4
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "Angiv hvordan du forbinder til trådløse netværk"
 
 #. Translators: Search terms to find the Wi-Fi panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-wifi-panel.desktop.in.in:19
+#: panels/network/regolith-wifi-panel.desktop.in.in:19
 msgid "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Broadband;DNS;Hotspot;"
 msgstr "Netværk;Trådløs;Wi-fi;Wifi;IP;LAN;Bredbånd;DNS;Hotspot;"
 
@@ -4493,12 +4493,12 @@ msgstr "_Forstyr ikke"
 msgid "_Lock Screen Notifications"
 msgstr "Påmindelser for _låst skærm"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:4
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:4
 msgid "Control which notifications are displayed and what they show"
 msgstr "Tilpas hvilke påmindelser der vises, og hvad de viser"
 
 #. Translators: Search terms to find the Notifications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:20
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:20
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "Påmindelser;Banner;Besked;Meddelelse;Statusfelt;Status;Pop;Pop-op;"
 
@@ -4526,11 +4526,11 @@ msgstr "Fejl ved sletning af konto"
 msgid "%s removed"
 msgstr "%s fjernet"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:3
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:3
 msgid "Online Accounts"
 msgstr "Onlinekonti"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:4
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:4
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 "Forbind til dine onlinekonti og beslut dig for hvad du vil bruge dem til"
@@ -4539,7 +4539,7 @@ msgstr ""
 #. Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:22
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:22
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4970,16 +4970,16 @@ msgstr "Strømsparetilstand"
 msgid "Reduced performance and power usage."
 msgstr "Reduceret ydelse og strømforbrug."
 
-#: panels/power/gnome-power-panel.desktop.in.in:3
+#: panels/power/regolith-power-panel.desktop.in.in:3
 msgid "Power"
 msgstr "Strøm"
 
-#: panels/power/gnome-power-panel.desktop.in.in:4
+#: panels/power/regolith-power-panel.desktop.in.in:4
 msgid "View your battery status and change power saving settings"
 msgstr "Vis din batteristatus og skift indstillinger for strømstyring"
 
 #. Translators: Search terms to find the Power panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/power/gnome-power-panel.desktop.in.in:19
+#: panels/power/regolith-power-panel.desktop.in.in:19
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 "Energy;"
@@ -5028,17 +5028,17 @@ msgstr "Kunne ikke indlæse brugerfladen: %s"
 msgid "Unlock to Add Printers and Change Settings"
 msgstr "Lås op for at tilføje printere og ændre indstillinger"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:3
+#: panels/printers/regolith-printers-panel.desktop.in.in:3
 msgid "Printers"
 msgstr "Printere"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:4
+#: panels/printers/regolith-printers-panel.desktop.in.in:4
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr ""
 "Tilføj printere, vis udskriftsopgaver og bestem hvordan du vil udskrive"
 
 #. Translators: Search terms to find the Printers panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/printers/gnome-printers-panel.desktop.in.in:16
+#: panels/printers/regolith-printers-panel.desktop.in.in:16
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Printer;Kø;Print;Papir;Blæk;Toner;"
 
@@ -5765,16 +5765,16 @@ msgid "Login settings are used by all users when logging into the system"
 msgstr ""
 "Indstillinger for login gælder for alle brugere når de logger ind på systemet"
 
-#: panels/region/gnome-region-panel.desktop.in.in:3
+#: panels/region/regolith-region-panel.desktop.in.in:3
 msgid "Region & Language"
 msgstr "Region & sprog"
 
-#: panels/region/gnome-region-panel.desktop.in.in:4
+#: panels/region/regolith-region-panel.desktop.in.in:4
 msgid "Select your display language and formats"
 msgstr "Vælg sprog og formater"
 
 #. Translators: Search terms to find the Region and Language panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/region/gnome-region-panel.desktop.in.in:19
+#: panels/region/regolith-region-panel.desktop.in.in:19
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "Sprog;Layout;Tastatur;Input;Inddata;"
 
@@ -5907,16 +5907,16 @@ msgstr "_Handling:"
 msgid "_Type:"
 msgstr "_Type:"
 
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:3
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:3
 msgid "Removable Media"
 msgstr "Flytbare medier"
 
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:4
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:4
 msgid "Configure Removable Media settings"
 msgstr "Indstil flytbare medier"
 
 #. Translators: Search terms to find the Removable Media panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:19
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:19
 msgid ""
 "device;system;default;application;preferred;cd;dvd;usb;audio;video;disc;"
 "removable;media;autorun;"
@@ -5979,14 +5979,14 @@ msgstr ""
 "Styr hvilke søgeresultater som vises i aktivitetsoversigten. Rækkefølgen på "
 "søgeresultaterne kan også ændres ved at flytte rækkerne i listen."
 
-#: panels/search/gnome-search-panel.desktop.in.in:4
+#: panels/search/regolith-search-panel.desktop.in.in:4
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
 "Bestem hvilke programmer, der viser søgeresultater i aktivitetsoversigten"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/search/gnome-search-panel.desktop.in.in:19
+#: panels/search/regolith-search-panel.desktop.in.in:19
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "Søg;Find;Indeks;Skjul;Privatliv;Resultater;"
 
@@ -6060,7 +6060,7 @@ msgid "Copy"
 msgstr "Kopiér"
 
 #: panels/sharing/cc-sharing-panel.c:1203
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:3
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:3
 msgid "Sharing"
 msgstr "Deling"
 
@@ -6144,12 +6144,12 @@ msgstr "Del musik, billeder og videoer over netværket."
 msgid "Folders"
 msgstr "Mapper"
 
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:4
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:4
 msgid "Control what you want to share with others"
 msgstr "Bestem hvad du vil dele med andre"
 
 #. Translators: Search terms to find the Sharing panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:16
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:16
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -6439,16 +6439,16 @@ msgstr "Ventende enheder"
 msgid "No devices attached"
 msgstr "Ingen enheder forbundet"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:3
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:3
 msgid "Thunderbolt"
 msgstr "Thunderbolt"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:4
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:4
 msgid "Manage Thunderbolt devices"
 msgstr "Håndtér Thunderbolt-enheder"
 
 #. Translators: those are keywords for the thunderbolt control-center panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:19
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:19
 msgid "Thunderbolt;privacy;"
 msgstr "Thunderbolt;privatliv;"
 
@@ -6986,12 +6986,12 @@ msgstr "Farveeffekter:"
 msgid "Color Effects"
 msgstr "Farveeffekter"
 
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:4
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:4
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "Gør det nemmere at se, høre, skrive, pege og klikke"
 
 #. Translators: Search terms to find the Accessibility panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:19
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:19
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Universal Access;Contrast;Cursor;Sound;"
 "Zoom;Screen;Reader;big;high;large;text;font;size;AccessX;Sticky;Keys;Slow;"
@@ -7170,11 +7170,11 @@ msgctxt "retain_history"
 msgid "Forever"
 msgstr "Altid"
 
-#: panels/usage/gnome-usage-panel.desktop.in.in:3
+#: panels/usage/regolith-usage-panel.desktop.in.in:3
 msgid "File History & Trash"
 msgstr "Filhistorik & papirkurv"
 
-#: panels/usage/gnome-usage-panel.desktop.in.in:4
+#: panels/usage/regolith-usage-panel.desktop.in.in:4
 msgid "Don't leave traces"
 msgstr "Efterlad ingen spor"
 
@@ -7842,16 +7842,16 @@ msgstr "Ingen brugere fundet"
 msgid "Unlock to add a user account."
 msgstr "Lås op for at tilføje en brugerkonto."
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:3
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:3
 msgid "Users"
 msgstr "Brugere"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:4
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:4
 msgid "Add or remove users and change your password"
 msgstr "Tilføj eller fjern brugere og skift din adgangskode"
 
 #. Translators: Search terms to find the Users panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:20
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:20
 msgid ""
 "Login;Name;Fingerprint;Avatar;Logo;Face;Password;Parental Controls;Screen "
 "Time;App Restrictions;Web Restrictions;Usage;Usage Limit;Kid;Child;"
@@ -8162,19 +8162,19 @@ msgstr "Pen"
 msgid "Button"
 msgstr "Knap"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:3
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:3
 #: panels/wacom/gnome-wacom-properties.ui:200
 msgid "Wacom Tablet"
 msgstr "Wacom-tegneplade"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:4
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:4
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "Angiv tasteafbildninger og justér følsomhed for digital pen til grafiske "
 "tegneplader"
 
 #. Translators: Search terms to find the Wacom Tablet panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:19
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:19
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Tegneplade;Wacom;Pen;Viskelæder;Mus;"
 
@@ -8728,17 +8728,17 @@ msgstr "Skift pinkode"
 msgid "Enter current PIN to change SIM lock settings"
 msgstr "Indtast nuværende pinkode for at skifte indstillinger for simkortlås"
 
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:3
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:3
 msgid "Mobile Network"
 msgstr "Mobilt netværk"
 
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:4
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:4
 msgid "Configure Telephony and mobile data connections"
 msgstr "Indstil telefoni og mobildataforbindelser"
 
 #. FIXME
 #. Translators: Search terms to find the WWAN panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:17
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:17
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "mobil;wwan;telefoni;sim;simkort;"
 

@@ -68,7 +68,7 @@ msgid "Full access to /dev"
 msgstr "/dev에 완전히 접근"
 
 #: panels/applications/cc-applications-panel.c:833
-#: panels/network/gnome-network-panel.desktop.in.in:3
+#: panels/network/regolith-network-panel.desktop.in.in:3
 #: panels/network/network-mobile.ui:288 panels/wwan/cc-wwan-device-page.ui:114
 #: panels/wwan/cc-wwan-network-dialog.ui:4
 msgid "Network"
@@ -202,7 +202,7 @@ msgstr ""
 
 #: panels/applications/cc-applications-panel.ui:121
 #: panels/applications/cc-applications-panel.ui:127
-#: panels/camera/gnome-camera-panel.desktop.in.in:3
+#: panels/camera/regolith-camera-panel.desktop.in.in:3
 msgid "Camera"
 msgstr "카메라"
 
@@ -229,13 +229,13 @@ msgstr "사용 않음"
 
 #: panels/applications/cc-applications-panel.ui:133
 #: panels/applications/cc-applications-panel.ui:139
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:3
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:3
 msgid "Microphone"
 msgstr "마이크"
 
 #: panels/applications/cc-applications-panel.ui:145
 #: panels/applications/cc-applications-panel.ui:151
-#: panels/location/gnome-location-panel.desktop.in.in:3
+#: panels/location/regolith-location-panel.desktop.in.in:3
 msgid "Location Services"
 msgstr "위치 서비스"
 
@@ -267,12 +267,12 @@ msgstr "이 프로그램이 사용하는 시스템 기능."
 #: panels/applications/cc-applications-panel.ui:225
 #: panels/applications/cc-applications-panel.ui:231
 #: panels/keyboard/01-launchers.xml.in:16
-#: panels/search/gnome-search-panel.desktop.in.in:3 shell/cc-window.ui:151
+#: panels/search/regolith-search-panel.desktop.in.in:3 shell/cc-window.ui:151
 msgid "Search"
 msgstr "검색"
 
 #: panels/applications/cc-applications-panel.ui:237
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:3
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:3
 msgid "Notifications"
 msgstr "알림"
 
@@ -440,16 +440,16 @@ msgstr "사진 추가…"
 msgid "Activities"
 msgstr "현재 활동"
 
-#: panels/background/gnome-background-panel.desktop.in.in:3
+#: panels/background/regolith-background-panel.desktop.in.in:3
 msgid "Background"
 msgstr "배경"
 
-#: panels/background/gnome-background-panel.desktop.in.in:4
+#: panels/background/regolith-background-panel.desktop.in.in:4
 msgid "Change your background image to a wallpaper or photo"
 msgstr "배경을 이미지나 사진으로 바꿉니다"
 
 #. Translators: Search terms to find the Background panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/background/gnome-background-panel.desktop.in.in:15
+#: panels/background/regolith-background-panel.desktop.in.in:15
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "Wallpaper;배경;Screen;화면;Desktop;바탕 화면;"
 
@@ -490,17 +490,17 @@ msgid "Turn off the Airplane mode switch to enable Bluetooth."
 msgstr "블루투스를 사용하려면 비행기 모드 스위치를 끄십시오."
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:3
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:3
 #: panels/printers/pp-new-printer-dialog.c:1392
 msgid "Bluetooth"
 msgstr "블루투스"
 
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:4
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:4
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "블루투스를 켜거나 끄고 블루투스 장치에 연결합니다"
 
 #. Translators: Search terms to find the Bluetooth panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:19
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:19
 msgid "share;sharing;bluetooth;obex;"
 msgstr "share;sharing;공유;bluetooth;블루투스;obex;"
 
@@ -528,14 +528,14 @@ msgstr "카메라를 사용하려면 아래 프로그램을 허용하십시오."
 msgid "No Applications Have Asked for Camera Access"
 msgstr "카메라 접근을 요청한 프로그램이 없습니다"
 
-#: panels/camera/gnome-camera-panel.desktop.in.in:4
+#: panels/camera/regolith-camera-panel.desktop.in.in:4
 msgid "Protect your pictures"
 msgstr "내 사진을 보호합니다"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/camera/gnome-camera-panel.desktop.in.in:20
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:20
+#: panels/camera/regolith-camera-panel.desktop.in.in:20
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:20
 msgid ""
 "screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;"
 "network;identity;"
@@ -1164,17 +1164,17 @@ msgstr "이 프로파일에서는 전체 화면 교정이 불가합니다."
 msgid "This profile may no longer be accurate"
 msgstr "이 프로필은 이제 정확하지 않을 수도 있습니다"
 
-#: panels/color/gnome-color-panel.desktop.in.in:3
+#: panels/color/regolith-color-panel.desktop.in.in:3
 msgid "Color"
 msgstr "색"
 
-#: panels/color/gnome-color-panel.desktop.in.in:4
+#: panels/color/regolith-color-panel.desktop.in.in:4
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr "디스플레이, 카메라, 프린터같은 장치의 색을 보정합니다"
 
 #. Translators: Search terms to find the Color panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/color/gnome-color-panel.desktop.in.in:19
+#: panels/color/regolith-color-panel.desktop.in.in:19
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr ""
 "Color;색;ICC;Profile;프로파일;Calibrate;보정;Printer;프린터;Display;디스플레"
@@ -1424,7 +1424,7 @@ msgid "December"
 msgstr "12월"
 
 #: panels/datetime/cc-datetime-panel.ui:136
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:3
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:3
 msgid "Date & Time"
 msgstr "날짜 및 시각"
 
@@ -1485,12 +1485,12 @@ msgstr "24시간"
 msgid "AM / PM"
 msgstr "오전 / 오후"
 
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:4
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:4
 msgid "Change the date and time, including time zone"
 msgstr "날짜와 시각(표준 시간대 포함)을 바꿉니다"
 
 #. Translators: Search terms to find the Date and Time panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:15
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:15
 msgid "Clock;Timezone;Location;"
 msgstr "Clock;시계;Timezone;시간대;Location;위치;"
 
@@ -1527,16 +1527,16 @@ msgstr "영상(_V)"
 msgid "_Photos"
 msgstr "사진(_P)"
 
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:3
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:3
 msgid "Default Applications"
 msgstr "기본 프로그램"
 
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:4
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:4
 msgid "Configure Default Applications"
 msgstr "기본 프로그램 설정"
 
 #. Translators: Search terms to find the Default Applications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:19
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:19
 msgid "default;application;preferred;media;"
 msgstr ""
 "default;기본;기본값;application;프로그램;앱;애플리케이션;preferred;media;미디"
@@ -1560,20 +1560,20 @@ msgstr "문제점 보고"
 msgid "_Automatic Problem Reporting"
 msgstr "문제점 보고서 자동(_A)"
 
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:3
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:3
 msgid "Diagnostics"
 msgstr "진단"
 
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:4
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:4
 msgid "Report your problems"
 msgstr "문제점 보고하기"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:20
-#: panels/location/gnome-location-panel.desktop.in.in:20
-#: panels/lock/gnome-lock-panel.desktop.in.in:20
-#: panels/usage/gnome-usage-panel.desktop.in.in:20
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:20
+#: panels/location/regolith-location-panel.desktop.in.in:20
+#: panels/lock/regolith-lock-panel.desktop.in.in:20
+#: panels/usage/regolith-usage-panel.desktop.in.in:20
 msgid ""
 "screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;"
 "network;identity;privacy;"
@@ -1646,7 +1646,7 @@ msgid "Display Configuration"
 msgstr "디스플레이 설정"
 
 #: panels/display/cc-display-panel.ui:440
-#: panels/display/gnome-display-panel.desktop.in.in:3
+#: panels/display/regolith-display-panel.desktop.in.in:3
 msgid "Displays"
 msgstr "디스플레이"
 
@@ -1787,12 +1787,12 @@ msgstr "끝"
 msgid "Color Temperature"
 msgstr "색 온도"
 
-#: panels/display/gnome-display-panel.desktop.in.in:4
+#: panels/display/regolith-display-panel.desktop.in.in:4
 msgid "Choose how to use connected monitors and projectors"
 msgstr "연결한 모니터와 프로젝터 사용법을 정합니다"
 
 #. Translators: Search terms to find the Displays panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/display/gnome-display-panel.desktop.in.in:19
+#: panels/display/regolith-display-panel.desktop.in.in:19
 msgid ""
 "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;Night;Light;Blue;"
 "redshift;color;sunset;sunrise;"
@@ -1912,11 +1912,11 @@ msgstr ""
 msgid "_Rename"
 msgstr "이름 바꾸기(_R)"
 
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:3
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:3
 msgid "About"
 msgstr "정보"
 
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:4
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:4
 msgid "View information about your system"
 msgstr "시스템의 정보를 봅니다"
 
@@ -1925,7 +1925,7 @@ msgstr "시스템의 정보를 봅니다"
 #. The list MUST also end with a semicolon!
 #. "Preferred Applications" is the old name for the preference, so make
 #. sure that you use the same "translation" for those keywords
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:23
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:23
 msgid ""
 "device;system;information;hostname;memory;processor;version;default;"
 "application;preferred;cd;dvd;usb;audio;video;disc;removable;media;autorun;"
@@ -2070,7 +2070,7 @@ msgid "Lock screen"
 msgstr "화면 잠그기"
 
 #: panels/keyboard/50-accessibility.xml.in:2
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:3
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:3
 msgid "Accessibility"
 msgstr "접근성"
 
@@ -2416,11 +2416,11 @@ msgstr "설정"
 msgid "Reset the shortcut to its default value"
 msgstr "바로 가기 키 기본값으로 초기화"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:3
 msgid "Keyboard"
 msgstr "키보드"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:4
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:4
 msgid ""
 "Change keyboard shortcuts and set your typing preferences, keyboard layouts "
 "and input sources"
@@ -2429,7 +2429,7 @@ msgstr ""
 
 # 주의: 키워드이므로 번역될 수 있는 용어 적기
 #. Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:19
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:19
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -2469,7 +2469,7 @@ msgstr "아래 프로그램이 위치 정보를 알아내도록 허용합니다.
 msgid "No Applications Have Asked for Location Access"
 msgstr "위치 정보를 요청한 프로그램이 없습니다"
 
-#: panels/location/gnome-location-panel.desktop.in.in:4
+#: panels/location/regolith-location-panel.desktop.in.in:4
 msgid "Protect your location information"
 msgstr "위치 정보를 보호합니다"
 
@@ -2623,11 +2623,11 @@ msgctxt "blank_screen"
 msgid "Never"
 msgstr "안 함"
 
-#: panels/lock/gnome-lock-panel.desktop.in.in:3
+#: panels/lock/regolith-lock-panel.desktop.in.in:3
 msgid "Screen Lock"
 msgstr "화면 잠금"
 
-#: panels/lock/gnome-lock-panel.desktop.in.in:4
+#: panels/lock/regolith-lock-panel.desktop.in.in:4
 msgid "Lock your screen"
 msgstr "화면 잠그기"
 
@@ -2657,7 +2657,7 @@ msgstr "아래 프로그램이 마이크를 사용할 수 있게 허용합니다
 msgid "No Applications Have Asked for Microphone Access"
 msgstr "마이크 접근을 요청한 프로그램이 없습니다"
 
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:4
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:4
 msgid "Protect your conversations"
 msgstr "대화를 보호합니다"
 
@@ -2761,18 +2761,18 @@ msgstr "두번 누르기, 두번째 단추"
 msgid "Single click, secondary button"
 msgstr "한번 누르기, 두번째 단추"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:3
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:3
 msgid "Mouse & Touchpad"
 msgstr "마우스 및 터치패드"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:4
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:4
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
 "마우스 및 터치패드 민감도를 바꾸고 오른손잡이용인지 왼손잡이용인지 설정합니다"
 
 #. Translators: Search terms to find the Mouse and Touchpad panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:19
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:19
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr ""
 "Trackpad;트랙패드;Pointer;포인터;Click;클릭;누르기;Tap;두드리기;Double;더블;"
@@ -2843,16 +2843,16 @@ msgstr "모든 작업 공간의 프로그램을 포함(_W)"
 msgid "Include applications from the _current workspace only"
 msgstr "현재 작업 공간의 프로그램만 포함(_C)"
 
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:3
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:3
 msgid "Multitasking"
 msgstr "다중 작업"
 
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:4
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:4
 msgid "Manage preferences for productivity and multitasking"
 msgstr "생산성 및 다중 작업에 대한 설정을 관리합니다"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:15
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:15
 msgid "Multitasking;Multitask;Productivity;Customize;Desktop;"
 msgstr ""
 "Multitasking;다중작업;다중 작업;멀티태스킹;Multitask;멀티태스크;Productivity;"
@@ -2979,7 +2979,7 @@ msgid "_Turn On"
 msgstr "켜기(_T)"
 
 #: panels/network/cc-wifi-panel.c:544
-#: panels/network/gnome-wifi-panel.desktop.in.in:3
+#: panels/network/regolith-wifi-panel.desktop.in.in:3
 #: panels/network/network-wifi.ui:53
 msgid "Wi-Fi"
 msgstr "와이파이"
@@ -3572,23 +3572,23 @@ msgstr "_SSID"
 msgid "_BSSID"
 msgstr "_BSSID"
 
-#: panels/network/gnome-network-panel.desktop.in.in:4
+#: panels/network/regolith-network-panel.desktop.in.in:4
 msgid "Control how you connect to the Internet"
 msgstr "어떻게 인터넷에 연결할지 정합니다"
 
 #. Translators: Search terms to find the Network panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-network-panel.desktop.in.in:19
+#: panels/network/regolith-network-panel.desktop.in.in:19
 msgid "Network;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;DNS;"
 msgstr ""
 "Network;네트워크;IP;LAN;랜;Proxy;프록시;WAN;인터넷;Broadband;브로드밴드;"
 "Modem;모뎀;Bluetooth;블루투스;vpn;가상사설망;;DNS;네임서버;"
 
-#: panels/network/gnome-wifi-panel.desktop.in.in:4
+#: panels/network/regolith-wifi-panel.desktop.in.in:4
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "어떻게 와이파이 네트워크에 연결할지 정합니다"
 
 #. Translators: Search terms to find the Wi-Fi panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-wifi-panel.desktop.in.in:19
+#: panels/network/regolith-wifi-panel.desktop.in.in:19
 msgid "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Broadband;DNS;Hotspot;"
 msgstr ""
 "Network;네트워크;Wireless;무선;Wi-Fi;Wifi;와이파이;IP;LAN;Broadband;브로드밴"
@@ -4484,12 +4484,12 @@ msgstr "방해 금지(_D)"
 msgid "_Lock Screen Notifications"
 msgstr "잠금 화면 알림(_L)"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:4
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:4
 msgid "Control which notifications are displayed and what they show"
 msgstr "어떤 알림을 표시할지 및 무엇을 표시할지 설정합니다"
 
 #. Translators: Search terms to find the Notifications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:20
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:20
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr ""
 "Notifications;알림;Banner;안내판;Message;메시지;Tray;트레이;Popup;팝업;"
@@ -4518,11 +4518,11 @@ msgstr "계정 제거 오류"
 msgid "%s removed"
 msgstr "%s 제거함"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:3
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:3
 msgid "Online Accounts"
 msgstr "온라인 계정"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:4
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:4
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr "온라인 계정에 연결하고 그 계정을 어디에 이용할지 설정합니다"
 
@@ -4530,7 +4530,7 @@ msgstr "온라인 계정에 연결하고 그 계정을 어디에 이용할지 �
 #. Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:22
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:22
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4958,16 +4958,16 @@ msgstr "전기 절약"
 msgid "Reduced performance and power usage."
 msgstr "성능이 줄어들고 전력 소모도 줄어듭니다."
 
-#: panels/power/gnome-power-panel.desktop.in.in:3
+#: panels/power/regolith-power-panel.desktop.in.in:3
 msgid "Power"
 msgstr "전원"
 
-#: panels/power/gnome-power-panel.desktop.in.in:4
+#: panels/power/regolith-power-panel.desktop.in.in:4
 msgid "View your battery status and change power saving settings"
 msgstr "배터리 상태를 보고 절전 설정을 바꿉니다"
 
 #. Translators: Search terms to find the Power panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/power/gnome-power-panel.desktop.in.in:19
+#: panels/power/regolith-power-panel.desktop.in.in:19
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 "Energy;"
@@ -5017,16 +5017,16 @@ msgstr "UI를 읽어들일 수 없습니다: %s"
 msgid "Unlock to Add Printers and Change Settings"
 msgstr "프린터를 추가하고 설정을 바꾸려면 잠금을 해제하십시오"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:3
+#: panels/printers/regolith-printers-panel.desktop.in.in:3
 msgid "Printers"
 msgstr "프린터"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:4
+#: panels/printers/regolith-printers-panel.desktop.in.in:4
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr "프린터 추가, 인쇄 작업 보기, 어떻게 인쇄할지 설정"
 
 #. Translators: Search terms to find the Printers panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/printers/gnome-printers-panel.desktop.in.in:16
+#: panels/printers/regolith-printers-panel.desktop.in.in:16
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr ""
 "Printer;프린터;Queue;대기열;Print;인쇄;Paper;용지;종이;Ink;잉크;Toner;토너;"
@@ -5750,16 +5750,16 @@ msgstr "형식(_F)"
 msgid "Login settings are used by all users when logging into the system"
 msgstr "로그인 설정은 로그인할 때 모든 사용자가 사용합니다"
 
-#: panels/region/gnome-region-panel.desktop.in.in:3
+#: panels/region/regolith-region-panel.desktop.in.in:3
 msgid "Region & Language"
 msgstr "지역 및 언어"
 
-#: panels/region/gnome-region-panel.desktop.in.in:4
+#: panels/region/regolith-region-panel.desktop.in.in:4
 msgid "Select your display language and formats"
 msgstr "표시할 언어와 여러가지 형식을 선택합니다."
 
 #. Translators: Search terms to find the Region and Language panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/region/gnome-region-panel.desktop.in.in:19
+#: panels/region/regolith-region-panel.desktop.in.in:19
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "Language;언어;Layout;배치;Keyboard;키보드;Input;입력;"
 
@@ -5892,16 +5892,16 @@ msgstr "동작(_A):"
 msgid "_Type:"
 msgstr "종류(_T):"
 
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:3
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:3
 msgid "Removable Media"
 msgstr "이동식 미디어"
 
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:4
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:4
 msgid "Configure Removable Media settings"
 msgstr "이동식 미디어 설정"
 
 #. Translators: Search terms to find the Removable Media panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:19
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:19
 msgid ""
 "device;system;default;application;preferred;cd;dvd;usb;audio;video;disc;"
 "removable;media;autorun;"
@@ -5963,13 +5963,13 @@ msgstr ""
 "현재 활동 요약에서 어떤 검색 결과를 표시할지 조정. 목록의 행을 옮기면 검색 결"
 "과의 순서가 바뀔 수 있습니다."
 
-#: panels/search/gnome-search-panel.desktop.in.in:4
+#: panels/search/regolith-search-panel.desktop.in.in:4
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr "어떤 프로그램에서 활동 내역에 검색 결과를 표시할지 설정합니다."
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/search/gnome-search-panel.desktop.in.in:19
+#: panels/search/regolith-search-panel.desktop.in.in:19
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr ""
 "Search;검색;Find;찾기;Index;인덱스;색인;Hide;숨기기;Privacy;개인;정보;사생활;"
@@ -6045,7 +6045,7 @@ msgid "Copy"
 msgstr "복사"
 
 #: panels/sharing/cc-sharing-panel.c:1203
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:3
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:3
 msgid "Sharing"
 msgstr "공유"
 
@@ -6129,12 +6129,12 @@ msgstr "네트워크를 통해 음악, 사진, 영상을 공유합니다."
 msgid "Folders"
 msgstr "폴더"
 
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:4
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:4
 msgid "Control what you want to share with others"
 msgstr "다른 사람과 공유할 사항을 정합니다"
 
 #. Translators: Search terms to find the Sharing panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:16
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:16
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -6420,16 +6420,16 @@ msgstr "지연된 장치"
 msgid "No devices attached"
 msgstr "연결한 장치가 없습니다"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:3
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:3
 msgid "Thunderbolt"
 msgstr "썬더볼트"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:4
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:4
 msgid "Manage Thunderbolt devices"
 msgstr "썬더볼트 장치를 관리합니다"
 
 #. Translators: those are keywords for the thunderbolt control-center panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:19
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:19
 msgid "Thunderbolt;privacy;"
 msgstr "Thunderbolt;썬더볼트;선더볼트;privacy;보안;개인;정보;보호;"
 
@@ -6964,13 +6964,13 @@ msgstr "색상 효과:"
 msgid "Color Effects"
 msgstr "색상 효과"
 
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:4
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:4
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "보기, 듣기, 타이핑, 누르기 편의 사항"
 
 # 주의: 원문이 'Mouse' 키워드 중복
 #. Translators: Search terms to find the Accessibility panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:19
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:19
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Universal Access;Contrast;Cursor;Sound;"
 "Zoom;Screen;Reader;big;high;large;text;font;size;AccessX;Sticky;Keys;Slow;"
@@ -7149,11 +7149,11 @@ msgctxt "retain_history"
 msgid "Forever"
 msgstr "계속"
 
-#: panels/usage/gnome-usage-panel.desktop.in.in:3
+#: panels/usage/regolith-usage-panel.desktop.in.in:3
 msgid "File History & Trash"
 msgstr "파일 사용 내역 및 휴지통"
 
-#: panels/usage/gnome-usage-panel.desktop.in.in:4
+#: panels/usage/regolith-usage-panel.desktop.in.in:4
 msgid "Don't leave traces"
 msgstr "흔적 남기지 않기"
 
@@ -7812,16 +7812,16 @@ msgstr "사용자가 없습니다"
 msgid "Unlock to add a user account."
 msgstr "사용자 계정을 추가하려면 잠금을 푸십시오."
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:3
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:3
 msgid "Users"
 msgstr "사용자"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:4
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:4
 msgid "Add or remove users and change your password"
 msgstr "사용자 추가/제거 및 암호 바꾸기"
 
 #. Translators: Search terms to find the Users panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:20
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:20
 msgid ""
 "Login;Name;Fingerprint;Avatar;Logo;Face;Password;Parental Controls;Screen "
 "Time;App Restrictions;Web Restrictions;Usage;Usage Limit;Kid;Child;"
@@ -8127,18 +8127,18 @@ msgstr "스타일러스"
 msgid "Button"
 msgstr "단추"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:3
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:3
 #: panels/wacom/gnome-wacom-properties.ui:200
 msgid "Wacom Tablet"
 msgstr "와콤 디지타이저"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:4
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:4
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "그래픽 디지타이저의 단추 매핑을 설정하고 스타일러스의 민감도를 조정합니다"
 
 #. Translators: Search terms to find the Wacom Tablet panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:19
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:19
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr ""
 "Tablet;태블릿;디지타이저;Wacom;와콤;Stylus;스타일러스;Eraser;지우개;Mouse;마"
@@ -8681,17 +8681,17 @@ msgstr "PIN 바꾸기"
 msgid "Enter current PIN to change SIM lock settings"
 msgstr "SIM 잠금 설정을 바꾸려면 현재 PIN을 입력하십시오"
 
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:3
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:3
 msgid "Mobile Network"
 msgstr "휴대전화 네트워크"
 
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:4
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:4
 msgid "Configure Telephony and mobile data connections"
 msgstr "텔레포니 및 휴대전화 데이터 연결 설정"
 
 #. FIXME
 #. Translators: Search terms to find the WWAN panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:17
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:17
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr ""
 "cellular;휴대전화;셀룰러;wwan;무선;telephony;텔레포니;sim;mobile;모바일;"

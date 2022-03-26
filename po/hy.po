@@ -157,11 +157,11 @@ msgstr "Խնդրում ենք նկար ընտրել։"
 msgid "_Select"
 msgstr "_Ընտրել"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:1
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:1
 msgid "Date And Time"
 msgstr "Ամսաթիվ և Ժամանակ"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
 msgid "Date and Time preferences panel"
 msgstr "Ամսաթիվը և Ժամանակի նախընտրությունների վահանակ"
 
@@ -585,11 +585,11 @@ msgstr "_Որոշում՝"
 msgid "_Show monitors in panel"
 msgstr "_Մոնիտորները ցույց տալ վահանակի վրա"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
 msgid "Change resolution and position of monitors"
 msgstr "Փոխել մոնիտորների բաժանումը և դիրքը"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
 msgid "Monitors"
 msgstr "Մոնիտորներ"
 
@@ -1258,11 +1258,11 @@ msgstr "Մոդելներ"
 msgid "Default"
 msgstr "Նախնական"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
 msgid "Keyboard"
 msgstr "Ստեղնաշար"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
 msgid "Set your keyboard preferences"
 msgstr "Կարգավորել ստեղնաշարի նախընտրությունները"
 
@@ -1466,11 +1466,11 @@ msgstr "_Ժամանակը լրացել է՝"
 msgid "_Trigger secondary click by holding down the primary button"
 msgstr "_Իրականցնել երկրորդական կտտոցը՝ պահելով հիմնական կոճակը"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
 msgid "Mouse"
 msgstr "Մկնիկ"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
 msgid "Set your mouse preferences"
 msgstr "Կարգավորել մկնիկի նախընտրությունները"
 
@@ -1483,11 +1483,11 @@ msgstr "Նոր տեղակայություն..."
 msgid "Location already exists"
 msgstr "Տեղակայությունն արդեն գոյություն ունի"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
 msgid "Network Proxy"
 msgstr "Ցանցի պրոքսի"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
 msgid "Set your network proxy preferences"
 msgstr "Կարգավորել ցանցի պրոքսիի նախընտրությունները"
 
@@ -1591,11 +1591,11 @@ msgstr "_Ապահովել HTTP պրոքսի՝"
 msgid "_Use the same proxy for all protocols"
 msgstr "_Միևնույն պրոքսին օգտագործել բոլոր պրոտոկոլների համար"
 
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:1
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:1
 msgid "Universal Access"
 msgstr "Համընդհանուր Հասանելիություն"
 
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
 msgid "Universal Access Preferences"
 msgstr "Համընդհանուր հասանելիության նախընտրություններ"
 

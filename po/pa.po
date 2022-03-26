@@ -49,7 +49,7 @@ msgid "Full access to /dev"
 msgstr "/dev ਲਈ ਪੂਰੀ ਪਹੁੰਚ"
 
 #: panels/applications/cc-applications-panel.c:833
-#: panels/network/gnome-network-panel.desktop.in.in:3
+#: panels/network/regolith-network-panel.desktop.in.in:3
 #: panels/network/network-mobile.ui:288 panels/wwan/cc-wwan-device-page.ui:114
 #: panels/wwan/cc-wwan-network-dialog.ui:4
 msgid "Network"
@@ -184,7 +184,7 @@ msgstr ""
 
 #: panels/applications/cc-applications-panel.ui:121
 #: panels/applications/cc-applications-panel.ui:127
-#: panels/camera/gnome-camera-panel.desktop.in.in:3
+#: panels/camera/regolith-camera-panel.desktop.in.in:3
 msgid "Camera"
 msgstr "ਕੈਮਰਾ"
 
@@ -211,13 +211,13 @@ msgstr "ਅਸਮਰੱਥ ਹੈ"
 
 #: panels/applications/cc-applications-panel.ui:133
 #: panels/applications/cc-applications-panel.ui:139
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:3
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:3
 msgid "Microphone"
 msgstr "ਮਾਈਕਰੋਫੋਨ"
 
 #: panels/applications/cc-applications-panel.ui:145
 #: panels/applications/cc-applications-panel.ui:151
-#: panels/location/gnome-location-panel.desktop.in.in:3
+#: panels/location/regolith-location-panel.desktop.in.in:3
 msgid "Location Services"
 msgstr "ਟਿਕਾਣਾ ਸੇਵਾਵਾਂ"
 
@@ -250,12 +250,12 @@ msgstr "ਇਸ ਐਪਲੀਕੇਸ਼ਨ ਵਲੋਂ ਵਰਤੇ ਜਾ ਰ�
 #: panels/applications/cc-applications-panel.ui:225
 #: panels/applications/cc-applications-panel.ui:231
 #: panels/keyboard/01-launchers.xml.in:16
-#: panels/search/gnome-search-panel.desktop.in.in:3 shell/cc-window.ui:151
+#: panels/search/regolith-search-panel.desktop.in.in:3 shell/cc-window.ui:151
 msgid "Search"
 msgstr "ਖੋਜ"
 
 #: panels/applications/cc-applications-panel.ui:237
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:3
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:3
 msgid "Notifications"
 msgstr "ਸੂਚਨਾਵਾਂ"
 
@@ -421,16 +421,16 @@ msgstr "…ਤਸਵੀਰ ਜੋੜੋ"
 msgid "Activities"
 msgstr "ਸਰਗਰਮੀਆਂ"
 
-#: panels/background/gnome-background-panel.desktop.in.in:3
+#: panels/background/regolith-background-panel.desktop.in.in:3
 msgid "Background"
 msgstr "ਬੈਕਗਰਾਊਂਡ"
 
-#: panels/background/gnome-background-panel.desktop.in.in:4
+#: panels/background/regolith-background-panel.desktop.in.in:4
 msgid "Change your background image to a wallpaper or photo"
 msgstr "ਆਪਣੇ ਬੈਕਗਰਾਊਂਡ ਚਿੱਤਰ ਨੂੰ ਵਾਲਪੇਪਰ ਜਾਂ ਫੋਟੋ ਨਾਲ ਬਦਲੋ"
 
 #. Translators: Search terms to find the Background panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/background/gnome-background-panel.desktop.in.in:15
+#: panels/background/regolith-background-panel.desktop.in.in:15
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "ਵਾਲਪੇਪਰ;ਸਕਰੀਨ;ਡੈਸਕਟਾਪ;ਕੰਧ-ਚਿੱਤਰ;"
 
@@ -471,17 +471,17 @@ msgid "Turn off the Airplane mode switch to enable Bluetooth."
 msgstr "ਬਲੂਟੁੱਥ ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਲਈ ਏਅਰਪਲੇਨ ਮੋਡ ਨੂੰ ਬੰਦ ਕਰੋ।"
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:3
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:3
 #: panels/printers/pp-new-printer-dialog.c:1392
 msgid "Bluetooth"
 msgstr "ਬਲੂਟੁੱਥ"
 
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:4
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:4
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "ਬਲੂਟੁੱਥ ਜੰਤਰ ਨੂੰ ਚਾਲੂ ਤੇ ਬੰਦ ਕਰੋ ਅਤੇ ਆਪਣੇ ਜੰਤਰਾਂ ਨਾਲ ਕਨੈਕਟ ਕਰੋ-"
 
 #. Translators: Search terms to find the Bluetooth panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:19
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:19
 msgid "share;sharing;bluetooth;obex;"
 msgstr "ਸਾਂਝਾ ਕਰਨਾ;ਸਾਂਝਾ;ਸ਼ੇਅਰਿੰਗ;ਬਲਿਊਟੂੱਥ;ਬਲੂਟੁੱਥ;obex;"
 
@@ -510,14 +510,14 @@ msgstr "ਹੇਠਲੀਆਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਨੂੰ ਆਪਣ
 msgid "No Applications Have Asked for Camera Access"
 msgstr "ਕੈਮਰਾ ਪਹੁੰਚ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਨਹੀਂ ਪੁੱਛਿਆ ਹੈ"
 
-#: panels/camera/gnome-camera-panel.desktop.in.in:4
+#: panels/camera/regolith-camera-panel.desktop.in.in:4
 msgid "Protect your pictures"
 msgstr "ਆਪਣੀਆਂ ਤਸਵੀਰਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰੋ"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/camera/gnome-camera-panel.desktop.in.in:20
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:20
+#: panels/camera/regolith-camera-panel.desktop.in.in:20
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:20
 msgid ""
 "screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;"
 "network;identity;"
@@ -1152,18 +1152,18 @@ msgstr "ਇਹ ਪਰੋਫਾਇਲ ਲਈ ਪੂਰੀ-ਸਕਰੀਨ ਡਿ�
 msgid "This profile may no longer be accurate"
 msgstr "ਇਹ ਪਰੋਫਾਇਲ ਹੁਣ ਠੀਕ ਨਹੀਂ ਰਿਹਾ ਹੋ ਸਕਦਾ ਹੈ"
 
-#: panels/color/gnome-color-panel.desktop.in.in:3
+#: panels/color/regolith-color-panel.desktop.in.in:3
 msgid "Color"
 msgstr "ਰੰਗ"
 
-#: panels/color/gnome-color-panel.desktop.in.in:4
+#: panels/color/regolith-color-panel.desktop.in.in:4
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
 "ਆਪਣੇ ਜੰਤਰਾਂ, ਜਿਵੇਂ ਕਿ ਡਿਸਪਲੇਅ, ਕੈਮਰੇ ਜਾਂ ਪਰਿੰਟਰਾਂ ਦੇ ਰੰਗ ਨੂੰ ਕੈਲੀਬਰੇਟ ਕਰੋ"
 
 #. Translators: Search terms to find the Color panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/color/gnome-color-panel.desktop.in.in:19
+#: panels/color/regolith-color-panel.desktop.in.in:19
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr ""
 "ਰੰਗ;Color;ICC;Profile;Calibrate;ਪ੍ਰਿੰਟਰ;ਪਰਿੰਟਰ;Printer;Display;ਡਿਸਪਲੇਅ;"
@@ -1415,7 +1415,7 @@ msgid "December"
 msgstr "ਦਸੰਬਰ"
 
 #: panels/datetime/cc-datetime-panel.ui:136
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:3
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:3
 msgid "Date & Time"
 msgstr "ਮਿਤੀ ਤੇ ਸਮਾਂ"
 
@@ -1475,12 +1475,12 @@ msgstr "24-ਘੰਟੇ"
 msgid "AM / PM"
 msgstr "ਸਵੇਰ/ਆਥਣ"
 
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:4
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:4
 msgid "Change the date and time, including time zone"
 msgstr "ਤਾਰੀਖ ਅਤੇ ਵੇਲਾ, ਵੇਲੇ ਦੇ ਇਲਾਕੇ ਸਮੇਤ ਬਦਲੋ"
 
 #. Translators: Search terms to find the Date and Time panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:15
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:15
 msgid "Clock;Timezone;Location;"
 msgstr "ਘੜੀ;ਵੇਲਾ,ਵੇਲਾ ਇਲਾਕਾ;ਸਥਾਨ;ਥਾਂ;ਸਮਾਂ-ਖੇਤਰ;ਟਿਕਾਣਾ;"
 
@@ -1517,16 +1517,16 @@ msgstr "ਵਿਡੀਓ(_V)"
 msgid "_Photos"
 msgstr "ਫੋਟੋ(_P)"
 
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:3
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:3
 msgid "Default Applications"
 msgstr "ਮੂਲ ਐਪਲੀਕੇਸ਼ਨ"
 
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:4
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:4
 msgid "Configure Default Applications"
 msgstr "ਮੂਲ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
 
 #. Translators: Search terms to find the Default Applications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:19
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:19
 msgid "default;application;preferred;media;"
 msgstr "ਡਿਫਾਲਟ;ਮੂਲ;ਐਪਲੀਕੇਸ਼ਨ;ਤਰਜੀਹੀ;ਮੀਡੀਆ;ਪਸੰਦ;"
 
@@ -1549,20 +1549,20 @@ msgstr "ਸਮੱਸਿਆ ਰਿਪੋਰਟ ਦੇਣੀ"
 msgid "_Automatic Problem Reporting"
 msgstr "ਸਮੱਸਿਆ ਬਾਰੇ ਆਟੋਮੈਟਿਕ ਰਿਪੋਰਟ ਕਰੋ(_A)"
 
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:3
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:3
 msgid "Diagnostics"
 msgstr "ਪੜਤਾਲ"
 
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:4
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:4
 msgid "Report your problems"
 msgstr "ਆਪਣੀਆਂ ਸਮੱਸਿਆਵਾ ਬਾਰੇ ਰਿਪੋਰਟ ਦਿਓ"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:20
-#: panels/location/gnome-location-panel.desktop.in.in:20
-#: panels/lock/gnome-lock-panel.desktop.in.in:20
-#: panels/usage/gnome-usage-panel.desktop.in.in:20
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:20
+#: panels/location/regolith-location-panel.desktop.in.in:20
+#: panels/lock/regolith-lock-panel.desktop.in.in:20
+#: panels/usage/regolith-usage-panel.desktop.in.in:20
 msgid ""
 "screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;"
 "network;identity;privacy;"
@@ -1634,7 +1634,7 @@ msgid "Display Configuration"
 msgstr "ਡਿਸਪਲੇਅ ਸੰਰਚਨਾ"
 
 #: panels/display/cc-display-panel.ui:440
-#: panels/display/gnome-display-panel.desktop.in.in:3
+#: panels/display/regolith-display-panel.desktop.in.in:3
 msgid "Displays"
 msgstr "ਡਿਸਪਲੇਅ"
 
@@ -1776,12 +1776,12 @@ msgstr "ਤੱਕ"
 msgid "Color Temperature"
 msgstr "ਰੰਗ ਦਾ ਤਾਪਮਾਨ"
 
-#: panels/display/gnome-display-panel.desktop.in.in:4
+#: panels/display/regolith-display-panel.desktop.in.in:4
 msgid "Choose how to use connected monitors and projectors"
 msgstr "ਚੁਣੋ ਕਿ ਮਾਨੀਟਰਾਂ ਅਤੇ ਪਰੋਜੈਕਟਰ ਨਾਲ ਕਿਵੇਂ ਜੁੜਨਾ ਹੈ"
 
 #. Translators: Search terms to find the Displays panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/display/gnome-display-panel.desktop.in.in:19
+#: panels/display/regolith-display-panel.desktop.in.in:19
 msgid ""
 "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;Night;Light;Blue;"
 "redshift;color;sunset;sunrise;"
@@ -1903,11 +1903,11 @@ msgstr ""
 msgid "_Rename"
 msgstr "ਨਾਂ ਬਦਲੋ(_R)"
 
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:3
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:3
 msgid "About"
 msgstr "ਇਸ ਬਾਰੇ"
 
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:4
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:4
 msgid "View information about your system"
 msgstr "ਆਪਣੇ ਸਿਸਟਮ ਬਾਰੇ ਜਾਣਕਾਰੀ ਵੇਖੋ"
 
@@ -1916,7 +1916,7 @@ msgstr "ਆਪਣੇ ਸਿਸਟਮ ਬਾਰੇ ਜਾਣਕਾਰੀ ਵੇ�
 #. The list MUST also end with a semicolon!
 #. "Preferred Applications" is the old name for the preference, so make
 #. sure that you use the same "translation" for those keywords
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:23
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:23
 msgid ""
 "device;system;information;hostname;memory;processor;version;default;"
 "application;preferred;cd;dvd;usb;audio;video;disc;removable;media;autorun;"
@@ -2060,7 +2060,7 @@ msgid "Lock screen"
 msgstr "ਸਕਰੀਨ ਲਾਕ ਕਰੋ"
 
 #: panels/keyboard/50-accessibility.xml.in:2
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:3
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:3
 msgid "Accessibility"
 msgstr "ਅਸੈੱਸਬਿਲਟੀ"
 
@@ -2412,11 +2412,11 @@ msgstr "ਸੈੱਟ ਕਰੋ"
 msgid "Reset the shortcut to its default value"
 msgstr "ਸ਼ਾਰਟਕੱਟ ਨੂੰ ਇਸ ਦੇ ਮੂਲ ਮੁੱਲ ਲਈ ਮੁੜ-ਸੈੱਟ ਕਰੋ"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:3
 msgid "Keyboard"
 msgstr "ਕੀ-ਬੋਰਡ"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:4
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:4
 #| msgid "View and change keyboard shortcuts and set your typing preferences"
 msgid ""
 "Change keyboard shortcuts and set your typing preferences, keyboard layouts "
@@ -2426,7 +2426,7 @@ msgstr ""
 " ਇਨਪੁੱਟ ਢੰਗ"
 
 #. Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:19
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:19
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -2465,7 +2465,7 @@ msgstr "ਹੇਠਲੀਆਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਨੂੰ ਆਪਣ
 msgid "No Applications Have Asked for Location Access"
 msgstr "ਟਿਕਾਣੇ ਪਹੁੰਚ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਨਹੀਂ ਪੁੱਛਿਆ ਹੈ"
 
-#: panels/location/gnome-location-panel.desktop.in.in:4
+#: panels/location/regolith-location-panel.desktop.in.in:4
 msgid "Protect your location information"
 msgstr "ਆਪਣੀ ਟਿਕਾਣਾ ਜਾਣਕਾਰੀ ਸੁਰੱਖਿਅਤ ਕਰੋ"
 
@@ -2623,11 +2623,11 @@ msgctxt "blank_screen"
 msgid "Never"
 msgstr "ਕਦੇ ਨਹੀਂ"
 
-#: panels/lock/gnome-lock-panel.desktop.in.in:3
+#: panels/lock/regolith-lock-panel.desktop.in.in:3
 msgid "Screen Lock"
 msgstr "ਸਕਰੀਨ ਲਾਕ"
 
-#: panels/lock/gnome-lock-panel.desktop.in.in:4
+#: panels/lock/regolith-lock-panel.desktop.in.in:4
 msgid "Lock your screen"
 msgstr "ਆਪਣੀ ਸਕਰੀਨ ਲਾਕ ਕਰੋ"
 
@@ -2658,7 +2658,7 @@ msgstr "ਹੇਠਲੀਆਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਨੂੰ ਆਪਣ
 msgid "No Applications Have Asked for Microphone Access"
 msgstr "ਮਾਈਕਰੋਫ਼ੋਨ ਪਹੁੰਚ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਨਹੀਂ ਪੁੱਛਿਆ ਹੈ"
 
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:4
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:4
 msgid "Protect your conversations"
 msgstr "ਤਹਾਡੀਆਂ ਗੱਲਾਂਬਾਤਾਂ ਸੁਰੱਖਿਅਤ ਕਰੋ"
 
@@ -2762,18 +2762,18 @@ msgstr "ਡਬਲ ਕਲਿੱਕ, ਸੈਕੰਡਰੀ ਬਟਨ"
 msgid "Single click, secondary button"
 msgstr "ਇੱਕ ਵਾਰ ਕਲਿੱਕ, ਸੈਕੰਡਰੀ ਬਟਨ"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:3
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:3
 msgid "Mouse & Touchpad"
 msgstr "ਮਾਊਸ ਤੇ ਟੱਚਪੈਚ"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:4
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:4
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
 "ਆਪਣੇ ਮਾਊਸ ਜਾਂ ਟੱਚਪੈਡ ਦੀ ਸੰਵੇਦਨਸ਼ੀਲਤਾ ਬਦਲੋ ਅਤੇ ਸੱਜੇ ਜਾਂ ਖੱਬੇ-ਹੱਥ ਦੀ ਚੋਣ ਕਰੋ"
 
 #. Translators: Search terms to find the Mouse and Touchpad panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:19
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:19
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr "ਟਰੈਕਪੈਂਡ;ਪੁਆਇੰਟਰ;ਕਲਿੱਕ;ਟੈਪ;ਡਬਲ;ਬਟਨ;ਟਰੈਕਬਾਲ;ਸਕਰੋਲ;"
 
@@ -2842,16 +2842,16 @@ msgstr "ਸਾਰੀਆਂ ਵਰਕਸਪੇਸਾਂ ਤੋਂ ਐਪਲੀਕ
 msgid "Include applications from the _current workspace only"
 msgstr "ਸਿਰਫ਼ ਮੌਜੂਦਾ ਵਰਕਸਪੇਸ ਤੋਂ ਹੀ ਐਪਲੀਕੇਸ਼ਨਾਂ ਸਮੇਤ(_c)"
 
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:3
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:3
 msgid "Multitasking"
 msgstr "ਬਹੁ-ਕੰਮਕਾਜ"
 
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:4
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:4
 msgid "Manage preferences for productivity and multitasking"
 msgstr "ਉਤਪਾਦਨ ਤੇ ਬਹੁ-ਕੰਮਕਾਜ ਲਈ ਤਜਰੀਹਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:15
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:15
 msgid "Multitasking;Multitask;Productivity;Customize;Desktop;"
 msgstr "ਬਹੁ-ਕੰਮ;ਮਲਟੀ-ਟਾਸਕ;ਉਤਪਾਦਨ,ਕਸਟਮਾਈਜ਼ ਡੈਸਕਟਾਪ;"
 
@@ -2979,7 +2979,7 @@ msgid "_Turn On"
 msgstr "ਚਾਲੂ ਕਰੋ(_T)"
 
 #: panels/network/cc-wifi-panel.c:544
-#: panels/network/gnome-wifi-panel.desktop.in.in:3
+#: panels/network/regolith-wifi-panel.desktop.in.in:3
 #: panels/network/network-wifi.ui:53
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -3570,22 +3570,22 @@ msgstr "_SSID"
 msgid "_BSSID"
 msgstr "_BSSID"
 
-#: panels/network/gnome-network-panel.desktop.in.in:4
+#: panels/network/regolith-network-panel.desktop.in.in:4
 msgid "Control how you connect to the Internet"
 msgstr "ਕੰਟਰੋਲ ਕਰੋ ਕਿ ਇੰਟਰਨੈੱਟ ਨਾਲ ਤੁਸੀਂ ਕਿਵੇਂ ਕਨੈਕਟ ਹੋ"
 
 #. Translators: Search terms to find the Network panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-network-panel.desktop.in.in:19
+#: panels/network/regolith-network-panel.desktop.in.in:19
 msgid "Network;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;DNS;"
 msgstr ""
 "ਨੈੱਟਵਰਕ;ਆਈਪੀ;ਬਰਾਡਬੈਂਡ;ਮਾਡਮ;ਬਲੂਟੁੱਥ;ਬਲੂਟੁੱਥ;ਵੀਪੀਐਨ;ਪਰਾਕਸੀ;ਵੈਨ;ਮੌਡਮ;ਡੀਐਨਐਸ;"
 
-#: panels/network/gnome-wifi-panel.desktop.in.in:4
+#: panels/network/regolith-wifi-panel.desktop.in.in:4
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "ਕੰਟਰੋਲ ਕਰੋ ਕਿ Wi-Fi ਨੈੱਟਵਰਕ ਨਾਲ ਤੁਸੀਂ ਕਿਵੇਂ ਕਨੈਕਟ ਕਰਨਾ ਹੈ"
 
 #. Translators: Search terms to find the Wi-Fi panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-wifi-panel.desktop.in.in:19
+#: panels/network/regolith-wifi-panel.desktop.in.in:19
 msgid "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Broadband;DNS;Hotspot;"
 msgstr "ਨੈੱਟਵਰਕ;ਬੇਤਾਰ;ਵਾਈ-ਫਾਈ;ਆਈਪੀ;ਬਰਾਡਬੈਂਡ;ਡੀਐਨਐਸ;ਹਾਟਸਪਾਟ;ਹੌਟਸਪੌਟ;"
 
@@ -4485,12 +4485,12 @@ msgstr "ਤੰਗ ਨਾ ਕਰੋ(_D)"
 msgid "_Lock Screen Notifications"
 msgstr "ਲਾਕ ਸਕਰੀਨ ਸੂਚਨਾਵਾਂ(_L)"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:4
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:4
 msgid "Control which notifications are displayed and what they show"
 msgstr "ਕੰਟਰੋਲ ਕਰੋ ਕਿ ਕਿਹੜੀਆਂ ਸੂਚਨਾਵਾਂ ਵੇਖਾਉਣੀਆਂ ਅਤੇ ਉਹ ਕੀ ਕੁਝ ਵੇਖਾਉਣ"
 
 #. Translators: Search terms to find the Notifications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:20
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:20
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "ਸੂਚਨਾ;ਬੈਨਰ;ਸੁਨੇਹਾ;ਟਰੇ;ਪੋਪਅੱਪ;Notifications;Banner;Message;Tray;Popup;"
 
@@ -4518,11 +4518,11 @@ msgstr "ਅਕਾਊਂਟ ਹਟਾਉਣਾ ਦੌਰਾਨ ਗਲਤੀ"
 msgid "%s removed"
 msgstr "%s ਨੂੰ ਹਟਾਇਆ"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:3
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:3
 msgid "Online Accounts"
 msgstr "ਆਨਲਾਈਨ ਖਾਤੇ"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:4
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:4
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 "ਆਪਣੇ ਆਨਲਾਈਨ ਖਾਤਿਆਂ ਨਾਲ ਕਨੈਕਟ ਹੋਵੋ ਅਤੇ ਫੈਸਲਾ ਕਰੋ ਕਿ ਉਹਨਾਂ ਨੂੰ ਕਿਸ ਲਈ ਵਰਤਣਾ ਹੈ"
@@ -4531,7 +4531,7 @@ msgstr ""
 #. Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:22
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:22
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4965,16 +4965,16 @@ msgstr "ਪਾਵਰ ਬੱਚਤ"
 msgid "Reduced performance and power usage."
 msgstr "ਘੱਟ ਕੀਤੀ ਕਾਰਗੁਜ਼ਾਰੀ ਅਤੇ ਊਰਜਾ ਖਪਤ ਹੈ।"
 
-#: panels/power/gnome-power-panel.desktop.in.in:3
+#: panels/power/regolith-power-panel.desktop.in.in:3
 msgid "Power"
 msgstr "ਪਾਵਰ"
 
-#: panels/power/gnome-power-panel.desktop.in.in:4
+#: panels/power/regolith-power-panel.desktop.in.in:4
 msgid "View your battery status and change power saving settings"
 msgstr "ਆਪਣੀ ਬੈਟਰੀ ਦੀ ਸਥਿਤੀ ਵੇਖੋ ਅਤੇ ਊਰਜਾ ਬੱਚਤ ਸੈਟਿੰਗਾਂ ਬਦਲੋ"
 
 #. Translators: Search terms to find the Power panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/power/gnome-power-panel.desktop.in.in:19
+#: panels/power/regolith-power-panel.desktop.in.in:19
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 "Energy;"
@@ -5024,17 +5024,17 @@ msgstr "ui ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ: %s"
 msgid "Unlock to Add Printers and Change Settings"
 msgstr "ਪਰਿੰਟਰ ਜੋੜਨ ਅਤੇ ਸੈਟਿੰਗਾਂ ਬਦਲਣ ਲਈ ਅਣ-ਲਾਕ ਕਰੋ"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:3
+#: panels/printers/regolith-printers-panel.desktop.in.in:3
 msgid "Printers"
 msgstr "ਪਰਿੰਟਰ"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:4
+#: panels/printers/regolith-printers-panel.desktop.in.in:4
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr ""
 "ਪਰਿੰਟਰ ਜੋੜੋ, ਪਰਿੰਟਰ ਜਾਬ ਵੇਖੋ ਅਤੇ ਤਹਿ ਕਰੋ ਤੁਸੀਂ ਕਿਵੇਂ ਪਰਿੰਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੈ"
 
 #. Translators: Search terms to find the Printers panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/printers/gnome-printers-panel.desktop.in.in:16
+#: panels/printers/regolith-printers-panel.desktop.in.in:16
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Printer;Queue;Print;Paper;Ink;Toner;"
 
@@ -5761,16 +5761,16 @@ msgstr ""
 "ਲਾਗਇਨ ਸੈਟਿੰਗਾਂ ਨੂੰ ਸਭ ਵਰਤੋਂਕਾਰਾਂ ਵਲੋਂ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਜਦੋਂ ਸਿਸਟਮ ਵਿੱਚ ਲਾਗਇਨ"
 " ਕਰਦੇ ਹਨ"
 
-#: panels/region/gnome-region-panel.desktop.in.in:3
+#: panels/region/regolith-region-panel.desktop.in.in:3
 msgid "Region & Language"
 msgstr "ਇਲਾਕਾ ਅਤੇ ਭਾਸ਼ਾ"
 
-#: panels/region/gnome-region-panel.desktop.in.in:4
+#: panels/region/regolith-region-panel.desktop.in.in:4
 msgid "Select your display language and formats"
 msgstr "ਆਪਣੀ ਦਿਖਾਉਣ ਵਾਲੀ ਭਾਸ਼ਾ ਤੇ ਫਾਰਮੈਟ ਚੁਣੋ"
 
 #. Translators: Search terms to find the Region and Language panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/region/gnome-region-panel.desktop.in.in:19
+#: panels/region/regolith-region-panel.desktop.in.in:19
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "ਭਾਸ਼ਾ;ਲੇਆਉਟ;ਕੀਬੋਰਡ;ਇੰਪੁੱਟ;ਖਾਕਾ;ਬੋਲੀ;"
 
@@ -5903,16 +5903,16 @@ msgstr "ਕਾਰਵਾਈ(_A):"
 msgid "_Type:"
 msgstr "ਕਿਸਮ(_T):"
 
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:3
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:3
 msgid "Removable Media"
 msgstr "ਹਟਾਉਣਯੋਗ ਮੀਡਿਆ"
 
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:4
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:4
 msgid "Configure Removable Media settings"
 msgstr "ਹਟਾਉਣਯੋਗ ਮੀਡੀਏ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਦੀ ਸੰਰਚਨਾ"
 
 #. Translators: Search terms to find the Removable Media panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:19
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:19
 msgid ""
 "device;system;default;application;preferred;cd;dvd;usb;audio;video;disc;"
 "removable;media;autorun;"
@@ -5977,13 +5977,13 @@ msgstr ""
 " ਨਤੀਜਿਆਂ ਦੀ ਲੜੀ ਨੂੰ "
 "ਸੂਚੀ ਵਿੱਚ ਕਤਾਰਾਂ ਰਾਹੀਂ ਹਿਲਾ ਕੇ ਵੀ ਬਦਲਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
 
-#: panels/search/gnome-search-panel.desktop.in.in:4
+#: panels/search/regolith-search-panel.desktop.in.in:4
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr "ਕੰਟਰੋਲ ਕਰੋ ਕਿਹੜੀਆਂ ਐਪਲੀਕੇਸ਼ਨ ਸਰਗਰਮੀ ਝਲਕ ਵਿੱਚ ਖੋਜ ਨਤੀਜਿਆਂ ਵਿੱਚ ਦਿਸਣ"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/search/gnome-search-panel.desktop.in.in:19
+#: panels/search/regolith-search-panel.desktop.in.in:19
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr ""
 "ਖੋਜ;ਲੱਭੋ;ਲੱਭਣਾ;ਇੰਡੈਕਸ;ਤਤਕਰਾ;ਪਰਾਈਵੇਸੀ;ਨਤੀਜੇ;Search;Find;Index;Hide;Privacy;Resu"
@@ -6062,7 +6062,7 @@ msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
 #: panels/sharing/cc-sharing-panel.c:1203
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:3
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:3
 msgid "Sharing"
 msgstr "ਸਾਂਝਾ"
 
@@ -6146,12 +6146,12 @@ msgstr "ਨੈੱਟਵਰਕ ਉੱਤੇ ਹੋਰਾਂ ਨਾਲ ਸੰਗ�
 msgid "Folders"
 msgstr "ਫੋਲਡਰ"
 
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:4
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:4
 msgid "Control what you want to share with others"
 msgstr "ਕੰਟਰੋਲ ਕਰੋ ਕਿ ਤੁਸੀਂ ਹੋਰਾਂ ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਦੇ ਹੋ"
 
 #. Translators: Search terms to find the Sharing panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:16
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:16
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -6440,16 +6440,16 @@ msgstr "ਬਾਕੀ ਪਏ ਡਿਵਾਈਸ"
 msgid "No devices attached"
 msgstr "ਕੋਈ ਡਿਵਾਈਸ ਜੋੜਿਆ ਨਹੀਂ ਹੈ"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:3
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:3
 msgid "Thunderbolt"
 msgstr "ਥੰਡਰਬੋਲਟ"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:4
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:4
 msgid "Manage Thunderbolt devices"
 msgstr "ਥੰਡਰਬੋਲਟ ਡਿਵਾਈਸਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ"
 
 #. Translators: those are keywords for the thunderbolt control-center panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:19
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:19
 msgid "Thunderbolt;privacy;"
 msgstr "ਥੰਡਰਬੋਲਟ;ਪਰਦੇਦਾਰੀ;"
 
@@ -6985,12 +6985,12 @@ msgstr "ਰੰਗ ਪ੍ਰਭਾਵ:"
 msgid "Color Effects"
 msgstr "ਰੰਗ ਪ੍ਰਭਾਵ"
 
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:4
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:4
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "ਵੇਖਣਾ, ਸੁਣਨਾ, ਲਿਖਣਾ, ਪੁਆਇੰਟ ਤੇ ਕਲਿੱਕ ਕਰਨਾ ਸੌਖਾ ਬਣਾਉ"
 
 #. Translators: Search terms to find the Accessibility panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:19
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:19
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Universal Access;Contrast;Cursor;Sound;"
 "Zoom;Screen;Reader;big;high;large;text;font;size;AccessX;Sticky;Keys;Slow;"
@@ -7171,11 +7171,11 @@ msgctxt "retain_history"
 msgid "Forever"
 msgstr "ਹਮੇਸ਼ਾ"
 
-#: panels/usage/gnome-usage-panel.desktop.in.in:3
+#: panels/usage/regolith-usage-panel.desktop.in.in:3
 msgid "File History & Trash"
 msgstr "ਫਾਇਲ ਅਤੀਤ ਤੇ ਰੱਦੀ"
 
-#: panels/usage/gnome-usage-panel.desktop.in.in:4
+#: panels/usage/regolith-usage-panel.desktop.in.in:4
 msgid "Don't leave traces"
 msgstr "ਨਿਸ਼ਾਨ ਨਾ ਛੱਡੋ"
 
@@ -7842,16 +7842,16 @@ msgstr "ਕੋਈ ਵਰਤੋਂਕਾਰ ਨਹੀਂ ਲੱਭਿਆ"
 msgid "Unlock to add a user account."
 msgstr "ਵਰਤੋਂਕਾਰ ਖਾਤਾ ਜੋੜਨ ਲਈ ਅਣ-ਲਾਕ ਕਰੋ।"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:3
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:3
 msgid "Users"
 msgstr "ਵਰਤੋਂਕਾਰ"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:4
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:4
 msgid "Add or remove users and change your password"
 msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਜੋੜੋ ਜਾਂ ਹਟਾਓ ਅਤੇ ਆਪਣਾ ਪਾਸਵਰਡ ਬਦਲੋ"
 
 #. Translators: Search terms to find the Users panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:20
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:20
 msgid ""
 "Login;Name;Fingerprint;Avatar;Logo;Face;Password;Parental Controls;Screen "
 "Time;App Restrictions;Web Restrictions;Usage;Usage Limit;Kid;Child;"
@@ -8158,17 +8158,17 @@ msgstr "ਸਟਾਇਲਸ"
 msgid "Button"
 msgstr "ਬਟਨ"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:3
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:3
 #: panels/wacom/gnome-wacom-properties.ui:200
 msgid "Wacom Tablet"
 msgstr "ਵਾਕੋਮ ਟੇਬਲੇਟ"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:4
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:4
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr "ਗਰਾਫਿਕਸ ਟੇਬਲਟ ਲਈ ਬਟਨ ਮਿਲਾਨ ਕਰੋ ਅਤੇ ਸਟਾਇਲਸ ਸੰਵੇਦਨਸ਼ੀਲਤਾ ਅਡਜੱਸਟ ਕਰੋ"
 
 #. Translators: Search terms to find the Wacom Tablet panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:19
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:19
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Tablet;Wacom;Stylus;Eraser;Mouse;ਟੇਬਲੇਟ;"
 
@@ -8718,18 +8718,18 @@ msgstr "ਪਿੰਨ ਬਦਲੋ"
 msgid "Enter current PIN to change SIM lock settings"
 msgstr "ਸਿਮ ਲਾਕ ਸੈਟਿੰਗਾਂ ਬਦਲਣ ਲਈ ਮੌਜੂਦਾ ਪਿੰਨ ਦਿਓ"
 
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:3
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:3
 msgid "Mobile Network"
 msgstr "ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ"
 
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:4
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:4
 #| msgid "Configure Removable Media settings"
 msgid "Configure Telephony and mobile data connections"
 msgstr "ਟੈਲੀਫ਼ੋਨੀ ਤੇ ਮੋਬਾਈਲ ਡਾਟਾ ਕਨੈਕਸ਼ਨਾਂ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
 
 #. FIXME
 #. Translators: Search terms to find the WWAN panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:17
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:17
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "ਸੈਲੂਲਰ;ਵੈਨ;ਵੈੱਨ;ਟੈਲੀਫ਼ੋਨੀ;ਸਿਮ;ਮੋਬਾਈਲ;ਮੋਬਾਇਲ;"
 

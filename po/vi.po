@@ -49,7 +49,7 @@ msgid "Full access to /dev"
 msgstr "Truy cập đầy đủ vào /dev"
 
 #: panels/applications/cc-applications-panel.c:833
-#: panels/network/gnome-network-panel.desktop.in.in:3
+#: panels/network/regolith-network-panel.desktop.in.in:3
 #: panels/network/network-mobile.ui:288 panels/wwan/cc-wwan-device-page.ui:114
 #: panels/wwan/cc-wwan-network-dialog.ui:4
 msgid "Network"
@@ -183,7 +183,7 @@ msgstr ""
 
 #: panels/applications/cc-applications-panel.ui:121
 #: panels/applications/cc-applications-panel.ui:127
-#: panels/camera/gnome-camera-panel.desktop.in.in:3
+#: panels/camera/regolith-camera-panel.desktop.in.in:3
 msgid "Camera"
 msgstr "Máy ảnh"
 
@@ -210,13 +210,13 @@ msgstr "Tắt"
 
 #: panels/applications/cc-applications-panel.ui:133
 #: panels/applications/cc-applications-panel.ui:139
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:3
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:3
 msgid "Microphone"
 msgstr "Micrô"
 
 #: panels/applications/cc-applications-panel.ui:145
 #: panels/applications/cc-applications-panel.ui:151
-#: panels/location/gnome-location-panel.desktop.in.in:3
+#: panels/location/regolith-location-panel.desktop.in.in:3
 msgid "Location Services"
 msgstr "Dịch vụ vị trí"
 
@@ -248,12 +248,12 @@ msgstr "Tính năng hệ thống được sử dụng bởi ứng dụng này."
 #: panels/applications/cc-applications-panel.ui:225
 #: panels/applications/cc-applications-panel.ui:231
 #: panels/keyboard/01-launchers.xml.in:16
-#: panels/search/gnome-search-panel.desktop.in.in:3 shell/cc-window.ui:151
+#: panels/search/regolith-search-panel.desktop.in.in:3 shell/cc-window.ui:151
 msgid "Search"
 msgstr "Tìm kiếm"
 
 #: panels/applications/cc-applications-panel.ui:237
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:3
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:3
 msgid "Notifications"
 msgstr "Thông báo"
 
@@ -423,16 +423,16 @@ msgstr "Thêm ảnh…"
 msgid "Activities"
 msgstr "Hoạt động"
 
-#: panels/background/gnome-background-panel.desktop.in.in:3
+#: panels/background/regolith-background-panel.desktop.in.in:3
 msgid "Background"
 msgstr "Ảnh nền"
 
-#: panels/background/gnome-background-panel.desktop.in.in:4
+#: panels/background/regolith-background-panel.desktop.in.in:4
 msgid "Change your background image to a wallpaper or photo"
 msgstr "Thay đổi ảnh nền màn hình"
 
 #. Translators: Search terms to find the Background panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/background/gnome-background-panel.desktop.in.in:15
+#: panels/background/regolith-background-panel.desktop.in.in:15
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "Wallpaper;Ảnh;nền;Anh;nen;Screen;Màn;hình;Man;hinh;Desktop;"
 
@@ -473,17 +473,17 @@ msgid "Turn off the Airplane mode switch to enable Bluetooth."
 msgstr "Tắt chế độ máy bay chuyển sang bật Bluetooth."
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:3
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:3
 #: panels/printers/pp-new-printer-dialog.c:1392
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:4
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:4
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "Bật/tắt Bluetooth và kết nối các thiết bị của bạn"
 
 #. Translators: Search terms to find the Bluetooth panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/bluetooth/gnome-bluetooth-panel.desktop.in.in:19
+#: panels/bluetooth/regolith-bluetooth-panel.desktop.in.in:19
 msgid "share;sharing;bluetooth;obex;"
 msgstr "share;chia sẻ;chia se;sharing;bluetooth;obex;"
 
@@ -511,14 +511,14 @@ msgstr "Các ứng dụng phía dưới dùng máy ảnh của bạn."
 msgid "No Applications Have Asked for Camera Access"
 msgstr "Không có ứng dụng nào yêu cầu truy cập máy ảnh"
 
-#: panels/camera/gnome-camera-panel.desktop.in.in:4
+#: panels/camera/regolith-camera-panel.desktop.in.in:4
 msgid "Protect your pictures"
 msgstr "Bảo vệ các ảnh của bạn"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/camera/gnome-camera-panel.desktop.in.in:20
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:20
+#: panels/camera/regolith-camera-panel.desktop.in.in:20
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:20
 msgid ""
 "screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;"
 "network;identity;"
@@ -1153,18 +1153,18 @@ msgstr "Hồ sơ này không được phép sửa chữa hiển thị toàn màn
 msgid "This profile may no longer be accurate"
 msgstr "Hồ sơ này có thể không còn chính xác"
 
-#: panels/color/gnome-color-panel.desktop.in.in:3
+#: panels/color/regolith-color-panel.desktop.in.in:3
 msgid "Color"
 msgstr "Màu sắc"
 
-#: panels/color/gnome-color-panel.desktop.in.in:4
+#: panels/color/regolith-color-panel.desktop.in.in:4
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
 "Cân chỉnh màu sắc của thiết bị của bạn, như là màn hình, máy ảnh hay máy in"
 
 #. Translators: Search terms to find the Color panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/color/gnome-color-panel.desktop.in.in:19
+#: panels/color/regolith-color-panel.desktop.in.in:19
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr ""
 "Color;Màu;Mau;ICC;Profile;Calibrate;Chinh;Printer;Máy;in;May;Display;Màn;"
@@ -1414,7 +1414,7 @@ msgid "December"
 msgstr "Tháng mười hai"
 
 #: panels/datetime/cc-datetime-panel.ui:136
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:3
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:3
 msgid "Date & Time"
 msgstr "Ngày & giờ"
 
@@ -1474,12 +1474,12 @@ msgstr "24-giờ"
 msgid "AM / PM"
 msgstr "SA / CH"
 
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:4
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:4
 msgid "Change the date and time, including time zone"
 msgstr "Thay đổi ngày giờ hay múi giờ"
 
 #. Translators: Search terms to find the Date and Time panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/datetime/gnome-datetime-panel.desktop.in.in:15
+#: panels/datetime/regolith-datetime-panel.desktop.in.in:15
 msgid "Clock;Timezone;Location;"
 msgstr ""
 "Clock;Đồng;hồ;Dong;ho;Timezone;Múi;giờ;Mui;gio;Location;Vị;trí;Vi;tri;nước;"
@@ -1518,16 +1518,16 @@ msgstr "Ph_im"
 msgid "_Photos"
 msgstr "Ả_nh"
 
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:3
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:3
 msgid "Default Applications"
 msgstr "Ứng dụng mặc định"
 
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:4
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:4
 msgid "Configure Default Applications"
 msgstr "Cấu hình ứng dụng mặc định"
 
 #. Translators: Search terms to find the Default Applications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/default-apps/gnome-default-apps-panel.desktop.in.in:19
+#: panels/default-apps/regolith-default-apps-panel.desktop.in.in:19
 msgid "default;application;preferred;media;"
 msgstr ""
 "default;application;preferred;media;mặc định;mac dinh;ứng dụng;ung dung;ưa "
@@ -1551,20 +1551,20 @@ msgstr "Báo cáo trục trặc"
 msgid "_Automatic Problem Reporting"
 msgstr "Báo cáo trục trặc _tự động"
 
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:3
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:3
 msgid "Diagnostics"
 msgstr "Chẩn đoán"
 
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:4
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:4
 msgid "Report your problems"
 msgstr "Báo cáo vấn đề trục trặc của bạn"
 
 #. FIXME
 #. Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/diagnostics/gnome-diagnostics-panel.desktop.in.in:20
-#: panels/location/gnome-location-panel.desktop.in.in:20
-#: panels/lock/gnome-lock-panel.desktop.in.in:20
-#: panels/usage/gnome-usage-panel.desktop.in.in:20
+#: panels/diagnostics/regolith-diagnostics-panel.desktop.in.in:20
+#: panels/location/regolith-location-panel.desktop.in.in:20
+#: panels/lock/regolith-lock-panel.desktop.in.in:20
+#: panels/usage/regolith-usage-panel.desktop.in.in:20
 msgid ""
 "screen;lock;diagnostics;crash;private;recent;temporary;tmp;index;name;"
 "network;identity;privacy;"
@@ -1637,7 +1637,7 @@ msgid "Display Configuration"
 msgstr "Cấu hình màn hình"
 
 #: panels/display/cc-display-panel.ui:440
-#: panels/display/gnome-display-panel.desktop.in.in:3
+#: panels/display/regolith-display-panel.desktop.in.in:3
 msgid "Displays"
 msgstr "Màn hình"
 
@@ -1778,12 +1778,12 @@ msgstr "Tới"
 msgid "Color Temperature"
 msgstr "Nhiệt độ màu"
 
-#: panels/display/gnome-display-panel.desktop.in.in:4
+#: panels/display/regolith-display-panel.desktop.in.in:4
 msgid "Choose how to use connected monitors and projectors"
 msgstr "Chọn cách dùng màn hình và máy chiếu được kết nối"
 
 #. Translators: Search terms to find the Displays panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/display/gnome-display-panel.desktop.in.in:19
+#: panels/display/regolith-display-panel.desktop.in.in:19
 msgid ""
 "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;Night;Light;Blue;"
 "redshift;color;sunset;sunrise;"
@@ -1904,11 +1904,11 @@ msgstr ""
 msgid "_Rename"
 msgstr "Đổ_i tên"
 
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:3
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:3
 msgid "About"
 msgstr "Giới thiệu"
 
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:4
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:4
 msgid "View information about your system"
 msgstr "Xem thông tin về hệ thống của bạn"
 
@@ -1917,7 +1917,7 @@ msgstr "Xem thông tin về hệ thống của bạn"
 #. The list MUST also end with a semicolon!
 #. "Preferred Applications" is the old name for the preference, so make
 #. sure that you use the same "translation" for those keywords
-#: panels/info-overview/gnome-info-overview-panel.desktop.in.in:23
+#: panels/info-overview/regolith-info-overview-panel.desktop.in.in:23
 msgid ""
 "device;system;information;hostname;memory;processor;version;default;"
 "application;preferred;cd;dvd;usb;audio;video;disc;removable;media;autorun;"
@@ -2063,7 +2063,7 @@ msgid "Lock screen"
 msgstr "Khóa màn hình"
 
 #: panels/keyboard/50-accessibility.xml.in:2
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:3
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:3
 msgid "Accessibility"
 msgstr "Truy cập"
 
@@ -2409,11 +2409,11 @@ msgstr "Đặt"
 msgid "Reset the shortcut to its default value"
 msgstr "Đặt lại các phím tắt thành giá trị mặc định của chúng"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:3
 msgid "Keyboard"
 msgstr "Bàm phím"
 
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:4
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:4
 msgid ""
 "Change keyboard shortcuts and set your typing preferences, keyboard layouts "
 "and input sources"
@@ -2422,7 +2422,7 @@ msgstr ""
 "nhập liệu"
 
 #. Translators: Search terms to find the Keyboard panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/keyboard/gnome-keyboard-panel.desktop.in.in:19
+#: panels/keyboard/regolith-keyboard-panel.desktop.in.in:19
 msgid ""
 "Shortcut;Workspace;Window;Resize;Zoom;Contrast;Input;Source;Lock;Volume;"
 msgstr ""
@@ -2463,7 +2463,7 @@ msgstr "Cho phép các ứng dụng phía dưới sử dụng vị trí của b�
 msgid "No Applications Have Asked for Location Access"
 msgstr "Không có ứng dụng nào từng hỏi quyền truy cập vị trí của bạn"
 
-#: panels/location/gnome-location-panel.desktop.in.in:4
+#: panels/location/regolith-location-panel.desktop.in.in:4
 msgid "Protect your location information"
 msgstr "Bảo vệ thông tin vị trí của bạn"
 
@@ -2618,11 +2618,11 @@ msgctxt "blank_screen"
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: panels/lock/gnome-lock-panel.desktop.in.in:3
+#: panels/lock/regolith-lock-panel.desktop.in.in:3
 msgid "Screen Lock"
 msgstr "Khóa màn hình"
 
-#: panels/lock/gnome-lock-panel.desktop.in.in:4
+#: panels/lock/regolith-lock-panel.desktop.in.in:4
 msgid "Lock your screen"
 msgstr "Khóa màn hình của bạn"
 
@@ -2652,7 +2652,7 @@ msgstr "Cho phép các ứng dụng bên dưới sử dụng micrô của bạn.
 msgid "No Applications Have Asked for Microphone Access"
 msgstr "Không có ứng dụng nào từng hỏi quyền truy cập míc của bạn"
 
-#: panels/microphone/gnome-microphone-panel.desktop.in.in:4
+#: panels/microphone/regolith-microphone-panel.desktop.in.in:4
 msgid "Protect your conversations"
 msgstr "Bảo vệ các cuộc chuyện trò của bạn"
 
@@ -2756,17 +2756,17 @@ msgstr "Bấm đúp, nút phụ"
 msgid "Single click, secondary button"
 msgstr "Bấm đơn, nút phụ"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:3
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:3
 msgid "Mouse & Touchpad"
 msgstr "Chuột & Touchpad"
 
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:4
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:4
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr "Thay đổi độ nhạy chuột và touchpad và chọn thuận tay phải/trái"
 
 #. Translators: Search terms to find the Mouse and Touchpad panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/mouse/gnome-mouse-panel.desktop.in.in:19
+#: panels/mouse/regolith-mouse-panel.desktop.in.in:19
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr ""
 "Trackpad;Pointer;Con;trỏ;tro;Click;Nhấn;Nhắp;Nhan;Nhap;Tap;Double;Dup;Button;"
@@ -2838,16 +2838,16 @@ msgstr "Bao gồm các ứng dụng từ mọi _không gian việc"
 msgid "Include applications from the _current workspace only"
 msgstr "Bao gồm các ứng dụng _chỉ từ không gian việc hiện tại thôi"
 
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:3
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:3
 msgid "Multitasking"
 msgstr "Đa nhiệm"
 
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:4
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:4
 msgid "Manage preferences for productivity and multitasking"
 msgstr "Quản lý các tùy chỉnh cho năng suất và đa nhiệm"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/multitasking/gnome-multitasking-panel.desktop.in.in:15
+#: panels/multitasking/regolith-multitasking-panel.desktop.in.in:15
 msgid "Multitasking;Multitask;Productivity;Customize;Desktop;"
 msgstr ""
 "Multitasking;Multitask;Productivity;Customize;Desktop;Đa;nhiệm;Tùy;chọn;"
@@ -2975,7 +2975,7 @@ msgid "_Turn On"
 msgstr "_Bật"
 
 #: panels/network/cc-wifi-panel.c:544
-#: panels/network/gnome-wifi-panel.desktop.in.in:3
+#: panels/network/regolith-wifi-panel.desktop.in.in:3
 #: panels/network/network-wifi.ui:53
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -3569,23 +3569,23 @@ msgstr "_SSID"
 msgid "_BSSID"
 msgstr "_BSSID"
 
-#: panels/network/gnome-network-panel.desktop.in.in:4
+#: panels/network/regolith-network-panel.desktop.in.in:4
 msgid "Control how you connect to the Internet"
 msgstr "Điều khiển cách kết nối Internet"
 
 #. Translators: Search terms to find the Network panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-network-panel.desktop.in.in:19
+#: panels/network/regolith-network-panel.desktop.in.in:19
 msgid "Network;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;vpn;DNS;"
 msgstr ""
 "Network;mạng;mang;IP;LAN;Proxy;ủy nhiệm;uy nhiem;WAN;Broadband;Modem;"
 "Bluetooth;vpn;DNS;"
 
-#: panels/network/gnome-wifi-panel.desktop.in.in:4
+#: panels/network/regolith-wifi-panel.desktop.in.in:4
 msgid "Control how you connect to Wi-Fi networks"
 msgstr "Điều khiển cách kết nối đến mạng Wi-Fi"
 
 #. Translators: Search terms to find the Wi-Fi panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/network/gnome-wifi-panel.desktop.in.in:19
+#: panels/network/regolith-wifi-panel.desktop.in.in:19
 msgid "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Broadband;DNS;Hotspot;"
 msgstr ""
 "Network;mạng;mang;Wireless;không dây;khong day;Wi-Fi;Wifi;IP;LAN;Broadband;"
@@ -4492,12 +4492,12 @@ msgstr "Đừn_g làm phiền"
 msgid "_Lock Screen Notifications"
 msgstr "Thông báo trên màn hình _khóa"
 
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:4
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:4
 msgid "Control which notifications are displayed and what they show"
 msgstr "Cấu hình xem cảnh báo nào sẽ được hiển thị và hiển thị nó như thế nào"
 
 #. Translators: Search terms to find the Notifications panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/notifications/gnome-notifications-panel.desktop.in.in:20
+#: panels/notifications/regolith-notifications-panel.desktop.in.in:20
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr ""
 "Notifications;Thông;báo;Thong;bao;Banner;Message;Nhắn;nhan;Tray;Khay;Popup;"
@@ -4527,11 +4527,11 @@ msgstr "Không thể xóa tài khoản"
 msgid "%s removed"
 msgstr "%s đã bị gỡ bỏ"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:3
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:3
 msgid "Online Accounts"
 msgstr "Tài khoản trực tuyến"
 
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:4
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:4
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 "Kết nối các tài khoản trực tuyến của bạn và quyết định dùng chúng vào việc gì"
@@ -4540,7 +4540,7 @@ msgstr ""
 #. Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: panels/online-accounts/gnome-online-accounts-panel.desktop.in.in:22
+#: panels/online-accounts/regolith-online-accounts-panel.desktop.in.in:22
 msgid ""
 "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;ownCloud;"
 "Kerberos;IMAP;SMTP;Pocket;ReadItLater;"
@@ -4968,16 +4968,16 @@ msgstr "Tiết kiệm năng lượng"
 msgid "Reduced performance and power usage."
 msgstr "Giảm hiệu năng và tiêu dùng ít năng lượng."
 
-#: panels/power/gnome-power-panel.desktop.in.in:3
+#: panels/power/regolith-power-panel.desktop.in.in:3
 msgid "Power"
 msgstr "Nguồn điện"
 
-#: panels/power/gnome-power-panel.desktop.in.in:4
+#: panels/power/regolith-power-panel.desktop.in.in:4
 msgid "View your battery status and change power saving settings"
 msgstr "Hiển thị trạng thái pin và thay đổi cài đặt chế độ tiết kiệm pin"
 
 #. Translators: Search terms to find the Power panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/power/gnome-power-panel.desktop.in.in:19
+#: panels/power/regolith-power-panel.desktop.in.in:19
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 "Energy;"
@@ -5027,17 +5027,17 @@ msgstr "Không thể tải giao diện: %s"
 msgid "Unlock to Add Printers and Change Settings"
 msgstr "Mở khóa để Thêm máy in và thay đổi cài đặt"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:3
+#: panels/printers/regolith-printers-panel.desktop.in.in:3
 msgid "Printers"
 msgstr "Máy in"
 
-#: panels/printers/gnome-printers-panel.desktop.in.in:4
+#: panels/printers/regolith-printers-panel.desktop.in.in:4
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr ""
 "Thêm máy in, xem các công việc in và quyết định bạn muốn in như thế nào"
 
 #. Translators: Search terms to find the Printers panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/printers/gnome-printers-panel.desktop.in.in:16
+#: panels/printers/regolith-printers-panel.desktop.in.in:16
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Printer;Máy;in;May;Queue;Print;In;Paper;Giấy;Giay;Ink;Mực;Muc;Toner;"
 
@@ -5763,16 +5763,16 @@ msgid "Login settings are used by all users when logging into the system"
 msgstr ""
 "Cài đặt đăng nhập được dùng bởi mọi người dùng khi đăng nhập vào hệ thống"
 
-#: panels/region/gnome-region-panel.desktop.in.in:3
+#: panels/region/regolith-region-panel.desktop.in.in:3
 msgid "Region & Language"
 msgstr "Lãnh thổ & ngôn ngữ"
 
-#: panels/region/gnome-region-panel.desktop.in.in:4
+#: panels/region/regolith-region-panel.desktop.in.in:4
 msgid "Select your display language and formats"
 msgstr "Chọn ngôn ngữ hiển thị, định dạng"
 
 #. Translators: Search terms to find the Region and Language panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/region/gnome-region-panel.desktop.in.in:19
+#: panels/region/regolith-region-panel.desktop.in.in:19
 msgid "Language;Layout;Keyboard;Input;"
 msgstr ""
 "Language;Ngôn;ngữ;Ngon;ngu;Layout;Bố;trí;Bo;tri;Keyboard;Bàn;phím;Ban;phim;"
@@ -5909,16 +5909,16 @@ msgstr "_Hành động:"
 msgid "_Type:"
 msgstr "_Kiểu:"
 
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:3
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:3
 msgid "Removable Media"
 msgstr "Đa phương tiện"
 
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:4
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:4
 msgid "Configure Removable Media settings"
 msgstr "Cấu hình cho các cài đặt đĩa đa phương tiện"
 
 #. Translators: Search terms to find the Removable Media panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/removable-media/gnome-removable-media-panel.desktop.in.in:19
+#: panels/removable-media/regolith-removable-media-panel.desktop.in.in:19
 msgid ""
 "device;system;default;application;preferred;cd;dvd;usb;audio;video;disc;"
 "removable;media;autorun;"
@@ -5984,7 +5984,7 @@ msgstr ""
 "Thứ tự kết quả tìm kiếm cũng có thể được thay đổi bằng cách di chuyển các "
 "hàng trong danh sách."
 
-#: panels/search/gnome-search-panel.desktop.in.in:4
+#: panels/search/regolith-search-panel.desktop.in.in:4
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
@@ -5992,7 +5992,7 @@ msgstr ""
 "động”"
 
 #. Translators: Search terms to find the Search panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/search/gnome-search-panel.desktop.in.in:19
+#: panels/search/regolith-search-panel.desktop.in.in:19
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr ""
 "Search;Tìm;tim;Find;Index;Mục;lục;muc;luc;Hide;Ẩn;an;Privacy;Riêng;tư;rieng;"
@@ -6068,7 +6068,7 @@ msgid "Copy"
 msgstr "Sao chép"
 
 #: panels/sharing/cc-sharing-panel.c:1203
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:3
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:3
 msgid "Sharing"
 msgstr "Chia sẻ"
 
@@ -6152,13 +6152,13 @@ msgstr "Chia sẻ nhạc, ảnh, phim với những người khác qua mạng."
 msgid "Folders"
 msgstr "Thư mục"
 
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:4
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:4
 msgid "Control what you want to share with others"
 msgstr ""
 "Điều khiển việc bạn muôn chia sẻ những gì với các máy tính hay thiết bị khác"
 
 #. Translators: Search terms to find the Sharing panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/sharing/gnome-sharing-panel.desktop.in.in:16
+#: panels/sharing/regolith-sharing-panel.desktop.in.in:16
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;media;audio;video;pictures;photos;"
 "movies;server;renderer;"
@@ -6446,16 +6446,16 @@ msgstr "Thiết bị còn đợi"
 msgid "No devices attached"
 msgstr "Chưa gắn thiết bị nào"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:3
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:3
 msgid "Thunderbolt"
 msgstr "Thunderbolt"
 
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:4
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:4
 msgid "Manage Thunderbolt devices"
 msgstr "Quản lý thiết bị Thunderbolt"
 
 #. Translators: those are keywords for the thunderbolt control-center panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in:19
+#: panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in:19
 msgid "Thunderbolt;privacy;"
 msgstr "Thunderbolt;privacy;riêng tư;rieng tu;"
 
@@ -6991,12 +6991,12 @@ msgstr "Hiệu ứng màu:"
 msgid "Color Effects"
 msgstr "Hiệu ứng màu"
 
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:4
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:4
 msgid "Make it easier to see, hear, type, point and click"
 msgstr "Làm cho việc xem, nghe, gõ, di và bấm chuột trở nên dễ dàng hơn"
 
 #. Translators: Search terms to find the Accessibility panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/universal-access/gnome-universal-access-panel.desktop.in.in:19
+#: panels/universal-access/regolith-universal-access-panel.desktop.in.in:19
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Universal Access;Contrast;Cursor;Sound;"
 "Zoom;Screen;Reader;big;high;large;text;font;size;AccessX;Sticky;Keys;Slow;"
@@ -7178,11 +7178,11 @@ msgctxt "retain_history"
 msgid "Forever"
 msgstr "Vô hạn"
 
-#: panels/usage/gnome-usage-panel.desktop.in.in:3
+#: panels/usage/regolith-usage-panel.desktop.in.in:3
 msgid "File History & Trash"
 msgstr "Lịch sử tập tin & Thùng rác"
 
-#: panels/usage/gnome-usage-panel.desktop.in.in:4
+#: panels/usage/regolith-usage-panel.desktop.in.in:4
 msgid "Don't leave traces"
 msgstr "Đừng để lại dấu vết"
 
@@ -7848,16 +7848,16 @@ msgstr "Không tìm thấy người dùng nào"
 msgid "Unlock to add a user account."
 msgstr "Mở khóa để thêm tài khoản người dùng mới."
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:3
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:3
 msgid "Users"
 msgstr "Người dùng"
 
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:4
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:4
 msgid "Add or remove users and change your password"
 msgstr "Thêm, xóa người dùng và thay đổi mật khẩu"
 
 #. Translators: Search terms to find the Users panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in:20
+#: panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in:20
 msgid ""
 "Login;Name;Fingerprint;Avatar;Logo;Face;Password;Parental Controls;Screen "
 "Time;App Restrictions;Web Restrictions;Usage;Usage Limit;Kid;Child;"
@@ -8163,17 +8163,17 @@ msgstr "Bút trỏ"
 msgid "Button"
 msgstr "Nút"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:3
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:3
 #: panels/wacom/gnome-wacom-properties.ui:200
 msgid "Wacom Tablet"
 msgstr "Bảng vẽ Wacom"
 
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:4
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:4
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr "Đặt ảnh của nút và sửa kiểu dáng cho thích hợp dành cho bảng đồ họa"
 
 #. Translators: Search terms to find the Wacom Tablet panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wacom/gnome-wacom-panel.desktop.in.in:19
+#: panels/wacom/regolith-wacom-panel.desktop.in.in:19
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr ""
 "Tablet;Bảng;bang;Wacom;Stylus;Bút;trỏ;but;tro;Eraser;Tẩy;Tay;Mouse;Chuột;"
@@ -8715,17 +8715,17 @@ msgstr "Đổi PIN"
 msgid "Enter current PIN to change SIM lock settings"
 msgstr "Nhập vào PIN hiện tại để thay đổi các cài đặt khóa SIM"
 
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:3
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:3
 msgid "Mobile Network"
 msgstr "Mạng di động"
 
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:4
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:4
 msgid "Configure Telephony and mobile data connections"
 msgstr "Cấu hình kết nối cho điện thoại và dữ liệu di động"
 
 #. FIXME
 #. Translators: Search terms to find the WWAN panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: panels/wwan/gnome-wwan-panel.desktop.in.in:17
+#: panels/wwan/regolith-wwan-panel.desktop.in.in:17
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "cellular;wwan;telephony;sim;mobile;di động;di dong;"
 

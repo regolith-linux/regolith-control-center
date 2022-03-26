@@ -381,7 +381,7 @@ index e62bfd9..e25e710 100644
 +panels/connectivity/gnome-connectivity-panel.desktop.in.in
  panels/datetime/cc-datetime-panel.c
  panels/datetime/cc-datetime-panel.ui
- panels/datetime/gnome-datetime-panel.desktop.in.in
+ panels/datetime/regolith-datetime-panel.desktop.in.in
 diff --git a/shell/cc-panel-loader.c b/shell/cc-panel-loader.c
 index b571ceb..db90b27 100644
 --- a/shell/cc-panel-loader.c

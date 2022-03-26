@@ -20,16 +20,16 @@ msgstr ""
 "X-Generator: Virtaal 0.6.1\n"
 "X-Rosetta-Export-Date: 2007-03-04 16:18+0000\n"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:1
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:1
 msgid "Background"
 msgstr "Rûerd"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:2
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:2
 msgid "Change the background"
 msgstr "Rûerdî biguherîne"
 
 #. Translators: those are keywords for the background control-center panel
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:4
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:4
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "Kaxiza dîwar;Dîmender;Sermasê;"
 
@@ -305,15 +305,15 @@ msgid "_Region:"
 msgstr "_Herêm:"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
 msgid "Clock;Timezone;Location;"
 msgstr "Demjimêr;Herêma demê;Cih;"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:3
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:3
 msgid "Date and Time"
 msgstr "Roj û dem"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:4
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:4
 msgid "Date and Time preferences panel"
 msgstr "Darikê vebijêrkên roj û demê"
 
@@ -343,16 +343,16 @@ msgstr ""
 msgid "_Resolution:"
 msgstr "_Xuyakirin:"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
 msgid "Change resolution and position of monitors and projectors"
 msgstr ""
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
 msgid "Displays"
 msgstr "Dîmender"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:4
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:4
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 msgstr ""
 
@@ -814,7 +814,7 @@ msgid "Log out"
 msgstr "Derkeve"
 
 #: ../panels/keyboard/01-system.xml.in.h:3
-#: ../panels/region/gnome-region-panel.ui.h:24
+#: ../panels/region/regolith-region-panel.ui.h:24
 msgid "System"
 msgstr "Pergal"
 
@@ -857,7 +857,7 @@ msgid "Toggle screen reader"
 msgstr "_Xwînerê dîmenderê"
 
 #: ../panels/keyboard/50-accessibility.xml.in.h:9
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:3
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:3
 msgid "Universal Access"
 msgstr ""
 
@@ -899,18 +899,18 @@ msgstr "Cureyê Lezkeran"
 msgid "Disabled"
 msgstr "Neçalak"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
 #, fuzzy
 msgid "Change keyboard settings"
 msgstr "Taybetmendiyên Rûerd yên Sermasê Biguherîne"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:8
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:8
 msgid "Keyboard"
 msgstr "Klavye"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:4
 msgid "Shortcut;Repeat;Blink;"
 msgstr ""
 
@@ -971,69 +971,69 @@ msgstr "Çalakî"
 msgid "Shortcut"
 msgstr "Kurterê"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:1
 msgid "C_ommand:"
 msgstr "_Ferman:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:2
 #, fuzzy
 msgid "Cursor Blinking"
 msgstr "<b>Nîşankerê vêxistin/vemirandê</b>"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:3
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:3
 #, fuzzy
 msgid "Cursor _blinks in text fields"
 msgstr "Nîşan_kerê vêxistin/vemirandê di qutiyên nivîsan û qadan de"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:4
 #: ../panels/mouse/gnome-mouse-properties.ui.h:2
 #: ../panels/universal-access/uap.ui.h:22
 msgid "Cursor blinks speed"
 msgstr "Nîşanek"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:5
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:5
 #, fuzzy
 msgid "Custom Shortcut"
 msgstr "Kurterê"
 
 #. fast acceleration
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:6
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:6
 #: ../panels/mouse/gnome-mouse-properties.ui.h:9
 msgid "Fast"
 msgstr ""
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:7
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:7
 msgid "Key presses _repeat when key is held down"
 msgstr "Dema bişkoj _pêlêkirî be bila klavye dubare bike"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:9
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:9
 #, fuzzy
 msgid "Layout Settings"
 msgstr "Mîhengên Pêşdanasînî"
 
 #. long delay
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:10
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:10
 #: ../panels/mouse/gnome-mouse-properties.ui.h:15
 #: ../panels/universal-access/uap.ui.h:38
 #: ../panels/universal-access/zoom-options.ui.h:13
 msgid "Long"
 msgstr ""
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:11
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:11
 #, fuzzy
 msgid "Repeat Keys"
 msgstr "<b>Bişkokên Dubarekirinê</b>"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:12
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:12
 msgid "Repeat keys speed"
 msgstr "Leza dubarekirina bişkokan"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:13
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:13
 msgid "S_peed:"
 msgstr "_Lez:"
 
 #. short delay
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:14
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:14
 #: ../panels/mouse/gnome-mouse-properties.ui.h:23
 #: ../panels/universal-access/uap.ui.h:53
 #: ../panels/universal-access/zoom-options.ui.h:22
@@ -1041,18 +1041,18 @@ msgstr "_Lez:"
 msgid "Short"
 msgstr "Kurterê"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:15
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:15
 #, fuzzy
 msgid "Shortcuts"
 msgstr "Kurterê"
 
 #. slow acceleration
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:16
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:16
 #: ../panels/mouse/gnome-mouse-properties.ui.h:25
 msgid "Slow"
 msgstr ""
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:17
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:17
 #, fuzzy
 msgid ""
 "To edit a shortcut, click the row and hold down the new keys or press "
@@ -1061,21 +1061,21 @@ msgstr ""
 "Ji bo guherandina bişkokên kurteriyan, pêl rêzika guncav bike û pêl bişkokên "
 "kurteriya nû bike, yan jî bi backspace kurteriya heyî jê bibe."
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:18
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:18
 #: ../panels/universal-access/uap.ui.h:65
 #, fuzzy
 msgid "Typing"
 msgstr "Bêhnvedana Nivîsînê"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:19
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:19
 msgid "_Delay:"
 msgstr "_Derengmayîn:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:20
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:20
 msgid "_Name:"
 msgstr "_Nav:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:21
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:21
 msgid "_Speed:"
 msgstr "_Lez:"
 
@@ -1134,15 +1134,15 @@ msgid "_Remove"
 msgstr "_Rakirin"
 
 #. Translators: those are keywords for the online-accounts control-center panel
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
 msgid "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;"
 msgstr ""
 
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:3
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:3
 msgid "Manage online accounts"
 msgstr ""
 
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:4
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:4
 msgid "Online Accounts"
 msgstr ""
 
@@ -1362,17 +1362,17 @@ msgstr "Ceribandin"
 msgid "Could not load ui: %s"
 msgstr "Dirûvê navîn yê mak nehate barkirin"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:1
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:1
 #, fuzzy
 msgid "Change printer settings"
 msgstr "Taybetmendiyên Rûerd yên Sermasê Biguherîne"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:3
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:3
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr ""
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:4
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:4
 #: ../panels/printers/pp-new-printer-dialog.c:148
 msgid "Printers"
 msgstr "Çaper"
@@ -1534,188 +1534,188 @@ msgstr "Vebijêrk"
 msgid "_Show"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel-formats.c:142
+#: ../panels/region/regolith-region-panel-formats.c:142
 msgid "Imperial"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel-formats.c:144
+#: ../panels/region/regolith-region-panel-formats.c:144
 msgid "Metric"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:1
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "Nexşeya Bişkokan Hilbijêre"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:2
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:2
 #, fuzzy
 msgid "Preview"
 msgstr "Pêşdîtin:"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:3
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:3
 msgid "Select an input source to add"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel-options-dialog.ui.h:1
+#: ../panels/region/regolith-region-panel-options-dialog.ui.h:1
 #, fuzzy
 msgid "Keyboard Layout Options"
 msgstr "Bijarekên klavye"
 
-#: ../panels/region/gnome-region-panel.ui.h:1
+#: ../panels/region/regolith-region-panel.ui.h:1
 msgid "Allow different layouts for individual windows"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:2
-#: ../panels/region/gnome-region-panel-system.c:406
+#: ../panels/region/regolith-region-panel.ui.h:2
+#: ../panels/region/regolith-region-panel-system.c:406
 #, fuzzy
 msgid "Copy Settings..."
 msgstr "Girêdide..."
 
-#: ../panels/region/gnome-region-panel.ui.h:3
+#: ../panels/region/regolith-region-panel.ui.h:3
 msgid "Currency"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:4
+#: ../panels/region/regolith-region-panel.ui.h:4
 msgid "Dates"
 msgstr "Roj"
 
 #. 'display' means 'output' here, as in 'translated messages that are displayed to the user'
-#: ../panels/region/gnome-region-panel.ui.h:6
+#: ../panels/region/regolith-region-panel.ui.h:6
 msgid "Display language:"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:7
+#: ../panels/region/regolith-region-panel.ui.h:7
 msgid "Examples"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:8
+#: ../panels/region/regolith-region-panel.ui.h:8
 #, fuzzy
 msgid "Format:"
 msgstr "asayî"
 
-#: ../panels/region/gnome-region-panel.ui.h:9
+#: ../panels/region/regolith-region-panel.ui.h:9
 #, fuzzy
 msgid "Formats"
 msgstr "asayî"
 
-#: ../panels/region/gnome-region-panel.ui.h:10
+#: ../panels/region/regolith-region-panel.ui.h:10
 msgid "Input source:"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:11
+#: ../panels/region/regolith-region-panel.ui.h:11
 #, fuzzy
 msgid "Install languages..."
 msgstr "Dirban _Saz Bike..."
 
-#: ../panels/region/gnome-region-panel.ui.h:12
+#: ../panels/region/regolith-region-panel.ui.h:12
 msgid "Language"
 msgstr "Ziman"
 
-#: ../panels/region/gnome-region-panel.ui.h:13
+#: ../panels/region/regolith-region-panel.ui.h:13
 msgid "Layouts"
 msgstr "Pergal"
 
-#: ../panels/region/gnome-region-panel.ui.h:14
+#: ../panels/region/regolith-region-panel.ui.h:14
 msgid "Measurement"
 msgstr "Pîvan"
 
-#: ../panels/region/gnome-region-panel.ui.h:15
+#: ../panels/region/regolith-region-panel.ui.h:15
 msgid "New windows use the default layout"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:16
+#: ../panels/region/regolith-region-panel.ui.h:16
 msgid "New windows use the previous window's layout"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:17
+#: ../panels/region/regolith-region-panel.ui.h:17
 msgid "Numbers"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:18
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:4
+#: ../panels/region/regolith-region-panel.ui.h:18
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:4
 msgid "Region and Language"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:19
+#: ../panels/region/regolith-region-panel.ui.h:19
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:21
+#: ../panels/region/regolith-region-panel.ui.h:21
 #, fuzzy
 msgid "Reset to De_faults"
 msgstr "Vegere S_tandardan"
 
-#: ../panels/region/gnome-region-panel.ui.h:22
+#: ../panels/region/regolith-region-panel.ui.h:22
 msgid "Select a display language (change will be applied next time you log in)"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:23
+#: ../panels/region/regolith-region-panel.ui.h:23
 msgid "Select a region (change will be applied the next time you log in)"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:25
+#: ../panels/region/regolith-region-panel.ui.h:25
 #, fuzzy
 msgid "System settings"
 msgstr "Mîhengên X bikar bîne"
 
-#: ../panels/region/gnome-region-panel.ui.h:26
-#: ../panels/region/gnome-region-panel-system.c:400
+#: ../panels/region/regolith-region-panel.ui.h:26
+#: ../panels/region/regolith-region-panel-system.c:400
 msgid ""
 "The login screen, system accounts and new user accounts use the system-wide "
 "Region and Language settings. You may change the system settings to match "
 "yours."
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:27
+#: ../panels/region/regolith-region-panel.ui.h:27
 msgid "Times"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:28
+#: ../panels/region/regolith-region-panel.ui.h:28
 msgid "Use the same layout for all windows"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:29
+#: ../panels/region/regolith-region-panel.ui.h:29
 msgid "View and edit keyboard layout options"
 msgstr ""
 
-#: ../panels/region/gnome-region-panel.ui.h:30
+#: ../panels/region/regolith-region-panel.ui.h:30
 #, fuzzy
 msgid "Your settings"
 msgstr "Mîhengên X bikar bîne"
 
-#: ../panels/region/gnome-region-panel.ui.h:31
+#: ../panels/region/regolith-region-panel.ui.h:31
 #, fuzzy
 msgid "_Options..."
 msgstr "Vebijêrk"
 
-#: ../panels/region/gnome-region-panel-system.c:395
+#: ../panels/region/regolith-region-panel-system.c:395
 msgid ""
 "The login screen, system accounts and new user accounts use the system-wide "
 "Region and Language settings."
 msgstr ""
 
-#: ../panels/region/gnome-region-panel-system.c:403
+#: ../panels/region/regolith-region-panel-system.c:403
 #, fuzzy
 msgid "Copy Settings"
 msgstr "Mîheng"
 
-#: ../panels/region/gnome-region-panel-xkblt.c:210
+#: ../panels/region/regolith-region-panel-xkblt.c:210
 msgid "Layout"
 msgstr "Bicihkirin"
 
-#: ../panels/region/gnome-region-panel-xkbot.c:229
+#: ../panels/region/regolith-region-panel-xkbot.c:229
 #: ../panels/sound/gvc-sound-theme-chooser.c:586
 msgid "Default"
 msgstr "Wekî heyî"
 
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:1
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:1
 #, fuzzy
 msgid "Change your region and language settings"
 msgstr "Taybetmendiyên Rûerd yên Sermasê Biguherîne"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:3
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:3
 msgid "Language;Layout;Keyboard;"
 msgstr ""
 
@@ -1836,17 +1836,17 @@ msgstr "_Hestyarî:"
 msgid "_Timeout:"
 msgstr "-Dembûrî:"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
 msgid "Mouse and Touchpad"
 msgstr ""
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
 #, fuzzy
 msgid "Set your mouse and touchpad preferences"
 msgstr "Tercîhên mişk bike"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:4
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:4
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;"
 msgstr ""
 
@@ -1975,18 +1975,18 @@ msgstr ""
 msgid "_Stop Hotspot"
 msgstr ""
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
 #, fuzzy
 msgid "Network"
 msgstr "Cîgirê Toreyê"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
 #, fuzzy
 msgid "Network settings"
 msgstr "Mîhengên X bikar bîne"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:4
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:4
 msgid "Network;Wireless;IP;LAN;"
 msgstr ""
 
@@ -2255,16 +2255,16 @@ msgstr ""
 msgid "Not connected"
 msgstr "Nehate girêdan"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:1
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:1
 msgid "Power"
 msgstr ""
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
 msgid "Power management settings"
 msgstr ""
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:4
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:4
 msgid "Power;Sleep;Suspend;Hibernate;Battery;"
 msgstr ""
 
@@ -2389,18 +2389,18 @@ msgstr ""
 msgid "When power is _critically low:"
 msgstr ""
 
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:1
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:1
 #: ../panels/color/color.ui.h:8
 #, fuzzy
 msgid "Color"
 msgstr "Nîşanker"
 
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
 msgid "Color management settings"
 msgstr ""
 
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:4
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:4
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr ""
 
@@ -3210,13 +3210,13 @@ msgid "3/4 Screen"
 msgstr "Dîmen"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
 msgid ""
 "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen Reader;text;font;size;"
 "AccessX;Sticky Keys;Slow Keys;Bounce Keys;Mouse Keys"
 msgstr ""
 
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:4
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:4
 #, fuzzy
 msgid "Universal Access Preferences"
 msgstr "Vebijêrkên mikşê"
@@ -4077,16 +4077,16 @@ msgid ""
 " ➣ any of the characters '.', '-' and '_'"
 msgstr ""
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
 msgid "Add or remove users"
 msgstr ""
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:3
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:3
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr ""
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
 msgid "User Accounts"
 msgstr "Hesabên bikarhêner"
 
@@ -4418,17 +4418,17 @@ msgstr ""
 msgid "Wacom Tablet"
 msgstr ""
 
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:1
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:1
 #, fuzzy
 msgid "Set your Wacom tablet preferences"
 msgstr "Tercîhên mişk bike"
 
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:3
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:3
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr ""
 
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:4
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:4
 msgid "Wacom Graphics Tablet"
 msgstr ""
 

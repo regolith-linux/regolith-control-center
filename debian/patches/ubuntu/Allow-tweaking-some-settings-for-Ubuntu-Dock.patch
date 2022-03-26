@@ -3016,7 +3016,7 @@ index 98b8848..e62bfd9 100644
 @@ -219,6 +219,11 @@ panels/thunderbolt/cc-bolt-device-entry.c
  panels/thunderbolt/cc-bolt-panel.c
  panels/thunderbolt/cc-bolt-panel.ui
- panels/thunderbolt/gnome-thunderbolt-panel.desktop.in.in
+ panels/thunderbolt/regolith-thunderbolt-panel.desktop.in.in
 +panels/ubuntu/cc-ubuntu-panel.c
 +panels/ubuntu/cc-ubuntu-panel.ui
 +panels/ubuntu/cc-ubuntu-dock-dialog.c

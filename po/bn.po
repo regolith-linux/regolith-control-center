@@ -209,16 +209,16 @@ msgstr "অনুগ্রহপূর্বক একটি ছবি বেছ
 msgid "_Select"
 msgstr "নির্বাচন (_S)"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:1
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:1
 msgid "Background"
 msgstr "পটভূমি"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:2
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:2
 msgid "Change the background"
 msgstr "পটভূমির ছবি সংরক্ষণ"
 
 #. Translators: those are keywords for the background control-center panel
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:4
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:4
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "ওয়ালপেপার;স্ক্রীন;ডেস্কটপ;"
 
@@ -383,15 +383,15 @@ msgid "September"
 msgstr "সেপ্টেম্বর"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
 msgid "Clock;Timezone;Location;"
 msgstr "ঘড়ি;টাইম জোন;অবস্থান;"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:3
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:3
 msgid "Date and Time"
 msgstr "তারিখ ও সময়"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:4
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:4
 msgid "Date and Time preferences panel"
 msgstr "তারিখ ও সময় পছন্দ করার প্যানেল"
 
@@ -441,16 +441,16 @@ msgstr "পর্দার অনুলিপি তৈরি করা হব�
 msgid "_Resolution:"
 msgstr "রেজল্যুশন (_R):"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
 msgid "Change resolution and position of monitors and projectors"
 msgstr "মনিটর এবং প্রজেক্টরের রেজল্যুশন ও অবস্থান পরিবর্তন"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
 msgid "Displays"
 msgstr "প্রদর্শন"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:4
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:4
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 msgstr "প্যানেল;প্রজেক্টর,xrandr;স্ক্রীন,রেজল্যুশন;রিফ্রেশ;"
 
@@ -824,7 +824,7 @@ msgid "Toggle screen reader"
 msgstr "লিনাক্স স্ক্রীণ রিডার"
 
 #: ../panels/keyboard/50-accessibility.xml.in.h:9
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:3
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:3
 msgid "Universal Access"
 msgstr "সর্বজনীনে প্রবেশ"
 
@@ -866,17 +866,17 @@ msgstr "এক্সিলেটর কী-এর ধরন।"
 msgid "Disabled"
 msgstr "নিষ্ক্রিয়"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
 msgid "Change keyboard settings"
 msgstr "কীবোর্ড সেটিং পরিবর্তন"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:9
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:9
 msgid "Keyboard"
 msgstr "কীবোর্ড"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:4
 msgid "Shortcut;Repeat;Blink;"
 msgstr "শর্টকাট;পুনরাবৃত্ত করা;মিটিমিটি জ্বলা;"
 
@@ -937,87 +937,87 @@ msgstr "কাজ"
 msgid "Shortcut"
 msgstr "শর্টকাট"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:1
 msgid "C_ommand:"
 msgstr "কমান্ড (_o): "
 
 # Translated by sadia
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:2
 msgid "Cursor Blinking"
 msgstr "কার্সার জ্বলছে-নিভছে "
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:3
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:3
 msgid "Cursor _blinks in text fields"
 msgstr "টেক্সট লেখার ক্ষেত্রে কার্সার ঝলকাবে (_b)"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:4
 #: ../panels/mouse/gnome-mouse-properties.ui.h:1
 #: ../panels/universal-access/uap.ui.h:21
 msgid "Cursor blinks speed"
 msgstr "কার্সার জ্বলানেভার গতি"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:5
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:5
 msgid "Custom Shortcut"
 msgstr "স্বনির্ধারিত শর্ট-কাট"
 
 # Translated by sadia
 #. fast acceleration
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:6
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:6
 #: ../panels/mouse/gnome-mouse-properties.ui.h:8
 msgid "Fast"
 msgstr "দ্রুত"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:7
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:7
 #: ../panels/mouse/gnome-mouse-properties.ui.h:9
 msgid "General"
 msgstr "সাধারণ"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:8
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:8
 msgid "Key presses _repeat when key is held down"
 msgstr "কী চেপে ধরে রাখলে অনবরত লেখা হবে (_r)"
 
 # Translated by sadia
 #. long delay
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:10
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:10
 #: ../panels/mouse/gnome-mouse-properties.ui.h:14
 #: ../panels/universal-access/uap.ui.h:39
 msgid "Long"
 msgstr "দীর্ঘ"
 
 # Translated by sadia
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:11
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:11
 msgid "Repeat Keys"
 msgstr "পুনরাবৃত্তি কী "
 
 # FIXME
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:12
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:12
 msgid "Repeat keys speed"
 msgstr "কী পুনরাবৃত্তির গতি"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:13
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:13
 msgid "S_peed:"
 msgstr "গতি (_p):"
 
 # Translated by sadia
 #. short delay
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:14
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:14
 #: ../panels/mouse/gnome-mouse-properties.ui.h:22
 #: ../panels/universal-access/uap.ui.h:54
 msgid "Short"
 msgstr "ছোট"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:15
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:15
 msgid "Shortcuts"
 msgstr "শর্টকাট"
 
 # Translated by sadia
 #. slow acceleration
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:16
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:16
 #: ../panels/mouse/gnome-mouse-properties.ui.h:24
 msgid "Slow"
 msgstr "ধীর"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:17
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:17
 msgid ""
 "To edit a shortcut, click the row and hold down the new keys or press "
 "Backspace to clear."
@@ -1025,15 +1025,15 @@ msgstr ""
 "কোনো শর্ট-কাট কী-এর মান পরিবর্তনের জন্য সংশ্লিষ্ট সারির উপর ক্লিক করুন ও নতুন কী ধরে "
 "রাখুন অথবা চাপুন। অথবা ব্যাক-স্পেস চেপে মুছে ফেলুন।"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:18
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:18
 msgid "_Delay:"
 msgstr "বিলম্ব (_D):"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:19
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:19
 msgid "_Name:"
 msgstr "নাম (_N):"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:20
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:20
 msgid "_Speed:"
 msgstr "গতি (_S):"
 
@@ -1390,16 +1390,16 @@ msgstr "পরীক্ষামূলক পৃষ্ঠা"
 msgid "Could not load ui: %s"
 msgstr "ui লোড করা যাচ্ছেনা: %s"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:1
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:1
 msgid "Change printer settings"
 msgstr "মুদ্রণযন্ত্র সেটিং পরিবর্তন"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:3
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:3
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "মুদ্রণযন্ত্র;সারি;মুদ্রণ;কাগজ;কালি;টোনার;"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:4
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:4
 msgid "Printers"
 msgstr "মুদ্রণযন্ত্র"
 
@@ -1443,7 +1443,7 @@ msgstr "স্থানীয়"
 
 #. Translators: Network means network printers
 #: ../panels/printers/pp-new-printer-dialog.c:671
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
 msgid "Network"
 msgstr "নেটওয়ার্ক"
 
@@ -1483,7 +1483,7 @@ msgstr "পূর্ববর্তী"
 
 #. Translators: This checkbox is checked when the default printer is selected.
 #: ../panels/printers/printers.ui.h:10
-#: ../panels/region/gnome-region-panel-xkbot.c:229
+#: ../panels/region/regolith-region-panel-xkbot.c:229
 #: ../panels/sound/gvc-sound-theme-chooser.c:586
 msgid "Default"
 msgstr "পূর্বনির্ধারিত"
@@ -1555,29 +1555,29 @@ msgid "Supply"
 msgstr "সরবরাহ"
 
 # Translated by sadia
-#: ../panels/region/gnome-region-panel.ui.h:1
+#: ../panels/region/regolith-region-panel.ui.h:1
 msgid "Allow different layouts for each window"
 msgstr "প্রতিটি উইন্ডোর জন্য পৃথক বহির্বিন্যাস"
 
-#: ../panels/region/gnome-region-panel.ui.h:2
+#: ../panels/region/regolith-region-panel.ui.h:2
 msgid "Install languages..."
 msgstr "ভাষা ইনস্টল..."
 
-#: ../panels/region/gnome-region-panel.ui.h:3
+#: ../panels/region/regolith-region-panel.ui.h:3
 #: ../panels/user-accounts/data/user-accounts-dialog.ui.h:7
 msgid "Language"
 msgstr "ভাষা"
 
-#: ../panels/region/gnome-region-panel.ui.h:4
+#: ../panels/region/regolith-region-panel.ui.h:4
 msgid "Layouts"
 msgstr "বিন্যাস"
 
-#: ../panels/region/gnome-region-panel.ui.h:5
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:4
+#: ../panels/region/regolith-region-panel.ui.h:5
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:4
 msgid "Region and Language"
 msgstr "অঞ্চল এবং ভাষা"
 
-#: ../panels/region/gnome-region-panel.ui.h:6
+#: ../panels/region/regolith-region-panel.ui.h:6
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
@@ -1586,65 +1586,65 @@ msgstr ""
 "পূর্বনির্ধারিত সেটিং এর সাহায্যে"
 
 # FIXME
-#: ../panels/region/gnome-region-panel.ui.h:8
+#: ../panels/region/regolith-region-panel.ui.h:8
 msgid "Reset to De_faults"
 msgstr "পূর্বনির্ধারিত মান পুনরায় স্থাপন করুন (_f)"
 
-#: ../panels/region/gnome-region-panel.ui.h:9
+#: ../panels/region/regolith-region-panel.ui.h:9
 msgid "Select a display language (change will be applied next time you log in)"
 msgstr ""
 "প্রদর্শনের ভাষা নির্বাচন (পরবর্তী সময়ে আপনি লগইন করার সময় পরিবর্তন প্রয়োগ করা হবে)"
 
 # Translated by sadia
-#: ../panels/region/gnome-region-panel.ui.h:10
+#: ../panels/region/regolith-region-panel.ui.h:10
 msgid "Use default layout in new windows"
 msgstr "নতুন উইন্ডোর জন্য পূর্বনির্ধারিত বিন্যাস"
 
-#: ../panels/region/gnome-region-panel.ui.h:11
+#: ../panels/region/regolith-region-panel.ui.h:11
 msgid "Use previous window's layout in new windows"
 msgstr "নতুন উইন্ডোতে পূর্ববর্তী উইন্ডোর বহির্বিন্যাস ব্যবহার"
 
 # Translated by sadia
-#: ../panels/region/gnome-region-panel.ui.h:12
+#: ../panels/region/regolith-region-panel.ui.h:12
 msgid "Use same layout in all windows"
 msgstr "সব উইন্ডোতে একই বহির্বিন্যাস ব্যবহার"
 
-#: ../panels/region/gnome-region-panel.ui.h:13
+#: ../panels/region/regolith-region-panel.ui.h:13
 msgid "View and edit keyboard layout options"
 msgstr "কীবোর্ডের লেআউট অপশন প্রদর্শন এবং সম্পাদন"
 
 # Translated by sadia
-#: ../panels/region/gnome-region-panel.ui.h:14
+#: ../panels/region/regolith-region-panel.ui.h:14
 #: ../panels/network/network.ui.h:28
 msgid "_Options..."
 msgstr "অপশন (_O)... "
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:1
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "যে কোন একটি লে-আউট বেছে নিন"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:2
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:2
 msgid "Preview"
 msgstr "প্রাকদর্শন"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:3
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:3
 msgid "Select an input source to add"
 msgstr "ইনপুট উৎস যোগ করতে নির্বাচন"
 
-#: ../panels/region/gnome-region-panel-options-dialog.ui.h:1
+#: ../panels/region/regolith-region-panel-options-dialog.ui.h:1
 msgid "Keyboard Layout Options"
 msgstr "কীবোর্ড বহির্বিন্যাস সংক্রান্ত অপশন"
 
-#: ../panels/region/gnome-region-panel-xkblt.c:222
+#: ../panels/region/regolith-region-panel-xkblt.c:222
 msgid "Layout"
 msgstr "বহির্বিন্যাস"
 
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:1
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:1
 msgid "Change your region and language settings"
 msgstr "আপনার অঞ্চল এবং ভাষার সেটিং পরিবর্তন"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:3
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:3
 msgid "Language;Layout;Keyboard;"
 msgstr "ভাষা;বহির্বিন্যাস;কীবোর্ড;"
 
@@ -1761,16 +1761,16 @@ msgstr "সংবেদনশীলতা (_S):"
 msgid "_Timeout:"
 msgstr "সময় শেষ (_T):"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
 msgid "Mouse and Touchpad"
 msgstr "মাউস এবং টাচপ্যাড"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
 msgid "Set your mouse and touchpad preferences"
 msgstr "মাউস এবং টাচপ্যাড সম্পর্কিত আপনার পছন্দ নির্ধারণ"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:4
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:4
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;"
 msgstr "ট্র্যাকপ্যাড;পয়েন্টার;ক্লিক;ট্যাপ;ডবল;বোতাম;ট্র্যাকবল;"
 
@@ -1848,12 +1848,12 @@ msgstr "%s VPN"
 msgid "The system network services are not compatible with this version."
 msgstr "এই সংস্করণের সাথে সিস্টেম নেটওয়ার্ক সার্ভিস সামঞ্জস্যপূর্ণ নয়।"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
 msgid "Network settings"
 msgstr "নেটওয়ার্ক সেটিং"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:4
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:4
 msgid "Network;Wireless;IP;LAN;"
 msgstr "নেটওয়ার্ক;ওয়ারলেস;IP;LAN;"
 
@@ -2072,16 +2072,16 @@ msgstr "অজানা অবস্থা (অনুপস্থিত)"
 msgid "Not connected"
 msgstr "সংযুক্ত নয়"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:1
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:1
 msgid "Power"
 msgstr "শক্তি"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
 msgid "Power management settings"
 msgstr "শক্তি পরিচালনা সেটিং"
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:4
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:4
 msgid "Power;Sleep;Suspend;Hibernate;Battery;"
 msgstr "Power;Sleep;Suspend;Hibernate;Battery;"
 
@@ -2571,11 +2571,11 @@ msgid "No shortcut set"
 msgstr "কোন শর্টকাট নির্ধারিত নেই"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
 msgid "Keyboard;Mouse;a11y;Accessibility;"
 msgstr "কীবোর্ড;মাউস;a11y;স্বাচ্ছন্দ্যকরণ;"
 
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:4
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:4
 msgid "Universal Access Preferences"
 msgstr "সর্বজনীন প্রবেশের পছন্দ"
 
@@ -3311,16 +3311,16 @@ msgstr "আমার একাউন্ট"
 msgid "Other Accounts"
 msgstr "অন্যান্য একাউন্ট"
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
 msgid "Add or remove users"
 msgstr "ব্যবহারকারী যোগ অথবা অপসারণ"
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:3
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:3
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "লগ ইন;নাম;ফিঙ্গারপ্রিন্ট;এভাটার;লোগো;ফেস;পাসওয়ার্ড;"
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
 msgid "User Accounts"
 msgstr "ব্যবহারকারীর একাউন্ট"
 

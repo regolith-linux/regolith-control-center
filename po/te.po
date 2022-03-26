@@ -33,7 +33,7 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: ../panels/background/background.ui.h:1
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:1
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:1
 msgid "Background"
 msgstr "నేపథ్యం"
 
@@ -121,7 +121,7 @@ msgstr "మీరు చిత్రాలను మీ %s ఫోల్డర్
 #: ../panels/common/language-chooser.ui.h:3
 #: ../panels/display/cc-display-panel.c:1537
 #: ../panels/display/cc-display-panel.c:1976
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:2
 #: ../panels/network/connection-editor/vpn-helpers.c:245
 #: ../panels/network/connection-editor/vpn-helpers.c:374
 #: ../panels/network/net-device-wifi.c:1240
@@ -167,12 +167,12 @@ msgstr "డెస్క్‍టాప్ నేపథ్యంలేదు"
 msgid "Current background"
 msgstr "ప్రస్తుత నేపథ్యం"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:2
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:2
 msgid "Change your background image to a wallpaper or photo"
 msgstr "మీ బ్యాక్‌గ్రౌండ్ చిత్రమును వాల్‌పేపర్ లేదా చిత్రమునకు మార్చండి"
 
 #. Translators: those are keywords for the background control-center panel
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:4
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:4
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "నేపథ్యచిత్రం;తెర;డెస్క్​టాప్;"
 
@@ -189,12 +189,12 @@ msgid "Bluetooth is disabled by hardware switch"
 msgstr "బ్లూటూత్ హార్డ్‍వేర్ స్విచ్‌తో అచేతనపరచబడింది"
 
 #. Translators: The found device is a printer connected via Bluetooth
-#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:1
+#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:1
 #: ../panels/printers/pp-new-printer-dialog.c:1688
 msgid "Bluetooth"
 msgstr "బ్లూటూత్"
 
-#: ../panels/bluetooth/gnome-bluetooth-panel.desktop.in.in.h:2
+#: ../panels/bluetooth/regolith-bluetooth-panel.desktop.in.in.h:2
 msgid "Turn Bluetooth on and off and connect your devices"
 msgstr "బ్లూటూత్ ఆఫ్ మరియు ఆన్ చేసి మీ పరికరాలను అనుసంధానించండి"
 
@@ -824,11 +824,11 @@ msgstr "D65 (ఛాయాగ్రహణం మరియు గ్రాఫి�
 msgid "D75"
 msgstr "D75"
 
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:1
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:1
 msgid "Color"
 msgstr "రంగు"
 
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
 msgid ""
 "Calibrate the color of your devices, such as displays, cameras or printers"
 msgstr ""
@@ -836,7 +836,7 @@ msgstr ""
 "ముద్రికలు వలె"
 
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:4
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:4
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "వర్ణం;ICC;ప్రవర;కాలిబ్రేట్;ముద్రకం;ప్రదర్శకం;"
 
@@ -985,7 +985,7 @@ msgid "December"
 msgstr "డిసెంబర్"
 
 #: ../panels/datetime/datetime.ui.h:13
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:1
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:1
 msgid "Date & Time"
 msgstr "తేది మరియు సమయం"
 
@@ -1064,12 +1064,12 @@ msgstr "24-గంటలు"
 msgid "AM / PM"
 msgstr "తొలి / మలి"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
 msgid "Change the date and time, including time zone"
 msgstr "తేదీ మరియు సమయం మార్చు, సమయ క్షేత్రంతో సహా"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:4
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:4
 msgid "Clock;Timezone;Location;"
 msgstr "గడియారం;సమయక్షేత్రం;ప్రదేశం;"
 
@@ -1195,16 +1195,16 @@ msgstr "తెర సమాచారమును పొందలేక పోయ
 msgid "_Arrange Combined Displays"
 msgstr "కలగలిపిన ప్రదర్శనలు అమర్చు (_A)"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
 msgid "Displays"
 msgstr "ప్రదర్శనలు"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
 msgid "Choose how to use connected monitors and projectors"
 msgstr "అనుసంధానిత మానిటర్స్ మరియు ప్రొజెక్టర్స్ యెలా వుపయోగించాలో యెంచుకొనుము"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:4
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:4
 #| msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;Monitor;"
 msgstr "పానల్;ప్రొజెక్టర్;xrandr;తెర;రిజొల్యూషన్;రీఫ్రెష్;మానిటర్;"
@@ -1507,7 +1507,7 @@ msgid "Eject"
 msgstr "బయటకునెట్టు"
 
 #: ../panels/keyboard/01-input-sources.xml.in.h:1
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:20
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:20
 #: ../panels/universal-access/uap.ui.h:11
 msgid "Typing"
 msgstr "టైపింగు"
@@ -1602,7 +1602,7 @@ msgid "Lock screen"
 msgstr "తెరకు తాళంవేయి"
 
 #: ../panels/keyboard/50-accessibility.xml.in.h:1
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:1
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:1
 msgid "Universal Access"
 msgstr "సార్వత్రిక ప్రాప్తి"
 
@@ -1670,24 +1670,24 @@ msgstr "రచన మీట"
 msgid "Modifiers-only switch to next source"
 msgstr "సవరణిలు-మాత్రమే తరువాతి మూలానికి మారు"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
 msgid "Keyboard"
 msgstr "కీబోర్డు"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
 msgid "View and change keyboard shortcuts and set your typing preferences"
 msgstr "కీబోర్డు లఘువులను దర్శించి మార్చు మరియు మీ టైపింగ్ అభీష్టాలను అమర్చు"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:4
 msgid "Shortcut;Repeat;Blink;"
 msgstr "అడ్డదారి;పునరావృతం;బ్లింక్;"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:1
 msgid "Custom Shortcut"
 msgstr "అనురూపిత అడ్డదారి"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:3
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:3
 #: ../panels/network/connection-editor/net-connection-editor.c:512
 #: ../panels/printers/new-printer-dialog.ui.h:3
 #: ../panels/region/input-chooser.ui.h:3
@@ -1695,84 +1695,84 @@ msgstr "అనురూపిత అడ్డదారి"
 msgid "_Add"
 msgstr "జతచేయి (_A)"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:4
 msgid "_Name:"
 msgstr "పేరు (_N):"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:5
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:5
 msgid "C_ommand:"
 msgstr "ఆదేశం(_o):"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:6
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:6
 msgid "Repeat Keys"
 msgstr "పునరావృత కీలు"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:7
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:7
 msgid "Key presses _repeat when key is held down"
 msgstr "కీ నొక్కివుంచినప్పుడు కీ వత్తులు పునరావృతం కావాలి (_r)"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:8
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:8
 msgid "_Delay:"
 msgstr "ఆలస్యం(_D):"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:9
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:9
 msgid "_Speed:"
 msgstr "వేగం(_S):"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:10
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:10
 msgctxt "keyboard, delay"
 msgid "Short"
 msgstr "పొట్టి"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:11
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:11
 msgctxt "keyboard, speed"
 msgid "Slow"
 msgstr "నెమ్మది"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:12
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:12
 msgid "Repeat keys speed"
 msgstr "పునరావృత కీల వేగం"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:13
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:13
 msgctxt "keyboard, delay"
 msgid "Long"
 msgstr "పొడవు"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:14
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:14
 msgctxt "keyboard, speed"
 msgid "Fast"
 msgstr "వేగము"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:15
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:15
 msgid "Cursor Blinking"
 msgstr "కర్సర్ బ్లింకవుచున్నది"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:16
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:16
 msgid "Cursor _blinks in text fields"
 msgstr "పాఠ్య క్షేత్రములందు కర్సర్ బ్లింక్‌అవాలి (_b)"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:17
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:17
 msgid "S_peed:"
 msgstr "వేగం (_p):"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:18
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:18
 msgid "Cursor blink speed"
 msgstr "కర్సర్ రెప్పపాటు వేగం"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:19
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:19
 #: ../panels/region/region.ui.h:5
 msgid "Input Sources"
 msgstr "ఇన్‌పుట్ వనరులు"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:21
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:21
 msgid "Add Shortcut"
 msgstr "అడ్డదారిని జతచేయి"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:22
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:22
 msgid "Remove Shortcut"
 msgstr "అడ్డదారిని తీసివేయి"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:23
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:23
 msgid ""
 "To edit a shortcut, click the row and hold down the new keys or press "
 "Backspace to clear."
@@ -1781,7 +1781,7 @@ msgstr ""
 "బ్యాక్ స్పేస్  నొక్కుము "
 "చెరుపుటకు"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:24
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:24
 msgid "Shortcuts"
 msgstr "అడ్డదారులు"
 
@@ -1861,11 +1861,11 @@ msgstr "మీ అమరికలను పరీక్షించండి (_S
 msgid "Test Your Settings"
 msgstr "మీ అమరికలను పరీక్షించండి"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
 msgid "Mouse & Touchpad"
 msgstr "మౌసు మరియు టచ్‌ప్యాడ్"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
 msgid ""
 "Change your mouse or touchpad sensitivity and select right or left-handed"
 msgstr ""
@@ -1873,7 +1873,7 @@ msgstr ""
 "యెంపికచేయండి"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:4
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:4
 #| msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;"
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;Scroll;"
 msgstr "ట్రాక్‌పాడ్;సూచకి;నొక్కు;టాప్;డబుల్;బటన్;ట్రాక్‌బాల్;స్క్రాల్;"
@@ -2627,17 +2627,17 @@ msgstr "నా హోమ్ నెట్వర్కు"
 msgid "Make available to _other users"
 msgstr "ఇతర వాడుకరులకు అందుబాటులో వుంచు (_o)"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
 #: ../panels/network/network-mobile.ui.h:7
 msgid "Network"
 msgstr "నెట్‌వర్క్"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
 msgid "Control how you connect to the Internet"
 msgstr "మీరు యింటర్నెట్‌కు యెలా అనుసంధానం కావాలో నియంత్రించు"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:4
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:4
 #| msgid ""
 #| "Network;Wireless;Wi-Fi;Wifi;IP;LAN;Proxy;WAN;Broadband;Modem;Bluetooth;"
 #| "vpn;vlan;bridge;bond;"
@@ -3644,16 +3644,16 @@ msgstr "లాక్ తెర నందు వివరాలు చూపు"
 msgid "On"
 msgstr "ఆన్"
 
-#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:1
+#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:1
 msgid "Notifications"
 msgstr "ప్రకటనలు"
 
-#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:2
+#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:2
 msgid "Control which notifications are displayed and what they show"
 msgstr "ఏ ప్రకటనలు ప్రదర్శించాలి మరియు అవి యేమి చూపాలో నియంత్రించు"
 
 #. Translators: those are keywords for the notifications control-center panel
-#: ../panels/notifications/gnome-notifications-panel.desktop.in.in.h:4
+#: ../panels/notifications/regolith-notifications-panel.desktop.in.in.h:4
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "ప్రకటనలు;బానర్;సందేశం;ట్రే;పాపప్;"
 
@@ -3729,18 +3729,18 @@ msgstr "ఇది ఖాతాను సేవకము నందు తీస�
 msgid "_Remove"
 msgstr "తీసివేయి (_R)"
 
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:1
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:1
 msgid "Online Accounts"
 msgstr "ఆన్‌లైన్ ఖాతాలు"
 
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
 msgid "Connect to your online accounts and decide what to use them for"
 msgstr ""
 "మీ ఆన్‌లైన్ ఖాతాలకు  అనుసంధానమై మరియు వాటిని దేని కొరకు వుపయోగించాలో "
 "నిర్ణయించు"
 
 #. For ReadItLater and Pocket, see http://en.wikipedia.org/wiki/Pocket_(application)
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:4
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:4
 #| msgid ""
 #| "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;"
 #| "ownCloud;"
@@ -4023,16 +4023,16 @@ msgstr "విద్యుత్ ఆపండి"
 msgid "Devices"
 msgstr "పరికరాలు"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:1
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:1
 msgid "Power"
 msgstr "విద్యుత్"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
 msgid "View your battery status and change power saving settings"
 msgstr "మీ బ్యాటరీ స్థితి దర్శించి మరియు విద్యుత్ ఆదా అమరికలను మార్చు"
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:4
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:4
 msgid ""
 "Power;Sleep;Suspend;Hibernate;Battery;Brightness;Dim;Blank;Monitor;DPMS;Idle;"
 msgstr ""
@@ -4322,17 +4322,17 @@ msgstr "పరీక్ష పేజీ"
 msgid "Could not load ui: %s"
 msgstr "అంతరవర్తి నింపలేకుంది: %s"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:1
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:1
 msgid "Printers"
 msgstr "ముద్రకాలు"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:2
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:2
 msgid "Add printers, view printer jobs and decide how you want to print"
 msgstr ""
 "ముద్రికలను జతచేయి, ముద్రణ పనులను దర్శించి మరియు యెలా ముద్రించాలో నిర్ణయించు"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:4
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:4
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "ముద్రకం;వరుస;ముద్రించు;కాగితం;సిరా;టోనర్;"
 
@@ -5026,11 +5026,11 @@ msgstr "కొలమానం"
 msgid "Paper"
 msgstr "కాగితం"
 
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:1
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:1
 msgid "Region & Language"
 msgstr "ప్రాంతము & భాష"
 
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:2
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:2
 msgid ""
 "Select your display language, formats, keyboard layouts and input sources"
 msgstr ""
@@ -5038,7 +5038,7 @@ msgstr ""
 "యెంపికచేయండి"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:4
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:4
 msgid "Language;Layout;Keyboard;Input;"
 msgstr "భాష;నమూనా;కీబోర్డు;యిన్పుట్;"
 
@@ -5138,18 +5138,18 @@ msgstr "సరే (_O)"
 msgid "No applications found"
 msgstr "ఏ అనువర్తనములు కనబడలేదు"
 
-#: ../panels/search/gnome-search-panel.desktop.in.in.h:1
+#: ../panels/search/regolith-search-panel.desktop.in.in.h:1
 msgid "Search"
 msgstr "శోధించు"
 
-#: ../panels/search/gnome-search-panel.desktop.in.in.h:2
+#: ../panels/search/regolith-search-panel.desktop.in.in.h:2
 msgid ""
 "Control which applications show search results in the Activities Overview"
 msgstr ""
 "క్రియాశీలతల వోవర్‌వ్యూ నందు యే అనువర్తనములు శోధన ఫలితాలను చూపాలో నియంత్రించును"
 
 #. Translators: those are keywords for the search control-center panel
-#: ../panels/search/gnome-search-panel.desktop.in.in.h:4
+#: ../panels/search/regolith-search-panel.desktop.in.in.h:4
 msgid "Search;Find;Index;Hide;Privacy;Results;"
 msgstr "అన్వేషించు;కనుగొను;విషయసూచి;మరగునవుంచు;గోప్యత;ఫలితాలు;"
 
@@ -5200,16 +5200,16 @@ msgstr "ఫోల్డర్ యెంపికచేయి"
 msgid "Copy"
 msgstr "నకలుతీయు"
 
-#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:1
+#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:1
 msgid "Sharing"
 msgstr "పంచుకొనుచున్నది"
 
-#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:2
+#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:2
 msgid "Control what you want to share with others"
 msgstr "మీరు యితరులతో యేమి పంచుకోవాలని అనుకొనుచున్నారో నియంత్రించు"
 
 #. Translators: those are keywords for the sharing control-center panel
-#: ../panels/sharing/gnome-sharing-panel.desktop.in.in.h:4
+#: ../panels/sharing/regolith-sharing-panel.desktop.in.in.h:4
 msgid ""
 "share;sharing;ssh;host;name;remote;desktop;bluetooth;obex;media;audio;video;"
 "pictures;photos;movies;server;renderer;"
@@ -5586,13 +5586,13 @@ msgstr "సబ్‌వూఫర్"
 msgid "Custom"
 msgstr "అనురూపితం"
 
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
 msgid "Make it easier to see, hear, type, point and click"
 msgstr ""
 "చూడుటకు, వినుటకు, టైపునకు, సూచించుటకు మరియు నొక్కుటకు దీనిని సులభతరం చేయి"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:4
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:4
 #| msgid ""
 #| "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen Reader;text;font;"
 #| "size;AccessX;Sticky Keys;Slow Keys;Bounce Keys;Mouse Keys;"
@@ -6227,16 +6227,16 @@ msgstr ""
 "చదువరి(రీడర్) ఉపయోగించి "
 "ప్రవేశించగలుగుతారు."
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
 msgid "Users"
 msgstr "వాడుకరులు"
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:2
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:2
 msgid "Add or remove users and change your password"
 msgstr "వాడుకరులను జతచేయి లేదా తీసివేయి మరియు మీ సంకేతపదం మార్చు"
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "ప్రవేశించు;పేరు;వేలిముద్ర;అవతారం;చిహ్నం;ముఖం;సంకేతపదం;"
 
@@ -7002,19 +7002,19 @@ msgstr "మ్యాపింగును ప్రదర్శించు"
 msgid "Button"
 msgstr "బటన్"
 
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:1
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:1
 #: ../panels/wacom/gnome-wacom-properties.ui.h:7
 msgid "Wacom Tablet"
 msgstr "వ్యాకం టాబ్లెట్"
 
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:2
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:2
 msgid "Set button mappings and adjust stylus sensitivity for graphics tablets"
 msgstr ""
 "గ్రాఫిక్స్ టాబ్లెట్ల కొరకు బటన్ మాపింగ్ మరియు స్టైలస్ సున్నితత్వం సర్దుబాటు "
 "చేయును"
 
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:4
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:4
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "ట్యాబ్లెట్;వాకం;శ్టైలస్;ఇరేసర్;మౌజ్;"
 

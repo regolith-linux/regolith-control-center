@@ -140,17 +140,17 @@ msgstr "Бои и градиенти"
 msgid "Flickr"
 msgstr "Flickr"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:1
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:1
 msgid "Background"
 msgstr "Позадина"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:2
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:2
 #| msgid "Save _background image"
 msgid "Change the background"
 msgstr "Смени ја позадината"
 
 #. Translators: those are keywords for the background control-center panel
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:4
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:4
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "Позадини;Екран;Работна површина;"
 
@@ -526,7 +526,7 @@ msgid "Calibrate…"
 msgstr "Калибрирај..."
 
 #: ../panels/color/color.ui.h:8
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:1
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:1
 #| msgid "Colors"
 msgid "Color"
 msgstr "Боја"
@@ -587,12 +587,12 @@ msgstr "Постави го овој уред за сите корисници �
 msgid "View details"
 msgstr "Прегледај ги деталите"
 
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
 msgid "Color management settings"
 msgstr "Поставувања за менаџмент на бои"
 
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:4
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:4
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "Боја;ICC;Профил;Калибрирај;Печатач;Приказ;"
 
@@ -789,15 +789,15 @@ msgid "_Region:"
 msgstr "_Регион:"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
 msgid "Clock;Timezone;Location;"
 msgstr "Часовник;Временска зона;Локација;"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:3
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:3
 msgid "Date and Time"
 msgstr "Датум и време"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:4
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:4
 msgid "Date and Time preferences panel"
 msgstr "Панел за преференци за датум и време"
 
@@ -904,17 +904,17 @@ msgstr "_Огледало на приказот"
 msgid "_Resolution"
 msgstr "_Резолуција"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
 msgid "Change resolution and position of monitors and projectors"
 msgstr "Промени ја резолуцијата и позицијата на мониторите и проекторите"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
 #| msgid "_Detect Displays"
 msgid "Displays"
 msgstr "Прикази"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:4
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:4
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 msgstr "Панел;Проектор;xrandr;Екран;Резолуција;Освежи;"
 
@@ -1325,7 +1325,7 @@ msgid "Log out"
 msgstr "Одјави се"
 
 #: ../panels/keyboard/01-system.xml.in.h:3
-#: ../panels/region/gnome-region-panel.ui.h:33
+#: ../panels/region/regolith-region-panel.ui.h:33
 msgid "System"
 msgstr "Систем"
 
@@ -1354,7 +1354,7 @@ msgid "Turn zoom on or off"
 msgstr "Исклучи или пушти зум"
 
 #: ../panels/keyboard/50-accessibility.xml.in.h:7
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:3
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:3
 msgid "Universal Access"
 msgstr "Универзален пристап"
 
@@ -1366,66 +1366,66 @@ msgstr "Зумирај"
 msgid "Zoom out"
 msgstr "Одзумирај"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
 msgid "Change keyboard settings"
 msgstr "Промени ги поставувањата за тастатурата"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:9
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:9
 msgid "Keyboard"
 msgstr "Тастатура"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:4
 msgid "Shortcut;Repeat;Blink;"
 msgstr "Кратенка;Повтори;Трепкај;"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:1
 #| msgid "Shortcut"
 msgid "Add Shortcut"
 msgstr "Додај кратенка"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:2
 msgid "C_ommand:"
 msgstr "К_оманда:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:3
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:3
 #| msgid "<b>Cursor Blinking</b>"
 msgid "Cursor Blinking"
 msgstr "Трепкање на стрелката"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:4
 msgid "Cursor _blinks in text fields"
 msgstr "_Стрелката трепка во текстуални полиња"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:5
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:5
 #| msgid "Cursor blinks speed"
 msgid "Cursor blink speed"
 msgstr "Брзина на трепкање на стрелката"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:6
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:6
 #| msgid "Custom Shortcuts"
 msgid "Custom Shortcut"
 msgstr "Сопствена кратенка"
 
 #. fast acceleration
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:7
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:7
 #: ../panels/mouse/gnome-mouse-properties.ui.h:10
 #| msgid "_Paste"
 msgid "Fast"
 msgstr "Брзо"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:8
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:8
 msgid "Key presses _repeat when key is held down"
 msgstr "Притисокот на копче се повторува копчето е задржано повеќе"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:10
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:10
 #| msgid "Layout _Options..."
 msgid "Layout Settings"
 msgstr "Поставувања за распоредот"
 
 #. long delay
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:11
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:11
 #: ../panels/mouse/gnome-mouse-properties.ui.h:16
 #: ../panels/universal-access/uap.ui.h:38
 #: ../panels/universal-access/zoom-options.ui.h:13
@@ -1434,26 +1434,26 @@ msgstr "Поставувања за распоредот"
 msgid "Long"
 msgstr "Долго"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:12
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:12
 #| msgid "Shortcut"
 msgid "Remove Shortcut"
 msgstr "Отстрани кратенка"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:13
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:13
 #| msgid "<b>Repeat Keys</b>"
 msgid "Repeat Keys"
 msgstr "Повтори ги копчињата"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:14
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:14
 msgid "Repeat keys speed"
 msgstr "Брзина на повторување на копчињата"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:15
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:15
 msgid "S_peed:"
 msgstr "Б_рзина:"
 
 #. short delay
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:16
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:16
 #: ../panels/mouse/gnome-mouse-properties.ui.h:24
 #: ../panels/universal-access/uap.ui.h:54
 #: ../panels/universal-access/zoom-options.ui.h:22
@@ -1461,39 +1461,39 @@ msgstr "Б_рзина:"
 msgid "Short"
 msgstr "Кратко"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:17
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:17
 #| msgid "Shortcut"
 msgid "Shortcuts"
 msgstr "Кратенки"
 
 #. slow acceleration
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:18
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:18
 #: ../panels/mouse/gnome-mouse-properties.ui.h:26
 msgid "Slow"
 msgstr "Бавно"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:19
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:19
 #| msgid ""
 #| "To edit a shortcut key, click on the corresponding row and type a new key "
 #| "combination, or press backspace to clear."
 msgid "To edit a shortcut, click the row and hold down the new keys or press Backspace to clear."
 msgstr "За да ги уредите кратенките, кликнете на саканиот ред и стиснете на нова комбинација од копчиња или пак притиснете backspace за да ги исчистите."
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:20
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:20
 #: ../panels/universal-access/uap.ui.h:67
 #| msgid "Typing Break"
 msgid "Typing"
 msgstr "Пишување"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:21
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:21
 msgid "_Delay:"
 msgstr "_Одложување:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:22
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:22
 msgid "_Name:"
 msgstr "_Име:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:23
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:23
 msgid "_Speed:"
 msgstr "Брзина:"
 
@@ -1553,17 +1553,17 @@ msgstr "Дејствие"
 msgid "Shortcut"
 msgstr "Кратенка"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
 msgid "Mouse and Touchpad"
 msgstr "Глушец и тачпад"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
 #| msgid "Set your mouse preferences"
 msgid "Set your mouse and touchpad preferences"
 msgstr "Поставете ги преференците за глушецот"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:4
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:4
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;"
 msgstr "Тракпад;Стрелка;Клик;Тапкање;Двоен;Копче;Тракбол;"
 
@@ -1830,18 +1830,18 @@ msgstr "Да го прекинам hotspot-от и да ги исклучам н
 msgid "_Stop Hotspot"
 msgstr "_Прекини го hotspot-от"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
 #| msgid "Network Proxy"
 msgid "Network"
 msgstr "Мрежа"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
 #| msgid "Network Servers"
 msgid "Network settings"
 msgstr "Мрежни поставувања"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:4
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:4
 msgid "Network;Wireless;IP;LAN;Proxy;"
 msgstr "Мрежа;Безжичен;IP;LAN;Прокси;"
 
@@ -2201,15 +2201,15 @@ msgid "_Remove"
 msgstr "_Отстрани"
 
 #. Translators: those are keywords for the online-accounts control-center panel
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
 msgid "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;"
 msgstr "Google;Facebook;Twitter;Yahoo;Веб;Онлајн;Разговор;Календар;Пошта;Контакт;"
 
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:3
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:3
 msgid "Manage online accounts"
 msgstr "Менаџирајте со онлајн сметките"
 
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:4
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:4
 msgid "Online Accounts"
 msgstr "Онлајн сметки"
 
@@ -2302,17 +2302,17 @@ msgstr "%s додека се испразне (%.0lf%%)"
 msgid "%.0lf%% charged"
 msgstr "наполнет е %.0lf%%"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:1
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:1
 #| msgid "Pointer"
 msgid "Power"
 msgstr "Енергија"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
 msgid "Power management settings"
 msgstr "Поставувања за менаџментот со енергија"
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:4
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:4
 msgid "Power;Sleep;Suspend;Hibernate;Battery;"
 msgstr "Енергија;Спиј;Суспендирај;Хибернирај;Батерија;"
 
@@ -2584,17 +2584,17 @@ msgstr "Тест страница"
 msgid "Could not load ui: %s"
 msgstr "Не можев да го вчитам интерфејсот: %s"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:1
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:1
 #| msgid "Change set"
 msgid "Change printer settings"
 msgstr "Промени ги поставувањата за печатачот"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:3
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:3
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Печатач;Ред;Печати;Хартија;Боја за печатење;Тонер;"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:4
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:4
 #: ../panels/printers/pp-new-printer-dialog.c:148
 #| msgid "Pointer"
 msgid "Printers"
@@ -2786,177 +2786,177 @@ msgstr "_Опции"
 msgid "_Show"
 msgstr "_Покажи"
 
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:1
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:1
 msgid "Change your region and language settings"
 msgstr "Промени ги поставувањата за регион и јазик"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:3
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:3
 msgid "Language;Layout;Keyboard;"
 msgstr "Јазик;Распоред;Тастатура;"
 
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:4
-#: ../panels/region/gnome-region-panel.ui.h:24
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:4
+#: ../panels/region/regolith-region-panel.ui.h:24
 msgid "Region and Language"
 msgstr "Регион и јазик"
 
-#: ../panels/region/gnome-region-panel-formats.c:142
+#: ../panels/region/regolith-region-panel-formats.c:142
 #| msgid "Opera"
 msgid "Imperial"
 msgstr "Империјален"
 
-#: ../panels/region/gnome-region-panel-formats.c:144
+#: ../panels/region/regolith-region-panel-formats.c:144
 msgid "Metric"
 msgstr "Метрички"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:1
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "Изберете распоред"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:2
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:2
 #| msgid "Preview:"
 msgid "Preview"
 msgstr "Преглед"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:3
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:3
 msgid "Select an input source to add"
 msgstr "Изберете извор на влез за додавање"
 
-#: ../panels/region/gnome-region-panel-options-dialog.ui.h:1
+#: ../panels/region/regolith-region-panel-options-dialog.ui.h:1
 msgid "Keyboard Layout Options"
 msgstr "Опции за распоредите на тастатурата"
 
-#: ../panels/region/gnome-region-panel-system.c:395
+#: ../panels/region/regolith-region-panel-system.c:395
 msgid "The login screen, system accounts and new user accounts use the system-wide Region and Language settings."
 msgstr "Најавниот екран, сметките на системот и новите корисници ги корсистат системските поставувања за јазик и регион."
 
-#: ../panels/region/gnome-region-panel-system.c:400
-#: ../panels/region/gnome-region-panel.ui.h:35
+#: ../panels/region/regolith-region-panel-system.c:400
+#: ../panels/region/regolith-region-panel.ui.h:35
 msgid "The login screen, system accounts and new user accounts use the system-wide Region and Language settings. You may change the system settings to match yours."
 msgstr "Најавниот екран, сметките на системот и новите корисници ги корсистат системските поставувања за јазик и регион. Можете да ги промените системските поставувања да се совпаѓаат со Вашите."
 
-#: ../panels/region/gnome-region-panel-system.c:403
+#: ../panels/region/regolith-region-panel-system.c:403
 #| msgid "Copying '%s'"
 msgid "Copy Settings"
 msgstr "Копирај ги поставувањата"
 
-#: ../panels/region/gnome-region-panel-system.c:406
-#: ../panels/region/gnome-region-panel.ui.h:5
+#: ../panels/region/regolith-region-panel-system.c:406
+#: ../panels/region/regolith-region-panel.ui.h:5
 msgid "Copy Settings..."
 msgstr "Копирај ги поставувањата..."
 
-#: ../panels/region/gnome-region-panel.ui.h:1
+#: ../panels/region/regolith-region-panel.ui.h:1
 #| msgid "_Language:"
 msgid "Add Language"
 msgstr "Додај јазик"
 
-#: ../panels/region/gnome-region-panel.ui.h:2
+#: ../panels/region/regolith-region-panel.ui.h:2
 #| msgid "Layout"
 msgid "Add Layout"
 msgstr "Додај распоред"
 
-#: ../panels/region/gnome-region-panel.ui.h:3
+#: ../panels/region/regolith-region-panel.ui.h:3
 msgid "Add Region"
 msgstr "Додај регион"
 
-#: ../panels/region/gnome-region-panel.ui.h:4
+#: ../panels/region/regolith-region-panel.ui.h:4
 msgid "Allow different layouts for individual windows"
 msgstr "Дозволи различни распореди за посебните прозорци"
 
-#: ../panels/region/gnome-region-panel.ui.h:6
+#: ../panels/region/regolith-region-panel.ui.h:6
 msgid "Currency"
 msgstr "Валута"
 
-#: ../panels/region/gnome-region-panel.ui.h:7
+#: ../panels/region/regolith-region-panel.ui.h:7
 #| msgid "aterm"
 msgid "Dates"
 msgstr "Датуми"
 
 #. 'display' means 'output' here, as in 'translated messages that are displayed to the user'
-#: ../panels/region/gnome-region-panel.ui.h:9
+#: ../panels/region/regolith-region-panel.ui.h:9
 #| msgid "By _language"
 msgid "Display language:"
 msgstr "Јазик за приказ:"
 
-#: ../panels/region/gnome-region-panel.ui.h:10
+#: ../panels/region/regolith-region-panel.ui.h:10
 msgid "Examples"
 msgstr "Примери"
 
-#: ../panels/region/gnome-region-panel.ui.h:11
+#: ../panels/region/regolith-region-panel.ui.h:11
 #| msgid "Port:"
 msgid "Format:"
 msgstr "Формат:"
 
-#: ../panels/region/gnome-region-panel.ui.h:12
+#: ../panels/region/regolith-region-panel.ui.h:12
 #| msgid "Fonts"
 msgid "Formats"
 msgstr "Формати"
 
-#: ../panels/region/gnome-region-panel.ui.h:13
+#: ../panels/region/regolith-region-panel.ui.h:13
 #| msgid "_Input boxes:"
 msgid "Input source:"
 msgstr "Влезен извор:"
 
-#: ../panels/region/gnome-region-panel.ui.h:14
+#: ../panels/region/regolith-region-panel.ui.h:14
 #| msgid "_Install..."
 msgid "Install languages..."
 msgstr "Инсталирај јазици..."
 
-#: ../panels/region/gnome-region-panel.ui.h:15
+#: ../panels/region/regolith-region-panel.ui.h:15
 #| msgid "_Language:"
 msgid "Language"
 msgstr "Јазик"
 
-#: ../panels/region/gnome-region-panel.ui.h:16
+#: ../panels/region/regolith-region-panel.ui.h:16
 msgid "Layouts"
 msgstr "Распореди"
 
-#: ../panels/region/gnome-region-panel.ui.h:17
+#: ../panels/region/regolith-region-panel.ui.h:17
 #| msgid "_Department:"
 msgid "Measurement"
 msgstr "Мерење"
 
-#: ../panels/region/gnome-region-panel.ui.h:18
+#: ../panels/region/regolith-region-panel.ui.h:18
 #| msgid "gesture|Move down"
 msgid "Move Down"
 msgstr "Помести надолу"
 
-#: ../panels/region/gnome-region-panel.ui.h:19
+#: ../panels/region/regolith-region-panel.ui.h:19
 msgid "Move Up"
 msgstr "Помести нагоре"
 
-#: ../panels/region/gnome-region-panel.ui.h:20
+#: ../panels/region/regolith-region-panel.ui.h:20
 msgid "New windows use the default layout"
 msgstr "Новите прозорци ќе го користат стандардниот распоред"
 
-#: ../panels/region/gnome-region-panel.ui.h:21
+#: ../panels/region/regolith-region-panel.ui.h:21
 msgid "New windows use the previous window's layout"
 msgstr "Новите прозорци ќе го користат распоредот од претходниот прозорец"
 
-#: ../panels/region/gnome-region-panel.ui.h:22
+#: ../panels/region/regolith-region-panel.ui.h:22
 msgid "Numbers"
 msgstr "Бројки"
 
-#: ../panels/region/gnome-region-panel.ui.h:23
+#: ../panels/region/regolith-region-panel.ui.h:23
 #| msgid "Preview:"
 msgid "Preview Layout"
 msgstr "Распоред на преглед"
 
-#: ../panels/region/gnome-region-panel.ui.h:25
+#: ../panels/region/regolith-region-panel.ui.h:25
 #| msgid "_Language:"
 msgid "Remove Language"
 msgstr "Отстрани јазик"
 
-#: ../panels/region/gnome-region-panel.ui.h:26
+#: ../panels/region/regolith-region-panel.ui.h:26
 #| msgid "Choose a Layout"
 msgid "Remove Layout"
 msgstr "Отстрани распоред"
 
-#: ../panels/region/gnome-region-panel.ui.h:27
+#: ../panels/region/regolith-region-panel.ui.h:27
 msgid "Remove Region"
 msgstr "Отстрани го регионот"
 
-#: ../panels/region/gnome-region-panel.ui.h:28
+#: ../panels/region/regolith-region-panel.ui.h:28
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
@@ -2964,52 +2964,52 @@ msgstr ""
 "Замени го тековниот распоред на тастатурата со\n"
 "стандардните поставувања"
 
-#: ../panels/region/gnome-region-panel.ui.h:30
+#: ../panels/region/regolith-region-panel.ui.h:30
 msgid "Reset to De_faults"
 msgstr "Ресетирај на ста_ндардното"
 
-#: ../panels/region/gnome-region-panel.ui.h:31
+#: ../panels/region/regolith-region-panel.ui.h:31
 msgid "Select a display language (change will be applied next time you log in)"
 msgstr "Изберете јазик (промените ќе бидат активни следниот пат кога ќе се најавите)"
 
-#: ../panels/region/gnome-region-panel.ui.h:32
+#: ../panels/region/regolith-region-panel.ui.h:32
 msgid "Select a region (change will be applied the next time you log in)"
 msgstr "Изберете регион (промените ќе бидат активни следниот пат кога ќе се најавите)"
 
-#: ../panels/region/gnome-region-panel.ui.h:34
+#: ../panels/region/regolith-region-panel.ui.h:34
 #| msgid "_Type to test settings:"
 msgid "System settings"
 msgstr "Системски поставувања"
 
-#: ../panels/region/gnome-region-panel.ui.h:36
+#: ../panels/region/regolith-region-panel.ui.h:36
 #| msgid "Test"
 msgid "Times"
 msgstr "Времиња"
 
-#: ../panels/region/gnome-region-panel.ui.h:37
+#: ../panels/region/regolith-region-panel.ui.h:37
 #| msgid "_Use the same proxy for all protocols"
 msgid "Use the same layout for all windows"
 msgstr "Користи го истиот распоред за сите прозорци"
 
-#: ../panels/region/gnome-region-panel.ui.h:38
+#: ../panels/region/regolith-region-panel.ui.h:38
 #| msgid "Keyboard Layout Options"
 msgid "View and edit keyboard layout options"
 msgstr "Прегледај и уреди ги поставувањата за распоредот на тастатурата"
 
-#: ../panels/region/gnome-region-panel.ui.h:39
+#: ../panels/region/regolith-region-panel.ui.h:39
 msgid "Your settings"
 msgstr "Вашите поставувања"
 
-#: ../panels/region/gnome-region-panel.ui.h:40
+#: ../panels/region/regolith-region-panel.ui.h:40
 #| msgid "Layout _Options..."
 msgid "_Options..."
 msgstr "_Опции..."
 
-#: ../panels/region/gnome-region-panel-xkblt.c:210
+#: ../panels/region/regolith-region-panel-xkblt.c:210
 msgid "Layout"
 msgstr "Распоред"
 
-#: ../panels/region/gnome-region-panel-xkbot.c:229
+#: ../panels/region/regolith-region-panel-xkbot.c:229
 #: ../panels/sound/gvc-sound-theme-chooser.c:585
 msgid "Default"
 msgstr "Стандардно"
@@ -3403,11 +3403,11 @@ msgid "No shortcut set"
 msgstr "Нема кратенки"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
 msgid "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen Reader;text;font;size;AccessX;Sticky Keys;Slow Keys;Bounce Keys;Mouse Keys"
 msgstr "Тастатура;Глушец;a11y;Пристапност;Контраст;Зум;Читач на екран;текст;фонт;големина;AccessX;Лепливи копчиња;Бавни копчиња;Одбивни копчиња;Копчиња на глушец"
 
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:4
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:4
 #| msgid "Appearance Preferences"
 msgid "Universal Access Preferences"
 msgstr "Преференции за универзален пристап"
@@ -3986,16 +3986,16 @@ msgstr "_Друг прст:"
 msgid "_Right index finger"
 msgstr "_Десен показалец"
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
 msgid "Add or remove users"
 msgstr "Додај или отстрани корисници"
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:3
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:3
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "Најава;Има;Отпечаток;Аватар;Лого;Лице;Лозинка;"
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
 #| msgid "seconds"
 msgid "User Accounts"
 msgstr "Кориснички сметки"
@@ -4552,17 +4552,17 @@ msgstr ""
 " ➣ цифри\n"
 " ➣ било кој од знаците „.“, „-“ и „_“"
 
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:1
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:1
 #| msgid "Set your mouse preferences"
 msgid "Set your Wacom tablet preferences"
 msgstr "Поставете ги преференците за Вашиот Wacom таблет"
 
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:3
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:3
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Таблет;Wacom;Stylus;Бришач;Глушец;"
 
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:4
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:4
 msgid "Wacom Graphics Tablet"
 msgstr "Wacom графички таблет"
 

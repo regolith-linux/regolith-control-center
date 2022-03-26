@@ -24,16 +24,16 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-10-23 16:28+0000\n"
 "X-Generator: Launchpad (build 14170)\n"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:1
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:1
 msgid "Background"
 msgstr "Fondu de pantalla"
 
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:2
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:2
 msgid "Change the background"
 msgstr "Cambia'l fondu"
 
 #. Translators: those are keywords for the background control-center panel
-#: ../panels/background/gnome-background-panel.desktop.in.in.h:4
+#: ../panels/background/regolith-background-panel.desktop.in.in.h:4
 msgid "Wallpaper;Screen;Desktop;"
 msgstr "Fondu d'escritoriu;Pantalla;Escritoriu;"
 
@@ -398,15 +398,15 @@ msgid "_Region:"
 msgstr "_Rexón:"
 
 #. Translators: those are keywords for the date and time control-center panel
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:2
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:2
 msgid "Clock;Timezone;Location;"
 msgstr "Reló;Estaya horaria;Allugamientu;"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:3
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:3
 msgid "Date and Time"
 msgstr "Data y hora"
 
-#: ../panels/datetime/gnome-datetime-panel.desktop.in.in.h:4
+#: ../panels/datetime/regolith-datetime-panel.desktop.in.in.h:4
 msgid "Date and Time preferences panel"
 msgstr "Panel de preferencies de la data y hora"
 
@@ -436,16 +436,16 @@ msgstr "_Espeyar pantalles"
 msgid "_Resolution:"
 msgstr "_Resolución:"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:1
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:1
 msgid "Change resolution and position of monitors and projectors"
 msgstr "Camudar la resolución y posición de los monitores y proyeutores"
 
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:2
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:2
 msgid "Displays"
 msgstr "Pantalles"
 
 #. Translators: those are keywords for the display control-center panel
-#: ../panels/display/gnome-display-panel.desktop.in.in.h:4
+#: ../panels/display/regolith-display-panel.desktop.in.in.h:4
 msgid "Panel;Projector;xrandr;Screen;Resolution;Refresh;"
 msgstr "Panel;Proyeutor;xranrd;Pantalla;Resolución;Anovar;"
 
@@ -889,7 +889,7 @@ msgid "Log out"
 msgstr "Colar"
 
 #: ../panels/keyboard/01-system.xml.in.h:3
-#: ../panels/region/gnome-region-panel.ui.h:24
+#: ../panels/region/regolith-region-panel.ui.h:24
 msgid "System"
 msgstr "Sistema"
 
@@ -926,7 +926,7 @@ msgid "Toggle screen reader"
 msgstr "Conmutar el llector de pantalla"
 
 #: ../panels/keyboard/50-accessibility.xml.in.h:9
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:3
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:3
 msgid "Universal Access"
 msgstr "Accesu universal"
 
@@ -967,17 +967,17 @@ msgstr "El tipu d'acelerador."
 msgid "Disabled"
 msgstr "Deshabilitáu"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:1
 msgid "Change keyboard settings"
 msgstr "Camudar la configuración del tecláu"
 
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:2
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:8
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:8
 msgid "Keyboard"
 msgstr "Tecláu"
 
 #. Translators: those are keywords for the keyboard control-center panel
-#: ../panels/keyboard/gnome-keyboard-panel.desktop.in.in.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.desktop.in.in.h:4
 msgid "Shortcut;Repeat;Blink;"
 msgstr "Atayu;Repetir;Parpaguiar;"
 
@@ -1036,96 +1036,96 @@ msgstr "Aición"
 msgid "Shortcut"
 msgstr "Atayu"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:1
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:1
 msgid "C_ommand:"
 msgstr "C_omandu:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:2
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:2
 msgid "Cursor Blinking"
 msgstr "Parpaguéu del cursor"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:3
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:3
 msgid "Cursor _blinks in text fields"
 msgstr "El cursor pa_rpaguea nos campos de testu"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:4
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:4
 msgid "Cursor blink speed"
 msgstr "Velocidá de parpaguéu del cursor"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:5
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:5
 msgid "Custom Shortcut"
 msgstr "Combinación personalizada"
 
 #. fast acceleration
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:6
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:6
 #: ../panels/mouse/gnome-mouse-properties.ui.h:10
 msgid "Fast"
 msgstr "Rápidu"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:7
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:7
 msgid "Key presses _repeat when key is held down"
 msgstr "Les pulsaciones de tecles _repítense cuando la tecla se caltién calcada"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:9
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:9
 msgid "Layout Settings"
 msgstr "Configuración del formatu"
 
 #. long delay
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:10
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:10
 #: ../panels/mouse/gnome-mouse-properties.ui.h:16
 #: ../panels/universal-access/uap.ui.h:38
 #: ../panels/universal-access/zoom-options.ui.h:13
 msgid "Long"
 msgstr "Llargu"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:11
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:11
 msgid "Repeat Keys"
 msgstr "Repetir tecles"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:12
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:12
 msgid "Repeat keys speed"
 msgstr "Velocidá de repetición de les tecles"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:13
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:13
 msgid "S_peed:"
 msgstr "Veloci_dá:"
 
 #. short delay
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:14
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:14
 #: ../panels/mouse/gnome-mouse-properties.ui.h:24
 #: ../panels/universal-access/uap.ui.h:54
 #: ../panels/universal-access/zoom-options.ui.h:22
 msgid "Short"
 msgstr "Curtiu"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:15
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:15
 msgid "Shortcuts"
 msgstr "Atayos"
 
 #. slow acceleration
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:16
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:16
 #: ../panels/mouse/gnome-mouse-properties.ui.h:26
 msgid "Slow"
 msgstr "Lentu"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:17
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:17
 msgid "To edit a shortcut, click the row and hold down the new keys or press Backspace to clear."
 msgstr "Pa editar un atayu nuevu calca na filera y caltén primíes les tecles nueves, o calca Retrocesu pa desaniciar."
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:18
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:18
 #: ../panels/universal-access/uap.ui.h:67
 msgid "Typing"
 msgstr "Escribiendo"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:19
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:19
 msgid "_Delay:"
 msgstr "_Retrasu:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:20
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:20
 msgid "_Name:"
 msgstr "_Nome:"
 
-#: ../panels/keyboard/gnome-keyboard-panel.ui.h:21
+#: ../panels/keyboard/regolith-keyboard-panel.ui.h:21
 msgid "_Speed:"
 msgstr "_Velocidá:"
 
@@ -1180,15 +1180,15 @@ msgid "_Remove"
 msgstr "_Desaniciar"
 
 #. Translators: those are keywords for the online-accounts control-center panel
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:2
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:2
 msgid "Google;Facebook;Twitter;Yahoo;Web;Online;Chat;Calendar;Mail;Contact;"
 msgstr "Google;Facebook;Twitter;Yahoo;Web;En llinia;Chat;Calendariu;Corréu-e;Contautu;"
 
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:3
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:3
 msgid "Manage online accounts"
 msgstr "Xestionar cuentes en llinia"
 
-#: ../panels/online-accounts/gnome-online-accounts-panel.desktop.in.in.h:4
+#: ../panels/online-accounts/regolith-online-accounts-panel.desktop.in.in.h:4
 msgid "Online Accounts"
 msgstr "Cuentes en llinia"
 
@@ -1401,16 +1401,16 @@ msgstr "Páxina de prueba"
 msgid "Could not load ui: %s"
 msgstr "Nun se pudo cargar la IU: %s"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:1
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:1
 msgid "Change printer settings"
 msgstr "Cambiar la configuración de la imprentadora"
 
 #. Translators: those are keywords for the printing control-center panel
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:3
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:3
 msgid "Printer;Queue;Print;Paper;Ink;Toner;"
 msgstr "Imprentadora;Cola;Imprentar;Papel;Tinta;Tóner;"
 
-#: ../panels/printers/gnome-printers-panel.desktop.in.in.h:4
+#: ../panels/printers/regolith-printers-panel.desktop.in.in.h:4
 #: ../panels/printers/pp-new-printer-dialog.c:148
 msgid "Printers"
 msgstr "Imprentadores"
@@ -1567,102 +1567,102 @@ msgstr "Opciones"
 msgid "_Show"
 msgstr "_Amosar"
 
-#: ../panels/region/gnome-region-panel-formats.c:142
+#: ../panels/region/regolith-region-panel-formats.c:142
 msgid "Imperial"
 msgstr "Imperial"
 
-#: ../panels/region/gnome-region-panel-formats.c:144
+#: ../panels/region/regolith-region-panel-formats.c:144
 msgid "Metric"
 msgstr "Métricu"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:1
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:1
 msgid "Choose a Layout"
 msgstr "Escueyi una distribución"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:2
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:2
 msgid "Preview"
 msgstr "Vista previa"
 
-#: ../panels/region/gnome-region-panel-layout-chooser.ui.h:3
+#: ../panels/region/regolith-region-panel-layout-chooser.ui.h:3
 msgid "Select an input source to add"
 msgstr "Esbillar una fonte d'entrada qu'amestar"
 
-#: ../panels/region/gnome-region-panel-options-dialog.ui.h:1
+#: ../panels/region/regolith-region-panel-options-dialog.ui.h:1
 msgid "Keyboard Layout Options"
 msgstr "Opciones de distribución del tecláu"
 
-#: ../panels/region/gnome-region-panel.ui.h:1
+#: ../panels/region/regolith-region-panel.ui.h:1
 msgid "Allow different layouts for individual windows"
 msgstr "Permitir diferentes distribuciones pa cada ventana"
 
-#: ../panels/region/gnome-region-panel.ui.h:2
-#: ../panels/region/gnome-region-panel-system.c:406
+#: ../panels/region/regolith-region-panel.ui.h:2
+#: ../panels/region/regolith-region-panel-system.c:406
 msgid "Copy Settings..."
 msgstr "Copiar configuración..."
 
-#: ../panels/region/gnome-region-panel.ui.h:3
+#: ../panels/region/regolith-region-panel.ui.h:3
 msgid "Currency"
 msgstr "Divises"
 
-#: ../panels/region/gnome-region-panel.ui.h:4
+#: ../panels/region/regolith-region-panel.ui.h:4
 msgid "Dates"
 msgstr "Dates"
 
 #. 'display' means 'output' here, as in 'translated messages that are displayed to the user'
-#: ../panels/region/gnome-region-panel.ui.h:6
+#: ../panels/region/regolith-region-panel.ui.h:6
 msgid "Display language:"
 msgstr "Amosar llingua:"
 
-#: ../panels/region/gnome-region-panel.ui.h:7
+#: ../panels/region/regolith-region-panel.ui.h:7
 msgid "Examples"
 msgstr "Exemplos"
 
-#: ../panels/region/gnome-region-panel.ui.h:8
+#: ../panels/region/regolith-region-panel.ui.h:8
 msgid "Format:"
 msgstr "Formatu:"
 
-#: ../panels/region/gnome-region-panel.ui.h:9
+#: ../panels/region/regolith-region-panel.ui.h:9
 msgid "Formats"
 msgstr "Formatos"
 
-#: ../panels/region/gnome-region-panel.ui.h:10
+#: ../panels/region/regolith-region-panel.ui.h:10
 msgid "Input source:"
 msgstr "Fonte d'entrada:"
 
-#: ../panels/region/gnome-region-panel.ui.h:11
+#: ../panels/region/regolith-region-panel.ui.h:11
 msgid "Install languages..."
 msgstr "Instalar llingües…"
 
-#: ../panels/region/gnome-region-panel.ui.h:12
+#: ../panels/region/regolith-region-panel.ui.h:12
 msgid "Language"
 msgstr "Llinguax"
 
-#: ../panels/region/gnome-region-panel.ui.h:13
+#: ../panels/region/regolith-region-panel.ui.h:13
 msgid "Layouts"
 msgstr "Distribuciones"
 
-#: ../panels/region/gnome-region-panel.ui.h:14
+#: ../panels/region/regolith-region-panel.ui.h:14
 msgid "Measurement"
 msgstr "Midida"
 
-#: ../panels/region/gnome-region-panel.ui.h:15
+#: ../panels/region/regolith-region-panel.ui.h:15
 msgid "New windows use the default layout"
 msgstr "Les ventanes nueves usen la distribución predeterminada"
 
-#: ../panels/region/gnome-region-panel.ui.h:16
+#: ../panels/region/regolith-region-panel.ui.h:16
 msgid "New windows use the previous window's layout"
 msgstr "Les ventanes nueves usen la distribución de la ventana activa"
 
-#: ../panels/region/gnome-region-panel.ui.h:17
+#: ../panels/region/regolith-region-panel.ui.h:17
 msgid "Numbers"
 msgstr "Númberos"
 
-#: ../panels/region/gnome-region-panel.ui.h:18
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:4
+#: ../panels/region/regolith-region-panel.ui.h:18
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:4
 msgid "Region and Language"
 msgstr "Rexón y llingua"
 
-#: ../panels/region/gnome-region-panel.ui.h:19
+#: ../panels/region/regolith-region-panel.ui.h:19
 msgid ""
 "Replace the current keyboard layout settings with the\n"
 "default settings"
@@ -1670,70 +1670,70 @@ msgstr ""
 "Trocar la configuración actual de tecláu pola\n"
 "configuración por defeutu"
 
-#: ../panels/region/gnome-region-panel.ui.h:21
+#: ../panels/region/regolith-region-panel.ui.h:21
 msgid "Reset to De_faults"
 msgstr "Restablecer valores _predeterminaos"
 
-#: ../panels/region/gnome-region-panel.ui.h:22
+#: ../panels/region/regolith-region-panel.ui.h:22
 msgid "Select a display language (change will be applied next time you log in)"
 msgstr "Esbilla una llingua p'amosar (el cambéu va aplicase la próxima vegada qu'anicies sesión)"
 
-#: ../panels/region/gnome-region-panel.ui.h:23
+#: ../panels/region/regolith-region-panel.ui.h:23
 msgid "Select a region (change will be applied the next time you log in)"
 msgstr "Esbilla una rexón (el cambéu va aplicase la próxima vegada qu'anicies sesión)"
 
-#: ../panels/region/gnome-region-panel.ui.h:25
+#: ../panels/region/regolith-region-panel.ui.h:25
 msgid "System settings"
 msgstr "Axustes del sistema"
 
-#: ../panels/region/gnome-region-panel.ui.h:26
-#: ../panels/region/gnome-region-panel-system.c:400
+#: ../panels/region/regolith-region-panel.ui.h:26
+#: ../panels/region/regolith-region-panel-system.c:400
 msgid "The login screen, system accounts and new user accounts use the system-wide Region and Language settings. You may change the system settings to match yours."
 msgstr "La pantalla d'aniciu de sesión, les cuentes de sistema y les nueves cuentes d'usuariu usen los axustes de rexón y llingua. Pues camudar los axustes del sistema pa que correspuendan a les tuyes."
 
-#: ../panels/region/gnome-region-panel.ui.h:27
+#: ../panels/region/regolith-region-panel.ui.h:27
 msgid "Times"
 msgstr "Vegaes"
 
-#: ../panels/region/gnome-region-panel.ui.h:28
+#: ../panels/region/regolith-region-panel.ui.h:28
 msgid "Use the same layout for all windows"
 msgstr "Usar la mesma distribución pa toles ventanes"
 
-#: ../panels/region/gnome-region-panel.ui.h:29
+#: ../panels/region/regolith-region-panel.ui.h:29
 msgid "View and edit keyboard layout options"
 msgstr "Ver y editar les opciones de distribución de tecláu"
 
-#: ../panels/region/gnome-region-panel.ui.h:30
+#: ../panels/region/regolith-region-panel.ui.h:30
 msgid "Your settings"
 msgstr "Los tos axustes"
 
-#: ../panels/region/gnome-region-panel.ui.h:31
+#: ../panels/region/regolith-region-panel.ui.h:31
 msgid "_Options..."
 msgstr "_Opciones..."
 
-#: ../panels/region/gnome-region-panel-system.c:395
+#: ../panels/region/regolith-region-panel-system.c:395
 msgid "The login screen, system accounts and new user accounts use the system-wide Region and Language settings."
 msgstr "La pantalla d'aniciu de sesión, les cuentes de sistema y les nueves cuentes d'usuariu usen los axustes de rexón y llingua."
 
-#: ../panels/region/gnome-region-panel-system.c:403
+#: ../panels/region/regolith-region-panel-system.c:403
 msgid "Copy Settings"
 msgstr "Copiar axustes"
 
-#: ../panels/region/gnome-region-panel-xkblt.c:210
+#: ../panels/region/regolith-region-panel-xkblt.c:210
 msgid "Layout"
 msgstr "Disposición"
 
-#: ../panels/region/gnome-region-panel-xkbot.c:229
+#: ../panels/region/regolith-region-panel-xkbot.c:229
 #: ../panels/sound/gvc-sound-theme-chooser.c:586
 msgid "Default"
 msgstr "Predetermináu"
 
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:1
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:1
 msgid "Change your region and language settings"
 msgstr "Cambiar los axustes de rexón y llingua"
 
 #. Translators: those are keywords for the region control-center panel
-#: ../panels/region/gnome-region-panel.desktop.in.in.h:3
+#: ../panels/region/regolith-region-panel.desktop.in.in.h:3
 msgid "Language;Layout;Keyboard;"
 msgstr "Llingua;Distribución;Tecláu;"
 
@@ -1856,16 +1856,16 @@ msgstr "_Sensibilidá:"
 msgid "_Timeout:"
 msgstr "_Tiempu d'espera:"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:1
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:1
 msgid "Mouse and Touchpad"
 msgstr "Mur y «touchpad»"
 
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:2
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:2
 msgid "Set your mouse and touchpad preferences"
 msgstr "Configura les preferencies de mur y touchpad"
 
 #. Translators: those are keywords for the mouse and touchpad control-center panel
-#: ../panels/mouse/gnome-mouse-panel.desktop.in.in.h:4
+#: ../panels/mouse/regolith-mouse-panel.desktop.in.in.h:4
 msgid "Trackpad;Pointer;Click;Tap;Double;Button;Trackball;"
 msgstr "trackpad;punteru;calcar;doble;mur;trackball;"
 
@@ -1989,16 +1989,16 @@ msgstr "¿Detener el «hotspot» y desconeutar a los usuarios?"
 msgid "_Stop Hotspot"
 msgstr "_Detener «hotspot»"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:1
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:1
 msgid "Network"
 msgstr "Rede"
 
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:2
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:2
 msgid "Network settings"
 msgstr "Configuración de la rede"
 
 #. Translators: those are keywords for the network control-center panel
-#: ../panels/network/gnome-network-panel.desktop.in.in.h:4
+#: ../panels/network/regolith-network-panel.desktop.in.in.h:4
 msgid "Network;Wireless;IP;LAN;"
 msgstr "rede;inalámbrica;ip;lan;"
 
@@ -2245,16 +2245,16 @@ msgstr "Estáu desconocíu (ausente)"
 msgid "Not connected"
 msgstr "Non coneutáu"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:1
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:1
 msgid "Power"
 msgstr "Enerxía"
 
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:2
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:2
 msgid "Power management settings"
 msgstr "Axustes de Xestión d'enerxía"
 
 #. Translators: those are keywords for the power control-center panel
-#: ../panels/power/gnome-power-panel.desktop.in.in.h:4
+#: ../panels/power/regolith-power-panel.desktop.in.in.h:4
 msgid "Power;Sleep;Suspend;Hibernate;Battery;"
 msgstr "Enerxía;Durmir;Suspender;Ivernar;Batería;"
 
@@ -2378,17 +2378,17 @@ msgstr "Cuando tea coneutáu"
 msgid "When power is _critically low:"
 msgstr "_Cuando la carga tea críticamente baxa:"
 
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:1
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:1
 #: ../panels/color/color.ui.h:8
 msgid "Color"
 msgstr "Color"
 
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:2
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:2
 msgid "Color management settings"
 msgstr "Axustes de xestión de color"
 
 #. Translators: those are keywords for the color control-center panel
-#: ../panels/color/gnome-color-panel.desktop.in.in.h:4
+#: ../panels/color/regolith-color-panel.desktop.in.in.h:4
 msgid "Color;ICC;Profile;Calibrate;Printer;Display;"
 msgstr "Color;ICC;Perfil;Calibráu;Imprentadora;Pantalla;"
 
@@ -3147,11 +3147,11 @@ msgid "3/4 Screen"
 msgstr "3/4 Pantalla"
 
 #. Translators: those are keywords for the universal access control-center panel
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:2
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:2
 msgid "Keyboard;Mouse;a11y;Accessibility;Contrast;Zoom;Screen Reader;text;font;size;AccessX;Sticky Keys;Slow Keys;Bounce Keys;Mouse Keys"
 msgstr "Tecláu;Mur;a11y;Accesibilidá;Contraste;Zoom;Llector de pantalla;testu;fonte;tamañu;AccessX;Tecles persistentes;Tecles lentes;Refugu de tecles;Tecles del mur"
 
-#: ../panels/universal-access/gnome-universal-access-panel.desktop.in.in.h:4
+#: ../panels/universal-access/regolith-universal-access-panel.desktop.in.in.h:4
 msgid "Universal Access Preferences"
 msgstr "Preferencies d'accesu universal"
 
@@ -3956,16 +3956,16 @@ msgstr ""
 " ➣ díxitos\n"
 " ➣ cualquiera de los caráuteres «.», «-» y «_»"
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:1
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:1
 msgid "Add or remove users"
 msgstr "Amestar o quitar usuarios"
 
 #. Translators: those are keywords for the user accounts control-center panel
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:3
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:3
 msgid "Login;Name;Fingerprint;Avatar;Logo;Face;Password;"
 msgstr "aniciu;sesión;nome;buelga;avatar;logu;cara;contraseña;"
 
-#: ../panels/user-accounts/data/gnome-user-accounts-panel.desktop.in.in.h:4
+#: ../panels/user-accounts/data/regolith-user-accounts-panel.desktop.in.in.h:4
 msgid "User Accounts"
 msgstr "Cuentes d'usuariu"
 
@@ -4269,16 +4269,16 @@ msgstr "Mou de rastréu"
 msgid "Wacom Tablet"
 msgstr "Tableta Wacom"
 
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:1
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:1
 msgid "Set your Wacom tablet preferences"
 msgstr "Afita les preferencies de la to tableta Wacom"
 
 #. Translators: those are keywords for the wacom tablet control-center panel
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:3
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:3
 msgid "Tablet;Wacom;Stylus;Eraser;Mouse;"
 msgstr "Tablet;Wacom;Llápiz;Borrador;Mur;"
 
-#: ../panels/wacom/gnome-wacom-panel.desktop.in.in.h:4
+#: ../panels/wacom/regolith-wacom-panel.desktop.in.in.h:4
 msgid "Wacom Graphics Tablet"
 msgstr "Tableta gráfica Wacom"
 

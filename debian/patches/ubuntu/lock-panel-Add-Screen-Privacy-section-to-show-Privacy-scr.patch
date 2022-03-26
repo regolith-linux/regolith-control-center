@@ -12,7 +12,7 @@ Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/merge_requests/
 ---
  panels/lock/cc-lock-panel.c                | 53 +++++++++++++++++++++++
  panels/lock/cc-lock-panel.ui               | 67 ++++++++++++++++++++++++++++++
- panels/lock/gnome-lock-panel.desktop.in.in |  8 ++--
+ panels/lock/regolith-lock-panel.desktop.in.in |  8 ++--
  3 files changed, 124 insertions(+), 4 deletions(-)
 
 diff --git a/panels/lock/cc-lock-panel.c b/panels/lock/cc-lock-panel.c
@@ -196,10 +196,10 @@ index 3b36af7..83673bd 100644
                </object>
              </child>
  
-diff --git a/panels/lock/gnome-lock-panel.desktop.in.in b/panels/lock/gnome-lock-panel.desktop.in.in
+diff --git a/panels/lock/regolith-lock-panel.desktop.in.in b/panels/lock/regolith-lock-panel.desktop.in.in
 index 5b4f8b4..120f5ec 100644
---- a/panels/lock/gnome-lock-panel.desktop.in.in
-+++ b/panels/lock/gnome-lock-panel.desktop.in.in
+--- a/panels/lock/regolith-lock-panel.desktop.in.in
++++ b/panels/lock/regolith-lock-panel.desktop.in.in
 @@ -1,10 +1,10 @@
  [Desktop Entry]
 -Name=Screen Lock
