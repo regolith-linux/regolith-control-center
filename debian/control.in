@@ -97,7 +97,7 @@ Recommends: cups-pk-helper,
             cracklib-runtime,
             pulseaudio-module-bluetooth,
             power-profiles-daemon,
-            regolith-control-center-faces,
+            gnome-control-center-faces,
             rygel | rygel-tracker,
 Suggests: gnome-software | gnome-packagekit,
           gnome-user-share,
@@ -115,16 +115,6 @@ Description: utilities to configure the GNOME desktop
  .
  It also contains a front end to these applets, which can also be
  accessed with the GNOME panel or the Nautilus file manager.
-
-Package: regolith-control-center-faces
-Architecture: all
-Multi-Arch: foreign
-Depends: ${misc:Depends}
-Conflicts: unity-control-center-faces
-Replaces: unity-control-center-faces
-Provides: unity-control-center-faces
-Description: utilities to configure the GNOME desktop - faces images
- This package contains images that can be used for user profile's icon
 
 Package: regolith-control-center-dev
 Architecture: all
