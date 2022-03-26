@@ -11,42 +11,54 @@
 
 /**
  * SECTION:hdy-action-row
- * @short_description: A #GtkListBox row used to present actions
+ * @short_description: A #GtkListBox row used to present actions.
  * @Title: HdyActionRow
  *
  * The #HdyActionRow widget can have a title, a subtitle and an icon. The row
- * can receive action widgets at its end, prefix widgets at its start or widgets
- * below it.
+ * can receive additional widgets at its end, or prefix widgets at its start.
  *
- * Note that action widgets are packed starting from the end.
+ * It is convenient to present a preference and its related actions.
  *
- * It is convenient to present a list of preferences and their related actions.
+ * #HdyActionRow is unactivatable by default, giving it an activatable widget
+ * will automatically make it activatable, but unsetting it won't change the
+ * row's activatability.
  *
  * # HdyActionRow as GtkBuildable
  *
  * The GtkWindow implementation of the GtkBuildable interface supports setting a
- * child as an action widget by specifying “action” as the “type” attribute of a
- * &lt;child&gt; element.
+ * child at its end by omitting the “type” attribute of a &lt;child&gt; element.
  *
  * It also supports setting a child as a prefix widget by specifying “prefix” as
  * the “type” attribute of a &lt;child&gt; element.
+ *
+ * # CSS nodes
+ *
+ * #HdyActionRow has a main CSS node with name row.
+ *
+ * It contains the subnode box.header for its main horizontal box, and box.title
+ * for the vertical box containing the title and subtitle labels.
+ *
+ * It contains subnodes label.title and label.subtitle representing respectively
+ * the title label and subtitle label.
  *
  * Since: 0.0.6
  */
 
 typedef struct
 {
-  GtkBox *box;
   GtkBox *header;
   GtkImage *image;
   GtkBox *prefixes;
   GtkLabel *subtitle;
+  GtkBox *suffixes;
   GtkLabel *title;
   GtkBox *title_box;
 
   GtkWidget *previous_parent;
 
   gboolean use_underline;
+  gint title_lines;
+  gint subtitle_lines;
   GtkWidget *activatable_widget;
 } HdyActionRowPrivate;
 
@@ -64,12 +76,20 @@ enum {
   PROP_ICON_NAME,
   PROP_ACTIVATABLE_WIDGET,
   PROP_SUBTITLE,
-  PROP_TITLE,
   PROP_USE_UNDERLINE,
+  PROP_TITLE_LINES,
+  PROP_SUBTITLE_LINES,
   LAST_PROP,
 };
 
 static GParamSpec *props[LAST_PROP];
+
+enum {
+  SIGNAL_ACTIVATED,
+  SIGNAL_LAST_SIGNAL,
+};
+
+static guint signals[SIGNAL_LAST_SIGNAL];
 
 static void
 row_activated_cb (HdyActionRow  *self,
@@ -126,8 +146,11 @@ hdy_action_row_get_property (GObject    *object,
   case PROP_SUBTITLE:
     g_value_set_string (value, hdy_action_row_get_subtitle (self));
     break;
-  case PROP_TITLE:
-    g_value_set_string (value, hdy_action_row_get_title (self));
+  case PROP_SUBTITLE_LINES:
+    g_value_set_int (value, hdy_action_row_get_subtitle_lines (self));
+    break;
+  case PROP_TITLE_LINES:
+    g_value_set_int (value, hdy_action_row_get_title_lines (self));
     break;
   case PROP_USE_UNDERLINE:
     g_value_set_boolean (value, hdy_action_row_get_use_underline (self));
@@ -155,8 +178,11 @@ hdy_action_row_set_property (GObject      *object,
   case PROP_SUBTITLE:
     hdy_action_row_set_subtitle (self, g_value_get_string (value));
     break;
-  case PROP_TITLE:
-    hdy_action_row_set_title (self, g_value_get_string (value));
+  case PROP_SUBTITLE_LINES:
+    hdy_action_row_set_subtitle_lines (self, g_value_get_int (value));
+    break;
+  case PROP_TITLE_LINES:
+    hdy_action_row_set_title_lines (self, g_value_get_int (value));
     break;
   case PROP_USE_UNDERLINE:
     hdy_action_row_set_use_underline (self, g_value_get_boolean (value));
@@ -193,6 +219,11 @@ hdy_action_row_show_all (GtkWidget *widget)
   gtk_container_foreach (GTK_CONTAINER (priv->prefixes),
                          (GtkCallback) gtk_widget_show_all,
                          NULL);
+
+  gtk_container_foreach (GTK_CONTAINER (priv->suffixes),
+                         (GtkCallback) gtk_widget_show_all,
+                         NULL);
+
   GTK_WIDGET_CLASS (hdy_action_row_parent_class)->show_all (widget);
 }
 
@@ -202,15 +233,15 @@ hdy_action_row_destroy (GtkWidget *widget)
   HdyActionRow *self = HDY_ACTION_ROW (widget);
   HdyActionRowPrivate *priv = hdy_action_row_get_instance_private (self);
 
-  if (priv->box) {
-    gtk_widget_destroy (GTK_WIDGET (priv->box));
-    priv->box = NULL;
+  if (priv->header) {
+    gtk_widget_destroy (GTK_WIDGET (priv->header));
+    priv->header = NULL;
   }
 
   hdy_action_row_set_activatable_widget (self, NULL);
 
   priv->prefixes = NULL;
-  priv->header = NULL;
+  priv->suffixes = NULL;
 
   GTK_WIDGET_CLASS (hdy_action_row_parent_class)->destroy (widget);
 }
@@ -225,10 +256,27 @@ hdy_action_row_add (GtkContainer *container,
   /* When constructing the widget, we want the box to be added as the child of
    * the GtkListBoxRow, as an implementation detail.
    */
-  if (priv->box == NULL)
+  if (priv->header == NULL)
     GTK_CONTAINER_CLASS (hdy_action_row_parent_class)->add (container, child);
+  else {
+    gtk_container_add (GTK_CONTAINER (priv->suffixes), child);
+    gtk_widget_show (GTK_WIDGET (priv->suffixes));
+  }
+}
+
+static void
+hdy_action_row_remove (GtkContainer *container,
+                       GtkWidget    *child)
+{
+  HdyActionRow *self = HDY_ACTION_ROW (container);
+  HdyActionRowPrivate *priv = hdy_action_row_get_instance_private (self);
+
+  if (child == GTK_WIDGET (priv->header))
+    GTK_CONTAINER_CLASS (hdy_action_row_parent_class)->remove (container, child);
+  else if (gtk_widget_get_parent (child) == GTK_WIDGET (priv->prefixes))
+    gtk_container_remove (GTK_CONTAINER (priv->prefixes), child);
   else
-    gtk_container_add (GTK_CONTAINER (priv->box), child);
+    gtk_container_remove (GTK_CONTAINER (priv->suffixes), child);
 }
 
 typedef struct {
@@ -244,9 +292,9 @@ for_non_internal_child (GtkWidget *widget,
   ForallData *data = callback_data;
   HdyActionRowPrivate *priv = hdy_action_row_get_instance_private (data->row);
 
-  if (widget != (GtkWidget *) priv->box &&
-      widget != (GtkWidget *) priv->image &&
+  if (widget != (GtkWidget *) priv->image &&
       widget != (GtkWidget *) priv->prefixes &&
+      widget != (GtkWidget *) priv->suffixes &&
       widget != (GtkWidget *) priv->title_box)
     data->callback (widget, data->callback_data);
 }
@@ -273,10 +321,10 @@ hdy_action_row_forall (GtkContainer *container,
 
   if (priv->prefixes)
     GTK_CONTAINER_GET_CLASS (priv->prefixes)->forall (GTK_CONTAINER (priv->prefixes), include_internals, for_non_internal_child, &data);
+  if (priv->suffixes)
+    GTK_CONTAINER_GET_CLASS (priv->suffixes)->forall (GTK_CONTAINER (priv->suffixes), include_internals, for_non_internal_child, &data);
   if (priv->header)
     GTK_CONTAINER_GET_CLASS (priv->header)->forall (GTK_CONTAINER (priv->header), include_internals, for_non_internal_child, &data);
-  if (priv->box)
-    GTK_CONTAINER_GET_CLASS (priv->box)->forall (GTK_CONTAINER (priv->box), include_internals, for_non_internal_child, &data);
 }
 
 static void
@@ -286,6 +334,8 @@ hdy_action_row_activate_real (HdyActionRow *self)
 
   if (priv->activatable_widget)
     gtk_widget_mnemonic_activate (priv->activatable_widget, FALSE);
+
+  g_signal_emit (self, signals[SIGNAL_ACTIVATED], 0);
 }
 
 static void
@@ -303,6 +353,7 @@ hdy_action_row_class_init (HdyActionRowClass *klass)
   widget_class->show_all = hdy_action_row_show_all;
 
   container_class->add = hdy_action_row_add;
+  container_class->remove = hdy_action_row_remove;
   container_class->forall = hdy_action_row_forall;
 
   klass->activate = hdy_action_row_activate_real;
@@ -350,20 +401,6 @@ hdy_action_row_class_init (HdyActionRowClass *klass)
                          G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_EXPLICIT_NOTIFY);
 
   /**
-   * HdyActionRow:title:
-   *
-   * The title for this row.
-   *
-   * Since: 0.0.6
-   */
-  props[PROP_TITLE] =
-    g_param_spec_string ("title",
-                         _("Title"),
-                         _("Title"),
-                         "",
-                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS | G_PARAM_EXPLICIT_NOTIFY);
-
-  /**
    * HdyActionRow:use-underline:
    *
    * Whether an embedded underline in the text of the title and subtitle labels
@@ -378,23 +415,94 @@ hdy_action_row_class_init (HdyActionRowClass *klass)
                           FALSE,
                           G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY);
 
+  /**
+   * HdyActionRow:title-lines:
+   *
+   * The number of lines at the end of which the title label will be ellipsized.
+   * Set this property to 0 if you don't want to limit the number of lines.
+   *
+   * Since: 1.2
+   */
+  props[PROP_TITLE_LINES] =
+    g_param_spec_int ("title-lines",
+                      _("Number of title lines"),
+                      _("The desired number of title lines"),
+                      0, G_MAXINT,
+                      1,
+                      G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY);
+
+  /**
+   * HdyActionRow:subtitle-lines:
+   *
+   * The number of lines at the end of which the subtitle label will be
+   * ellipsized.
+   * Set this property to 0 if you don't want to limit the number of lines.
+   *
+   * Since: 1.2
+   */
+  props[PROP_SUBTITLE_LINES] =
+    g_param_spec_int ("subtitle-lines",
+                      _("Number of subtitle lines"),
+                      _("The desired number of subtitle lines"),
+                      0, G_MAXINT,
+                      1,
+                      G_PARAM_READWRITE | G_PARAM_EXPLICIT_NOTIFY);
+
   g_object_class_install_properties (object_class, LAST_PROP, props);
+
+  /**
+   * HdyActionRow::activated:
+   * @self: The #HdyActionRow instance
+   *
+   * This signal is emitted after the row has been activated.
+   *
+   * Since: 1.0
+   */
+  signals[SIGNAL_ACTIVATED] =
+    g_signal_new ("activated",
+                  G_TYPE_FROM_CLASS (klass),
+                  G_SIGNAL_RUN_LAST,
+                  0,
+                  NULL, NULL, NULL,
+                  G_TYPE_NONE,
+                  0);
 
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/sm/puri/handy/ui/hdy-action-row.ui");
-  gtk_widget_class_bind_template_child_private (widget_class, HdyActionRow, box);
   gtk_widget_class_bind_template_child_private (widget_class, HdyActionRow, header);
   gtk_widget_class_bind_template_child_private (widget_class, HdyActionRow, image);
   gtk_widget_class_bind_template_child_private (widget_class, HdyActionRow, prefixes);
   gtk_widget_class_bind_template_child_private (widget_class, HdyActionRow, subtitle);
+  gtk_widget_class_bind_template_child_private (widget_class, HdyActionRow, suffixes);
   gtk_widget_class_bind_template_child_private (widget_class, HdyActionRow, title);
   gtk_widget_class_bind_template_child_private (widget_class, HdyActionRow, title_box);
+}
+
+static gboolean
+string_is_not_empty (GBinding     *binding,
+                     const GValue *from_value,
+                     GValue       *to_value,
+                     gpointer      user_data)
+{
+  const gchar *string = g_value_get_string (from_value);
+
+  g_value_set_boolean (to_value, string != NULL && g_strcmp0 (string, "") != 0);
+
+  return TRUE;
 }
 
 static void
 hdy_action_row_init (HdyActionRow *self)
 {
+  HdyActionRowPrivate *priv = hdy_action_row_get_instance_private (self);
+
+  priv->title_lines = 1;
+  priv->subtitle_lines = 1;
+
   gtk_widget_init_template (GTK_WIDGET (self));
+
+  g_object_bind_property_full (self, "title", priv->title, "visible", G_BINDING_SYNC_CREATE,
+                               string_is_not_empty, NULL, NULL, NULL);
 
   update_subtitle_visibility (self);
 
@@ -408,12 +516,15 @@ hdy_action_row_buildable_add_child (GtkBuildable *buildable,
                                     GObject      *child,
                                     const gchar  *type)
 {
-  if (type && strcmp (type, "action") == 0)
-    hdy_action_row_add_action (HDY_ACTION_ROW (buildable), GTK_WIDGET (child));
+  HdyActionRow *self = HDY_ACTION_ROW (buildable);
+  HdyActionRowPrivate *priv = hdy_action_row_get_instance_private (self);
+
+  if (priv->header == NULL || !type)
+    gtk_container_add (GTK_CONTAINER (self), GTK_WIDGET (child));
   else if (type && strcmp (type, "prefix") == 0)
-    hdy_action_row_add_prefix (HDY_ACTION_ROW (buildable), GTK_WIDGET (child));
+    hdy_action_row_add_prefix (self, GTK_WIDGET (child));
   else
-    parent_buildable_iface->add_child (buildable, builder, child, type);
+    GTK_BUILDER_WARN_INVALID_CHILD_TYPE (self, type);
 }
 
 static void
@@ -432,62 +543,10 @@ hdy_action_row_buildable_init (GtkBuildableIface *iface)
  *
  * Since: 0.0.6
  */
-HdyActionRow *
+GtkWidget *
 hdy_action_row_new (void)
 {
   return g_object_new (HDY_TYPE_ACTION_ROW, NULL);
-}
-
-/**
- * hdy_action_row_get_title:
- * @self: a #HdyActionRow
- *
- * Gets the title for @self.
- *
- * Returns: the title for @self.
- *
- * Since: 0.0.6
- */
-const gchar *
-hdy_action_row_get_title (HdyActionRow *self)
-{
-  HdyActionRowPrivate *priv;
-
-  g_return_val_if_fail (HDY_IS_ACTION_ROW (self), NULL);
-
-  priv = hdy_action_row_get_instance_private (self);
-
-  return gtk_label_get_text (priv->title);
-}
-
-/**
- * hdy_action_row_set_title:
- * @self: a #HdyActionRow
- * @title: the title
- *
- * Sets the title for @self.
- *
- * Since: 0.0.6
- */
-void
-hdy_action_row_set_title (HdyActionRow *self,
-                          const gchar  *title)
-{
-  HdyActionRowPrivate *priv;
-
-  g_return_if_fail (HDY_IS_ACTION_ROW (self));
-
-  priv = hdy_action_row_get_instance_private (self);
-  hdy_preferences_row_set_title (HDY_PREFERENCES_ROW (self), title);
-
-  if (g_strcmp0 (gtk_label_get_text (priv->title), title) == 0)
-    return;
-
-  gtk_label_set_text (priv->title, title);
-  gtk_widget_set_visible (GTK_WIDGET (priv->title),
-                          title != NULL && g_strcmp0 (title, "") != 0);
-
-  g_object_notify_by_pspec (G_OBJECT (self), props[PROP_TITLE]);
 }
 
 /**
@@ -496,7 +555,7 @@ hdy_action_row_set_title (HdyActionRow *self,
  *
  * Gets the subtitle for @self.
  *
- * Returns: the subtitle for @self.
+ * Returns: (transfer none) (nullable): the subtitle for @self, or %NULL.
  *
  * Since: 0.0.6
  */
@@ -515,7 +574,7 @@ hdy_action_row_get_subtitle (HdyActionRow *self)
 /**
  * hdy_action_row_set_subtitle:
  * @self: a #HdyActionRow
- * @subtitle: the subtitle
+ * @subtitle: (nullable): the subtitle
  *
  * Sets the subtitle for @self.
  *
@@ -547,7 +606,8 @@ hdy_action_row_set_subtitle (HdyActionRow *self,
  *
  * Gets the icon name for @self.
  *
- * Returns: the icon name for @self.
+ * Returns: (transfer none): the icon name for @self.
+ * The returned string is owned by the #HdyActionRow and should not be freed.
  *
  * Since: 0.0.6
  */
@@ -653,14 +713,12 @@ hdy_action_row_set_activatable_widget (HdyActionRow *self,
   HdyActionRowPrivate *priv;
 
   g_return_if_fail (HDY_IS_ACTION_ROW (self));
+  g_return_if_fail (widget == NULL || GTK_IS_WIDGET (widget));
 
   priv = hdy_action_row_get_instance_private (self);
 
   if (priv->activatable_widget == widget)
     return;
-
-  if (widget != NULL)
-    g_return_if_fail (GTK_IS_WIDGET (widget));
 
   if (priv->activatable_widget)
     g_object_weak_unref (G_OBJECT (priv->activatable_widget),
@@ -669,10 +727,12 @@ hdy_action_row_set_activatable_widget (HdyActionRow *self,
 
   priv->activatable_widget = widget;
 
-  if (priv->activatable_widget != NULL)
+  if (priv->activatable_widget != NULL) {
     g_object_weak_ref (G_OBJECT (priv->activatable_widget),
                        activatable_widget_weak_notify,
                        self);
+    gtk_list_box_row_set_activatable (GTK_LIST_BOX_ROW (self), TRUE);
+  }
 
   g_object_notify_by_pspec (G_OBJECT (self), props[PROP_ACTIVATABLE_WIDGET]);
 }
@@ -721,10 +781,12 @@ hdy_action_row_set_use_underline (HdyActionRow *self,
 
   priv = hdy_action_row_get_instance_private (self);
 
-  if (priv->use_underline == !!use_underline)
+  use_underline = !!use_underline;
+
+  if (priv->use_underline == use_underline)
     return;
 
-  priv->use_underline = !!use_underline;
+  priv->use_underline = use_underline;
   hdy_preferences_row_set_use_underline (HDY_PREFERENCES_ROW (self), priv->use_underline);
   gtk_label_set_use_underline (priv->title, priv->use_underline);
   gtk_label_set_use_underline (priv->subtitle, priv->use_underline);
@@ -735,31 +797,125 @@ hdy_action_row_set_use_underline (HdyActionRow *self,
 }
 
 /**
- * hdy_action_row_add_action:
+ * hdy_action_row_get_title_lines:
  * @self: a #HdyActionRow
- * @widget: (allow-none): the action widget
  *
- * Adds an action widget to @self.
+ * Gets the number of lines at the end of which the title label will be
+ * ellipsized.
+ * If the value is 0, the number of lines won't be limited.
  *
- * Since: 0.0.6
+ * Returns: the number of lines at the end of which the title label will be
+ *          ellipsized.
+ *
+ * Since: 1.2
+ */
+gint
+hdy_action_row_get_title_lines (HdyActionRow *self)
+{
+  HdyActionRowPrivate *priv;
+
+  g_return_val_if_fail (HDY_IS_ACTION_ROW (self), 0);
+
+  priv = hdy_action_row_get_instance_private (self);
+
+  return priv->title_lines;
+}
+
+/**
+ * hdy_action_row_set_title_lines:
+ * @self: a #HdyActionRow
+ * @title_lines: the number of lines at the end of which the title label will be ellipsized
+ *
+ * Sets the number of lines at the end of which the title label will be
+ * ellipsized.
+ * If the value is 0, the number of lines won't be limited.
+ *
+ * Since: 1.2
  */
 void
-hdy_action_row_add_action (HdyActionRow *self,
-                           GtkWidget    *widget)
+hdy_action_row_set_title_lines (HdyActionRow *self,
+                                gint          title_lines)
 {
   HdyActionRowPrivate *priv;
 
   g_return_if_fail (HDY_IS_ACTION_ROW (self));
+  g_return_if_fail (title_lines >= 0);
 
   priv = hdy_action_row_get_instance_private (self);
 
-  gtk_box_pack_end (priv->header, widget, FALSE, TRUE, 0);
+  if (priv->title_lines == title_lines)
+    return;
+
+  priv->title_lines = title_lines;
+
+  gtk_label_set_lines (priv->title, title_lines);
+  gtk_label_set_ellipsize (priv->title, title_lines == 0 ? PANGO_ELLIPSIZE_NONE : PANGO_ELLIPSIZE_END);
+
+  g_object_notify_by_pspec (G_OBJECT (self), props[PROP_TITLE_LINES]);
+}
+
+/**
+ * hdy_action_row_get_subtitle_lines:
+ * @self: a #HdyActionRow
+ *
+ * Gets the number of lines at the end of which the subtitle label will be
+ * ellipsized.
+ * If the value is 0, the number of lines won't be limited.
+ *
+ * Returns: the number of lines at the end of which the subtitle label will be
+ *          ellipsized.
+ *
+ * Since: 1.2
+ */
+gint
+hdy_action_row_get_subtitle_lines (HdyActionRow *self)
+{
+  HdyActionRowPrivate *priv;
+
+  g_return_val_if_fail (HDY_IS_ACTION_ROW (self), 0);
+
+  priv = hdy_action_row_get_instance_private (self);
+
+  return priv->subtitle_lines;
+}
+
+/**
+ * hdy_action_row_set_subtitle_lines:
+ * @self: a #HdyActionRow
+ * @subtitle_lines: the number of lines at the end of which the subtitle label will be ellipsized
+ *
+ * Sets the number of lines at the end of which the subtitle label will be
+ * ellipsized.
+ * If the value is 0, the number of lines won't be limited.
+ *
+ * Since: 1.2
+ */
+void
+hdy_action_row_set_subtitle_lines (HdyActionRow *self,
+                                   gint          subtitle_lines)
+{
+  HdyActionRowPrivate *priv;
+
+  g_return_if_fail (HDY_IS_ACTION_ROW (self));
+  g_return_if_fail (subtitle_lines >= 0);
+
+  priv = hdy_action_row_get_instance_private (self);
+
+  if (priv->subtitle_lines == subtitle_lines)
+    return;
+
+  priv->subtitle_lines = subtitle_lines;
+
+  gtk_label_set_lines (priv->subtitle, subtitle_lines);
+  gtk_label_set_ellipsize (priv->subtitle, subtitle_lines == 0 ? PANGO_ELLIPSIZE_NONE : PANGO_ELLIPSIZE_END);
+
+  g_object_notify_by_pspec (G_OBJECT (self), props[PROP_SUBTITLE_LINES]);
 }
 
 /**
  * hdy_action_row_add_prefix:
  * @self: a #HdyActionRow
- * @widget: (allow-none): the prefix widget
+ * @widget: the prefix widget
  *
  * Adds a prefix widget to @self.
  *
@@ -772,6 +928,7 @@ hdy_action_row_add_prefix (HdyActionRow *self,
   HdyActionRowPrivate *priv;
 
   g_return_if_fail (HDY_IS_ACTION_ROW (self));
+  g_return_if_fail (GTK_IS_WIDGET (self));
 
   priv = hdy_action_row_get_instance_private (self);
 

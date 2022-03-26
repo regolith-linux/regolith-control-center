@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Purism SPC
+ * Copyright (C) 2020 Purism SPC
  *
  * SPDX-License-Identifier: LGPL-2.1+
  */
@@ -9,10 +9,13 @@
 #error "Only <handy.h> can be included directly."
 #endif
 
+#include "hdy-version.h"
+
 #include <glib.h>
 
 G_BEGIN_DECLS
 
-gboolean hdy_init(int *argc, char ***argv);
+HDY_AVAILABLE_IN_ALL
+void hdy_init (void);
 
 G_END_DECLS

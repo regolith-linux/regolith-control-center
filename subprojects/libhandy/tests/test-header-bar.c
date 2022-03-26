@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: LGPL-2.1+
  */
 
-#define HANDY_USE_UNSTABLE_API
 #include <handy.h>
 
 
@@ -199,7 +198,7 @@ main (gint argc,
       gchar *argv[])
 {
   gtk_test_init (&argc, &argv, NULL);
-  hdy_init (&argc, &argv);
+  hdy_init ();
 
   g_test_add_func("/Handy/HeaderBar/pack", test_hdy_header_bar_pack);
   g_test_add_func("/Handy/HeaderBar/title", test_hdy_header_bar_title);

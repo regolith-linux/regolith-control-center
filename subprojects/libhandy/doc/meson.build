@@ -6,19 +6,36 @@ private_headers = [
     'config.h',
     'gtkprogresstrackerprivate.h',
     'gtk-window-private.h',
+    'hdy-animation-private.h',
+    'hdy-avatar-icon-private.h',
+    'hdy-bidi-private.h',
+    'hdy-carousel-box-private.h',
+    'hdy-css-private.h',
+    'hdy-enums.h',
+    'hdy-enums-private.h',
+    'hdy-fading-label-private.h',
     'hdy-main-private.h',
+    'hdy-nothing-private.h',
+    'hdy-keypad-button-private.h',
     'hdy-preferences-group-private.h',
     'hdy-preferences-page-private.h',
-    'hdy-style-private.h',
+    'hdy-shadow-helper-private.h',
+    'hdy-stackable-box-private.h',
+    'hdy-swipe-tracker-private.h',
+    'hdy-tab-private.h',
+    'hdy-tab-bar-private.h',
+    'hdy-tab-box-private.h',
+    'hdy-tab-view-private.h',
+    'hdy-types.h',
     'hdy-view-switcher-button-private.h',
+    'hdy-window-handle-controller-private.h',
+    'hdy-window-mixin-private.h',
 ]
 
 images = [
-  'images/arrows.png',
-  'images/dialer.png',
-  'images/dialog-desktop.png',
-  'images/dialog-mobile.png',
+  'images/avatar.png',
   'images/header-bar.png',
+  'images/keypad.png',
   'images/list.png',
   'images/preferences-window.png',
   'images/search.png',
@@ -28,18 +45,20 @@ images = [
 
 content_files = [
   'build-howto.xml',
+  'hdy-migrating-0-0-to-1.xml',
   'visual-index.xml',
 ]
 
-glib_prefix = dependency('glib-2.0').get_pkgconfig_variable('prefix')
-glib_docpath = join_paths(glib_prefix, 'share', 'gtk-doc', 'html')
-docpath = join_paths(get_option('datadir'), 'gtk-doc', 'html')
+glib_prefix  = dependency('glib-2.0').get_pkgconfig_variable('prefix')
+glib_docpath = glib_prefix / 'share' / 'gtk-doc' / 'html'
+docpath      = get_option('datadir') / 'gtk-doc' / 'html'
 
 gnome.gtkdoc('libhandy',
+     module_version: apiversion,
            main_xml: 'handy-docs.xml',
             src_dir: [
-                       join_paths(meson.source_root(), 'src'),
-                       join_paths(meson.build_root(), 'src'),
+                       meson.source_root() / 'src',
+                       meson.build_root()  / 'src',
                      ],
        dependencies: libhandy_dep,
   gobject_typesfile: 'libhandy.types',
@@ -49,15 +68,15 @@ gnome.gtkdoc('libhandy',
                      ],
        fixxref_args: [
                        '--html-dir=@0@'.format(docpath),
-                       '--extra-dir=@0@'.format(join_paths(glib_docpath, 'glib')),
-                       '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gobject')),
-                       '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gio')),
-                       '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gi')),
-                       '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gtk3')),
+                       '--extra-dir=@0@'.format(glib_docpath / 'glib'),
+                       '--extra-dir=@0@'.format(glib_docpath / 'gobject'),
+                       '--extra-dir=@0@'.format(glib_docpath / 'gio'),
+                       '--extra-dir=@0@'.format(glib_docpath / 'gi'),
+                       '--extra-dir=@0@'.format(glib_docpath / 'gtk3'),
+                       '--extra-dir=@0@'.format(glib_docpath / 'gdk-pixbuf'),
                      ],
-        install_dir: 'libhandy',
       content_files: content_files,
         html_assets: images,
-            install: installable)
+            install: true)
 
 endif

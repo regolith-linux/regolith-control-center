@@ -11,7 +11,7 @@
 
 /**
  * SECTION:hdy-preferences-row
- * @short_description: A #GtkListBox row used to present preferences
+ * @short_description: A #GtkListBox row used to present preferences.
  * @Title: HdyPreferencesRow
  *
  * The #HdyPreferencesRow widget has a title that #HdyPreferencesWindow will use
@@ -149,7 +149,7 @@ hdy_preferences_row_init (HdyPreferencesRow *self)
  *
  * Since: 0.0.10
  */
-HdyPreferencesRow *
+GtkWidget *
 hdy_preferences_row_new (void)
 {
   return g_object_new (HDY_TYPE_PREFERENCES_ROW, NULL);
@@ -250,10 +250,12 @@ hdy_preferences_row_set_use_underline (HdyPreferencesRow *self,
 
   priv = hdy_preferences_row_get_instance_private (self);
 
-  if (priv->use_underline == !!use_underline)
+  use_underline = !!use_underline;
+
+  if (priv->use_underline == use_underline)
     return;
 
-  priv->use_underline = !!use_underline;
+  priv->use_underline = use_underline;
 
   g_object_notify_by_pspec (G_OBJECT (self), props[PROP_USE_UNDERLINE]);
 }

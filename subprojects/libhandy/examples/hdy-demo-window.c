@@ -1,50 +1,89 @@
 #include "hdy-demo-window.h"
 
 #include <glib/gi18n.h>
-#define HANDY_USE_UNSTABLE_API
-#include <handy.h>
+#include "hdy-flap-demo-window.h"
+#include "hdy-tab-view-demo-window.h"
 #include "hdy-view-switcher-demo-window.h"
 
 struct _HdyDemoWindow
 {
-  GtkApplicationWindow parent_instance;
+  HdyApplicationWindow parent_instance;
 
-  HdyLeaflet *header_box;
   HdyLeaflet *content_box;
-  GtkButton *back;
-  GtkToggleButton *search_button;
+  GtkStack *header_revealer;
+  GtkStack *header_stack;
+  GtkImage *theme_variant_image;
   GtkStackSidebar *sidebar;
   GtkStack *stack;
-  GtkWidget *box_dialer;
-  HdyDialer *dialer;
-  GtkLabel *display;
-  GtkWidget *arrows;
+  HdyComboRow *leaflet_transition_row;
+  HdyDeck *content_deck;
+  HdyComboRow *deck_transition_row;
+  GtkWidget *box_keypad;
+  GtkListBox *keypad_listbox;
+  HdyKeypad *keypad;
   HdySearchBar *search_bar;
   GtkEntry *search_entry;
-  GtkListBox *arrows_listbox;
-  HdyComboRow *arrows_direction_row;
-  GtkListBox *column_listbox;
   GtkListBox *lists_listbox;
   HdyComboRow *combo_row;
   HdyComboRow *enum_combo_row;
-  HdyHeaderGroup *header_group;
-  GtkAdjustment *adj_arrows_count;
-  GtkAdjustment *adj_arrows_duration;
+  HdyCarousel *carousel;
+  GtkBox *carousel_box;
+  GtkListBox *carousel_listbox;
+  GtkStack *carousel_indicators_stack;
+  HdyComboRow *carousel_orientation_row;
+  HdyComboRow *carousel_indicators_row;
+  GListStore *carousel_indicators_model;
+  HdyAvatar *avatar;
+  GtkEntry *avatar_text;
+  GtkFileChooserButton *avatar_filechooser;
+  GtkListBox *avatar_contacts;
 };
 
-G_DEFINE_TYPE (HdyDemoWindow, hdy_demo_window, GTK_TYPE_APPLICATION_WINDOW)
+G_DEFINE_TYPE (HdyDemoWindow, hdy_demo_window, HDY_TYPE_APPLICATION_WINDOW)
+
+static void
+theme_variant_button_clicked_cb (HdyDemoWindow *self)
+{
+  GtkSettings *settings = gtk_settings_get_default ();
+  gboolean prefer_dark_theme;
+
+  g_object_get (settings, "gtk-application-prefer-dark-theme", &prefer_dark_theme, NULL);
+  g_object_set (settings, "gtk-application-prefer-dark-theme", !prefer_dark_theme, NULL);
+}
 
 static gboolean
-hdy_demo_window_key_pressed_cb (GtkWidget     *sender,
-                                GdkEventKey   *event,
-                                HdyDemoWindow *self)
+prefer_dark_theme_to_icon_name_cb (GBinding     *binding,
+                                   const GValue *from_value,
+                                   GValue       *to_value,
+                                   gpointer      user_data)
+{
+  g_value_set_string (to_value,
+                      g_value_get_boolean (from_value) ? "light-mode-symbolic" :
+                                                         "dark-mode-symbolic");
+
+  return TRUE;
+}
+
+static gboolean
+key_pressed_cb (GtkWidget     *sender,
+                GdkEvent      *event,
+                HdyDemoWindow *self)
 {
   GdkModifierType default_modifiers = gtk_accelerator_get_default_mod_mask ();
   guint keyval;
   GdkModifierType state;
+  GdkKeymap *keymap;
+  GdkEventKey *key_event = (GdkEventKey *) event;
 
-  gdk_event_get_keyval ((GdkEvent *) event, &keyval);
-  gdk_event_get_state ((GdkEvent *) event, &state);
+  gdk_event_get_state (event, &state);
+
+  keymap = gdk_keymap_get_for_display (gtk_widget_get_display (sender));
+
+  gdk_keymap_translate_keyboard_state (keymap,
+                                       key_event->hardware_keycode,
+                                       state,
+                                       key_event->group,
+                                       &keyval, NULL, NULL, NULL);
 
   if ((keyval == GDK_KEY_q || keyval == GDK_KEY_Q) &&
       (state & default_modifiers) == GDK_CONTROL_MASK) {
@@ -59,220 +98,115 @@ hdy_demo_window_key_pressed_cb (GtkWidget     *sender,
 static void
 update (HdyDemoWindow *self)
 {
-  GtkWidget *header_child = hdy_leaflet_get_visible_child (self->header_box);
-  HdyFold fold = hdy_leaflet_get_fold (self->header_box);
+  const gchar *header_bar_name = "default";
 
-  g_assert (header_child == NULL || GTK_IS_HEADER_BAR (header_child));
+  if (g_strcmp0 (gtk_stack_get_visible_child_name (self->stack), "deck") == 0)
+    header_bar_name = "deck";
+  else if (g_strcmp0 (gtk_stack_get_visible_child_name (self->stack), "search-bar") == 0)
+    header_bar_name = "search-bar";
 
-  hdy_header_group_set_focus (self->header_group, fold == HDY_FOLD_FOLDED ? GTK_HEADER_BAR (header_child) : NULL);
+  gtk_stack_set_visible_child_name (self->header_stack, header_bar_name);
 }
 
 static void
-update_header_bar (HdyDemoWindow *self)
-{
-  const gchar *visible_child_name;
-
-  visible_child_name = gtk_stack_get_visible_child_name (GTK_STACK (self->stack));
-  gtk_widget_set_visible (GTK_WIDGET (self->search_button),
-                          g_str_equal (visible_child_name, "search-bar"));
-}
-
-static void
-hdy_demo_window_notify_header_visible_child_cb (GObject       *sender,
-                                                GParamSpec    *pspec,
-                                                HdyDemoWindow *self)
+notify_deck_visible_child_cb (HdyDemoWindow *self)
 {
   update (self);
 }
 
 static void
-hdy_demo_window_notify_fold_cb (GObject       *sender,
-                                GParamSpec    *pspec,
-                                HdyDemoWindow *self)
+notify_visible_child_cb (GObject       *sender,
+                         GParamSpec    *pspec,
+                         HdyDemoWindow *self)
 {
   update (self);
+
+  hdy_leaflet_navigate (self->content_box, HDY_NAVIGATION_DIRECTION_FORWARD);
 }
 
 static void
-hdy_demo_window_notify_visible_child_cb (GObject       *sender,
-                                         GParamSpec    *pspec,
-                                         HdyDemoWindow *self)
+back_clicked_cb (GtkWidget     *sender,
+                 HdyDemoWindow *self)
 {
-  hdy_leaflet_set_visible_child_name (self->content_box, "content");
-  update_header_bar (self);
+  hdy_leaflet_navigate (self->content_box, HDY_NAVIGATION_DIRECTION_BACK);
 }
 
 static void
-hdy_demo_window_back_clicked_cb (GtkWidget     *sender,
-                                 HdyDemoWindow *self)
+deck_back_clicked_cb (GtkWidget     *sender,
+                      HdyDemoWindow *self)
 {
-  hdy_leaflet_set_visible_child_name (self->content_box, "sidebar");
+  hdy_deck_navigate (self->content_deck, HDY_NAVIGATION_DIRECTION_BACK);
 }
-
-static void
-hdy_demo_window_submitted_cb (GtkWidget *widget,
-                              gchar     *number)
-{
-  g_print ("Submit %s\n", number);
-}
-
-
-static void
-deleted_cb (HdyDialer     *dialer,
-            HdyDemoWindow *self)
-{
-  g_assert (HDY_IS_DIALER (dialer));
-  g_assert (HDY_IS_DEMO_WINDOW (self));
-  g_print ("Delete btn\n");
-}
-
-
-static void
-number_notify_cb (HdyDemoWindow *self,
-                  gpointer       unused)
-{
-  gtk_label_set_label (self->display, hdy_dialer_get_number (self->dialer));
-  g_print ("wuff: %s\n", hdy_dialer_get_number (self->dialer));
-}
-
-
-static void
-symbol_clicked_cb (HdyDialer     *dialer,
-                   gchar          symbol,
-                   HdyDemoWindow *self)
-{
-  g_assert (HDY_IS_DIALER (dialer));
-  g_assert (HDY_IS_DEMO_WINDOW (self));
-  g_print ("clicked: %c\n", symbol);
-}
-
-
-static void
-stack_visible_child_notify_cb (HdyDemoWindow *self,
-                               gpointer       unused)
-{
-  if (gtk_stack_get_visible_child (GTK_STACK (self->stack)) == GTK_WIDGET (self->box_dialer)) {
-    gtk_widget_grab_focus (GTK_WIDGET (self->dialer));
-  }
-}
-
 
 static gchar *
-arrows_direction_name (HdyEnumValueObject *value,
-                       gpointer            user_data)
+leaflet_transition_name (HdyEnumValueObject *value,
+                         gpointer            user_data)
 {
   g_return_val_if_fail (HDY_IS_ENUM_VALUE_OBJECT (value), NULL);
 
   switch (hdy_enum_value_object_get_value (value)) {
-  case HDY_ARROWS_DIRECTION_UP:
-    return g_strdup (_("Up"));
-  case HDY_ARROWS_DIRECTION_DOWN:
-    return g_strdup (_("Down"));
-  case HDY_ARROWS_DIRECTION_LEFT:
-    return g_strdup (_("Left"));
-  case HDY_ARROWS_DIRECTION_RIGHT:
-    return g_strdup (_("Right"));
+  case HDY_LEAFLET_TRANSITION_TYPE_OVER:
+    return g_strdup (_("Over"));
+  case HDY_LEAFLET_TRANSITION_TYPE_UNDER:
+    return g_strdup (_("Under"));
+  case HDY_LEAFLET_TRANSITION_TYPE_SLIDE:
+    return g_strdup (_("Slide"));
   default:
     return NULL;
   }
 }
 
-
 static void
-notify_arrows_direction_cb (GObject       *sender,
-                            GParamSpec    *pspec,
-                            HdyDemoWindow *self)
+notify_leaflet_transition_cb (GObject       *sender,
+                              GParamSpec    *pspec,
+                              HdyDemoWindow *self)
 {
   HdyComboRow *row = HDY_COMBO_ROW (sender);
 
   g_assert (HDY_IS_COMBO_ROW (row));
   g_assert (HDY_IS_DEMO_WINDOW (self));
 
-  hdy_arrows_set_direction (HDY_ARROWS (self->arrows), hdy_combo_row_get_selected_index (row));
+  hdy_leaflet_set_transition_type (HDY_LEAFLET (self->content_box), hdy_combo_row_get_selected_index (row));
 }
 
+static gchar *
+deck_transition_name (HdyEnumValueObject *value,
+                      gpointer            user_data)
+{
+  g_return_val_if_fail (HDY_IS_ENUM_VALUE_OBJECT (value), NULL);
+
+  switch (hdy_enum_value_object_get_value (value)) {
+  case HDY_DECK_TRANSITION_TYPE_OVER:
+    return g_strdup (_("Over"));
+  case HDY_DECK_TRANSITION_TYPE_UNDER:
+    return g_strdup (_("Under"));
+  case HDY_DECK_TRANSITION_TYPE_SLIDE:
+    return g_strdup (_("Slide"));
+  default:
+    return NULL;
+  }
+}
 
 static void
-adj_arrows_count_value_changed_cb (GtkAdjustment *adj,
-                                   HdyDemoWindow *self)
+notify_deck_transition_cb (GObject       *sender,
+                           GParamSpec    *pspec,
+                           HdyDemoWindow *self)
 {
-  gdouble count;
+  HdyComboRow *row = HDY_COMBO_ROW (sender);
 
-  g_assert (GTK_IS_ADJUSTMENT (adj));
+  g_assert (HDY_IS_COMBO_ROW (row));
   g_assert (HDY_IS_DEMO_WINDOW (self));
 
-  count = gtk_adjustment_get_value (adj);
-  hdy_arrows_set_count (HDY_ARROWS (self->arrows), count);
+  hdy_deck_set_transition_type (HDY_DECK (self->content_deck), hdy_combo_row_get_selected_index (row));
 }
 
-
 static void
-adj_arrows_duration_value_changed_cb (GtkAdjustment *adj,
-                                      HdyDemoWindow *self)
+deck_go_next_row_activated_cb (HdyDemoWindow *self)
 {
-  gdouble duration;
-
-  g_assert (GTK_IS_ADJUSTMENT (adj));
   g_assert (HDY_IS_DEMO_WINDOW (self));
 
-  duration = gtk_adjustment_get_value (adj);
-  hdy_arrows_set_duration (HDY_ARROWS (self->arrows), duration);
+  hdy_deck_navigate (self->content_deck, HDY_NAVIGATION_DIRECTION_FORWARD);
 }
-
-static void
-dialog_close_cb (GtkDialog *self)
-{
-  gtk_widget_destroy (GTK_WIDGET (self));
-}
-
-static void
-dialog_clicked_cb (GtkButton     *btn,
-                   HdyDemoWindow *self)
-{
-  GtkWidget *dlg;
-  GtkWidget *lbl;
-
-  dlg = hdy_dialog_new (GTK_WINDOW (self));
-  gtk_window_set_title (GTK_WINDOW (dlg), "HdyDialog");
-  lbl = gtk_label_new ("Hello, World!");
-  g_object_set (lbl, "margin", 12, NULL);
-  gtk_widget_set_vexpand (lbl, TRUE);
-  gtk_widget_set_valign (lbl, GTK_ALIGN_CENTER);
-  gtk_widget_set_halign (lbl, GTK_ALIGN_CENTER);
-  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dlg))),
-                     lbl);
-
-  gtk_widget_show (lbl);
-  gtk_widget_show (dlg);
-}
-
-static void
-dialog_action_clicked_cb (GtkButton     *btn,
-                          HdyDemoWindow *self)
-{
-  GtkWidget *dlg;
-  GtkWidget *lbl;
-
-  dlg = hdy_dialog_new (GTK_WINDOW (self));
-  gtk_window_set_title (GTK_WINDOW (dlg), "HdyDialog");
-  gtk_dialog_add_buttons (GTK_DIALOG (dlg),
-                          "Done", GTK_RESPONSE_ACCEPT,
-                          "Cancel", GTK_RESPONSE_CANCEL,
-                          NULL);
-  gtk_dialog_set_default_response (GTK_DIALOG (dlg), GTK_RESPONSE_ACCEPT);
-  g_signal_connect (G_OBJECT (dlg), "response", G_CALLBACK (dialog_close_cb), NULL);
-  lbl = gtk_label_new ("Hello, World!");
-  g_object_set (lbl, "margin", 12, NULL);
-  gtk_widget_set_vexpand (lbl, TRUE);
-  gtk_widget_set_valign (lbl, GTK_ALIGN_CENTER);
-  gtk_widget_set_halign (lbl, GTK_ALIGN_CENTER);
-  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dlg))),
-                     lbl);
-
-  gtk_widget_show (lbl);
-  gtk_widget_show (dlg);
-}
-
 
 static void
 view_switcher_demo_clicked_cb (GtkButton     *btn,
@@ -284,12 +218,251 @@ view_switcher_demo_clicked_cb (GtkButton     *btn,
   gtk_widget_show (GTK_WIDGET (window));
 }
 
+static gchar *
+carousel_orientation_name (HdyEnumValueObject *value,
+                           gpointer            user_data)
+{
+  g_return_val_if_fail (HDY_IS_ENUM_VALUE_OBJECT (value), NULL);
+
+  switch (hdy_enum_value_object_get_value (value)) {
+  case GTK_ORIENTATION_HORIZONTAL:
+    return g_strdup (_("Horizontal"));
+  case GTK_ORIENTATION_VERTICAL:
+    return g_strdup (_("Vertical"));
+  default:
+    return NULL;
+  }
+}
+
+static void
+notify_carousel_orientation_cb (GObject       *sender,
+                                GParamSpec    *pspec,
+                                HdyDemoWindow *self)
+{
+  HdyComboRow *row = HDY_COMBO_ROW (sender);
+
+  g_assert (HDY_IS_COMBO_ROW (row));
+  g_assert (HDY_IS_DEMO_WINDOW (self));
+
+  gtk_orientable_set_orientation (GTK_ORIENTABLE (self->carousel_box),
+                                  1 - hdy_combo_row_get_selected_index (row));
+  gtk_orientable_set_orientation (GTK_ORIENTABLE (self->carousel),
+                                  hdy_combo_row_get_selected_index (row));
+}
+
+static gchar *
+carousel_indicators_name (HdyValueObject *value)
+{
+  const gchar *style;
+
+  g_assert (HDY_IS_VALUE_OBJECT (value));
+
+  style = hdy_value_object_get_string (value);
+
+  if (!g_strcmp0 (style, "dots"))
+    return g_strdup (_("Dots"));
+
+  if (!g_strcmp0 (style, "lines"))
+    return g_strdup (_("Lines"));
+
+  return NULL;
+}
+
+static void
+notify_carousel_indicators_cb (GObject       *sender,
+                               GParamSpec    *pspec,
+                               HdyDemoWindow *self)
+{
+  HdyComboRow *row = HDY_COMBO_ROW (sender);
+  HdyValueObject *obj;
+
+  g_assert (HDY_IS_COMBO_ROW (row));
+  g_assert (HDY_IS_DEMO_WINDOW (self));
+
+  obj = g_list_model_get_item (G_LIST_MODEL (self->carousel_indicators_model),
+                               hdy_combo_row_get_selected_index (row));
+
+  gtk_stack_set_visible_child_name (self->carousel_indicators_stack,
+                                    hdy_value_object_get_string (obj));
+}
+
+static void
+carousel_return_clicked_cb (GtkButton     *btn,
+                            HdyDemoWindow *self)
+{
+  g_autoptr (GList) children =
+    gtk_container_get_children (GTK_CONTAINER (self->carousel));
+
+  hdy_carousel_scroll_to (self->carousel, GTK_WIDGET (children->data));
+}
+
 HdyDemoWindow *
 hdy_demo_window_new (GtkApplication *application)
 {
   return g_object_new (HDY_TYPE_DEMO_WINDOW, "application", application, NULL);
 }
 
+static void
+avatar_file_remove_cb (HdyDemoWindow *self)
+{
+  g_autofree gchar *file = NULL;
+
+  g_assert (HDY_IS_DEMO_WINDOW (self));
+
+  g_signal_handlers_disconnect_by_data (self->avatar, self);
+  file = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (self->avatar_filechooser));
+  if (file)
+    gtk_file_chooser_unselect_filename (GTK_FILE_CHOOSER (self->avatar_filechooser), file);
+
+  hdy_avatar_set_loadable_icon (self->avatar, NULL);
+}
+
+static void
+avatar_file_set_cb (HdyDemoWindow *self)
+{
+  g_autoptr (GFile) file = NULL;
+  g_autoptr (GIcon) icon = NULL;
+
+  g_assert (HDY_IS_DEMO_WINDOW (self));
+
+  file = gtk_file_chooser_get_file (GTK_FILE_CHOOSER (self->avatar_filechooser));
+  icon = g_file_icon_new (file);
+  hdy_avatar_set_loadable_icon (self->avatar, G_LOADABLE_ICON (icon));
+}
+
+static void
+file_chooser_response_cb (HdyDemoWindow  *self,
+                          gint            response_id,
+                          GtkFileChooser *chooser)
+{
+  if (response_id == GTK_RESPONSE_ACCEPT) {
+    g_autofree gchar *filename = gtk_file_chooser_get_filename (chooser);
+    g_autoptr (GdkPixbuf) pixbuf =
+      hdy_avatar_draw_to_pixbuf (self->avatar,
+                                 hdy_avatar_get_size (self->avatar),
+                                 gtk_widget_get_scale_factor (GTK_WIDGET (self)));
+
+    if (pixbuf != NULL)
+      gdk_pixbuf_save (pixbuf, filename, "png", NULL, NULL);
+  }
+
+  g_object_unref (chooser);
+}
+
+static void
+avatar_save_to_file_cb (HdyDemoWindow *self)
+{
+  GtkFileChooserNative *chooser = NULL;
+
+  g_assert (HDY_IS_DEMO_WINDOW (self));
+
+  chooser = gtk_file_chooser_native_new (_("Save Avatar"),
+                                         GTK_WINDOW (self),
+                                         GTK_FILE_CHOOSER_ACTION_SAVE,
+                                         _("_Save"),
+                                         _("_Cancel"));
+
+  gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (chooser), TRUE);
+  g_signal_connect_swapped (chooser, "response", G_CALLBACK (file_chooser_response_cb), self);
+
+  gtk_native_dialog_show (GTK_NATIVE_DIALOG (chooser));
+}
+
+static gchar *
+avatar_new_random_name (void)
+{
+  static const char *first_names[] = {
+    "Adam",
+    "Adrian",
+    "Anna",
+    "Charlotte",
+    "Frédérique",
+    "Ilaria",
+    "Jakub",
+    "Jennyfer",
+    "Julia",
+    "Justin",
+    "Mario",
+    "Miriam",
+    "Mohamed",
+    "Nourimane",
+    "Owen",
+    "Peter",
+    "Petra",
+    "Rachid",
+    "Rebecca",
+    "Sarah",
+    "Thibault",
+    "Wolfgang",
+  };
+  static const char *last_names[] = {
+    "Bailey",
+    "Berat",
+    "Chen",
+    "Farquharson",
+    "Ferber",
+    "Franco",
+    "Galinier",
+    "Han",
+    "Lawrence",
+    "Lepied",
+    "Lopez",
+    "Mariotti",
+    "Rossi",
+    "Urasawa",
+    "Zwickelman",
+  };
+
+  return g_strdup_printf ("%s %s",
+                          first_names[g_random_int_range (0, G_N_ELEMENTS (first_names))],
+                          last_names[g_random_int_range (0, G_N_ELEMENTS (last_names))]);
+}
+
+static void
+avatar_update_contacts (HdyDemoWindow *self)
+{
+  g_autoptr (GList) children = gtk_container_get_children (GTK_CONTAINER (self->avatar_contacts));
+
+  for (GList *child = children; child; child = child->next)
+    gtk_container_remove (GTK_CONTAINER (self->avatar_contacts), child->data);
+
+  for (int i = 0; i < 30; i++) {
+    g_autofree gchar *name = avatar_new_random_name ();
+    GtkWidget *contact = hdy_action_row_new ();
+    GtkWidget *avatar = hdy_avatar_new (40, name, TRUE);
+
+    gtk_widget_show (contact);
+    gtk_widget_show (avatar);
+
+    gtk_widget_set_margin_top (avatar, 12);
+    gtk_widget_set_margin_bottom (avatar, 12);
+
+    hdy_preferences_row_set_title (HDY_PREFERENCES_ROW (contact), name);
+    hdy_action_row_add_prefix (HDY_ACTION_ROW (contact), avatar);
+    gtk_container_add (GTK_CONTAINER (self->avatar_contacts), contact);
+  }
+}
+
+static void
+flap_demo_clicked_cb (GtkButton     *btn,
+                      HdyDemoWindow *self)
+{
+  HdyFlapDemoWindow *window = hdy_flap_demo_window_new ();
+
+  gtk_window_set_transient_for (GTK_WINDOW (window), GTK_WINDOW (self));
+  gtk_widget_show (GTK_WIDGET (window));
+}
+
+static void
+tab_view_demo_clicked_cb (GtkButton     *btn,
+                          HdyDemoWindow *self)
+{
+  HdyTabViewDemoWindow *window = hdy_tab_view_demo_window_new ();
+
+  hdy_tab_view_demo_window_prepopulate (window);
+
+  gtk_window_present (GTK_WINDOW (window));
+}
 
 static void
 hdy_demo_window_constructed (GObject *object)
@@ -298,20 +471,6 @@ hdy_demo_window_constructed (GObject *object)
 
   G_OBJECT_CLASS (hdy_demo_window_parent_class)->constructed (object);
 
-  g_signal_connect_swapped (self->dialer,
-                            "notify::number",
-                            G_CALLBACK (number_notify_cb),
-                            self);
-
-  g_signal_connect_swapped (self->stack,
-                            "notify::visible-child",
-                            G_CALLBACK (stack_visible_child_notify_cb),
-                            self);
-
-  gtk_adjustment_set_value (self->adj_arrows_count,
-                            hdy_arrows_get_count (HDY_ARROWS (self->arrows)));
-  gtk_adjustment_set_value (self->adj_arrows_duration,
-                            hdy_arrows_get_duration (HDY_ARROWS (self->arrows)));
   hdy_search_bar_connect_entry (self->search_bar, self->search_entry);
 }
 
@@ -324,42 +483,52 @@ hdy_demo_window_class_init (HdyDemoWindowClass *klass)
 
   object_class->constructed = hdy_demo_window_constructed;
 
-  gtk_widget_class_set_template_from_resource (widget_class, "/sm/puri/handy/demo/ui/hdy-demo-window.ui");
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, header_box);
+  gtk_widget_class_set_template_from_resource (widget_class, "/sm/puri/Handy/Demo/ui/hdy-demo-window.ui");
   gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, content_box);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, back);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, search_button);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, header_revealer);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, header_stack);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, theme_variant_image);
   gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, sidebar);
   gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, stack);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, box_dialer);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, dialer);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, display);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, arrows);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, leaflet_transition_row);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, content_deck);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, deck_transition_row);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, box_keypad);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, keypad_listbox);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, keypad);
   gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, search_bar);
   gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, search_entry);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, arrows_listbox);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, arrows_direction_row);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, column_listbox);
   gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, lists_listbox);
   gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, combo_row);
   gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, enum_combo_row);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, header_group);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, adj_arrows_count);
-  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, adj_arrows_duration);
-  gtk_widget_class_bind_template_callback_full (widget_class, "key_pressed_cb", G_CALLBACK(hdy_demo_window_key_pressed_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "notify_header_visible_child_cb", G_CALLBACK(hdy_demo_window_notify_header_visible_child_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "notify_fold_cb", G_CALLBACK(hdy_demo_window_notify_fold_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "notify_visible_child_cb", G_CALLBACK(hdy_demo_window_notify_visible_child_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "back_clicked_cb", G_CALLBACK(hdy_demo_window_back_clicked_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "submitted_cb", G_CALLBACK(hdy_demo_window_submitted_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "symbol_clicked_cb", G_CALLBACK(symbol_clicked_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "deleted_cb", G_CALLBACK(deleted_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "notify_arrows_direction_cb", G_CALLBACK(notify_arrows_direction_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "adj_arrows_count_value_changed_cb", G_CALLBACK(adj_arrows_count_value_changed_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "adj_arrows_duration_value_changed_cb", G_CALLBACK(adj_arrows_duration_value_changed_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "dialog_clicked_cb", G_CALLBACK(dialog_clicked_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "dialog_action_clicked_cb", G_CALLBACK(dialog_action_clicked_cb));
-  gtk_widget_class_bind_template_callback_full (widget_class, "view_switcher_demo_clicked_cb", G_CALLBACK(view_switcher_demo_clicked_cb));
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, carousel);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, carousel_box);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, carousel_listbox);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, carousel_indicators_stack);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, carousel_orientation_row);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, carousel_indicators_row);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, avatar);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, avatar_text);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, avatar_filechooser);
+  gtk_widget_class_bind_template_child (widget_class, HdyDemoWindow, avatar_contacts);
+  gtk_widget_class_bind_template_callback (widget_class, key_pressed_cb);
+  gtk_widget_class_bind_template_callback (widget_class, notify_visible_child_cb);
+  gtk_widget_class_bind_template_callback (widget_class, notify_deck_visible_child_cb);
+  gtk_widget_class_bind_template_callback (widget_class, back_clicked_cb);
+  gtk_widget_class_bind_template_callback (widget_class, deck_back_clicked_cb);
+  gtk_widget_class_bind_template_callback (widget_class, notify_leaflet_transition_cb);
+  gtk_widget_class_bind_template_callback (widget_class, notify_deck_transition_cb);
+  gtk_widget_class_bind_template_callback (widget_class, deck_go_next_row_activated_cb);
+  gtk_widget_class_bind_template_callback (widget_class, theme_variant_button_clicked_cb);
+  gtk_widget_class_bind_template_callback (widget_class, view_switcher_demo_clicked_cb);
+  gtk_widget_class_bind_template_callback (widget_class, notify_carousel_orientation_cb);
+  gtk_widget_class_bind_template_callback (widget_class, notify_carousel_indicators_cb);
+  gtk_widget_class_bind_template_callback (widget_class, carousel_return_clicked_cb);
+  gtk_widget_class_bind_template_callback (widget_class, avatar_file_remove_cb);
+  gtk_widget_class_bind_template_callback (widget_class, avatar_file_set_cb);
+  gtk_widget_class_bind_template_callback (widget_class, avatar_save_to_file_cb);
+  gtk_widget_class_bind_template_callback (widget_class, flap_demo_clicked_cb);
+  gtk_widget_class_bind_template_callback (widget_class, tab_view_demo_clicked_cb);
 }
 
 static void
@@ -367,8 +536,6 @@ lists_page_init (HdyDemoWindow *self)
 {
   GListStore *list_store;
   HdyValueObject *obj;
-
-  gtk_list_box_set_header_func (self->lists_listbox, hdy_list_box_separator_header, NULL, NULL);
 
   list_store = g_list_store_new (HDY_TYPE_VALUE_OBJECT);
 
@@ -387,19 +554,71 @@ lists_page_init (HdyDemoWindow *self)
   hdy_combo_row_bind_name_model (self->combo_row, G_LIST_MODEL (list_store), (HdyComboRowGetNameFunc) hdy_value_object_dup_string, NULL, NULL);
 
   hdy_combo_row_set_for_enum (self->enum_combo_row, GTK_TYPE_LICENSE, hdy_enum_value_row_name, NULL, NULL);
+  update (self);
+}
+
+static void
+carousel_page_init (HdyDemoWindow *self)
+{
+  HdyValueObject *obj;
+
+  hdy_combo_row_set_for_enum (self->carousel_orientation_row,
+                              GTK_TYPE_ORIENTATION,
+                              carousel_orientation_name,
+                              NULL,
+                              NULL);
+
+  self->carousel_indicators_model = g_list_store_new (HDY_TYPE_VALUE_OBJECT);
+
+  obj = hdy_value_object_new_string ("dots");
+  g_list_store_insert (self->carousel_indicators_model, 0, obj);
+  g_clear_object (&obj);
+
+  obj = hdy_value_object_new_string ("lines");
+  g_list_store_insert (self->carousel_indicators_model, 1, obj);
+  g_clear_object (&obj);
+
+  hdy_combo_row_bind_name_model (self->carousel_indicators_row,
+                                 G_LIST_MODEL (self->carousel_indicators_model),
+                                 (HdyComboRowGetNameFunc) carousel_indicators_name,
+                                 NULL,
+                                 NULL);
+}
+
+static void
+avatar_page_init (HdyDemoWindow *self)
+{
+  g_autofree gchar *name = avatar_new_random_name ();
+
+  gtk_entry_set_text (self->avatar_text, name);
+
+  avatar_update_contacts (self);
 }
 
 static void
 hdy_demo_window_init (HdyDemoWindow *self)
 {
-  gtk_widget_init_template (GTK_WIDGET (self));
-  gtk_list_box_set_header_func (self->column_listbox, hdy_list_box_separator_header, NULL, NULL);
+  GtkSettings *settings = gtk_settings_get_default ();
 
-  gtk_list_box_set_header_func (self->arrows_listbox, hdy_list_box_separator_header, NULL, NULL);
-  hdy_combo_row_set_for_enum (self->arrows_direction_row, HDY_TYPE_ARROWS_DIRECTION, arrows_direction_name, NULL, NULL);
+  gtk_widget_init_template (GTK_WIDGET (self));
+
+  g_object_bind_property_full (settings, "gtk-application-prefer-dark-theme",
+                               self->theme_variant_image, "icon-name",
+                               G_BINDING_SYNC_CREATE,
+                               prefer_dark_theme_to_icon_name_cb,
+                               NULL,
+                               NULL,
+                               NULL);
+
+  hdy_combo_row_set_for_enum (self->leaflet_transition_row, HDY_TYPE_LEAFLET_TRANSITION_TYPE, leaflet_transition_name, NULL, NULL);
+  hdy_combo_row_set_selected_index (self->leaflet_transition_row, HDY_LEAFLET_TRANSITION_TYPE_OVER);
+
+  hdy_combo_row_set_for_enum (self->deck_transition_row, HDY_TYPE_DECK_TRANSITION_TYPE, deck_transition_name, NULL, NULL);
+  hdy_combo_row_set_selected_index (self->deck_transition_row, HDY_DECK_TRANSITION_TYPE_OVER);
 
   lists_page_init (self);
+  carousel_page_init (self);
+  avatar_page_init (self);
 
   hdy_leaflet_set_visible_child_name (self->content_box, "content");
-  update_header_bar (self);
 }

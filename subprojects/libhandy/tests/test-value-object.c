@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: LGPL-2.1+
  */
 
-#define HANDY_USE_UNSTABLE_API
 #include <handy.h>
 
 
@@ -47,7 +46,7 @@ main (gint argc,
       gchar *argv[])
 {
   gtk_test_init (&argc, &argv, NULL);
-  hdy_init (&argc, &argv);
+  hdy_init ();
 
   g_test_add_func("/Handy/ValueObject/init", test_hdy_value_object_init);
 

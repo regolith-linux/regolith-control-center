@@ -1,5 +1,4 @@
 #include <gtk/gtk.h>
-#define HANDY_USE_UNSTABLE_API
 #include <handy.h>
 
 #include "hdy-demo-preferences-window.h"
@@ -19,11 +18,27 @@ show_preferences (GSimpleAction *action,
 }
 
 static void
+setup_accels (GtkApplication *app)
+{
+  const char *const new_tab_accels[] = { "<Primary>T", NULL };
+  const char *const new_window_accels[] = { "<Primary>N", NULL };
+  const char *const tab_close_accels[] = { "<Primary>W", NULL };
+
+  gtk_application_set_accels_for_action (app, "win.tab-new", new_tab_accels);
+  gtk_application_set_accels_for_action (app, "win.window-new", new_window_accels);
+  gtk_application_set_accels_for_action (app, "tab.close", tab_close_accels);
+}
+
+static void
 startup (GtkApplication *app)
 {
   GtkCssProvider *css_provider = gtk_css_provider_new ();
 
-  gtk_css_provider_load_from_resource (css_provider, "/sm/puri/handy/demo/ui/style.css");
+  hdy_init ();
+
+  setup_accels (app);
+
+  gtk_css_provider_load_from_resource (css_provider, "/sm/puri/Handy/Demo/ui/style.css");
   gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
                                              GTK_STYLE_PROVIDER (css_provider),
                                              GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -51,7 +66,6 @@ main (int    argc,
     { "preferences", show_preferences, NULL, NULL, NULL },
   };
 
-  hdy_init (&argc, &argv);
   app = gtk_application_new ("sm.puri.Handy.Demo", G_APPLICATION_FLAGS_NONE);
   g_action_map_add_action_entries (G_ACTION_MAP (app),
                                    app_entries, G_N_ELEMENTS (app_entries),
