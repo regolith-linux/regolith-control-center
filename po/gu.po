@@ -5572,17 +5572,17 @@ msgstr "ફોલ્ડર"
 # #-#-#-#-#  gnome-icon-theme.gnome-2-2.hi.po (gnome-icon theme 2.2)  #-#-#-#-#
 # 48x48/emblems/emblem-sound.icon.in.h:1
 # 48x48/emblems/emblem-sound.icon.in.h:1
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "ધ્વનિ"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 #| msgid "Change sound volume and sound events"
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "સાઉન્ડ સ્તર, ઇનપુટ, આઉટપુટ, અને સાઉન્ડ ચેતવણીને બદલો"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "કાર્ડ;માઇક્રોફોન;વોલ્યુમ;ઝાંખુ;સંતુલન;બ્લુટુથ;હૅન્ડસેટ;ઓડિયો;"
 

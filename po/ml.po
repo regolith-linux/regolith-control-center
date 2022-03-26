@@ -5156,16 +5156,16 @@ msgstr "ശൃംഖലയിലുള്ള ആളുകളുമായി പ�
 msgid "Folders"
 msgstr "ഫോള്‍ഡറുകള്‍"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "ശബ്ദം"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "ശബ്ദത്തിന്റെ നിലയും, ഇന്‍പുട്ടുകളും, ഔട്ട്പുട്ടുകളും, അലെര്‍ട്ട് ശബ്ദങ്ങളും മാറ്റുക"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 

@@ -5283,18 +5283,18 @@ msgstr "ಜಾಲಬಂಧದ ಮುಖಾಂತರ ಸಂಗೀತ, ಚಿತ�
 msgid "Folders"
 msgstr "ಕಡತಕೋಶಗಳು"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "ಧ್ವನಿ"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr ""
 "ಧ್ವನಿಯ ಪ್ರಮಾಣಗಳು, ಇನ್‌ಪುಟ್‌ಗಳು, ಔಟ್‌ಪುಟ್‌ಗಳು ಮತ್ತು ಎಚ್ಚರಿಕೆ ಸದ್ದುಗಳನ್ನು "
 "ಬದಲಾಯಿಸಿ"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "ಕಾರ್ಡ್;ಧ್ವನಿವರ್ಧಕ;ಧ್ವನಿಪ್ರಮಾಣ;ಮಬ್ಬು;ಸಮತೋಲನ;ಬ್ಲೂಟೂತ್;ಹೆಡ್‌ಸೆಟ್;ಆಡಿಯೊ;"
 

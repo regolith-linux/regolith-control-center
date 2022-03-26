@@ -2528,15 +2528,15 @@ msgid "Volume Control"
 msgstr "ভলিউম কন্ট্রোল"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;"
 msgstr "কার্ড;মাইক্রোফোন;ভলিউম;বিবর্ণ;ভারসাম্য;ব্লুটুথ;হেডসেট;"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:3
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:3
 msgid "Change sound volume and sound events"
 msgstr "শব্দের ভলিউম এবং শব্দের ইভেন্ট পরিবর্তন"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Sound"
 msgstr "শব্দ"
 

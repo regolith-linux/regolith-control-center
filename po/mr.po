@@ -5247,16 +5247,16 @@ msgstr "नेटवर्कवरील संगीत, छायाचित
 msgid "Folders"
 msgstr "फोल्डर्स"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "आवाज"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "आवाज स्तर, इंपुट्स, आउटपुट्स, आणि गजर आवाज बदलवा"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "कार्ड;माइक्रोफोन;वॉल्युम;फेड;बॅलेंस्;ब्ल्युटूथ;हेडसेट;ऑडिओ;"
 

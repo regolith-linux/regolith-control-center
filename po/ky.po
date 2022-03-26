@@ -3470,16 +3470,16 @@ msgstr "Үн бийиктигин башкаруу"
 msgid "Show desktop volume control"
 msgstr "Үн бийиктигин башкарууну ачуу"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "Үн"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound volume and sound events"
 msgstr "Үн бийиктигин жана кабарлардын үнүн өзгөртүү"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr ""
 

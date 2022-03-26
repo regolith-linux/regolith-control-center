@@ -5354,17 +5354,17 @@ msgstr "నెట్వర్కునందు సంగీతం, చిత్
 msgid "Folders"
 msgstr "సంచయాలు"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "శబ్దము"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr ""
 "శబ్ద స్థాయిలను, యిన్పుట్లను, అవుట్పుట్లను, మరియు హెచ్చరిక శబ్దములను మార్చు"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "కార్డు;మైక్రోఫోన్;శబ్దం;ఫేడ్;సమతుల్యం;బ్లూటూత్;హెడ్‌సెట్;శ్రవ్యకం;"
 

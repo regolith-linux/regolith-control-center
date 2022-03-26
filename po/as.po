@@ -5262,17 +5262,17 @@ msgstr "নেটৱৰ্কৰে সংগীত, ফ'টোসমূহ আ�
 msgid "Folders"
 msgstr "ফোল্ডাৰসমূহ"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "শব্দ"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr ""
 "শব্দৰ স্তৰসমূহ, ইনপুটসমূহ, আউটপুটসমূহ, আৰু সতৰ্কতা শব্দসমূহ পৰিবৰ্তন কৰক"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "কাৰ্ড;মাইক্ৰোফোন;ভলিউম;স্লান;ভাৰসাম্য;ব্লুটুথ;হেডচেট;অডিঅ;"
 

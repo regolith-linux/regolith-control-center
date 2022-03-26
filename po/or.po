@@ -5389,16 +5389,16 @@ msgstr "ସଙ୍ଗୀତ, ଫୋଟ ଏବଂ ଭିଡ଼ିଓଗୁଡ଼�
 msgid "Folders"
 msgstr "ଫୋଲଡରଗୁଡିକ"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "ଶବ୍ଦ"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "ଧ୍ୱନି ସ୍ତର, ନିବେଶ, ଫଳାଫଳ, ଏବଂ ସତର୍କ ସୂଚନା ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "କାର୍ଡ;ମାଇକ୍ରୋଫୋନ;ଭଲ୍ୟୁମ;ଫିକା;ସନ୍ତୁଳିତ;ବ୍ଲୁଟୁଥ;ହେଡସେଟ;ଧ୍ୱନୀ;"
 

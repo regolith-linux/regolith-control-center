@@ -5307,16 +5307,16 @@ msgstr "แบ่งปันดนตรี, ภาพถ่าย และว
 msgid "Folders"
 msgstr "โฟลเดอร์"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "เสียง"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "ปรับระดับเสียง เสียงเข้า เสียงออก และเสียงแจ้งเหตุ"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "การ์ด;ไมโครโฟน;ความดัง;เฟด;สมดุล;บลูทูท;ชุดหูฟัง;เสียง;"
 

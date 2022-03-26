@@ -3001,15 +3001,15 @@ msgid "Volume Control"
 msgstr "Control de volume"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;"
 msgstr "tarxeta;micrófonu;volume;esvanecer;balance;altavoz;bluetooth;cascos;auriculares;"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:3
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:3
 msgid "Change sound volume and sound events"
 msgstr "Camudar el volume del soníu y los eventos de soníu"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Sound"
 msgstr "Soníu"
 

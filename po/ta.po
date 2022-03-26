@@ -5374,17 +5374,17 @@ msgstr "பிணையத்தின் வழியாக இசை, பு�
 msgid "Folders"
 msgstr "கோப்புறைகள்"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "ஒலி"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr ""
 "ஒலி அளவுகள், உள்ளீடுகள், வெளியீடுகள் மற்றும் விழிப்பூட்டல் ஒலிகளை மாற்று"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "அட்டை;ஒலிவாங்கி;ஒலிஅளவு;மறைவுறு;சமனம்;ப்ளூடூத்;ஹெட்செட்;ஆடியோ;"
 

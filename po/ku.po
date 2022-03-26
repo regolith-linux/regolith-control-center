@@ -3049,16 +3049,16 @@ msgid "Volume Control"
 msgstr "Deng kêm bike"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;"
 msgstr ""
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:3
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:3
 #, fuzzy
 msgid "Change sound volume and sound events"
 msgstr "Deng çalak bike û deng û çalakiyan bi hev re têkildar bike"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Sound"
 msgstr "Deng"
 

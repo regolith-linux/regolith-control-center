@@ -213,7 +213,7 @@ panels/sound/cc-output-test-dialog.c
 panels/sound/cc-output-test-dialog.ui
 panels/sound/cc-sound-panel.ui
 panels/sound/cc-volume-slider.c
-panels/sound/gnome-sound-panel.desktop.in.in
+panels/sound/regolith-sound-panel.desktop.in.in
 panels/thunderbolt/cc-bolt-device-dialog.c
 panels/thunderbolt/cc-bolt-device-dialog.ui
 panels/thunderbolt/cc-bolt-device-entry.c

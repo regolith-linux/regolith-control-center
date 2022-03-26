@@ -5150,16 +5150,16 @@ msgstr "與網絡上其他人分享音樂、相片和影片。"
 msgid "Folders"
 msgstr "資料夾"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:1
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:1
 msgid "Sound"
 msgstr "音效"
 
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:2
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:2
 msgid "Change sound levels, inputs, outputs, and alert sounds"
 msgstr "改變音效的音量、輸入、輸出和警示音效"
 
 #. Translators: those are keywords for the sound control-center panel
-#: ../panels/sound/data/gnome-sound-panel.desktop.in.in.h:4
+#: ../panels/sound/data/regolith-sound-panel.desktop.in.in.h:4
 msgid "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;"
 msgstr "Card;Microphone;Volume;Fade;Balance;Bluetooth;Headset;Audio;音效卡;麥克風;音量;淡化;平衡;藍牙;耳機;音效;"
 
