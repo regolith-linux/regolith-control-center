@@ -78,8 +78,7 @@ Depends: ${misc:Depends},
          desktop-file-utils,
 # needed for Allow-tweaking-some-settings-for-Ubuntu-Dock.patch
          gedit-common,
-         regolith-control-center-data (<< ${gnome:NextVersion}),
-         regolith-control-center-data (>= ${source:Version}),
+         gnome-control-center-data (>= ${source:Version}),
          gnome-desktop3-data,
          gnome-settings-daemon (>= 41),
          gsettings-desktop-schemas (>= 42~),
@@ -135,13 +134,3 @@ Depends: ${misc:Depends},
          regolith-control-center-data
 Description: utilities to configure the GNOME desktop
  This package contains the file required to get the keydirs location
-
-Package: regolith-control-center-data
-Architecture: all
-Multi-Arch: foreign
-Depends: ${misc:Depends}
-Breaks: regolith-control-center (<< 1:3.7.92-2~)
-Replaces: regolith-control-center (<< 1:3.7.92-2~)
-Description: configuration applets for GNOME - data files
- This package contains data files (icons, pixmaps, locales files) needed by
- the configuration applets in the regolith-control-center package.
