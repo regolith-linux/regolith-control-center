@@ -1,4 +1,4 @@
-# Chinese (Hong Kong) translation of gnome-control-center.
+# Chinese (Hong Kong) translation of regolith-control-center.
 # Copyright (C) 1999, 2001-07 Free Software Foundation, Inc.
 # GNOME 1.x:
 # S.J. Luo <crystal@mickey.ee.nctu.edu.tw>, 1999.
@@ -11,7 +11,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center 3.3.91\n"
+"Project-Id-Version: regolith-control-center 3.3.91\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-08-23 18:31+0000\n"
@@ -1463,7 +1463,7 @@ msgid "Launch help browser"
 msgstr "執行說明文件瀏覽器"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1601
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "設定值"
 
@@ -6981,7 +6981,7 @@ msgctxt "category"
 msgid "System"
 msgstr "系統"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Preferences;Settings;偏好設定;設定值;"
 

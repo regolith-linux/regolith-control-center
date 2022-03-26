@@ -5,7 +5,7 @@ Subject: wacom: Allow NULL monitors in calibration
 Unfortunately, this may be the case, it is better to show wonky UI
 than no UI at all.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/3f12a7d
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/3f12a7d
 ---
  panels/wacom/cc-wacom-page.c | 3 +--
  1 file changed, 1 insertion(+), 2 deletions(-)

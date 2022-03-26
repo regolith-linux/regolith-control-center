@@ -4,7 +4,7 @@ Subject: wacom: Split off notebook switching for detected stylus
 
 This will reduce code duplication for mocking styli.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/a93a023
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/a93a023
 ---
  panels/wacom/cc-wacom-panel.c | 38 ++++++++++++++++++++++----------------
  1 file changed, 22 insertions(+), 16 deletions(-)

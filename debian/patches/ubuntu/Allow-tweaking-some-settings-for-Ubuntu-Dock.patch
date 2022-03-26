@@ -9,7 +9,7 @@ Ubuntu Dock installation. Those are located in its own panel for now:
 * modify placement of the launcher (all monitor, primary or any monitors)
 
 These changes are maintained in a single branch at:
- https://gitlab.gnome.org/Community/Ubuntu/gnome-control-center/-/commits/ubuntu-panel
+ https://gitlab.gnome.org/Community/Ubuntu/regolith-control-center/-/commits/ubuntu-panel
 
 Please provide merge requests there.
 
@@ -644,7 +644,7 @@ index 0000000..b114af3
 +   * earlier than one of its child nodes, so we need to remove the entries
 +   * not to make this happen implicitly too late, causing a crash.
 +   * This can be removed when the follow MR is merged:
-+   * https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/1175
++   * https://gitlab.gnome.org/GNOME/regolith-control-center/-/merge_requests/1175
 +   */
 +  if (self->dock_monitors_liststore)
 +    g_list_store_remove_all (self->dock_monitors_liststore);
@@ -2908,7 +2908,7 @@ index 0000000..8235e5c
 +[Desktop Entry]
 +Name=Appearance
 +Comment=Appearance Settings
-+Exec=gnome-control-center ubuntu
++Exec=regolith-control-center ubuntu
 +Icon=preferences-ubuntu-panel
 +Terminal=false
 +Type=Application
@@ -2917,7 +2917,7 @@ index 0000000..8235e5c
 +Categories=GNOME;GTK;Settings;DesktopSettings;X-GNOME-Settings-Panel;X-GNOME-PersonalSettings;X-GNOME-PersonalizationSettings;
 +OnlyShowIn=ubuntu;
 +X-GNOME-Bugzilla-Bugzilla=GNOME
-+X-GNOME-Bugzilla-Product=gnome-control-center
++X-GNOME-Bugzilla-Product=regolith-control-center
 +X-GNOME-Bugzilla-Version=@VERSION@
 +# Translators: those are keywords for the ubuntu control-center panel
 +Keywords=Dock;Launcher;Theme;Ubuntu;Dark;icons;Yaru;Accent;

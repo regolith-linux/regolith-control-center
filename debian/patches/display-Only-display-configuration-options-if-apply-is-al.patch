@@ -11,7 +11,7 @@ In order to make it clearer that configuration is not possible, except
 for night light, make sure to hide the unconfigurable parts, leaving
 only night light.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/21862c3
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/21862c3
 ---
  panels/display/cc-display-config-manager-dbus.c | 36 +++++++++++++++++++++++++
  panels/display/cc-display-config-manager.c      |  6 +++++

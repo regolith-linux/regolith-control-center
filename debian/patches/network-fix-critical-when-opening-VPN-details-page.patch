@@ -4,13 +4,13 @@ Subject: network: fix critical when opening VPN details page
 
 I was seeing this critical when opening the VPN details page:
 
-(gnome-control-center:78888): nm-CRITICAL **: 16:26:21.689: ((src/libnm-client-impl/nm-device.c:1299)): assertion '<dropped>' failed
+(regolith-control-center:78888): nm-CRITICAL **: 16:26:21.689: ((src/libnm-client-impl/nm-device.c:1299)): assertion '<dropped>' failed
 
 It probably broke in 551d72280bbc9479a81697e2d888a77a64538b27. The code
 above and below expects self->device may be NULL, so let's add a
 NULL check here.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/c180aa66
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/c180aa66
 ---
  panels/network/connection-editor/ce-page-details.c | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)

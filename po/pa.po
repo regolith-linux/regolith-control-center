@@ -1,7 +1,7 @@
-# translation of gnome-control-center.HEAD.po to Punjabi
-# Punjabi translation of gnome-control-center.HEAD.
-# Copyright (C) 2004 THE gnome-control-center.HEAD'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the gnome-control-center.HEAD package.
+# translation of regolith-control-center.HEAD.po to Punjabi
+# Punjabi translation of regolith-control-center.HEAD.
+# Copyright (C) 2004 THE regolith-control-center.HEAD'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the regolith-control-center.HEAD package.
 #
 #
 # Amanpreet Singh Alam <amanlinux@netscape.net>, 2004.
@@ -9,8 +9,8 @@
 # A S Alam <aalam@users.sf.net>, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center.HEAD\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/issu"
+"Project-Id-Version: regolith-control-center.HEAD\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/issu"
 "es\n"
 "POT-Creation-Date: 2021-09-18 09:55+0000\n"
 "PO-Revision-Date: 2021-09-18 16:30-0700\n"
@@ -78,7 +78,7 @@ msgstr "ਫਾਇਲ ਸਿਸਟਮ"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "ਸੈਟਿੰਗ"
 
@@ -8733,19 +8733,19 @@ msgstr "ਟੈਲੀਫ਼ੋਨੀ ਤੇ ਮੋਬਾਈਲ ਡਾਟਾ ਕ�
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "ਸੈਲੂਲਰ;ਵੈਨ;ਵੈੱਨ;ਟੈਲੀਫ਼ੋਨੀ;ਸਿਮ;ਮੋਬਾਈਲ;ਮੋਬਾਇਲ;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "ਗਨੋਮ ਸੈਟਿੰਗਾਂ"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "ਗਨੋਮ ਡੈਸਕਟਾਪ ਦੀ ਸੰਰਚਨਾ ਵਾਸਤੇ ਸਹੂਲਤ"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "ਸੈਟਿੰਗਾਂ ਤੁਹਾਡੇ ਸਿਸਟਮ ਦੀ ਸੰਰਚਨਾ ਕਰਨ ਲਈ ਮੁੱਢਲਾ ਦਰ ਹੈ।"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "ਗਨੋਮ ਪਰੋਜੈਕਟ"
 
@@ -8808,7 +8808,7 @@ msgid "Help"
 msgstr "ਮਦਦ"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "ਮੇਰੀ ਪਸੰਦ;ਸੈਟਿੰਗ;"
 
@@ -9806,8 +9806,8 @@ msgstr "ਸਿਸਟਮ ਆਵਾਜ਼ਾਂ"
 #~ msgid "Quit"
 #~ msgstr "ਬਾਹਰ"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "Back­ground"
 #~ msgstr "ਬੈਕਗਰਾਊਂਡ"

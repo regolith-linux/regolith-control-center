@@ -1,4 +1,4 @@
-# German gnome-control-center translation
+# German regolith-control-center translation
 # Copyright (C) 1998-2015 Free Software Foundation, Inc.
 #
 #
@@ -26,8 +26,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-18 09:55+0000\n"
 "PO-Revision-Date: 2021-09-21 22:08+0200\n"
@@ -95,7 +95,7 @@ msgstr "Dateisystem"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -8413,7 +8413,7 @@ msgid "<b>Error:</b> Access denied changing settings"
 msgstr ""
 "<b>Fehler:</b> Zugriff wurde bei der Änderung der Einstellungen verweigert"
 
-# Scheint eine ganze Reihe an möglichen Fehlern zu geben: https://gitlab.gnome.org/GNOME/gnome-control-center/-/blob/e32b67e5c0e75600b4fa5154e137717f82dabf0d/panels/wwan/cc-wwan-errors-private.h#L39
+# Scheint eine ganze Reihe an möglichen Fehlern zu geben: https://gitlab.gnome.org/GNOME/regolith-control-center/-/blob/e32b67e5c0e75600b4fa5154e137717f82dabf0d/panels/wwan/cc-wwan-errors-private.h#L39
 #: panels/wwan/cc-wwan-data.c:549
 msgid "<b>Error:</b> Mobile Equipment Error"
 msgstr "<b>Fehler:</b> Fehler des Mobilgeräts"
@@ -8838,20 +8838,20 @@ msgstr ""
 "cellular;wwan;telephony;sim;mobile;Funknetzwerk;Mobilfunk;Weitverkehrsfunk;"
 "Telefonie;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "GNOME-Einstellungen"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Dienstprogramme zur Einrichtung der GNOME Arbeitsumgebung"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr ""
 "Einstellungen ist die wichtigste Komponente zur Einrichtung Ihres Systems."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "Das GNOME-Pojekt"
 
@@ -8914,7 +8914,7 @@ msgid "Help"
 msgstr "Hilfe"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Einstellungen;"
 

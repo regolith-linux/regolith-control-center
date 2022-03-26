@@ -47,7 +47,7 @@
 
 #define MOUSE_BACK_BUTTON 8
 
-#define DEFAULT_WINDOW_ICON_NAME "gnome-control-center"
+#define DEFAULT_WINDOW_ICON_NAME "regolith-control-center"
 
 struct _CcWindow
 {

@@ -6,9 +6,9 @@ As it was already removed in colord itself:
 https://github.com/hughsie/colord/commit/98f83acc910f527496fc149511c9dfa35f954be9#diff-cb19db05cc548372b27ebee7d47bc00b6788ad05da6f5d7fff107c45bbfba38f
 
 This removes the only direct libsoup 2.x dependency in
-gnome-control-center.
+regolith-control-center.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/a9c398
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/a9c398
 ---
  panels/color/cc-color-panel.c  | 93 -----------------------------------------
  panels/color/cc-color-panel.ui | 94 ------------------------------------------
@@ -90,7 +90,7 @@ index 603178e..a2f90b0 100644
 -    }
 -
 -  /* setup the session */
--  session = soup_session_new_with_options (SOUP_SESSION_USER_AGENT, "gnome-control-center",
+-  session = soup_session_new_with_options (SOUP_SESSION_USER_AGENT, "regolith-control-center",
 -                                           SOUP_SESSION_TIMEOUT, 5000,
 -                                           NULL);
 -  if (session == NULL)

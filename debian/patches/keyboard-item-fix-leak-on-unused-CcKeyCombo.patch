@@ -16,7 +16,7 @@ Subject: keyboard-item: fix leak on unused CcKeyCombo
 ==31571==    by 0x4A7A288: g_type_create_instance (gtype.c:1929)
 ==31571==    by 0x4A61CAC: g_object_new_internal (gobject.c:1945)
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/365fb19957
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/365fb19957
 ---
  panels/keyboard/cc-keyboard-item.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)

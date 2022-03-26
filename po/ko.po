@@ -1,5 +1,5 @@
-# gnome-control-center Korean message translation
-# This file is distributed under the same license as the gnome-control-center package.
+# regolith-control-center Korean message translation
+# This file is distributed under the same license as the regolith-control-center package.
 #
 # Young-Ho Cha <ganadist@chollian.net>, 2002, 2006.
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2011, 2012.
@@ -28,8 +28,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-11-03 15:34+0000\n"
 "PO-Revision-Date: 2021-11-14 03:01+0900\n"
@@ -97,7 +97,7 @@ msgstr "파일 시스템"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "설정"
 
@@ -8696,19 +8696,19 @@ msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr ""
 "cellular;휴대전화;셀룰러;wwan;무선;telephony;텔레포니;sim;mobile;모바일;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "그놈 설정"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "그놈 데스크톱 설정 프로그램"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "설정은 시스템을 설정하는 주요 인터페이스 프로그램입니다."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "그놈 프로젝트"
 
@@ -8774,7 +8774,7 @@ msgid "Help"
 msgstr "도움말"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Preferences;기본 설정;Settings;설정;"
 

@@ -3,14 +3,14 @@ Date: Tue, 31 Jul 2018 04:44:12 +0100
 Subject: online-accounts: Hide window after adding an online account from
  another app
 
-Some applications (e.g. gnome-calendar, gnome-todo, etc.) use gnome-control-center
+Some applications (e.g. gnome-calendar, gnome-todo, etc.) use regolith-control-center
 to allow the user to add online accounts. This patch makes sure that g-c-c main window
 is closed after the user interacted with the new-account dialog.
 
 Bug-Ubuntu: https://launchpad.net/bugs/1754651
 Forwarded: no
 Last-Update: 2018-03-09
-https://gitlab.gnome.org/GNOME/gnome-control-center/issues/16
+https://gitlab.gnome.org/GNOME/regolith-control-center/issues/16
 ---
  panels/online-accounts/cc-online-accounts-panel.c | 9 +++++++--
  1 file changed, 7 insertions(+), 2 deletions(-)

@@ -5,13 +5,13 @@ Subject: search-provider: Don't escape result description as markup
 Only the shell can know how the description string will be used and if
 or when it should be escaped. Previously the shell did not escape the
 description before displaying it with markup to highlight search hits,
-but now it does. For gnome-control-center this however means without
+but now it does. For regolith-control-center this however means without
 this change the string will be escaped twice causing markup to show up
 in the description text.
 
 Related: https://gitlab.gnome.org/GNOME/gnome-shell/-/merge_requests/2033
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/dfc5044
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/dfc5044
 ---
  search-provider/cc-search-provider.c | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)

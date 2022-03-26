@@ -1,7 +1,7 @@
 # Vietnamese Translation for GNOME Control Center.
 # Bản dịch tiếng Việt dành cho GNOME Control Center.
 # Copyright © 2016 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 # Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2004,2007,2010-2013.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
 # Ngô Chin <ndtrung4419@gmail.com>, 2011.
@@ -9,8 +9,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-27 07:48+0000\n"
 "PO-Revision-Date: 2021-09-28 14:47+0700\n"
@@ -78,7 +78,7 @@ msgstr "Hệ thống tập tin"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Cài đặt"
 
@@ -8729,19 +8729,19 @@ msgstr "Cấu hình kết nối cho điện thoại và dữ liệu di động"
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "cellular;wwan;telephony;sim;mobile;di động;di dong;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "Cài đặt GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Tiện ích để cấu hình môi trường máy tính để bàn GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Cài đặt là giao diện chính để cấu hình hệ thống của bạn."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "Dự án GNOME"
 
@@ -8804,7 +8804,7 @@ msgid "Help"
 msgstr "Trợ giúp"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr ""
 "Preferences;Tùy;thích;Tuy;thich;Cấu;hình;Cau;hinh;Settings;Thiết;lập;Thiet;"
@@ -9538,8 +9538,8 @@ msgstr "Âm thanh hệ thống"
 #~ msgid "Quit"
 #~ msgstr "Thoát"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "Back­ground"
 #~ msgstr "Ảnh nền"

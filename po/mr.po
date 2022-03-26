@@ -1495,7 +1495,7 @@ msgid "Launch help browser"
 msgstr "मदत ब्राऊजर सुरू करा"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1601
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "सेटिंग्ज"
 
@@ -7109,7 +7109,7 @@ msgctxt "category"
 msgid "System"
 msgstr "प्रणाली"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "पसंती;सेटिंग्स्;"
 

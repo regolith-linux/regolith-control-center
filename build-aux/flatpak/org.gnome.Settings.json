@@ -3,8 +3,8 @@
     "runtime" : "org.gnome.Sdk",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
-    "command" : "gnome-control-center",
-    "rename-desktop-file" : "gnome-control-center.desktop",
+    "command" : "regolith-control-center",
+    "rename-desktop-file" : "regolith-control-center.desktop",
     "tags" : [
         "devel"
     ],
@@ -694,12 +694,12 @@
             ]
         },
         {
-            "name" : "gnome-control-center",
+            "name" : "regolith-control-center",
             "buildsystem" : "meson",
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/gnome-control-center.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/regolith-control-center.git"
                 }
             ],
             "config-opts" : [

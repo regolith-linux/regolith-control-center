@@ -9,7 +9,7 @@ Subject: keyboard-shortcut-editor: fix leak of accel string
 ==31571==    by 0x4A82D1: setup_custom_shortcut (cc-keyboard-shortcut-editor.c:364)
 ==31571==    by 0x4A92DF: cc_keyboard_shortcut_editor_key_press_event (cc-keyboard-shortcut-editor.c:745)
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/8355404e
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/8355404e
 ---
  panels/keyboard/cc-keyboard-shortcut-editor.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

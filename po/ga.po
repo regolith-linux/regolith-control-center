@@ -1,12 +1,12 @@
-# Irish translations for gnome-control-center package.
+# Irish translations for regolith-control-center package.
 # Copyright (C) 2002-2013 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 # Alastair McKinstry <mckinstry@debian.org>, 2003.
 # Seán de Búrca <leftmostcat@gmail.com>, 2007-2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center.master\n"
+"Project-Id-Version: regolith-control-center.master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-23 15:26-0600\n"
 "PO-Revision-Date: 2015-09-23 15:39-0600\n"
@@ -1519,7 +1519,7 @@ msgid "Launch help browser"
 msgstr "Luchtaigh brabhsálaí cabhrach"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1605
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "Socruithe"
 
@@ -7137,15 +7137,15 @@ msgstr ""
 msgid "Tip Pressure Feel"
 msgstr ""
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:1
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:1
 msgid "GNOME Control Center"
 msgstr ""
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:2
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:2
 msgid "Utilities to configure the GNOME desktop"
 msgstr ""
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:3
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:3
 msgid ""
 "The control center is GNOME's main interface for configuration of various "
 "aspects of your desktop."
@@ -7212,6 +7212,6 @@ msgctxt "category"
 msgid "System"
 msgstr "Córas"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Sainroghanna;Socruithe;"

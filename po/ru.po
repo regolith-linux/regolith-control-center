@@ -1,5 +1,5 @@
-# translation of gnome-control-center.master.ru.po to Russian
-# translation of gnome-control-center to Russian
+# translation of regolith-control-center.master.ru.po to Russian
+# translation of regolith-control-center to Russian
 #
 #
 # Max Valianskiy <maxcom@vinchi.ru>, 1998-99.
@@ -22,7 +22,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2022-01-19 02:03+0000\n"
 "PO-Revision-Date: 2022-01-21 23:50+0300\n"
@@ -91,7 +91,7 @@ msgstr "Файловая система"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Параметры"
 
@@ -8798,19 +8798,19 @@ msgstr "Настроить телефонию и соединения для м�
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "сотовый;мобильник;мобильный;мобильная;wwan;телефония;телефон;sim;сим;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "Настройки GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Инструмент для настройки рабочего стола GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Настройки — основной интерфейс для настройки вашей системы."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "Проект GNOME"
 
@@ -8873,7 +8873,7 @@ msgid "Help"
 msgstr "Справка"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Настройки;Параметры;"
 

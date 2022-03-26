@@ -1,5 +1,5 @@
-# translation of gnome-control-center to Arabic
-# This file is under the same license as the gnome-control-center package.
+# translation of regolith-control-center to Arabic
+# This file is under the same license as the regolith-control-center package.
 # Copyright (C) Listed translators
 # Sayed Jaffer Al-Mosawi <mosawi@arabeyes.org>, 2002.
 # Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
@@ -12,7 +12,7 @@
 # Ibrahim Saed <ibraheem5000@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
+"Project-Id-Version: regolith-control-center master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-17 16:07+0200\n"
 "PO-Revision-Date: 2019-03-17 17:07+0200\n"
@@ -86,7 +86,7 @@ msgstr "نظام الملفات"
 #: panels/applications/cc-applications-panel.c:588
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:255
 #: shell/cc-window.c:867 shell/cc-window.ui:116
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "الإعدادات"
 
@@ -7867,15 +7867,15 @@ msgstr "الزر الأسفل"
 msgid "Tip Pressure Feel"
 msgstr "الشعور بضغط السن"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "إعدادات جنوم"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "أدوات لضبط سطح مكتب جنوم"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr ""
 
@@ -7937,12 +7937,12 @@ msgid "Help"
 msgstr "مساعدة"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: shell/gnome-control-center.desktop.in.in:5
+#: shell/regolith-control-center.desktop.in.in:5
 msgid "org.gnome.Settings"
 msgstr "org.gnome.Settings"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "تفضيلات;إعدادات;"
 

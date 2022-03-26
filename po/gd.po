@@ -1,13 +1,13 @@
-# Gaelic; Scottish translation for gnome-control-center
+# Gaelic; Scottish translation for regolith-control-center
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 # Michael Bauer <fios@akerbeltz.org>, 2014.
 # GunChleoc <fios@foramnagaidhlig.net>, 2016, 2017, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2018-05-25 11:45+0000\n"
 "PO-Revision-Date: 2018-02-26 12:42+0100\n"
@@ -1643,7 +1643,7 @@ msgid "Launch help browser"
 msgstr "Cuir gu dol brabhsair na cobharach"
 
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:222
-#: shell/cc-window.c:760 shell/gnome-control-center.desktop.in.in:3
+#: shell/cc-window.c:760 shell/regolith-control-center.desktop.in.in:3
 #: shell/window.ui:125
 msgid "Settings"
 msgstr "Roghainnean"
@@ -7207,15 +7207,15 @@ msgstr "Faireachdainn brùthadh a’ chinn"
 msgid "page 3"
 msgstr "duilleag 3"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Control Center"
 msgstr "Ionad-stiùiridh GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utilities to configure the GNOME desktop"
 msgstr "Goireasan gus an deasg GNOME a rèiteachadh"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid ""
 "The control center is GNOME’s main interface for configuration of various "
 "aspects of your desktop."
@@ -7262,12 +7262,12 @@ msgid "Quit"
 msgstr "Fàg an-seo"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: shell/gnome-control-center.desktop.in.in:5
-msgid "gnome-control-center"
-msgstr "gnome-control-center"
+#: shell/regolith-control-center.desktop.in.in:5
+msgid "regolith-control-center"
+msgstr "regolith-control-center"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Roghainnean;"
 

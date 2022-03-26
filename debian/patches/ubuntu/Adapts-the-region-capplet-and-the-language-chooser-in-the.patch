@@ -12,7 +12,7 @@ Subject: Adapts the region capplet and the language chooser in the user
  * The code in accountsservice for handling languages has been extended via Ubuntu
    specific patches. That code is shared by multiple packages. Currently those
    packages are:
-   - gnome-control-center
+   - regolith-control-center
    - unity-control-center
    - language-selector
    - lightdm (for the language chooser in lightdm-gtk-greeter)

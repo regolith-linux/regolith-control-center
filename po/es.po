@@ -1,6 +1,6 @@
-# translation of gnome-control-center.master.po to Español
+# translation of regolith-control-center.master.po to Español
 # Copyright © 1999-2002, 2006, 2007, 2008 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 #
 # Pablo Saratxaga <srtxg@chanae.alphanet.ch>, 1998-2001.
 # Carlos Perelló Marín <carlos@gnome-db.org>, 2001.
@@ -18,8 +18,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-08 16:00+0000\n"
 "PO-Revision-Date: 2021-09-14 13:59+0200\n"
@@ -87,7 +87,7 @@ msgstr "Sistema de achivos"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Configuración"
 
@@ -8752,19 +8752,19 @@ msgstr "Configurar telefonía y conexiones de datos móviles"
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "teléfono;wwan;telefonía;sim;móvil;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "Configuración de GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Utilidad para configurar el escritorio GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Configuración es la interfaz principal para configurar su sistema."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "El Proyecto GNOME"
 
@@ -8827,7 +8827,7 @@ msgid "Help"
 msgstr "Ayuda"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Preferencias;Configuración;"
 
@@ -9905,8 +9905,8 @@ msgstr "Sonidos del sistema"
 #~ msgid "Quit"
 #~ msgstr "Salir"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "_Verify New Password"
 #~ msgstr "_Verificar la contraseña nueva"

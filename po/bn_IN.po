@@ -17,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2020-09-25 14:17+0000\n"
 "PO-Revision-Date: 2020-10-11 12:38+0530\n"
@@ -70,7 +70,7 @@ msgstr "নেটওয়ার্ক"
 msgid "Has network access"
 msgstr "নেটওয়ার্ক অ্যাক্সেস আছে"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/applications/cc-applications-panel.c:830
 #: panels/applications/cc-applications-panel.c:832
 #: panels/search/cc-search-locations-dialog.c:361
@@ -90,7 +90,7 @@ msgstr "ফাইল সিস্টেম"
 #: panels/applications/cc-applications-panel.c:841
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:933 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "সেটিং"
 
@@ -153,7 +153,7 @@ msgstr "সংরক্ষণাগার ফাইলগুলি"
 msgid "Package Files"
 msgstr "প্যাকেজ ফাইলগুলি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/applications/cc-applications-panel.c:1287
 msgid "Audio Files"
 msgstr "অডিও ফাইলগুলি"
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Camera"
 msgstr "ক্যামেরা"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #. This label is displayed in a treeview cell displaying
 #. * a disabled accelerator key combination.
 #.
@@ -261,7 +261,7 @@ msgstr "মিশ্রণ"
 msgid "System features used by this application."
 msgstr "এই অ্যাপ্লিকেশন দ্বারা ব্যবহৃত সিস্টেম বৈশিষ্ট্যগুলি।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/applications/cc-applications-panel.ui:225
 #: panels/applications/cc-applications-panel.ui:231
 #: panels/keyboard/01-launchers.xml.in:16
@@ -279,18 +279,18 @@ msgstr "সূচনাবার্তা"
 msgid "Run in background"
 msgstr "ব্যাকগ্রাউন্ডে চালান"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/applications/cc-applications-panel.ui:249
 msgid "Set Desktop Background"
 msgstr "ডেস্কটপ ওয়ালপেপার সেট করুন"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/applications/cc-applications-panel.ui:255
 #: panels/applications/cc-applications-panel.ui:261
 msgid "Sounds"
 msgstr "ধ্বনি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/applications/cc-applications-panel.ui:267
 msgid "Inhibit system keyboard shortcuts"
 msgstr "সিস্টেম কীবোর্ড শর্টকাটগুলি বাধা দিন"
@@ -409,7 +409,7 @@ msgstr "বাতিল করুন (_C)"
 msgid "_Open"
 msgstr "খুলুন (_O)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/background/cc-background-item.c:140
 msgid "multiple sizes"
 msgstr "একাধিক মাপ"
@@ -421,7 +421,7 @@ msgstr "একাধিক মাপ"
 msgid "%d × %d"
 msgstr "%d × %d"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/background/cc-background-item.c:282
 msgid "No Desktop Background"
 msgstr "ডেস্কটপের কোনো পটভূমি প্রয়োগ করা হবে না"
@@ -438,7 +438,7 @@ msgstr "ছবি যুক্ত করুন ..."
 msgid "Activities"
 msgstr "ক্রিয়াকলাপ"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/background/gnome-background-panel.desktop.in.in:3
 msgid "Background"
 msgstr "পটভূমি"
@@ -728,7 +728,7 @@ msgstr "আমদানি করুন (_I)"
 msgid "Supported ICC profiles"
 msgstr "সমর্থিত ICC প্রোফাইলসমূহ"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #. TRANSLATORS: filter name on the file->open dialog
 #: panels/color/cc-color-panel.c:257
 #: panels/network/wireless-security/eap-method-fast.c:356
@@ -1351,7 +1351,7 @@ msgstr "মাস"
 msgid "Year"
 msgstr "বছর"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #. Translators: This is the full date and time format used in 12-hour mode.
 #: panels/datetime/cc-datetime-panel.c:258
 msgid "%e %B %Y, %l:%M %p"
@@ -1383,7 +1383,7 @@ msgstr "%s (%s)"
 msgid "UTC%:::z"
 msgstr "UTC%:::z"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #. Translators: This is the time format used in 12-hour mode.
 #: panels/datetime/cc-datetime-panel.c:471
 msgid "%l:%M %p"
@@ -1822,7 +1822,7 @@ msgstr ""
 "প্যানেল;প্রজেক্টর;xrandr;স্ক্রিন;রেজোলিউশন;রিফ্রেশ;মনিটর;নাইট;হাল্কা;নীল;redshift;"
 "রঙ;সূর্যাস্ত;সূর্যোদয়;"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/info-overview/cc-info-overview-panel.c:416
 #: panels/info-overview/cc-info-overview-panel.c:431
 #: panels/info-overview/cc-info-overview-panel.c:443
@@ -1860,7 +1860,7 @@ msgstr "X11"
 msgid "Wayland"
 msgstr "ওয়েল্যান্ড "
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/info-overview/cc-info-overview-panel.c:681
 msgctxt "Windowing system (Wayland, X11, or Unknown)"
 msgid "Unknown"
@@ -2076,7 +2076,7 @@ msgstr "একটি অঞ্চলের একটি স্ক্রীনশ
 msgid "Record a short screencast"
 msgstr "একটি সংক্ষিপ্ত স্ক্রিনকাস্ট রেকর্ড করুন"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/01-system.xml.in:2
 msgid "System"
 msgstr "সিস্টেম"
@@ -2163,7 +2163,7 @@ msgstr "মেনু কী"
 msgid "Right Ctrl"
 msgstr "ডান Ctrl"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/cc-keyboard-manager.c:486
 #: panels/keyboard/cc-keyboard-manager.c:494
 #: panels/keyboard/cc-keyboard-manager.c:779
@@ -2195,7 +2195,7 @@ msgctxt "keyboard key"
 msgid "Right Ctrl"
 msgstr "ডান Ctrl"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/cc-keyboard-panel.c:95
 msgctxt "keyboard key"
 msgid "Menu Key"
@@ -2260,7 +2260,7 @@ msgstr "সব পুনরায় সেট করুন…"
 msgid "Reset all shortcuts to their default keybindings"
 msgstr "সমস্ত শর্টকাট তাদের ডিফল্ট কী-বাইন্ডিংগুলিতে পুনরায় সেট করুন"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/cc-keyboard-panel.ui:178
 msgid "No keyboard shortcut found"
 msgstr "কোনও কীবোর্ড শর্টকাট পাওয়া যায় নি"
@@ -2276,7 +2276,7 @@ msgstr ""
 msgid "Enter the new shortcut"
 msgstr "নতুন শর্টকাট প্রবেশ করান"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/cc-keyboard-shortcut-editor.c:566
 msgid "Set Custom Shortcut"
 msgstr "কাস্টম শর্টকাট সেট করুন"
@@ -2291,7 +2291,7 @@ msgstr "শর্টকাট সেট করুন"
 msgid "Enter new shortcut to change %s."
 msgstr "%s পরিবর্তন করতে নতুন শর্টকাট প্রবেশ করান।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/cc-keyboard-shortcut-editor.c:1004
 msgid "Add Custom Shortcut"
 msgstr "কাস্টম শর্টকাট যুক্ত করুন"
@@ -2305,7 +2305,7 @@ msgstr "কীবোর্ড শর্টকাটটি বাতিল কর
 msgid "Name"
 msgstr "নাম"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/cc-keyboard-shortcut-editor.ui:147
 msgid "Command"
 msgstr "কমান্ড"
@@ -2318,7 +2318,7 @@ msgstr "শর্টকাট"
 msgid "Set Shortcut…"
 msgstr "শর্টকাট সেট করুন ..."
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/cc-keyboard-shortcut-editor.ui:248
 msgid "None"
 msgstr "কিছুই নেই"
@@ -2341,7 +2341,7 @@ msgstr "প্রতিস্থাপন করুন"
 msgid "Set"
 msgstr "সেট"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/keyboard/gnome-keyboard-panel.desktop.in.in:3
 #: panels/region/cc-region-panel.ui:392 shell/cc-window.ui:326
 msgid "Keyboard Shortcuts"
@@ -2590,7 +2590,7 @@ msgstr "কোনও অ্যাপ্লিকেশন মাইক্রো�
 msgid "Protect your conversations"
 msgstr "আপনার কথোপকথন রক্ষা করুন"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #. FIXME
 #: panels/mouse/cc-mouse-panel.ui:37
 msgid "General"
@@ -2612,12 +2612,12 @@ msgstr "বাম"
 msgid "Right"
 msgstr "ডান"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/mouse/cc-mouse-panel.ui:169
 msgid "Mouse"
 msgstr "মাউস"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/mouse/cc-mouse-panel.ui:208
 msgid "Mouse Speed"
 msgstr "মাউস এর গতি"
@@ -2637,12 +2637,12 @@ msgstr "স্বাভাবিক স্ক্রোলিং"
 msgid "Scrolling moves the content, not the view."
 msgstr "স্ক্রোলিং বিষয়বস্তু সরায়, ভিউ নয়।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/mouse/cc-mouse-panel.ui:333 panels/mouse/cc-mouse-panel.ui:378
 msgid "Touchpad"
 msgstr "টাচ-প্যাড"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/mouse/cc-mouse-panel.ui:501
 msgid "Touchpad Speed"
 msgstr "টাচ-প্যাড এর গতি"
@@ -3224,7 +3224,7 @@ msgstr "শুধুমাত্র স্থানীয়-লিংক"
 msgid "Manual"
 msgstr "ম্যানুয়াল"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/network/connection-editor/ip4-page.ui:83
 #: panels/network/connection-editor/ip6-page.ui:97
 msgid "Disable"
@@ -3240,7 +3240,7 @@ msgstr "অন্যান্য কম্পিউটারের সংগে 
 msgid "Addresses"
 msgstr "ঠিকানাগুলি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/network/connection-editor/ip4-page.ui:143
 #: panels/network/connection-editor/ip4-page.ui:327
 #: panels/network/connection-editor/ip6-page.ui:157
@@ -3488,7 +3488,7 @@ msgstr "হটস্পট হিসাবে ব্যবহার সিস্
 msgid "Wireless device does not support Hotspot mode"
 msgstr "বেতার ডিভাইস হটস্পট মোড সমর্থন করে না"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/network/net-proxy.c:70
 #: panels/notifications/cc-notifications-panel.c:268
 #: panels/power/cc-power-panel.c:1728 panels/power/cc-power-panel.c:1739
@@ -4356,7 +4356,7 @@ msgctxt "notifications"
 msgid "Show Message C_ontent on Lock Screen"
 msgstr "লক স্ক্রিনে বার্তা সামগ্রী প্রদর্শন করুন (_o)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/notifications/cc-notifications-panel.c:268
 #: panels/power/cc-power-panel.c:1734 panels/power/cc-power-panel.c:1741
 #: panels/universal-access/cc-ua-panel.c:480
@@ -4385,7 +4385,7 @@ msgstr "কোন বিজ্ঞপ্তিগুলি দেখানো হ
 msgid "Notifications;Banner;Message;Tray;Popup;"
 msgstr "বিজ্ঞপ্তি;ব্যানার;বার্তা;ট্রে;পপ-আপ;"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/online-accounts/cc-online-accounts-panel.c:150
 msgctxt "Online Account"
 msgid "Other"
@@ -5198,7 +5198,7 @@ msgstr "সমান্তরাল পোর্ট"
 msgid "Location: %s"
 msgstr "অবস্থান: %s"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #. Translators: Network address of found printer
 #: panels/printers/pp-new-printer-dialog.c:1670
 #, c-format
@@ -5640,7 +5640,7 @@ msgstr "কাগজ"
 msgid "No input sources found"
 msgstr "কোনো ইনপুট সোর্স পাওয়া যায়নি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/region/cc-input-chooser.c:948
 msgctxt "Input Source"
 msgid "Other"
@@ -5926,7 +5926,7 @@ msgstr "অবস্থানগুলি"
 msgid "Bookmarks"
 msgstr "বুকমার্কগুলি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/search/cc-search-locations-dialog.ui:156
 msgid "Other"
 msgstr "অন্যান্য"
@@ -5973,7 +5973,7 @@ msgstr "ভাগ করার জন্য কোনো নেটওয়ার�
 msgid "Networks"
 msgstr "নেটওয়ার্ক"
 
-# auto translated by TM merge from project: control-center, version: 3.8.3, DocId: gnome-control-center-2.0
+# auto translated by TM merge from project: control-center, version: 3.8.3, DocId: regolith-control-center-2.0
 #: panels/sharing/cc-sharing-panel.c:289
 msgctxt "service is enabled"
 msgid "On"
@@ -6151,7 +6151,7 @@ msgstr "রিমোট লগিন সক্রিয় বা নিষ্�
 msgid "Authentication is required to enable or disable remote login"
 msgstr "রিমোট লগিন সক্রিয় বা নিষ্ক্রিয় করতে অনুমোদনের প্রয়োজন"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/sound/cc-alert-chooser.c:151
 msgid "Custom"
 msgstr "স্বনির্ধারিত"
@@ -6249,7 +6249,7 @@ msgctxt "volume"
 msgid "100%"
 msgstr "১০০%"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/sound/gnome-sound-panel.desktop.in.in:3
 msgid "Sound"
 msgstr "শব্দ"
@@ -6308,7 +6308,7 @@ msgctxt "Thunderbolt Device Status"
 msgid "Connected & Authorized"
 msgstr "সংযুক্ত ও অনুমোদিত"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/thunderbolt/cc-bolt-device-dialog.c:121
 #: panels/thunderbolt/cc-bolt-device-entry.c:152
 msgctxt "Thunderbolt Device Status"
@@ -6347,7 +6347,7 @@ msgid_plural "Depends on %u other devices"
 msgstr[0] "অন্য %u ডিভাইসে নির্ভর করে"
 msgstr[1] "%u টি অন্যান্য ডিভাইসে নির্ভর করে"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/thunderbolt/cc-bolt-device-dialog.ui:109
 msgid "Name:"
 msgstr "নাম:"
@@ -6445,7 +6445,7 @@ msgstr "থান্ডারবোল্ট ডিভাইসগুলি প�
 msgid "Thunderbolt;privacy;"
 msgstr "থান্ডারবোল্ট;গোপনীয়তা;"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #. translators: the labels will read:
 #. * Cursor Size: Default
 #: panels/universal-access/cc-ua-panel.c:500
@@ -6504,7 +6504,7 @@ msgstr "বড় মাপের হরফ (_L)"
 msgid "C_ursor Size"
 msgstr "কার্সার আকার(_u)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:303
 #: panels/universal-access/zoom-options.ui:99
 msgid "_Zoom"
@@ -6515,7 +6515,7 @@ msgstr "জুম (_Z)"
 msgid "Screen _Reader"
 msgstr "স্ক্রীন রিডার (_R)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:395
 #: panels/universal-access/cc-ua-panel.ui:1261
 msgid "_Sound Keys"
@@ -6535,12 +6535,12 @@ msgstr "দৃশ্যমান সূচনা (_V)"
 msgid "Screen _Keyboard"
 msgstr "স্ক্রীন কীবোর্ড (_K)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:654
 msgid "R_epeat Keys"
 msgstr "পুনরাবৃত্তির-কি (_e)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:700
 msgid "Cursor _Blinking"
 msgstr "কার্সারের ঝলকানি(_B)"
@@ -6553,7 +6553,7 @@ msgstr "টাইপিং সহায়তা (_T) (AccessX)"
 msgid "Pointing & Clicking"
 msgstr "পয়েন্টিং & ক্লিকিং"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:853
 msgid "_Mouse Keys"
 msgstr "মাউস-কি (_M)"
@@ -6597,7 +6597,7 @@ msgstr "আপনার ফোকাস সরানোর সাথে সা�
 msgid "_Screen Reader"
 msgstr "স্ক্রীন রিডার (_S)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1218
 msgid "Sound Keys"
 msgstr "শব্দ কি"
@@ -6627,38 +6627,38 @@ msgstr "সমগ্র উইন্ডো ফ্ল্যাশ করুন"
 msgid "Flash the entire _screen"
 msgstr "সমগ্র স্ক্রীন ফ্ল্যাশ করুন (_s)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1453
 msgid "Repeat Keys"
 msgstr "পুনরাবৃত্তির-কি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1483
 msgid "Key presses repeat when key is held down."
 msgstr "কী চেপে ধরলে কী টিপুন পুনরাবৃত্তি করে।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1563
 msgid "Repeat keys delay"
 msgstr "কি পুনরাবৃত্তির হার"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1611
 #: panels/universal-access/cc-ua-panel.ui:1746
 msgid "Speed"
 msgstr "গতি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1650
 msgid "Repeat keys speed"
 msgstr "কি পুনরাবৃত্তির হার"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1674
 msgid "Cursor Blinking"
 msgstr "কার্সারের ঝলকানি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1704
 msgid "Cursor blinks in text fields."
 msgstr "টেক্সট লেখার ক্ষেত্রে কার্সার ঝলকাবে।"
@@ -6671,7 +6671,7 @@ msgstr "কার্সার ব্লিঙ্ক গতি"
 msgid "Typing Assist"
 msgstr "টাইপিং সহায়তা"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1858
 msgid "_Sticky Keys"
 msgstr "স্টিকি-কি (_S)"
@@ -6688,7 +6688,7 @@ msgstr "দুইটি কী একসংগে টেপা হলে নি�
 msgid "Beep when a _modifier key is pressed"
 msgstr "একটি মডিফায়ার কী টেপা হলে বীপ করুন (_m)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:1965
 msgid "S_low Keys"
 msgstr "ধীর গতির-কি (_l)"
@@ -6730,7 +6730,7 @@ msgstr "একটি কী গৃহিত হলে বীপ আওয়া�
 msgid "Beep when a key is _rejected"
 msgstr "একটি কী প্রত্যাখ্যান হলে বীপ আওয়াজ করুন (_r)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:2178
 msgid "_Bounce Keys"
 msgstr "বাউন্স-কি (_B)"
@@ -6765,7 +6765,7 @@ msgstr "কীবোর্ড ব্যবহার করে অ্যাক্
 msgid "Click Assist"
 msgstr "ক্লিক সহায়তা"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:2514
 msgid "_Simulated Secondary Click"
 msgstr "দ্বিতীয় ক্লিকের অনুকরণ (_S)"
@@ -6796,7 +6796,7 @@ msgstr "হোভার ক্লিক (_H)"
 msgid "Trigger a click when the pointer hovers"
 msgstr "পয়েন্টার হোভার করার সময়ে একটি ক্লিক ট্রিগার করুন"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/universal-access/cc-ua-panel.ui:2728
 msgid "D_elay:"
 msgstr "বিলম্ব: (_e)"
@@ -6863,7 +6863,7 @@ msgctxt "Distance"
 msgid "¾ Screen"
 msgstr "¾ স্ক্রীন"
 
-# auto translated by TM merge from project: control-center, version: 3.8.6, DocId: gnome-control-center-2.0
+# auto translated by TM merge from project: control-center, version: 3.8.6, DocId: regolith-control-center-2.0
 #: panels/universal-access/zoom-options.c:307
 msgctxt "Distance"
 msgid "Long"
@@ -7348,7 +7348,7 @@ msgstr "না (_N)"
 msgid "_Yes"
 msgstr "হ্যাঁ(_Y)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.ui:155
 msgid ""
 "Do you want to delete your registered fingerprints so fingerprint login is "
@@ -7385,7 +7385,7 @@ msgid ""
 msgstr ""
 "ফিঙ্গারপ্রিন্ট লগইন আপনাকে আপনার আঙুল দিয়ে কম্পিউটারে আনলক এবং লগ ইন করতে দেয়"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.ui:352
 msgid "_Delete Fingerprints"
 msgstr "আঙুলের ছাপ মুছে ফেলুন (_D)"
@@ -7412,12 +7412,12 @@ msgstr "আঙুলের ছাপগুলি তালিকা করতে
 msgid "Failed to delete saved fingerprints: %s"
 msgstr "সংরক্ষিত আঙ্গুলের ছাপগুলি মুছতে ব্যর্থ: %s"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.c:565
 msgid "Left thumb"
 msgstr "বাঁহাতের বৃদ্ধাঙ্গুলি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.c:567
 msgid "Left middle finger"
 msgstr "বাঁহাতের মধ্যমা"
@@ -7426,22 +7426,22 @@ msgstr "বাঁহাতের মধ্যমা"
 msgid "_Left index finger"
 msgstr "বাম ইনডেক্স ফিংগার (_L)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.c:571
 msgid "Left ring finger"
 msgstr "বাঁহাতের অনামিকা"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.c:573
 msgid "Left little finger"
 msgstr "বাঁহাতের কনিষ্ঠা"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.c:575
 msgid "Right thumb"
 msgstr "ডান হাতের বৃদ্ধাঙ্গুলি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.c:577
 msgid "Right middle finger"
 msgstr "ডান হাতের মধ্যমা"
@@ -7450,12 +7450,12 @@ msgstr "ডান হাতের মধ্যমা"
 msgid "_Right index finger"
 msgstr "ডান ইনডেক্স ফিংগার (_R)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.c:581
 msgid "Right ring finger"
 msgstr "ডান হাতের অনামিকা"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/user-accounts/cc-fingerprint-dialog.c:583
 msgid "Right little finger"
 msgstr "ডান হাতের কনিষ্ঠা"
@@ -8207,7 +8207,7 @@ msgstr "টাচপ্যাড (সম্পর্কিত)"
 msgid "Tablet Preferences"
 msgstr "ট্যাবলেট অগ্রাধিকার"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/wacom/gnome-wacom-properties.ui:44
 msgid "_Help"
 msgstr "সাহায্য (_H)"
@@ -8263,7 +8263,7 @@ msgstr "ডিসপ্লে ভাগ করুন"
 msgid "New shortcut…"
 msgstr "নতুন শর্টকাট…"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: panels/wacom/wacom-stylus-page.ui:25
 msgid "Default"
 msgstr "ডিফল্ট"
@@ -8318,19 +8318,19 @@ msgstr "নিম্ন বোতাম"
 msgid "Tip Pressure Feel"
 msgstr "টিপ প্রেসার ফিল"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "জিনোম সেটিংস"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "জিনোম ডেস্কটপ কনফিগার করতে ইউটিলিটি"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "আপনার সিস্টেমটি কনফিগার করার জন্য সেটিংস হল প্রাথমিক ইন্টারফেস।"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "জিনোম প্রকল্প"
 
@@ -8387,17 +8387,17 @@ msgstr ""
 "সেটিংসের এই সংস্করণটি কেবলমাত্র উন্নয়নমূলক উদ্দেশ্যে ব্যবহার করা উচিত। আপনি ভুল "
 "সিস্টেম আচরণ, ডেটা হ্রাস এবং অন্যান্য অপ্রত্যাশিত সমস্যা অনুভব করতে পারেন।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: shell/cc-window.ui:330
 msgid "Help"
 msgstr "সাহায্য"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "অগ্রাধিকার;সেটিং;"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: shell/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "General"
@@ -8408,7 +8408,7 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "প্রস্থান"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #: shell/help-overlay.ui:27 shell/help-overlay.ui:48
 msgctxt "shortcut window"
 msgid "Search"
@@ -8511,7 +8511,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Pictures"
 #~ msgstr "ছবি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Colors"
 #~ msgstr "রং"
 
@@ -8592,7 +8592,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Don't use this display"
 #~ msgstr "এই প্রদর্শন ব্যবহার করবেন না"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Could not get screen information"
 #~ msgstr "পর্দা সংক্রান্ত পরিবর্তন প্রাপ্ত করতে ব্যর্থ"
 
@@ -8625,14 +8625,14 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Check for updates"
 #~ msgstr "আপডেট আছে কিনা দেখুন"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Keyboard"
 #~ msgstr "কি-বোর্ড"
 
 #~ msgid "Shortcut;Repeat;Blink;"
 #~ msgstr "শর্টকাট;পুনরাবৃত্তি;ব্লিঙ্ক;"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "_Delay:"
 #~ msgstr "বিলম্ব: (_D)"
 
@@ -8652,7 +8652,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Fast"
 #~ msgstr "দ্রুত"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "S_peed:"
 #~ msgstr "গতি: (_p)"
 
@@ -8666,11 +8666,11 @@ msgstr "সিস্টেমের শব্দ"
 #~ "একটি শর্টকাট সম্পাদন করতে, সারিতে ক্লিক করুন এবং সাফ করতে নতুন কী ধরে থাকুন বা "
 #~ "Backspace টিপুন।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "<Unknown Action>"
 #~ msgstr "<Unknown Action>"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid ""
 #~ "The shortcut \"%s\" cannot be used because it will become impossible to "
 #~ "type using this key.\n"
@@ -8680,7 +8680,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ "কিছু টাইপ করা যাবে না।\n"
 #~ "অনুগ্রহ করে Control, Alt অথবা Shift কি-র একত্রিত ব্যবহারের প্রচেষ্টা করুন।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid ""
 #~ "The shortcut \"%s\" is already used for\n"
 #~ "\"%s\""
@@ -8688,13 +8688,13 @@ msgstr "সিস্টেমের শব্দ"
 #~ "শর্টকাট \"%s\" বর্তমানে\n"
 #~ "\"%s\"-র জন্য ব্যবহৃত হচ্ছে"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid ""
 #~ "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be "
 #~ "disabled."
 #~ msgstr "\"%s\"-এ শর্ট-কাট স্থাপন করা হলে, \"%s\" শর্ট-কাটটি নিষ্ক্রিয় করা হবে।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "_Reassign"
 #~ msgstr "পুনরায় নির্ধারণ (_R)"
 
@@ -8705,7 +8705,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ "\"%s\" শর্টকাটের সংগে একটি \"%s\" শর্টকাট সংযুক্ত রয়েছে। আপনি কি এটি "
 #~ "স্বয়ংক্রিয়ভাবে \"%s\" এ সেট করতে চান?"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~| msgid ""
 #~| "If you reassign the shortcut to \"%s\", the \"%s\" shortcut will be "
 #~| "disabled."
@@ -8716,7 +8716,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ "বর্তমানে \"%s\" \"%s\"-এর সংগে সংশ্লিষ্ট, আপনি এগিয়ে গেলে এই শর্টকাট নিষ্ক্রিয় "
 #~ "হবে।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~| msgid "_Reassign"
 #~ msgid "_Assign"
 #~ msgstr "নিয়োগ (_A)"
@@ -8823,7 +8823,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Firewall _Zone"
 #~ msgstr "ফায়ারওয়্যাল জোন (_Z)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~| msgid "Default"
 #~ msgctxt "Firewall zone"
 #~ msgid "Default"
@@ -8919,7 +8919,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "None"
 #~ msgstr "শূণ্য"
 
-# auto translated by TM merge from project: control-center, version: 3.8.6, DocId: gnome-control-center-2.0
+# auto translated by TM merge from project: control-center, version: 3.8.6, DocId: regolith-control-center-2.0
 #~ msgctxt "proxy method"
 #~ msgid "Manual"
 #~ msgstr "ম্যানুয়াল"
@@ -9294,13 +9294,13 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Options"
 #~ msgstr "বিকল্প"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~| msgid "Other"
 #~ msgctxt "Search Location"
 #~ msgid "Other"
 #~ msgstr "অন্যান্য"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Preferences"
 #~ msgstr "পছন্দ"
 
@@ -9394,7 +9394,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Flash the _window title"
 #~ msgstr "উইন্ডো শিরোনাম ফ্ল্যাশ করুন (_w)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Zoom"
 #~ msgstr "প্রদর্শনের মাপ"
 
@@ -9406,14 +9406,14 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "_Verify"
 #~ msgstr "যাচাই (_V)"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Enable Fingerprint Login"
 #~ msgstr "আঙুলের ছাপ সহযোগে লগ-ইনের ব্যবস্থা সক্রিয় করুন"
 
 #~ msgid "_Other finger:"
 #~ msgstr "অন্যান্য ফিংগার (_O):"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid ""
 #~ "Your fingerprint was successfully saved. You should now be able to log in "
 #~ "using your fingerprint reader."
@@ -9464,7 +9464,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Passwords do not match."
 #~ msgstr "পাসওয়ার্ডগুলি মিলছে না।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid ""
 #~ "You are not allowed to access the device. Contact your system "
 #~ "administrator."
@@ -9472,39 +9472,39 @@ msgstr "সিস্টেমের শব্দ"
 #~ "আপনি এই ডিভাইস ব্যবহার করতে অনুমোদিত নন। অনুগ্রহ করে সিস্টেম অ্যাডমিনিস্ট্রেটরের "
 #~ "সাথে যোগাযোগ করুন।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "The device is already in use."
 #~ msgstr "ডিভাইসটি বর্তমানে ব্যবহৃত হচ্ছে।"
 
 #~ msgid "An internal error occurred."
 #~ msgstr "একটি অভ্যন্তরীণ ত্রুটি ঘটেছে।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Delete registered fingerprints?"
 #~ msgstr "নিবন্ধিত আঙুলের ছাপ মুছে ফেলা হবে কি?"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Done!"
 #~ msgstr "সমাপ্ত!"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Could not access '%s' device"
 #~ msgstr "'%s' ডিভাইস ব্যবহার করতে ব্যর্থ"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Could not start finger capture on '%s' device"
 #~ msgstr "'%s' ডিভাইসের মধ্যে আঙুলের ছাপ প্রাপ্ত করতে ব্যর্থ"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Could not access any fingerprint readers"
 #~ msgstr "আঙুলের ছাপ পাঠের কোনো ব্যবস্থা প্রয়োগ করা যায়নি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Please contact your system administrator for help."
 #~ msgstr ""
 #~ "অনুগ্রহ করে সহায়তার জন্য আপনার সিস্টেম অ্যাডমিনিস্ট্রটরের সাথে যোগাযোগ করুন।"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid ""
 #~ "To enable fingerprint login, you need to save one of your fingerprints, "
 #~ "using the '%s' device."
@@ -9647,7 +9647,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Show the overview"
 #~ msgstr "পূর্বরূপ দেখান"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Show help options"
 #~ msgstr "সহায়তা সংক্রান্ত বিকল্প প্রদর্শন করা হবে"
 
@@ -9794,7 +9794,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "180 Degrees"
 #~ msgstr "১৮০ ডিগ্রি"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Monitor"
 #~ msgstr "মনিটর"
 
@@ -9812,11 +9812,11 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "%a %R"
 #~ msgstr "%a %R"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Could not save the monitor configuration"
 #~ msgstr "মনিটর সংক্রান্ত কনফিগারেশন সংরক্ষণ করতে ব্যর্থ"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Could not detect displays"
 #~ msgstr "ডিসপ্লে সনাক্ত করতে ব্যর্থ"
 
@@ -9835,7 +9835,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "System Up-To-Date"
 #~ msgstr "সিস্টেম আপ-টু‍-ডেট"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Mouse Preferences"
 #~ msgstr "মাউস সম্পর্কিত পছন্দ"
 
@@ -9963,7 +9963,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Turn on or off:"
 #~ msgstr "চালু বা বন্ধ:"
 
-# auto translated by TM merge from project: control-center, version: 3.8.3, DocId: gnome-control-center-2.0
+# auto translated by TM merge from project: control-center, version: 3.8.3, DocId: regolith-control-center-2.0
 #~ msgctxt "universal access, zoom"
 #~ msgid "Zoom"
 #~ msgstr "জুম"
@@ -9985,7 +9985,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Short"
 #~ msgstr "সংক্ষিপ্ত"
 
-# auto translated by TM merge from project: control-center, version: 3.8.6, DocId: gnome-control-center-2.0
+# auto translated by TM merge from project: control-center, version: 3.8.6, DocId: regolith-control-center-2.0
 #~ msgctxt "universal access, delay"
 #~ msgid "Long"
 #~ msgstr "লম্বা"
@@ -10014,7 +10014,7 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Control the pointer using the video camera."
 #~ msgstr "ভিডিও ক্যামেরা ব্যবহার করে পয়েন্টার নিয়ন্ত্রণ করুন।"
 
-# auto translated by TM merge from project: control-center, version: 3.8.6, DocId: gnome-control-center-2.0
+# auto translated by TM merge from project: control-center, version: 3.8.6, DocId: regolith-control-center-2.0
 #~ msgctxt "universal access, threshold"
 #~ msgid "Small"
 #~ msgstr "ছোট"
@@ -10142,6 +10142,6 @@ msgstr "সিস্টেমের শব্দ"
 #~ msgid "Switch Modes"
 #~ msgstr "মোডগুলি স্যুইচ করুন"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0
 #~ msgid "Action"
 #~ msgstr "কাজ"

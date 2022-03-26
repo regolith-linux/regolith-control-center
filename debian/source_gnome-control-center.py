@@ -3,11 +3,11 @@ import glob
 from apport.hookutils import *
 
 def add_info(report):
-	# the issue is not in the gnome-control-center code so reassign
+	# the issue is not in the regolith-control-center code so reassign
 	if "Stacktrace" in report and "/control-center-1/" in report["Stacktrace"]:
 		for words in report["Stacktrace"].split():
 			if words.startswith("/usr/lib/") and "/control-center-1/" in words:
-			    if apport.packaging.get_file_package(words) != 'gnome-control-center':
+			    if apport.packaging.get_file_package(words) != 'regolith-control-center':
     				report.add_package_info(apport.packaging.get_file_package(words))
     				return    				
 			    component = re.compile("lib(\w*).so").search(words).groups(1)[0]
@@ -22,11 +22,11 @@ def add_info(report):
 			for filename in filenames:
 				path = os.path.join(dirpath, filename)
 				package = apport.packaging.get_file_package(path)
-				if package == 'gnome-control-center':
+				if package == 'regolith-control-center':
 					continue
 				if not package:
 					continue
 
 				plugin_packages.add(package)
 		if plugin_packages:
-			report["usr_lib_gnome-control-center"] = package_versions(*sorted(plugin_packages))
+			report["usr_lib_regolith-control-center"] = package_versions(*sorted(plugin_packages))

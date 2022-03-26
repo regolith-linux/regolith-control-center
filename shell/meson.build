@@ -14,7 +14,7 @@ configure_file(
   configuration : service_conf
 )
 
-desktop = 'gnome-control-center.desktop'
+desktop = 'regolith-control-center.desktop'
 
 desktop_in = configure_file(
           input : desktop + '.in.in',
@@ -34,7 +34,7 @@ i18n.merge_file(
 cflags = ['-DGNOMELOCALEDIR="@0@"'.format(control_center_localedir)]
 
 
-# Common sources between gnome-control-center and
+# Common sources between regolith-control-center and
 # libtestshell.
 common_sources = files(
   'cc-application.c',
@@ -101,7 +101,7 @@ libshell_dep = declare_dependency(
 
 
 ########################
-# gnome-control-center #
+# regolith-control-center #
 ########################
 
 shell_sources = common_sources + files('main.c')

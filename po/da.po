@@ -1,6 +1,6 @@
 # Danish translation of the Gnome Control Center.
 # Copyright (C) 1998-2018
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998-2000.
 # Birger Langkjer <birger.langkjer@image.dk>.
 # Keld Simonsen <keld@dkuug.dk>, 2000.
@@ -32,8 +32,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-08 08:29+0000\n"
 "PO-Revision-Date: 2021-09-13 20:12+0200\n"
@@ -101,7 +101,7 @@ msgstr "Filsystem"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -1611,8 +1611,8 @@ msgid "Join Displays"
 msgstr "Sammenføj skærme"
 
 # scootergrisen: tjek om det skal være Kloning frem for Klon.
-# scootergrisen: både i gnome-shell og gnome-control-center
-# scootergrisen: lader til Kloning er bedst i gnome-control-center
+# scootergrisen: både i gnome-shell og regolith-control-center
+# scootergrisen: lader til Kloning er bedst i regolith-control-center
 # scootergrisen: men det ville nok være bedst hvis de var ens
 #: panels/display/cc-display-panel.ui:126
 msgid "Mirror"
@@ -8742,20 +8742,20 @@ msgstr "Indstil telefoni og mobildataforbindelser"
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "mobil;wwan;telefoni;sim;simkort;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "GNOME Indstillinger"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Redskab til at konfigurere GNOME-skrivebordet"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr ""
 "Indstillinger er den primære grænseflade til konfigurering af dit system."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -8817,7 +8817,7 @@ msgid "Help"
 msgstr "Hjælp"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Indstillinger;Opsætning;"
 
@@ -9795,8 +9795,8 @@ msgstr "Systemlyde"
 #~ msgid "Quit"
 #~ msgstr "Afslut"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "English (United Kingdom)"
 #~ msgstr "Engelsk (Storbritannien)"

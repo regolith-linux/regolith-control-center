@@ -2,7 +2,7 @@ From: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 Date: Mon, 19 Aug 2019 16:17:20 +0100
 Subject: shell: Change the default height so all category are on screen
 
-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-control-center/+bug/1728450
+Ubuntu: https://bugs.launchpad.net/ubuntu/+source/regolith-control-center/+bug/1728450
 Upstream: https://bugzilla.gnome.org/show_bug.cgi?id=789372
 ---
  shell/cc-window.ui | 2 +-

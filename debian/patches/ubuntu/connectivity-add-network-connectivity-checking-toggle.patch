@@ -291,7 +291,7 @@ index 0000000..4e97c28
 +[Desktop Entry]
 +Name=Connectivity
 +Comment=Protect connectivity feature
-+Exec=gnome-control-center connectivity
++Exec=regolith-control-center connectivity
 +# FIXME
 +# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 +Icon=network-workgroup
@@ -302,7 +302,7 @@ index 0000000..4e97c28
 +Categories=GNOME;GTK;Settings;DesktopSettings;X-GNOME-Settings-Panel;X-GNOME-PrivacySettings;
 +OnlyShowIn=GNOME;Unity;
 +X-GNOME-Bugzilla-Bugzilla=GNOME
-+X-GNOME-Bugzilla-Product=gnome-control-center
++X-GNOME-Bugzilla-Product=regolith-control-center
 +X-GNOME-Bugzilla-Component=privacy
 +X-GNOME-Bugzilla-Version=@VERSION@
 +# Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!

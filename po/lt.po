@@ -1,5 +1,5 @@
-# Translation of gnome-control-center.HEAD.lt.po to Lithuanian
-# Lithuanian translation of gnome-control-center
+# Translation of regolith-control-center.HEAD.lt.po to Lithuanian
+# Lithuanian translation of regolith-control-center
 # Copyright (C) 2000-2009 Free Software Foundation, Inc.
 # Gediminas Paulauskas <menesis@chatsubo.lt>, 2000-2002.
 # Vaidotas Zemlys <mpiktas@delfi.lt>, 2003.
@@ -13,8 +13,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-08 08:29+0000\n"
 "PO-Revision-Date: 2021-09-12 20:54+0300\n"
@@ -85,7 +85,7 @@ msgstr "Failų sistema"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Nustatymai"
 
@@ -8732,19 +8732,19 @@ msgstr "Konfigūruoti telefonijos ir mobiliųjų duomenų ryšius"
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "mobilusis;wwan;telefonija;sim;mibilusis;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "GNOME nustatymai"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Įrankis GNOME grafinės aplinkos konfigūravimui"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Nustatymai yra pirminė sąsaja jūsų sistemos konfigūravimui."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "GNOME projektas"
 
@@ -8806,7 +8806,7 @@ msgid "Help"
 msgstr "Pagalba"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Nuostatos;Nustatymai;"
 
@@ -9791,8 +9791,8 @@ msgstr "Sistemos garsai"
 #~ msgid "Quit"
 #~ msgstr "Išeiti"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "_Verify New Password"
 #~ msgstr "_Tikrinti naują slaptažodį"

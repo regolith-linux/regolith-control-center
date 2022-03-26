@@ -1,14 +1,14 @@
-# translation of gnome-control-center.gnome-2-20.ne.po to Nepali
+# translation of regolith-control-center.gnome-2-20.ne.po to Nepali
 # Nepali Translation projectE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the gnome-control-center package.
+# This file is distributed under the same license as the regolith-control-center package.
 #
 # Pawan Chitrakar   <pawan@nplinux.org>, 2004.
 # Narayan Kumar Magar <narayan@mpp.org.np>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: Gnome Nepali Translation Project\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/issues\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/issues\n"
 "POT-Creation-Date: 2021-06-09 13:38+0000\n"
 "PO-Revision-Date: 2021-06-16 19:27+0545\n"
 "Last-Translator: Pawan Chitrakar <chautari@gmail.com>\n"
@@ -67,7 +67,7 @@ msgstr "फाइल प्रणाली"
 
 #: panels/applications/cc-applications-panel.c:849 panels/keyboard/01-launchers.xml.in:6
 #: shell/cc-window.c:279 shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "सेटिङ"
 
@@ -7745,19 +7745,19 @@ msgstr "सबैभन्दा न्यून बटन"
 msgid "Tip Pressure Feel"
 msgstr "टुप्पोमा  दबाव महसूस"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "ग्नोम सेटिङ"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "जिनोम डेस्कटप कन्फिगर गर्ने युटिलिटी"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "तपाईँको प्रणाली कन्फिगर गर्नका लागि सेटिङ प्राथमिक इन्टरफेस हो ।"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "जिनोम परियोजना"
 
@@ -7818,7 +7818,7 @@ msgid "Help"
 msgstr "मद्दत"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "प्राथमिकता;सेटिङ;"
 

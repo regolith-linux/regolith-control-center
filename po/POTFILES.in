@@ -283,13 +283,13 @@ panels/wwan/cc-wwan-panel.ui
 panels/wwan/cc-wwan-sim-lock-dialog.c
 panels/wwan/cc-wwan-sim-lock-dialog.ui
 panels/wwan/gnome-wwan-panel.desktop.in.in
-shell/appdata/gnome-control-center.appdata.xml.in
+shell/appdata/regolith-control-center.appdata.xml.in
 shell/cc-application.c
 shell/cc-panel-list.ui
 shell/cc-panel-loader.c
 shell/cc-window.c
 shell/cc-window.ui
-shell/gnome-control-center.desktop.in.in
+shell/regolith-control-center.desktop.in.in
 shell/help-overlay.ui
 shell/org.gnome.ControlCenter.gschema.xml
 # Please do not remove this file from POTFILES.in. Run "git submodule init && git submodule update" to get it.

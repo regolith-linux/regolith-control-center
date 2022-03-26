@@ -4,7 +4,7 @@ Subject: applications: Switch to g_spawn_check_wait_status()
 
 It's the undeprecated version of g_spawn_check_exit_status().
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/77b182
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/77b182
 ---
  panels/applications/utils.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

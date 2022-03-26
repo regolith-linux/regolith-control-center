@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Background
 Comment=Change your background image to a wallpaper or photo
-Exec=gnome-control-center background
+Exec=regolith-control-center background
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=preferences-desktop-wallpaper
 Terminal=false

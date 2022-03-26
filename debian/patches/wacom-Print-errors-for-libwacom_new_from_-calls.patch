@@ -4,7 +4,7 @@ Subject: wacom: Print errors for libwacom_new_from_*() calls
 
 This helps with debugging.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/d47b9be0
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/d47b9be0
 ---
  panels/wacom/cc-wacom-device.c | 17 ++++++++++++++---
  1 file changed, 14 insertions(+), 3 deletions(-)

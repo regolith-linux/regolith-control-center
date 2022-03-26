@@ -1,6 +1,6 @@
-# Polish translation for gnome-control-center.
-# Copyright © 1998-2020 the gnome-control-center authors.
-# This file is distributed under the same license as the gnome-control-center package.
+# Polish translation for regolith-control-center.
+# Copyright © 1998-2020 the regolith-control-center authors.
+# This file is distributed under the same license as the regolith-control-center package.
 # Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2003.
 # Artur Flinta <aflinta@at.kernel.pl>, 2003-2007.
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2007-2009.
@@ -11,8 +11,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-08 08:29+0000\n"
 "PO-Revision-Date: 2021-09-14 19:18+0200\n"
@@ -80,7 +80,7 @@ msgstr "System plików"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Ustawienia"
 
@@ -2943,7 +2943,7 @@ msgstr ""
 msgid "Must have a minimum of 8 characters"
 msgstr "Minimum to 8 znaków"
 
-# FIXME: https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/1463
+# FIXME: https://gitlab.gnome.org/GNOME/regolith-control-center/-/issues/1463
 #: panels/network/cc-wifi-hotspot-dialog.c:272
 #, c-format
 msgid "Must have a maximum of %d characters"
@@ -8784,19 +8784,19 @@ msgstr "Konfiguracja połączeń telefonicznych i komórkowych"
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "komórkowa;komórka;wwan;telefon;telefonia;sim;pin;puk;mobilna;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "Ustawienia GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Narzędzie do konfigurowania środowiska GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Główny interfejs do konfigurowania komputera."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -8859,7 +8859,7 @@ msgid "Help"
 msgstr "Pomoc"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Preferencje;Ustawienia;Konfiguracja;Opcje;"
 

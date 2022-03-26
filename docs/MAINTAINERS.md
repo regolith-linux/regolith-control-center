@@ -1,7 +1,7 @@
 This document describes how maintainership works on GNOME Settings. It is intended to be a guideline
 for future reference.
 
-The list of current maintainers can be found at the [gnome-control-center.doap][doap] DOAP file.
+The list of current maintainers can be found at the [regolith-control-center.doap][doap] DOAP file.
 
 # General Rules
 
@@ -59,4 +59,4 @@ criteria:
  * Quickly followed by an emergency release (at most 2 days after the commit)
 
 
-[doap]: https://gitlab.gnome.org/GNOME/gnome-control-center/blob/master/gnome-control-center.doap
+[doap]: https://gitlab.gnome.org/GNOME/regolith-control-center/blob/master/regolith-control-center.doap

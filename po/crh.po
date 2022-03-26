@@ -1,10 +1,10 @@
-# Qırımtatarca gnome-control-center.
-# This file is distributed under the same license as the gnome-control-center package.
+# Qırımtatarca regolith-control-center.
+# This file is distributed under the same license as the regolith-control-center package.
 # Reşat SABIQ <tilde.birlik@gmail.com>, 2009, 2010, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
+"Project-Id-Version: regolith-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-21 19:21-0500\n"
 "PO-Revision-Date: 2013-05-23 18:26-0500\n"
@@ -1199,7 +1199,7 @@ msgstr "180 Derece"
 #. * used as an adjective.  For example, the Spanish translation could be
 #. * "Pantallas en Espejo".
 #.
-#. Keep this string in sync with gnome-control-center/capplets/display/xrandr-capplet.c:get_display_name()
+#. Keep this string in sync with regolith-control-center/capplets/display/xrandr-capplet.c:get_display_name()
 #. Translators:  this is the feature where what you see on your
 #. * laptop's screen is the same as your external projector.
 #. * Here, "Mirrored" is being used as an adjective.  For example,
@@ -7374,7 +7374,7 @@ msgstr "Yardım"
 msgid "Quit"
 msgstr "Terk et"
 
-#: ../shell/cc-window.c:61 ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/cc-window.c:61 ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "Ayarlar"
 
@@ -7399,7 +7399,7 @@ msgstr "Sistem"
 msgid "All Settings"
 msgstr "Hepsi Ayarlar"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Tercihler;Ayarlar;"
 

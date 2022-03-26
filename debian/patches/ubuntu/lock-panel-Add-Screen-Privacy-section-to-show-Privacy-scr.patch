@@ -8,7 +8,7 @@ supports it and it's modifiable only when there's not hardware lock.
 This is a backport of the gtk4 version proposed upstream, and can be
 safely removed post GNOME-41.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/1032/diffs?diff_id=241907
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/merge_requests/1032/diffs?diff_id=241907
 ---
  panels/lock/cc-lock-panel.c                | 53 +++++++++++++++++++++++
  panels/lock/cc-lock-panel.ui               | 67 ++++++++++++++++++++++++++++++
@@ -206,7 +206,7 @@ index 5b4f8b4..120f5ec 100644
 -Comment=Lock your screen
 +Name=Screen
 +Comment=Screen Privacy Preferences
- Exec=gnome-control-center lock
+ Exec=regolith-control-center lock
  # FIXME
  # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 -Icon=system-lock-screen-symbolic
@@ -214,7 +214,7 @@ index 5b4f8b4..120f5ec 100644
  Terminal=false
  Type=Application
  NoDisplay=true
-@@ -16,4 +16,4 @@ X-GNOME-Bugzilla-Product=gnome-control-center
+@@ -16,4 +16,4 @@ X-GNOME-Bugzilla-Product=regolith-control-center
  X-GNOME-Bugzilla-Component=privacy
  X-GNOME-Bugzilla-Version=@VERSION@
  # Translators: Search terms to find the Privacy panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!

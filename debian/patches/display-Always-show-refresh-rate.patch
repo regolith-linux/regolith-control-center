@@ -25,7 +25,7 @@ dispite it having little use.
 See also:
 https://gitlab.gnome.org/GNOME/mutter/-/commit/fb9564b87b9fe8ebc5a19c20dbfe036995d0dbad
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/375bbc3
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/375bbc3
 ---
  panels/display/cc-display-settings.c | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)

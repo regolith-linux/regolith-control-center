@@ -1,5 +1,5 @@
-# translation of gnome-control-center.HEAD.he.po to Hebrew
-# translation of gnome-control-center.gnome-2-0.he.po to Hebrew
+# translation of regolith-control-center.HEAD.he.po to Hebrew
+# translation of regolith-control-center.gnome-2-0.he.po to Hebrew
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER.
 # Gil 'Dolfin' Osher <dolfin@rpg.org.il>, 2002,2003.
@@ -9,8 +9,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center.HEAD.he\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center.HEAD.he\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-24 15:42+0000\n"
 "PO-Revision-Date: 2021-09-23 10:57+0300\n"
@@ -79,7 +79,7 @@ msgstr "מערכת הפעלה"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "הגדרות"
 
@@ -8662,19 +8662,19 @@ msgstr ""
 "סלולרי;אלחוטי;סים;SIM;נייד;תקשורת;מובייל;פלאפון;סלקום;פרטנר;רמי לוי;גולן;"
 "טלקום;טלפוניה;חיוג;טלפון;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "הגדרות GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "כלים להגדרת שולחן העבודה GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "הגדרות הוא הממשק העיקרי להגדיר את המערכת שלך."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "מיזם GNOME"
 
@@ -8736,7 +8736,7 @@ msgid "Help"
 msgstr "עזרה"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "העדפות;הגדרות;"
 

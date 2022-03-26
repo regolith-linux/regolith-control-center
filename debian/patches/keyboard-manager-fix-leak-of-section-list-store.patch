@@ -17,7 +17,7 @@ Subject: keyboard-manager: fix leak of section list store
 ==25729==    by 0x4A7A288: g_type_create_instance (gtype.c:1929)
 ==25729==    by 0x4A61CAC: g_object_new_internal (gobject.c:1945)
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/7741dc1ab
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/7741dc1ab
 ---
  panels/keyboard/cc-keyboard-manager.c | 1 +
  1 file changed, 1 insertion(+)

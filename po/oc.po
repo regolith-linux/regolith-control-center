@@ -1,13 +1,13 @@
-# Occitan translation of gnome-control-center.
+# Occitan translation of regolith-control-center.
 # Copyright (C) 1998-2012 Free Software Foundation, Inc.
-# This file is under the same license as the gnome-control-center package.
+# This file is under the same license as the regolith-control-center package.
 # Cédric Valmary (Tot en òc) <cvalmary@yahoo.fr>, 2015.
 # Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>, 2016, 2018.
 # Cedric <cvalmary@yahoo.fr>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center HEAD\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center HEAD\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-09 16:10+0000\n"
 "PO-Revision-Date: 2021-09-17 19:25+0200\n"
@@ -77,7 +77,7 @@ msgstr "Sistèma de fichièrs"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -8750,19 +8750,19 @@ msgstr "Configurar la telefonia e las connexion de donadas mobil"
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "mobil;wwan;telefòn;sim;telefonet;portable;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "Paramètres GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Utilitari per configurar l’environament GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Paramètres es l’interfàcia principala de configuracion del sistèma."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "Lo projècte GNOME"
 
@@ -8825,7 +8825,7 @@ msgid "Help"
 msgstr "Ajuda"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Preferéncias;Paramètres;Reglatges;"
 
@@ -9685,8 +9685,8 @@ msgstr "Sons sistèma"
 #~ msgstr "Quitar"
 
 #~| msgid "Control Center"
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "Back­ground"
 #~ msgstr "Rèireplan"

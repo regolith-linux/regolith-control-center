@@ -1,4 +1,4 @@
-# Traducció del gnome-control-center de l'equip de Softcatalà.
+# Traducció del regolith-control-center de l'equip de Softcatalà.
 # Copyright © 1999-2009 Free Software Foundation, Inc.
 #
 # Terminologia
@@ -19,8 +19,8 @@
 # Carles Ferrando Garcia <carles.ferrando@gmail.com>, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/issues\n"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/issues\n"
 "POT-Creation-Date: 2021-09-08 08:29+0000\n"
 "PO-Revision-Date: 2020-12-21 13:29+0100\n"
 "Last-Translator: Jordi Mas <jmas@softcatala.org>\n"
@@ -87,7 +87,7 @@ msgstr "Sistema de fitxers"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Paràmetres"
 
@@ -8818,19 +8818,19 @@ msgstr "Configura les connexions de dades de telefonia i mòbils"
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "cel·lular;wwan;telefonia;sim;mòbil;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "Paràmetres del GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Utilitats per a configurar l'escriptori GNOME"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "El Paràmetres és la interfície principal per a configurar el sistema."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "El projecte GNOME"
 
@@ -8894,7 +8894,7 @@ msgstr "Ajuda"
 
 #. Translators: Search terms to find this application. Do NOT translate or
 #. localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Preferències;Configuració;"
 

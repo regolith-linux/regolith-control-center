@@ -1,5 +1,5 @@
-# translation of gnome-control-center.master.kn.po to Kannada
-# translation of gnome-control-center.HEAD.po to
+# translation of regolith-control-center.master.kn.po to Kannada
+# translation of regolith-control-center.HEAD.po to
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -1495,7 +1495,7 @@ msgid "Launch help browser"
 msgstr "ನೆರವಿನ ವೀಕ್ಷಕವನ್ನು ಆರಂಭಿಸಿ"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1604
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "ಸಿದ್ಧತೆಗಳು"
 
@@ -7187,7 +7187,7 @@ msgctxt "category"
 msgid "System"
 msgstr "ವ್ಯವಸ್ಥೆ"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "ಆದ್ಯತೆಗಳು;ಸಿದ್ಧತೆಗಳು;"
 
@@ -7399,7 +7399,7 @@ msgstr "ಆದ್ಯತೆಗಳು;ಸಿದ್ಧತೆಗಳು;"
 #~ msgid "System Up-To-Date"
 #~ msgstr "ವ್ಯವಸ್ಥೆಯು ಅಪ್-ಟು-ಡೇಟ್ ಆಗಿದೆ"
 
-# translation auto-copied from project control-center, version 3.8.3, document gnome-control-center-2.0, author Shankar
+# translation auto-copied from project control-center, version 3.8.3, document regolith-control-center-2.0, author Shankar
 #~ msgid "OS Type"
 #~ msgstr "OS ಬಗೆ"
 

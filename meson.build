@@ -1,5 +1,5 @@
 project(
-  'gnome-control-center', 'c',
+  'regolith-control-center', 'c',
         version : '41.4',
         license : 'GPL2+',
   meson_version : '>= 0.53.0'

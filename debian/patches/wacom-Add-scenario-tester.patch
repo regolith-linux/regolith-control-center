@@ -2,13 +2,13 @@ From: Bastien Nocera <hadess@hadess.net>
 Date: Mon, 15 Nov 2021 18:19:43 +0100
 Subject: wacom: Add scenario tester
 
-Running the helper will launch gnome-control-center with a mocked Wacom
+Running the helper will launch regolith-control-center with a mocked Wacom
 Cintiq tablet through umockdev when one isn't present or easily available.
 
 The Cintiq was selected as it will trigger showing all the different
 buttons Wacom tablets can make the panel spawn.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/4b1f7011
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/4b1f7011
 ---
  panels/wacom/wacom-panel-scenario-tester.py | 75 +++++++++++++++++++++++++++++
  1 file changed, 75 insertions(+)
@@ -76,7 +76,7 @@ index 0000000..731d780
 +    os.environ['UMOCKDEV_DIR'] = testbed.get_root_dir()
 +
 +    wrapper = os.environ.get('WRAPPER')
-+    args = ['gnome-control-center', '-v', 'wacom']
++    args = ['regolith-control-center', '-v', 'wacom']
 +    if wrapper == 'gdb':
 +        args = ['gdb', '-ex', 'r', '-ex', 'bt full', '--args'] + args
 +    elif wrapper:

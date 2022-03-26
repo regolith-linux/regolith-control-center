@@ -14,7 +14,7 @@ fixes meanwhile it gets ready.
 It was solved by adding treatment for the case in which owe was set.
 OWE is not treated anymore in the same case as None.
 
-https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/1521
+https://gitlab.gnome.org/GNOME/regolith-control-center/-/issues/1521
 ---
  .../network/connection-editor/ce-page-security.c   | 23 ++++++++++++++++++----
  1 file changed, 19 insertions(+), 4 deletions(-)

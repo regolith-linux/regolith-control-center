@@ -2,9 +2,9 @@ From: Carlos Garnacho <carlosg@gnome.org>
 Date: Sat, 12 Feb 2022 14:54:37 +0100
 Subject: wacom: Explicitly discard input from touchscreens
 
-Closes: https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/1612
+Closes: https://gitlab.gnome.org/GNOME/regolith-control-center/-/issues/1612
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/7371dbb
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/7371dbb
 ---
  panels/wacom/calibrator/calibrator-gui.c | 3 +++
  1 file changed, 3 insertions(+)

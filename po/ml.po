@@ -1,8 +1,8 @@
 # translation of ml.po to
-# translation of gnome-control-center.master.ml.po to
-# translation of gnome-control-center.HEAD.ml.po to
-# This file is distributed under the same license as the gnome-control-center package.
-# Copyright (C) 2007-2008 gnome-control-center'S COPYRIGHT HOLDER.
+# translation of regolith-control-center.master.ml.po to
+# translation of regolith-control-center.HEAD.ml.po to
+# This file is distributed under the same license as the regolith-control-center package.
+# Copyright (C) 2007-2008 regolith-control-center'S COPYRIGHT HOLDER.
 # FSF-India <locale@gnu.org.in>, 2003.
 # Santhosh|സന്തോഷ് Thottingal|തോട്ടിങ്ങല്‍ <santhosh00@gmail.com>, 2007.
 # Ani Peter <apeter@redhat.com>, 2007, 2009, 2012.
@@ -17,7 +17,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ml\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-control-center&keywords=I18N"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=regolith-control-center&keywords=I18N"
 "+L10N&component=general\n"
 "POT-Creation-Date: 2017-08-19 14:32+0000\n"
 "PO-Revision-Date: 2017-08-20 23:21+0530\n"
@@ -1592,7 +1592,7 @@ msgid "Launch help browser"
 msgstr "സഹായകബ്രൌസര്‍ തുറക്കുക"
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/alt/cc-window.c:1590 ../shell/cc-window.c:251
-#: ../shell/cc-window.c:794 ../shell/gnome-control-center.desktop.in.in.h:1 ../shell/window.ui.h:1
+#: ../shell/cc-window.c:794 ../shell/regolith-control-center.desktop.in.in.h:1 ../shell/window.ui.h:1
 msgid "Settings"
 msgstr "സജ്ജീകരണങ്ങള്‍"
 
@@ -6971,17 +6971,17 @@ msgctxt "category"
 msgid "System"
 msgstr "സിസ്റ്റം"
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:1
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:1
 #, fuzzy
 #| msgid "Control Center"
 msgid "GNOME Control Center"
 msgstr "നിയന്ത്രണകേന്ദ്രം"
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:2
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:2
 msgid "Utilities to configure the GNOME desktop"
 msgstr ""
 
-#: ../shell/appdata/gnome-control-center.appdata.xml.in.h:3
+#: ../shell/appdata/regolith-control-center.appdata.xml.in.h:3
 msgid "The control center is GNOME’s main interface for configuration of various aspects of your desktop."
 msgstr ""
 
@@ -7027,7 +7027,7 @@ msgstr "സഹായം"
 msgid "Quit"
 msgstr "പുറത്തു് കടക്കുക"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Preferences;Settings;"
 

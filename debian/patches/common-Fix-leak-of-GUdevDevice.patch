@@ -20,7 +20,7 @@ argument to avoid a second call to that function.
  >    by 0x4A63780: g_object_new (gobject.c:1785)
  >    by 0x4B7075: gsd_device_manager_get (gsd-device-manager.c:533)
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/dac8fd6
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/dac8fd6
 ---
  panels/common/gsd-device-manager.c | 10 +++-------
  1 file changed, 3 insertions(+), 7 deletions(-)

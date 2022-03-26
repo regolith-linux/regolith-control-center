@@ -1,6 +1,6 @@
-[![Build Status](https://gitlab.gnome.org/GNOME/gnome-control-center/badges/master/pipeline.svg)](https://gitlab.gnome.org/GNOME/gnome-control-center/pipelines)
-[![Coverage report](https://gitlab.gnome.org/GNOME/gnome-control-center/badges/master/coverage.svg)](https://gnome.pages.gitlab.gnome.org/gnome-control-center/)
-[![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://gitlab.gnome.org/GNOME/gnome-control-center/blob/master/COPYING)
+[![Build Status](https://gitlab.gnome.org/GNOME/regolith-control-center/badges/master/pipeline.svg)](https://gitlab.gnome.org/GNOME/regolith-control-center/pipelines)
+[![Coverage report](https://gitlab.gnome.org/GNOME/regolith-control-center/badges/master/coverage.svg)](https://gnome.pages.gitlab.gnome.org/regolith-control-center/)
+[![License](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://gitlab.gnome.org/GNOME/regolith-control-center/blob/master/COPYING)
 
 GNOME Settings
 ====================
@@ -17,7 +17,7 @@ for the coding style guidelines.
 Before reporting any bugs or opening feature requests, [read the communication guidelines][communication-guidelines].
 
 Bugs should be reported to the GNOME bug tracking system under the product
-gnome-control-center. It is available at [GitLab Issues](https://gitlab.gnome.org/GNOME/gnome-control-center/issues).
+regolith-control-center. It is available at [GitLab Issues](https://gitlab.gnome.org/GNOME/regolith-control-center/issues).
 
 In the report please include the following information:
 
@@ -33,11 +33,11 @@ In the report please include the following information:
 If the crash is reproducible, follow the steps to obtain a 
 backtrace:
 
-Install debug symbols for gnome-control-center.
+Install debug symbols for regolith-control-center.
 
 Run the program in gdb [the GNU debugger] or any other debugger.
 
-    gdb gnome-control-center
+    gdb regolith-control-center
 
 Start the program.
     
@@ -53,11 +53,11 @@ a file to the bug report.
 ## Testing Unstable Settings
 
 It is quite easy to test and give feedback about the development version of GNOME
-Settings. Just access https://gitlab.gnome.org/GNOME/gnome-control-center/environments,
+Settings. Just access https://gitlab.gnome.org/GNOME/regolith-control-center/environments,
 get the latest version, download it, double-click the file, install and run.
 
 Note that GNOME Settings Flatpak will only work if you are running
 the latest GNOME version in your host system.
 
 
-[communication-guidelines]: https://gitlab.gnome.org/GNOME/gnome-control-center/blob/master/docs/CONTRIBUTING.md#communication-guidelines
+[communication-guidelines]: https://gitlab.gnome.org/GNOME/regolith-control-center/blob/master/docs/CONTRIBUTING.md#communication-guidelines

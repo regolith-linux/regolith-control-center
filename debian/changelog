@@ -1,6 +1,6 @@
-gnome-control-center (1:41.4-1ubuntu8) jammy; urgency=medium
+regolith-control-center (1:41.4-1ubuntu8) jammy; urgency=medium
 
-  * debian/gnome-control-center-data.install,
+  * debian/regolith-control-center-data.install,
     debian/patches/ubuntu/distro-logo.patch,
     debian/patches/debian/info-overview-Use-the-Vendor-logo-prominently.patch,
     debian/rules,
@@ -12,21 +12,21 @@ gnome-control-center (1:41.4-1ubuntu8) jammy; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 18 Mar 2022 16:30:25 +0100
 
-gnome-control-center (1:41.4-1ubuntu7) jammy; urgency=medium
+regolith-control-center (1:41.4-1ubuntu7) jammy; urgency=medium
 
   * debian/ubuntu-logo-icon.png:
     - use a variant of the logo with the ubuntu label
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 18 Mar 2022 15:27:28 +0100
 
-gnome-control-center (1:41.4-1ubuntu6) jammy; urgency=medium
+regolith-control-center (1:41.4-1ubuntu6) jammy; urgency=medium
 
   [ Marco Trevisan (Treviño) ]
   * background: Support changing the light / dark wallpaper
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Thu, 17 Mar 2022 22:46:55 -0400
 
-gnome-control-center (1:41.4-1ubuntu5) jammy; urgency=medium
+regolith-control-center (1:41.4-1ubuntu5) jammy; urgency=medium
 
   [ Sebastien Bacher ]
   * debian/ubuntu-logo-icon.png:
@@ -84,13 +84,13 @@ gnome-control-center (1:41.4-1ubuntu5) jammy; urgency=medium
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 18 Mar 2022 02:23:54 +0100
 
-gnome-control-center (1:41.4-1ubuntu3.1) jammy; urgency=medium
+regolith-control-center (1:41.4-1ubuntu3.1) jammy; urgency=medium
 
   * debian/patches/git_owe_settings.patch: Fix OWE settings (lp: #1963906)
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 07 Mar 2022 17:05:27 +0100
 
-gnome-control-center (1:41.4-1ubuntu3) jammy; urgency=medium
+regolith-control-center (1:41.4-1ubuntu3) jammy; urgency=medium
 
   [ Marco Trevisan (Treviño) ]
   * debian/patches: Refresh
@@ -106,7 +106,7 @@ gnome-control-center (1:41.4-1ubuntu3) jammy; urgency=medium
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 25 Feb 2022 11:39:21 +0100
 
-gnome-control-center (1:41.4-1ubuntu2) jammy; urgency=low
+regolith-control-center (1:41.4-1ubuntu2) jammy; urgency=low
 
   * Merge from Debian unstable. Remaining changes:
   * d/p/u/display-Allow-fractional-scaling-to-be-enabled.patch:
@@ -151,7 +151,7 @@ gnome-control-center (1:41.4-1ubuntu2) jammy; urgency=low
 
  -- Gianfranco Costamagna <locutusofborg@debian.org>  Thu, 17 Feb 2022 20:50:39 +0100
 
-gnome-control-center (1:41.4-1) unstable; urgency=medium
+regolith-control-center (1:41.4-1) unstable; urgency=medium
 
   * Team upload
   * New upstream release
@@ -169,7 +169,7 @@ gnome-control-center (1:41.4-1) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Wed, 16 Feb 2022 10:54:42 +0000
 
-gnome-control-center (1:41.2-2ubuntu1) jammy; urgency=low
+regolith-control-center (1:41.2-2ubuntu1) jammy; urgency=low
 
   * Merge from Debian unstable. Remaining changes:
   * debian/patches: Refresh
@@ -215,7 +215,7 @@ gnome-control-center (1:41.2-2ubuntu1) jammy; urgency=low
 
  -- Gianfranco Costamagna <locutusofborg@debian.org>  Sun, 06 Feb 2022 22:57:51 +0100
 
-gnome-control-center (1:41.2-2) unstable; urgency=medium
+regolith-control-center (1:41.2-2) unstable; urgency=medium
 
   * Team upload
   * d/patches: Update to gnome-41 branch commit 41.2-19-g600b0a014
@@ -229,7 +229,7 @@ gnome-control-center (1:41.2-2) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Tue, 01 Feb 2022 22:56:12 +0000
 
-gnome-control-center (1:41.2-1) unstable; urgency=medium
+regolith-control-center (1:41.2-1) unstable; urgency=medium
 
   * New upstream release
   * Bump debhelper-compat to 13
@@ -237,7 +237,7 @@ gnome-control-center (1:41.2-1) unstable; urgency=medium
 
  -- Jeremy Bicha <jbicha@debian.org>  Sun, 05 Dec 2021 09:54:38 -0500
 
-gnome-control-center (1:41.1-1ubuntu3) jammy; urgency=medium
+regolith-control-center (1:41.1-1ubuntu3) jammy; urgency=medium
 
   [ Marco Trevisan (Treviño) ]
   * debian/patches: Refresh
@@ -285,19 +285,19 @@ gnome-control-center (1:41.1-1ubuntu3) jammy; urgency=medium
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Mon, 31 Jan 2022 03:42:47 +0100
 
-gnome-control-center (1:41.1-1ubuntu2) jammy; urgency=medium
+regolith-control-center (1:41.1-1ubuntu2) jammy; urgency=medium
 
   * Fix FTBFS with recent meson version.
 
  -- Robert Ancell <robert.ancell@canonical.com>  Wed, 19 Jan 2022 15:03:40 +1300
 
-gnome-control-center (1:41.1-1ubuntu1) jammy; urgency=medium
+regolith-control-center (1:41.1-1ubuntu1) jammy; urgency=medium
 
   * Resynchronize with debian and update to the new serie
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 16 Nov 2021 13:37:15 +0100
 
-gnome-control-center (1:41.1-1) unstable; urgency=medium
+regolith-control-center (1:41.1-1) unstable; urgency=medium
 
   * Team upload
 
@@ -310,13 +310,13 @@ gnome-control-center (1:41.1-1) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Fri, 05 Nov 2021 19:38:16 +0000
 
-gnome-control-center (1:41.0-2) unstable; urgency=medium
+regolith-control-center (1:41.0-2) unstable; urgency=medium
 
   * Release to unstable
 
  -- Jeremy Bicha <jbicha@debian.org>  Tue, 28 Sep 2021 19:35:52 -0400
 
-gnome-control-center (1:41.0-1) experimental; urgency=medium
+regolith-control-center (1:41.0-1) experimental; urgency=medium
 
   * New upstream release
   * Refresh patches
@@ -327,21 +327,21 @@ gnome-control-center (1:41.0-1) experimental; urgency=medium
 
  -- Jeremy Bicha <jbicha@debian.org>  Sun, 26 Sep 2021 16:46:05 -0400
 
-gnome-control-center (1:40.1-1) unstable; urgency=medium
+regolith-control-center (1:40.1-1) unstable; urgency=medium
 
   * New upstream release
   * Refresh patches
 
  -- Jeremy Bicha <jbicha@debian.org>  Sat, 18 Sep 2021 07:37:48 -0400
 
-gnome-control-center (1:40.0-2) unstable; urgency=medium
+regolith-control-center (1:40.0-2) unstable; urgency=medium
 
   * Team upload
   * Release to unstable, part of transition #992870
 
  -- Simon McVittie <smcv@debian.org>  Sat, 11 Sep 2021 21:32:44 +0100
 
-gnome-control-center (1:40.0-1ubuntu6) UNRELEASED; urgency=medium
+regolith-control-center (1:40.0-1ubuntu6) UNRELEASED; urgency=medium
 
   [ Gunnar Hjalmarsson ]
   * Add gedit-common to gcc Depends (LP: #1947519)
@@ -349,7 +349,7 @@ gnome-control-center (1:40.0-1ubuntu6) UNRELEASED; urgency=medium
 
  -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Mon, 18 Oct 2021 13:23:44 +0200
 
-gnome-control-center (1:40.0-1ubuntu5) impish; urgency=medium
+regolith-control-center (1:40.0-1ubuntu5) impish; urgency=medium
 
   * d/p/keyboard-Create-CcXkbModifierDialog-only-when-used.patch,
     d/p/keyboard-Rename-XkbOption-and-XkbModifier-with-Cc-prefix.patch:
@@ -359,7 +359,7 @@ gnome-control-center (1:40.0-1ubuntu5) impish; urgency=medium
 
  -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Thu, 19 Aug 2021 12:58:46 +0200
 
-gnome-control-center (1:40.0-1ubuntu4) impish; urgency=medium
+regolith-control-center (1:40.0-1ubuntu4) impish; urgency=medium
 
   [ Muqtadir ]
   * d/p/u/Allow-tweaking-some-settings-for-Ubuntu-Dock.patch:
@@ -367,7 +367,7 @@ gnome-control-center (1:40.0-1ubuntu4) impish; urgency=medium
 
  -- Robert Ancell <robert.ancell@canonical.com>  Thu, 05 Aug 2021 12:40:07 +1200
 
-gnome-control-center (1:40.0-1ubuntu3) impish; urgency=medium
+regolith-control-center (1:40.0-1ubuntu3) impish; urgency=medium
 
   [ Gunnar Hjalmarsson ]
   * Adapts-the-region-capplet-and-the-language-chooser-in-the.patch:
@@ -383,16 +383,16 @@ gnome-control-center (1:40.0-1ubuntu3) impish; urgency=medium
 
  -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Tue, 03 Aug 2021 12:46:03 +0200
 
-gnome-control-center (1:40.0-1ubuntu2) impish; urgency=medium
+regolith-control-center (1:40.0-1ubuntu2) impish; urgency=medium
 
   * debian/ubuntu-logo-icon.png,
-    debian/gnome-control-center-data.install,
+    debian/regolith-control-center-data.install,
     d/p/d/info-overview-Use-the-Vendor-logo-prominently.patch:
     - use a vendor logo icon which is available in Ubuntu (lp: #1934564)
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 09 Jul 2021 13:10:17 +0200
 
-gnome-control-center (1:40.0-1ubuntu1) impish; urgency=medium
+regolith-control-center (1:40.0-1ubuntu1) impish; urgency=medium
 
   * Merge with debian
   * debian/patches: Refresh and rebase
@@ -420,7 +420,7 @@ gnome-control-center (1:40.0-1ubuntu1) impish; urgency=medium
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 11 Jun 2021 03:38:52 +0200
 
-gnome-control-center (1:40.0-1) experimental; urgency=medium
+regolith-control-center (1:40.0-1) experimental; urgency=medium
 
   [ Marco Trevisan (Treviño) ]
   * New upstream release
@@ -436,7 +436,7 @@ gnome-control-center (1:40.0-1) experimental; urgency=medium
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 10 Jun 2021 18:36:49 +0200
 
-gnome-control-center (1:3.38.6-0ubuntu2) impish; urgency=medium
+regolith-control-center (1:3.38.6-0ubuntu2) impish; urgency=medium
 
   [ Gunnar Hjalmarsson ]
   * Added note to the header of patch 0030
@@ -450,7 +450,7 @@ gnome-control-center (1:3.38.6-0ubuntu2) impish; urgency=medium
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 28 May 2021 20:48:42 +0200
 
-gnome-control-center (1:3.38.6-0ubuntu1) impish; urgency=medium
+regolith-control-center (1:3.38.6-0ubuntu1) impish; urgency=medium
 
   * New bugfix update based on Debian
 
@@ -463,19 +463,19 @@ gnome-control-center (1:3.38.6-0ubuntu1) impish; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 17 May 2021 16:02:35 +0200
 
-gnome-control-center (1:3.38.5-1ubuntu1) hirsute; urgency=medium
+regolith-control-center (1:3.38.5-1ubuntu1) hirsute; urgency=medium
 
   * New bugfix update based on Debian
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 23 Mar 2021 08:54:54 +0100
 
-gnome-control-center (1:3.38.5-1) experimental; urgency=medium
+regolith-control-center (1:3.38.5-1) experimental; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 23 Mar 2021 08:46:50 +0100
 
-gnome-control-center (1:3.38.4-1ubuntu2) hirsute; urgency=medium
+regolith-control-center (1:3.38.4-1ubuntu2) hirsute; urgency=medium
 
   * debian/control.in:
     - Recommends power-profiles-daemon
@@ -486,19 +486,19 @@ gnome-control-center (1:3.38.4-1ubuntu2) hirsute; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 23 Feb 2021 20:59:56 +0100
 
-gnome-control-center (1:3.38.4-1ubuntu1) hirsute; urgency=medium
+regolith-control-center (1:3.38.4-1ubuntu1) hirsute; urgency=medium
 
   * New upstream version based on Debian
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 19 Feb 2021 12:25:12 +0100
 
-gnome-control-center (1:3.38.4-1) unstable; urgency=medium
+regolith-control-center (1:3.38.4-1) unstable; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 19 Feb 2021 11:59:19 +0100
 
-gnome-control-center (1:3.38.3-1ubuntu3) hirsute; urgency=medium
+regolith-control-center (1:3.38.3-1ubuntu3) hirsute; urgency=medium
 
   * d/p/0024-display-Allow-fractional-scaling-to-be-enabled.patch:
     - Support kms renderer in fractional scaling toggle (LP: #1894593)
@@ -506,7 +506,7 @@ gnome-control-center (1:3.38.3-1ubuntu3) hirsute; urgency=medium
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Wed, 10 Feb 2021 13:43:55 +0100
 
-gnome-control-center (1:3.38.3-1ubuntu2) hirsute; urgency=medium
+regolith-control-center (1:3.38.3-1ubuntu2) hirsute; urgency=medium
 
   * debian/patches/ubuntu_restore_sharing.patch:
     - remove the patch bringing back the vino desktop sharing since
@@ -517,7 +517,7 @@ gnome-control-center (1:3.38.3-1ubuntu2) hirsute; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 09 Feb 2021 11:31:06 +0100
 
-gnome-control-center (1:3.38.3-1ubuntu1) hirsute; urgency=medium
+regolith-control-center (1:3.38.3-1ubuntu1) hirsute; urgency=medium
 
   * New upstream version based on Debian (lp: #1911918)
   * debian/patches/0016-diagnostics-Add-Whoopsie-support.patch:
@@ -526,7 +526,7 @@ gnome-control-center (1:3.38.3-1ubuntu1) hirsute; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 15 Jan 2021 15:10:51 +0100
 
-gnome-control-center (1:3.38.3-1) unstable; urgency=medium
+regolith-control-center (1:3.38.3-1) unstable; urgency=medium
 
   * Team upload
   * New upstream release
@@ -535,14 +535,14 @@ gnome-control-center (1:3.38.3-1) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Fri, 15 Jan 2021 09:34:04 +0000
 
-gnome-control-center (1:3.38.2-2) unstable; urgency=medium
+regolith-control-center (1:3.38.2-2) unstable; urgency=medium
 
   * debian/control.in: Explicitly add libgoa-backend-1.0-dev to the BD
   * debian/control.in: Explicitly add libsoup2.4-dev to the BD
 
  -- Laurent Bigonville <bigon@debian.org>  Fri, 25 Dec 2020 10:16:26 +0100
 
-gnome-control-center (1:3.38.2-1ubuntu2) hirsute; urgency=medium
+regolith-control-center (1:3.38.2-1ubuntu2) hirsute; urgency=medium
 
   [ Brian Murray ]
   * 0016-diagnostics-Add-Whoopsie-support.patch: ensure that we always perform
@@ -551,7 +551,7 @@ gnome-control-center (1:3.38.2-1ubuntu2) hirsute; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 07 Dec 2020 18:56:07 +0100
 
-gnome-control-center (1:3.38.2-1ubuntu1) hirsute; urgency=medium
+regolith-control-center (1:3.38.2-1ubuntu1) hirsute; urgency=medium
 
   * New upstream version based on Debian
   * debian/patches/gitlab_ucm_mixer_control_select.patch:
@@ -559,7 +559,7 @@ gnome-control-center (1:3.38.2-1ubuntu1) hirsute; urgency=medium
 
  -- Sebastien Bacher <seb128@debian.org>  Mon, 23 Nov 2020 21:03:57 +0100
 
-gnome-control-center (1:3.38.2-1) unstable; urgency=medium
+regolith-control-center (1:3.38.2-1) unstable; urgency=medium
 
   * Team upload
   * New upstream release
@@ -579,7 +579,7 @@ gnome-control-center (1:3.38.2-1) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Mon, 23 Nov 2020 10:14:09 +0000
 
-gnome-control-center (1:3.38.1-1ubuntu1) groovy; urgency=medium
+regolith-control-center (1:3.38.1-1ubuntu1) groovy; urgency=medium
 
   * New upstream version based on Debian
   * d/p/0033-sound-update-the-profile-list-after-getting-the-sign.patch:
@@ -588,7 +588,7 @@ gnome-control-center (1:3.38.1-1ubuntu1) groovy; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 05 Oct 2020 15:20:23 +0200
 
-gnome-control-center (1:3.38.1-1) unstable; urgency=medium
+regolith-control-center (1:3.38.1-1) unstable; urgency=medium
 
   * New upstream release
   * debian/rules:
@@ -596,7 +596,7 @@ gnome-control-center (1:3.38.1-1) unstable; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 05 Oct 2020 15:07:48 +0200
 
-gnome-control-center (1:3.38.0-2) unstable; urgency=medium
+regolith-control-center (1:3.38.0-2) unstable; urgency=medium
 
   * Team upload
   * Revert "d/watch: Watch for development releases"
@@ -604,7 +604,7 @@ gnome-control-center (1:3.38.0-2) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Fri, 25 Sep 2020 10:27:01 +0100
 
-gnome-control-center (1:3.38.0-1ubuntu2) groovy; urgency=medium
+regolith-control-center (1:3.38.0-1ubuntu2) groovy; urgency=medium
 
   * d/p/0033-sound-update-the-profile-list-after-getting-the-sign.patch
     - signal to update profile combo list after the PA changes the
@@ -613,7 +613,7 @@ gnome-control-center (1:3.38.0-1ubuntu2) groovy; urgency=medium
 
  -- Hui Wang <hui.wang@canonical.com>  Thu, 24 Sep 2020 09:54:10 +0000
 
-gnome-control-center (1:3.38.0-1ubuntu1) groovy; urgency=medium
+regolith-control-center (1:3.38.0-1ubuntu1) groovy; urgency=medium
 
   * New upstream version based on Debian
   * debian/patches/gitlab_details_layout.patch:
@@ -621,13 +621,13 @@ gnome-control-center (1:3.38.0-1ubuntu1) groovy; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 15 Sep 2020 15:05:08 +0200
 
-gnome-control-center (1:3.38.0-1) experimental; urgency=medium
+regolith-control-center (1:3.38.0-1) experimental; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 15 Sep 2020 15:01:27 +0200
 
-gnome-control-center (1:3.37.92-1) experimental; urgency=medium
+regolith-control-center (1:3.37.92-1) experimental; urgency=medium
 
   * Team upload
   * d/watch: Watch for development releases
@@ -638,7 +638,7 @@ gnome-control-center (1:3.37.92-1) experimental; urgency=medium
   * Update libhandy dependency
   * d/copyright: Update
   * Add Breaks on gnome-shell (<< 3.37.92).
-    gnome-control-center now talks to the Mutter DisplayConfig interface
+    regolith-control-center now talks to the Mutter DisplayConfig interface
     to get the screen orientation, and that's new in libmutter 3.37.92.
     gnome-shell 3.37.92 is the first version to guarantee to be linked
     to that version of libmutter.
@@ -648,7 +648,7 @@ gnome-control-center (1:3.37.92-1) experimental; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Mon, 07 Sep 2020 18:24:55 +0100
 
-gnome-control-center (1:3.37.90-1) experimental; urgency=medium
+regolith-control-center (1:3.37.90-1) experimental; urgency=medium
 
   * New upstream release
   * debian/control.in:
@@ -656,7 +656,7 @@ gnome-control-center (1:3.37.90-1) experimental; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 18 Aug 2020 16:08:27 +0200
 
-gnome-control-center (1:3.37.3-1) experimental; urgency=medium
+regolith-control-center (1:3.37.3-1) experimental; urgency=medium
 
   * New upstream release
   * debian/control.in:
@@ -664,13 +664,13 @@ gnome-control-center (1:3.37.3-1) experimental; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 07 Aug 2020 17:36:45 +0200
 
-gnome-control-center (1:3.36.4-1) unstable; urgency=medium
+regolith-control-center (1:3.36.4-1) unstable; urgency=medium
 
   * New upstream release (lp: #1886495)
 
  -- Sebastien Bacher <seb128@debian.org>  Mon, 06 Jul 2020 16:47:10 +0200
 
-gnome-control-center (1:3.36.3-1ubuntu2) groovy; urgency=medium
+regolith-control-center (1:3.36.3-1ubuntu2) groovy; urgency=medium
 
   * debian/patches/git-sound-profile.patch:
     - sound: Stop non-interactive profile changes from triggering
@@ -678,17 +678,17 @@ gnome-control-center (1:3.36.3-1ubuntu2) groovy; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 02 Jul 2020 11:01:31 +0200
 
-gnome-control-center (1:3.36.3-1ubuntu1) groovy; urgency=medium
+regolith-control-center (1:3.36.3-1ubuntu1) groovy; urgency=medium
 
   * New upstream version rebased on Debian (lp: #1884063)
 
   [ Gunnar Hjalmarsson ]
   * debian/patches/0030-temporarily-revert-alt-char-key.patch:
     - Change po/POTFILES.in too, so dh_translations can create
-      gnome-control-center-2.0.pot.
+      regolith-control-center-2.0.pot.
   * d/p/0015-connectivity-add-network-connectivity-checking-toggl.patch:
     - Add "privacy" to Keywords in the .desktop file in line with
-      https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/05f3cb67
+      https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/05f3cb67
       (LP: #1869288)
 
   [ Marco Trevisan (Treviño) ]
@@ -703,13 +703,13 @@ gnome-control-center (1:3.36.3-1ubuntu1) groovy; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 18 Jun 2020 13:44:56 +0200
 
-gnome-control-center (1:3.36.3-1) unstable; urgency=medium
+regolith-control-center (1:3.36.3-1) unstable; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 18 Jun 2020 13:38:15 +0200
 
-gnome-control-center (1:3.36.2-1ubuntu1) groovy; urgency=medium
+regolith-control-center (1:3.36.2-1ubuntu1) groovy; urgency=medium
 
   * New upstream version rebased on Debian (lp: #1876256)
   * debian/patches/0001-sound-Fix-translation-of-System-Sounds.patch,
@@ -720,13 +720,13 @@ gnome-control-center (1:3.36.2-1ubuntu1) groovy; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 01 May 2020 09:10:17 +0200
 
-gnome-control-center (1:3.36.2-1) unstable; urgency=medium
+regolith-control-center (1:3.36.2-1) unstable; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 01 May 2020 09:02:41 +0200
 
-gnome-control-center (1:3.36.1-1ubuntu6) groovy; urgency=medium
+regolith-control-center (1:3.36.1-1ubuntu6) groovy; urgency=medium
 
   [ Marco Trevisan ]
   * debian/patches/0008-Allow-tweaking-some-settings-for-Ubuntu-Dock.patch:
@@ -740,7 +740,7 @@ gnome-control-center (1:3.36.1-1ubuntu6) groovy; urgency=medium
 
  -- Olivier Tilloy <olivier.tilloy@canonical.com>  Mon, 27 Apr 2020 22:47:58 +0200
 
-gnome-control-center (1:3.36.1-1ubuntu5) focal; urgency=medium
+regolith-control-center (1:3.36.1-1ubuntu5) focal; urgency=medium
 
   * debian/patches/git-info-crash-on-nvidia.patch:
     - backport a fix for an info panel segfault on nvidia cards
@@ -774,7 +774,7 @@ gnome-control-center (1:3.36.1-1ubuntu5) focal; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 16 Apr 2020 12:30:37 +0200
 
-gnome-control-center (1:3.36.1-1ubuntu4) focal; urgency=medium
+regolith-control-center (1:3.36.1-1ubuntu4) focal; urgency=medium
 
   * debian/patches/0025-applications-Hide-buttons-that-launch-gnome-software.patch:
   * debian/patches/0026-applications-Launch-snap-store-if-it-is-installed.patch:
@@ -782,14 +782,14 @@ gnome-control-center (1:3.36.1-1ubuntu4) focal; urgency=medium
 
  -- Robert Ancell <robert.ancell@canonical.com>  Mon, 06 Apr 2020 11:00:15 +1200
 
-gnome-control-center (1:3.36.1-1ubuntu3) focal; urgency=medium
+regolith-control-center (1:3.36.1-1ubuntu3) focal; urgency=medium
 
   * debian/patches/0001-sound-Fix-translation-of-System-Sounds.patch:
     - Fix system sounds not being translated (LP: #1870152)
 
  -- Robert Ancell <robert.ancell@canonical.com>  Thu, 02 Apr 2020 13:47:54 +1300
 
-gnome-control-center (1:3.36.1-1ubuntu2) focal; urgency=medium
+regolith-control-center (1:3.36.1-1ubuntu2) focal; urgency=medium
 
   [ Robert Ancell ]
   * debian/patches/ubuntu-scaling-option.patch:
@@ -797,19 +797,19 @@ gnome-control-center (1:3.36.1-1ubuntu2) focal; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 31 Mar 2020 11:31:20 +0200
 
-gnome-control-center (1:3.36.1-1ubuntu1) focal; urgency=medium
+regolith-control-center (1:3.36.1-1ubuntu1) focal; urgency=medium
 
   * New upstream version
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 27 Mar 2020 10:27:03 +0100
 
-gnome-control-center (1:3.36.1-1) unstable; urgency=medium
+regolith-control-center (1:3.36.1-1) unstable; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 27 Mar 2020 10:17:23 +0100
 
-gnome-control-center (1:3.36.0-1) unstable; urgency=medium
+regolith-control-center (1:3.36.0-1) unstable; urgency=medium
 
   * New upstream release
     - Bump the build-dependencies
@@ -819,21 +819,21 @@ gnome-control-center (1:3.36.0-1) unstable; urgency=medium
 
  -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 19:17:55 +0100
 
-gnome-control-center (1:3.36.0-0ubuntu3) focal; urgency=medium
+regolith-control-center (1:3.36.0-0ubuntu3) focal; urgency=medium
 
   * debian/patches/0023-sound-Add-a-button-to-select-the-default-theme.patch
     - Make able to restore sound theme to default (LP: #1753070)
 
  -- Robert Ancell <robert.ancell@canonical.com>  Thu, 19 Mar 2020 16:50:02 +1300
 
-gnome-control-center (1:3.36.0-0ubuntu2) focal; urgency=medium
+regolith-control-center (1:3.36.0-0ubuntu2) focal; urgency=medium
 
   * debian/patches/0008-Allow-tweaking-some-settings-for-Ubuntu-Dock.patch:
     - Only show appearance panel in Ubuntu session (LP: #1866618)
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 10 Mar 2020 12:47:02 +1300
 
-gnome-control-center (1:3.36.0-0ubuntu1) focal; urgency=medium
+regolith-control-center (1:3.36.0-0ubuntu1) focal; urgency=medium
 
   * New upstream release
   * debian/patches/0008-Allow-tweaking-some-settings-for-Ubuntu-Dock.patch:
@@ -841,13 +841,13 @@ gnome-control-center (1:3.36.0-0ubuntu1) focal; urgency=medium
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 10 Mar 2020 11:55:07 +1300
 
-gnome-control-center (1:3.35.92-1ubuntu1) focal; urgency=medium
+regolith-control-center (1:3.35.92-1ubuntu1) focal; urgency=medium
 
   * New upstream version
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 04 Mar 2020 15:02:08 +0100
 
-gnome-control-center (1:3.35.92-1) experimental; urgency=medium
+regolith-control-center (1:3.35.92-1) experimental; urgency=medium
 
   * New upstream version, update based on Ubuntu
   * debian/control.in:
@@ -861,27 +861,27 @@ gnome-control-center (1:3.35.92-1) experimental; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 04 Mar 2020 12:18:35 +0100
 
-gnome-control-center (1:3.35.91-0ubuntu3) focal; urgency=medium
+regolith-control-center (1:3.35.91-0ubuntu3) focal; urgency=medium
 
   * debian/patches/0003-info-overview-Use-the-Ubuntu-logo-prominently.patch:
     - Fix Ubuntu logo not showing in about panel (LP: #1864577)
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 03 Mar 2020 13:55:58 +0100
 
-gnome-control-center (1:3.35.91-0ubuntu2) focal; urgency=medium
+regolith-control-center (1:3.35.91-0ubuntu2) focal; urgency=medium
 
   * debian/patches/0008-Allow-tweaking-some-settings-for-Ubuntu-Dock.patch:
     - Add theme selector to Ubuntu settings panel
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 25 Feb 2020 11:19:28 +1300
 
-gnome-control-center (1:3.35.91-0ubuntu1) focal; urgency=medium
+regolith-control-center (1:3.35.91-0ubuntu1) focal; urgency=medium
 
   * New upstream release
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 18 Feb 2020 15:41:59 +1300
 
-gnome-control-center (1:3.35.90-0ubuntu1) focal; urgency=medium
+regolith-control-center (1:3.35.90-0ubuntu1) focal; urgency=medium
 
   * New upstream release
   * debian/control:
@@ -889,7 +889,7 @@ gnome-control-center (1:3.35.90-0ubuntu1) focal; urgency=medium
 
  -- Robert Ancell <robert.ancell@canonical.com>  Mon, 03 Feb 2020 14:30:26 +1300
 
-gnome-control-center (1:3.35.2-0ubuntu1) focal; urgency=medium
+regolith-control-center (1:3.35.2-0ubuntu1) focal; urgency=medium
 
   * New upstream release
   * debian/rules:
@@ -897,7 +897,7 @@ gnome-control-center (1:3.35.2-0ubuntu1) focal; urgency=medium
 
  -- Robert Ancell <robert.ancell@canonical.com>  Fri, 31 Jan 2020 15:33:30 +1300
 
-gnome-control-center (1:3.34.4-1) unstable; urgency=medium
+regolith-control-center (1:3.34.4-1) unstable; urgency=medium
 
   * Team upload
   * New upstream release
@@ -911,7 +911,7 @@ gnome-control-center (1:3.34.4-1) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Sat, 29 Feb 2020 23:04:24 +0000
 
-gnome-control-center (1:3.34.2-1) unstable; urgency=medium
+regolith-control-center (1:3.34.2-1) unstable; urgency=medium
 
   * Team upload
 
@@ -927,7 +927,7 @@ gnome-control-center (1:3.34.2-1) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Tue, 10 Dec 2019 12:24:48 +0000
 
-gnome-control-center (1:3.34.1-1ubuntu2) eoan; urgency=medium
+regolith-control-center (1:3.34.1-1ubuntu2) eoan; urgency=medium
 
   * debian/patches/gitlab_background_segfault.patch:
     - patch from Robert Ancell to fix a segfault in the background panel
@@ -935,7 +935,7 @@ gnome-control-center (1:3.34.1-1ubuntu2) eoan; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 15 Oct 2019 17:52:51 +0200
 
-gnome-control-center (1:3.34.1-1ubuntu1) eoan; urgency=medium
+regolith-control-center (1:3.34.1-1ubuntu1) eoan; urgency=medium
 
   * Merge with debian unstable. Remaining changes:
     + debian/control.in:
@@ -947,16 +947,16 @@ gnome-control-center (1:3.34.1-1ubuntu1) eoan; urgency=medium
       - Don't recommend libnss-myhostname since systemd-resolved handles this
         functionality
       - Bump dep on g-s-d and schema
-    + Split gnome-control-center-faces to a separate package so that it can be
+    + Split regolith-control-center-faces to a separate package so that it can be
       used by unity-control-center & recommend this
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     + debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    + debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    + debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel.
     + debian/rules: Enable whoospie integration
@@ -999,35 +999,35 @@ gnome-control-center (1:3.34.1-1ubuntu1) eoan; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 07 Oct 2019 17:26:09 +0200
 
-gnome-control-center (1:3.34.1-1) unstable; urgency=medium
+regolith-control-center (1:3.34.1-1) unstable; urgency=medium
 
   * New upstream release
     - Fix crash on clicking 'Search Locations' (lp: #1846210)
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 07 Oct 2019 17:03:23 +0200
 
-gnome-control-center (1:3.34.0.1-2) unstable; urgency=medium
+regolith-control-center (1:3.34.0.1-2) unstable; urgency=medium
 
   * Team upload.
   * Upload to unstable
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 30 Sep 2019 17:48:50 +0200
 
-gnome-control-center (1:3.34.0.1-1) experimental; urgency=medium
+regolith-control-center (1:3.34.0.1-1) experimental; urgency=medium
 
   * New upstream release
     + Fix sliders not behaving properly (LP: #1841897)
 
  -- Iain Lane <laney@debian.org>  Mon, 09 Sep 2019 17:11:55 +0100
 
-gnome-control-center (1:3.33.90-1ubuntu2) eoan; urgency=medium
+regolith-control-center (1:3.33.90-1ubuntu2) eoan; urgency=medium
 
   * debian/control.in:
     - restore rygel to a recommends since the MIR got review now
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 22 Aug 2019 17:37:01 +0200
 
-gnome-control-center (1:3.33.90-1ubuntu1) eoan; urgency=medium
+regolith-control-center (1:3.33.90-1ubuntu1) eoan; urgency=medium
 
   * Merge with debian unstable. Remaining changes:
     + debian/control.in:
@@ -1039,16 +1039,16 @@ gnome-control-center (1:3.33.90-1ubuntu1) eoan; urgency=medium
       - Don't recommend libnss-myhostname since systemd-resolved handles this
         functionality
       - Bump dep on g-s-d and schema
-    + Split gnome-control-center-faces to a separate package so that it can be
+    + Split regolith-control-center-faces to a separate package so that it can be
       used by unity-control-center & recommend this
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     + debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    + debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    + debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel.
     + debian/rules: Enable whoospie integration
@@ -1089,7 +1089,7 @@ gnome-control-center (1:3.33.90-1ubuntu1) eoan; urgency=medium
 
  -- Iain Lane <iain.lane@canonical.com>  Mon, 19 Aug 2019 17:10:39 +0100
 
-gnome-control-center (1:3.33.90-1) experimental; urgency=medium
+regolith-control-center (1:3.33.90-1) experimental; urgency=medium
 
   [ Laurent Bigonville ]
   * debian/control.in: Drop libgnomekbd-dev from the build-dependencies, this
@@ -1123,13 +1123,13 @@ gnome-control-center (1:3.33.90-1) experimental; urgency=medium
 
  -- Iain Lane <laney@debian.org>  Mon, 19 Aug 2019 15:21:34 +0100
 
-gnome-control-center (1:3.32.2-1ubuntu5) eoan; urgency=medium
+regolith-control-center (1:3.32.2-1ubuntu5) eoan; urgency=medium
 
   * Rebuild for new gnome-desktop soname version
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 19 Aug 2019 16:37:40 +0200
 
-gnome-control-center (1:3.32.2-1ubuntu4) eoan; urgency=medium
+regolith-control-center (1:3.32.2-1ubuntu4) eoan; urgency=medium
 
   * Patch fixing:
     - Upstreamed changes broken out to git_locale_modifiers.patch
@@ -1138,7 +1138,7 @@ gnome-control-center (1:3.32.2-1ubuntu4) eoan; urgency=medium
 
  -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Mon, 22 Jul 2019 23:08:00 +0200
 
-gnome-control-center (1:3.32.2-1ubuntu3) eoan; urgency=medium
+regolith-control-center (1:3.32.2-1ubuntu3) eoan; urgency=medium
 
   * debian/patches/52_region_language.patch:
     - Enable translation of locale modifiers shown in the language
@@ -1149,13 +1149,13 @@ gnome-control-center (1:3.32.2-1ubuntu3) eoan; urgency=medium
 
  -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Sat, 13 Jul 2019 21:09:00 +0200
 
-gnome-control-center (1:3.32.2-1ubuntu2) eoan; urgency=medium
+regolith-control-center (1:3.32.2-1ubuntu2) eoan; urgency=medium
 
   * Restore revision 1:3.32.1-1ubuntu5 discarded by error
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 29 May 2019 12:50:31 +0200
 
-gnome-control-center (1:3.32.2-1ubuntu1) eoan; urgency=medium
+regolith-control-center (1:3.32.2-1ubuntu1) eoan; urgency=medium
 
   * New upstream stable version, based on the Debian update (lp: #1830884)
     - Fix crash if a monitor has no preferred mode (lp: #1820861)
@@ -1166,13 +1166,13 @@ gnome-control-center (1:3.32.2-1ubuntu1) eoan; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 29 May 2019 12:43:47 +0200
 
-gnome-control-center (1:3.32.2-1) experimental; urgency=medium
+regolith-control-center (1:3.32.2-1) experimental; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 29 May 2019 12:27:36 +0200
 
-gnome-control-center (1:3.32.1-1ubuntu5) eoan; urgency=medium
+regolith-control-center (1:3.32.1-1ubuntu5) eoan; urgency=medium
 
   * debian/patches/52_region_language.patch:
     Fix languages whose locale includes a modifier (LP: #1823778):
@@ -1181,7 +1181,7 @@ gnome-control-center (1:3.32.1-1ubuntu5) eoan; urgency=medium
 
  -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Mon, 29 Apr 2019 13:23:29 +0100
 
-gnome-control-center (1:3.32.1-1ubuntu4) disco; urgency=medium
+regolith-control-center (1:3.32.1-1ubuntu4) disco; urgency=medium
 
   * debian/patches/git_nightlight_translations.patch:
     - define some strings in the night light dialog as translatable
@@ -1199,14 +1199,14 @@ gnome-control-center (1:3.32.1-1ubuntu4) disco; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 12 Apr 2019 16:20:42 +0200
 
-gnome-control-center (1:3.32.1-1ubuntu3) disco; urgency=medium
+regolith-control-center (1:3.32.1-1ubuntu3) disco; urgency=medium
 
   * debian/patches/0001-region-Fix-input-source-options-not-being-applied.patch:
     - Fix input sources per-window setting not being applied (LP: #1822775)
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 09 Apr 2019 14:27:07 +1200
 
-gnome-control-center (1:3.32.1-1ubuntu2) disco; urgency=medium
+regolith-control-center (1:3.32.1-1ubuntu2) disco; urgency=medium
 
   * debian/patches/ubuntu_privacy_hide_buggy_controls.patch:
     - don't list non working camera/microphones items in the privacy
@@ -1218,7 +1218,7 @@ gnome-control-center (1:3.32.1-1ubuntu2) disco; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Mon, 08 Apr 2019 15:32:37 +0200
 
-gnome-control-center (1:3.32.1-1ubuntu1) disco; urgency=medium
+regolith-control-center (1:3.32.1-1ubuntu1) disco; urgency=medium
 
   * New upstream stable version, based on the Debian update
     - Only show Bluetooth devices in Bluetooth section (lp: #1785311)
@@ -1226,13 +1226,13 @@ gnome-control-center (1:3.32.1-1ubuntu1) disco; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 05 Apr 2019 23:01:07 +0200
 
-gnome-control-center (1:3.32.1-1) experimental; urgency=medium
+regolith-control-center (1:3.32.1-1) experimental; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 03 Apr 2019 18:25:00 +0200
 
-gnome-control-center (1:3.32.0.1-1ubuntu6) disco; urgency=medium
+regolith-control-center (1:3.32.0.1-1ubuntu6) disco; urgency=medium
 
   * debian/patches/display-Don-t-always-set-the-primary-monitor-to-the-first.patch:
     - Make sure the display panel primary monitor matches configured one
@@ -1242,28 +1242,28 @@ gnome-control-center (1:3.32.0.1-1ubuntu6) disco; urgency=medium
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Wed, 27 Mar 2019 06:10:59 +0100
 
-gnome-control-center (1:3.32.0.1-1ubuntu5) disco; urgency=medium
+regolith-control-center (1:3.32.0.1-1ubuntu5) disco; urgency=medium
 
   * debian/patches/0001-sound-Fix-crash-when-sound-device-set-to-NULL.patch:
     - Fix crash introduced in previous fix
 
  -- Robert Ancell <robert.ancell@canonical.com>  Thu, 14 Mar 2019 11:31:22 +1300
 
-gnome-control-center (1:3.32.0.1-1ubuntu4) disco; urgency=medium
+regolith-control-center (1:3.32.0.1-1ubuntu4) disco; urgency=medium
 
   * debian/patches/0001-sound-Apply-device-changes.patch:
     - Fix sound output device change not being applied (LP: #1817338)
 
  -- Robert Ancell <robert.ancell@canonical.com>  Thu, 14 Mar 2019 11:05:45 +1300
 
-gnome-control-center (1:3.32.0.1-1ubuntu3) disco; urgency=medium
+regolith-control-center (1:3.32.0.1-1ubuntu3) disco; urgency=medium
 
   * debian/control:
     - Add libsnapd-glib-deb to build-depends
 
  -- Robert Ancell <robert.ancell@canonical.com>  Wed, 13 Mar 2019 16:41:46 +1300
 
-gnome-control-center (1:3.32.0.1-1ubuntu2) disco; urgency=medium
+regolith-control-center (1:3.32.0.1-1ubuntu2) disco; urgency=medium
 
   * debian/rules:
   * debian/patches/0001-applications-Fix-wrong-IDs-being-passed-to-portal-pe.patch:
@@ -1278,7 +1278,7 @@ gnome-control-center (1:3.32.0.1-1ubuntu2) disco; urgency=medium
 
  -- Robert Ancell <robert.ancell@canonical.com>  Wed, 13 Mar 2019 11:03:01 +1300
 
-gnome-control-center (1:3.32.0.1-1ubuntu1) disco; urgency=medium
+regolith-control-center (1:3.32.0.1-1ubuntu1) disco; urgency=medium
 
   * New upstream version
     - Correctly select "single" mode when opening display panel
@@ -1287,27 +1287,27 @@ gnome-control-center (1:3.32.0.1-1ubuntu1) disco; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 12 Mar 2019 11:08:37 +0100
 
-gnome-control-center (1:3.32.0.1-1) experimental; urgency=medium
+regolith-control-center (1:3.32.0.1-1) experimental; urgency=medium
 
   * New upstream release
   * Remove the patches included in the new version
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 12 Mar 2019 10:47:36 +0100
 
-gnome-control-center (1:3.31.92-3) experimental; urgency=medium
+regolith-control-center (1:3.31.92-3) experimental; urgency=medium
 
   * Cherry-pick two patches from upstream libhandy to fix translations
 
  -- Iain Lane <laney@debian.org>  Thu, 07 Mar 2019 15:51:05 +0000
 
-gnome-control-center (1:3.31.92-2) experimental; urgency=medium
+regolith-control-center (1:3.31.92-2) experimental; urgency=medium
 
   * debian/control.in:
     - Build-Depends on libudisks2-dev
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 06 Mar 2019 16:05:01 +0100
 
-gnome-control-center (1:3.31.92-1ubuntu1) disco; urgency=medium
+regolith-control-center (1:3.31.92-1ubuntu1) disco; urgency=medium
 
   * New version includes:
     - Revert making Settings responsive; it needs more polish to reach the
@@ -1325,16 +1325,16 @@ gnome-control-center (1:3.31.92-1ubuntu1) disco; urgency=medium
       - Don't recommend libnss-myhostname since systemd-resolved handles this
         functionality
       - Bump dep on g-s-d and schema
-    + Split gnome-control-center-faces to a separate package so that it can be
+    + Split regolith-control-center-faces to a separate package so that it can be
       used by unity-control-center & recommend this
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     + debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    + debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    + debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel.
     + debian/rules: Enable whoospie integration
@@ -1379,13 +1379,13 @@ gnome-control-center (1:3.31.92-1ubuntu1) disco; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 06 Mar 2019 15:45:06 +0100
 
-gnome-control-center (1:3.31.92-1) experimental; urgency=medium
+regolith-control-center (1:3.31.92-1) experimental; urgency=medium
 
   * New upstream release
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 06 Mar 2019 15:26:53 +0100
 
-gnome-control-center (1:3.31.90-1) experimental; urgency=medium
+regolith-control-center (1:3.31.90-1) experimental; urgency=medium
 
   * New upstream development release
   * Build-Depend on libgsound-dev
@@ -1396,14 +1396,14 @@ gnome-control-center (1:3.31.90-1) experimental; urgency=medium
 
  -- Jeremy Bicha <jbicha@debian.org>  Thu, 07 Feb 2019 14:27:18 -0500
 
-gnome-control-center (1:3.30.2-5) unstable; urgency=medium
+regolith-control-center (1:3.30.2-5) unstable; urgency=medium
 
   * Add distro-logo.patch used by Fedora and Ubuntu. See the
     desktop-base README.Debian for how to override using Debian alternatives.
 
  -- Jeremy Bicha <jbicha@debian.org>  Wed, 06 Feb 2019 20:39:07 -0500
 
-gnome-control-center (1:3.30.2-4ubuntu2) disco; urgency=medium
+regolith-control-center (1:3.30.2-4ubuntu2) disco; urgency=medium
 
   * debian/patches/71_ubuntu_dock_settings.patch,
     debian/patches/ubuntu-default-height.patch:
@@ -1414,7 +1414,7 @@ gnome-control-center (1:3.30.2-4ubuntu2) disco; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 31 Jan 2019 15:10:30 +0100
 
-gnome-control-center (1:3.30.2-4ubuntu1) disco; urgency=medium
+regolith-control-center (1:3.30.2-4ubuntu1) disco; urgency=medium
 
   * Merge with debian unstable. Remaining changes:
     + debian/control.in:
@@ -1426,16 +1426,16 @@ gnome-control-center (1:3.30.2-4ubuntu1) disco; urgency=medium
       - Don't recommend libnss-myhostname since systemd-resolved handles this
         functionality
       - Bump dep on g-s-d and schema
-    + Split gnome-control-center-faces to a separate package so that it can be
+    + Split regolith-control-center-faces to a separate package so that it can be
       used by unity-control-center & recommend this
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     + debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    + debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    + debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel.
     + debian/rules: Enable whoospie integration
@@ -1476,14 +1476,14 @@ gnome-control-center (1:3.30.2-4ubuntu1) disco; urgency=medium
 
  -- Iain Lane <iain.lane@canonical.com>  Fri, 25 Jan 2019 14:02:27 +0000
 
-gnome-control-center (1:3.30.2-4) unstable; urgency=medium
+regolith-control-center (1:3.30.2-4) unstable; urgency=medium
 
   * debian/patches/power-Label-the-PENDING_CHARGING-state-as-Not-Charging.patch:
     - Label the PENDING_CHARGING state as "Not Charging" (LP: #1745032)
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 25 Jan 2019 12:39:58 +0000
 
-gnome-control-center (1:3.30.2-3ubuntu1) disco; urgency=medium
+regolith-control-center (1:3.30.2-3ubuntu1) disco; urgency=medium
 
   * Merge with debian unstable. Remaining changes:
     + debian/control.in:
@@ -1495,16 +1495,16 @@ gnome-control-center (1:3.30.2-3ubuntu1) disco; urgency=medium
       - Don't recommend libnss-myhostname since systemd-resolved handles this
         functionality
       - Bump dep on g-s-d and schema
-    + Split gnome-control-center-faces to a separate package so that it can be
+    + Split regolith-control-center-faces to a separate package so that it can be
       used by unity-control-center & recommend this
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     + debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    + debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    + debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel.
     + debian/rules: Enable whoospie integration
@@ -1545,14 +1545,14 @@ gnome-control-center (1:3.30.2-3ubuntu1) disco; urgency=medium
 
  -- Iain Lane <iain.lane@canonical.com>  Mon, 14 Jan 2019 16:35:53 +0000
 
-gnome-control-center (1:3.30.2-3) unstable; urgency=medium
+regolith-control-center (1:3.30.2-3) unstable; urgency=medium
 
   * Cherry-pick 8 commits to improve accessibility
     - Include fix for reversed Repeat Keys speed slider (LP: #1736883)
 
  -- Jeremy Bicha <jbicha@debian.org>  Thu, 10 Jan 2019 09:08:13 -0500
 
-gnome-control-center (1:3.30.2-2) unstable; urgency=medium
+regolith-control-center (1:3.30.2-2) unstable; urgency=medium
 
   * Drop Build-Depend on gnome-common & intltool (Closes: #829788)
   * Restore -Wl,-O1 to our LDFLAGS
@@ -1561,7 +1561,7 @@ gnome-control-center (1:3.30.2-2) unstable; urgency=medium
 
  -- Jeremy Bicha <jbicha@debian.org>  Sun, 23 Dec 2018 11:17:33 -0500
 
-gnome-control-center (1:3.30.2-1ubuntu1) disco; urgency=medium
+regolith-control-center (1:3.30.2-1ubuntu1) disco; urgency=medium
 
   * Merge with debian unstable (LP: #1802313). Remaining changes:
     + debian/control.in:
@@ -1573,16 +1573,16 @@ gnome-control-center (1:3.30.2-1ubuntu1) disco; urgency=medium
       - Don't recommend libnss-myhostname since systemd-resolved handles this
         functionality
       - Bump dep on g-s-d and schema
-    + Split gnome-control-center-faces to a separate package so that it can be
+    + Split regolith-control-center-faces to a separate package so that it can be
       used by unity-control-center & recommend this
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     + debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    + debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    + debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel.
     + debian/rules: Enable whoospie integration
@@ -1630,7 +1630,7 @@ gnome-control-center (1:3.30.2-1ubuntu1) disco; urgency=medium
 
  -- Andrea Azzarone <andrea.azzarone@canonical.com>  Fri, 09 Nov 2018 18:05:32 +0000
 
-gnome-control-center (1:3.30.2-1) unstable; urgency=medium
+regolith-control-center (1:3.30.2-1) unstable; urgency=medium
 
   * d/p/Debian-s-adduser-doesn-t-allow-uppercase-letters-by-defau.patch:
     - Debian's adduser doesn't allow uppercase letters by default
@@ -1642,7 +1642,7 @@ gnome-control-center (1:3.30.2-1) unstable; urgency=medium
 
  -- Andrea Azzarone <andrea.azzarone@canonical.com>  Thu, 08 Nov 2018 12:55:32 +0000
 
-gnome-control-center (1:3.30.1-1ubuntu2) cosmic; urgency=medium
+regolith-control-center (1:3.30.1-1ubuntu2) cosmic; urgency=medium
 
   * d/p/region-Fix-double-free-when-closing-the-input-chooser-dia.patch:
     - Cherry pick upstream segfault fix for the region settings
@@ -1652,7 +1652,7 @@ gnome-control-center (1:3.30.1-1ubuntu2) cosmic; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 10 Oct 2018 16:28:01 +0200
 
-gnome-control-center (1:3.30.1-1ubuntu1) cosmic; urgency=medium
+regolith-control-center (1:3.30.1-1ubuntu1) cosmic; urgency=medium
 
   * Merge with debian unstable (LP: #1795460)
     Remaining changes:
@@ -1665,16 +1665,16 @@ gnome-control-center (1:3.30.1-1ubuntu1) cosmic; urgency=medium
       - Don't recommend libnss-myhostname since systemd-resolved handles this
         functionality
       - Bump dep on g-s-d and schema
-    + Split gnome-control-center-faces to a separate package so that it can be
+    + Split regolith-control-center-faces to a separate package so that it can be
       used by unity-control-center & recommend this
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     + debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    + debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    + debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel.
     + debian/rules: Enable whoospie integration
@@ -1719,7 +1719,7 @@ gnome-control-center (1:3.30.1-1ubuntu1) cosmic; urgency=medium
 
  -- Andrea Azzarone <andrea.azzarone@canonical.com>  Tue, 02 Oct 2018 18:18:58 +0100
 
-gnome-control-center (1:3.30.1-1) unstable; urgency=medium
+regolith-control-center (1:3.30.1-1) unstable; urgency=medium
 
   * New upstream release
     - d/p/Fix-icons-in-translations.patch:
@@ -1744,7 +1744,7 @@ gnome-control-center (1:3.30.1-1) unstable; urgency=medium
 
  -- Andrea Azzarone <andrea.azzarone@canonical.com>  Mon, 01 Oct 2018 16:37:52 +0100
 
-gnome-control-center (1:3.30.0-2) unstable; urgency=medium
+regolith-control-center (1:3.30.0-2) unstable; urgency=medium
 
   * Team upload
   * d/patches: Update from upstream gnome-3-30 branch at commit
@@ -1756,7 +1756,7 @@ gnome-control-center (1:3.30.0-2) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Thu, 20 Sep 2018 12:49:10 +0100
 
-gnome-control-center (1:3.30.0-1) experimental; urgency=medium
+regolith-control-center (1:3.30.0-1) experimental; urgency=medium
 
   * Team upload
   * d/gbp.conf: Update from glib2.0
@@ -1764,26 +1764,26 @@ gnome-control-center (1:3.30.0-1) experimental; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Wed, 19 Sep 2018 14:55:49 +0100
 
-gnome-control-center (1:3.30.0-0ubuntu1) cosmic; urgency=medium
+regolith-control-center (1:3.30.0-0ubuntu1) cosmic; urgency=medium
 
   * Update to 3.30.0
 
  -- Didier Roche <didrocks@ubuntu.com>  Tue, 04 Sep 2018 11:34:27 +0200
 
-gnome-control-center (1:3.29.92-1ubuntu1) cosmic; urgency=medium
+regolith-control-center (1:3.29.92-1ubuntu1) cosmic; urgency=medium
 
   * Update to 3.29.92
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 28 Aug 2018 10:57:56 +0200
 
-gnome-control-center (1:3.29.92-1) experimental; urgency=medium
+regolith-control-center (1:3.29.92-1) experimental; urgency=medium
 
   * New upstream version
     - Wi-Fi, Fix a potential crash (lp: #1718727)
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Tue, 28 Aug 2018 10:38:40 +0200
 
-gnome-control-center (1:3.29.90-1) experimental; urgency=medium
+regolith-control-center (1:3.29.90-1) experimental; urgency=medium
 
   * Team upload
 
@@ -1829,7 +1829,7 @@ gnome-control-center (1:3.29.90-1) experimental; urgency=medium
   * debian/control*:
     + Bump libnm* deps, and add libsecret-1-dev per meson.build.
     + Add test deps (xvfb, python3-dbusmock, at-spi2-core)
-  * debian/gnome-control-center.docs: Remove AUTHORS, README → README.md
+  * debian/regolith-control-center.docs: Remove AUTHORS, README → README.md
   * debian/control*: Require gnome-settings-daemon 3.29
 
   [ Simon McVittie ]
@@ -1839,18 +1839,18 @@ gnome-control-center (1:3.29.90-1) experimental; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Sun, 05 Aug 2018 18:18:52 +0100
 
-gnome-control-center (1:3.29.90-1~ubuntu2) cosmic; urgency=medium
+regolith-control-center (1:3.29.90-1~ubuntu2) cosmic; urgency=medium
 
   [ Gunnar Hjalmarsson ]
   * Fix a typo in debian/patches/52_region_language.patch which broke
     displaying the selected language in the language panell of
-    gnome-control-center (LP: #1786880)
+    regolith-control-center (LP: #1786880)
   * debian/rules:
     Make use of updated dh_translations; drop workarounds.
 
  -- Iain Lane <laney@debian.org>  Fri, 24 Aug 2018 11:53:10 +0200
 
-gnome-control-center (1:3.29.90-1~ubuntu1) cosmic; urgency=medium
+regolith-control-center (1:3.29.90-1~ubuntu1) cosmic; urgency=medium
 
   [ Iain Lane ]
   * Merge with unreleased Debian version (LP: #1784396)
@@ -1864,16 +1864,16 @@ gnome-control-center (1:3.29.90-1~ubuntu1) cosmic; urgency=medium
       - Build-Depend on libwhoopsie-preferences-dev
       - Don't recommend libnss-myhostname since systemd-resolved handles this
         functionality
-    + Split gnome-control-center-faces to a separate package so
+    + Split regolith-control-center-faces to a separate package so
       that it can be used by unity-control-center & recommend this
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     * debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    * debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    * debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel.
     + debian/rules: Enable whoospie integration
@@ -1927,7 +1927,7 @@ gnome-control-center (1:3.29.90-1~ubuntu1) cosmic; urgency=medium
 
  -- Iain Lane <laney@ubuntu.com>  Fri, 03 Aug 2018 11:34:57 +0100
 
-gnome-control-center (1:3.29.90-1) UNRELEASED; urgency=medium
+regolith-control-center (1:3.29.90-1) UNRELEASED; urgency=medium
 
   [ Arnaud Rebillout ]
   * Team upload
@@ -1976,12 +1976,12 @@ gnome-control-center (1:3.29.90-1) UNRELEASED; urgency=medium
   * debian/control*:
     + Bump libnm* deps, and add libsecret-1-dev per meson.build.
     + Add test deps (xvfb, python3-dbusmock, at-spi2-core)
-  * debian/gnome-control-center.docs: Remove AUTHORS, README → README.md
+  * debian/regolith-control-center.docs: Remove AUTHORS, README → README.md
   * debian/control*: Require gnome-settings-daemon 3.29
 
  -- Iain Lane <laney@debian.org>  Fri, 27 Jul 2018 16:32:23 +0100
 
-gnome-control-center (1:3.28.2-1) unstable; urgency=medium
+regolith-control-center (1:3.28.2-1) unstable; urgency=medium
 
   * Team upload
   * New upstream release 3.28.2
@@ -1991,7 +1991,7 @@ gnome-control-center (1:3.28.2-1) unstable; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Wed, 27 Jun 2018 09:18:33 +0100
 
-gnome-control-center (1:3.28.2-0ubuntu1) cosmic; urgency=medium
+regolith-control-center (1:3.28.2-0ubuntu1) cosmic; urgency=medium
 
   * New bugfix version (lp: #1780280)
   * debian/patches/0006-build-Fix-USER_DIR_MODE-value-in-config.h.patch,
@@ -2002,7 +2002,7 @@ gnome-control-center (1:3.28.2-0ubuntu1) cosmic; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 05 Jul 2018 16:52:46 +0200
 
-gnome-control-center (1:3.28.1-1) unstable; urgency=medium
+regolith-control-center (1:3.28.1-1) unstable; urgency=medium
 
   [ Gunnar Hjalmarsson ]
   * d/p/0005-Show-scrollbar-on-first-Language-window-if-needed.patch:
@@ -2015,7 +2015,7 @@ gnome-control-center (1:3.28.1-1) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Wed, 11 Apr 2018 18:20:17 +0200
 
-gnome-control-center (1:3.28.1-0ubuntu5) cosmic; urgency=medium
+regolith-control-center (1:3.28.1-0ubuntu5) cosmic; urgency=medium
 
   * debian/{gbp.conf,control{,.in}}: Added and updated for Ubuntu
   * debian/patches/privacy-panel-whoopsie.patch:
@@ -2024,7 +2024,7 @@ gnome-control-center (1:3.28.1-0ubuntu5) cosmic; urgency=medium
 
  -- Didier Roche <didrocks@ubuntu.com>  Thu, 31 May 2018 17:21:59 +0200
 
-gnome-control-center (1:3.28.1-0ubuntu4) cosmic; urgency=medium
+regolith-control-center (1:3.28.1-0ubuntu4) cosmic; urgency=medium
 
   [ Andrea Azzarone ]
     * debian/patches/git_invalid_dereferencing.patch:
@@ -2032,7 +2032,7 @@ gnome-control-center (1:3.28.1-0ubuntu4) cosmic; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 25 May 2018 16:25:16 +0200
 
-gnome-control-center (1:3.28.1-0ubuntu3) cosmic; urgency=medium
+regolith-control-center (1:3.28.1-0ubuntu3) cosmic; urgency=medium
 
   * debian/patches/0001-shell-Don-t-set-per-panel-icon.patch,
     debian/patches/0002-shell-Icon-name-helper-returns-symbolic-name.patch,
@@ -2050,7 +2050,7 @@ gnome-control-center (1:3.28.1-0ubuntu3) cosmic; urgency=medium
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 25 May 2018 16:06:18 +0200
 
-gnome-control-center (1:3.28.1-0ubuntu2) cosmic; urgency=medium
+regolith-control-center (1:3.28.1-0ubuntu2) cosmic; urgency=medium
 
   * Rename ubuntu-gnome-version.patch to distro-logo.patch for proposed
     upstreaming to Debian. Drop the hardcoded use of the Ubuntu font.
@@ -2069,7 +2069,7 @@ gnome-control-center (1:3.28.1-0ubuntu2) cosmic; urgency=medium
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 11 May 2018 12:59:17 -0400
 
-gnome-control-center (1:3.28.1-0ubuntu1) bionic; urgency=medium
+regolith-control-center (1:3.28.1-0ubuntu1) bionic; urgency=medium
 
   * New upstream release (LP: #1764591)
   * Drop Build-Depends on network-manager-dev, no longer necessary
@@ -2078,7 +2078,7 @@ gnome-control-center (1:3.28.1-0ubuntu1) bionic; urgency=medium
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 16 Apr 2018 21:46:17 -0400
 
-gnome-control-center (1:3.28.0-1) unstable; urgency=medium
+regolith-control-center (1:3.28.0-1) unstable; urgency=medium
 
   [ Simon McVittie ]
   * New upstream stable release
@@ -2094,7 +2094,7 @@ gnome-control-center (1:3.28.0-1) unstable; urgency=medium
 
  -- Jeremy Bicha <jbicha@debian.org>  Sun, 18 Mar 2018 20:14:00 -0400
 
-gnome-control-center (1:3.28.0-0ubuntu6) bionic; urgency=medium
+regolith-control-center (1:3.28.0-0ubuntu6) bionic; urgency=medium
 
   [ Gunnar Hjalmarsson ]
   * debian/patches/0005-region-Show-scrollbars-if-needed.patch: Apply to
@@ -2102,7 +2102,7 @@ gnome-control-center (1:3.28.0-0ubuntu6) bionic; urgency=medium
 
  -- Iain Lane <iain.lane@canonical.com>  Thu, 29 Mar 2018 17:30:50 +0100
 
-gnome-control-center (1:3.28.0-0ubuntu5) bionic; urgency=medium
+regolith-control-center (1:3.28.0-0ubuntu5) bionic; urgency=medium
 
   * debian/patches/71_ubuntu_dock_settings.patch:
     - add context for dock settings where left/right is translated differently
@@ -2110,7 +2110,7 @@ gnome-control-center (1:3.28.0-0ubuntu5) bionic; urgency=medium
 
  -- Didier Roche <didrocks@ubuntu.com>  Wed, 28 Mar 2018 15:27:01 +0200
 
-gnome-control-center (1:3.28.0-0ubuntu4) bionic; urgency=medium
+regolith-control-center (1:3.28.0-0ubuntu4) bionic; urgency=medium
 
   * debian/patches/ubuntu-printer-support.patch
     - Connect to the system-config-printer-button{1,2} clicked signals
@@ -2119,14 +2119,14 @@ gnome-control-center (1:3.28.0-0ubuntu4) bionic; urgency=medium
 
  -- Ken VanDine <ken.vandine@canonical.com>  Tue, 27 Mar 2018 14:59:55 -0400
 
-gnome-control-center (1:3.28.0-0ubuntu3) bionic; urgency=medium
+regolith-control-center (1:3.28.0-0ubuntu3) bionic; urgency=medium
 
   * debian/patches/ubuntu-white-lists.patch:
     - remove patch, this is done in the theme now
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 22 Mar 2018 14:31:51 -0500
 
-gnome-control-center (1:3.28.0-0ubuntu2) bionic; urgency=medium
+regolith-control-center (1:3.28.0-0ubuntu2) bionic; urgency=medium
 
   [ Gunnar Hjalmarsson ]
    * debian/patches/52_region_language.patch:
@@ -2140,7 +2140,7 @@ gnome-control-center (1:3.28.0-0ubuntu2) bionic; urgency=medium
 
  -- Iain Lane <iain.lane@canonical.com>  Mon, 19 Mar 2018 15:34:01 +0000
 
-gnome-control-center (1:3.28.0-0ubuntu1) bionic; urgency=medium
+regolith-control-center (1:3.28.0-0ubuntu1) bionic; urgency=medium
 
   [ Jeremy Bicha ]
   * New upstream release
@@ -2149,7 +2149,7 @@ gnome-control-center (1:3.28.0-0ubuntu1) bionic; urgency=medium
   * debian/rules:
     - Add X-Ubuntu-Gettext-Domain to .desktop files and strip inline
       translations (LP: #1755473).
-    - Build gnome-control-center-2.0.pot.
+    - Build regolith-control-center-2.0.pot.
   * Modify 71_ubuntu_dock_settings.patch:
     - Drop non-existing gnome-ubuntu-panel.desktop.in from POTFILES.in.
 
@@ -2166,7 +2166,7 @@ gnome-control-center (1:3.28.0-0ubuntu1) bionic; urgency=medium
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 19 Mar 2018 08:37:32 -0400
 
-gnome-control-center (1:3.27.92-1ubuntu1) bionic; urgency=medium
+regolith-control-center (1:3.27.92-1ubuntu1) bionic; urgency=medium
 
   [ Jeremy Bicha ]
   * Sync with Debian. (LP: #1750174, LP: #1752928, LP: #1691867)
@@ -2179,16 +2179,16 @@ gnome-control-center (1:3.27.92-1ubuntu1) bionic; urgency=medium
       - Recommend ibus, unity-control-center-faces, & ubuntu-system-service
       - Suggest instead of Recommend realmd and rygel
       - Build-Depend on libwhoopsie-preferences-dev
-    + Split gnome-control-center-faces to a separate package so
+    + Split regolith-control-center-faces to a separate package so
       that it can be used by unity-control-center
     + Install apport hook
-    + debian/gnome-control-center-data.install:
-      - Don't install gnome-control-center.pkla since we use
+    + debian/regolith-control-center-data.install:
+      - Don't install regolith-control-center.pkla since we use
         policykit-desktop-privileges instead
       - Install additional assets used by unity-control-center
     * debian/ubuntu-logo-icon.png, debian/source/include-binaries,
-      debian/gnome-control-center-data.install: Include an Ubuntu logo
-    * debian/gnome-control-center-data.links:
+      debian/regolith-control-center-data.install: Include an Ubuntu logo
+    * debian/regolith-control-center-data.links:
       - Link audio-speaker-center* to audio-speaker-mono* so that an
         icon is shown in the test speaker panel. (LP: #1704002)
     + debian/rules: Enable whoospie integration
@@ -2240,7 +2240,7 @@ gnome-control-center (1:3.27.92-1ubuntu1) bionic; urgency=medium
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 10 Mar 2018 15:54:34 -0500
 
-gnome-control-center (1:3.27.92-1) unstable; urgency=medium
+regolith-control-center (1:3.27.92-1) unstable; urgency=medium
 
   * New upstream release candidate
   * Build with meson
@@ -2252,7 +2252,7 @@ gnome-control-center (1:3.27.92-1) unstable; urgency=medium
 
  -- Jeremy Bicha <jbicha@debian.org>  Sat, 10 Mar 2018 14:50:31 -0500
 
-gnome-control-center (1:3.26.2-1) unstable; urgency=medium
+regolith-control-center (1:3.26.2-1) unstable; urgency=medium
 
   * New upstream release
   * Recommend gnome-user-docs instead of transitional package gnome-user-guide
@@ -2261,7 +2261,7 @@ gnome-control-center (1:3.26.2-1) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Sun, 05 Nov 2017 19:11:44 +0100
 
-gnome-control-center (1:3.26.1-2) unstable; urgency=medium
+regolith-control-center (1:3.26.1-2) unstable; urgency=medium
 
   * Release to unstable
   * Add fix-about-desktop.patch:
@@ -2270,14 +2270,14 @@ gnome-control-center (1:3.26.1-2) unstable; urgency=medium
 
  -- Jeremy Bicha <jbicha@debian.org>  Fri, 13 Oct 2017 17:16:32 -0400
 
-gnome-control-center (1:3.26.1-1) experimental; urgency=medium
+regolith-control-center (1:3.26.1-1) experimental; urgency=medium
 
   * Team upload
   * New upstream release
 
  -- Simon McVittie <smcv@debian.org>  Fri, 06 Oct 2017 10:36:51 +0100
 
-gnome-control-center (1:3.26.0-1) experimental; urgency=medium
+regolith-control-center (1:3.26.0-1) experimental; urgency=medium
 
   * Team upload
   * debian/watch: Go back to checking for stable versions only
@@ -2285,7 +2285,7 @@ gnome-control-center (1:3.26.0-1) experimental; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Wed, 13 Sep 2017 11:56:48 +0100
 
-gnome-control-center (1:3.25.92.1-1) experimental; urgency=medium
+regolith-control-center (1:3.25.92.1-1) experimental; urgency=medium
 
   * Team upload
   * debian/watch: Check for development versions too
@@ -2296,7 +2296,7 @@ gnome-control-center (1:3.25.92.1-1) experimental; urgency=medium
 
  -- Simon McVittie <smcv@debian.org>  Thu, 07 Sep 2017 11:59:44 +0100
 
-gnome-control-center (1:3.24.3-1) unstable; urgency=medium
+regolith-control-center (1:3.24.3-1) unstable; urgency=medium
 
   [ Laurent Bigonville ]
   * New upstream release.
@@ -2312,7 +2312,7 @@ gnome-control-center (1:3.24.3-1) unstable; urgency=medium
 
  -- Laurent Bigonville <bigon@debian.org>  Wed, 30 Aug 2017 02:01:50 +0200
 
-gnome-control-center (1:3.22.2-3) unstable; urgency=medium
+regolith-control-center (1:3.22.2-3) unstable; urgency=medium
 
   * Add debian/patches/git_allow_empty_ip4_gateway.patch
     - Allow entering manual ipv4 configuration *without* a gateway.
@@ -2321,7 +2321,7 @@ gnome-control-center (1:3.22.2-3) unstable; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Tue, 30 May 2017 22:29:04 +0200
 
-gnome-control-center (1:3.22.2-2) unstable; urgency=medium
+regolith-control-center (1:3.22.2-2) unstable; urgency=medium
 
   * Remove leftover Build-Depends on network-manager-dev, libnm-util-dev and
     libnm-glib-dev. Those are no longer needed after the switch to
@@ -2329,10 +2329,10 @@ gnome-control-center (1:3.22.2-2) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Mon, 15 May 2017 17:21:05 +0200
 
-gnome-control-center (1:3.22.2-1) unstable; urgency=medium
+regolith-control-center (1:3.22.2-1) unstable; urgency=medium
 
   * New upstream release.
-  * Set --with-gnome-session-libexecdir so gnome-control-center can find the
+  * Set --with-gnome-session-libexecdir so regolith-control-center can find the
     gnome-session-check-accelerated binary which is required for the info
     panel.
   * debian/patches/info-Do-not-crash-if-Renderer-is-not-set-by-SessionM.patch
@@ -2341,25 +2341,25 @@ gnome-control-center (1:3.22.2-1) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Tue, 14 Mar 2017 23:15:36 +0100
 
-gnome-control-center (1:3.22.1-2) unstable; urgency=medium
+regolith-control-center (1:3.22.1-2) unstable; urgency=medium
 
   [ Helmut Grohne ]
-  * Mark gnome-control-center-{dev,data} Multi-Arch: foreign.
+  * Mark regolith-control-center-{dev,data} Multi-Arch: foreign.
     (Closes: #842527)
 
   [ Michael Biebl ]
-  * Drop Recommends: gnome-control-center from gnome-control-center-data.
+  * Drop Recommends: regolith-control-center from regolith-control-center-data.
     (Closes: #819458)
 
  -- Michael Biebl <biebl@debian.org>  Wed, 25 Jan 2017 16:51:16 +0100
 
-gnome-control-center (1:3.22.1-1) unstable; urgency=medium
+regolith-control-center (1:3.22.1-1) unstable; urgency=medium
 
   * New upstream release.
 
  -- Michael Biebl <biebl@debian.org>  Tue, 11 Oct 2016 17:30:11 +0200
 
-gnome-control-center (1:3.22.0-2) unstable; urgency=medium
+regolith-control-center (1:3.22.0-2) unstable; urgency=medium
 
   [ Jeremy Bicha ]
   * debian/control.in:
@@ -2371,7 +2371,7 @@ gnome-control-center (1:3.22.0-2) unstable; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Sat, 08 Oct 2016 22:42:58 +0200
 
-gnome-control-center (1:3.22.0-1) unstable; urgency=medium
+regolith-control-center (1:3.22.0-1) unstable; urgency=medium
 
   * New upstream release.
   * Drop fix-crash-entering-ipv4-gateway.patch and
@@ -2379,11 +2379,11 @@ gnome-control-center (1:3.22.0-1) unstable; urgency=medium
   * Bump debhelper compat level to 10.
   * Bump Build-Depends on libgtk-3-dev to (>= 3.22.0) for
     GtkScrolledWindow.propagate_natural_width. (Closes: #838336)
-  * Use non-multiarch path (/usr/lib/gnome-control-center) for libexecdir.
+  * Use non-multiarch path (/usr/lib/regolith-control-center) for libexecdir.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 21 Sep 2016 02:00:20 +0200
 
-gnome-control-center (1:3.21.92-2) unstable; urgency=high
+regolith-control-center (1:3.21.92-2) unstable; urgency=high
 
   * Team upload.
   * Add fix-crash-entering-ipv4-gateway.patch and
@@ -2394,17 +2394,17 @@ gnome-control-center (1:3.21.92-2) unstable; urgency=high
 
  -- Raphaël Hertzog <hertzog@debian.org>  Thu, 15 Sep 2016 21:40:56 +0200
 
-gnome-control-center (1:3.21.92-1) unstable; urgency=medium
+regolith-control-center (1:3.21.92-1) unstable; urgency=medium
 
   * New upstream beta release.
-  * debian/gnome-control-center.install: ship usr/share/gettext/its
+  * debian/regolith-control-center.install: ship usr/share/gettext/its
     - this installs the new gnome-keybindings.its and .loc
   * Append a ~ to the versioned libsmbclient-dev build-dependency
     to silence lintian.
 
  -- Andreas Henriksson <andreas@fatal.se>  Tue, 13 Sep 2016 14:19:49 +0200
 
-gnome-control-center (1:3.21.90-1) unstable; urgency=medium
+regolith-control-center (1:3.21.90-1) unstable; urgency=medium
 
   [ Andreas Henriksson ]
   * New upstream beta release.
@@ -2430,7 +2430,7 @@ gnome-control-center (1:3.21.90-1) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Thu, 01 Sep 2016 12:43:52 +0200
 
-gnome-control-center (1:3.20.1-2) unstable; urgency=medium
+regolith-control-center (1:3.20.1-2) unstable; urgency=medium
 
   * debian/control.in: Switch system-config-printer recommends to
     system-config-printer-common, g-c-c only needs a subset of s-c-p
@@ -2438,7 +2438,7 @@ gnome-control-center (1:3.20.1-2) unstable; urgency=medium
 
  -- Laurent Bigonville <bigon@debian.org>  Sun, 05 Jun 2016 14:10:48 +0200
 
-gnome-control-center (1:3.20.1-1) unstable; urgency=medium
+regolith-control-center (1:3.20.1-1) unstable; urgency=medium
 
   * New upstream release.
   * Drop Build-Depends on libdbus-glib-1-dev, no longer needed.
@@ -2449,7 +2449,7 @@ gnome-control-center (1:3.20.1-1) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Tue, 19 Apr 2016 15:22:11 +0200
 
-gnome-control-center (1:3.19.92-1) experimental; urgency=medium
+regolith-control-center (1:3.19.92-1) experimental; urgency=medium
 
   [ Dmitry Shachnev ]
   * Drop dependencies on gnome-icon-theme{,-symbolic}. It is superseded
@@ -2468,7 +2468,7 @@ gnome-control-center (1:3.19.92-1) experimental; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Thu, 17 Mar 2016 23:47:32 +0100
 
-gnome-control-center (1:3.18.2-1) unstable; urgency=medium
+regolith-control-center (1:3.18.2-1) unstable; urgency=medium
 
   [ Laurent Bigonville ]
   * Add pulseaudio-module-bluetooth to the Recommends, this is allowing the
@@ -2482,7 +2482,7 @@ gnome-control-center (1:3.18.2-1) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Wed, 11 Nov 2015 16:32:17 +0100
 
-gnome-control-center (1:3.18.1-1) unstable; urgency=medium
+regolith-control-center (1:3.18.1-1) unstable; urgency=medium
 
   * New upstream release.
   * Upload to unstable.
@@ -2496,7 +2496,7 @@ gnome-control-center (1:3.18.1-1) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Wed, 14 Oct 2015 21:51:58 +0200
 
-gnome-control-center (1:3.17.92-1) experimental; urgency=medium
+regolith-control-center (1:3.17.92-1) experimental; urgency=medium
 
   [ Josselin Mouette ]
   * Remove Debian menu entry.
@@ -2510,7 +2510,7 @@ gnome-control-center (1:3.17.92-1) experimental; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Wed, 16 Sep 2015 17:22:36 +0200
 
-gnome-control-center (1:3.16.3-1) unstable; urgency=medium
+regolith-control-center (1:3.16.3-1) unstable; urgency=medium
 
   [ Andreas Henriksson ]
   * Add debian/patches/debian-uses-ssh-service.patch
@@ -2527,13 +2527,13 @@ gnome-control-center (1:3.16.3-1) unstable; urgency=medium
 
  -- Michael Biebl <biebl@debian.org>  Wed, 22 Jul 2015 21:00:37 +0200
 
-gnome-control-center (1:3.16.2-2) unstable; urgency=medium
+regolith-control-center (1:3.16.2-2) unstable; urgency=medium
 
   * Upload to unstable.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 14 Jun 2015 13:44:52 +0200
 
-gnome-control-center (1:3.16.2-1) experimental; urgency=medium
+regolith-control-center (1:3.16.2-1) experimental; urgency=medium
 
   * New upstream release.
   * Update build-dependencies according to configure.ac changes:
@@ -2543,31 +2543,31 @@ gnome-control-center (1:3.16.2-1) experimental; urgency=medium
     - Bump libgtk-3-dev to >= 3.15.0
     - Bump gsettings-desktop-schemas to >= 3.15.4
     - Add libgudev-1.0-dev [linux-any]
-  * gnome-control-center: install new appdata file
+  * regolith-control-center: install new appdata file
 
  -- Andreas Henriksson <andreas@fatal.se>  Thu, 11 Jun 2015 15:51:24 +0200
 
-gnome-control-center (1:3.14.4-1) unstable; urgency=medium
+regolith-control-center (1:3.14.4-1) unstable; urgency=medium
 
   * New upstream release.
   * Update patches.
 
  -- Michael Biebl <biebl@debian.org>  Mon, 27 Apr 2015 16:35:53 +0200
 
-gnome-control-center (1:3.14.2-3) unstable; urgency=medium
+regolith-control-center (1:3.14.2-3) unstable; urgency=medium
 
   * Re-add system-config-printer recommendation. (Closes: #774257)
     - it's still needed to be able to add new printers.
 
  -- Andreas Henriksson <andreas@fatal.se>  Thu, 05 Feb 2015 19:44:41 +0100
 
-gnome-control-center (1:3.14.2-2) unstable; urgency=medium
+regolith-control-center (1:3.14.2-2) unstable; urgency=medium
 
   * Remove system-config-printer recommendation.
 
  -- Josselin Mouette <joss@debian.org>  Sun, 30 Nov 2014 14:38:52 +0100
 
-gnome-control-center (1:3.14.2-1) unstable; urgency=medium
+regolith-control-center (1:3.14.2-1) unstable; urgency=medium
 
   * New upstream translation and bugfix release.
     + Disables SSLv3 because POODLE.
@@ -2578,18 +2578,18 @@ gnome-control-center (1:3.14.2-1) unstable; urgency=medium
 
  -- Josselin Mouette <joss@debian.org>  Sun, 30 Nov 2014 11:08:12 +0100
 
-gnome-control-center (1:3.14.1-1) unstable; urgency=medium
+regolith-control-center (1:3.14.1-1) unstable; urgency=medium
 
   * New upstream release.
   * debian/control.in: Bump Standards-Version to 3.9.6 (no further changes)
 
  -- Laurent Bigonville <bigon@debian.org>  Sat, 18 Oct 2014 01:35:32 +0200
 
-gnome-control-center (1:3.14.0-1) unstable; urgency=medium
+regolith-control-center (1:3.14.0-1) unstable; urgency=medium
 
   * Bump gnome-settings-daemon dependency
     - 'org.gnome.settings-daemon.plugins.media-keys' key 'control-center'
-      added during 3.13 and needed by gnome-control-center keyboard panel.
+      added during 3.13 and needed by regolith-control-center keyboard panel.
   * Drop Recommends on ntp since we now rely on systemd-timesyncd for
     automatic time (and AIUI ntp integration in gnome never really worked
     anyway because of the default configuration the debian package shipped).
@@ -2598,7 +2598,7 @@ gnome-control-center (1:3.14.0-1) unstable; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 22 Sep 2014 19:49:03 +0200
 
-gnome-control-center (1:3.13.91-1) experimental; urgency=medium
+regolith-control-center (1:3.13.91-1) experimental; urgency=medium
 
   [ Jordi Mallach ]
   * Add cracklib-runtime to Recommends, it's needed for password changing.
@@ -2619,14 +2619,14 @@ gnome-control-center (1:3.13.91-1) experimental; urgency=medium
     instead (Closes: #760722)
 
   [ Andreas Henriksson ]
-  * Update debian/gnome-control-center.pkla with what is currently listed
-    in upstreams panels/common/gnome-control-center.rules since we don't yet
+  * Update debian/regolith-control-center.pkla with what is currently listed
+    in upstreams panels/common/regolith-control-center.rules since we don't yet
     have/depend-on policykit-1 >= 0.106 which means the rules file is still
     unused. This fixes automatic time/timezone, etc.
 
  -- Andreas Henriksson <andreas@fatal.se>  Sun, 07 Sep 2014 11:34:18 +0200
 
-gnome-control-center (1:3.12.1-4) unstable; urgency=medium
+regolith-control-center (1:3.12.1-4) unstable; urgency=medium
 
   [ Laurent Bigonville ]
   * debian/control.in: Recommends realmd package
@@ -2644,21 +2644,21 @@ gnome-control-center (1:3.12.1-4) unstable; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 14 Jul 2014 23:49:42 +0200
 
-gnome-control-center (1:3.12.1-3) experimental; urgency=medium
+regolith-control-center (1:3.12.1-3) experimental; urgency=medium
 
   * debian/control.in:
     Add recommends to libnss-myhostname (Closes: #705319)
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sun, 27 Apr 2014 18:20:29 +0200
 
-gnome-control-center (1:3.12.1-2) experimental; urgency=medium
+regolith-control-center (1:3.12.1-2) experimental; urgency=medium
 
   [ Josselin Mouette ]
   * Remove Suggests on screensavers.
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sun, 27 Apr 2014 10:14:45 +0200
 
-gnome-control-center (1:3.12.1-1) experimental; urgency=medium
+regolith-control-center (1:3.12.1-1) experimental; urgency=medium
 
   [ Laurent Bigonville]
   * New upstream release.
@@ -2671,13 +2671,13 @@ gnome-control-center (1:3.12.1-1) experimental; urgency=medium
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sat, 26 Apr 2014 18:41:34 +0200
 
-gnome-control-center (1:3.12.0-1) experimental; urgency=medium
+regolith-control-center (1:3.12.0-1) experimental; urgency=medium
 
   * New upstream release.
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 24 Mar 2014 19:58:34 +0100
 
-gnome-control-center (1:3.11.91-1) experimental; urgency=medium
+regolith-control-center (1:3.11.91-1) experimental; urgency=medium
 
   [ Jordi Mallach ]
   * Bumb Build-Depends for libgnome-bluetooth-dev to >= 3.9.3.
@@ -2703,7 +2703,7 @@ gnome-control-center (1:3.11.91-1) experimental; urgency=medium
 
  -- Andreas Henriksson <andreas@fatal.se>  Tue, 11 Mar 2014 23:44:49 +0100
 
-gnome-control-center (1:3.10.1-1) experimental; urgency=low
+regolith-control-center (1:3.10.1-1) experimental; urgency=low
 
   * New upstream release
   * debian/patches/background-Fix-compilation-with-libsocialweb.patch
@@ -2715,7 +2715,7 @@ gnome-control-center (1:3.10.1-1) experimental; urgency=low
 
  -- Sjoerd Simons <sjoerd@debian.org>  Fri, 01 Nov 2013 23:11:23 +0100
 
-gnome-control-center (1:3.8.3-3) unstable; urgency=low
+regolith-control-center (1:3.8.3-3) unstable; urgency=low
 
   * Drop recommends on gnome-session, it doesn't seem to be needed anymore
     and brings in all of gnome when installing network-manager-gnome which
@@ -2724,7 +2724,7 @@ gnome-control-center (1:3.8.3-3) unstable; urgency=low
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 13 Oct 2013 18:04:36 +0200
 
-gnome-control-center (1:3.8.3-2) experimental; urgency=low
+regolith-control-center (1:3.8.3-2) experimental; urgency=low
 
   [ Emilio Pozuelo Monfort ]
   * debian/control.in:
@@ -2742,7 +2742,7 @@ gnome-control-center (1:3.8.3-2) experimental; urgency=low
       sure we are not overrinding the hardening flags
     - Pass -Wl,-z,defs to DEB_LDFLAGS_MAINT_APPEND so we can detect undefined
       symbols during build
-  * gnome-control-center-data.maintscript: Remove /etc/xdg/menus/gnomecc.menu
+  * regolith-control-center-data.maintscript: Remove /etc/xdg/menus/gnomecc.menu
     and /etc/xdg/autostart/gnome-sound-applet.desktop on upgrade, the files
     are no longer shipped (Closes: #712831)
   * debian/control.in, debian/rules: Re-enable ibus support (Closes: #720585)
@@ -2753,7 +2753,7 @@ gnome-control-center (1:3.8.3-2) experimental; urgency=low
 
  -- Laurent Bigonville <bigon@debian.org>  Sat, 24 Aug 2013 14:05:49 +0200
 
-gnome-control-center (1:3.8.3-1) experimental; urgency=low
+regolith-control-center (1:3.8.3-1) experimental; urgency=low
 
   [ Andreas Henriksson ]
   * Recommend both gnome-user-share and rygel | rygel-tracker
@@ -2768,7 +2768,7 @@ gnome-control-center (1:3.8.3-1) experimental; urgency=low
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 08 Jun 2013 18:32:00 +0200
 
-gnome-control-center (1:3.8.2-1) experimental; urgency=low
+regolith-control-center (1:3.8.2-1) experimental; urgency=low
 
   [ Thomas Bechtold ]
   * New upstream release 3.8.1.
@@ -2789,7 +2789,7 @@ gnome-control-center (1:3.8.2-1) experimental; urgency=low
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 25 May 2013 13:00:07 +0200
 
-gnome-control-center (1:3.8.0-2) experimental; urgency=low
+regolith-control-center (1:3.8.0-2) experimental; urgency=low
 
   [ Emilio Pozuelo Monfort ]
   * debian/control.in:
@@ -2802,15 +2802,15 @@ gnome-control-center (1:3.8.0-2) experimental; urgency=low
 
  -- Sjoerd Simons <sjoerd@debian.org>  Wed, 10 Apr 2013 09:22:02 +0100
 
-gnome-control-center (1:3.8.0-1) experimental; urgency=low
+regolith-control-center (1:3.8.0-1) experimental; urgency=low
 
   [ Jeremy Bicha ]
-  * debian/gnome-control-center-data.install, gnome-control-center.install:
-    - Move the new polkit rules to gnome-control-center-data
+  * debian/regolith-control-center-data.install, regolith-control-center.install:
+    - Move the new polkit rules to regolith-control-center-data
       like the existing rule
   * debian/control.in:
     - Add temporary breaks/replaces for the previous change
-  * Add gnome-control-center.pkla to allow admins to change the hostname
+  * Add regolith-control-center.pkla to allow admins to change the hostname
     without needing policykit from experimental (Closes: #693071)
 
   [ Thomas Bechtold ]
@@ -2818,7 +2818,7 @@ gnome-control-center (1:3.8.0-1) experimental; urgency=low
 
  -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Wed, 27 Mar 2013 19:02:54 +0100
 
-gnome-control-center (1:3.7.92-1) experimental; urgency=low
+regolith-control-center (1:3.7.92-1) experimental; urgency=low
 
   [ Sjoerd Simons ]
   * New upstream release
@@ -2828,9 +2828,9 @@ gnome-control-center (1:3.7.92-1) experimental; urgency=low
     + Follow upstream in the systemd datetime usage
   * debian/control.in: Bump build-deps
   * debian/control.in: Add run-time depend on colord
-  * debian/gnome-control-center.install: Don't install panel .so files, all
+  * debian/regolith-control-center.install: Don't install panel .so files, all
     plugins are now static
-  * debian/gnome-control-center-data.install: Remove installation of fallback
+  * debian/regolith-control-center-data.install: Remove installation of fallback
     files, no longer shipped with g-c-c
 
   [ Jean Schurger ]
@@ -2838,13 +2838,13 @@ gnome-control-center (1:3.7.92-1) experimental; urgency=low
 
   [ Sjoerd Simons ]
   * New upstream release (3.7.92)
-  * debian/gnome-control-center.install: Install policykit rules & search
+  * debian/regolith-control-center.install: Install policykit rules & search
     provider
   * debian/control.in: Depend on gnome-icon-theme >= 3.7
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sat, 23 Mar 2013 20:19:50 +0100
 
-gnome-control-center (1:3.6.3-1) experimental; urgency=low
+regolith-control-center (1:3.6.3-1) experimental; urgency=low
 
   [ Sjoerd Simons ]
   * debian/control.in: Bump libgnome-bluetooth-dev to >= 3.5.5
@@ -2852,7 +2852,7 @@ gnome-control-center (1:3.6.3-1) experimental; urgency=low
 
   [ Jeremy Bicha ]
   * New upstream version.
-  * debian/gnome-control-center.sgml, debian/gnome-control-center.install
+  * debian/regolith-control-center.sgml, debian/regolith-control-center.install
     debian/rules
     - Ship improved man page from GNOME
 
@@ -2862,7 +2862,7 @@ gnome-control-center (1:3.6.3-1) experimental; urgency=low
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sun, 10 Feb 2013 13:17:20 +0100
 
-gnome-control-center (1:3.6.2-1) experimental; urgency=low
+regolith-control-center (1:3.6.2-1) experimental; urgency=low
 
   * Team upload
 
@@ -2878,13 +2878,13 @@ gnome-control-center (1:3.6.2-1) experimental; urgency=low
     which means that authenticating for
     org.gnome.controlcenter.user-accounts.administration is sufficient
     to administer accountsservice and (if later added to Debian) realmd
-  * Do not install gnome-control-center.rules for now; it won't work in Debian
+  * Do not install regolith-control-center.rules for now; it won't work in Debian
     since we don't have a wheel group. Patching it to use group sudo is
     a possibility for a future upload.
 
  -- Simon McVittie <smcv@debian.org>  Mon, 12 Nov 2012 17:14:50 +0000
 
-gnome-control-center (1:3.6.1-1) experimental; urgency=low
+regolith-control-center (1:3.6.1-1) experimental; urgency=low
 
   [ Josselin Mouette ]
   * Add missing epoch on libxi build-dependency.
@@ -2903,13 +2903,13 @@ gnome-control-center (1:3.6.1-1) experimental; urgency=low
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sun, 14 Oct 2012 21:42:26 +0200
 
-gnome-control-center (1:3.4.2-2) unstable; urgency=low
+regolith-control-center (1:3.4.2-2) unstable; urgency=low
 
   * Upload to unstable.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 30 May 2012 12:54:24 +0200
 
-gnome-control-center (1:3.4.2-1) experimental; urgency=low
+regolith-control-center (1:3.4.2-1) experimental; urgency=low
 
   [ Sjoerd Simons ]
   * New upstream release
@@ -2923,7 +2923,7 @@ gnome-control-center (1:3.4.2-1) experimental; urgency=low
       - Refreshed
     + debian/patches/revert_git_datetime_port.patch:
       - Added, don't switch to systemd for datetime functionality just yet.
-  * Drop libgnome-control-center1 package, gnome-control-center no longer
+  * Drop libregolith-control-center1 package, regolith-control-center no longer
     builds a library.
   * debian/patches/00git_handle_media_dialog_close.patch,
     debian/patches/91_configure_cheese.patch,
@@ -2932,7 +2932,7 @@ gnome-control-center (1:3.4.2-1) experimental; urgency=low
     + All removed, fixed upstream
   * debian/rules: Don't use -Wl,-z,defs as it cause the panel plugins to fail
     to build
-  * debian/gnome-control-center-data.install: gnome-control-center no longer
+  * debian/regolith-control-center-data.install: regolith-control-center no longer
     ships a manual.
 
   [ Michael Biebl ]
@@ -2941,7 +2941,7 @@ gnome-control-center (1:3.4.2-1) experimental; urgency=low
   * Mark libwacom-dev and libgnome-bluetooth-dev as linux-any.
   * Update Build-Depends according to configure.ac.
   * Add Breaks/Replaces: gnome-bluetooth (<< 3.4) as the Bluetooth panel moved
-    into gnome-control-center.
+    into regolith-control-center.
   * debian/patches/10_optional_wacom_support.patch: Build the Wacom panel
     conditionally to support plattforms where libwacom-dev is not available.
   * Bump Standards-Version to 3.9.3.
@@ -2952,7 +2952,7 @@ gnome-control-center (1:3.4.2-1) experimental; urgency=low
 
  -- Michael Biebl <biebl@debian.org>  Sat, 19 May 2012 23:57:55 +0200
 
-gnome-control-center (1:3.2.2-3) unstable; urgency=low
+regolith-control-center (1:3.2.2-3) unstable; urgency=low
 
   * debian/patches/92_link_language_chooser_against_fontconfig.patch: Link
     language chooser panel against fontconfig. Patch cherry-picked from
@@ -2960,7 +2960,7 @@ gnome-control-center (1:3.2.2-3) unstable; urgency=low
 
  -- Michael Biebl <biebl@debian.org>  Thu, 29 Mar 2012 23:36:02 +0200
 
-gnome-control-center (1:3.2.2-2) unstable; urgency=low
+regolith-control-center (1:3.2.2-2) unstable; urgency=low
 
   [ Josselin Mouette ]
   * Recommend cups-pk-helper. Closes: #622688.
@@ -2972,7 +2972,7 @@ gnome-control-center (1:3.2.2-2) unstable; urgency=low
 
  -- Michael Biebl <biebl@debian.org>  Fri, 16 Dec 2011 23:55:34 +0100
 
-gnome-control-center (1:3.2.2-1) experimental; urgency=low
+regolith-control-center (1:3.2.2-1) experimental; urgency=low
 
   [ Laurent Bigonville ]
   * debian/control.in: Bump libgnome-desktop-3-dev build-dependency
@@ -2988,17 +2988,17 @@ gnome-control-center (1:3.2.2-1) experimental; urgency=low
     - Mark Build-Depends on libnm-gtk-dev as linux-any.
     - Bump Build-Depends on libnotify-dev to (>= 0.7.3).
     - Bump Depends on gsettings-desktop-schemas to (>= 3.0.2).
-  * Remove debian/libgnome-control-center-dev.install, obsolete.
-  * Remove debian/libgnome-control-center1.symbols and instead add a strict
-    dependency between gnome-control-center and libgnome-control-center1.
+  * Remove debian/libregolith-control-center-dev.install, obsolete.
+  * Remove debian/libregolith-control-center1.symbols and instead add a strict
+    dependency between regolith-control-center and libregolith-control-center1.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 16 Nov 2011 00:45:49 +0100
 
-gnome-control-center (1:3.2.1-1) experimental; urgency=low
+regolith-control-center (1:3.2.1-1) experimental; urgency=low
 
   * New upstream release
   * Sync with Ubuntu
-    + debian/libgnome-control-center1.symbols: Update symbols
+    + debian/libregolith-control-center1.symbols: Update symbols
     + debian/patches/90_force_fallback.patch: Updated
     + debian/patches/06_handle_passwd_with_ldap.patch: Added
     + debian/patches/08_dont_crash_on_null_territories.patch: Added
@@ -3006,7 +3006,7 @@ gnome-control-center (1:3.2.1-1) experimental; urgency=low
   * debian/patches/03_ppd_h.patch: Removed, fixed upstream
   * debian/patches/91_configure_cheese.patch: Include cheese pkg-config flags
     as symbols of it are being used
-  * debian/control.in: Remove libgnome-control-center-dev package
+  * debian/control.in: Remove libregolith-control-center-dev package
   * debian/control.in: Add build-dependency on libgoa-1.0-dev, libcolord-dev,
     and libnotify-dev
   * debian/control.in: Tighten libgtk-3-dev build-dependency
@@ -3017,18 +3017,18 @@ gnome-control-center (1:3.2.1-1) experimental; urgency=low
 
  -- Sjoerd Simons <sjoerd@debian.org>  Sat, 05 Nov 2011 00:46:41 +0000
 
-gnome-control-center (1:3.0.2-3) unstable; urgency=low
+regolith-control-center (1:3.0.2-3) unstable; urgency=low
 
   * debian/control.in:
     - Also add Breaks/Replaces against gdm (<< 3.0). Closes: #645400
     - Update Depends on gnome-desktop-data to gnome-desktop3-data.
-  * Rename control-center2.xpm to gnome-control-center.xpm and refresh the
+  * Rename control-center2.xpm to regolith-control-center.xpm and refresh the
     icon based on what's currently shipped in gnome-icon-theme.
     Update the menu file accordingly.
 
  -- Michael Biebl <biebl@debian.org>  Sat, 15 Oct 2011 20:49:56 +0200
 
-gnome-control-center (1:3.0.2-2) unstable; urgency=low
+regolith-control-center (1:3.0.2-2) unstable; urgency=low
 
   [ Josselin Mouette ]
   * Drop useless gst-alsa | gst-audiosink suggstion; suggest
@@ -3051,12 +3051,12 @@ gnome-control-center (1:3.0.2-2) unstable; urgency=low
     - Add Breaks/Replaces against gnome-settings-daemon (<< 3.0).
       Closes: #625783
   * Refresh patches.
-  * debian/gnome-control-center-data.install
+  * debian/regolith-control-center-data.install
     - Install face pictures.
 
  -- Michael Biebl <biebl@debian.org>  Fri, 14 Oct 2011 16:13:54 +0200
 
-gnome-control-center (1:3.0.2-1) experimental; urgency=low
+regolith-control-center (1:3.0.2-1) experimental; urgency=low
 
   [ Josselin Mouette ]
   * Break glib < 2.28.6-2 for x-scheme-handler support.
@@ -3079,15 +3079,15 @@ gnome-control-center (1:3.0.2-1) experimental; urgency=low
 
  -- Josselin Mouette <joss@debian.org>  Sun, 04 Sep 2011 19:15:55 +0200
 
-gnome-control-center (1:3.0.1.1-1) experimental; urgency=low
+regolith-control-center (1:3.0.1.1-1) experimental; urgency=low
 
   * New upstream release.
-  * gnome-control-center-data.install: drop GConf schemas.
-  * gnome-control-center-data.gconf-defaults: dropped, obsolete.
+  * regolith-control-center-data.install: drop GConf schemas.
+  * regolith-control-center-data.gconf-defaults: dropped, obsolete.
 
  -- Josselin Mouette <joss@debian.org>  Fri, 29 Apr 2011 02:24:28 +0200
 
-gnome-control-center (1:3.0.0.1-1) experimental; urgency=low
+regolith-control-center (1:3.0.0.1-1) experimental; urgency=low
 
   * New upstream release.
   * debian/control.in:
@@ -3099,12 +3099,12 @@ gnome-control-center (1:3.0.0.1-1) experimental; urgency=low
       schema.
   * debian/patches/00_disable-nm.patch: removed as NM 0.9 is now available.
   * debian/patches/99_autoreconf.patch: removed.
-  * debian/libgnome-control-center-dev.install: do not install gtk-doc as it
+  * debian/libregolith-control-center-dev.install: do not install gtk-doc as it
     was incomplete and got removed.
 
  -- Frederic Peters <fpeters@debian.org>  Thu, 31 Mar 2011 01:01:31 +0530
 
-gnome-control-center (1:2.91.93-1) experimental; urgency=low
+regolith-control-center (1:2.91.93-1) experimental; urgency=low
 
   * New upstream release.
 
@@ -3119,20 +3119,20 @@ gnome-control-center (1:2.91.93-1) experimental; urgency=low
 
  -- Frederic Peters <fpeters@debian.org>  Wed, 30 Mar 2011 23:44:16 +0530
 
-gnome-control-center (1:2.91.92-1) experimental; urgency=low
+regolith-control-center (1:2.91.92-1) experimental; urgency=low
 
   * New upstream release.
 
   [ Emilio Pozuelo Monfort ]
   * debian/control.in:
-    + gnome-control-center-dev belongs in the devel section.
+    + regolith-control-center-dev belongs in the devel section.
 
   [ Laurent Bigonville ]
   * debian/control.in
     - Add Vcs-* fields
     - Bump libglib2.0-dev and gnome-settings-daemon-dev Build-dependencies
-    - Bump gnome-control-center Dependency against gnome-settings-daemon
-    - gnome-control-center-data Breaks gnome-media-common (<< 2.91)
+    - Bump regolith-control-center Dependency against gnome-settings-daemon
+    - regolith-control-center-data Breaks gnome-media-common (<< 2.91)
 
   [ Frederic Peters ]
   * debian/patches/00_disable-nm.patch: updated.
@@ -3143,22 +3143,22 @@ gnome-control-center (1:2.91.92-1) experimental; urgency=low
 
  -- Frederic Peters <fpeters@debian.org>  Mon, 21 Mar 2011 22:30:04 +0100
 
-gnome-control-center (1:2.91.91-3) experimental; urgency=low
+regolith-control-center (1:2.91.91-3) experimental; urgency=low
 
   * debian/control.in: add build-dep on locales, required for the datetime
     test-endianess check.
 
  -- Frederic Peters <fpeters@debian.org>  Sun, 13 Mar 2011 20:05:56 +0100
 
-gnome-control-center (1:2.91.91-2) experimental; urgency=low
+regolith-control-center (1:2.91.91-2) experimental; urgency=low
 
   * debian/rules, debian/images/*, debian/patches/12_timezones.patch: ship
     and install missing timezone graphics.
-  * debian/libgnome-control-center1.symbols: updated with three new symbols.
+  * debian/libregolith-control-center1.symbols: updated with three new symbols.
 
  -- Frederic Peters <fpeters@debian.org>  Sat, 12 Mar 2011 21:38:35 +0100
 
-gnome-control-center (1:2.91.91-1) experimental; urgency=low
+regolith-control-center (1:2.91.91-1) experimental; urgency=low
 
   * New upstream release.
     + debian/patches/00_disable-nm.patch: updated.
@@ -3171,7 +3171,7 @@ gnome-control-center (1:2.91.91-1) experimental; urgency=low
 
  -- Frederic Peters <fpeters@debian.org>  Thu, 10 Mar 2011 17:35:21 +0100
 
-gnome-control-center (1:2.91.90-1) experimental; urgency=low
+regolith-control-center (1:2.91.90-1) experimental; urgency=low
 
   * New upstream release.
     + debian/patches/00_disable-nm.patch: disable Network Manager 0.9 bits.
@@ -3179,11 +3179,11 @@ gnome-control-center (1:2.91.90-1) experimental; urgency=low
       panel.
     + debian/patches/11_keyboard-panel-link.patch: fix linking of the keyboard
       panel.
-    + debian/libgnome-control-center1.symbols: updated with a new symbol.
+    + debian/libregolith-control-center1.symbols: updated with a new symbol.
 
  -- Frederic Peters <fpeters@debian.org>  Fri, 25 Feb 2011 10:44:34 +0100
 
-gnome-control-center (1:2.91.6-1) experimental; urgency=low
+regolith-control-center (1:2.91.6-1) experimental; urgency=low
 
   * debian/control.in:
     + Depend on accountsservice and apg for the User Accounts panel.
@@ -3196,17 +3196,17 @@ gnome-control-center (1:2.91.6-1) experimental; urgency=low
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 19 Feb 2011 14:40:15 +0000
 
-gnome-control-center (1:2.91.5-2) experimental; urgency=low
+regolith-control-center (1:2.91.5-2) experimental; urgency=low
 
   * debian/control.in:
-    - Drop gnome-control-center breaks/replaces against gnome-media(-common),
+    - Drop regolith-control-center breaks/replaces against gnome-media(-common),
       they seem unneeded.
     - capplets-data replaces gnome-media-common.
     - Build depend on docbook-xml, needed to build the docs.
     - capplets-data: stop breaking g-c-c, it already depends on a new
       enough version of the former so this is not needed.
-    - gnome-control-center: no need to manually depend on
-      libgnome-control-center1. The shlibs does that for us.
+    - regolith-control-center: no need to manually depend on
+      libregolith-control-center1. The shlibs does that for us.
     - Don't use tabs for padding.
     - Drop obsolete dpkg-dev b-d.
   * debian/control.in,
@@ -3214,20 +3214,20 @@ gnome-control-center (1:2.91.5-2) experimental; urgency=low
     debian/source/format:
     - Switch to source format 3.0 (quilt).
   * debian/control.in,
-    debian/{capplets,gnome-control-center}-data.*,
+    debian/{capplets,regolith-control-center}-data.*,
     debian/rules:
-    - Rename capplets-data to gnome-control-center-data.
+    - Rename capplets-data to regolith-control-center-data.
   * debian/index.theme:
     - Removed, unused.
-  * debian/libgnome-control-center1.symbols:
+  * debian/libregolith-control-center1.symbols:
     - Add a Build-Depends-Package field.
   * debian/gnome-keyboard-properties.1,
-    debian/gnome-control-center.manpages:
+    debian/regolith-control-center.manpages:
     - gnome-keyboard-properties is gone, drop the manpage.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 16 Jan 2011 23:01:37 +0000
 
-gnome-control-center (1:2.91.5-1) experimental; urgency=low
+regolith-control-center (1:2.91.5-1) experimental; urgency=low
 
   * New upstream release
   * Based on ubuntu 1:2.91.3.1-0ubuntu1~build2, by Robert Ancell and others
@@ -3241,7 +3241,7 @@ gnome-control-center (1:2.91.5-1) experimental; urgency=low
 control-center (1:2.30.1-2) unstable; urgency=low
 
   * debian/control.in:
-    - Let gnome-control-center depend on evolution-data-server, instead of
+    - Let regolith-control-center depend on evolution-data-server, instead of
       only recommending it. It's needed by gnome-about-me. Closes: #592525.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 11 Aug 2010 01:37:07 +0200
@@ -3282,7 +3282,7 @@ control-center (1:2.28.1-1) unstable; urgency=low
 control-center (1:2.28.0-2) experimental; urgency=low
 
   * Build depend on a recent libslab-dev to build against one that doesn't
-    use libgnomeui, making gnome-control-center start again. Closes: #550461.
+    use libgnomeui, making regolith-control-center start again. Closes: #550461.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 12 Oct 2009 01:58:10 +0200
 
@@ -3409,7 +3409,7 @@ control-center (1:2.24.0.1-1) experimental; urgency=low
     version.
   * Suggest libcanberra-gtk-module instead of esound-clients.
   * Remove obsolete files: libgnome-settings-daemon-dev.install,
-    gnome-control-center.dirs.
+    regolith-control-center.dirs.
   * Switch to quilt for managing patches; build-depend on quilt.
   * 01_fix_libslab_build.patch: updated for the new version.
   * 02_xklavier_utf8.patch: dropped, merged upstream
@@ -3422,7 +3422,7 @@ control-center (1:2.24.0.1-1) experimental; urgency=low
   * Remove -1 suffix in build-deps.
   * 99_ltmain_as-needed.patch: make --as-needed work for the library as
     well.
-  * debian/gnome-control-center.postinst: remove gnome-vfs conffiles.
+  * debian/regolith-control-center.postinst: remove gnome-vfs conffiles.
   * 05_ta_po.patch: new patch. Fix Tamil translation of the GConf
     defaults.
 
@@ -3464,7 +3464,7 @@ control-center (1:2.22.0-2) unstable; urgency=low
 
   * Upload to unstable.
   * debian/control.in,
-    debian/gnome-control-center.install:
+    debian/regolith-control-center.install:
     + Use nautilus 2.20 for now.
 
  -- Sebastian Dröge <slomo@debian.org>  Wed, 19 Mar 2008 02:14:49 +0100
@@ -3498,7 +3498,7 @@ control-center (1:2.20.3-2) unstable; urgency=low
   * gnome-keyboard-properties.1:
     + Fix missing space.
     + Fix whatis entry.
-  * gnome-control-center.dirs: removed.
+  * regolith-control-center.dirs: removed.
   * Don’t run dh_makeshlibs for g-c-c.
   * Update menu entry to the latest menu layout.
 
@@ -3538,7 +3538,7 @@ control-center (1:2.20.0.1-1) unstable; urgency=low
 
   [ Loic Minier ]
   * gnome-settings-daemon is in /usr/lib/control-center, not
-    gnome-control-center; closes: #443997.
+    regolith-control-center; closes: #443997.
   * Drop the version of the scrollkeeper dependency.
 
   [ Josselin Mouette ]
@@ -3604,7 +3604,7 @@ control-center (1:2.19.5-1) experimental; urgency=low
     still change incompatibly; no API change in this release though.
     - Target at experimental; include check-dist.
     - Set GNOME_MODULE and update watch and copyright files as the upstream
-      module was renamed to gnome-control-center; update debian/*.install and
+      module was renamed to regolith-control-center; update debian/*.install and
       *.links files for new pathnames.
     - Update patch 01_fix_libslab_build.
     - Update patch 02_xrdb to only patch
@@ -3625,7 +3625,7 @@ control-center (1:2.19.5-1) experimental; urgency=low
     - Drop private icon dir and png pixmaps from capplets-data.install.
     - Drop gnome-font-properties, gnome-background-properties,
       gnome-theme-manager, and gnome-ui-properties from
-      gnome-control-center.install.
+      regolith-control-center.install.
     - Add a (libxklavier11-dev >= 3.2) build-dep.
     - Update GConf defaults for the music and calculator keybindings and bind
       the rhythmbox command to the default media player.
@@ -3633,7 +3633,7 @@ control-center (1:2.19.5-1) experimental; urgency=low
     - Misc updates to *.install files.
     - New patch, 27_nobashizms, fixes a bashism in gnome-at-commandline; found
       in the Ubuntu package.
-    - Install all files under usr/bin to gnome-control-center to ease handling
+    - Install all files under usr/bin to regolith-control-center to ease handling
       of its install file.
 
  -- Loic Minier <lool@dooz.org>  Tue, 10 Jul 2007 18:55:45 +0200
@@ -3820,7 +3820,7 @@ control-center (1:2.14.2-2) unstable; urgency=high
       (Closes: #373146)
 
   [ Loic Minier ]
-  * Fix versioned dependency of capplets-data on gnome-control-center.
+  * Fix versioned dependency of capplets-data on regolith-control-center.
   * Let libgnome-window-settings1 conflict with capplets too.
   * Drop capplets Provides.
 
@@ -3831,9 +3831,9 @@ control-center (1:2.14.2-1) unstable; urgency=low
   * New upstream release
   * debian/control, debian/control.in:
     - libgnome-window-settings1, libgnome-window-settings-dev Replaces
-      gnome-control-center << 1:2.14.0-1 (Closes: #370211)
+      regolith-control-center << 1:2.14.0-1 (Closes: #370211)
     - New maintainer
-  * compat, libgnome-window-settings1.install, gnome-control-center.install:
+  * compat, libgnome-window-settings1.install, regolith-control-center.install:
     - Debhelper compatibility is 5
     - Fixed some missing files errors
 
@@ -3951,7 +3951,7 @@ control-center (1:2.12.1-1) experimental; urgency=low
     - Suggest gnome-screensaver. [debian/control, debian/control.in]
   * Add CDBS' utils. [debian/rules]
   * Don't overwrite DEB_CONFIGURE_EXTRA_FLAGS and
-    DEB_INSTALL_MANPAGES_gnome-control-center. [debian/rules]
+    DEB_INSTALL_MANPAGES_regolith-control-center. [debian/rules]
 
   [ Sjoerd Simons ]
   * debian/patches/12_sort_entries.patch
@@ -4009,7 +4009,7 @@ control-center (1:2.10.1-4) unstable; urgency=medium
     without metacity being installed (closes: #315730).
   * Use type-handling's Provides: feature to avoid hacking the control file.
   * Remove the capplets package, which doesn't have a purpose anymore. Move
-    all package contents back to gnome-control-center.
+    all package contents back to regolith-control-center.
   * Remove most Replaces: and Conflicts:, not useful anymore.
   * Standards-version is 3.6.2.
 
@@ -4422,9 +4422,9 @@ control-center (1:2.4.0-7) unstable; urgency=low
 
 control-center (1:2.4.0-6) unstable; urgency=low
 
-  * Split the package. The gnome-control-center binary like nautilus is
+  * Split the package. The regolith-control-center binary like nautilus is
     simply a front-end for capplets, thus move all capplets in a separate
-    package (capplets) and add a dependency to 'gnome-control-center |
+    package (capplets) and add a dependency to 'regolith-control-center |
     nautilus | gnome-panel' for that package. Also move data files in
     capplets-data package.
   * Remove /usr/lib/libgnome-window-settings.{a,la,so},
@@ -4810,7 +4810,7 @@ control-center (1:1.4.0.1-2) unstable; urgency=low
 
   * Add docbook-to-man in build-depends (Closes: #92421)
   * Don't compress control-center.sgml (Closes: #92603)
-  * Call scrollkeeper-update in postinst and prerm for gnome-control-center
+  * Call scrollkeeper-update in postinst and prerm for regolith-control-center
 
  -- Christian Marillat <marillat@debian.org>  Mon,  2 Apr 2001 21:35:15 +0200
 
@@ -4892,7 +4892,7 @@ control-center (1:1.2.2-4) unstable; urgency=low
 
 control-center (1:1.2.2-3) unstable; urgency=low
 
-  * Fix bad symlink in gnome-control-center (Closes: #74279)
+  * Fix bad symlink in regolith-control-center (Closes: #74279)
 
  -- Christian Marillat <marillat@debian.org>  Mon,  9 Oct 2000 15:02:57 +0200
 

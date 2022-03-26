@@ -1,12 +1,12 @@
-# Karbi translation for gnome-control-center.
-# Copyright (C) 2019 gnome-control-center's Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-control-center package.
+# Karbi translation for regolith-control-center.
+# Copyright (C) 2019 regolith-control-center's Free Software Foundation, Inc.
+# This file is distributed under the same license as the regolith-control-center package.
 # Jor Teron <jor.teron@gmail.com>, 2019-20.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2020-02-22 15:18+0000\n"
 "PO-Revision-Date: 2020-02-22 22:20+0530\n"
@@ -74,7 +74,7 @@ msgstr "File System"
 #: panels/applications/cc-applications-panel.c:763
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:281
 #: shell/cc-window.c:964 shell/cc-window.ui:125
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr ""
 
@@ -7890,19 +7890,19 @@ msgstr ""
 msgid "Tip Pressure Feel"
 msgstr ""
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "GNOME Settings"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr ""
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr ""
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
 
@@ -7962,7 +7962,7 @@ msgid "Help"
 msgstr "Kerap"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr ""
 

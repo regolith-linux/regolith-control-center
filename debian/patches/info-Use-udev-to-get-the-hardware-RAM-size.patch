@@ -11,7 +11,7 @@ device to get the size of the RAM sticks/chips as the user expects.
 
 Closes: #1540
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/25518a6
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/25518a6
 ---
  panels/info-overview/cc-info-overview-panel.c | 41 +++++++++++++++++++++++++--
  panels/info-overview/meson.build              |  3 +-

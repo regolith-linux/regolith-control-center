@@ -10,7 +10,7 @@ trying to fix it.
 tzname_normal is also unused, but slightly useful for debugging, so
 rename it to tzname but otherwise keep it in place.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/1b874509
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/1b874509
 ---
  panels/datetime/tz.c | 16 +++-------------
  panels/datetime/tz.h |  6 ++----

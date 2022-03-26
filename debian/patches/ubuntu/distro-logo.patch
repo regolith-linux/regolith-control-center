@@ -21,10 +21,10 @@ this.
  panels/info-overview/cc-info-overview-panel.c | 4 ++++
  3 files changed, 11 insertions(+)
 
-Index: gnome-control-center/meson.build
+Index: regolith-control-center/meson.build
 ===================================================================
---- gnome-control-center.orig/meson.build
-+++ gnome-control-center/meson.build
+--- regolith-control-center.orig/meson.build
++++ regolith-control-center/meson.build
 @@ -50,6 +50,17 @@ foreach define: set_defines
    config_h.set_quoted(define[0], define[1])
  endforeach
@@ -43,20 +43,20 @@ Index: gnome-control-center/meson.build
  # meson does not support octal values, so it must be handled as a
  # string. See: https://github.com/mesonbuild/meson/issues/2047
  config_h.set('USER_DIR_MODE', '0700',
-Index: gnome-control-center/meson_options.txt
+Index: regolith-control-center/meson_options.txt
 ===================================================================
---- gnome-control-center.orig/meson_options.txt
-+++ gnome-control-center/meson_options.txt
+--- regolith-control-center.orig/meson_options.txt
++++ regolith-control-center/meson_options.txt
 @@ -8,3 +8,5 @@ option('tracing', type: 'boolean', value
  option('wayland', type: 'boolean', value: true, description: 'build with Wayland support')
  option('profile', type: 'combo', choices: ['default','development'], value: 'default')
  option('malcontent', type: 'boolean', value: false, description: 'build with malcontent support')
 +option('distributor_logo', type: 'string', description: 'absolute path to distributor logo for the About panel')
 +option('dark_mode_distributor_logo', type: 'string', description: 'absolute path to distributor logo dark mode variant')
-Index: gnome-control-center/panels/info-overview/cc-info-overview-panel.c
+Index: regolith-control-center/panels/info-overview/cc-info-overview-panel.c
 ===================================================================
---- gnome-control-center.orig/panels/info-overview/cc-info-overview-panel.c
-+++ gnome-control-center/panels/info-overview/cc-info-overview-panel.c
+--- regolith-control-center.orig/panels/info-overview/cc-info-overview-panel.c
++++ regolith-control-center/panels/info-overview/cc-info-overview-panel.c
 @@ -917,6 +917,7 @@ cc_info_panel_row_activated_cb (CcInfoOv
      open_software_update (self);
  }

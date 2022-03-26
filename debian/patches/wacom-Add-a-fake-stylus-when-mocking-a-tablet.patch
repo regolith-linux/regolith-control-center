@@ -2,7 +2,7 @@ From: Bastien Nocera <hadess@hadess.net>
 Date: Tue, 16 Nov 2021 17:19:07 +0100
 Subject: wacom: Add a fake stylus when mocking a tablet
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/8ac36f479
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/8ac36f479
 ---
  panels/wacom/cc-wacom-panel.c | 33 +++++++++++++++++++++++++++++++++
  1 file changed, 33 insertions(+)

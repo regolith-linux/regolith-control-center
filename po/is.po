@@ -1,4 +1,4 @@
-# translation of gnome-control-center.master.is.po to Íslenska
+# translation of regolith-control-center.master.is.po to Íslenska
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -6,8 +6,8 @@
 # Sveinn í Felli <sv1@fellsnet.is>, 2015, 2016, 2017, 2019, 2021, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center.master.is\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/issu"
+"Project-Id-Version: regolith-control-center.master.is\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/issu"
 "es\n"
 "POT-Creation-Date: 2022-01-24 13:03+0000\n"
 "PO-Revision-Date: 2022-01-30 20:59+0000\n"
@@ -76,7 +76,7 @@ msgstr "Skráakerfi"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Stillingar"
 
@@ -8934,19 +8934,19 @@ msgstr "Stilla nettæki og farsímatengingar"
 msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr "farsími;wwan;símkerfi;sim;gsm;sími;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "GNOME-stillingar"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Tól til að stilla GNOME skjáborðsumhverfið"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Stillingar eru aðalviðmótið til að stilla kerfið þitt."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "GNOME verkefnið"
 
@@ -9009,7 +9009,7 @@ msgid "Help"
 msgstr "Hjálp"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Kjörstillingar;Uppsetning;"
 
@@ -9768,8 +9768,8 @@ msgstr "Kerfishljóð"
 #~ msgid "Quit"
 #~ msgstr "Hætta"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "Back­ground"
 #~ msgstr "Bak­grunnur"

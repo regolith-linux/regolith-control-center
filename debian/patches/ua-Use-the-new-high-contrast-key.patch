@@ -4,7 +4,7 @@ Subject: ua: Use the new high contrast key
 
 Keep setting gtk theme, but use the new boolean as the source of truth.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/c1f8e9363
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/c1f8e9363
 ---
  panels/universal-access/cc-ua-panel.c | 20 ++++++++++++--------
  1 file changed, 12 insertions(+), 8 deletions(-)

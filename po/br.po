@@ -1,4 +1,4 @@
-# Breton translation of gnome-control-center.
+# Breton translation of regolith-control-center.
 # Copyright (C) 2004-2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-menu package.
 #
@@ -8,7 +8,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Gnome-control-center\n"
+"Project-Id-Version: regolith-control-center\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "control-center&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-09-27 06:32+0000\n"
@@ -1475,7 +1475,7 @@ msgid "Launch help browser"
 msgstr ""
 
 #: ../panels/keyboard/01-launchers.xml.in.h:3 ../shell/cc-window.c:1601
-#: ../shell/gnome-control-center.desktop.in.in.h:1
+#: ../shell/regolith-control-center.desktop.in.in.h:1
 msgid "Settings"
 msgstr "Arventennoù"
 
@@ -7001,7 +7001,7 @@ msgctxt "category"
 msgid "System"
 msgstr "Reizhiad [Rummad]"
 
-#: ../shell/gnome-control-center.desktop.in.in.h:2
+#: ../shell/regolith-control-center.desktop.in.in.h:2
 msgid "Preferences;Settings;"
 msgstr "Gwellvezioù;Arventennoù;"
 

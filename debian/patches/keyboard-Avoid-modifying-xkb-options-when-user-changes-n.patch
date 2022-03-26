@@ -4,7 +4,7 @@ Subject: keyboard: Avoid modifying `xkb-options` when user changes nothing
 
 Avoids clobbering certain custom settings that can't be set in UI.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/910
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/merge_requests/910
 Bug-Ubuntu: https://launchpad.net/bugs/1934761
 ---
  panels/keyboard/cc-xkb-modifier-dialog.c | 10 ++++++++++

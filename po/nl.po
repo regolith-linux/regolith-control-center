@@ -1,5 +1,5 @@
-# Dutch translation for gnome-control-center
-# This file is distributed under the same license as the gnome-control-center package.
+# Dutch translation for regolith-control-center
+# This file is distributed under the same license as the regolith-control-center package.
 # Bas Wagter <B.J.Wagter@bk.tudelft.nl>
 # Hein-Jan Leliveld <h.j.leliveld@student.tn.tudelft.nl>
 # desktop                  - werkblad
@@ -22,8 +22,8 @@
 # Justin van Steijn <jvs@fsfe.org>, 2016, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-control-center\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-control-center/"
+"Project-Id-Version: regolith-control-center\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/regolith-control-center/"
 "issues\n"
 "POT-Creation-Date: 2021-09-13 15:00+0000\n"
 "PO-Revision-Date: 2021-09-13 17:08+0200\n"
@@ -92,7 +92,7 @@ msgstr "Bestandssysteem"
 #: panels/applications/cc-applications-panel.c:849
 #: panels/keyboard/01-launchers.xml.in:6 shell/cc-window.c:279
 #: shell/cc-window.c:938 shell/cc-window.ui:121
-#: shell/gnome-control-center.desktop.in.in:3
+#: shell/regolith-control-center.desktop.in.in:3
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -8843,19 +8843,19 @@ msgid "cellular;wwan;telephony;sim;mobile;"
 msgstr ""
 "cellular;wwan;telephony;sim;mobile;mobiel;simkaart;telefonie;cellulair;"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:7
+#: shell/appdata/regolith-control-center.appdata.xml.in:7
 msgid "GNOME Settings"
 msgstr "Gnome-instellingen"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:8
+#: shell/appdata/regolith-control-center.appdata.xml.in:8
 msgid "Utility to configure the GNOME desktop"
 msgstr "Hulpprogramma om het Gnome-bureaublad te configureren"
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:10
+#: shell/appdata/regolith-control-center.appdata.xml.in:10
 msgid "Settings is the primary interface for configuring your system."
 msgstr "Instellingen is de hoofdinterface voor de configuratie van uw systeem."
 
-#: shell/appdata/gnome-control-center.appdata.xml.in:20
+#: shell/appdata/regolith-control-center.appdata.xml.in:20
 msgid "The GNOME Project"
 msgstr "Het Gnome-project"
 
@@ -8918,7 +8918,7 @@ msgid "Help"
 msgstr "Hulp"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/gnome-control-center.desktop.in.in:17
+#: shell/regolith-control-center.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Preferences;Settings;Voorkeuren;Instellingen;"
 
@@ -9900,8 +9900,8 @@ msgstr "Systeemgeluiden"
 #~ msgid "Quit"
 #~ msgstr "Afsluiten"
 
-#~ msgid "gnome-control-center"
-#~ msgstr "gnome-control-center"
+#~ msgid "regolith-control-center"
+#~ msgstr "regolith-control-center"
 
 #~ msgid "hardware"
 #~ msgstr "hardware"

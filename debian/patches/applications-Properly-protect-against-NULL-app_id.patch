@@ -5,7 +5,7 @@ Subject: applications: Properly protect against NULL app_id
 The 'app_id' variable can be NULL, and g_str_has_prefix() does
 not particularly enjoy that.
 
-Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/commit/00cb638
+Origin: https://gitlab.gnome.org/GNOME/regolith-control-center/-/commit/00cb638
 ---
  panels/applications/cc-applications-panel.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
