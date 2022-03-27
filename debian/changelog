@@ -1,4 +1,4 @@
-regolith-control-center (1:41.4) jammy; urgency=medium
+regolith-control-center (1.41.4) jammy; urgency=medium
 
   [ Ken Gilmer ]
   * Initial fork from Ubuntu version hosted at https://packages.ubuntu.com/jammy/gnome-control-center
