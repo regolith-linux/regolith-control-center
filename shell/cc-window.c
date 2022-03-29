@@ -172,7 +172,8 @@ activate_panel (CcWindow          *self,
 
   timer = g_timer_new ();
 
-  g_settings_set_string (self->settings, "last-panel", id);
+  // Disable setting last panel to avoid issue w/ gnome-control-center
+  // g_settings_set_string (self->settings, "last-panel", id);
 
   /* Begin the profile */
   g_timer_start (timer);
@@ -806,11 +807,13 @@ cc_window_constructed (GObject *object)
 
   /* After everything is loaded, select the last used panel, if any,
    * or the first visible panel */
+  // KG disable selection of last panel to avoid incompat w/ gnome-control-center
+  /*
   id = g_settings_get_string (self->settings, "last-panel");
   if (id != NULL && cc_shell_model_has_panel (self->store, id))
     cc_panel_list_set_active_panel (self->panel_list, id);
-  else
-    cc_panel_list_activate (self->panel_list);
+  else */
+  cc_panel_list_activate (self->panel_list);
 
   g_signal_connect_swapped (self->panel_list,
                             "notify::view",
@@ -916,7 +919,7 @@ cc_window_init (CcWindow *self)
 
   gtk_widget_add_events (GTK_WIDGET (self), GDK_BUTTON_RELEASE_MASK);
 
-  self->settings = g_settings_new ("org.regolith.ControlCenter");
+  self->settings = g_settings_new ("org.gnome.ControlCenter");
   self->custom_widgets = g_ptr_array_new_with_free_func ((GDestroyNotify) g_object_unref);
   self->previous_panels = g_queue_new ();
   self->previous_list_view = cc_panel_list_get_view (self->panel_list);
