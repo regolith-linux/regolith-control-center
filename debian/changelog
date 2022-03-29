@@ -1,3 +1,17 @@
+regolith-control-center (1.41.5) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove unused build options
+  * Remove unneeded patch
+  * Fix build file refs to desktop entries
+  * Add readme
+  * Add files not shipped to appease debuild
+  * Ship gschema file
+  * Revert "Ship gschema file"
+  * Use gnome key for settings dconf.  Disable last panel due to gnome interop incompat
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Tue, 29 Mar 2022 08:04:12 -0700
+
 regolith-control-center (1.41.4) jammy; urgency=medium
 
   [ Ken Gilmer ]
