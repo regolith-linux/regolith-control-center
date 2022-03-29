@@ -2,6 +2,7 @@ usr/share/gettext/its/regolith-keybindings.its
 usr/share/gettext/its/regolith-keybindings.loc
 usr/share/gettext/its/regolith-sounds.its
 usr/share/gettext/its/regolith-sounds.loc
+usr/share/glib-2.0/schemas/org.regolith.ControlCenter.gschema.xml
 usr/share/icons/gnome-logo-text-dark.svg
 usr/share/icons/gnome-logo-text.svg
 usr/share/icons/hicolor/16x16/apps/goa-panel.png
