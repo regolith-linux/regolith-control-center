@@ -512,6 +512,15 @@ on_config_type_toggled_cb (CcDisplayPanel *panel,
   config_ensure_of_type (panel, type);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 on_night_light_list_box_row_activated_cb (CcDisplayPanel *panel)
 {
@@ -530,6 +539,10 @@ on_night_light_list_box_row_activated_cb (CcDisplayPanel *panel)
       gtk_widget_show (GTK_WIDGET (panel->night_light_page));
     }
 
+   g_signal_connect (GTK_WINDOW (prefs->night_light_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (prefs->night_light_dialog));
   gtk_window_set_transient_for (GTK_WINDOW (panel->night_light_dialog), toplevel);
   gtk_window_present (GTK_WINDOW (panel->night_light_dialog));
 }

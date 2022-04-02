@@ -232,6 +232,15 @@ editor_done (NetDeviceEthernet *self)
         device_ethernet_refresh_ui (self);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 show_details (NetDeviceEthernet *self, GtkButton *button, const gchar *title)
 {
@@ -243,6 +252,10 @@ show_details (NetDeviceEthernet *self, GtkButton *button, const gchar *title)
         connection = NM_CONNECTION (g_object_get_data (G_OBJECT (row), "connection"));
 
         editor = net_connection_editor_new (connection, self->device, NULL, self->client);
+        g_signal_connect (GTK_WINDOW (editor),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (editor));  
         gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
         if (title)
                 net_connection_editor_set_title (editor, title);
@@ -430,6 +443,10 @@ add_profile_button_clicked_cb (NetDeviceEthernet *self)
         nm_connection_add_setting (connection, nm_setting_wired_new ());
 
         editor = net_connection_editor_new (connection, self->device, NULL, self->client);
+        g_signal_connect (GTK_WINDOW (editor),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (editor));  
         gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
         g_signal_connect_object (editor, "done", G_CALLBACK (editor_done), self, G_CONNECT_SWAPPED);
         gtk_window_present (GTK_WINDOW (editor));

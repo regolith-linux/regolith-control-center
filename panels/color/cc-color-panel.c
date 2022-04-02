@@ -508,6 +508,15 @@ gcm_prefs_calib_sensor_treeview_clicked_cb (CcColorPanel *prefs,
   gcm_prefs_calib_set_sensor (prefs, sensor);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 gcm_prefs_calibrate_display (CcColorPanel *prefs)
 {
@@ -554,6 +563,10 @@ gcm_prefs_calibrate_display (CcColorPanel *prefs)
   //FIXME?
 
   /* show ui */
+  g_signal_connect (GTK_WINDOW (prefs->assistant_calib),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (prefs->assistant_calib));  
   gtk_window_set_transient_for (GTK_WINDOW (prefs->assistant_calib),
                                 GTK_WINDOW (prefs->main_window));
   gtk_widget_show (prefs->assistant_calib);
@@ -917,15 +930,6 @@ gcm_prefs_calib_export_link_cb (CcColorPanel *prefs,
                           "help:gnome-help/color-howtoimport",
                           GDK_CURRENT_TIME,
                           NULL);
-}
-
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
 }
 
 static void

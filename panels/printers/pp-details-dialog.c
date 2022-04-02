@@ -171,6 +171,15 @@ get_all_ppds_async_cb (PPDList  *ppds,
                                           self->all_ppds_list);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 select_ppd_in_dialog (PpDetailsDialog *self)
 {
@@ -215,7 +224,10 @@ select_ppd_in_dialog (PpDetailsDialog *self)
           manufacturer,
           ppd_selection_dialog_response_cb,
           self);
-
+        g_signal_connect (GTK_WINDOW (self->pp_ppd_selection_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->pp_ppd_selection_dialog));
         gtk_window_set_transient_for (GTK_WINDOW (self->pp_ppd_selection_dialog),
                                       GTK_WINDOW (self));
 

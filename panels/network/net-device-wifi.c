@@ -973,6 +973,10 @@ show_details_for_row (NetDeviceWifi *self, CcWifiConnectionRow *row, CcWifiConne
         ap = cc_wifi_connection_row_best_access_point (row);
 
         editor = net_connection_editor_new (connection, self->device, ap, self->client);
+        g_signal_connect (GTK_WINDOW (editor),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (editor));  
         gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (row))));
         gtk_window_present (GTK_WINDOW (editor));
 }

@@ -147,6 +147,15 @@ editor_done (NetVpn *self)
         nm_device_refresh_vpn_ui (self);
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 edit_connection (NetVpn *self)
 {
@@ -154,6 +163,10 @@ edit_connection (NetVpn *self)
         g_autofree gchar *title = NULL;
 
         editor = net_connection_editor_new (self->connection, NULL, NULL, self->client);
+        g_signal_connect (GTK_WINDOW (editor),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (editor));  
         gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
         title = g_strdup_printf (_("%s VPN"), nm_connection_get_id (self->connection));
         net_connection_editor_set_title (editor, title);

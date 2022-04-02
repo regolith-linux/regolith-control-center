@@ -961,6 +961,15 @@ new_printer_dialog_response_cb (GtkDialog *_dialog,
   self->pp_new_printer_dialog = NULL;
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 printer_add_cb (CcPrintersPanel *self)
 {
@@ -970,7 +979,10 @@ printer_add_cb (CcPrintersPanel *self)
   self->pp_new_printer_dialog = pp_new_printer_dialog_new (self->all_ppds_list,
                                                            new_printer_dialog_response_cb,
                                                            self);
-
+  g_signal_connect (GTK_WINDOW (self->pp_new_printer_dialog),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (self->pp_new_printer_dialog));
   gtk_window_set_transient_for (GTK_WINDOW (self->pp_new_printer_dialog),
                                             GTK_WINDOW (toplevel));
 

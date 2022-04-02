@@ -1,3 +1,11 @@
+regolith-control-center (1.41.7) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Cause nested dialogs to exit when focus leaves for better i3 interop
+  * Remove panels unused in Regolith
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 02 Apr 2022 10:27:07 -0700
+
 regolith-control-center (1.41.6) jammy; urgency=medium
 
   [ Ken Gilmer ]

@@ -702,6 +702,15 @@ panel_check_network_manager_version (CcNetworkPanel *self)
         }
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 create_connection_cb (GtkWidget      *button,
                       CcNetworkPanel *self)
@@ -709,6 +718,10 @@ create_connection_cb (GtkWidget      *button,
         NetConnectionEditor *editor;
 
         editor = net_connection_editor_new (NULL, NULL, NULL, self->client);
+        g_signal_connect (GTK_WINDOW (editor),
+                    "focus-out-event",
+                    G_CALLBACK(on_focus_out_event),
+                    GTK_WINDOW (editor)); 
         gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self))));
         gtk_window_present (GTK_WINDOW (editor));
 }
