@@ -1,3 +1,10 @@
+regolith-control-center (1.41.6) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * For better i3 interop, all modal dialogs close if they lose focus, preventing poor UX from hidden window
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 02 Apr 2022 09:48:35 -0700
+
 regolith-control-center (1.41.5) jammy; urgency=medium
 
   [ Ken Gilmer ]
