@@ -462,7 +462,7 @@ show_input_chooser (CcInputListBox *self)
   g_signal_connect (GTK_WINDOW (chooser),
                       "focus-out-event",
                       G_CALLBACK(on_focus_out_event),
-                      GTK_WINDOW (chooser); 
+                      GTK_WINDOW (chooser)); 
   if (gtk_dialog_run (GTK_DIALOG (chooser)) == GTK_RESPONSE_OK) {
     CcInputSource *source;
 
