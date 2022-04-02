@@ -962,6 +962,15 @@ ap_sort (gconstpointer a, gconstpointer b, gpointer data)
         return 0;
 }
 
+static gboolean
+on_focus_out_event (GtkWindow *window,
+                    GdkEvent  *event)
+{
+  gtk_window_close(window);  
+
+  return TRUE;
+}
+
 static void
 show_details_for_row (NetDeviceWifi *self, CcWifiConnectionRow *row, CcWifiConnectionList *list)
 {
@@ -1017,15 +1026,6 @@ on_connection_list_row_activated_cb (NetDeviceWifi        *self,
                                      CcWifiConnectionList *list)
 {
   cc_wifi_connection_row_set_checked (row, !cc_wifi_connection_row_get_checked (row));
-}
-
-static gboolean
-on_focus_out_event (GtkWindow *window,
-                    GdkEvent  *event)
-{
-  gtk_window_close(window);  
-
-  return TRUE;
 }
 
 static void
