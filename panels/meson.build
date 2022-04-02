@@ -15,7 +15,6 @@ panels = [
 
   
   'mouse',
-  'multitasking',
   
   'online-accounts',
   'power',
@@ -27,8 +26,7 @@ panels = [
   'sound',
   'universal-access',
   'usage',
-  'user-accounts',
-  'wwan',
+  'user-accounts'
 ]
 
 if host_is_linux
