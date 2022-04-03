@@ -914,25 +914,8 @@ use_dark_theme (CcInfoOverviewPanel *panel)
 static void
 setup_os_logo (CcInfoOverviewPanel *panel)
 {
-  g_autofree char *logo_name = g_get_os_info ("LOGO");
-  g_autoptr(GPtrArray) array = NULL;
-  g_autoptr(GIcon) icon = NULL;
-  gboolean dark;
-
-  dark = use_dark_theme (panel);
-  if (logo_name == NULL)
-    logo_name = g_strdup ("gnome-logo");
-
-  array = g_ptr_array_new_with_free_func (g_free);
-  if (dark)
-    g_ptr_array_add (array, (gpointer) g_strdup_printf ("%s-text-dark", logo_name));
-  g_ptr_array_add (array, (gpointer) g_strdup_printf ("%s-text", logo_name));
-  if (dark)
-    g_ptr_array_add (array, (gpointer) g_strdup_printf ("%s-dark", logo_name));
-  g_ptr_array_add (array, (gpointer) g_strdup_printf ("%s", logo_name));
-
-  icon = g_themed_icon_new_from_names ((char **) array->pdata, array->len);
-  gtk_image_set_from_gicon (panel->os_logo, icon, GTK_ICON_SIZE_INVALID);
+  gtk_image_set_from_file (panel->os_logo, "/usr/share/pixmaps/regolith-logo-icon.png");
+  gtk_image_set_pixel_size (panel->os_logo, 128);
 }
 
 static void
