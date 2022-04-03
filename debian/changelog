@@ -1,3 +1,10 @@
+regolith-control-center (1.41.8) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Replace gnome logo w/ regolith
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 03 Apr 2022 11:59:40 -0700
+
 regolith-control-center (1.41.7) jammy; urgency=medium
 
   [ Ken Gilmer ]
