@@ -1,3 +1,13 @@
+regolith-control-center (1.36.10) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Control file cleanup
+  * Remove background panel
+  * Remove dim screen toggle
+  * Set versioning scheme to match upstream
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Wed, 06 Apr 2022 21:46:10 -0700
+
 regolith-control-center (0.1.9) focal; urgency=medium
 
   [ Ken Gilmer ]
