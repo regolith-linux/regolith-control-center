@@ -71,8 +71,6 @@ struct _CcPowerPanel
   HdyComboRow       *blank_screen_row;
   GtkListBox        *device_listbox;
   HdyPreferencesGroup *device_section;
-  GtkListBoxRow     *dim_screen_row;
-  GtkSwitch         *dim_screen_switch;
   HdyPreferencesGroup *general_section;
   GtkSizeGroup      *level_sizegroup;
   HdyComboRow       *power_button_row;
@@ -965,7 +963,6 @@ got_brightness_cb (GObject      *source_object,
   self = user_data;
   self->has_brightness = brightness >= 0.0;
 
-  gtk_widget_set_visible (GTK_WIDGET (self->dim_screen_row), self->has_brightness);
   als_enabled_state_changed (self);
 }
 
@@ -1043,11 +1040,6 @@ setup_power_saving (CcPowerPanel *self)
       if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
         g_warning ("session bus not available: %s", error->message);
     }
-
-
-  g_settings_bind (self->gsd_settings, "idle-dim",
-                   self->dim_screen_switch, "active",
-                   G_SETTINGS_BIND_DEFAULT);
 
   g_signal_handlers_block_by_func (self->blank_screen_row, blank_screen_row_changed_cb, self);
   populate_blank_screen_row (self->blank_screen_row);
@@ -1595,8 +1587,6 @@ cc_power_panel_class_init (CcPowerPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, blank_screen_row);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, device_listbox);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, device_section);
-  gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, dim_screen_row);
-  gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, dim_screen_switch);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, general_section);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, level_sizegroup);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, power_button_row);

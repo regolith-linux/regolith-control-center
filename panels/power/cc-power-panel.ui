@@ -155,20 +155,6 @@
               </object>
             </child>
             <child>
-              <object class="HdyActionRow" id="dim_screen_row">
-                <property name="visible">True</property>
-                <property name="title" translatable="yes">Dim Screen</property>
-                <property name="subtitle" translatable="yes">Reduces the screen brightness when the computer is inactive.</property>
-                <property name="activatable_widget">dim_screen_switch</property>
-                <child>
-                  <object class="GtkSwitch" id="dim_screen_switch">
-                    <property name="visible">True</property>
-                    <property name="valign">center</property>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
               <object class="HdyComboRow" id="blank_screen_row">
                 <property name="visible">True</property>
                 <property name="title" translatable="yes">Screen _Blank</property>
