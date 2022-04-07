@@ -96,7 +96,6 @@ struct _CcPowerPanel
   GtkWidget     *device_section;
   GtkWidget     *device_list;
 
-  GtkWidget     *dim_screen_row;
   GtkWidget     *brightness_row;
   GtkWidget     *brightness_scale;
   gboolean       setting_brightness;
@@ -1134,7 +1133,6 @@ sync_screen_brightness (CcPowerPanel *self)
     }
 
   gtk_widget_set_visible (self->brightness_row, visible);
-  gtk_widget_set_visible (self->dim_screen_row, visible);
 
   if (visible)
     {
@@ -1900,13 +1898,6 @@ add_power_saving_section (CcPowerPanel *self)
 
   gtk_container_add (GTK_CONTAINER (widget), row);
   gtk_size_group_add_widget (self->row_sizegroup, row);
-
-  self->dim_screen_row = row = no_prelight_row_new ();
-  gtk_widget_show (row);
-  box = row_box_new ();
-  gtk_container_add (GTK_CONTAINER (row), box);
-  title = row_title_new (_("_Dim Screen When Inactive"), NULL, &label);
-  gtk_box_pack_start (GTK_BOX (box), title, TRUE, TRUE, 0);
 
   sw = gtk_switch_new ();
   gtk_widget_show (sw);
