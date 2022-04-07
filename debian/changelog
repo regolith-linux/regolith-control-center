@@ -1,3 +1,11 @@
+regolith-control-center (1.41.9) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove broken dim-screen toggle
+  * Remove background panel
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Wed, 06 Apr 2022 21:37:23 -0700
+
 regolith-control-center (1.41.8) jammy; urgency=medium
 
   [ Ken Gilmer ]
