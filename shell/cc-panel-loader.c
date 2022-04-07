@@ -96,7 +96,7 @@ extern void cc_wacom_panel_static_init_func (void);
 static CcPanelLoaderVtable default_panels[] =
 {
   PANEL_TYPE("applications",     cc_applications_panel_get_type,         NULL),
-  PANEL_TYPE("background",       cc_background_panel_get_type,           NULL),
+
 #ifdef BUILD_BLUETOOTH
   PANEL_TYPE("bluetooth",        cc_bluetooth_panel_get_type,            NULL),
 #endif
