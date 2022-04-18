@@ -1,3 +1,10 @@
+regolith-control-center (1.41.10) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Revert "Remove broken dim-screen toggle", doesn't provide desired change.
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 17 Apr 2022 20:00:56 -0700
+
 regolith-control-center (1.41.9) jammy; urgency=medium
 
   [ Ken Gilmer ]
