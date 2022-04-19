@@ -1,9 +1,9 @@
-gnome-control-center (1:3.36.5-0ubuntu4) UNRELEASED; urgency=medium
+gnome-control-center (1:3.36.5-0ubuntu4) focal; urgency=medium
 
   * d/p/0001-display-Try-harder-to-select-a-good-and-working-scal.patch
     display: Try harder to select a good and working scale (LP: #1969428)
 
- -- Andy Chi <andy.chi@canonical.com>  Wed, 13 Apr 2022 15:56:27 +0800
+ -- Andy Chi <andy.chi@canonical.com>  Tue, 19 Apr 2022 21:36:59 +0200
 
 gnome-control-center (1:3.36.5-0ubuntu3) focal; urgency=medium
 
