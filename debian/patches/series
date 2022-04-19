@@ -41,3 +41,4 @@ gitlab_ucm_mixer_control_select.patch
 
 # really upstream, but not included in the gnome-3-36 branch
 git-Fix-volume-adjustment-failure-on-volume-slider.patch
+0001-display-Try-harder-to-select-a-good-and-working-scal.patch
