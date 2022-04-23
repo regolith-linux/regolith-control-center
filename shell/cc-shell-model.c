@@ -416,6 +416,9 @@ cc_shell_model_set_panel_visibility (CcShellModel      *self,
    * panel was found or not. It is a programming error to try to set
    * the visibility of a non-existent panel.
    */
+  if (!valid) {
+    g_error ("Error in cc_shell_model_set_panel_visibility, unknown panel id: %s\n", id);
+  }
   g_assert (valid);
 
   gtk_list_store_set (GTK_LIST_STORE (self), &iter, COL_VISIBILITY, visibility, -1);
