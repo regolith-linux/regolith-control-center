@@ -64,7 +64,6 @@ struct _CcPowerPanel
   GtkLabel          *automatic_suspend_label;
   GtkListBoxRow     *automatic_suspend_row;
   GtkListBox        *battery_listbox;
-  HdyActionRow      *battery_percentage_row;
   GtkSwitch         *battery_percentage_switch;
   GtkSizeGroup      *battery_row_sizegroup;
   HdyPreferencesGroup *battery_section;
@@ -1531,17 +1530,6 @@ setup_general_section (CcPowerPanel *self)
       show_section = TRUE;
     }
 
-  if (self->has_batteries)
-    {
-      gtk_widget_show (GTK_WIDGET (self->battery_percentage_row));
-
-      g_settings_bind (self->interface_settings, "show-battery-percentage",
-                       self->battery_percentage_switch, "active",
-                       G_SETTINGS_BIND_DEFAULT);
-
-      show_section = TRUE;
-    }
-
   gtk_widget_set_visible (GTK_WIDGET (self->general_section), show_section);
 }
 
@@ -1588,7 +1576,6 @@ cc_power_panel_class_init (CcPowerPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, automatic_suspend_label);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, automatic_suspend_row);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, battery_listbox);
-  gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, battery_percentage_row);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, battery_percentage_switch);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, battery_row_sizegroup);
   gtk_widget_class_bind_template_child (widget_class, CcPowerPanel, battery_section);

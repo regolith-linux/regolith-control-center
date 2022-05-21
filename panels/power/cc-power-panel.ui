@@ -223,20 +223,6 @@
                 <signal name="notify::selected-index" handler="power_button_row_changed_cb" object="CcPowerPanel" swapped="yes"/>
               </object>
             </child>
-            <child>
-              <object class="HdyActionRow" id="battery_percentage_row">
-                <property name="visible">False</property>
-                <property name="title" translatable="yes">Show Battery _Percentage</property>
-                <property name="use_underline">True</property>
-                <property name="activatable_widget">battery_percentage_switch</property>
-                <child>
-                  <object class="GtkSwitch" id="battery_percentage_switch">
-                    <property name="visible">True</property>
-                    <property name="valign">center</property>
-                  </object>
-                </child>
-              </object>
-            </child>
           </object>
         </child>
       </object>
@@ -258,7 +244,6 @@
       <widget name="blank_screen_row"/>
       <widget name="automatic_suspend_row"/>
       <widget name="power_button_row"/>
-      <widget name="battery_percentage_row"/>
     </widgets>
   </object>
 
