@@ -416,9 +416,16 @@ cc_shell_model_set_panel_visibility (CcShellModel      *self,
    * panel was found or not. It is a programming error to try to set
    * the visibility of a non-existent panel.
    */
-  if (!valid) {
-    g_error ("Error in cc_shell_model_set_panel_visibility, unknown panel id: %s\n", id);
+  if (!valid && g_str_equal(id, "info-overview")) {    
+    g_error ("Fatal error in cc_shell_model_set_panel_visibility, unknown panel id: %s\n", id);
+  } else if (!valid) {
+    /*
+     * It is a usability issue for the control center to crash. Attempt to load existing panel
+     */
+    g_warning ("Error in cc_shell_model_set_panel_visibility, unknown panel id: %s\n", id);
+    cc_shell_model_set_panel_visibility(self, "info-overview", visibility);
   }
+
   g_assert (valid);
 
   gtk_list_store_set (GTK_LIST_STORE (self), &iter, COL_VISIBILITY, visibility, -1);
