@@ -1,3 +1,10 @@
+regolith-control-center (1.41.13) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove unused power_saver_low_battery option in power panel
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 21 May 2022 14:38:32 -0700
+
 regolith-control-center (1.41.12) jammy; urgency=medium
 
   [ Ken Gilmer ]
