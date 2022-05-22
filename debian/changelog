@@ -1,3 +1,10 @@
+regolith-control-center (1.36.12) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Update logo
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 22 May 2022 07:58:59 -0700
+
 regolith-control-center (1.36.11) focal; urgency=medium
 
   [ Ken Gilmer ]
