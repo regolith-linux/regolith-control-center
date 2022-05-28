@@ -6,7 +6,6 @@ usr/share/dbus-1
 usr/share/man
 usr/share/metainfo
 usr/share/pixmaps
-
 usr/share/glib-2.0
 usr/share/gettext/its
 usr/share/regolith-control-center
