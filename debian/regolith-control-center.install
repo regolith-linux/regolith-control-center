@@ -3,6 +3,10 @@ usr/libexec
 usr/share/applications
 usr/share/bash-completion
 usr/share/dbus-1
-usr/share/gnome-shell
 usr/share/man
 usr/share/metainfo
+usr/share/pixmaps
+usr/share/glib-2.0
+usr/share/gettext/its
+usr/share/regolith-control-center
+usr/share/locale
