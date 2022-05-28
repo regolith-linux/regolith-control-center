@@ -1,3 +1,11 @@
+regolith-control-center (1.41.16) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Re-add some install files for shortcuts and gschema
+  * Fix logo. Ship shortcuts and other shared files.
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 28 May 2022 09:09:12 -0700
+
 regolith-control-center (1.41.15) jammy; urgency=medium
 
   [ Ken Gilmer ]
