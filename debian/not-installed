@@ -109,3 +109,4 @@ usr/share/gettext/its/regolith-keybindings.its
 usr/share/gettext/its/regolith-keybindings.loc
 usr/share/gettext/its/regolith-sounds.its
 usr/share/gettext/its/regolith-sounds.loc
+usr/share/gnome-shell/search-providers/regolith-control-center-search-provider.ini

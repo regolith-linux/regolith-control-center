@@ -3,7 +3,6 @@ Section: gnome
 Priority: optional
 Maintainer: Regolith Linux <regolith.linux@gmail.com>
 Build-Depends: debhelper-compat (= 12),
-               dh-migrations,
                libaccountsservice-dev (>= 0.6.39),
                desktop-file-utils,
                gnome-pkg-tools (>= 0.10),
