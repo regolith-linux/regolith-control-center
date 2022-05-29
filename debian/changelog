@@ -1,3 +1,10 @@
+regolith-control-center (1.36.16) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove invalid ubuntu patch
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 28 May 2022 17:07:00 -0700
+
 regolith-control-center (1.36.15) focal; urgency=medium
 
   [ Ken Gilmer ]
