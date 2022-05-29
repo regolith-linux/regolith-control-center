@@ -7,7 +7,6 @@ git-nongnome-segfault.patch
 0001-Expose-touchpad-settings-if-synaptics-is-in-use.patch
 0002-Debian-s-adduser-doesn-t-allow-uppercase-letters-by-.patch
 0004-Display-locale-modifiers-properly.patch
-0006-keyboard-Add-launch-terminal-shortcut.patch
 0007-sound-Allow-volume-to-be-set-above-100.patch
 0012-printers-Temporarily-add-an-additional-advanced-prin.patch
 0014-shell-Change-the-default-height-so-all-category-are-.patch
