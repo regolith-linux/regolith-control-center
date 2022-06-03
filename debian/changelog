@@ -1,3 +1,10 @@
+regolith-control-center (1.41.17) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Update regolith logo from final revision
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Thu, 02 Jun 2022 20:12:39 -0700
+
 regolith-control-center (1.41.16) jammy; urgency=medium
 
   [ Ken Gilmer ]
