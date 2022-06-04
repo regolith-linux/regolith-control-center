@@ -1,3 +1,10 @@
+regolith-control-center (1.41.18) jammy; urgency=medium
+
+  [ Ken Gilmer ]
+  * Fix crashes in power panel due to regression from removing non regolith UI
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 04 Jun 2022 15:42:53 -0700
+
 regolith-control-center (1.41.17) jammy; urgency=medium
 
   [ Ken Gilmer ]
