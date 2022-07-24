@@ -1,4 +1,4 @@
-regolith-control-center (1.41.18) jammy; urgency=medium
+regolith-control-center (1.41.18-1) jammy; urgency=medium
 
   [ Ken Gilmer ]
   * Fix crashes in power panel due to regression from removing non regolith UI
