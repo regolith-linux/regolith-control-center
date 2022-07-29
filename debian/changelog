@@ -1,3 +1,11 @@
+regolith-control-center (1.41.18-2) testing; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove dependencies not available on debian testing
+  * Reduce gbp.conf
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Thu, 28 Jul 2022 19:11:27 -0700
+
 regolith-control-center (1.41.18-1) jammy; urgency=medium
 
   [ Ken Gilmer ]
