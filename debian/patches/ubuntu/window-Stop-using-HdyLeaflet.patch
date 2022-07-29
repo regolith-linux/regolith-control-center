@@ -215,7 +215,7 @@ index de4eccc..3bb8737 100644
    gtk_widget_class_bind_template_callback (widget_class, previous_button_clicked_cb);
    gtk_widget_class_bind_template_callback (widget_class, search_entry_activate_cb);
 @@ -919,7 +851,6 @@ cc_window_init (CcWindow *self)
-   self->settings = g_settings_new ("org.gnome.ControlCenter");
+   self->settings = g_settings_new ("org.gnome.Settings");
    self->custom_widgets = g_ptr_array_new_with_free_func ((GDestroyNotify) g_object_unref);
    self->previous_panels = g_queue_new ();
 -  self->previous_list_view = cc_panel_list_get_view (self->panel_list);
