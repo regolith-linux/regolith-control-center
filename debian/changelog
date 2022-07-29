@@ -1,3 +1,10 @@
+regolith-control-center (1.41.18-3) testing; urgency=medium
+
+  [ Ken Gilmer ]
+  * Switch to new dconf key org.gnome.Settings over org.gnome.ControlCenter
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Fri, 29 Jul 2022 11:11:38 -0700
+
 regolith-control-center (1.41.18-2) testing; urgency=medium
 
   [ Ken Gilmer ]
