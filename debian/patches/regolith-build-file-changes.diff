@@ -1,0 +1,116 @@
+Build and gschema changes to differentiate from upstream
+Index: regolith-control-center/meson.build
+===================================================================
+--- regolith-control-center.orig/meson.build
++++ regolith-control-center/meson.build
+@@ -1,5 +1,5 @@
+ project(
+-  'gnome-control-center', 'c',
++  'regolith-control-center', 'c',
+         version : '43.0',
+         license : 'GPL2+',
+   meson_version : '>= 0.57.0'
+Index: regolith-control-center/panels/meson.build
+===================================================================
+--- regolith-control-center.orig/panels/meson.build
++++ regolith-control-center/panels/meson.build
+@@ -3,33 +3,30 @@ subdir('common')
+ panels = [
+   'applications',
+   'background',
+-  'camera',
++
+   'color',
+   'datetime',
+   'default-apps',
+   'diagnostics',
+   'display',
+-  'firmware-security',
++
+   'info-overview',
+   'keyboard',
+   'location',
+-  'microphone',
++
+   'mouse',
+-  'multitasking',
+-  'notifications',
++
+   'online-accounts',
+   'power',
+   'printers',
+   'region',
+   'removable-media',
+-  'screen',
+-  'search',
++
+   'sharing',
+   'sound',
+   'universal-access',
+   'usage',
+   'user-accounts',
+- 'wwan',
+ ]
+ 
+ if host_is_linux
+Index: regolith-control-center/shell/gnome-control-center.gresource.xml
+===================================================================
+--- regolith-control-center.orig/shell/gnome-control-center.gresource.xml
++++ regolith-control-center/shell/gnome-control-center.gresource.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <gresources>
+-  <gresource prefix="/org/gnome/Settings/gtk">
++  <gresource prefix="/org/regolith/Settings/gtk">
+     <file preprocess="xml-stripblanks">cc-panel.ui</file>
+     <file preprocess="xml-stripblanks">cc-panel-list.ui</file>
+     <file preprocess="xml-stripblanks">cc-window.ui</file>
+@@ -9,7 +9,7 @@
+   </gresource>
+ 
+   <!-- Panel icons -->
+-  <gresource prefix="/org/gnome/Settings">
++  <gresource prefix="/org/regolith/Settings">
+     <file preprocess="xml-stripblanks">icons/multitasking-symbolic.svg</file>
+     <file>style.css</file>
+   </gresource>
+Index: regolith-control-center/shell/org.gnome.Settings.desktop.in.in
+===================================================================
+--- regolith-control-center.orig/shell/org.gnome.Settings.desktop.in.in
++++ regolith-control-center/shell/org.gnome.Settings.desktop.in.in
+@@ -2,12 +2,12 @@
+ Name=Settings
+ # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+ Icon=org.gnome.Settings
+-Exec=gnome-control-center
++Exec=regolith-control-center
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+ Categories=GNOME;GTK;Settings;
+-OnlyShowIn=GNOME;Unity;
++OnlyShowIn=Regolith;GNOME;Unity;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-control-center
+ X-GNOME-Bugzilla-Component=shell
+Index: regolith-control-center/shell/org.gnome.Settings.gschema.xml
+===================================================================
+--- regolith-control-center.orig/shell/org.gnome.Settings.gschema.xml
++++ regolith-control-center/shell/org.gnome.Settings.gschema.xml
+@@ -1,5 +1,5 @@
+ <schemalist>
+-  <schema gettext-domain="gnome-control-center-2.0" id="org.gnome.Settings" path="/org/gnome/control-center/">
++  <schema gettext-domain="gnome-control-center-2.0" id="org.regolith.Settings" path="/org/regolith/control-center/">
+     <key name="last-panel" type="s">
+       <default>''</default>
+       <summary>The identifier for the last Settings panel to be opened</summary>
+Index: regolith-control-center/shell/org.gnome.Settings.service.in
+===================================================================
+--- regolith-control-center.orig/shell/org.gnome.Settings.service.in
++++ regolith-control-center/shell/org.gnome.Settings.service.in
+@@ -1,3 +1,3 @@
+ [D-BUS Service]
+-Name=org.gnome.Settings
+-Exec=@bindir@/gnome-control-center
++Name=org.regolith.Settings
++Exec=@bindir@/regolith-control-center
