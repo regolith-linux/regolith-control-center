@@ -563,3 +563,44 @@ Index: regolith-control-center/tests/interactive-panels/main.c
    g_resources_register (test_panels_get_resource ());
  
    /* Override the panels vtable with the test panels */
+Index: regolith-control-center/shell/org.regolith.Settings.gschema.xml
+===================================================================
+--- /dev/null
++++ regolith-control-center/shell/org.regolith.Settings.gschema.xml
+@@ -0,0 +1,24 @@
++<schemalist>
++  <schema gettext-domain="gnome-control-center-2.0" id="org.regolith.Settings" path="/org/regolith/control-center/">
++    <key name="last-panel" type="s">
++      <default>''</default>
++      <summary>The identifier for the last Settings panel to be opened</summary>
++      <description>
++        The identifier for the last Settings panel to be opened. Unrecognised values
++        will be ignored and the first panel in the list selected.
++      </description>
++    </key>
++    <key name="show-development-warning" type="b">
++      <default>true</default>
++      <summary>Show warning when running a development build of Settings</summary>
++      <description>
++        Whether Settings should show a warning when running a development build.
++      </description>
++    </key>
++    <key type="(iib)" name="window-state">
++      <default>(-1, -1, false)</default>
++      <summary>Initial state of the window</summary>
++      <description>A tuple containing the initial width, height and maximized state of the application window.</description>
++    </key>
++  </schema>
++</schemalist>
+Index: regolith-control-center/shell/meson.build
+===================================================================
+--- regolith-control-center.orig/shell/meson.build
++++ regolith-control-center/shell/meson.build
+@@ -166,6 +166,6 @@ libtestshell_deps = common_deps + [ libw
+ 
+ 
+ install_data (
+-  'org.gnome.Settings.gschema.xml',
++  'org.regolith.Settings.gschema.xml',
+   install_dir : control_center_schemadir
+ )
