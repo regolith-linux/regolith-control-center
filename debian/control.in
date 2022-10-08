@@ -111,3 +111,12 @@ Description: utilities to configure the GNOME desktop
  .
  It also contains a front end to these applets, which can also be
  accessed with the GNOME panel or the Nautilus file manager.
+
+Package: regolith-control-center-dev
+Architecture: all
+Multi-Arch: foreign
+Section: devel
+Depends: ${misc:Depends},
+         gnome-control-center-data
+Description: utilities to configure the GNOME desktop
+ This package contains the file required to get the keydirs location
