@@ -1,0 +1,318 @@
+Rename gschema paths to org/regolith from org/gnome
+Index: regolith-control-center/panels/background/background.gresource.xml
+===================================================================
+--- regolith-control-center.orig/panels/background/background.gresource.xml
++++ regolith-control-center/panels/background/background.gresource.xml
+@@ -7,7 +7,7 @@
+     <file>preview.css</file>
+   </gresource>
+ 
+-  <gresource prefix="/org/gnome/Settings/icons/scalable/actions">
++  <gresource prefix="/org/regolith/Settings/icons/scalable/actions">
+     <file preprocess="xml-stripblanks">background-selected-symbolic.svg</file>
+     <file preprocess="xml-stripblanks">slideshow-symbolic.svg</file>
+   </gresource>
+Index: regolith-control-center/panels/network/network.gresource.xml
+===================================================================
+--- regolith-control-center.orig/panels/network/network.gresource.xml
++++ regolith-control-center/panels/network/network.gresource.xml
+@@ -16,7 +16,7 @@
+     <file preprocess="xml-stripblanks">cc-wifi-panel.ui</file>
+     <file>wifi-panel.css</file>
+   </gresource>
+-  <gresource prefix="/org/gnome/Settings/icons/scalable/actions">
++  <gresource prefix="/org/regolith/Settings/icons/scalable/actions">
+     <!-- Wi-Fi panel icons -->
+     <file preprocess="xml-stripblanks">lock-small-symbolic.svg</file>
+     <file preprocess="xml-stripblanks">warning-small-symbolic.svg</file>
+Index: regolith-control-center/panels/network/wireless-security/eap-method-fast.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/eap-method-fast.c
++++ regolith-control-center/panels/network/wireless-security/eap-method-fast.c
+@@ -274,7 +274,7 @@ eap_method_fast_class_init (EAPMethodFAS
+ 
+ 	g_type_ensure (WS_TYPE_FILE_CHOOSER_BUTTON);
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/eap-method-fast.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/eap-method-fast.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodFAST, anon_identity_entry);
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodFAST, anon_identity_label);
+Index: regolith-control-center/panels/network/wireless-security/eap-method-leap.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/eap-method-leap.c
++++ regolith-control-center/panels/network/wireless-security/eap-method-leap.c
+@@ -215,7 +215,7 @@ eap_method_leap_class_init (EAPMethodLEA
+ 
+ 	object_class->dispose = eap_method_leap_dispose;
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/eap-method-leap.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/eap-method-leap.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodLEAP, password_entry);
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodLEAP, password_label);
+Index: regolith-control-center/panels/network/wireless-security/eap-method-peap.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/eap-method-peap.c
++++ regolith-control-center/panels/network/wireless-security/eap-method-peap.c
+@@ -277,7 +277,7 @@ eap_method_peap_class_init (EAPMethodPEA
+ {
+         GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/eap-method-peap.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/eap-method-peap.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodPEAP, anon_identity_entry);
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodPEAP, anon_identity_label);
+Index: regolith-control-center/panels/network/wireless-security/eap-method-simple.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/eap-method-simple.c
++++ regolith-control-center/panels/network/wireless-security/eap-method-simple.c
+@@ -297,7 +297,7 @@ eap_method_simple_class_init (EAPMethodS
+ 
+ 	object_class->dispose = eap_method_simple_dispose;
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/eap-method-simple.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/eap-method-simple.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodSimple, password_label);
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodSimple, username_label);
+Index: regolith-control-center/panels/network/wireless-security/eap-method-tls.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/eap-method-tls.c
++++ regolith-control-center/panels/network/wireless-security/eap-method-tls.c
+@@ -461,7 +461,7 @@ eap_method_tls_class_init (EAPMethodTLSC
+ 
+ 	g_type_ensure (WS_TYPE_FILE_CHOOSER_BUTTON);
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/eap-method-tls.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/eap-method-tls.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodTLS, ca_cert_button);
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodTLS, ca_cert_label);
+Index: regolith-control-center/panels/network/wireless-security/eap-method-ttls.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/eap-method-ttls.c
++++ regolith-control-center/panels/network/wireless-security/eap-method-ttls.c
+@@ -285,7 +285,7 @@ eap_method_ttls_class_init (EAPMethodTTL
+ {
+         GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/eap-method-ttls.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/eap-method-ttls.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodTTLS, anon_identity_entry);
+ 	gtk_widget_class_bind_template_child (widget_class, EAPMethodTTLS, anon_identity_label);
+Index: regolith-control-center/panels/network/wireless-security/wireless-security.gresource.xml
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/wireless-security.gresource.xml
++++ regolith-control-center/panels/network/wireless-security/wireless-security.gresource.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <gresources>
+-  <gresource prefix="/org/gnome/Settings/network/">
++  <gresource prefix="/org/regolith/Settings/network/">
+     <file preprocess="xml-stripblanks">eap-method-leap.ui</file>
+     <file preprocess="xml-stripblanks">eap-method-fast.ui</file>
+     <file preprocess="xml-stripblanks">eap-method-peap.ui</file>
+Index: regolith-control-center/panels/network/wireless-security/ws-dynamic-wep.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/ws-dynamic-wep.c
++++ regolith-control-center/panels/network/wireless-security/ws-dynamic-wep.c
+@@ -179,7 +179,7 @@ ws_dynamic_wep_class_init (WirelessSecur
+ {
+         GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/ws-dynamic-wep.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/ws-dynamic-wep.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityDynamicWEP, auth_combo);
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityDynamicWEP, auth_label);
+Index: regolith-control-center/panels/network/wireless-security/ws-leap.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/ws-leap.c
++++ regolith-control-center/panels/network/wireless-security/ws-leap.c
+@@ -150,7 +150,7 @@ ws_leap_class_init (WirelessSecurityLEAP
+ {
+ 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/ws-leap.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/ws-leap.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityLEAP, password_entry);
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityLEAP, password_label);
+Index: regolith-control-center/panels/network/wireless-security/ws-sae.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/ws-sae.c
++++ regolith-control-center/panels/network/wireless-security/ws-sae.c
+@@ -167,7 +167,7 @@ ws_sae_class_init (WirelessSecuritySAECl
+ {
+   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+ 
+-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/ws-sae.ui");
++  gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/ws-sae.ui");
+ 
+   gtk_widget_class_bind_template_child (widget_class, WirelessSecuritySAE, password_entry);
+   gtk_widget_class_bind_template_child (widget_class, WirelessSecuritySAE, password_label);
+Index: regolith-control-center/panels/network/wireless-security/ws-wep-key.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/ws-wep-key.c
++++ regolith-control-center/panels/network/wireless-security/ws-wep-key.c
+@@ -264,7 +264,7 @@ ws_wep_key_class_init (WirelessSecurityW
+ 
+ 	object_class->dispose = ws_wep_key_dispose;
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/ws-wep-key.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/ws-wep-key.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityWEPKey, auth_method_combo);
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityWEPKey, auth_method_label);
+Index: regolith-control-center/panels/network/wireless-security/ws-wpa-eap.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/ws-wpa-eap.c
++++ regolith-control-center/panels/network/wireless-security/ws-wpa-eap.c
+@@ -194,7 +194,7 @@ ws_wpa_eap_class_init (WirelessSecurityW
+ {
+ 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/ws-wpa-eap.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/ws-wpa-eap.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityWPAEAP, auth_combo);
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityWPAEAP, auth_label);
+Index: regolith-control-center/panels/network/wireless-security/ws-wpa-psk.c
+===================================================================
+--- regolith-control-center.orig/panels/network/wireless-security/ws-wpa-psk.c
++++ regolith-control-center/panels/network/wireless-security/ws-wpa-psk.c
+@@ -180,7 +180,7 @@ ws_wpa_psk_class_init (WirelessSecurityW
+ {
+ 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+ 
+-	gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/network/ws-wpa-psk.ui");
++	gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/network/ws-wpa-psk.ui");
+ 
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityWPAPSK, password_entry);
+ 	gtk_widget_class_bind_template_child (widget_class, WirelessSecurityWPAPSK, password_label);
+Index: regolith-control-center/panels/region/region.gresource.xml
+===================================================================
+--- regolith-control-center.orig/panels/region/region.gresource.xml
++++ regolith-control-center/panels/region/region.gresource.xml
+@@ -5,7 +5,7 @@
+     <file preprocess="xml-stripblanks">cc-region-panel.ui</file>
+     <file preprocess="xml-stripblanks">cc-format-preview.ui</file>
+   </gresource>
+-  <gresource prefix="/org/gnome/Settings/icons/scalable/actions">
++  <gresource prefix="/org/regolith/Settings/icons/scalable/actions">
+     <file>view-layout-symbolic.svg</file>
+   </gresource>
+ </gresources>
+Index: regolith-control-center/panels/sound/sound.gresource.xml
+===================================================================
+--- regolith-control-center.orig/panels/sound/sound.gresource.xml
++++ regolith-control-center/panels/sound/sound.gresource.xml
+@@ -14,7 +14,7 @@
+     <file preprocess="xml-stripblanks">cc-subwoofer-slider.ui</file>
+     <file preprocess="xml-stripblanks">cc-volume-slider.ui</file>
+   </gresource>
+-  <gresource prefix="/org/gnome/Settings/icons/scalable/devices">
++  <gresource prefix="/org/regolith/Settings/icons/scalable/devices">
+     <file alias="audio-speaker-center-back.svg">icons/audio-speaker-center-back.svg</file>
+     <file alias="audio-speaker-center-back-testing.svg">icons/audio-speaker-center-back-testing.svg</file>
+     <file alias="audio-speaker-center.svg">icons/audio-speaker-center.svg</file>
+Index: regolith-control-center/panels/user-accounts/user-accounts.gresource.xml
+===================================================================
+--- regolith-control-center.orig/panels/user-accounts/user-accounts.gresource.xml
++++ regolith-control-center/panels/user-accounts/user-accounts.gresource.xml
+@@ -12,7 +12,7 @@
+     <file alias="cc-fingerprint-dialog.css">data/cc-fingerprint-dialog.css</file>
+   </gresource>
+ 
+-  <gresource prefix="/org/gnome/Settings/icons/scalable/status">
++  <gresource prefix="/org/regolith/Settings/icons/scalable/status">
+     <file preprocess="xml-stripblanks" alias="fingerprint-detection-complete-symbolic.svg">data/icons/fingerprint-detection-complete-symbolic.svg</file>
+     <file preprocess="xml-stripblanks" alias="fingerprint-detection-symbolic.svg">data/icons/fingerprint-detection-symbolic.svg</file>
+     <file preprocess="xml-stripblanks" alias="fingerprint-detection-warning-symbolic.svg">data/icons/fingerprint-detection-warning-symbolic.svg</file>
+Index: regolith-control-center/search-provider/org.gnome.Settings.search-provider.ini
+===================================================================
+--- regolith-control-center.orig/search-provider/org.gnome.Settings.search-provider.ini
++++ regolith-control-center/search-provider/org.gnome.Settings.search-provider.ini
+@@ -1,5 +1,5 @@
+ [Shell Search Provider]
+ DesktopId=org.gnome.Settings.desktop
+ BusName=org.gnome.Settings.SearchProvider
+-ObjectPath=/org/gnome/Settings/SearchProvider
++ObjectPath=/org/regolith/Settings/SearchProvider
+ Version=2
+Index: regolith-control-center/shell/cc-application.c
+===================================================================
+--- regolith-control-center.orig/shell/cc-application.c
++++ regolith-control-center/shell/cc-application.c
+@@ -232,7 +232,7 @@ cc_application_startup (GApplication *ap
+   self->window = cc_window_new (GTK_APPLICATION (application), self->model);
+ 
+   provider = gtk_css_provider_new ();
+-  gtk_css_provider_load_from_resource (provider, "/org/gnome/Settings/gtk/style.css");
++  gtk_css_provider_load_from_resource (provider, "/org/regolith/Settings/gtk/style.css");
+   gtk_style_context_add_provider_for_display (gdk_display_get_default (),
+                                               GTK_STYLE_PROVIDER (provider),
+                                               GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+Index: regolith-control-center/shell/cc-panel-list.c
+===================================================================
+--- regolith-control-center.orig/shell/cc-panel-list.c
++++ regolith-control-center/shell/cc-panel-list.c
+@@ -781,7 +781,7 @@ cc_panel_list_class_init (CcPanelListCla
+ 
+   g_object_class_install_properties (object_class, N_PROPS, properties);
+ 
+-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/gtk/cc-panel-list.ui");
++  gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/gtk/cc-panel-list.ui");
+ 
+   gtk_widget_class_bind_template_child (widget_class, CcPanelList, privacy_listbox);
+   gtk_widget_class_bind_template_child (widget_class, CcPanelList, privacy_row);
+Index: regolith-control-center/shell/cc-panel.c
+===================================================================
+--- regolith-control-center.orig/shell/cc-panel.c
++++ regolith-control-center/shell/cc-panel.c
+@@ -270,7 +270,7 @@ cc_panel_class_init (CcPanelClass *klass
+ 
+   g_object_class_install_properties (object_class, N_PROPS, properties);
+ 
+-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/gtk/cc-panel.ui");
++  gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/gtk/cc-panel.ui");
+ 
+   gtk_widget_class_bind_template_child_private (widget_class, CcPanel, content_bin);
+   gtk_widget_class_bind_template_child_private (widget_class, CcPanel, main_box);
+Index: regolith-control-center/shell/cc-window.c
+===================================================================
+--- regolith-control-center.orig/shell/cc-window.c
++++ regolith-control-center/shell/cc-window.c
+@@ -811,7 +811,7 @@ cc_window_class_init (CcWindowClass *kla
+                                                          FALSE,
+                                                          G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
+ 
+-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/Settings/gtk/cc-window.ui");
++  gtk_widget_class_set_template_from_resource (widget_class, "/org/regolith/Settings/gtk/cc-window.ui");
+ 
+   gtk_widget_class_bind_template_child (widget_class, CcWindow, development_warning_dialog);
+   gtk_widget_class_bind_template_child (widget_class, CcWindow, header);
+Index: regolith-control-center/shell/gnome-control-center.gresource.xml
+===================================================================
+--- regolith-control-center.orig/shell/gnome-control-center.gresource.xml
++++ regolith-control-center/shell/gnome-control-center.gresource.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <gresources>
+-  <gresource prefix="/org/gnome/Settings/gtk">
++  <gresource prefix="/org/regolith/Settings/gtk">
+     <file preprocess="xml-stripblanks">cc-panel.ui</file>
+     <file preprocess="xml-stripblanks">cc-panel-list.ui</file>
+     <file preprocess="xml-stripblanks">cc-window.ui</file>
+@@ -9,7 +9,7 @@
+   </gresource>
+ 
+   <!-- Panel icons -->
+-  <gresource prefix="/org/gnome/Settings">
++  <gresource prefix="/org/regolith/Settings">
+     <file preprocess="xml-stripblanks">icons/multitasking-symbolic.svg</file>
+     <file>style.css</file>
+   </gresource>
