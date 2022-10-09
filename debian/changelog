@@ -1,3 +1,11 @@
+regolith-control-center (1.43.0-3) focal; urgency=medium
+
+  * Add maintainer field back to appease dh_gnome_clean
+  * Remove colliding files from upstream
+  * Add more files to not-installed
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 08 Oct 2022 20:01:59 -0700
+
 regolith-control-center (1.43.0-2) focal; urgency=medium
 
   * Hardcode gnome-control-center-dev version to sidestep uninstallable future version
