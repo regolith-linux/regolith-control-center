@@ -77,8 +77,7 @@ Depends: ${misc:Depends},
          desktop-base (>= 10.0.0),
          desktop-file-utils,
 #         fwupd [linux-any],
-         gnome-control-center-data (<< ${gnome:NextVersion}),
-         gnome-control-center-data (>= ${source:Version}),
+         gnome-control-center-data (>= 1:43.0),
          gnome-desktop3-data,
          gnome-settings-daemon (>= 41),
          gsettings-desktop-schemas (>= 42~),
@@ -121,6 +120,6 @@ Architecture: all
 Multi-Arch: foreign
 Section: devel
 Depends: ${misc:Depends},
-         gnome-control-center-data
+         gnome-control-center-data (>= 1:43.0)
 Description: utilities to configure the GNOME desktop
  This package contains the file required to get the keydirs location
