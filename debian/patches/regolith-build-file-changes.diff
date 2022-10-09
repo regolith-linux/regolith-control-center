@@ -72,17 +72,6 @@ Index: regolith-control-center/shell/org.gnome.Settings.desktop.in.in
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=gnome-control-center
  X-GNOME-Bugzilla-Component=shell
-Index: regolith-control-center/shell/org.gnome.Settings.gschema.xml
-===================================================================
---- regolith-control-center.orig/shell/org.gnome.Settings.gschema.xml
-+++ regolith-control-center/shell/org.gnome.Settings.gschema.xml
-@@ -1,5 +1,5 @@
- <schemalist>
--  <schema gettext-domain="gnome-control-center-2.0" id="org.gnome.Settings" path="/org/gnome/control-center/">
-+  <schema gettext-domain="gnome-control-center-2.0" id="org.regolith.Settings" path="/org/regolith/control-center/">
-     <key name="last-panel" type="s">
-       <default>''</default>
-       <summary>The identifier for the last Settings panel to be opened</summary>
 Index: regolith-control-center/shell/org.gnome.Settings.service.in
 ===================================================================
 --- regolith-control-center.orig/shell/org.gnome.Settings.service.in
@@ -480,27 +469,6 @@ Index: regolith-control-center/shell/regolith-control-center.gresource.xml
 +    <file>style.css</file>
 +  </gresource>
 +</gresources>
-Index: regolith-control-center/shell/gnome-control-center.gresource.xml
-===================================================================
---- regolith-control-center.orig/shell/gnome-control-center.gresource.xml
-+++ regolith-control-center/shell/gnome-control-center.gresource.xml
-@@ -1,6 +1,6 @@
- <?xml version="1.0" encoding="UTF-8"?>
- <gresources>
--  <gresource prefix="/org/gnome/Settings/gtk">
-+  <gresource prefix="/org/regolith/Settings/gtk">
-     <file preprocess="xml-stripblanks">cc-panel.ui</file>
-     <file preprocess="xml-stripblanks">cc-panel-list.ui</file>
-     <file preprocess="xml-stripblanks">cc-window.ui</file>
-@@ -9,7 +9,7 @@
-   </gresource>
- 
-   <!-- Panel icons -->
--  <gresource prefix="/org/gnome/Settings">
-+  <gresource prefix="/org/regolith/Settings">
-     <file preprocess="xml-stripblanks">icons/multitasking-symbolic.svg</file>
-     <file>style.css</file>
-   </gresource>
 Index: regolith-control-center/shell/cc-panel-loader.c
 ===================================================================
 --- regolith-control-center.orig/shell/cc-panel-loader.c
