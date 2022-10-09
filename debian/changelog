@@ -1,3 +1,9 @@
+regolith-control-center (1.43.0-2) focal; urgency=medium
+
+  * Hardcode gnome-control-center-dev version to sidestep uninstallable future version
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 08 Oct 2022 17:44:14 -0700
+
 regolith-control-center (1.43.0-1.1) focal; urgency=medium
 
   * Initial fork from upstream
