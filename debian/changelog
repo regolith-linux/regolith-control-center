@@ -1,3 +1,9 @@
+regolith-control-center (1.43.0-4) kinetic; urgency=medium
+
+  * Patch gschema org/gnome to org/regolith
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 09 Oct 2022 10:06:24 -0700
+
 regolith-control-center (1.43.0-3) focal; urgency=medium
 
   * Add maintainer field back to appease dh_gnome_clean
