@@ -1,3 +1,9 @@
+regolith-control-center (1.43.0-6) kinetic; urgency=medium
+
+  * Delegate wallpaper setting to regolith
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 16 Oct 2022 13:47:06 -0700
+
 regolith-control-center (1.43.0-5) kinetic; urgency=medium
 
   * Update gsettings schema root
