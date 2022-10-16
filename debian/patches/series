@@ -5,3 +5,4 @@ debian/firmware-security-disable.patch
 regolith-build-file-changes.diff
 gnome-regolith-schema-rename.diff
 i3-window-fix.diff
+regolith-logo.diff
