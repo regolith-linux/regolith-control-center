@@ -1,0 +1,97 @@
+Delegate to regolith scripts to set wallpaper rather than set in dconf directly to avoid dotfile race
+Index: regolith-control-center/panels/background/regolith-wallpaper
+===================================================================
+--- /dev/null
++++ regolith-control-center/panels/background/regolith-wallpaper
+@@ -0,0 +1,46 @@
++#!/bin/bash
++# This is a helper script to set wallpaper in Regolith desktop
++
++set -Eeu -o pipefail
++set -x
++
++# Load common functions
++source /usr/lib/regolith/regolith-session-common.sh
++
++if [ "$#" -lt 1 ]; then
++    echo "Usage: regolith-wallpaper <image file URI>"
++    exit 1
++fi
++
++IMAGE_URI=$1
++
++WM_RELOAD="regolith-look refresh"
++
++if [ -z "$IMAGE_URI" ]; then
++    echo "Aborting, invalid file uri: $IMAGE_URI"
++    exit 1
++fi
++
++# Unset any existing values
++if [ -f "$USER_XRESOURCE_OVERRIDE_FILE" ]; then
++    # remove existing declaration comments
++    sed -i '/^!regolith.wallpaper.file/d' "$USER_XRESOURCE_OVERRIDE_FILE"
++    sed -i '/^!regolith.lockscreen.wallpaper.file/d' "$USER_XRESOURCE_OVERRIDE_FILE"
++
++    # disable existing declaration
++    sed -i 's/^regolith.wallpaper.file/\!regolith.wallpaper.file/g' "$USER_XRESOURCE_OVERRIDE_FILE"
++    sed -i 's/^regolith.lockscreen.wallpaper.file/\!regolith.lockscreen.wallpaper.file/g' "$USER_XRESOURCE_OVERRIDE_FILE"
++fi
++
++# Strip file scheme from URI if exists
++if [[ $IMAGE_URI == file* ]]; then
++    FINAL_IMAGE_URI=${IMAGE_URI:7}
++else
++    FINAL_IMAGE_URI=$IMAGE_URI
++fi
++
++# add new declaration
++echo "regolith.wallpaper.file: $FINAL_IMAGE_URI" >> "$USER_XRESOURCE_OVERRIDE_FILE"
++echo "regolith.lockscreen.wallpaper.file: $FINAL_IMAGE_URI" >> "$USER_XRESOURCE_OVERRIDE_FILE"
++
++$WM_RELOAD
+Index: regolith-control-center/panels/background/cc-background-panel.c
+===================================================================
+--- regolith-control-center.orig/panels/background/cc-background-panel.c
++++ regolith-control-center/panels/background/cc-background-panel.c
+@@ -328,11 +328,38 @@ set_background (CcBackgroundPanel *panel
+ }
+ 
+ static void
++set_background_regolith (CcBackgroundItem  *item)
++{
++  const char *uri;
++
++  if (item == NULL)
++    return;
++
++  uri = cc_background_item_get_uri (item);
++
++  GSubprocess *proc;
++  GError *error = NULL;
++
++  proc = g_subprocess_new (G_SUBPROCESS_FLAGS_NONE,
++                           &error,
++                           "regolith-wallpaper",
++                           uri,
++                           NULL);
++
++  if (!proc || !g_subprocess_wait_check(proc, NULL, &error))
++    {
++      g_critical ("Failed to set wallpaper: %s", error->message);
++      exit (1);
++    }
++
++  g_object_unref (proc);
++}
++
++static void
+ on_chooser_background_chosen_cb (CcBackgroundPanel *self,
+                                  CcBackgroundItem  *item)
+ {
+-  set_background (self, self->settings, item, TRUE);
+-  set_background (self, self->lock_settings, item, FALSE);
++  set_background_regolith (item);
+ }
+ 
+ static void
