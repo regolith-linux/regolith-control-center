@@ -3,12 +3,11 @@ Index: regolith-control-center/panels/background/regolith-wallpaper
 ===================================================================
 --- /dev/null
 +++ regolith-control-center/panels/background/regolith-wallpaper
-@@ -0,0 +1,46 @@
+@@ -0,0 +1,45 @@
 +#!/bin/bash
 +# This is a helper script to set wallpaper in Regolith desktop
 +
 +set -Eeu -o pipefail
-+set -x
 +
 +# Load common functions
 +source /usr/lib/regolith/regolith-session-common.sh
@@ -95,3 +94,19 @@ Index: regolith-control-center/panels/background/cc-background-panel.c
  }
  
  static void
+Index: regolith-control-center/panels/background/meson.build
+===================================================================
+--- regolith-control-center.orig/panels/background/meson.build
++++ regolith-control-center/panels/background/meson.build
+@@ -21,6 +21,11 @@ install_data(
+   install_dir: join_paths(control_center_pkgdatadir, 'pixmaps')
+ )
+ 
++install_data(
++  'regolith-wallpaper',
++  install_dir: control_center_bindir
++)
++
+ common_sources = []
+ 
+ enums = 'gdesktop-enums-types'
