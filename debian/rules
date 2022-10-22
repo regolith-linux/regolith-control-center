@@ -12,11 +12,12 @@ else
 MALCONTENT := -Dmalcontent=false
 endif
 
-ifeq ($(DEB_HOST_ARCH_OS),linux)
-SNAP := -Dsnap=true
-else
+# KG: enabling snap fails kinetic build due to dep issue at Meson level
+#ifeq ($(DEB_HOST_ARCH_OS),linux)
+#SNAP := -Dsnap=true
+#else
 SNAP := -Dsnap=false
-endif
+#endif
 
 %:
 	dh $@
@@ -30,6 +31,7 @@ override_dh_auto_configure:
 		$(MALCONTENT) \
 		$(SNAP)
 
+# KG: following causes dh_installation error on kinetic
 # Ubuntu-specific
-override_dh_translations:
-	dh_translations --domain=gnome-control-center-2.0
+#override_dh_translations:
+#	dh_translations --domain=gnome-control-center-2.0
