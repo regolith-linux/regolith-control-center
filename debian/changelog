@@ -1,3 +1,9 @@
+regolith-control-center (1:43.1-2) kinetic; urgency=medium
+
+  * Sync from upstream
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 27 Nov 2022 18:10:24 -0800
+
 gnome-control-center (1:43.1-1) unstable; urgency=medium
 
   [ Jeremy Bicha ]
