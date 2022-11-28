@@ -52,12 +52,12 @@ Build-Depends: debhelper-compat (= 13),
                libxml2-utils,
                locales,
                meson (>= 0.57.0),
-               policykit-1,
+               polkitd,
                shared-mime-info,
                tzdata <!nocheck>,
                xvfb,
                python3-dbusmock,
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Rules-Requires-Root: no
 
 Package: regolith-control-center
@@ -84,7 +84,7 @@ Recommends: cups-pk-helper,
             gkbd-capplet,
             iso-codes,
             libcanberra-pulse,
-            policykit-1,
+            polkitd,
             power-profiles-daemon,
             rygel | rygel-tracker,
             system-config-printer-common (>= 1.4),
@@ -96,6 +96,7 @@ Recommends: cups-pk-helper,
             realmd
 Suggests: gnome-software | gnome-packagekit,
           gstreamer1.0-pulseaudio,
+          pkexec,
           x11-xserver-utils
 Breaks: gnome-remote-desktop (<< 42),
         gnome-shell (<< 42)

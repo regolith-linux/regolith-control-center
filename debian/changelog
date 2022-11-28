@@ -1,3 +1,32 @@
+gnome-control-center (1:43.1-1) unstable; urgency=medium
+
+  [ Jeremy Bicha ]
+  * New upstream release
+  * Drop patches applied in new release
+  * Cherry-pick 2 crash fixes from the gnome-43 branch
+
+  [ Simon McVittie ]
+  * Update syntax of Lintian overrides
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 22 Nov 2022 14:28:00 -0500
+
+gnome-control-center (1:43.0-2) unstable; urgency=medium
+
+  * Team upload
+  * d/control.in: Build-Depend on polkitd instead of transitional policykit-1
+  * d/control.in: Recommend polkitd and Suggest pkexec instead of
+    recommending transitional policykit-1.
+    polkitd is needed for many privileged actions, such as setting up user
+    accounts, networking and the system clock. pkexec is currently only
+    needed when enabling or disabling remote logins (sshd).
+  * d/patches: Update translations from upstream
+    (ab, ca, cs, de, fur, he, hr, ka, kk, ne, nl, sk, sl, tr, zh_TW)
+  * d/patches: Add post-release bug fixes from upstream.
+    This effectively updates the package to commit 43.0-32-g3182b7019.
+  * Standards-Version: 4.6.1 (no changes required)
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 14 Oct 2022 10:05:39 +0100
+
 regolith-control-center (1.43.0-6) kinetic; urgency=medium
 
   * Delegate wallpaper setting to regolith
