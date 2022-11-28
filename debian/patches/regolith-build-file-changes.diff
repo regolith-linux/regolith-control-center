@@ -1,15 +1,4 @@
 Build and gschema changes to differentiate from upstream
-Index: regolith-control-center/meson.build
-===================================================================
---- regolith-control-center.orig/meson.build
-+++ regolith-control-center/meson.build
-@@ -1,5 +1,5 @@
- project(
--  'gnome-control-center', 'c',
-+  'regolith-control-center', 'c',
-         version : '43.0',
-         license : 'GPL2+',
-   meson_version : '>= 0.57.0'
 Index: regolith-control-center/panels/meson.build
 ===================================================================
 --- regolith-control-center.orig/panels/meson.build
@@ -572,3 +561,14 @@ Index: regolith-control-center/shell/meson.build
 +  'org.regolith.Settings.gschema.xml',
    install_dir : control_center_schemadir
  )
+Index: regolith-control-center/meson.build
+===================================================================
+--- regolith-control-center.orig/meson.build
++++ regolith-control-center/meson.build
+@@ -1,5 +1,5 @@
+ project(
+-  'gnome-control-center', 'c',
++  'regolith-control-center', 'c',
+         version : '43.1',
+         license : 'GPL2+',
+   meson_version : '>= 0.57.0'
