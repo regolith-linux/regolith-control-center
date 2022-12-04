@@ -1,3 +1,9 @@
+regolith-control-center (1.43.1-3) kinetic; urgency=medium
+
+  * Disable modal window closing in wifi dialog due to instant closing bug
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 04 Dec 2022 12:18:22 -0800
+
 regolith-control-center (1.43.1-2) kinetic; urgency=medium
 
   * Sync from upstream
