@@ -179,22 +179,6 @@ Index: regolith-control-center/panels/network/net-device-wifi.c
 ===================================================================
 --- regolith-control-center.orig/panels/network/net-device-wifi.c
 +++ regolith-control-center/panels/network/net-device-wifi.c
-@@ -29,6 +29,7 @@
- #include <NetworkManager.h>
- #include <polkit/polkit.h>
- 
-+#include "shell/cc-window.h"
- #include "cc-wifi-hotspot-dialog.h"
- #include "hostname-helper.h"
- #include "network-dialogs.h"
-@@ -986,6 +987,7 @@ show_details_for_row (NetDeviceWifi *sel
- 
-         editor = net_connection_editor_new (connection, self->device, ap, self->client);
-         gtk_window_set_transient_for (GTK_WINDOW (editor), GTK_WINDOW (gtk_widget_get_native (GTK_WIDGET (row))));
-+        close_on_lost_focus(GTK_WINDOW (editor));
-         gtk_window_present (GTK_WINDOW (editor));
- }
- 
 @@ -1045,6 +1047,7 @@ show_history (NetDeviceWifi *self)
          adw_preferences_window_set_can_navigate_back (ADW_PREFERENCES_WINDOW (dialog), FALSE);
          native = gtk_widget_get_native (GTK_WIDGET (self));
