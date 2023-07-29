@@ -1,3 +1,9 @@
+regolith-control-center (1.43.1-7) lunar; urgency=medium
+
+  * Fixing file conflicts w/ upstream III
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 29 Jul 2023 10:34:17 -0700
+
 regolith-control-center (1.43.1-6) lunar; urgency=medium
 
   * Fixing file conflicts w/ upstream II
