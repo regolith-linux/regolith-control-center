@@ -79,7 +79,7 @@ msgstr "Hệ thống tập tin"
 #: panels/keyboard/01-launchers.xml.in:6
 #: shell/appdata/org.gnome.Settings.appdata.xml.in:7 shell/cc-window.c:246
 #: shell/cc-window.c:878 shell/cc-window.ui:22
-#: shell/org.gnome.Settings.desktop.in.in:3
+#: shell/org.regolith.Settings.desktop.in.in:3
 msgid "Settings"
 msgstr "Cài đặt"
 
@@ -8635,7 +8635,7 @@ msgid "Cancel search"
 msgstr "Ngừng tìm kiếm"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/org.gnome.Settings.desktop.in.in:17
+#: shell/org.regolith.Settings.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr ""
 "Preferences;Tùy;thích;Tuy;thich;Cấu;hình;Cau;hinh;Settings;Thiết;lập;Thiet;"

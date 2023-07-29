@@ -42,25 +42,6 @@ Index: regolith-control-center/panels/meson.build
  ]
  
  if host_is_linux
-Index: regolith-control-center/shell/org.gnome.Settings.desktop.in.in
-===================================================================
---- regolith-control-center.orig/shell/org.gnome.Settings.desktop.in.in
-+++ regolith-control-center/shell/org.gnome.Settings.desktop.in.in
-@@ -2,12 +2,12 @@
- Name=Settings
- # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
- Icon=org.gnome.Settings
--Exec=gnome-control-center
-+Exec=regolith-control-center
- Terminal=false
- Type=Application
- StartupNotify=true
- Categories=GNOME;GTK;Settings;
--OnlyShowIn=GNOME;Unity;
-+OnlyShowIn=Regolith;GNOME;Unity;
- X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=gnome-control-center
- X-GNOME-Bugzilla-Component=shell
 Index: regolith-control-center/shell/org.gnome.Settings.service.in
 ===================================================================
 --- regolith-control-center.orig/shell/org.gnome.Settings.service.in

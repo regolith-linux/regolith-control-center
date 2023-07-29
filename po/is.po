@@ -77,7 +77,7 @@ msgstr "Skráakerfi"
 #: panels/keyboard/01-launchers.xml.in:6
 #: shell/appdata/org.gnome.Settings.appdata.xml.in:7 shell/cc-window.c:246
 #: shell/cc-window.c:880 shell/cc-window.ui:22
-#: shell/org.gnome.Settings.desktop.in.in:3
+#: shell/org.regolith.Settings.desktop.in.in:3
 msgid "Settings"
 msgstr "Stillingar"
 
@@ -9542,7 +9542,7 @@ msgid "Cancel search"
 msgstr "Hætta við leit"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: shell/org.gnome.Settings.desktop.in.in:17
+#: shell/org.regolith.Settings.desktop.in.in:17
 msgid "Preferences;Settings;"
 msgstr "Kjörstillingar;Uppsetning;"
 

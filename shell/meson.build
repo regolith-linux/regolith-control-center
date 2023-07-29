@@ -14,7 +14,7 @@ configure_file(
   configuration : service_conf
 )
 
-desktop = 'org.gnome.Settings.desktop'
+desktop = 'org.regolith.Settings.desktop'
 
 desktop_in = configure_file(
           input : desktop + '.in.in',
