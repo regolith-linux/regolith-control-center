@@ -1,5 +1,5 @@
 project(
-  'gnome-control-center', 'c',
+  'regolith-control-center', 'c',
         version : '45.0',
         license : 'GPL2+',
   meson_version : '>= 0.57.0'
@@ -37,7 +37,7 @@ if get_option('profile') == 'development'
 else
     profile = ''
 endif
-application_id = 'org.gnome.Settings@0@'.format(profile)
+application_id = 'org.regolith.Settings@0@'.format(profile)
 
 # defines
 set_defines = [

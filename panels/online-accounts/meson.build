@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
+desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
 
 i18n.merge_file(
   type: 'desktop',
@@ -58,8 +58,8 @@ if gtk_wayland_dep.found()
 endif
 
 executable(
-  'gnome-control-center-goa-helper',
-  'gnome-control-center-goa-helper.c',
+  'regolith-control-center-goa-helper',
+  'regolith-control-center-goa-helper.c',
   include_directories: [ top_inc ],
   dependencies: goa_helper_deps,
   c_args: goa_helper_cflags,

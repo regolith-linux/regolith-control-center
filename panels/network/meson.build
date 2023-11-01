@@ -16,7 +16,7 @@ panel_names = [
 panels_list += panel_names
 
 foreach name: panel_names
-  desktop = 'gnome-' + name + '-panel.desktop'
+  desktop = 'regolith-' + name + '-panel.desktop'
 
   i18n.merge_file(
     type: 'desktop',

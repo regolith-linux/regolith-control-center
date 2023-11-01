@@ -1,7 +1,7 @@
 subdir('common')
 
 panels = [
-  'applications',
+#  'applications',
   'background',
   'color',
   'datetime',
@@ -10,21 +10,21 @@ panels = [
   'info-overview',
   'keyboard',
   'mouse',
-  'multitasking',
-  'notifications',
+#  'multitasking',
+#  'notifications',
   'online-accounts',
   'power',
   'printers',
   'privacy',
   'region',
   'removable-media',
-  'search',
+#  'search',
   'sharing',
   'sound',
   'ubuntu',
   'universal-access',
   'user-accounts',
- 'wwan',
+# 'wwan',
 ]
 
 if host_is_linux

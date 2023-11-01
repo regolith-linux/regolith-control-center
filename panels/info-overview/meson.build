@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
+desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
 
 i18n.merge_file(
   type: 'desktop',
@@ -58,8 +58,8 @@ executable(
 )
 
 executable(
-  'gnome-control-center-print-renderer',
-  'gnome-control-center-print-renderer.c',
+  'regolith-control-center-print-renderer',
+  'regolith-control-center-print-renderer.c',
   include_directories: [ top_inc ],
   dependencies: [ print_renderer_deps ],
   c_args: cflags,

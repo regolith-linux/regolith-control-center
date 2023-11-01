@@ -19,7 +19,7 @@
 
     <file>security-level.css</file>
   </gresource>
-  <gresource prefix="/org/gnome/Settings">
+  <gresource prefix="/org/regolith/Settings">
     <file preprocess="xml-stripblanks">icons/scalable/actions/bolt-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/actions/camera-symbolic.svg</file>
     <file preprocess="xml-stripblanks">icons/scalable/actions/diagnostics-symbolic.svg</file>

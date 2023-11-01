@@ -1,3 +1,12 @@
+regolith-control-center (1:45.0-1regolith1) mantic; urgency=medium
+
+  * chore: apply upstream patches
+  * chore: remove upstream patches
+  * chore: remove invalid CI files
+  * chore: rename resource ids to regolith from gnome
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Wed, 01 Nov 2023 01:33:31 -0700
+
 gnome-control-center (1:45.0-1ubuntu2) mantic; urgency=medium
 
   * debian/patches/gitlab-fix-vpn.patch:

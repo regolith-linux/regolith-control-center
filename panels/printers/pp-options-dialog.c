@@ -77,7 +77,7 @@ enum
  *       the display settings. All of these should have contexts, but it
  *       was late in the release cycle and this partial solution was
  *       preferable. See:
- *       https://gitlab.gnome.org/GNOME/gnome-control-center/merge_requests/414#note_446778
+ *       https://gitlab.gnome.org/GNOME/regolith-control-center/merge_requests/414#note_446778
  */
 static const struct {
   const char *keyword;

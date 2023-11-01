@@ -14,7 +14,7 @@
     <file preprocess="xml-stripblanks">cc-volume-slider.ui</file>
     <file>output-test-wheel.css</file>
   </gresource>
-  <gresource prefix="/org/gnome/Settings/icons/scalable/actions">
+  <gresource prefix="/org/regolith/Settings/icons/scalable/actions">
     <file alias="audio-speaker-center-back-symbolic.svg">icons/audio-speaker-center-back.svg</file>
     <file alias="audio-speaker-center-symbolic.svg">icons/audio-speaker-center.svg</file>
     <file alias="audio-speaker-left-back-symbolic.svg">icons/audio-speaker-left-back.svg</file>

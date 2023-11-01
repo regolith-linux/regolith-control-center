@@ -158,7 +158,7 @@ cc_color_device_set_expanded (CcColorDevice *color_device,
                               gboolean expanded)
 {
   /* same as before */
-  if (color_device->expanded == expanded)
+  if (color_device == NULL || color_device->expanded == expanded)
     return;
 
   /* refresh */

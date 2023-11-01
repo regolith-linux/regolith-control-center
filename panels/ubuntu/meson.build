@@ -1,7 +1,7 @@
 fs = import('fs')
 
 panels_list += cappletname
-desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
+desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
 
 i18n.merge_file(
   type: 'desktop',

@@ -1,5 +1,5 @@
 panels_list += cappletname
-desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
+desktop = 'regolith-@0@-panel.desktop'.format(cappletname)
 
 deps = common_deps
 if host_is_linux
