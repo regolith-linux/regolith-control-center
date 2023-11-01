@@ -96,6 +96,10 @@
                   </object>
                 </child>
 
+                <child>
+                  <object class="CcUbuntuColorsRow" id="ubuntu_colors" />
+                </child>
+
               </object>
             </child>
 

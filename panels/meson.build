@@ -21,6 +21,7 @@ panels = [
   'search',
   'sharing',
   'sound',
+  'ubuntu',
   'universal-access',
   'user-accounts',
  'wwan',

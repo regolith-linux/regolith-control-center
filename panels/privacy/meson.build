@@ -12,6 +12,7 @@ i18n.merge_file(
 
 sources = files(
   'cc-camera-page.c',
+  'cc-connectivity-page.c',
   'cc-diagnostics-page.c',
   'cc-firmware-security-boot-dialog.c',
   'cc-firmware-security-dialog.c',
@@ -81,6 +82,14 @@ deps = deps + [
   polkit_gobject_dep,
   m_dep,
 ]
+
+if host_is_linux
+  deps += network_manager_deps
+endif
+
+if enable_whoopsie
+  deps += whoopsie_dep
+endif
 
 panels_libs += static_library(
   cappletname,

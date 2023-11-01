@@ -31,6 +31,8 @@ struct _CcMultitaskingPanel
   GSettings       *interface_settings;
   GSettings       *mutter_settings;
   GSettings       *shell_settings;
+  GSettings       *dock_settings;
+  GSettings       *tiling_assistant_settings;
   GSettings       *wm_settings;
 
   CcIllustratedRow *active_screen_edges_row;
@@ -39,14 +41,69 @@ struct _CcMultitaskingPanel
   GtkCheckButton  *current_workspace_radio;
   GtkCheckButton  *dynamic_workspaces_radio;
   GtkCheckButton  *fixed_workspaces_radio;
+  GtkCheckButton  *dock_monitors_isolation_radio;
+  GtkCheckButton  *dock_each_monitor_radio;
   CcIllustratedRow *hot_corner_row;
   GtkSwitch       *hot_corner_switch;
   GtkSpinButton   *number_of_workspaces_spin;
   GtkCheckButton  *workspaces_primary_display_radio;
   GtkCheckButton  *workspaces_span_displays_radio;
+
 };
 
 CC_PANEL_REGISTER (CcMultitaskingPanel, cc_multitasking_panel)
+
+static void
+keep_dock_settings_in_sync (CcMultitaskingPanel *self)
+{
+  gboolean switcher_isolate_workspaces;
+  gboolean dock_isolate_workspaces;
+
+  switcher_isolate_workspaces = g_settings_get_boolean (self->shell_settings,
+    "current-workspace-only");
+  dock_isolate_workspaces = g_settings_get_boolean (self->dock_settings,
+    "isolate-workspaces");
+
+  if (switcher_isolate_workspaces != dock_isolate_workspaces)
+    {
+      g_settings_set_boolean (self->dock_settings, "isolate-workspaces",
+                              switcher_isolate_workspaces);
+    }
+}
+
+static void
+keep_tiling_assistant_settings_in_sync (CcMultitaskingPanel *self)
+{
+  gboolean switcher_isolate_workspaces;
+  gboolean tiling_assistant_popup_isolate_workspaces;
+
+  switcher_isolate_workspaces = g_settings_get_boolean (self->shell_settings,
+    "current-workspace-only");
+  tiling_assistant_popup_isolate_workspaces = !g_settings_get_boolean (
+    self->tiling_assistant_settings, "tiling-popup-all-workspace");
+
+  if (switcher_isolate_workspaces != tiling_assistant_popup_isolate_workspaces)
+    {
+      g_settings_set_boolean (self->tiling_assistant_settings,
+                              "tiling-popup-all-workspace",
+                              !switcher_isolate_workspaces);
+    }
+}
+
+static void
+load_custom_css (CcMultitaskingPanel *self)
+{
+  g_autoptr(GtkCssProvider) provider = NULL;
+
+  /* use custom CSS */
+  provider = gtk_css_provider_new ();
+  gtk_css_provider_load_from_data (provider,
+    ".multitasking-assets picture { background: @theme_selected_bg_color; }",
+    -1);
+  gtk_style_context_add_provider_for_display (gdk_display_get_default (),
+                                              GTK_STYLE_PROVIDER (provider),
+                                              GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+}
 
 /* GObject overrides */
 
@@ -58,6 +115,8 @@ cc_multitasking_panel_finalize (GObject *object)
   g_clear_object (&self->interface_settings);
   g_clear_object (&self->mutter_settings);
   g_clear_object (&self->shell_settings);
+  g_clear_object (&self->dock_settings);
+  g_clear_object (&self->tiling_assistant_settings);
   g_clear_object (&self->wm_settings);
 
   G_OBJECT_CLASS (cc_multitasking_panel_parent_class)->finalize (object);
@@ -86,11 +145,17 @@ cc_multitasking_panel_class_init (CcMultitaskingPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, number_of_workspaces_spin);
   gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, workspaces_primary_display_radio);
   gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, workspaces_span_displays_radio);
+
+  gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, dock_monitors_isolation_radio);
+  gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, dock_each_monitor_radio);
 }
 
 static void
 cc_multitasking_panel_init (CcMultitaskingPanel *self)
 {
+  GSettingsSchemaSource *schema_source = g_settings_schema_source_get_default ();
+  g_autoptr(GSettingsSchema) schema = NULL;
+
   g_resources_register (cc_multitasking_get_resource ());
 
   gtk_widget_init_template (GTK_WIDGET (self));
@@ -158,4 +223,55 @@ cc_multitasking_panel_init (CcMultitaskingPanel *self)
       cc_illustrated_row_set_resource (self->active_screen_edges_row,
                                        "/org/gnome/control-center/multitasking/assets/active-screen-edges-rtl.svg");
     }
+
+  schema = g_settings_schema_source_lookup (schema_source,
+                                            "org.gnome.shell.extensions.dash-to-dock",
+                                            TRUE);
+  if (schema)
+    {
+      self->dock_settings = g_settings_new_full (schema, NULL, NULL);
+
+      g_signal_connect_object (self->shell_settings, "changed::current-workspace-only",
+                               G_CALLBACK (keep_dock_settings_in_sync), self,
+                               G_CONNECT_SWAPPED);
+      g_signal_connect_object (self->dock_settings, "changed::isolate-workspaces",
+                               G_CALLBACK (keep_dock_settings_in_sync), self,
+                               G_CONNECT_SWAPPED);
+
+      keep_dock_settings_in_sync (self);
+
+      if (g_settings_get_boolean (self->dock_settings, "isolate-monitors"))
+        gtk_check_button_set_active (self->dock_each_monitor_radio, TRUE);
+      else
+        gtk_check_button_set_active (self->dock_monitors_isolation_radio, TRUE);
+
+      g_settings_bind (self->dock_settings,
+                       "isolate-monitors",
+                       self->dock_each_monitor_radio,
+                       "active",
+                       G_SETTINGS_BIND_DEFAULT);
+
+      g_clear_pointer (&schema, g_settings_schema_unref);
+    }
+
+  schema = g_settings_schema_source_lookup (schema_source,
+                                            "org.gnome.shell.extensions.tiling-assistant",
+                                            TRUE);
+  if (schema)
+    {
+      self->tiling_assistant_settings = g_settings_new_full (schema, NULL, NULL);
+
+      g_signal_connect_object (self->shell_settings, "changed::current-workspace-only",
+                               G_CALLBACK (keep_tiling_assistant_settings_in_sync), self,
+                               G_CONNECT_SWAPPED);
+      g_signal_connect_object (self->tiling_assistant_settings, "changed::tiling-popup-all-workspace",
+                               G_CALLBACK (keep_tiling_assistant_settings_in_sync), self,
+                               G_CONNECT_SWAPPED);
+
+      keep_tiling_assistant_settings_in_sync (self);
+
+      g_clear_pointer (&schema, g_settings_schema_unref);
+    }
+
+  load_custom_css (self);
 }

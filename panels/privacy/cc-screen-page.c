@@ -50,6 +50,8 @@ struct _CcScreenPage
   GtkSwitch           *automatic_screen_lock_switch;
   GtkSwitch           *privacy_screen_switch;
   GtkSwitch           *show_notifications_switch;
+  GtkListBoxRow       *lock_on_suspend_row;
+  GtkSwitch           *lock_on_suspend_switch;
   GtkSwitch           *usb_protection_switch;
 };
 
@@ -274,6 +276,8 @@ cc_screen_page_class_init (CcScreenPageClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcScreenPage, privacy_screen_switch);
   gtk_widget_class_bind_template_child (widget_class, CcScreenPage, screen_privacy_group);
   gtk_widget_class_bind_template_child (widget_class, CcScreenPage, show_notifications_switch);
+  gtk_widget_class_bind_template_child (widget_class, CcScreenPage, lock_on_suspend_row);
+  gtk_widget_class_bind_template_child (widget_class, CcScreenPage, lock_on_suspend_switch);
   gtk_widget_class_bind_template_child (widget_class, CcScreenPage, usb_protection_row);
   gtk_widget_class_bind_template_child (widget_class, CcScreenPage, usb_protection_switch);
 
@@ -318,6 +322,7 @@ update_display_config (CcScreenPage *self)
 static void
 cc_screen_page_init (CcScreenPage *self)
 {
+  g_autoptr(GSettingsSchema) schema = NULL;
   guint value;
 
   gtk_widget_init_template (GTK_WIDGET (self));
@@ -328,6 +333,8 @@ cc_screen_page_init (CcScreenPage *self)
   self->privacy_settings = g_settings_new ("org.gnome.desktop.privacy");
   self->notification_settings = g_settings_new ("org.gnome.desktop.notifications");
   self->session_settings = g_settings_new ("org.gnome.desktop.session");
+
+  g_object_get (self->lock_settings, "settings-schema", &schema, NULL);
 
   g_settings_bind (self->lock_settings,
                    "lock-enabled",
@@ -348,6 +355,20 @@ cc_screen_page_init (CcScreenPage *self)
                    self->show_notifications_switch,
                    "active",
                    G_SETTINGS_BIND_DEFAULT);
+
+  if (g_settings_schema_has_key (schema, "ubuntu-lock-on-suspend"))
+    {
+      g_settings_bind (self->lock_settings,
+                       "ubuntu-lock-on-suspend",
+                       self->lock_on_suspend_switch,
+                       "active",
+                       G_SETTINGS_BIND_DEFAULT);
+    }
+  else
+    {
+      g_warning ("No ubuntu-lock-on-suspend settings key found");
+      gtk_widget_set_visible (GTK_WIDGET (self->lock_on_suspend_row), FALSE);
+    }
 
   value = g_settings_get_uint (self->session_settings, "idle-delay");
   set_blank_screen_delay_value (self, value);

@@ -25,6 +25,28 @@
 
                 <child>
                   <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">System</property>
+
+                    <child>
+                      <object class="AdwActionRow">
+                        <property name="use-underline">True</property>
+                        <property name="title" translatable="yes">Manage Installed Languages</property>
+                        <property name="activatable">True</property>
+                        <signal name="activated" handler="show_language_support" object="CcRegionPanel" swapped="yes" />
+
+                        <child>
+                          <object class="GtkImage">
+                            <property name="valign">center</property>
+                            <property name="icon-name">go-next-symbolic</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
                     <property name="title" translatable="yes">Your Account</property>
 
                     <child>

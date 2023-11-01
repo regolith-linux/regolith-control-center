@@ -1,0 +1,24 @@
+.ubuntu-colors flowboxchild.ubuntu-color {
+  border-radius: 9999px;
+  background-color: transparent;
+}
+
+.ubuntu-colors flowboxchild.ubuntu-color:selected {
+  background-color: alpha(@theme_selected_bg_color, 0.75);
+}
+
+.ubuntu-colors flowboxchild.ubuntu-color box {
+  background-color: transparent;
+}
+
+.ubuntu-colors flowboxchild.ubuntu-color:selected box {
+  background-color: mix(@view_bg_color, @card_bg_color, 0.25);
+}
+
+.ubuntu-colors box.ubuntu-color {
+  border-radius: 9999px;
+}
+
+.ubuntu-colors picture.thumbnail {
+  border-radius: 9999px;
+}

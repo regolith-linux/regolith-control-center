@@ -29,6 +29,7 @@ struct _CcAlertChooserWindow
   AdwWindow       parent_instance;
 
   GtkCheckButton *none_button;
+  GtkCheckButton *default_button;
   GtkCheckButton *click_button;
   GtkCheckButton *string_button;
   GtkCheckButton *swing_button;
@@ -121,6 +122,27 @@ set_sound_symlink (const gchar *alert_name,
 }
 
 static void
+remove_sound_symlink (const gchar *alert_name)
+{
+  g_autofree gchar *dir = NULL;
+  g_autofree gchar *source_filename = NULL;
+  g_autofree gchar *source_path = NULL;
+  g_autoptr(GFile) file = NULL;
+  g_autoptr(GError) error = NULL;
+
+  dir = get_theme_dir ();
+  source_filename = g_strdup_printf ("%s.ogg", alert_name);
+  source_path = g_build_filename (dir, source_filename, NULL);
+
+  file = g_file_new_for_path (source_path);
+  if (!g_file_delete (file, NULL, &error))
+    {
+      if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_NOT_FOUND))
+        g_warning ("Failed to remove existing sound symbolic link %s: %s", source_path, error->message);
+    }
+}
+
+static void
 update_dir_mtime (const char *dir_path)
 {
   g_autoptr(GFile) dir = NULL;
@@ -195,6 +217,16 @@ set_custom_theme (CcAlertChooserWindow *self,
 }
 
 static void
+set_default_theme (CcAlertChooserWindow *self)
+{
+  remove_sound_symlink ("bell-terminal");
+  remove_sound_symlink ("bell-window-system");
+
+  g_settings_set_boolean (self->sound_settings, "event-sounds", TRUE);
+  g_settings_reset (self->sound_settings, "theme-name");
+}
+
+static void
 play_sound (CcAlertChooserWindow *self,
             const gchar          *name)
 {
@@ -215,8 +247,13 @@ activate_cb (CcAlertChooserWindow *self)
 {
   if (gtk_check_button_get_active (self->click_button))
     play_sound (self, "click");
+  else if (gtk_check_button_get_active (self->default_button))
+    {
+      set_default_theme (self);
+      gtk_widget_error_bell (GTK_WIDGET (self));
+    }
   else if (gtk_check_button_get_active (self->string_button))
-    play_sound (self, "string");
+      play_sound (self, "string");
   else if (gtk_check_button_get_active (self->swing_button))
     play_sound (self, "swing");
   else if (gtk_check_button_get_active (self->hum_button))
@@ -228,6 +265,11 @@ toggled_cb (CcAlertChooserWindow *self)
 {
   if (gtk_check_button_get_active (self->none_button))
     g_settings_set_boolean (self->sound_settings, "event-sounds", FALSE);
+  else if (gtk_check_button_get_active (self->default_button))
+    {
+      set_default_theme (self);
+      gtk_widget_error_bell (GTK_WIDGET (self));
+    }
   else if (gtk_check_button_get_active (self->click_button))
     set_custom_theme (self, "click");
   else if (gtk_check_button_get_active (self->string_button))
@@ -272,6 +314,7 @@ cc_alert_chooser_window_class_init (CcAlertChooserWindowClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/control-center/sound/cc-alert-chooser-window.ui");
 
   gtk_widget_class_bind_template_child (widget_class, CcAlertChooserWindow, none_button);
+  gtk_widget_class_bind_template_child (widget_class, CcAlertChooserWindow, default_button);
   gtk_widget_class_bind_template_child (widget_class, CcAlertChooserWindow, click_button);
   gtk_widget_class_bind_template_child (widget_class, CcAlertChooserWindow, string_button);
   gtk_widget_class_bind_template_child (widget_class, CcAlertChooserWindow, swing_button);
@@ -297,19 +340,21 @@ cc_alert_chooser_window_init (CcAlertChooserWindow *self)
 
   alert_name = get_alert_name ();
 
-  /* If user has selected an old sound alert, migrate them to click. */
+  /* If user has selected an old sound alert, migrate them to default. */
   if (g_strcmp0 (alert_name, "click") != 0 &&
       g_strcmp0 (alert_name, "hum") != 0 &&
       g_strcmp0 (alert_name, "string") != 0 &&
       g_strcmp0 (alert_name, "swing") != 0)
     {
-      set_custom_theme (self, "click");
+      set_default_theme (self);
       g_free (alert_name);
-      alert_name = g_strdup ("click");
+      alert_name = get_alert_name();
     }
 
   if (!g_settings_get_boolean (self->sound_settings, "event-sounds"))
     set_button_active (self, self->none_button, TRUE);
+  else if (alert_name == NULL)
+    set_button_active (self, self->default_button, TRUE);
   else if (g_strcmp0 (alert_name, "click") == 0)
     set_button_active (self, self->click_button, TRUE);
   else if (g_strcmp0 (alert_name, "hum") == 0)
@@ -340,6 +385,8 @@ get_selected_alert_display_name (void)
 
   if (!g_settings_get_boolean (sound_settings, "event-sounds"))
     return _("None");
+  else if (alert_name == NULL)
+    return _("Default");
   else if (g_strcmp0 (alert_name, "click") == 0)
     return _("Click");
   else if (g_strcmp0 (alert_name, "hum") == 0)

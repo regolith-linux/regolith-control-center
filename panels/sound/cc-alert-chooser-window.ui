@@ -29,6 +29,20 @@
                 </child>
                 <child>
                   <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Default</property>
+                    <property name="activatable-widget">default_button</property>
+                    <child>
+                      <object class="GtkCheckButton" id="default_button">
+                        <property name="valign">center</property>
+                        <property name="group">none_button</property>
+                        <signal name="activate" handler="activate_cb" swapped="yes"/>
+                        <signal name="toggled" handler="toggled_cb" swapped="yes"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow">
                     <property name="title" translatable="yes">Click</property>
                     <property name="activatable-widget">click_button</property>
                     <child>

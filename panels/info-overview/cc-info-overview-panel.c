@@ -109,6 +109,13 @@ does_gnome_software_allow_updates (void)
 }
 
 static gboolean
+does_software_properties_exist (void)
+{
+  g_autofree gchar *path = g_find_program_in_path ("software-properties-gtk");
+  return path != NULL;
+}
+
+static gboolean
 does_gnome_software_exist (void)
 {
   g_autofree gchar *path = g_find_program_in_path ("gnome-software");
@@ -140,11 +147,10 @@ cc_info_panel_open_software_update (CcInfoOverviewPanel *self)
   gboolean ret;
   char *argv[3];
 
-  if (does_gnome_software_exist ())
+  if (does_software_properties_exist ())
     {
-      argv[0] = "gnome-software";
-      argv[1] = "--mode=updates";
-      argv[2] = NULL;
+      argv[0] = "software-properties-gtk";
+      argv[1] = NULL;
     }
   else
     {
@@ -242,7 +248,7 @@ cc_info_overview_panel_init (CcInfoOverviewPanel *self)
 
   g_resources_register (cc_info_overview_get_resource ());
 
-  if ((!does_gnome_software_exist () || !does_gnome_software_allow_updates ()) && !does_gpk_update_viewer_exist ())
+  if (!does_software_properties_exist () && (!does_gnome_software_exist () || !does_gnome_software_allow_updates ()) && !does_gpk_update_viewer_exist ())
     gtk_widget_set_visible (GTK_WIDGET (self->software_updates_group), FALSE);
 
   info_overview_panel_setup_overview (self);

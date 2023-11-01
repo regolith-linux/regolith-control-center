@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="CcConnectivityPage" parent="AdwNavigationPage">
+    <property name="title" translatable="yes">Connectivity</property>
+    <property name="tag">connectivity-page</property>
+    <property name="child">
+      <object class="AdwToolbarView">
+        <property name="top-bar-style">raised</property>
+        <child type="top">
+          <object class="AdwHeaderBar"/>
+        </child>
+        <property name="content">
+          <object class="AdwPreferencesPage">
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="description" translatable="yes">Connectivity checking is used to detect connection issues and helps you to stay online. If your network communications are being monitored, it could be used to gather technical information about this computer.</property>
+                <child>
+                  <object class="AdwSwitchRow" id="connectivity_switch">
+                    <property name="title" translatable="yes">_Connectivity Checking</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>

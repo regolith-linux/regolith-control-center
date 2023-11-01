@@ -768,6 +768,7 @@ show_user (ActUser *user, CcUserPanel *self)
 
         lang = g_strdup (act_user_get_language (user));
         if (lang && *lang != '\0') {
+                cc_common_language_get_locale (lang, &lang);
                 name = gnome_get_language_from_locale (lang, NULL);
         } else {
                 name = g_strdup ("—");
@@ -888,7 +889,8 @@ language_response (CcUserPanel *self,
                    GtkDialog   *dialog)
 {
         ActUser *user;
-        const gchar *lang, *account_language;
+        const gchar *lang;//, *account_language;
+        gchar *locale;
 
         if (response_id != GTK_RESPONSE_OK) {
                 gtk_window_close (GTK_WINDOW (dialog));
@@ -896,12 +898,13 @@ language_response (CcUserPanel *self,
         }
 
         user = get_selected_user (self);
-        account_language = act_user_get_language (user);
+        //account_language = act_user_get_language (user);
+        cc_common_language_get_locale (act_user_get_language (user), &locale);
 
         lang = cc_language_chooser_get_language (CC_LANGUAGE_CHOOSER (dialog));
         if (lang) {
                 g_autofree gchar *name = NULL;
-                if (g_strcmp0 (lang, account_language) != 0) {
+                if (g_strcmp0 (lang, locale) != 0) {
                         act_user_set_language (user, lang);
                 }
 
@@ -916,10 +919,13 @@ static void
 change_language (CcUserPanel *self)
 {
         const gchar *current_language;
+        g_autofree gchar *locale = NULL;
         ActUser *user;
 
         user = get_selected_user (self);
         current_language = act_user_get_language (user);
+        cc_common_language_get_locale (current_language, &locale);
+        current_language = locale;
 
         if (self->language_chooser) {
                 cc_language_chooser_clear_filter (self->language_chooser);

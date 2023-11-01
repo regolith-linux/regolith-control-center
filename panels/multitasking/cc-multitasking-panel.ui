@@ -22,6 +22,9 @@
                     <property name="subtitle" translatable="yes">Touch the top-left corner to open the Activities Overview.</property>
                     <property name="use_underline">True</property>
                     <property name="resource">/org/gnome/control-center/multitasking/assets/hot-corner.svg</property>
+                    <style>
+                      <class name="multitasking-assets" />
+                    </style>
                     <child>
                       <object class="GtkSwitch" id="hot_corner_switch">
                         <property name="valign">center</property>
@@ -43,6 +46,9 @@
                         <property name="valign">center</property>
                       </object>
                     </child>
+                    <style>
+                      <class name="multitasking-assets" />
+                    </style>
                   </object>
                 </child>
 
@@ -119,6 +125,9 @@
                         <property name="valign">center</property>
                       </object>
                     </child>
+                    <style>
+                      <class name="multitasking-assets" />
+                    </style>
                   </object>
                 </child>
 
@@ -135,6 +144,9 @@
                         <property name="group">workspaces_primary_display_radio</property>
                       </object>
                     </child>
+                    <style>
+                      <class name="multitasking-assets" />
+                    </style>
                   </object>
                 </child>
 
@@ -174,6 +186,41 @@
                   </object>
                 </child>
 
+              </object>
+            </child>
+
+            <child>
+              <object class="AdwPreferencesGroup" id="monitor_isolation_group">
+    
+                <!-- All Monitors -->
+                <child>
+                  <object class="AdwActionRow">
+                    <property name="activatable-widget">dock_monitors_isolation_radio</property>
+                    <property name="title" translatable="yes">Include apps from all _monitors</property>
+                    <property name="use_underline">True</property>
+                    <child type="prefix">
+                      <object class="GtkCheckButton" id="dock_monitors_isolation_radio">
+                        <property name="valign">center</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+    
+                <!-- Monitor Isolation -->
+                <child>
+                  <object class="AdwActionRow">
+                    <property name="activatable-widget">dock_each_monitor_radio</property>
+                    <property name="title" translatable="yes">Include apps from _each monitor only</property>
+                    <property name="use_underline">True</property>
+                    <child type="prefix">
+                      <object class="GtkCheckButton" id="dock_each_monitor_radio">
+                        <property name="valign">center</property>
+                        <property name="group">dock_monitors_isolation_radio</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+    
               </object>
             </child>
 

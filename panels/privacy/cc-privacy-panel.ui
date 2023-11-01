@@ -22,6 +22,18 @@
 
                         <child>
                           <object class="CcListRow">
+                            <property name="title" translatable="yes">Co_nnectivity</property>
+                            <property name="subtitle" translatable="yes">Detect connection issues</property>
+                            <property name="icon-name">network-workgroup-symbolic</property>
+                            <property name="use-underline">True</property>
+                            <property name="show-arrow">True</property>
+                            <property name="action-name">navigation.push</property>
+                            <property name="action-target">'connectivity-page'</property>
+                          </object>
+                        </child>
+
+                        <child>
+                          <object class="CcListRow">
                             <property name="title" translatable="yes">_Screen Lock</property>
                             <property name="subtitle" translatable="yes">Automatic screen lock</property>
                             <property name="icon-name">lock-symbolic</property>
@@ -76,6 +88,7 @@
                     <child>
                       <object class="AdwPreferencesGroup">
                         <property name="title" translatable="yes">Devices</property>
+                        <property name="visible">False</property>
 
                         <child>
                           <object class="CcListRow">
@@ -137,6 +150,10 @@
               </object>
             </property>
           </object>
+        </child>
+
+        <child>
+          <object class="CcConnectivityPage"/>
         </child>
 
         <child>

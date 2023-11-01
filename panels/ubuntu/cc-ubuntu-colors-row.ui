@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="CcUbuntuColorsRow" parent="AdwActionRow">
+    <property name="title" translatable="yes">Color</property>
+    <property name="title-lines">1</property>
+    <property name="activatable">False</property>
+    <property name="selectable">False</property>
+    <style>
+        <class name="ubuntu-colors" />
+    </style>
+    <child>
+        <object class="GtkFlowBox" id="color_box">
+            <property name="max-children-per-line">10</property>
+            <property name="min-children-per-line">10</property>
+            <property name="column-spacing">12</property>
+            <property name="row-spacing">12</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+            <property name="activate-on-single-click">False</property>
+            <signal name="selected-children-changed" handler="on_selected_color_changed" object="CcUbuntuColorsRow" swapped="yes"/>
+            <style>
+                <class name="ubuntu-color" />
+            </style>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_default">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Orange</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/default.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_bark">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Bark</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/bark.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_sage">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Sage</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/sage.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_olive">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Olive</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/olive.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_viridian">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Viridian</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/viridian.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_prussiangreen">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Prussian Green</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/prussiangreen.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_blue">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Blue</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/blue.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_purple">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Purple</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/purple.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_magenta">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Magenta</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/magenta.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+            <child>
+                <object class="GtkFlowBoxChild" id="accent_red">
+                    <property name="tooltip_text" translatable="yes" context="Yaru theme accent color">Red</property>
+                    <property name="valign">center</property>
+                    <style>
+                        <class name="ubuntu-color" />
+                    </style>
+                    <child>
+                        <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                                <class name="ubuntu-color" />
+                                <class name="background" />
+                            </style>
+                            <child>
+                                <object class="GtkPicture">
+                                    <property name="file">resource:///org/gnome/control-center/ubuntu/assets/colors/red.svg</property>
+                                    <style>
+                                        <class name="thumbnail" />
+                                    </style>
+                                </object>
+                            </child>
+                        </object>
+                    </child>
+                </object>
+            </child>
+        </object>
+    </child>
+  </template>
+</interface>

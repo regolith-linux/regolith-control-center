@@ -263,6 +263,14 @@ endif
 config_h.set('HAVE_MALCONTENT', enable_malcontent,
              description: 'Define to 1 if malcontent support is enabled')
 
+# Whoopsie (Ubuntu error reporting service)
+enable_whoopsie = get_option('whoopsie')
+if enable_whoopsie
+  whoopsie_dep = dependency('libwhoopsie-preferences')
+endif
+config_h.set('HAVE_WHOOPSIE', enable_whoopsie,
+             description: 'Define to 1 if Whoopsie is enabled')
+
 if host_is_linux
   # ModemManager
   mm_dep =  dependency('mm-glib', version: '>= 0.7')
@@ -363,4 +371,5 @@ summary({
   'IBus': enable_ibus,
   'Snap': enable_snap,
   'Malcontent': enable_malcontent,
+  'Whoopsie': enable_whoopsie,
 }, section: 'Optional Dependencies')

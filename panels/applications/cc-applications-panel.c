@@ -156,6 +156,13 @@ gnome_software_is_installed (void)
   return path != NULL;
 }
 
+static gboolean
+snap_store_is_installed (void)
+{
+  g_autofree gchar *path = g_find_program_in_path ("snap-store");
+  return path != NULL;
+}
+
 /* Callbacks */
 
 static gboolean
@@ -174,6 +181,9 @@ static void
 open_software_cb (CcApplicationsPanel *self)
 {
   const gchar *argv[] = { "gnome-software", "--details", "appid", NULL };
+
+  if (!gnome_software_is_installed ())
+    argv[0] = "snap-store";
 
   if (self->current_app_id == NULL)
     argv[1] = NULL;
@@ -1419,7 +1429,8 @@ update_panel (CcApplicationsPanel *self,
   adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self),
                                  g_app_info_get_display_name (info));
   gtk_stack_set_visible_child (self->stack, self->settings_box);
-  gtk_widget_set_visible (GTK_WIDGET (self->view_details_button), gnome_software_is_installed ());
+  gtk_widget_set_visible (GTK_WIDGET (self->view_details_button),
+                          gnome_software_is_installed () || snap_store_is_installed ());
 
   g_clear_pointer (&self->current_app_id, g_free);
   g_clear_pointer (&self->current_portal_app_id, g_free);
@@ -1894,7 +1905,8 @@ cc_applications_panel_init (CcApplicationsPanel *self)
 
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  gtk_widget_set_visible (GTK_WIDGET (self->install_button), gnome_software_is_installed ());
+  gtk_widget_set_visible (GTK_WIDGET (self->install_button),
+    gnome_software_is_installed () || snap_store_is_installed ());
 
   g_signal_connect_object (self->sidebar_listbox, "row-activated",
                            G_CALLBACK (row_activated_cb), self, G_CONNECT_SWAPPED);

@@ -166,6 +166,7 @@ panels/privacy/cc-bolt-device-entry.c
 panels/privacy/cc-bolt-page.c
 panels/privacy/cc-bolt-page.ui
 panels/privacy/cc-camera-page.ui
+panels/privacy/cc-connectivity-page.ui
 panels/privacy/cc-diagnostics-page.c
 panels/privacy/cc-diagnostics-page.ui
 panels/privacy/cc-firmware-security-boot-dialog.c
@@ -218,6 +219,13 @@ panels/sound/cc-volume-levels-window.ui
 panels/sound/cc-volume-slider.c
 panels/sound/cc-volume-slider.ui
 panels/sound/gnome-sound-panel.desktop.in
+panels/ubuntu/cc-ubuntu-panel.c
+panels/ubuntu/cc-ubuntu-panel.ui
+panels/ubuntu/cc-ubuntu-dock-dialog.c
+panels/ubuntu/cc-ubuntu-dock-dialog.ui
+panels/ubuntu/cc-ubuntu-colors-row.c
+panels/ubuntu/cc-ubuntu-colors-row.ui
+panels/ubuntu/gnome-ubuntu-panel.desktop.in
 panels/universal-access/cc-cursor-size-dialog.ui
 panels/universal-access/cc-ua-hearing-page.ui
 panels/universal-access/cc-ua-hearing-page.c

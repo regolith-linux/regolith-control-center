@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="CcUbuntuDockDialog" parent="GtkDialog">
+    <property name="width_request">386</property>
+    <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <property name="destroy-with-parent">True</property>
+    <property name="hide-on-close">True</property>
+    <child internal-child="content_area">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="margin-top">12</property>
+            <property name="margin-bottom">12</property>
+            <property name="margin-start">12</property>
+            <property name="margin-end">12</property>
+            <child>
+              <object class="AdwSwitchRow" id="volumes_switch">
+                <property name="use_underline">True</property>
+                <property name="can_focus">True</property>
+                <property name="title" translatable="yes">Show _Volumes and _Devices</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow" id="unmounted_row">
+                <property name="use_underline">True</property>
+                <property name="can_focus">True</property>
+                <property name="title" translatable="yes" context="ubuntu-dock">Include _Unmounted Volumes</property>
+                <property name="activatable">True</property>
+                <property name="activatable_widget">unmounted_check</property>
+                <property name="sensitive" bind-source="volumes_switch" bind-property="active" bind-flags="default|sync-create" />
+                <child type="prefix">
+                  <object class="GtkCheckButton" id="unmounted_check">
+                    <property name="can_focus">True</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow" id="network_volumes_row">
+                <property name="use_underline">True</property>
+                <property name="can_focus">True</property>
+                <property name="title" translatable="yes" context="ubuntu-dock">Include _Network Volumes</property>
+                <property name="activatable">True</property>
+                <property name="activatable_widget">network_volumes_check</property>
+                <property name="sensitive" bind-source="volumes_switch" bind-property="active" bind-flags="default|sync-create" />
+                <child type="prefix">
+                  <object class="GtkCheckButton" id="network_volumes_check">
+                    <property name="can_focus">True</property>
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="margin-top">12</property>
+            <property name="margin-bottom">12</property>
+            <property name="margin-start">12</property>
+            <property name="margin-end">12</property>
+            <child>
+              <object class="AdwSwitchRow" id="trash_switch">
+                <property name="use_underline">True</property>
+                <property name="can_focus">True</property>
+                <property name="title" translatable="yes">Show _Trash</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -59,6 +59,7 @@ extern GType cc_search_panel_get_type (void);
 extern GType cc_sharing_panel_get_type (void);
 extern GType cc_sound_panel_get_type (void);
 extern GType cc_ua_panel_get_type (void);
+extern GType cc_ubuntu_panel_get_type(void);
 extern GType cc_user_panel_get_type (void);
 #ifdef BUILD_WACOM
 extern GType cc_wacom_panel_get_type (void);
@@ -66,6 +67,7 @@ extern GType cc_wacom_panel_get_type (void);
 #ifdef BUILD_WWAN
 extern GType cc_wwan_panel_get_type (void);
 #endif /* BUILD_WWAN */
+extern GType cc_ubuntu_panel_static_init_func (void);
 
 /* Static init functions */
 #ifdef BUILD_NETWORK
@@ -115,6 +117,7 @@ static CcPanelLoaderVtable default_panels[] =
   PANEL_TYPE("search",           cc_search_panel_get_type,               NULL),
   PANEL_TYPE("sharing",          cc_sharing_panel_get_type,              NULL),
   PANEL_TYPE("sound",            cc_sound_panel_get_type,                NULL),
+  PANEL_TYPE("ubuntu",           cc_ubuntu_panel_get_type,               cc_ubuntu_panel_static_init_func),
   PANEL_TYPE("universal-access", cc_ua_panel_get_type,                   NULL),
   PANEL_TYPE("user-accounts",    cc_user_panel_get_type,                 NULL),
 #ifdef BUILD_WACOM

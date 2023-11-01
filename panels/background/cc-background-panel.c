@@ -35,6 +35,8 @@
 #include "cc-background-resources.h"
 #include "cc-background-xml.h"
 
+#include "panels/ubuntu/cc-ubuntu-colors-row.h"
+
 #define WP_PATH_ID "org.gnome.desktop.background"
 #define WP_LOCK_PATH_ID "org.gnome.desktop.screensaver"
 #define WP_URI_KEY "picture-uri"
@@ -66,6 +68,8 @@ struct _CcBackgroundPanel
   CcBackgroundPreview *dark_preview;
   GtkToggleButton *default_toggle;
   GtkToggleButton *dark_toggle;
+
+  CcUbuntuColorsRow *ubuntu_colors;
 };
 
 CC_PANEL_REGISTER (CcBackgroundPanel, cc_background_panel)
@@ -102,6 +106,8 @@ reload_color_scheme_toggles (CcBackgroundPanel *self)
       gtk_toggle_button_set_active (self->default_toggle, FALSE);
       gtk_toggle_button_set_active (self->dark_toggle, FALSE);
     }
+
+  cc_ubuntu_colors_row_set_color_scheme (self->ubuntu_colors, scheme);
 }
 
 static void
@@ -429,6 +435,7 @@ cc_background_panel_class_init (CcBackgroundPanelClass *klass)
 
   g_type_ensure (CC_TYPE_BACKGROUND_CHOOSER);
   g_type_ensure (CC_TYPE_BACKGROUND_PREVIEW);
+  g_type_ensure (CC_TYPE_UBUNTU_COLORS_ROW);
 
   panel_class->get_help_uri = cc_background_panel_get_help_uri;
 
@@ -442,6 +449,7 @@ cc_background_panel_class_init (CcBackgroundPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, dark_preview);
   gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, default_toggle);
   gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, dark_toggle);
+  gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, ubuntu_colors);
 
   gtk_widget_class_bind_template_callback (widget_class, on_color_scheme_toggle_active_cb);
   gtk_widget_class_bind_template_callback (widget_class, on_chooser_background_chosen_cb);
@@ -497,6 +505,10 @@ cc_background_panel_init (CcBackgroundPanel *self)
                             NULL,
                             got_transition_proxy_cb,
                             self);
+
+  g_signal_connect_object (self->ubuntu_colors, "changed",
+                           G_CALLBACK (transition_screen),
+                           self, G_CONNECT_SWAPPED);
 
   load_custom_css (self);
 }

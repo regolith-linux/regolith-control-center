@@ -26,6 +26,7 @@
 #include "cc-bolt-page.h"
 #endif
 #include "cc-camera-page.h"
+#include "cc-connectivity-page.h"
 #include "cc-diagnostics-page.h"
 #include "cc-firmware-security-page.h"
 #include "cc-list-row.h"
@@ -75,6 +76,7 @@ cc_privacy_panel_class_init (CcPrivacyPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcPrivacyPanel, bolt_row);
 
   g_type_ensure (CC_TYPE_CAMERA_PAGE);
+  g_type_ensure (CC_TYPE_CONNECTIVITY_PAGE);
   g_type_ensure (CC_TYPE_DIAGNOSTICS_PAGE);
   g_type_ensure (CC_TYPE_FIRMWARE_SECURITY_PAGE);
   g_type_ensure (CC_TYPE_LOCATION_PAGE);

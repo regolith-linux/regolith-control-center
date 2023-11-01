@@ -53,6 +53,7 @@ struct _CcSoundPanel
   CcProfileComboBox   *output_profile_combo_box;
   CcVolumeSlider      *output_volume_slider;
   CcBalanceSlider     *balance_slider;
+  AdwSwitchRow        *allow_amplify_row;
   AdwPreferencesRow   *fade_row;
   CcFadeSlider        *fade_slider;
   AdwPreferencesRow   *subwoofer_row;
@@ -299,6 +300,7 @@ cc_sound_panel_class_init (CcSoundPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, output_profile_row);
   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, output_profile_combo_box);
   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, output_volume_slider);
+  gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, allow_amplify_row);
   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, balance_slider);
   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, fade_row);
   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, fade_slider);
@@ -343,6 +345,17 @@ cc_sound_panel_init (CcSoundPanel *self)
                            self,
                            G_CONNECT_SWAPPED);
   allow_amplified_changed_cb (self);
+
+  const gchar *desktop_list = g_getenv ("XDG_CURRENT_DESKTOP");
+  g_auto(GStrv) desktops = NULL;
+  if (desktop_list)
+    desktops = g_strsplit (desktop_list, ":", 0);
+  if (desktops && g_strv_contains ((const gchar * const *) desktops, "ubuntu")) {
+    g_settings_bind (self->sound_settings, "allow-volume-above-100-percent",
+                     self->allow_amplify_row, "active", G_SETTINGS_BIND_DEFAULT);
+  } else {
+    gtk_widget_set_visible (GTK_WIDGET (self->allow_amplify_row), FALSE);
+  }
 
   self->mixer_control = gvc_mixer_control_new ("GNOME Settings");
   gvc_mixer_control_open (self->mixer_control);

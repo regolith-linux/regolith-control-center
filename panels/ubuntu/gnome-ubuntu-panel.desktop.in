@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Ubuntu Desktop
+Comment=Ubuntu Desktop Appearance Settings
+Exec=gnome-control-center ubuntu
+Icon=preferences-ubuntu-panel
+Terminal=false
+Type=Application
+NoDisplay=true
+StartupNotify=true
+Categories=GNOME;GTK;Settings;DesktopSettings;X-GNOME-Settings-Panel;X-GNOME-PersonalSettings;X-GNOME-PersonalizationSettings;
+OnlyShowIn=ubuntu;
+# Translators: those are keywords for the ubuntu control-center panel
+Keywords=Dock;Launcher;Theme;Ubuntu;Dark;icons;Yaru;Accent;

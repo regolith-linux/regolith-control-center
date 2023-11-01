@@ -55,6 +55,7 @@ struct _CcDisplaySettings
   GtkWidget        *scale_bbox;
   GtkWidget        *scale_buttons_row;
   GtkWidget        *scale_combo_row;
+  GtkWidget        *scale_fractional_row;
   GtkWidget        *underscanning_row;
   GtkWidget        *underscanning_switch;
 };
@@ -256,6 +257,7 @@ cc_display_settings_rebuild_ui (CcDisplaySettings *self)
       gtk_widget_set_visible (self->resolution_row, FALSE);
       gtk_widget_set_visible (self->scale_combo_row, FALSE);
       gtk_widget_set_visible (self->scale_buttons_row, FALSE);
+      gtk_widget_set_visible (self->scale_fractional_row, FALSE);
       gtk_widget_set_visible (self->underscanning_row, FALSE);
 
       return G_SOURCE_REMOVE;
@@ -463,6 +465,11 @@ cc_display_settings_rebuild_ui (CcDisplaySettings *self)
                                self, G_CONNECT_SWAPPED);
     }
   cc_display_settings_refresh_layout (self, self->collapsed);
+
+  gtk_widget_set_visible (self->scale_fractional_row, TRUE);
+  g_object_set (G_OBJECT (self->scale_fractional_row), "active",
+                cc_display_config_get_fractional_scaling (self->config),
+                NULL);
 
   gtk_widget_set_visible (self->underscanning_row,
                           cc_display_monitor_supports_underscanning (self->selected_output) &&
@@ -747,6 +754,7 @@ cc_display_settings_class_init (CcDisplaySettingsClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcDisplaySettings, scale_bbox);
   gtk_widget_class_bind_template_child (widget_class, CcDisplaySettings, scale_buttons_row);
   gtk_widget_class_bind_template_child (widget_class, CcDisplaySettings, scale_combo_row);
+  gtk_widget_class_bind_template_child (widget_class, CcDisplaySettings, scale_fractional_row);
   gtk_widget_class_bind_template_child (widget_class, CcDisplaySettings, underscanning_row);
   gtk_widget_class_bind_template_child (widget_class, CcDisplaySettings, underscanning_switch);
 
@@ -756,6 +764,19 @@ cc_display_settings_class_init (CcDisplaySettingsClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, on_resolution_selection_changed_cb);
   gtk_widget_class_bind_template_callback (widget_class, on_scale_selection_changed_cb);
   gtk_widget_class_bind_template_callback (widget_class, on_underscanning_switch_active_changed_cb);
+}
+
+static void
+on_scale_fractional_toggled (CcDisplaySettings *self)
+{
+  gboolean active;
+
+  active = adw_switch_row_get_active (self->scale_fractional_row);
+
+  if (self->config)
+    cc_display_config_set_fractional_scaling (self->config, active);
+
+  g_signal_emit_by_name (G_OBJECT (self), "updated", self->selected_output);
 }
 
 static void
@@ -792,6 +813,11 @@ cc_display_settings_init (CcDisplaySettings *self)
   adw_combo_row_set_expression (ADW_COMBO_ROW (self->resolution_row), expression);
   adw_combo_row_set_model (ADW_COMBO_ROW (self->resolution_row),
                            G_LIST_MODEL (self->resolution_list));
+
+  g_signal_connect_object (self->scale_fractional_row,
+                           "notify::active",
+                           G_CALLBACK (on_scale_fractional_toggled),
+                           self, G_CONNECT_SWAPPED);
 
   self->updating = FALSE;
 }
