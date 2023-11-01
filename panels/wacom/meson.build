@@ -1,6 +1,7 @@
 deps = common_deps + wacom_deps + [
   gnome_rr_dep,
   gnome_settings_dep,
+  liblanguage_dep,
   x11_dep,
   xi_dep
 ]
@@ -14,7 +15,6 @@ wacom_gresource = gnome.compile_resources(
   cappletname + '.gresource.xml',
     source_dir : '.',
         c_name : 'cc_' + cappletname,
-  dependencies : resource_data,
         export : true
 )
 
@@ -23,15 +23,9 @@ subdir('calibrator')
 panels_list += cappletname
 desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
-desktop_in = configure_file(
-          input : desktop + '.in.in',
-         output : desktop + '.in',
-  configuration : desktop_conf
-)
-
 i18n.merge_file(
          type : 'desktop',
-        input : desktop_in,
+        input : desktop + '.in',
        output : desktop,
        po_dir : po_dir,
       install : true,
@@ -46,24 +40,6 @@ common_sources = files(
   'cc-wacom-stylus-page.c',
   'cc-wacom-tool.c',
   'gsd-wacom-key-shortcut-button.c'
-)
-
-resource_data = files(
-  'calibrator/calibrator.ui',
-  'calibrator/calibrator.css',
-  'calibrator/target.svg',
-  'button-mapping.ui',
-  'wacom-stylus-3btn.svg',
-  'wacom-stylus-3btn-no-eraser.svg',
-  'wacom-stylus-airbrush.svg',
-  'wacom-stylus-art-pen.svg',
-  'wacom-stylus-classic.svg',
-  'wacom-stylus-inking.svg',
-  'wacom-stylus-no-eraser.svg',
-  'wacom-stylus.svg',
-  'wacom-tablet-cintiq.svg',
-  'wacom-tablet-pc.svg',
-  'wacom-tablet.svg'
 )
 
 common_sources += wacom_gresource

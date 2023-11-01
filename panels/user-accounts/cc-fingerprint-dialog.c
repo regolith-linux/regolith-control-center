@@ -331,7 +331,6 @@ fingerprint_icon_new (const char *icon_name,
                       GtkWidget **out_icon,
                       GtkWidget **out_label)
 {
-  GtkStyleContext *context;
   GtkWidget *box;
   GtkWidget *label;
   GtkWidget *image;
@@ -362,14 +361,12 @@ fingerprint_icon_new (const char *icon_name,
 
   gtk_box_append (GTK_BOX (box), icon_widget);
 
-  context = gtk_widget_get_style_context (icon_widget);
-  gtk_style_context_add_class (context, "circular");
+  gtk_widget_add_css_class (icon_widget, "circular");
 
   label = gtk_label_new_with_mnemonic (label_text);
   gtk_box_append (GTK_BOX (box), label);
 
-  context = gtk_widget_get_style_context (box);
-  gtk_style_context_add_class (context, "fingerprint-icon");
+  gtk_widget_add_css_class (box, "fingerprint-icon");
 
   if (out_icon)
     *out_icon = icon_widget;
@@ -533,7 +530,7 @@ list_enrolled_cb (GObject      *object,
     gtk_widget_set_sensitive (self->add_print_icon, FALSE);
 
   if (n_enrolled_fingers > 0)
-    gtk_widget_show (GTK_WIDGET (self->delete_prints_button));
+    gtk_widget_set_visible (GTK_WIDGET (self->delete_prints_button), TRUE);
 }
 
 static void
@@ -547,7 +544,7 @@ update_prints_store (CcFingerprintDialog *self)
     return;
 
   gtk_widget_set_sensitive (GTK_WIDGET (self->add_print_icon), FALSE);
-  gtk_widget_hide (GTK_WIDGET (self->delete_prints_button));
+  gtk_widget_set_visible (GTK_WIDGET (self->delete_prints_button), FALSE);
 
   g_clear_pointer (&self->enrolled_fingers, g_strfreev);
 
@@ -646,13 +643,10 @@ set_enroll_result_message (CcFingerprintDialog *self,
                            EnrollState          enroll_state,
                            const char          *message)
 {
-  GtkStyleContext *style_context;
   const char *icon_name;
   guint i;
 
   g_return_if_fail (enroll_state >= 0 && enroll_state < N_ENROLL_STATES);
-
-  style_context = gtk_widget_get_style_context (self->enroll_result_icon);
 
   switch (enroll_state)
     {
@@ -668,9 +662,9 @@ set_enroll_result_message (CcFingerprintDialog *self,
     }
 
   for (i = 0; i < N_ENROLL_STATES; ++i)
-    gtk_style_context_remove_class (style_context, ENROLL_STATE_CLASSES[i]);
+    gtk_widget_remove_css_class (self->enroll_result_icon, ENROLL_STATE_CLASSES[i]);
 
-  gtk_style_context_add_class (style_context, ENROLL_STATE_CLASSES[enroll_state]);
+  gtk_widget_add_css_class (self->enroll_result_icon, ENROLL_STATE_CLASSES[enroll_state]);
 
   gtk_image_set_from_icon_name (self->enroll_result_image, icon_name);
   gtk_label_set_label (self->enroll_result_message, message);
@@ -780,6 +774,10 @@ handle_enroll_signal (CcFingerprintDialog *self,
           else if (g_str_equal (result, "enroll-data-full"))
             {
               message = _("Fingerprint device storage is full");
+            }
+          else if (g_str_equal (result, "enroll-duplicate"))
+            {
+              message = _("Fingerprint is duplicate");
             }
           else
             {
@@ -937,8 +935,6 @@ enroll_finger (CcFingerprintDialog *self,
 static void
 populate_enrollment_view (CcFingerprintDialog *self)
 {
-  GtkStyleContext *style_context;
-
   self->enroll_result_icon =
     fingerprint_icon_new ("fingerprint-detection-symbolic",
                           NULL,
@@ -949,14 +945,12 @@ populate_enrollment_view (CcFingerprintDialog *self)
 
   gtk_box_prepend (GTK_BOX (self->enroll_print_bin), self->enroll_result_icon);
 
-  style_context = gtk_widget_get_style_context (self->enroll_result_icon);
-  gtk_style_context_add_class (style_context,  "enroll-status");
+  gtk_widget_add_css_class (self->enroll_result_icon,  "enroll-status");
 }
 
 static void
-on_print_activated_cb (GtkFlowBox          *flowbox,
-                       GtkFlowBoxChild     *child,
-                       CcFingerprintDialog *self)
+on_print_activated_cb (CcFingerprintDialog *self,
+                       GtkFlowBoxChild     *child)
 {
   GtkWidget *selected_button;
 
@@ -999,7 +993,6 @@ populate_prints_gallery (CcFingerprintDialog *self)
 {
   const char *add_print_label;
   GtkWidget *button;
-  GtkStyleContext *style_context;
   guint i;
 
   g_return_if_fail (!GTK_IS_WIDGET (self->add_print_icon));
@@ -1036,8 +1029,7 @@ populate_prints_gallery (CcFingerprintDialog *self)
   add_print_label = _("Scan new fingerprint");
   self->add_print_icon = fingerprint_menu_button ("list-add-symbolic",
                                                   add_print_label);
-  style_context = gtk_widget_get_style_context (self->add_print_icon);
-  gtk_style_context_add_class (style_context, "fingerprint-print-add");
+  gtk_widget_add_css_class (self->add_print_icon, "fingerprint-print-add");
 
   populate_add_print_popover (self);
   button = g_object_get_data (G_OBJECT (self->add_print_icon), "button");
@@ -1227,9 +1219,9 @@ on_stack_child_changed (CcFingerprintDialog *self)
   g_debug ("Fingerprint dialog child changed: %s",
            gtk_stack_get_visible_child_name (self->stack));
 
-  gtk_widget_hide (GTK_WIDGET (self->back_button));
-  gtk_widget_hide (GTK_WIDGET (self->cancel_button));
-  gtk_widget_hide (GTK_WIDGET (self->done_button));
+  gtk_widget_set_visible (GTK_WIDGET (self->back_button), FALSE);
+  gtk_widget_set_visible (GTK_WIDGET (self->cancel_button), FALSE);
+  gtk_widget_set_visible (GTK_WIDGET (self->done_button), FALSE);
 
   adw_header_bar_set_show_start_title_buttons (ADW_HEADER_BAR (self->titlebar), TRUE);
   adw_header_bar_set_show_end_title_buttons (ADW_HEADER_BAR (self->titlebar), TRUE);
@@ -1250,10 +1242,10 @@ on_stack_child_changed (CcFingerprintDialog *self)
       adw_header_bar_set_show_start_title_buttons (ADW_HEADER_BAR (self->titlebar), FALSE);
       adw_header_bar_set_show_end_title_buttons (ADW_HEADER_BAR (self->titlebar), FALSE);
 
-      gtk_widget_show (GTK_WIDGET (self->cancel_button));
+      gtk_widget_set_visible (GTK_WIDGET (self->cancel_button), TRUE);
       gtk_widget_set_sensitive (GTK_WIDGET (self->cancel_button), TRUE);
 
-      gtk_widget_show (GTK_WIDGET (self->done_button));
+      gtk_widget_set_visible (GTK_WIDGET (self->done_button), TRUE);
       gtk_widget_set_sensitive (GTK_WIDGET (self->done_button), FALSE);
     }
   else
@@ -1396,7 +1388,7 @@ back_button_clicked_cb (CcFingerprintDialog *self)
 static void
 confirm_deletion_button_clicked_cb (CcFingerprintDialog *self)
 {
-  gtk_widget_hide (self->delete_confirmation_infobar);
+  gtk_widget_set_visible (self->delete_confirmation_infobar, FALSE);
   delete_enrolled_prints (self);
 }
 
@@ -1404,14 +1396,14 @@ static void
 cancel_deletion_button_clicked_cb (CcFingerprintDialog *self)
 {
   gtk_widget_set_sensitive (self->prints_manager, TRUE);
-  gtk_widget_hide (self->delete_confirmation_infobar);
+  gtk_widget_set_visible (self->delete_confirmation_infobar, FALSE);
 }
 
 static void
 delete_prints_button_clicked_cb (CcFingerprintDialog *self)
 {
   gtk_widget_set_sensitive (self->prints_manager, FALSE);
-  gtk_widget_show (self->delete_confirmation_infobar);
+  gtk_widget_set_visible (self->delete_confirmation_infobar, TRUE);
 }
 
 static void
@@ -1474,6 +1466,8 @@ cc_fingerprint_dialog_class_init (CcFingerprintDialogClass *klass)
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
   GtkWindowClass *window_class = GTK_WINDOW_CLASS (klass);
+
+  gtk_widget_class_add_binding_action (widget_class, GDK_KEY_Escape, 0, "window.close", NULL);
 
   gtk_widget_class_set_template_from_resource (widget_class,
     "/org/gnome/control-center/user-accounts/cc-fingerprint-dialog.ui");

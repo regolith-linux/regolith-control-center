@@ -41,11 +41,11 @@
 #include "pp-printer.h"
 
 struct _PpOptionsDialog {
-  GtkDialog    parent_instance;
+  AdwWindow    parent_instance;
 
   GtkTreeSelection *categories_selection;
   GtkTreeView      *categories_treeview;
-  GtkBox           *main_box;
+  GtkWidget        *main_box;
   GtkNotebook      *notebook;
   GtkSpinner       *spinner;
   GtkStack         *stack;
@@ -64,7 +64,7 @@ struct _PpOptionsDialog {
   gboolean sensitive;
 };
 
-G_DEFINE_TYPE (PpOptionsDialog, pp_options_dialog, GTK_TYPE_DIALOG)
+G_DEFINE_TYPE (PpOptionsDialog, pp_options_dialog, ADW_TYPE_WINDOW)
 
 enum
 {
@@ -331,7 +331,6 @@ ipp_option_add (IPPAttribute *attr_supported,
                 GtkWidget    *grid,
                 gboolean      sensitive)
 {
-  GtkStyleContext *context;
   GtkWidget       *widget;
   GtkWidget       *label;
   gint             position;
@@ -342,15 +341,13 @@ ipp_option_add (IPPAttribute *attr_supported,
                                                    printer_name);
   if (widget)
     {
-      gtk_widget_show (widget);
+      gtk_widget_set_visible (widget, TRUE);
       gtk_widget_set_sensitive (widget, sensitive);
       position = grid_get_height (grid);
 
       label = gtk_label_new (option_display_name);
-      gtk_widget_show (GTK_WIDGET (label));
       gtk_label_set_mnemonic_widget (GTK_LABEL (label), widget);
-      context = gtk_widget_get_style_context (label);
-      gtk_style_context_add_class (context, "dim-label");
+      gtk_widget_add_css_class (label, "dim-label");
       gtk_widget_set_halign (label, GTK_ALIGN_END);
       gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
       gtk_widget_set_margin_start (label, 10);
@@ -369,7 +366,6 @@ ppd_option_add (ppd_option_t  option,
                 GtkWidget    *grid,
                 gboolean      sensitive)
 {
-  GtkStyleContext *context;
   GtkWidget       *widget;
   GtkWidget       *label;
   gint             position;
@@ -377,14 +373,13 @@ ppd_option_add (ppd_option_t  option,
   widget = (GtkWidget *) pp_ppd_option_widget_new (&option, printer_name);
   if (widget)
     {
-      gtk_widget_show (widget);
+      gtk_widget_set_visible (widget, TRUE);
       gtk_widget_set_sensitive (widget, sensitive);
       position = grid_get_height (grid);
 
       label = gtk_label_new (ppd_option_name_translate (&option));
       gtk_label_set_mnemonic_widget (GTK_LABEL (label), widget);
-      context = gtk_widget_get_style_context (label);
-      gtk_style_context_add_class (context, "dim-label");
+      gtk_widget_add_css_class (label, "dim-label");
       gtk_widget_set_halign (label, GTK_ALIGN_END);
       gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
       gtk_widget_set_margin_start (label, 10);
@@ -503,7 +498,7 @@ populate_options_real (PpOptionsDialog *self)
 
   gtk_spinner_stop (self->spinner);
 
-  gtk_stack_set_visible_child (self->stack, GTK_WIDGET (self->main_box));
+  gtk_stack_set_visible_child (self->stack, self->main_box);
 
   if (self->ipp_attributes)
     {
@@ -867,9 +862,7 @@ pp_options_dialog_new (gchar   *printer_name,
 {
   PpOptionsDialog *self;
 
-  self = g_object_new (pp_options_dialog_get_type (),
-                       "use-header-bar", 1,
-                       NULL);
+  self = g_object_new (pp_options_dialog_get_type (), NULL);
 
   self->printer_name = g_strdup (printer_name);
 
@@ -931,6 +924,8 @@ pp_options_dialog_class_init (PpOptionsDialogClass *klass)
 
   gtk_widget_class_bind_template_callback (widget_class, category_selection_changed_cb);
   gtk_widget_class_bind_template_callback (widget_class, test_page_cb);
+
+  gtk_widget_class_add_binding_action (widget_class, GDK_KEY_Escape, 0, "window.close", NULL);
 }
 
 void

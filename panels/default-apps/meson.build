@@ -1,15 +1,14 @@
 panels_list += cappletname
 desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
-desktop_in = configure_file(
-  input: desktop + '.in.in',
-  output: desktop + '.in',
-  configuration: desktop_conf
-)
+deps = common_deps
+if host_is_linux
+  deps += mm_dep
+endif
 
 i18n.merge_file(
   type: 'desktop',
-  input: desktop_in,
+  input: desktop + '.in',
   output: desktop,
   po_dir: po_dir,
   install: true,
@@ -17,18 +16,14 @@ i18n.merge_file(
 )
 
 sources = files(
-  'cc-default-apps-panel.c'
-)
-
-resource_data = files(
-  'cc-default-apps-panel.ui'
+  'cc-default-apps-panel.c',
+  'cc-default-apps-row.c'
 )
 
 sources += gnome.compile_resources(
   'cc-' + cappletname + '-resources',
   cappletname + '.gresource.xml',
   c_name: 'cc_' + cappletname.underscorify (),
-  dependencies: resource_data,
   export: true
 )
 
@@ -36,7 +31,7 @@ panels_libs += static_library(
   cappletname,
   sources: sources,
   include_directories: [ top_inc, common_inc ],
-  dependencies: common_deps,
+  dependencies: deps,
   c_args: cflags
 )
 

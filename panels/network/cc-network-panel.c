@@ -30,11 +30,12 @@
 
 #include <NetworkManager.h>
 
+#include "cc-list-row.h"
+#include "cc-net-proxy-page.h"
 #include "net-device-bluetooth.h"
 #include "net-device-ethernet.h"
 #include "net-device-mobile.h"
 #include "net-device-wifi.h"
-#include "net-proxy.h"
 #include "net-vpn.h"
 
 #include "panel-common.h"
@@ -66,11 +67,12 @@ struct _CcNetworkPanel
 
         /* widgets */
         GtkWidget        *box_bluetooth;
-        GtkWidget        *box_proxy;
         GtkWidget        *box_vpn;
         GtkWidget        *box_wired;
         GtkWidget        *container_bluetooth;
         GtkWidget        *empty_listbox;
+        GtkWidget        *proxy_row;
+        GtkWidget        *save_button;
         GtkWidget        *vpn_stack;
 
         /* wireless dialog stuff */
@@ -86,6 +88,7 @@ enum {
 };
 
 static void handle_argv (CcNetworkPanel *self);
+static void device_managed_cb (CcNetworkPanel *self, GParamSpec *pspec, NMDevice *device);
 
 CC_PANEL_REGISTER (CcNetworkPanel, cc_network_panel)
 
@@ -226,7 +229,7 @@ cc_network_panel_finalize (GObject *object)
 }
 
 static const char *
-cc_network_panel_get_help_uri (CcPanel *self)
+cc_network_panel_get_help_uri (CcPanel *panel)
 {
 	return "help:gnome-help/net";
 }
@@ -506,6 +509,10 @@ active_connections_changed (CcNetworkPanel *self)
                 devices = nm_active_connection_get_devices (connection);
                 for (j = 0; devices && j < devices->len; j++)
                         g_debug ("           %s", nm_device_get_udi (g_ptr_array_index (devices, j)));
+
+                if (nm_is_wireguard_connection (connection))
+                        g_debug ("           WireGuard connection: %s", nm_active_connection_get_id(connection));
+
                 if (NM_IS_VPN_CONNECTION (connection))
                         g_debug ("           VPN base connection: %s", nm_active_connection_get_specific_object_path (connection));
 
@@ -622,7 +629,7 @@ add_connection (CcNetworkPanel *self, NMConnection *connection)
         g_debug ("add %s/%s remote connection: %s",
                  type, g_type_name_from_instance ((GTypeInstance*)connection),
                  nm_connection_get_path (connection));
-        if (!iface)
+        if (!iface || g_strcmp0 (type, "wireguard") == 0)
                 panel_add_vpn_device (self, connection);
 }
 
@@ -650,37 +657,24 @@ panel_check_network_manager_version (CcNetworkPanel *self)
         /* parse running version */
         version = nm_client_get_version (self->client);
         if (version == NULL) {
-                GtkWidget *box;
-                GtkWidget *label;
-                g_autofree gchar *markup = NULL;
+                GtkWidget *status_page;
 
-                box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 20);
-                gtk_box_set_homogeneous (GTK_BOX (box), TRUE);
-                gtk_widget_set_vexpand (box, TRUE);
-                adw_bin_set_child (ADW_BIN (self), box);
+                status_page = adw_status_page_new ();
+                adw_navigation_page_set_child (ADW_NAVIGATION_PAGE (self), status_page);
 
-                label = gtk_label_new (_("Oops, something has gone wrong. Please contact your software vendor."));
-                gtk_widget_set_vexpand (label, TRUE);
-                gtk_label_set_wrap (GTK_LABEL (label), TRUE);
-                gtk_widget_set_valign (label, GTK_ALIGN_END);
-                gtk_box_append (GTK_BOX (box), label);
+                adw_status_page_set_icon_name (ADW_STATUS_PAGE (status_page), "network-error-symbolic");
+                adw_status_page_set_title (ADW_STATUS_PAGE (status_page), _("Network Unavailable"));
+                adw_status_page_set_description (ADW_STATUS_PAGE (status_page),
+                                                 _("An error has occurred and network cannot be used."
+                                                   "\n Error details: NetworkManager not running."));
 
-                markup = g_strdup_printf ("<small><tt>%s</tt></small>",
-                                          _("NetworkManager needs to be running."));
-                label = gtk_label_new (NULL);
-                gtk_widget_set_vexpand (label, TRUE);
-                gtk_label_set_markup (GTK_LABEL (label), markup);
-                gtk_label_set_wrap (GTK_LABEL (label), TRUE);
-                gtk_widget_set_valign (label, GTK_ALIGN_START);
-                gtk_box_append (GTK_BOX (box), label);
         } else {
                 manager_running (self);
         }
 }
 
 static void
-create_connection_cb (GtkWidget      *button,
-                      CcNetworkPanel *self)
+create_connection_cb (CcNetworkPanel *self)
 {
         NetConnectionEditor *editor;
 
@@ -722,14 +716,17 @@ cc_network_panel_class_init (CcNetworkPanelClass *klass)
         gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/control-center/network/cc-network-panel.ui");
 
         gtk_widget_class_bind_template_child (widget_class, CcNetworkPanel, box_bluetooth);
-        gtk_widget_class_bind_template_child (widget_class, CcNetworkPanel, box_proxy);
         gtk_widget_class_bind_template_child (widget_class, CcNetworkPanel, box_vpn);
         gtk_widget_class_bind_template_child (widget_class, CcNetworkPanel, box_wired);
         gtk_widget_class_bind_template_child (widget_class, CcNetworkPanel, container_bluetooth);
         gtk_widget_class_bind_template_child (widget_class, CcNetworkPanel, empty_listbox);
+        gtk_widget_class_bind_template_child (widget_class, CcNetworkPanel, proxy_row);
         gtk_widget_class_bind_template_child (widget_class, CcNetworkPanel, vpn_stack);
 
         gtk_widget_class_bind_template_callback (widget_class, create_connection_cb);
+
+        g_type_ensure (CC_TYPE_LIST_ROW);
+        g_type_ensure (CC_TYPE_NET_PROXY_PAGE);
 }
 
 static void
@@ -738,7 +735,6 @@ cc_network_panel_init (CcNetworkPanel *self)
         g_autoptr(GDBusConnection) system_bus = NULL;
         g_autoptr(GError) error = NULL;
         const GPtrArray *connections;
-        NetProxy *proxy;
         guint i;
 
         g_resources_register (cc_network_get_resource ());
@@ -750,10 +746,6 @@ cc_network_panel_init (CcNetworkPanel *self)
         self->mobile_devices = g_ptr_array_new ();
         self->vpns = g_ptr_array_new ();
         self->nm_device_to_device = g_hash_table_new (g_direct_hash, g_direct_equal);
-
-        /* add the virtual proxy device */
-        proxy = net_proxy_new ();
-        gtk_box_append (GTK_BOX (self->box_proxy), GTK_WIDGET (proxy));
 
         /* Create and store a NMClient instance if it doesn't exist yet */
         if (!cc_object_storage_has_object (CC_OBJECT_NMCLIENT)) {

@@ -5,7 +5,7 @@ cflags = [
   '-DTEST_SRCDIR="@0@"'.format(meson.current_source_dir()),
   '-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_WITH_GLIB',
   '-DNETWORKMANAGER_COMPILATION_TEST',
-  '-DTEST_NM_SERVICE="@0@"'.format(join_paths(meson.source_root(), 'tests', 'network', 'nm-utils', 'test-networkmanager-service.py')),
+  '-DTEST_NM_SERVICE="@0@"'.format(join_paths(meson.project_source_root(), 'tests', 'network', 'nm-utils', 'test-networkmanager-service.py')),
 ]
 
 exe = executable(
@@ -22,7 +22,8 @@ envs = [
           'BUILDDIR=' + meson.current_build_dir(),
       'TOP_BUILDDIR=' + meson.build_root(),
 # Disable ATK, this should not be required but it caused CI failures -- 2018-12-07
-      'NO_AT_BRIDGE=1'
+      'NO_AT_BRIDGE=1',
+      'GTK_A11Y=none',
 ]
 
 test(

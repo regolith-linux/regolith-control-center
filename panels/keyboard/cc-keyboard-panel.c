@@ -31,6 +31,7 @@
 #include "cc-keyboard-shortcut-dialog.h"
 #include "cc-input-list-box.h"
 #include "cc-xkb-modifier-dialog.h"
+#include "cc-list-row.h"
 
 #include "keyboard-shortcuts.h"
 
@@ -44,10 +45,8 @@ struct _CcKeyboardPanel
 
   GSettings           *input_source_settings;
   AdwPreferencesGroup *input_switch_group;
-  AdwActionRow        *alt_chars_row;
-  AdwActionRow        *compose_row;
-  GtkWidget           *value_alternate_chars;
-  GtkWidget           *value_compose;
+  CcListRow           *alt_chars_row;
+  CcListRow           *compose_row;
 
   AdwActionRow        *common_shortcuts_row;
 };
@@ -82,7 +81,6 @@ static const CcXkbModifier COMPOSE_MODIFIER = {
      " For example, compose key followed by <b>C</b> and <b>o</b> will enter <b>©</b>, "
      "<b>a</b> followed by <b>'</b> will enter <b>á</b>."),
   (CcXkbOption[]){
-    { NC_("keyboard key", "Left Alt"),     "compose:lalt" },
     { NC_("keyboard key", "Right Alt"),    "compose:ralt" },
     { NC_("keyboard key", "Left Super"),   "compose:lwin" },
     { NC_("keyboard key", "Right Super"),  "compose:rwin" },
@@ -97,42 +95,41 @@ static const CcXkbModifier COMPOSE_MODIFIER = {
 };
 
 static void
-special_chars_activated (AdwActionRow    *row,
-                         CcKeyboardPanel *self)
+show_modifier_dialog (CcKeyboardPanel *self, const CcXkbModifier *modifier)
 {
-  const CcXkbModifier *modifier;
   GtkWindow *window, *dialog;
 
   window = GTK_WINDOW (cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (self))));
 
-  if (row == self->alt_chars_row)
-    modifier = &LV3_MODIFIER;
-  else if (row == self->compose_row)
-    modifier = &COMPOSE_MODIFIER;
-  else
-    return;
-
   dialog = GTK_WINDOW (cc_xkb_modifier_dialog_new (self->input_source_settings, modifier));
 
   gtk_window_set_transient_for (dialog, window);
-  gtk_widget_show (GTK_WIDGET (dialog));
+  gtk_window_present (dialog);
 }
 
 static void
-keyboard_shortcuts_activated (AdwActionRow    *row,
-                              CcKeyboardPanel *self)
+alt_chars_row_activated (CcKeyboardPanel *self)
+{
+  show_modifier_dialog (self, &LV3_MODIFIER);
+}
+
+static void
+compose_row_activated (CcKeyboardPanel *self)
+{
+  show_modifier_dialog (self, &COMPOSE_MODIFIER);
+}
+
+static void
+keyboard_shortcuts_activated (CcKeyboardPanel *self)
 {
   GtkWindow *window;
   GtkWidget *shortcut_dialog;
 
-  if (row == self->common_shortcuts_row)
-    {
-      window = GTK_WINDOW (cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (self))));
+  window = GTK_WINDOW (cc_shell_get_toplevel (cc_panel_get_shell (CC_PANEL (self))));
 
-      shortcut_dialog = cc_keyboard_shortcut_dialog_new ();
-      gtk_window_set_transient_for (GTK_WINDOW (shortcut_dialog), window);
-      gtk_widget_show (GTK_WIDGET (shortcut_dialog));
-    }
+  shortcut_dialog = cc_keyboard_shortcut_dialog_new ();
+  gtk_window_set_transient_for (GTK_WINDOW (shortcut_dialog), window);
+  gtk_window_present (GTK_WINDOW (shortcut_dialog));
 }
 
 static void
@@ -183,6 +180,7 @@ cc_keyboard_panel_class_init (CcKeyboardPanelClass *klass)
   g_object_class_override_property (object_class, PROP_PARAMETERS, "parameters");
 
   g_type_ensure (CC_TYPE_INPUT_LIST_BOX);
+  g_type_ensure (CC_TYPE_LIST_ROW);
 
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/control-center/keyboard/cc-keyboard-panel.ui");
 
@@ -191,11 +189,10 @@ cc_keyboard_panel_class_init (CcKeyboardPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcKeyboardPanel, same_source);
   gtk_widget_class_bind_template_child (widget_class, CcKeyboardPanel, alt_chars_row);
   gtk_widget_class_bind_template_child (widget_class, CcKeyboardPanel, compose_row);
-  gtk_widget_class_bind_template_child (widget_class, CcKeyboardPanel, value_alternate_chars);
-  gtk_widget_class_bind_template_child (widget_class, CcKeyboardPanel, value_compose);
   gtk_widget_class_bind_template_child (widget_class, CcKeyboardPanel, common_shortcuts_row);
 
-  gtk_widget_class_bind_template_callback (widget_class, special_chars_activated);
+  gtk_widget_class_bind_template_callback (widget_class, alt_chars_row_activated);
+  gtk_widget_class_bind_template_callback (widget_class, compose_row_activated);
   gtk_widget_class_bind_template_callback (widget_class, keyboard_shortcuts_activated);
 }
 
@@ -247,8 +244,8 @@ cc_keyboard_panel_init (CcKeyboardPanel *self)
   /* "Type Special Characters" section */
   g_settings_bind_with_mapping (self->input_source_settings,
                                 "xkb-options",
-                                self->value_alternate_chars,
-                                "label",
+                                self->alt_chars_row,
+                                "secondary-label",
                                 G_SETTINGS_BIND_GET,
                                 xcb_modifier_transform_binding_to_label,
                                 NULL,
@@ -256,8 +253,8 @@ cc_keyboard_panel_init (CcKeyboardPanel *self)
                                 NULL);
   g_settings_bind_with_mapping (self->input_source_settings,
                                 "xkb-options",
-                                self->value_compose,
-                                "label",
+                                self->compose_row,
+                                "secondary-label",
                                 G_SETTINGS_BIND_GET,
                                 xcb_modifier_transform_binding_to_label,
                                 NULL,

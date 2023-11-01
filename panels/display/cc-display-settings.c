@@ -34,7 +34,7 @@ struct _CcDisplaySettings
 
   gboolean          updating;
   gboolean          num_scales;
-  gboolean          folded;
+  gboolean          collapsed;
   guint             idle_udpate_id;
 
   gboolean          has_accelerometer;
@@ -73,10 +73,9 @@ G_DEFINE_TYPE (CcDisplaySettings, cc_display_settings, GTK_TYPE_BOX)
 
 static GParamSpec *props[PROP_LAST];
 
-static void on_scale_btn_active_changed_cb (GtkWidget         *widget,
+static void on_scale_btn_active_changed_cb (CcDisplaySettings *self,
                                             GParamSpec        *pspec,
-                                            CcDisplaySettings *self);
-
+                                            GtkWidget         *widget);
 
 static gboolean
 should_show_rotation (CcDisplaySettings *self)
@@ -151,6 +150,9 @@ make_aspect_string (gint width,
       break;
     case 23:
       aspect = "21∶9";
+      break;
+    case 35:
+      aspect = "32∶9";
       break;
     case 12:
       aspect = "5∶4";
@@ -458,9 +460,9 @@ cc_display_settings_rebuild_ui (CcDisplaySettings *self)
       g_signal_connect_object (scale_btn,
                                "notify::active",
                                G_CALLBACK (on_scale_btn_active_changed_cb),
-                               self, 0);
+                               self, G_CONNECT_SWAPPED);
     }
-  cc_display_settings_refresh_layout (self, self->folded);
+  cc_display_settings_refresh_layout (self, self->collapsed);
 
   gtk_widget_set_visible (self->underscanning_row,
                           cc_display_monitor_supports_underscanning (self->selected_output) &&
@@ -495,9 +497,7 @@ on_output_changed_cb (CcDisplaySettings *self,
 }
 
 static void
-on_enabled_switch_active_changed_cb (GtkWidget         *widget,
-                                     GParamSpec        *pspec,
-                                     CcDisplaySettings *self)
+on_enabled_switch_active_changed_cb (CcDisplaySettings *self)
 {
   if (self->updating)
     return;
@@ -509,9 +509,7 @@ on_enabled_switch_active_changed_cb (GtkWidget         *widget,
 }
 
 static void
-on_orientation_selection_changed_cb (GtkWidget         *widget,
-                                     GParamSpec        *pspec,
-                                     CcDisplaySettings *self)
+on_orientation_selection_changed_cb (CcDisplaySettings *self)
 {
   gint idx;
   g_autoptr(GObject) obj = NULL;
@@ -532,9 +530,7 @@ on_orientation_selection_changed_cb (GtkWidget         *widget,
 }
 
 static void
-on_refresh_rate_selection_changed_cb (GtkWidget         *widget,
-                                      GParamSpec        *pspec,
-                                      CcDisplaySettings *self)
+on_refresh_rate_selection_changed_cb (CcDisplaySettings *self)
 {
   gint idx;
   g_autoptr(CcDisplayMode) mode = NULL;
@@ -554,9 +550,7 @@ on_refresh_rate_selection_changed_cb (GtkWidget         *widget,
 }
 
 static void
-on_resolution_selection_changed_cb (GtkWidget         *widget,
-                                    GParamSpec        *pspec,
-                                    CcDisplaySettings *self)
+on_resolution_selection_changed_cb (CcDisplaySettings *self)
 {
   gint idx;
   g_autoptr(CcDisplayMode) mode = NULL;
@@ -580,9 +574,9 @@ on_resolution_selection_changed_cb (GtkWidget         *widget,
 }
 
 static void
-on_scale_btn_active_changed_cb (GtkWidget         *widget,
+on_scale_btn_active_changed_cb (CcDisplaySettings *self,
                                 GParamSpec        *pspec,
-                                CcDisplaySettings *self)
+                                GtkWidget         *widget)
 {
   gdouble scale;
   if (self->updating)
@@ -599,9 +593,7 @@ on_scale_btn_active_changed_cb (GtkWidget         *widget,
 }
 
 static void
-on_scale_selection_changed_cb (GtkWidget         *widget,
-                               GParamSpec        *pspec,
-                               CcDisplaySettings *self)
+on_scale_selection_changed_cb (CcDisplaySettings *self)
 {
   int idx;
   double scale;
@@ -622,9 +614,7 @@ on_scale_selection_changed_cb (GtkWidget         *widget,
 }
 
 static void
-on_underscanning_switch_active_changed_cb (GtkWidget         *widget,
-                                           GParamSpec        *pspec,
-                                           CcDisplaySettings *self)
+on_underscanning_switch_active_changed_cb (CcDisplaySettings *self)
 {
   if (self->updating)
     return;
@@ -894,12 +884,12 @@ cc_display_settings_set_selected_output (CcDisplaySettings *self,
 
 void
 cc_display_settings_refresh_layout (CcDisplaySettings *self,
-                                    gboolean           folded)
+                                    gboolean           collapsed)
 {
   gboolean use_combo;
 
-  self->folded = folded;
-  use_combo = self->num_scales > MAX_SCALE_BUTTONS || (self->num_scales > 2 && folded);
+  self->collapsed = collapsed;
+  use_combo = self->num_scales > MAX_SCALE_BUTTONS || (self->num_scales > 2 && collapsed);
 
   gtk_widget_set_visible (self->scale_combo_row, use_combo);
   gtk_widget_set_visible (self->scale_buttons_row, self->num_scales > 1 && !use_combo);

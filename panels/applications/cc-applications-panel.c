@@ -34,7 +34,6 @@
 
 #include "cc-applications-panel.h"
 #include "cc-applications-row.h"
-#include "cc-toggle-row.h"
 #include "cc-info-row.h"
 #include "cc-applications-resources.h"
 #include "cc-util.h"
@@ -55,10 +54,9 @@ struct _CcApplicationsPanel
 {
   CcPanel          parent;
 
-  GtkBox          *sidebar_box;
+  AdwNavigationPage *sidebar_box;
   GtkListBox      *sidebar_listbox;
   GtkEntry        *sidebar_search_entry;
-  AdwWindowTitle  *header_title;
   GAppInfoMonitor *monitor;
   gulong           monitor_id;
 #ifdef HAVE_MALCONTENT
@@ -93,33 +91,33 @@ struct _CcApplicationsPanel
   GtkButton       *install_button;
 
   AdwPreferencesGroup *integration_section;
-  CcToggleRow     *notification;
-  CcToggleRow     *background;
-  CcToggleRow     *wallpaper;
-  CcToggleRow     *screenshot;
-  CcToggleRow     *sound;
+  AdwSwitchRow    *notification;
+  AdwSwitchRow    *background;
+  AdwSwitchRow    *wallpaper;
+  AdwSwitchRow    *screenshot;
+  AdwSwitchRow    *sound;
   CcInfoRow       *no_sound;
-  CcToggleRow     *search;
+  AdwSwitchRow    *search;
   CcInfoRow       *no_search;
-  CcToggleRow     *camera;
+  AdwSwitchRow    *camera;
   CcInfoRow       *no_camera;
-  CcToggleRow     *location;
+  AdwSwitchRow    *location;
   CcInfoRow       *no_location;
-  CcToggleRow     *shortcuts;
-  CcToggleRow     *microphone;
+  AdwSwitchRow    *shortcuts;
+  AdwSwitchRow    *microphone;
   CcInfoRow       *no_microphone;
   CcInfoRow       *builtin;
-  GtkDialog       *builtin_dialog;
-  AdwPreferencesGroup *builtin_group;
+  GtkWindow       *builtin_dialog;
+  AdwPreferencesPage *builtin_page;
   GtkListBox      *builtin_list;
 #ifdef HAVE_SNAP
   GList           *snap_permission_rows;
 #endif
 
   GtkButton       *handler_reset;
-  GtkDialog       *handler_dialog;
+  GtkWindow       *handler_dialog;
+  AdwPreferencesPage *handler_page;
   CcInfoRow       *handler_row;
-  GtkLabel        *handler_title_label;
   AdwPreferencesGroup *handler_file_group;
   AdwPreferencesGroup *handler_link_group;
   GList           *file_handler_rows;
@@ -127,7 +125,7 @@ struct _CcApplicationsPanel
 
   GtkWidget       *usage_section;
   CcInfoRow       *storage;
-  GtkDialog       *storage_dialog;
+  GtkWindow       *storage_dialog;
   CcInfoRow       *app;
   CcInfoRow       *data;
   CcInfoRow       *cache;
@@ -140,7 +138,8 @@ struct _CcApplicationsPanel
 };
 
 static void select_app (CcApplicationsPanel *self,
-                        const gchar         *app_id);
+                        const gchar         *app_id,
+                        gboolean             emit_activate);
 
 G_DEFINE_TYPE (CcApplicationsPanel, cc_applications_panel, CC_TYPE_PANEL)
 
@@ -377,7 +376,7 @@ search_cb (CcApplicationsPanel *self)
   if (self->current_app_id)
     set_search_enabled (self,
                         self->current_app_id,
-                        cc_toggle_row_get_allowed (self->search));
+                        adw_switch_row_get_active (self->search));
 }
 
 /* --- notification permissions (flatpaks and non-flatpak) --- */
@@ -425,7 +424,7 @@ static void
 notification_cb (CcApplicationsPanel *self)
 {
   if (self->current_app_id)
-    set_notification_allowed (self, cc_toggle_row_get_allowed (self->notification));
+    set_notification_allowed (self, adw_switch_row_get_active (self->notification));
 }
 
 static gchar *
@@ -482,7 +481,7 @@ static void
 background_cb (CcApplicationsPanel *self)
 {
   if (self->current_app_id)
-    set_background_allowed (self, cc_toggle_row_get_allowed (self->background));
+    set_background_allowed (self, adw_switch_row_get_active (self->background));
 }
 
 /* --- wallpaper --- */
@@ -513,7 +512,7 @@ static void
 wallpaper_cb (CcApplicationsPanel *self)
 {
   if (self->current_app_id)
-    set_wallpaper_allowed (self, cc_toggle_row_get_allowed (self->wallpaper));
+    set_wallpaper_allowed (self, adw_switch_row_get_active (self->wallpaper));
 }
 
 /* --- screenshot --- */
@@ -544,7 +543,7 @@ static void
 screenshot_cb (CcApplicationsPanel *self)
 {
   if (self->current_app_id)
-    set_screenshot_allowed (self, cc_toggle_row_get_allowed (self->screenshot));
+    set_screenshot_allowed (self, adw_switch_row_get_active (self->screenshot));
 }
 
 /* --- shortcuts permissions (flatpak) --- */
@@ -588,7 +587,7 @@ static void
 shortcuts_cb (CcApplicationsPanel *self)
 {
   if (self->current_app_id)
-    set_shortcuts_allowed (self, cc_toggle_row_get_allowed (self->shortcuts));
+    set_shortcuts_allowed (self, adw_switch_row_get_active (self->shortcuts));
 }
 
 /* --- device (microphone, camera, speaker) permissions (flatpak) --- */
@@ -625,21 +624,21 @@ static void
 microphone_cb (CcApplicationsPanel *self)
 {
   if (self->current_portal_app_id)
-    set_device_allowed (self, "microphone", cc_toggle_row_get_allowed (self->microphone));
+    set_device_allowed (self, "microphone", adw_switch_row_get_active (self->microphone));
 }
 
 static void
 sound_cb (CcApplicationsPanel *self)
 {
   if (self->current_portal_app_id)
-   set_device_allowed (self, "speakers", cc_toggle_row_get_allowed (self->sound));
+   set_device_allowed (self, "speakers", adw_switch_row_get_active (self->sound));
 }
 
 static void
 camera_cb (CcApplicationsPanel *self)
 {
   if (self->current_portal_app_id)
-    set_device_allowed (self, "camera", cc_toggle_row_get_allowed (self->camera));
+    set_device_allowed (self, "camera", adw_switch_row_get_active (self->camera));
 }
 
 /* --- location permissions (flatpak) --- */
@@ -676,7 +675,7 @@ static void
 location_cb (CcApplicationsPanel *self)
 {
   if (self->current_portal_app_id)
-    set_location_allowed (self, cc_toggle_row_get_allowed (self->location));
+    set_location_allowed (self, adw_switch_row_get_active (self->location));
 }
 
 /* --- permissions section --- */
@@ -847,8 +846,8 @@ add_static_permissions (CcApplicationsPanel *self,
   if (str && g_str_equal (str, "talk"))
     added += add_static_permission_row (self, _("Settings"), _("Can change settings"));
 
-  text = g_strdup_printf (_("%s has the following permissions built-in. These cannot be altered. If you are concerned about these permissions, consider removing this application."), g_app_info_get_display_name (info));
-  adw_preferences_group_set_description (self->builtin_group, text);
+  text = g_strdup_printf (_("<b>%s</b> requires access to the following system resources. To stop this access, the app must be removed."), g_app_info_get_display_name (info));
+  adw_preferences_page_set_description (self->builtin_page, text);
 
   return added > 0;
 }
@@ -888,7 +887,7 @@ update_integration_section (CcApplicationsPanel *self,
 
   disabled = g_settings_get_boolean (self->search_settings, "disable-external");
   get_search_enabled (self, app_id, &set, &allowed);
-  cc_toggle_row_set_allowed (self->search, allowed);
+  adw_switch_row_set_active (self->search, allowed);
   gtk_widget_set_visible (GTK_WIDGET (self->search), set && !disabled);
   gtk_widget_set_visible (GTK_WIDGET (self->no_search), set && disabled);
 
@@ -897,11 +896,11 @@ update_integration_section (CcApplicationsPanel *self,
       g_autofree gchar *desktop_id = g_strconcat (app_id, ".desktop", NULL);
       get_shortcuts_allowed (self, desktop_id, &set, &allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->shortcuts), set);
-      cc_toggle_row_set_allowed (self->shortcuts, allowed);
+      adw_switch_row_set_active (self->shortcuts, allowed);
     }
   else
     {
-      gtk_widget_hide (GTK_WIDGET (self->shortcuts));
+      gtk_widget_set_visible (GTK_WIDGET (self->shortcuts), FALSE);
     }
 
 #ifdef HAVE_SNAP
@@ -912,48 +911,48 @@ update_integration_section (CcApplicationsPanel *self,
     {
       g_clear_object (&self->notification_settings);
       get_notification_allowed (self, portal_app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->notification, allowed);
+      adw_switch_row_set_active (self->notification, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->notification), set);
       has_any |= set;
 
       get_background_allowed (self, portal_app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->background, allowed);
+      adw_switch_row_set_active (self->background, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->background), set);
       has_any |= set;
 
       get_wallpaper_allowed (self, portal_app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->wallpaper, allowed);
+      adw_switch_row_set_active (self->wallpaper, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->wallpaper), set);
       has_any |= set;
 
       get_screenshot_allowed (self, portal_app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->screenshot, allowed);
+      adw_switch_row_set_active (self->screenshot, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->screenshot), set);
       has_any |= set;
 
       disabled = g_settings_get_boolean (self->privacy_settings, "disable-sound-output");
       get_device_allowed (self, "speakers", portal_app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->sound, allowed);
+      adw_switch_row_set_active (self->sound, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->sound), set && !disabled);
       gtk_widget_set_visible (GTK_WIDGET (self->no_sound), set && disabled);
 
       disabled = g_settings_get_boolean (self->privacy_settings, "disable-camera");
       get_device_allowed (self, "camera", portal_app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->camera, allowed);
+      adw_switch_row_set_active (self->camera, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->camera), set && !disabled);
       gtk_widget_set_visible (GTK_WIDGET (self->no_camera), set && disabled);
       has_any |= set;
 
       disabled = g_settings_get_boolean (self->privacy_settings, "disable-microphone");
       get_device_allowed (self, "microphone", portal_app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->microphone, allowed);
+      adw_switch_row_set_active (self->microphone, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->microphone), set && !disabled);
       gtk_widget_set_visible (GTK_WIDGET (self->no_microphone), set && disabled);
       has_any |= set;
 
       disabled = !g_settings_get_boolean (self->location_settings, "enabled");
       get_location_allowed (self, portal_app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->location, allowed);
+      adw_switch_row_set_active (self->location, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->location), set && !disabled);
       gtk_widget_set_visible (GTK_WIDGET (self->no_location), set && disabled);
       has_any |= set;
@@ -966,21 +965,21 @@ update_integration_section (CcApplicationsPanel *self,
     {
       g_set_object (&self->notification_settings, get_notification_settings (app_id));
       get_notification_allowed (self, app_id, &set, &allowed);
-      cc_toggle_row_set_allowed (self->notification, allowed);
+      adw_switch_row_set_active (self->notification, allowed);
       gtk_widget_set_visible (GTK_WIDGET (self->notification), set);
       has_any |= set;
 
-      gtk_widget_hide (GTK_WIDGET (self->background));
-      gtk_widget_hide (GTK_WIDGET (self->wallpaper));
-      gtk_widget_hide (GTK_WIDGET (self->screenshot));
-      gtk_widget_hide (GTK_WIDGET (self->sound));
-      gtk_widget_hide (GTK_WIDGET (self->no_sound));
-      gtk_widget_hide (GTK_WIDGET (self->camera));
-      gtk_widget_hide (GTK_WIDGET (self->no_camera));
-      gtk_widget_hide (GTK_WIDGET (self->microphone));
-      gtk_widget_hide (GTK_WIDGET (self->no_microphone));
-      gtk_widget_hide (GTK_WIDGET (self->location));
-      gtk_widget_hide (GTK_WIDGET (self->no_location));
+      gtk_widget_set_visible (GTK_WIDGET (self->background), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->wallpaper), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->screenshot), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->sound), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->no_sound), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->camera), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->no_camera), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->microphone), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->no_microphone), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->location), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->no_location), FALSE);
     }
 
   gtk_widget_set_visible (GTK_WIDGET (self->integration_section), has_any);
@@ -1029,7 +1028,7 @@ add_scheme (CcApplicationsPanel *self,
   g_object_set_data_full (G_OBJECT (button), "type", g_strdup (type), g_free);
   g_signal_connect_object (button, "clicked", G_CALLBACK (unset_cb), self, G_CONNECT_SWAPPED);
 
-  gtk_widget_show (GTK_WIDGET (self->handler_link_group));
+  gtk_widget_set_visible (GTK_WIDGET (self->handler_link_group), TRUE);
   adw_preferences_group_add (self->handler_link_group, GTK_WIDGET (row));
 
   self->link_handler_rows = g_list_prepend (self->link_handler_rows, row);
@@ -1061,7 +1060,7 @@ add_file_type (CcApplicationsPanel *self,
   g_object_set_data_full (G_OBJECT (button), "type", g_strdup (type), g_free);
   g_signal_connect_object (button, "clicked", G_CALLBACK (unset_cb), self, G_CONNECT_SWAPPED);
 
-  gtk_widget_show (GTK_WIDGET (self->handler_file_group));
+  gtk_widget_set_visible (GTK_WIDGET (self->handler_file_group), TRUE);
   adw_preferences_group_add (self->handler_file_group, GTK_WIDGET (row));
 
   self->file_handler_rows = g_list_prepend (self->file_handler_rows, row);
@@ -1071,7 +1070,7 @@ static void
 add_handler_row (CcApplicationsPanel *self,
                  const gchar         *type)
 {
-  gtk_widget_show (GTK_WIDGET (self->handler_row));
+  gtk_widget_set_visible (GTK_WIDGET (self->handler_row), TRUE);
 
   if (g_content_type_is_a (type, "x-scheme-handler/*"))
     add_scheme (self, type);
@@ -1154,9 +1153,9 @@ update_handler_dialog (CcApplicationsPanel *self,
 
   remove_all_handler_rows (self);
 
-  gtk_widget_hide (GTK_WIDGET (self->handler_row));
-  gtk_widget_hide (GTK_WIDGET (self->handler_file_group));
-  gtk_widget_hide (GTK_WIDGET (self->handler_link_group));
+  gtk_widget_set_visible (GTK_WIDGET (self->handler_row), FALSE);
+  gtk_widget_set_visible (GTK_WIDGET (self->handler_file_group), FALSE);
+  gtk_widget_set_visible (GTK_WIDGET (self->handler_link_group), FALSE);
 
   types = g_app_info_get_supported_types (info);
   if (types == NULL || types[0] == NULL)
@@ -1198,42 +1197,39 @@ update_handler_dialog (CcApplicationsPanel *self,
 
   header_title = g_strdup_printf (_("<b>%s</b> is used to open the following types of files and links."),
                                   g_app_info_get_display_name (info));
-  gtk_label_set_markup (self->handler_title_label, header_title);
+  adw_preferences_page_set_description (self->handler_page, header_title);
 }
 
 /* --- usage section --- */
 
 static void
-on_builtin_row_activated_cb (GtkListBoxRow       *row,
-                             CcApplicationsPanel *self)
+on_builtin_row_activated_cb (CcApplicationsPanel *self)
 {
   CcShell *shell = cc_panel_get_shell (CC_PANEL (self));
 
-  gtk_window_set_transient_for (GTK_WINDOW (self->builtin_dialog),
+  gtk_window_set_transient_for (self->builtin_dialog,
                                 GTK_WINDOW (cc_shell_get_toplevel (shell)));
-  gtk_window_present (GTK_WINDOW (self->builtin_dialog));
+  gtk_window_present (self->builtin_dialog);
 }
 
 static void
-on_handler_row_activated_cb (GtkListBoxRow       *row,
-                             CcApplicationsPanel *self)
+on_handler_row_activated_cb (CcApplicationsPanel *self)
 {
   CcShell *shell = cc_panel_get_shell (CC_PANEL (self));
 
-  gtk_window_set_transient_for (GTK_WINDOW (self->handler_dialog),
+  gtk_window_set_transient_for (self->handler_dialog,
                                 GTK_WINDOW (cc_shell_get_toplevel (shell)));
-  gtk_window_present (GTK_WINDOW (self->handler_dialog));
+  gtk_window_present (self->handler_dialog);
 }
 
 static void
-on_storage_row_activated_cb (GtkListBoxRow       *row,
-                             CcApplicationsPanel *self)
+on_storage_row_activated_cb (CcApplicationsPanel *self)
 {
   CcShell *shell = cc_panel_get_shell (CC_PANEL (self));
 
-  gtk_window_set_transient_for (GTK_WINDOW (self->storage_dialog),
+  gtk_window_set_transient_for (self->storage_dialog,
                                 GTK_WINDOW (cc_shell_get_toplevel (shell)));
-  gtk_window_present (GTK_WINDOW (self->storage_dialog));
+  gtk_window_present (self->storage_dialog);
 }
 
 static void
@@ -1412,15 +1408,16 @@ update_panel (CcApplicationsPanel *self,
 
   if (row == NULL)
     {
-      adw_window_title_set_title (self->header_title, _("Applications"));
+      adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self), _("Apps"));
       gtk_stack_set_visible_child (self->stack, self->empty_box);
-      gtk_widget_hide (GTK_WIDGET (GTK_WIDGET (self->view_details_button)));
+      gtk_widget_set_visible (GTK_WIDGET (self->view_details_button), FALSE);
       return;
     }
 
   info = cc_applications_row_get_info (CC_APPLICATIONS_ROW (row));
 
-  adw_window_title_set_title (self->header_title, g_app_info_get_display_name (info));
+  adw_navigation_page_set_title (ADW_NAVIGATION_PAGE (self),
+                                 g_app_info_get_display_name (info));
   gtk_stack_set_visible_child (self->stack, self->settings_box);
   gtk_widget_set_visible (GTK_WIDGET (self->view_details_button), gnome_software_is_installed ());
 
@@ -1559,7 +1556,8 @@ on_perm_store_ready (GObject      *source_object,
 
 static void
 select_app (CcApplicationsPanel *self,
-            const gchar         *app_id)
+            const gchar         *app_id,
+            gboolean             emit_activate)
 {
   GtkWidget *child;
 
@@ -1572,15 +1570,15 @@ select_app (CcApplicationsPanel *self,
       if (g_str_has_prefix (g_app_info_get_id (info), app_id))
         {
           gtk_list_box_select_row (self->sidebar_listbox, GTK_LIST_BOX_ROW (row));
-          g_signal_emit_by_name (row, "activate");
+          if (emit_activate)
+            g_signal_emit_by_name (row, "activate");
           break;
         }
     }
 }
 
 static void
-on_launch_button_clicked_cb (GtkButton           *button,
-                             CcApplicationsPanel *self)
+on_launch_button_clicked_cb (CcApplicationsPanel *self)
 {
   g_autoptr(GdkAppLaunchContext) context = NULL;
   g_autoptr(GError) error = NULL;
@@ -1636,6 +1634,10 @@ static void
 cc_applications_panel_dispose (GObject *object)
 {
   CcApplicationsPanel *self = CC_APPLICATIONS_PANEL (object);
+
+  g_clear_pointer (&self->builtin_dialog, gtk_window_destroy);
+  g_clear_pointer (&self->handler_dialog, gtk_window_destroy);
+  g_clear_pointer (&self->storage_dialog, gtk_window_destroy);
 
   remove_all_handler_rows (self);
 #ifdef HAVE_SNAP
@@ -1702,7 +1704,7 @@ cc_applications_panel_set_property (GObject      *object,
                            (gchar *)g_variant_get_type (v));
               g_variant_unref (v);
 
-              select_app (CC_APPLICATIONS_PANEL (object), first_arg);
+              select_app (CC_APPLICATIONS_PANEL (object), first_arg, TRUE);
             }
 
           return;
@@ -1725,11 +1727,67 @@ cc_applications_panel_constructed (GObject *object)
   gtk_list_box_select_row (self->sidebar_listbox, row);
 }
 
-static GtkWidget*
+static void
+notify_collapsed_cb (CcApplicationsPanel *self)
+{
+  GtkSelectionMode selection_mode;
+  gboolean collapsed;
+  GtkRoot *root;
+
+  g_assert (CC_IS_APPLICATIONS_PANEL (self));
+
+  root = gtk_widget_get_root (GTK_WIDGET (self));
+  g_object_get (root, "collapsed", &collapsed, NULL);
+
+  selection_mode = collapsed ? GTK_SELECTION_NONE : GTK_SELECTION_SINGLE;
+
+  gtk_list_box_set_selection_mode (self->sidebar_listbox, selection_mode);
+
+  if (!collapsed)
+    {
+      if (self->current_app_id)
+        select_app (self, self->current_app_id, FALSE);
+      else
+        {
+          GtkListBoxRow *row;
+
+          row = gtk_list_box_get_row_at_index (self->sidebar_listbox, 0);
+          row_activated_cb (self, row);
+        }
+    }
+}
+
+static void
+cc_applications_panel_root (GtkWidget *widget)
+{
+  CcApplicationsPanel *self = CC_APPLICATIONS_PANEL (widget);
+  GtkRoot *root;
+
+  GTK_WIDGET_CLASS (cc_applications_panel_parent_class)->root (widget);
+
+  root = gtk_widget_get_root (widget);
+
+  g_signal_connect_swapped (root, "notify::collapsed", G_CALLBACK (notify_collapsed_cb), self);
+
+  notify_collapsed_cb (self);
+}
+
+static void
+cc_applications_panel_unroot (GtkWidget *widget)
+{
+  CcApplicationsPanel *self = CC_APPLICATIONS_PANEL (widget);
+  GtkRoot *root = gtk_widget_get_root (widget);
+
+  g_signal_handlers_disconnect_by_func (root, notify_collapsed_cb, self);
+
+  GTK_WIDGET_CLASS (cc_applications_panel_parent_class)->unroot (widget);
+}
+
+static AdwNavigationPage*
 cc_applications_panel_get_sidebar_widget (CcPanel *panel)
 {
   CcApplicationsPanel *self = CC_APPLICATIONS_PANEL (panel);
-  return GTK_WIDGET (self->sidebar_box);
+  return self->sidebar_box;
 }
 
 static void
@@ -1744,6 +1802,9 @@ cc_applications_panel_class_init (CcApplicationsPanelClass *klass)
   object_class->constructed = cc_applications_panel_constructed;
   object_class->set_property = cc_applications_panel_set_property;
 
+  widget_class->root = cc_applications_panel_root;
+  widget_class->unroot = cc_applications_panel_unroot;
+
   panel_class->get_sidebar_widget = cc_applications_panel_get_sidebar_widget;
 
   g_object_class_override_property (object_class, PROP_PARAMETERS, "parameters");
@@ -1755,7 +1816,7 @@ cc_applications_panel_class_init (CcApplicationsPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, app_name_label);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, builtin);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, builtin_dialog);
-  gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, builtin_group);
+  gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, builtin_page);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, builtin_list);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, cache);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, camera);
@@ -1763,12 +1824,11 @@ cc_applications_panel_class_init (CcApplicationsPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, data);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, empty_box);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, handler_dialog);
+  gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, handler_page);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, handler_file_group);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, handler_link_group);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, handler_row);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, handler_reset);
-  gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, handler_title_label);
-  gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, header_title);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, install_button);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, integration_section);
   gtk_widget_class_bind_template_child (widget_class, CcApplicationsPanel, launch_button);
@@ -1830,7 +1890,6 @@ cc_applications_panel_init (CcApplicationsPanel *self)
 
   g_resources_register (cc_applications_get_resource ());
 
-  g_type_ensure(CC_TYPE_TOGGLE_ROW);
   g_type_ensure(CC_TYPE_INFO_ROW);
 
   gtk_widget_init_template (GTK_WIDGET (self));

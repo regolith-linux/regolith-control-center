@@ -30,8 +30,6 @@ G_BEGIN_DECLS
 typedef enum
 {
   CC_PANEL_LIST_MAIN,
-  CC_PANEL_LIST_PRIVACY,
-  CC_PANEL_LIST_WIDGET,
   CC_PANEL_LIST_SEARCH
 } CcPanelListView;
 
@@ -50,8 +48,6 @@ void                 cc_panel_list_set_search_query              (CcPanelList   
 
 CcPanelListView      cc_panel_list_get_view                      (CcPanelList        *self);
 
-void                 cc_panel_list_go_previous                   (CcPanelList        *self);
-
 void                 cc_panel_list_add_panel                     (CcPanelList        *self,
                                                                   CcPanelCategory     category,
                                                                   const gchar        *id,
@@ -62,6 +58,8 @@ void                 cc_panel_list_add_panel                     (CcPanelList   
                                                                   CcPanelVisibility   visibility,
                                                                   gboolean            has_sidebar);
 
+const gchar*         cc_panel_list_get_current_panel             (CcPanelList        *self);
+
 void                 cc_panel_list_set_active_panel               (CcPanelList       *self,
                                                                    const gchar       *id);
 
@@ -69,10 +67,9 @@ void                 cc_panel_list_set_panel_visibility          (CcPanelList   
                                                                   const gchar        *id,
                                                                   CcPanelVisibility   visibility);
 
-void                 cc_panel_list_add_sidebar_widget            (CcPanelList        *self,
-                                                                  GtkWidget          *widget);
-
 void                 cc_panel_list_set_selection_mode            (CcPanelList        *self,
                                                                   GtkSelectionMode    selection_mode);
+void                 cc_panel_list_center_activated_row          (CcPanelList        *self,
+                                                                  gboolean            val);
 
 G_END_DECLS

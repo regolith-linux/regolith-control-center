@@ -18,6 +18,7 @@
  * Author: Cosimo Cecchi <cosimoc@gnome.org>
  */
 
+#include "cc-list-row.h"
 #include "cc-search-panel.h"
 #include "cc-search-panel-row.h"
 #include "cc-search-locations-dialog.h"
@@ -162,7 +163,7 @@ search_panel_set_no_providers (CcSearchPanel *self)
   gtk_widget_set_valign (self->list_box, GTK_ALIGN_CENTER);
 
   gtk_list_box_append (GTK_LIST_BOX (self->list_box),
-                       gtk_label_new (_("No applications found")));
+                       gtk_label_new (_("No apps found")));
 }
 
 static void
@@ -283,11 +284,8 @@ row_moved_cb (CcSearchPanel    *self,
 }
 
 static void
-settings_row_activated (GtkWidget *widget,
-                        gpointer   user_data)
+settings_row_activated (CcSearchPanel *self)
 {
-  CcSearchPanel *self = user_data;
-
   if (self->locations_dialog == NULL)
     {
       self->locations_dialog = cc_search_locations_dialog_new (self);
@@ -403,17 +401,31 @@ switch_settings_mapping_get_default_disabled (GValue *value,
 }
 
 static void
+search_panel_update_enabled_move_actions (CcSearchPanel *self)
+{
+  GtkWidget *child;
+
+  for (child = gtk_widget_get_first_child (GTK_WIDGET (self->list_box));
+       child;
+       child = gtk_widget_get_next_sibling (child))
+    {
+      gint row_idx;
+
+      if (!CC_IS_SEARCH_PANEL_ROW (child))
+        continue;
+
+      row_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (child));
+      gtk_widget_action_set_enabled (GTK_WIDGET (child), "row.move-up", row_idx != 0);
+      gtk_widget_action_set_enabled (GTK_WIDGET (child), "row.move-down", GTK_LIST_BOX_ROW (gtk_widget_get_next_sibling (GTK_WIDGET (child))) != NULL);
+    }
+}
+
+static void
 search_panel_add_one_app_info (CcSearchPanel *self,
                                GAppInfo *app_info,
                                gboolean default_enabled)
 {
   CcSearchPanelRow *row;
-
-  /* gnome-control-center is special cased in the shell,
-     and is not configurable */
-  if (g_strcmp0 (g_app_info_get_id (app_info),
-                 "gnome-control-center.desktop") == 0)
-    return;
 
   /* reset valignment of the list box */
   gtk_widget_set_valign (self->list_box, GTK_ALIGN_FILL);
@@ -528,6 +540,8 @@ search_providers_discover_ready (GObject *source,
    * all the providers in the list.
    */
   search_panel_propagate_sort_order (self);
+
+  search_panel_update_enabled_move_actions (self);
 }
 
 static GList *
@@ -669,6 +683,8 @@ cc_search_panel_class_init (CcSearchPanelClass *klass)
   GObjectClass *oclass = G_OBJECT_CLASS (klass);
 
   oclass->finalize = cc_search_panel_finalize;
+
+  g_type_ensure (CC_TYPE_LIST_ROW);
 
   gtk_widget_class_set_template_from_resource (widget_class,
                                                "/org/gnome/control-center/search/cc-search-panel.ui");

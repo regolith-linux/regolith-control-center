@@ -1,15 +1,9 @@
 panels_list += cappletname
 desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
-desktop_in = configure_file(
-  input: desktop + '.in.in',
-  output: desktop + '.in',
-  configuration: desktop_conf
-)
-
 i18n.merge_file(
   type: 'desktop',
-  input: desktop_in,
+  input: desktop + '.in',
   output: desktop,
   po_dir: po_dir,
   install: true,
@@ -23,18 +17,15 @@ cflags += [
 
 sources = files(
   'cc-info-overview-panel.c',
+  'cc-system-details-window.c',
+  'cc-info-entry.c',
   'info-cleanup.c'
-)
-
-resource_data = files(
-  'cc-info-overview-panel.ui'
 )
 
 sources += gnome.compile_resources(
   'cc-' + cappletname + '-resources',
   cappletname + '.gresource.xml',
   c_name: 'cc_' + cappletname.underscorify (),
-  dependencies: resource_data,
   export: true
 )
 
@@ -57,6 +48,14 @@ print_renderer_deps = [
   dependency('gtk4'),
   epoxy_dep
 ]
+
+executable(
+  'test-info-cleanup',
+  [ 'info-cleanup.c', 'test-info-cleanup.c' ],
+  include_directories: [ top_inc ],
+  dependencies: [ print_renderer_deps ],
+  c_args: cflags,
+)
 
 executable(
   'gnome-control-center-print-renderer',

@@ -28,6 +28,7 @@
 
 #include "cc-add-user-dialog.h"
 #include "cc-realm-manager.h"
+#include "cc-list-row.h"
 #include "user-utils.h"
 #include "pw-utils.h"
 
@@ -56,10 +57,10 @@ static void   on_realm_joined      (GObject *source,
 static void   add_button_clicked_cb (CcAddUserDialog *self);
 
 struct _CcAddUserDialog {
-        GtkDialog parent_instance;
+        AdwWindow parent_instance;
 
         GtkButton          *add_button;
-        AdwActionRow       *enterprise_button;
+        CcListRow          *enterprise_button;
         GtkComboBox        *enterprise_domain_combo;
         GtkEntry           *enterprise_domain_entry;
         GtkLabel           *enterprise_domain_hint;
@@ -123,7 +124,7 @@ struct _CcAddUserDialog {
         gboolean            join_prompted;
 };
 
-G_DEFINE_TYPE (CcAddUserDialog, cc_add_user_dialog, GTK_TYPE_DIALOG);
+G_DEFINE_TYPE (CcAddUserDialog, cc_add_user_dialog, ADW_TYPE_WINDOW);
 
 static void
 show_error_dialog (CcAddUserDialog *self,
@@ -159,7 +160,7 @@ begin_action (CcAddUserDialog *self)
         gtk_widget_set_sensitive (GTK_WIDGET (self->enterprise_button), FALSE);
         gtk_widget_set_sensitive (GTK_WIDGET (self->add_button), FALSE);
 
-        gtk_widget_show (GTK_WIDGET (self->spinner));
+        gtk_widget_set_visible (GTK_WIDGET (self->spinner), TRUE);
         gtk_spinner_start (self->spinner);
 }
 
@@ -174,7 +175,7 @@ finish_action (CcAddUserDialog *self)
         gtk_widget_set_sensitive (GTK_WIDGET (self->enterprise_button), TRUE);
         gtk_widget_set_sensitive (GTK_WIDGET (self->add_button), TRUE);
 
-        gtk_widget_hide (GTK_WIDGET (self->spinner));
+        gtk_widget_set_visible (GTK_WIDGET (self->spinner), FALSE);
         gtk_spinner_stop (self->spinner);
 }
 
@@ -194,7 +195,7 @@ user_loaded_cb (CcAddUserDialog *self,
         act_user_set_password (user, password, "");
 
   self->user = g_object_ref (user);
-  gtk_dialog_response (GTK_DIALOG (self), GTK_RESPONSE_CLOSE);
+  gtk_window_close (GTK_WINDOW (self));
 }
 
 static void
@@ -723,11 +724,11 @@ password_focus_out_event_cb (CcAddUserDialog *self)
 }
 
 static gboolean
-local_password_entry_key_press_event_cb (GtkEventControllerKey *controller,
+local_password_entry_key_press_event_cb (CcAddUserDialog       *self,
                                          guint                  keyval,
                                          guint                  keycode,
                                          GdkModifierType        state,
-                                         CcAddUserDialog       *self)
+                                         GtkEventControllerKey *controller)
 {
         if (keyval == GDK_KEY_Tab)
                local_password_timeout (self);
@@ -878,7 +879,7 @@ on_register_user (GObject *source,
                 g_debug ("Successfully cached remote user: %s", act_user_get_user_name (user));
                 finish_action (self);
                 self->user = g_object_ref (user);
-                gtk_dialog_response (GTK_DIALOG (self), GTK_RESPONSE_CLOSE);
+                gtk_window_close (GTK_WINDOW (self));
         } else {
                 show_error_dialog (self, _("Failed to register account"), error);
                 g_message ("Couldn't cache user account: %s", error->message);
@@ -964,7 +965,7 @@ on_join_response (CcAddUserDialog *self,
                   gint response,
                   GtkDialog *dialog)
 {
-        gtk_widget_hide (GTK_WIDGET (dialog));
+        gtk_widget_set_visible (GTK_WIDGET (dialog), FALSE);
         if (response != GTK_RESPONSE_OK) {
                 finish_action (self);
                 return;
@@ -1335,7 +1336,7 @@ on_realm_manager_created (GObject *source,
                                    NULL, NULL);
 
         /* Show the 'Enterprise Login' stuff, and update mode */
-        gtk_widget_show (GTK_WIDGET (self->enterprise_group));
+        gtk_widget_set_visible (GTK_WIDGET (self->enterprise_group), TRUE);
         mode_change (self, self->mode);
 }
 
@@ -1359,7 +1360,7 @@ on_realmd_disappeared (GDBusConnection *unused1,
 
         clear_realm_manager (self);
         gtk_list_store_clear (self->enterprise_realm_model);
-        gtk_widget_hide (GTK_WIDGET (self->enterprise_group));
+        gtk_widget_set_visible (GTK_WIDGET (self->enterprise_group), FALSE);
         mode_change (self, MODE_LOCAL);
 }
 
@@ -1701,7 +1702,7 @@ cc_add_user_dialog_new (GPermission *permission)
 {
         CcAddUserDialog *self;
 
-        self = g_object_new (CC_TYPE_ADD_USER_DIALOG, "use-header-bar", 1, NULL);
+        self = g_object_new (CC_TYPE_ADD_USER_DIALOG, NULL);
 
         if (permission != NULL)
                 self->permission = g_object_ref (permission);

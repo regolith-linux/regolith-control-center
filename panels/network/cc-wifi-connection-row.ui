@@ -52,6 +52,21 @@
           </object>
         </child>
         <child>
+          <object class="GtkButton" id="qr_code_button">
+            <property name="name">qr_code_button</property>
+            <property name="icon_name">qr-code-symbolic</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <signal name="clicked" handler="qr_code_clicked_cb" object="CcWifiConnectionRow" swapped="yes"/>
+            <accessibility>
+              <property name="label" translatable="yes">Show QR-Code</property>
+            </accessibility>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
           <object class="GtkButton" id="options_button">
             <property name="name">options_button</property>
             <property name="icon_name">emblem-system-symbolic</property>
@@ -61,6 +76,18 @@
             <accessibility>
               <property name="label" translatable="yes">Options…</property>
             </accessibility>
+            <style>
+              <class name="flat"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="forget_button">
+            <property name="icon_name">user-trash-symbolic</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <signal name="clicked" handler="forget_clicked_cb" object="CcWifiConnectionRow" swapped="yes"/>
+            <property name="label" translatable="yes" comments="Translators: This is the text displayed in a button, indicating an action.">Forget</property>
             <style>
               <class name="flat"/>
             </style>

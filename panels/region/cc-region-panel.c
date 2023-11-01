@@ -25,12 +25,14 @@
 #include <gio/gio.h>
 #include <gio/gdesktopappinfo.h>
 #include <gtk/gtk.h>
+#include <adwaita.h>
 #include <polkit/polkit.h>
 
 #include "cc-region-panel.h"
 #include "cc-region-resources.h"
 #include "cc-language-chooser.h"
 #include "cc-format-chooser.h"
+#include "cc-list-row.h"
 
 #include "cc-common-language.h"
 
@@ -53,14 +55,13 @@ typedef enum {
 struct _CcRegionPanel {
         CcPanel          parent_instance;
 
-        GtkListBoxRow   *formats_row;
-        GtkInfoBar      *infobar;
+        CcListRow       *formats_row;
+        AdwBanner       *banner;
         GtkSizeGroup    *input_size_group;
-        AdwActionRow    *login_formats_row;
+        CcListRow       *login_formats_row;
         GtkWidget       *login_group;
-        AdwActionRow    *login_language_row;
+        CcListRow       *login_language_row;
         GtkListBoxRow   *language_row;
-        GtkButton       *restart_button;
 
         gboolean     login_auto_apply;
         GPermission *permission;
@@ -129,7 +130,7 @@ set_restart_notification_visible (CcRegionPanel *self,
                 }
         }
 
-        gtk_info_bar_set_revealed (self->infobar, visible);
+        adw_banner_set_revealed (self->banner, visible);
 
         file = get_needs_restart_file ();
 
@@ -566,6 +567,8 @@ update_login_region (CcRegionPanel *self)
 
         if (self->system_region)
                 name = gnome_get_country_from_locale (self->system_region, self->system_region);
+        else if (self->system_language)
+                name = gnome_get_country_from_locale (self->system_language, self->system_language);
 
         if (!name)
                 name = gnome_get_country_from_locale (DEFAULT_LOCALE, DEFAULT_LOCALE);
@@ -584,7 +587,7 @@ update_login_language (CcRegionPanel *self)
         if (!name)
                 name = gnome_get_language_from_locale (DEFAULT_LOCALE, DEFAULT_LOCALE);
 
-        adw_action_row_set_subtitle (self->login_language_row, name);
+        adw_action_row_set_subtitle (ADW_ACTION_ROW (self->login_language_row), name);
         update_login_region (self);
 }
 
@@ -738,8 +741,7 @@ session_proxy_ready (GObject      *source,
 }
 
 static void
-on_login_formats_row_activated_cb (GtkListBoxRow *row,
-                                   CcRegionPanel *self)
+on_login_formats_row_activated_cb (CcRegionPanel *self)
 {
         if (g_permission_get_allowed (self->permission)) {
                 show_region_chooser (self, SYSTEM);
@@ -752,8 +754,7 @@ on_login_formats_row_activated_cb (GtkListBoxRow *row,
 }
 
 static void
-on_login_language_row_activated_cb (GtkListBoxRow *row,
-                                    CcRegionPanel *self)
+on_login_language_row_activated_cb (CcRegionPanel *self)
 {
         if (g_permission_get_allowed (self->permission)) {
                 show_language_chooser (self, SYSTEM);
@@ -766,15 +767,13 @@ on_login_language_row_activated_cb (GtkListBoxRow *row,
 }
 
 static void
-on_user_formats_row_activated_cb (GtkListBoxRow *row,
-                                  CcRegionPanel *self)
+on_user_formats_row_activated_cb (CcRegionPanel *self)
 {
         show_region_chooser (self, USER);
 }
 
 static void
-on_user_language_row_activated_cb (GtkListBoxRow *row,
-                                   CcRegionPanel *self)
+on_user_language_row_activated_cb (CcRegionPanel *self)
 {
         show_language_chooser (self, USER);
 }
@@ -832,15 +831,16 @@ cc_region_panel_class_init (CcRegionPanelClass * klass)
 
         object_class->finalize = cc_region_panel_finalize;
 
+        g_type_ensure (CC_TYPE_LIST_ROW);
+
         gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/control-center/region/cc-region-panel.ui");
 
         gtk_widget_class_bind_template_child (widget_class, CcRegionPanel, formats_row);
-        gtk_widget_class_bind_template_child (widget_class, CcRegionPanel, infobar);
+        gtk_widget_class_bind_template_child (widget_class, CcRegionPanel, banner);
         gtk_widget_class_bind_template_child (widget_class, CcRegionPanel, login_formats_row);
         gtk_widget_class_bind_template_child (widget_class, CcRegionPanel, login_group);
         gtk_widget_class_bind_template_child (widget_class, CcRegionPanel, login_language_row);
         gtk_widget_class_bind_template_child (widget_class, CcRegionPanel, language_row);
-        gtk_widget_class_bind_template_child (widget_class, CcRegionPanel, restart_button);
 
         gtk_widget_class_bind_template_callback (widget_class, on_login_formats_row_activated_cb);
         gtk_widget_class_bind_template_callback (widget_class, on_login_language_row_activated_cb);

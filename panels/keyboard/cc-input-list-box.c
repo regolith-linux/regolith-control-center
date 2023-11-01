@@ -37,6 +37,7 @@
 
 #define GNOME_DESKTOP_INPUT_SOURCES_DIR "org.gnome.desktop.input-sources"
 #define KEY_INPUT_SOURCES        "sources"
+#define KEY_MRU_SOURCES          "mru-sources"
 
 struct _CcInputListBox {
   AdwBin          parent_instance;
@@ -239,12 +240,13 @@ row_layout_cb (CcInputListBox *self,
   layout_variant = cc_input_source_get_layout_variant (source);
 
   if (layout_variant && layout_variant[0])
-    commandline = g_strdup_printf ("gkbd-keyboard-display -l \"%s\t%s\"",
+    commandline = g_strdup_printf (KEYBOARD_PREVIEWER_EXEC " \"%s+%s\"",
 				   layout, layout_variant);
   else
-    commandline = g_strdup_printf ("gkbd-keyboard-display -l %s",
+    commandline = g_strdup_printf (KEYBOARD_PREVIEWER_EXEC " %s",
 				   layout);
 
+  g_debug ("Launching keyboard previewer with command line: '%s'\n", commandline);
   g_spawn_command_line_async (commandline, NULL);
 }
 
@@ -282,13 +284,19 @@ update_input_rows (CcInputListBox *self)
        child;
        child = gtk_widget_get_next_sibling (child)) {
     CcInputRow *row;
+    gint row_idx;
 
     if (!CC_IS_INPUT_ROW (child))
       continue;
     row = CC_INPUT_ROW (child);
+    row_idx = gtk_list_box_row_get_index (GTK_LIST_BOX_ROW (row));
 
     cc_input_row_set_removable (row, n_input_rows > 1);
     cc_input_row_set_draggable (row, n_input_rows > 1);
+
+    gtk_widget_action_set_enabled (GTK_WIDGET (row), "row.move-up", row_idx != 1);
+    gtk_widget_action_set_enabled (GTK_WIDGET (row), "row.move-down", GTK_LIST_BOX_ROW (gtk_widget_get_next_sibling (child)) != self->add_input_row);
+
   }
 }
 
@@ -300,7 +308,6 @@ add_input_row (CcInputListBox *self, CcInputSource *source)
   gtk_widget_set_visible (GTK_WIDGET (self->no_inputs_row), FALSE);
 
   row = cc_input_row_new (source);
-  gtk_widget_show (GTK_WIDGET (row));
   g_signal_connect_object (row, "show-settings", G_CALLBACK (row_settings_cb), self, G_CONNECT_SWAPPED);
   g_signal_connect_object (row, "show-layout", G_CALLBACK (row_layout_cb), self, G_CONNECT_SWAPPED);
   g_signal_connect_object (row, "move-row", G_CALLBACK (row_moved_cb), self, G_CONNECT_SWAPPED);
@@ -414,6 +421,8 @@ set_input_settings (CcInputListBox *self)
 {
   GVariantBuilder builder;
   GtkWidget *child;
+  GVariant *value;
+  GVariant *previous_value = g_settings_get_value (self->input_settings, KEY_INPUT_SOURCES);
 
   g_variant_builder_init (&builder, G_VARIANT_TYPE ("a(ss)"));
 
@@ -437,7 +446,24 @@ set_input_settings (CcInputListBox *self)
     }
   }
 
-  g_settings_set_value (self->input_settings, KEY_INPUT_SOURCES, g_variant_builder_end (&builder));
+  value = g_variant_ref_sink (g_variant_builder_end (&builder));
+  g_settings_set_value (self->input_settings, KEY_INPUT_SOURCES, value);
+
+  /* We need to make sure it's always possible to compute the current input
+   * source from the settings, e.g. so distro installers can distinguish between
+   * configured input sources vs. current input source. Writing the sources
+   * setting alone is insufficient. If the mru-sources setting has never been
+   * written, then the user has never changed input sources, and we can set
+   * mru-sources to the previous value of the sources setting to indicate that
+   * the first previously-configured input source is the current input source.
+   * If mru-sources has been written, then the user has changed input sources
+   * and we don't need to do anything extra.
+   */
+  if (g_settings_get_user_value (self->input_settings, KEY_MRU_SOURCES) == NULL)
+    g_settings_set_value (self->input_settings, KEY_MRU_SOURCES, previous_value);
+
+  g_variant_unref (value);
+  g_variant_unref (previous_value);
 }
 
 static void set_localed_input (CcInputListBox *self);
@@ -455,9 +481,9 @@ update_input (CcInputListBox *self)
 }
 
 static void
-on_chooser_response_cb (GtkDialog      *dialog,
+on_chooser_response_cb (CcInputListBox *self,
                         gint            response,
-                        CcInputListBox *self)
+                        GtkDialog      *dialog)
 {
 
   if (response == GTK_RESPONSE_OK) {
@@ -487,7 +513,7 @@ show_input_chooser (CcInputListBox *self)
 				  );
   gtk_window_set_transient_for (GTK_WINDOW (chooser),
                                 GTK_WINDOW (gtk_widget_get_native (GTK_WIDGET (self))));
-  g_signal_connect (chooser, "response", G_CALLBACK (on_chooser_response_cb), self);
+  g_signal_connect_swapped (chooser, "response", G_CALLBACK (on_chooser_response_cb), self);
   gtk_window_present (GTK_WINDOW (chooser));
 }
 

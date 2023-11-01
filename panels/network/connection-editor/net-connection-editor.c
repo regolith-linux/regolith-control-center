@@ -37,8 +37,8 @@
 #include "ce-page-ethernet.h"
 #include "ce-page-8021x-security.h"
 #include "ce-page-vpn.h"
+#include "ce-page-wireguard.h"
 #include "vpn-helpers.h"
-#include "eap-method.h"
 
 enum {
         DONE,
@@ -56,6 +56,7 @@ struct _NetConnectionEditor
         GtkButton        *apply_button;
         GtkButton        *cancel_button;
         GtkNotebook      *notebook;
+        AdwToastOverlay  *toast_overlay;
         GtkStack         *toplevel_stack;
 
         NMClient         *client;
@@ -66,6 +67,7 @@ struct _NetConnectionEditor
         gboolean          is_new_connection;
         gboolean          is_changed;
         NMAccessPoint    *ap;
+        GCancellable     *cancellable;
 
         GSList *initializing_pages;
 
@@ -76,13 +78,100 @@ struct _NetConnectionEditor
 
 G_DEFINE_TYPE (NetConnectionEditor, net_connection_editor, GTK_TYPE_DIALOG)
 
+/* Used as both GSettings keys and GObject data tags */
+#define IGNORE_CA_CERT_TAG "ignore-ca-cert"
+#define IGNORE_PHASE2_CA_CERT_TAG "ignore-phase2-ca-cert"
+
+static GSettings *
+_get_ca_ignore_settings (NMConnection *connection)
+{
+        GSettings *settings;
+        g_autofree gchar *path = NULL;
+        const char *uuid;
+
+        g_return_val_if_fail (connection, NULL);
+
+        uuid = nm_connection_get_uuid (connection);
+        g_return_val_if_fail (uuid && *uuid, NULL);
+
+        path = g_strdup_printf ("/org/gnome/nm-applet/eap/%s/", uuid);
+        settings = g_settings_new_with_path ("org.gnome.nm-applet.eap", path);
+
+        return settings;
+}
+
+/**
+ * eap_method_ca_cert_ignore_save:
+ * @connection: the connection for which to save CA cert ignore values to GSettings
+ *
+ * Reads the CA cert ignore tags from the 802.1x setting GObject data and saves
+ * then to GSettings if present, using the connection UUID as the index.
+ */
+static void
+eap_method_ca_cert_ignore_save (NMConnection *connection)
+{
+        NMSetting8021x *s_8021x;
+        g_autoptr(GSettings) settings = NULL;
+        gboolean ignore = FALSE, phase2_ignore = FALSE;
+
+        g_return_if_fail (connection);
+
+        s_8021x = nm_connection_get_setting_802_1x (connection);
+        if (s_8021x) {
+                ignore = !!g_object_get_data (G_OBJECT (s_8021x), IGNORE_CA_CERT_TAG);
+                phase2_ignore = !!g_object_get_data (G_OBJECT (s_8021x), IGNORE_PHASE2_CA_CERT_TAG);
+        }
+
+        settings = _get_ca_ignore_settings (connection);
+        if (!settings)
+                return;
+
+        g_settings_set_boolean (settings, IGNORE_CA_CERT_TAG, ignore);
+        g_settings_set_boolean (settings, IGNORE_PHASE2_CA_CERT_TAG, phase2_ignore);
+}
+
+/**
+ * eap_method_ca_cert_ignore_load:
+ * @connection: the connection for which to load CA cert ignore values to GSettings
+ *
+ * Reads the CA cert ignore tags from the 802.1x setting GObject data and saves
+ * then to GSettings if present, using the connection UUID as the index.
+ */
+static void
+eap_method_ca_cert_ignore_load (NMConnection *connection)
+{
+        g_autoptr(GSettings) settings = NULL;
+        NMSetting8021x *s_8021x;
+        gboolean ignore, phase2_ignore;
+
+        g_return_if_fail (connection);
+
+        s_8021x = nm_connection_get_setting_802_1x (connection);
+        if (!s_8021x)
+                return;
+
+        settings = _get_ca_ignore_settings (connection);
+        if (!settings)
+                return;
+
+        ignore = g_settings_get_boolean (settings, IGNORE_CA_CERT_TAG);
+        phase2_ignore = g_settings_get_boolean (settings, IGNORE_PHASE2_CA_CERT_TAG);
+
+        g_object_set_data (G_OBJECT (s_8021x),
+                           IGNORE_CA_CERT_TAG,
+                           GUINT_TO_POINTER (ignore));
+        g_object_set_data (G_OBJECT (s_8021x),
+                           IGNORE_PHASE2_CA_CERT_TAG,
+                           GUINT_TO_POINTER (phase2_ignore));
+}
+
 static void page_changed (NetConnectionEditor *self);
 
 static void
 cancel_editing (NetConnectionEditor *self)
 {
-        gtk_window_destroy (GTK_WINDOW (self));
         g_signal_emit (self, signals[DONE], 0, FALSE);
+        gtk_window_destroy (GTK_WINDOW (self));
 }
 
 static void
@@ -110,8 +199,27 @@ static void
 update_complete (NetConnectionEditor *self,
                  gboolean             success)
 {
-        gtk_widget_hide (GTK_WIDGET (self));
         g_signal_emit (self, signals[DONE], 0, success);
+        gtk_window_destroy (GTK_WINDOW (self));
+}
+
+static void
+device_reapply_cb (GObject      *source_object,
+                   GAsyncResult *res,
+                   gpointer      user_data)
+{
+        NetConnectionEditor *self = user_data;
+        g_autoptr(GError) error = NULL;
+        gboolean success = TRUE;
+
+        if (!nm_device_reapply_finish (NM_DEVICE (source_object), res, &error)) {
+                if (!g_error_matches (error, NM_DEVICE_ERROR, NM_DEVICE_ERROR_NOT_ACTIVE))
+                        g_warning ("Failed to reapply changes on device: %s", error->message);
+                success = FALSE;
+        }
+
+        update_complete (self, success);
+        g_object_unref (self);
 }
 
 static void
@@ -119,21 +227,21 @@ updated_connection_cb (GObject            *source_object,
                        GAsyncResult       *res,
                        gpointer            user_data)
 {
-        NetConnectionEditor *self;
+        NetConnectionEditor *self = user_data;
         g_autoptr(GError) error = NULL;
-        gboolean success = TRUE;
 
         if (!nm_remote_connection_commit_changes_finish (NM_REMOTE_CONNECTION (source_object),
                                                          res, &error)) {
                 g_warning ("Failed to commit changes: %s", error->message);
-                success = FALSE;
-                //return; FIXME return if cancelled
+                update_complete (self, FALSE);
+                g_object_unref (self);
+                return;
         }
 
         nm_connection_clear_secrets (NM_CONNECTION (source_object));
 
-        self = user_data;
-        update_complete (self, success);
+        nm_device_reapply_async (self->device, NM_CONNECTION (self->orig_connection),
+                                 0, 0, NULL, device_reapply_cb, self /* owned */);
 }
 
 static void
@@ -141,19 +249,20 @@ added_connection_cb (GObject            *source_object,
                      GAsyncResult       *res,
                      gpointer            user_data)
 {
-        NetConnectionEditor *self;
+        NetConnectionEditor *self = user_data;
         g_autoptr(GError) error = NULL;
         gboolean success = TRUE;
 
         if (!nm_client_add_connection_finish (NM_CLIENT (source_object), res, &error)) {
                 g_warning ("Failed to add connection: %s", error->message);
                 success = FALSE;
-                /* Leave the editor open */
-                // return; FIXME return if cancelled
+                update_complete (self, success);
+                g_object_unref (self);
+                return;
         }
 
-        self = user_data;
-        update_complete (self, success);
+        nm_device_reapply_async (self->device, NM_CONNECTION (self->orig_connection),
+                                 0, 0, NULL, device_reapply_cb, self /* owned */);
 }
 
 static void
@@ -163,19 +272,27 @@ apply_clicked_cb (NetConnectionEditor *self)
 
         eap_method_ca_cert_ignore_save (self->connection);
 
+        if (!self->device) {
+                update_complete (self, TRUE);
+                return;
+        }
+
         if (self->is_new_connection) {
                 nm_client_add_connection_async (self->client,
                                                 self->orig_connection,
                                                 TRUE,
                                                 NULL,
                                                 added_connection_cb,
-                                                self);
+                                                g_object_ref (self));
         } else {
                 nm_remote_connection_commit_changes_async (NM_REMOTE_CONNECTION (self->orig_connection),
                                                            TRUE,
                                                            NULL,
-                                                           updated_connection_cb, self);
+                                                           updated_connection_cb,
+                                                           g_object_ref (self));
         }
+
+        gtk_widget_set_visible (GTK_WIDGET (self), FALSE);
 }
 
 static void
@@ -194,6 +311,8 @@ net_connection_editor_finalize (GObject *object)
         g_clear_object (&self->device);
         g_clear_object (&self->client);
         g_clear_object (&self->ap);
+        g_cancellable_cancel (self->cancellable);
+        g_clear_object (&self->cancellable);
 
         G_OBJECT_CLASS (net_connection_editor_parent_class)->finalize (object);
 }
@@ -223,38 +342,12 @@ net_connection_editor_class_init (NetConnectionEditorClass *class)
         gtk_widget_class_bind_template_child (widget_class, NetConnectionEditor, apply_button);
         gtk_widget_class_bind_template_child (widget_class, NetConnectionEditor, cancel_button);
         gtk_widget_class_bind_template_child (widget_class, NetConnectionEditor, notebook);
+        gtk_widget_class_bind_template_child (widget_class, NetConnectionEditor, toast_overlay);
         gtk_widget_class_bind_template_child (widget_class, NetConnectionEditor, toplevel_stack);
 
         gtk_widget_class_bind_template_callback (widget_class, cancel_clicked_cb);
         gtk_widget_class_bind_template_callback (widget_class, close_request_cb);
         gtk_widget_class_bind_template_callback (widget_class, apply_clicked_cb);
-}
-
-static void
-net_connection_editor_error_dialog (NetConnectionEditor *self,
-                                    const char *primary_text,
-                                    const char *secondary_text)
-{
-        GtkWidget *dialog;
-        GtkWindow *parent;
-
-        if (gtk_widget_is_visible (GTK_WIDGET (self)))
-                parent = GTK_WINDOW (self);
-        else
-                parent = gtk_window_get_transient_for (GTK_WINDOW (self));
-
-        dialog = gtk_message_dialog_new (parent,
-                                         GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-                                         GTK_MESSAGE_ERROR,
-                                         GTK_BUTTONS_OK,
-                                         "%s", primary_text);
-
-        if (secondary_text) {
-                gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
-                                                          "%s", secondary_text);
-        }
-
-        gtk_window_present (GTK_WINDOW (dialog));
 }
 
 static void
@@ -272,10 +365,15 @@ net_connection_editor_do_fallback (NetConnectionEditor *self, const gchar *type)
 
         g_spawn_command_line_async (cmdline, &error);
 
-        if (error)
-                net_connection_editor_error_dialog (self,
-                                                    _("Unable to open connection editor"),
-                                                    error->message);
+        if (error) {
+                AdwToast *toast;
+                g_autofree gchar *message = NULL;
+
+                message = g_strdup_printf (_("Unable to open connection editor: %s"), error->message);
+                toast = adw_toast_new (message);
+
+                adw_toast_overlay_add_toast (self->toast_overlay, toast);
+        }
 
         g_signal_emit (self, signals[DONE], 0, FALSE);
 }
@@ -400,6 +498,10 @@ recheck_initialization (NetConnectionEditor *self)
         gtk_notebook_set_current_page (self->notebook, 0);
 
         g_idle_add (idle_validate, self);
+
+        if (self->is_new_connection)
+                adw_bin_set_child (self->add_connection_frame, NULL);
+
 }
 
 static void
@@ -446,8 +548,12 @@ get_secrets_cb (GObject *source_object,
         connection = NM_REMOTE_CONNECTION (source_object);
         variant = nm_remote_connection_get_secrets_finish (connection, res, &error);
 
-        if (!variant && g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
-                return;
+        if (!variant) {
+                if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+                        return;
+
+                g_warning ("Failed to get secrets: %s", error->message);
+        }
 
         ce_page_complete_init (info->page, info->editor->connection, info->setting_name, variant, g_steal_pointer (&error));
 }
@@ -466,7 +572,7 @@ get_secrets_for_page (NetConnectionEditor *self,
 
         nm_remote_connection_get_secrets_async (NM_REMOTE_CONNECTION (self->orig_connection),
                                                 setting_name,
-                                                NULL, //FIXME
+                                                self->cancellable,
                                                 get_secrets_cb,
                                                 info);
 }
@@ -495,6 +601,7 @@ net_connection_editor_set_connection (NetConnectionEditor *self,
         gboolean is_wired;
         gboolean is_wifi;
         gboolean is_vpn;
+        gboolean is_wireguard;
 
         self->is_new_connection = !nm_client_get_connection_by_uuid (self->client,
                                                                        nm_connection_get_uuid (connection));
@@ -517,6 +624,7 @@ net_connection_editor_set_connection (NetConnectionEditor *self,
         is_wired = g_str_equal (type, NM_SETTING_WIRED_SETTING_NAME);
         is_wifi = g_str_equal (type, NM_SETTING_WIRELESS_SETTING_NAME);
         is_vpn = g_str_equal (type, NM_SETTING_VPN_SETTING_NAME);
+        is_wireguard = g_str_equal (type, NM_SETTING_WIREGUARD_SETTING_NAME);
 
         if (!self->is_new_connection)
                 add_page (self, CE_PAGE (ce_page_details_new (self->connection, self->device, self->ap, self)));
@@ -527,6 +635,8 @@ net_connection_editor_set_connection (NetConnectionEditor *self,
                 add_page (self, CE_PAGE (ce_page_ethernet_new (self->connection, self->client)));
         else if (is_vpn)
                 add_page (self, CE_PAGE (ce_page_vpn_new (self->connection)));
+        else if (is_wireguard)
+                add_page (self, CE_PAGE (ce_page_wireguard_new (self->connection)));
         else {
                 /* Unsupported type */
                 net_connection_editor_do_fallback (self, type);
@@ -557,7 +667,9 @@ net_connection_editor_set_connection (NetConnectionEditor *self,
 }
 
 static NMConnection *
-complete_vpn_connection (NetConnectionEditor *self, NMConnection *connection)
+complete_vpn_connection (NetConnectionEditor *self,
+                         NMConnection *connection,
+                         GType setting_type)
 {
         NMSettingConnection *s_con;
         NMSetting *s_type;
@@ -589,9 +701,9 @@ complete_vpn_connection (NetConnectionEditor *self, NMConnection *connection)
                               NULL);
         }
 
-        s_type = nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+        s_type = nm_connection_get_setting (connection, setting_type);
         if (!s_type) {
-                s_type = g_object_new (NM_TYPE_SETTING_VPN, NULL);
+                s_type = g_object_new (setting_type, NULL);
                 nm_connection_add_setting (connection, s_type);
         }
 
@@ -607,9 +719,7 @@ complete_vpn_connection (NetConnectionEditor *self, NMConnection *connection)
 static void
 finish_add_connection (NetConnectionEditor *self, NMConnection *connection)
 {
-        adw_bin_set_child (self->add_connection_frame, NULL);
-        gtk_stack_set_visible_child (self->toplevel_stack, GTK_WIDGET (self->notebook));
-        gtk_widget_show (GTK_WIDGET (self->apply_button));
+        gtk_widget_set_visible (GTK_WIDGET (self->apply_button), TRUE);
 
         if (connection)
                 net_connection_editor_set_connection (self, connection);
@@ -619,14 +729,32 @@ static void
 vpn_import_complete (NMConnection *connection, gpointer user_data)
 {
         NetConnectionEditor *self = user_data;
+        NMSetting *s_type = NULL;
+        NMSettingConnection *s_con;
 
         if (!connection) {
-                /* The import code shows its own error dialogs. */
+                AdwToast *toast;
+                g_autofree gchar *message = NULL;
+
+                message = g_strdup_printf (_("Invalid VPN configuration file"));
+                toast = adw_toast_new (message);
+                adw_toast_overlay_add_toast (self->toast_overlay, toast);
+
                 g_signal_emit (self, signals[DONE], 0, FALSE);
                 return;
         }
 
-        complete_vpn_connection (self, connection);
+        s_type = nm_connection_get_setting (connection, NM_TYPE_SETTING_WIREGUARD);
+        if (s_type)
+                complete_vpn_connection (self, connection, NM_TYPE_SETTING_WIREGUARD);
+        else
+                complete_vpn_connection (self, connection, NM_TYPE_SETTING_VPN);
+
+        /* Mark the connection as private to this user, and non-autoconnect */
+        s_con = nm_connection_get_setting_connection (connection);
+        g_object_set (s_con, NM_SETTING_CONNECTION_AUTOCONNECT, FALSE, NULL);
+        nm_setting_connection_add_permission (s_con, "user", g_get_user_name (), NULL);
+
         finish_add_connection (self, connection);
 }
 
@@ -635,17 +763,22 @@ vpn_type_activated (NetConnectionEditor *self, GtkWidget *row)
 {
         const char *service_name = g_object_get_data (G_OBJECT (row), "service_name");
         NMConnection *connection;
-        NMSettingVpn *s_vpn;
+        NMSettingVpn *s_vpn = NULL;
         NMSettingConnection *s_con;
+        GType s_type = NM_TYPE_SETTING_VPN;
 
         if (!strcmp (service_name, "import")) {
                 vpn_import (GTK_WINDOW (self), vpn_import_complete, self);
                 return;
+        } else if (!strcmp (service_name, "wireguard")) {
+                s_type = NM_TYPE_SETTING_WIREGUARD;
         }
 
-        connection = complete_vpn_connection (self, NULL);
-        s_vpn = nm_connection_get_setting_vpn (connection);
-        g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, service_name, NULL);
+        connection = complete_vpn_connection (self, NULL, s_type);
+        if (s_type == NM_TYPE_SETTING_VPN) {
+                s_vpn = nm_connection_get_setting_vpn (connection);
+                g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, service_name, NULL);
+        }
 
         /* Mark the connection as private to this user, and non-autoconnect */
         s_con = nm_connection_get_setting_connection (connection);
@@ -709,6 +842,34 @@ select_vpn_type (NetConnectionEditor *self, GtkListBox *list)
                 gtk_list_box_append (list, row);
         }
 
+        /*  Translators: VPN add dialog Wireguard description */
+        gchar *desc = _("Free and open-source VPN solution designed for ease "
+                        "of use, high speed performance and low attack surface.");
+        gchar *desc_markup = g_markup_printf_escaped ("<span size='smaller'>%s</span>", desc);
+
+        row = gtk_list_box_row_new ();
+
+        row_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+        gtk_widget_set_margin_start (row_box, 12);
+        gtk_widget_set_margin_end (row_box, 12);
+        gtk_widget_set_margin_top (row_box, 12);
+        gtk_widget_set_margin_bottom (row_box, 12);
+
+        name_label = gtk_label_new (_("WireGuard"));
+        gtk_widget_set_halign (name_label, GTK_ALIGN_START);
+        gtk_box_append (GTK_BOX (row_box), name_label);
+
+        desc_label = gtk_label_new (NULL);
+        gtk_label_set_markup (GTK_LABEL (desc_label), desc_markup);
+        gtk_label_set_wrap (GTK_LABEL (desc_label), TRUE);
+        gtk_widget_set_halign (desc_label, GTK_ALIGN_START);
+        gtk_widget_add_css_class (desc_label, "dim-label");
+        gtk_box_append (GTK_BOX (row_box), desc_label);
+
+        gtk_list_box_row_set_child (GTK_LIST_BOX_ROW (row), row_box);
+        g_object_set_data (G_OBJECT (row), "service_name", "wireguard");
+        gtk_list_box_append (list, row);
+
         /* Import */
         row = gtk_list_box_row_new ();
 
@@ -743,7 +904,7 @@ net_connection_editor_add_connection (NetConnectionEditor *self)
         adw_bin_set_child (self->add_connection_frame, GTK_WIDGET (list));
 
         gtk_stack_set_visible_child (self->toplevel_stack, GTK_WIDGET (self->add_connection_box));
-        gtk_widget_hide (GTK_WIDGET (self->apply_button));
+        gtk_widget_set_visible (GTK_WIDGET (self->apply_button), FALSE);
         gtk_window_set_title (GTK_WINDOW (self), _("Add VPN"));
 }
 
@@ -775,6 +936,8 @@ net_connection_editor_new (NMConnection     *connection,
                              /* This doesn't seem to work for a template, so it is also hardcoded. */
                              "use-header-bar", 1,
                              NULL);
+
+        self->cancellable = g_cancellable_new ();
 
         if (ap)
                 self->ap = g_object_ref (ap);
@@ -818,7 +981,7 @@ void
 net_connection_editor_forget (NetConnectionEditor *self)
 {
         nm_remote_connection_delete_async (NM_REMOTE_CONNECTION (self->orig_connection),
-                                           NULL, forgotten_cb, self);
+                                           self->cancellable, forgotten_cb, self);
 }
 
 void

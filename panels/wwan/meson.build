@@ -3,15 +3,9 @@ deps = common_deps + network_manager_deps + [gcr_dep, polkit_gobject_dep]
 panels_list += cappletname
 desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
-desktop_in = configure_file(
-          input : desktop + '.in.in',
-         output : desktop + '.in',
-  configuration : desktop_conf
-)
-
 i18n.merge_file(
          type : 'desktop',
-        input : desktop_in,
+        input : desktop + '.in',
        output : desktop,
        po_dir : po_dir,
       install : true,
@@ -30,22 +24,11 @@ sources = files(
   'cc-wwan-apn-dialog.c',
 )
 
-resource_data = files(
-  'cc-wwan-panel.ui',
-  'cc-wwan-device-page.ui',
-  'cc-wwan-mode-dialog.ui',
-  'cc-wwan-network-dialog.ui',
-  'cc-wwan-details-dialog.ui',
-  'cc-wwan-sim-lock-dialog.ui',
-  'cc-wwan-apn-dialog.ui',
-)
-
 sources += gnome.compile_resources(
   'cc-' + cappletname + '-resources',
   cappletname + '.gresource.xml',
-        c_name : 'cc_' + cappletname,
-  dependencies : resource_data,
-        export : true
+  c_name : 'cc_' + cappletname,
+  export : true,
 )
 
 cflags += '-DGNOMELOCALEDIR="@0@"'.format(control_center_localedir)

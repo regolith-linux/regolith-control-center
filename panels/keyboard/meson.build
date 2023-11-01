@@ -1,15 +1,9 @@
 panels_list += cappletname
 desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
-desktop_in = configure_file(
-  input: desktop + '.in.in',
-  output: desktop + '.in',
-  configuration: desktop_conf
-)
-
 i18n.merge_file(
   type: 'desktop',
-  input: desktop_in,
+  input: desktop + '.in',
   output: desktop,
   po_dir: po_dir,
   install: true,
@@ -55,6 +49,7 @@ endforeach
 sources = files(
   'cc-xkb-modifier-dialog.c',
   'cc-keyboard-shortcut-row.c',
+  'cc-keyboard-shortcut-group.c',
   'cc-keyboard-shortcut-dialog.c',
   'cc-keyboard-panel.c',
   'cc-keyboard-item.c',
@@ -70,18 +65,10 @@ sources = files(
   'cc-input-source-xkb.c',
 )
 
-resource_data = files(
-  'enter-keyboard-shortcut.svg',
-  'cc-keyboard-panel.ui',
-  'cc-keyboard-shortcut-editor.ui',
-  'cc-input-chooser.ui',
-)
-
 sources += gnome.compile_resources(
   'cc-' + cappletname + '-resources',
   cappletname + '.gresource.xml',
   c_name: 'cc_' + cappletname,
-  dependencies: resource_data,
   export: true
 )
 
@@ -94,12 +81,20 @@ if enable_ibus
   deps += ibus_dep
 endif
 
+if tecla_is_subproject
+  keyboard_previewer_exec = get_option('prefix') / get_option('bindir') / 'tecla'
+else
+  keyboard_previewer_exec = tecla_dep.get_pkgconfig_variable('app')
+endif
+
 keyboard_panel_lib = static_library(
   cappletname,
   sources: sources,
   include_directories: [top_inc, common_inc],
   dependencies: deps,
-  c_args: cflags
+  c_args: cflags + [
+    '-DKEYBOARD_PREVIEWER_EXEC="@0@"'.format(keyboard_previewer_exec)
+  ]
 )
 panels_libs += keyboard_panel_lib
 

@@ -92,8 +92,8 @@ update_password_strength (CcPasswordDialog *self)
         if (strength_level > 1) {
                 gtk_widget_remove_css_class (GTK_WIDGET (self->password_entry), "error");
         } else if (strlen (password) == 0) {
-                //gtk_widget_hide (GTK_WIDGET (self->password_entry_status_icon));
-                //gtk_widget_show (GTK_WIDGET (self->generate_password_button));
+                //gtk_widget_set_visible (GTK_WIDGET (self->password_entry_status_icon), FALSE);
+                //gtk_widget_set_visible (GTK_WIDGET (self->generate_password_button), TRUE);
         } else {
                 gtk_widget_add_css_class (GTK_WIDGET (self->password_entry), "error");
         }
@@ -208,6 +208,8 @@ update_sensitivity (CcPasswordDialog *self)
                 can_change = TRUE;
         }
 
+        gtk_widget_set_sensitive (GTK_WIDGET (self->password_entry), self->old_password_ok);
+        gtk_widget_set_sensitive (GTK_WIDGET (self->verify_entry), self->old_password_ok);
         gtk_widget_set_sensitive (GTK_WIDGET (self->ok_button), can_change);
 }
 
@@ -218,8 +220,8 @@ mode_change (CcPasswordDialog *self,
         gboolean active;
 
         active = (mode == ACT_USER_PASSWORD_MODE_REGULAR);
-        gtk_widget_set_sensitive (GTK_WIDGET (self->password_entry), active);
-        gtk_widget_set_sensitive (GTK_WIDGET (self->verify_entry), active);
+        gtk_widget_set_sensitive (GTK_WIDGET (self->password_entry), self->old_password_ok);
+        gtk_widget_set_sensitive (GTK_WIDGET (self->verify_entry), self->old_password_ok);
         gtk_widget_set_sensitive (GTK_WIDGET (self->old_password_entry), active);
         gtk_check_button_set_active (GTK_CHECK_BUTTON (self->action_now_radio), active);
         gtk_check_button_set_active (GTK_CHECK_BUTTON (self->action_login_radio), !active);
@@ -319,11 +321,11 @@ password_entry_focus_out_cb (CcPasswordDialog *self)
 
 
 static gboolean
-password_entry_key_press_cb (GtkEventControllerKey *controller,
+password_entry_key_press_cb (CcPasswordDialog      *self,
                              guint                  keyval,
                              guint                  keycode,
                              GdkModifierType        state,
-                             CcPasswordDialog      *self)
+                             GtkEventControllerKey *controller)
 {
         if (self->password_entry_timeout_id != 0) {
                 g_source_remove (self->password_entry_timeout_id);
@@ -395,6 +397,8 @@ old_password_entry_changed (CcPasswordDialog *self)
         gtk_widget_set_sensitive (GTK_WIDGET (self->ok_button), FALSE);
 
         self->old_password_ok = FALSE;
+        gtk_widget_set_sensitive (GTK_WIDGET (self->password_entry), self->old_password_ok);
+        gtk_widget_set_sensitive (GTK_WIDGET (self->verify_entry), self->old_password_ok);
         self->old_password_entry_timeout_id = g_timeout_add (PASSWORD_CHECK_TIMEOUT,
                                                              (GSourceFunc) old_password_entry_timeout,
                                                              self);
@@ -413,7 +417,7 @@ generate_password (CcPasswordDialog *self)
         gtk_editable_set_text (GTK_EDITABLE (self->verify_entry), pwd);
         gtk_widget_set_sensitive (GTK_WIDGET (self->verify_entry), TRUE);
 
-        gtk_widget_hide (GTK_WIDGET (self->generate_password_button));
+        gtk_widget_set_visible (GTK_WIDGET (self->generate_password_button), FALSE);
 }
 
 static void
@@ -502,7 +506,7 @@ cc_password_dialog_new (ActUser *user)
                 gboolean visible;
 
                 mode_change (self, ACT_USER_PASSWORD_MODE_REGULAR);
-                gtk_widget_hide (GTK_WIDGET (self->password_on_next_login_group));
+                gtk_widget_set_visible (GTK_WIDGET (self->password_on_next_login_group), FALSE);
 
                 visible = (act_user_get_password_mode (user) != ACT_USER_PASSWORD_MODE_NONE);
                 gtk_widget_set_visible (GTK_WIDGET (self->old_password_entry), visible);
@@ -512,9 +516,9 @@ cc_password_dialog_new (ActUser *user)
         }
         else {
                 mode_change (self, ACT_USER_PASSWORD_MODE_SET_AT_LOGIN);
-                gtk_widget_show (GTK_WIDGET (self->password_on_next_login_group));
+                gtk_widget_set_visible (GTK_WIDGET (self->password_on_next_login_group), TRUE);
 
-                gtk_widget_hide (GTK_WIDGET (self->old_password_entry));
+                gtk_widget_set_visible (GTK_WIDGET (self->old_password_entry), FALSE);
                 self->old_password_ok = TRUE;
         }
 

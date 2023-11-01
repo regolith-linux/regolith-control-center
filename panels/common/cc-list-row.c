@@ -40,11 +40,6 @@ struct _CcListRow
 
   GtkImage     *arrow;
   gboolean      show_arrow;
-
-  GtkSwitch    *enable_switch;
-  gboolean      show_switch;
-
-  gboolean      switch_active;
 };
 
 G_DEFINE_TYPE (CcListRow, cc_list_row, ADW_TYPE_ACTION_ROW)
@@ -54,59 +49,10 @@ enum {
   PROP_0,
   PROP_SECONDARY_LABEL,
   PROP_SHOW_ARROW,
-  PROP_SHOW_SWITCH,
-  PROP_ACTIVE,
   N_PROPS
 };
 
 static GParamSpec *properties[N_PROPS];
-
-static void
-cc_list_row_activated_cb (CcListRow     *self,
-                          GtkListBoxRow *row)
-{
-  g_assert (CC_IS_LIST_ROW (self));
-
-  if (!self->show_switch || row != GTK_LIST_BOX_ROW (self))
-    return;
-
-  cc_list_row_activate (self);
-}
-
-static void
-cc_list_row_parent_changed_cb (CcListRow *self)
-{
-  GtkWidget *parent;
-
-  g_assert (CC_IS_LIST_ROW (self));
-
-  parent = gtk_widget_get_parent (GTK_WIDGET (self));
-
-  if (!parent)
-    return;
-
-  g_return_if_fail (GTK_IS_LIST_BOX (parent));
-  g_signal_connect_object (parent, "row-activated",
-                           G_CALLBACK (cc_list_row_activated_cb),
-                           self, G_CONNECT_SWAPPED);
-}
-
-static void
-cc_list_row_switch_active_cb (CcListRow *self)
-{
-  gboolean switch_active;
-
-  g_assert (CC_IS_LIST_ROW (self));
-  g_assert (self->show_switch);
-
-  switch_active = gtk_switch_get_active (self->enable_switch);
-
-  if (switch_active == self->switch_active)
-    return;
-
-  self->switch_active = switch_active;
-  g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_ACTIVE]);
-}
 
 static void
 cc_list_row_get_property (GObject    *object,
@@ -124,10 +70,6 @@ cc_list_row_get_property (GObject    *object,
 
     case PROP_SHOW_ARROW:
       g_value_set_boolean (value, self->show_arrow);
-      break;
-
-    case PROP_ACTIVE:
-      g_value_set_boolean (value, self->switch_active);
       break;
 
     default:
@@ -151,20 +93,6 @@ cc_list_row_set_property (GObject      *object,
 
     case PROP_SHOW_ARROW:
       cc_list_row_set_show_arrow (self, g_value_get_boolean (value));
-      break;
-
-    case PROP_SHOW_SWITCH:
-      cc_list_row_set_show_switch (self, g_value_get_boolean (value));
-      break;
-
-    case PROP_ACTIVE:
-      g_signal_handlers_block_by_func (self->enable_switch,
-                                       cc_list_row_switch_active_cb, self);
-      gtk_switch_set_active (self->enable_switch,
-                             g_value_get_boolean (value));
-      self->switch_active = g_value_get_boolean (value);
-      g_signal_handlers_unblock_by_func (self->enable_switch,
-                                         cc_list_row_switch_active_cb, self);
       break;
 
     default:
@@ -195,20 +123,6 @@ cc_list_row_class_init (CcListRowClass *klass)
                           FALSE,
                           G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
 
-  properties[PROP_SHOW_SWITCH] =
-    g_param_spec_boolean ("show-switch",
-                          "Show Switch",
-                          "Whether to show a switch at the end of row",
-                          FALSE,
-                          G_PARAM_WRITABLE | G_PARAM_STATIC_STRINGS);
-
-  properties[PROP_ACTIVE] =
-    g_param_spec_boolean ("active",
-                          "Active",
-                          "The active state of the switch",
-                          FALSE,
-                          G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
-
   g_object_class_install_properties (object_class, N_PROPS, properties);
 
   gtk_widget_class_set_template_from_resource (widget_class,
@@ -217,9 +131,6 @@ cc_list_row_class_init (CcListRowClass *klass)
 
   gtk_widget_class_bind_template_child (widget_class, CcListRow, secondary_label);
   gtk_widget_class_bind_template_child (widget_class, CcListRow, arrow);
-  gtk_widget_class_bind_template_child (widget_class, CcListRow, enable_switch);
-
-  gtk_widget_class_bind_template_callback (widget_class, cc_list_row_switch_active_cb);
 }
 
 static void
@@ -228,9 +139,6 @@ cc_list_row_init (CcListRow *self)
   g_resources_register (cc_common_get_resource ());
 
   gtk_widget_init_template (GTK_WIDGET (self));
-  g_signal_connect_object (self, "notify::parent",
-                           G_CALLBACK (cc_list_row_parent_changed_cb),
-                           self, G_CONNECT_SWAPPED);
 }
 
 void
@@ -238,7 +146,6 @@ cc_list_row_set_show_arrow (CcListRow *self,
                             gboolean   show_arrow)
 {
   g_return_if_fail (CC_IS_LIST_ROW (self));
-  g_return_if_fail (!self->show_switch);
 
   if (self->show_arrow == show_arrow)
     return;
@@ -248,48 +155,10 @@ cc_list_row_set_show_arrow (CcListRow *self,
 }
 
 void
-cc_list_row_set_show_switch (CcListRow *self,
-                             gboolean   show_switch)
-{
-  g_return_if_fail (CC_IS_LIST_ROW (self));
-
-  self->show_switch = !!show_switch;
-
-  gtk_widget_set_visible (GTK_WIDGET (self->enable_switch), self->show_switch);
-  gtk_widget_set_visible (GTK_WIDGET (self->arrow), !self->show_switch);
-  gtk_widget_set_visible (GTK_WIDGET (self->secondary_label), !self->show_switch);
-
-  adw_action_row_set_activatable_widget (ADW_ACTION_ROW (self),
-                                         self->show_switch ? GTK_WIDGET (self->enable_switch) : NULL);
-}
-
-gboolean
-cc_list_row_get_active (CcListRow *self)
-{
-  g_return_val_if_fail (CC_IS_LIST_ROW (self), FALSE);
-  g_return_val_if_fail (self->show_switch, FALSE);
-
-  return self->switch_active;
-}
-
-void
-cc_list_row_activate (CcListRow *self)
-{
-  g_return_if_fail (CC_IS_LIST_ROW (self));
-  g_return_if_fail (self->show_switch);
-
-  self->switch_active = !self->switch_active;
-  g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_ACTIVE]);
-
-  gtk_widget_activate (GTK_WIDGET (self->enable_switch));
-}
-
-void
 cc_list_row_set_secondary_label (CcListRow   *self,
                                  const gchar *label)
 {
   g_return_if_fail (CC_IS_LIST_ROW (self));
-  g_return_if_fail (!self->show_switch);
 
   if (!label)
     label = "";
@@ -306,7 +175,6 @@ cc_list_row_set_secondary_markup (CcListRow   *self,
                                   const gchar *markup)
 {
   g_return_if_fail (CC_IS_LIST_ROW (self));
-  g_return_if_fail (!self->show_switch);
 
   if (!markup)
     markup = "";
@@ -316,13 +184,4 @@ cc_list_row_set_secondary_markup (CcListRow   *self,
 
   gtk_label_set_markup (self->secondary_label, markup);
   g_object_notify_by_pspec (G_OBJECT (self), properties[PROP_SECONDARY_LABEL]);
-}
-
-void
-cc_list_row_set_switch_sensitive (CcListRow *self,
-                                  gboolean   sensitive)
-{
-  g_return_if_fail (CC_IS_LIST_ROW (self));
-
-  gtk_widget_set_sensitive (GTK_WIDGET (self->enable_switch), sensitive);
 }

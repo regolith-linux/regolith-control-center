@@ -1,15 +1,9 @@
 panels_list += cappletname
 desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 
-desktop_in = configure_file(
-  input: 'data/' + desktop + '.in.in',
-  output: desktop + '.in',
-  configuration: desktop_conf
-)
-
 i18n.merge_file(
   type: 'desktop',
-  input: desktop_in,
+  input: 'data/' + desktop + '.in',
   output: desktop,
   po_dir: po_dir,
   install: true,
@@ -98,26 +92,10 @@ common_sources = files(
   'user-utils.c',
 )
 
-resource_data = files(
-  'cc-add-user-dialog.ui',
-  'cc-avatar-chooser.ui',
-  'cc-login-history-dialog.ui',
-  'cc-password-dialog.ui',
-  'cc-user-panel.ui',
-  'cc-fingerprint-dialog.ui',
-  'data/icons/fingerprint-detection-complete-symbolic.svg',
-  'data/icons/fingerprint-detection-symbolic.svg',
-  'data/icons/fingerprint-detection-warning-symbolic.svg',
-  'data/join-dialog.ui',
-  'data/user-accounts-dialog.css',
-  'data/cc-fingerprint-dialog.css',
-)
-
 common_sources += gnome.compile_resources(
   'cc-' + cappletname + '-resources',
   cappletname + '.gresource.xml',
   c_name: 'cc_' + cappletname.underscorify(),
-  dependencies: resource_data,
   export: true
 )
 
@@ -153,7 +131,6 @@ sources = common_sources + files(
   'cc-crop-area.c',
   'cc-fingerprint-manager.c',
   'cc-fingerprint-dialog.c',
-  'cc-login-history-dialog.c',
   'cc-password-dialog.c',
   'cc-user-panel.c',
   'run-passwd.c',

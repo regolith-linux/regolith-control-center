@@ -40,7 +40,7 @@ struct _CcPowerPanel
 
   GtkListBoxRow     *als_row;
   GtkSwitch         *als_switch;
-  GtkDialog         *automatic_suspend_dialog;
+  GtkWindow         *automatic_suspend_dialog;
   GtkLabel          *automatic_suspend_label;
   GtkListBoxRow     *automatic_suspend_row;
   GtkListBox        *battery_listbox;
@@ -160,14 +160,14 @@ load_custom_css (CcPowerPanel *self,
 }
 
 static void
-add_battery (CcPowerPanel *panel, UpDevice *device, gboolean primary)
+add_battery (CcPowerPanel *self, UpDevice *device, gboolean primary)
 {
   CcBatteryRow *row = cc_battery_row_new (device, primary);
-  cc_battery_row_set_level_sizegroup (row, panel->level_sizegroup);
-  cc_battery_row_set_row_sizegroup (row, panel->battery_row_sizegroup);
+  cc_battery_row_set_level_sizegroup (row, self->level_sizegroup);
+  cc_battery_row_set_row_sizegroup (row, self->battery_row_sizegroup);
 
-  gtk_list_box_append (panel->battery_listbox, GTK_WIDGET (row));
-  gtk_widget_set_visible (GTK_WIDGET (panel->battery_section), TRUE);
+  gtk_list_box_append (self->battery_listbox, GTK_WIDGET (row));
+  gtk_widget_set_visible (GTK_WIDGET (self->battery_section), TRUE);
 }
 
 static void
@@ -212,10 +212,10 @@ up_client_changed (CcPowerPanel *self)
   g_autoptr(UpDevice) composite = NULL;
 
   empty_listbox (self->battery_listbox);
-  gtk_widget_hide (GTK_WIDGET (self->battery_section));
+  gtk_widget_set_visible (GTK_WIDGET (self->battery_section), FALSE);
 
   empty_listbox (self->device_listbox);
-  gtk_widget_hide (GTK_WIDGET (self->device_section));
+  gtk_widget_set_visible (GTK_WIDGET (self->device_section), FALSE);
 
   on_ups = FALSE;
   n_batteries = 0;
@@ -253,6 +253,12 @@ up_client_changed (CcPowerPanel *self)
 
   if (n_batteries > 1)
     adw_preferences_group_set_title (self->battery_section, _("Batteries"));
+  else if (on_ups)
+    {
+      /* Translators: UPS is an Uninterruptible Power Supply:
+       * https://en.wikipedia.org/wiki/Uninterruptible_power_supply */
+      adw_preferences_group_set_title (self->battery_section, _("UPS"));
+    }
   else
     adw_preferences_group_set_title (self->battery_section, _("Battery"));
 
@@ -507,10 +513,10 @@ set_ac_battery_ui_mode (CcPowerPanel *self)
 
   if (!self->has_batteries)
     {
-      gtk_widget_hide (GTK_WIDGET (self->suspend_on_battery_switch));
-      gtk_widget_hide (GTK_WIDGET (self->suspend_on_battery_label));
-      gtk_widget_hide (GTK_WIDGET (self->suspend_on_battery_delay_label));
-      gtk_widget_hide (GTK_WIDGET (self->suspend_on_battery_delay_combo));
+      gtk_widget_set_visible (GTK_WIDGET (self->suspend_on_battery_switch), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->suspend_on_battery_label), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->suspend_on_battery_delay_label), FALSE);
+      gtk_widget_set_visible (GTK_WIDGET (self->suspend_on_battery_delay_combo), FALSE);
       gtk_label_set_label (self->suspend_on_ac_label, _("When _idle"));
     }
 }
@@ -617,9 +623,9 @@ automatic_suspend_row_activated_cb (CcPowerPanel *self)
 
   shell = cc_panel_get_shell (CC_PANEL (self));
   toplevel = cc_shell_get_toplevel (shell);
-  gtk_window_set_transient_for (GTK_WINDOW (self->automatic_suspend_dialog), GTK_WINDOW (toplevel));
-  gtk_window_set_modal (GTK_WINDOW (self->automatic_suspend_dialog), TRUE);
-  gtk_window_present (GTK_WINDOW (self->automatic_suspend_dialog));
+  gtk_window_set_transient_for (self->automatic_suspend_dialog, GTK_WINDOW (toplevel));
+  gtk_window_set_modal (self->automatic_suspend_dialog, TRUE);
+  gtk_window_present (self->automatic_suspend_dialog);
 }
 
 static gboolean
@@ -843,7 +849,7 @@ populate_blank_screen_row (AdwComboRow *combo_row)
   for (i = 0; i < G_N_ELEMENTS (minutes); i++)
     {
       g_autoptr (GObject) item = NULL;
-      gchar *text = NULL;
+      g_autofree gchar *text = NULL;
 
       /* Translators: Option for "Blank Screen" in "Power" panel */
       text = g_strdup_printf (g_dngettext (GETTEXT_PACKAGE, "%d minute", "%d minutes", minutes[i]), minutes[i]);
@@ -933,9 +939,10 @@ setup_power_saving (CcPowerPanel *self)
     }
 
   /* Automatic suspend row */
-  if (can_suspend_or_hibernate (self, "CanSuspend"))
+  if (can_suspend_or_hibernate (self, "CanSuspend") && 
+      g_strcmp0 (self->chassis_type, "vm") != 0)
     {
-      gtk_widget_show (GTK_WIDGET (self->automatic_suspend_row));
+      gtk_widget_set_visible (GTK_WIDGET (self->automatic_suspend_row), TRUE);
       gtk_accessible_update_property (GTK_ACCESSIBLE (self->automatic_suspend_row),
                                       GTK_ACCESSIBLE_PROPERTY_LABEL, _("Automatic suspend"),
                                       -1);
@@ -1013,7 +1020,7 @@ power_profile_update_info_boxes (CcPowerPanel *self)
   int next_insert = 0;
 
   empty_listbox (self->power_profile_info_listbox);
-  gtk_widget_hide (GTK_WIDGET (self->power_profile_info_listbox));
+  gtk_widget_set_visible (GTK_WIDGET (self->power_profile_info_listbox), FALSE);
 
   profile_variant = g_dbus_proxy_get_cached_property (self->power_profiles_proxy, "ActiveProfile");
   if (!profile_variant)
@@ -1030,7 +1037,7 @@ power_profile_update_info_boxes (CcPowerPanel *self)
     {
       const char *text;
 
-      gtk_widget_show (GTK_WIDGET (self->power_profile_info_listbox));
+      gtk_widget_set_visible (GTK_WIDGET (self->power_profile_info_listbox), TRUE);
 
       if (g_str_equal (degraded, "high-operating-temperature"))
         text = _("Performance mode temporarily disabled due to high operating temperature.");
@@ -1068,7 +1075,7 @@ power_profile_update_info_boxes (CcPowerPanel *self)
       if (!app_id)
         continue;
 
-      gtk_widget_show (GTK_WIDGET (self->power_profile_info_listbox));
+      gtk_widget_set_visible (GTK_WIDGET (self->power_profile_info_listbox), TRUE);
 
       app_info = g_desktop_app_info_new (app_id);
       name = app_info ? g_app_info_get_name (G_APP_INFO (app_info)) : app_id;
@@ -1099,7 +1106,6 @@ power_profile_update_info_boxes (CcPowerPanel *self)
         }
 
       row = cc_power_profile_info_row_new (text);
-      gtk_widget_show (GTK_WIDGET (row));
       if (g_strcmp0 (held_profile, profile) != 0)
         gtk_list_box_insert (GTK_LIST_BOX (self->power_profile_info_listbox), GTK_WIDGET (row), -1);
       else
@@ -1284,7 +1290,7 @@ setup_power_profiles (CcPowerPanel *self)
       return;
     }
 
-  gtk_widget_show (GTK_WIDGET (self->power_profile_section));
+  gtk_widget_set_visible (GTK_WIDGET (self->power_profile_section), TRUE);
 
   props = g_variant_get_child_value (variant, 0);
   performance_degraded = variant_lookup_string (props, "PerformanceDegraded");
@@ -1319,7 +1325,6 @@ setup_power_profiles (CcPowerPanel *self)
                                G_CALLBACK (power_profile_button_toggled_cb), self,
                                0);
       self->power_profiles_row[profile] = row;
-      gtk_widget_show (GTK_WIDGET (row));
       gtk_list_box_append (self->power_profile_listbox, GTK_WIDGET (row));
       gtk_size_group_add_widget (self->row_sizegroup, GTK_WIDGET (row));
 
@@ -1355,7 +1360,7 @@ setup_general_section (CcPowerPanel *self)
       g_strcmp0 (self->chassis_type, "tablet") != 0 &&
       g_strcmp0 (self->chassis_type, "handset") != 0)
     {
-      gtk_widget_show (GTK_WIDGET (self->power_button_row));
+      gtk_widget_set_visible (GTK_WIDGET (self->power_button_row), TRUE);
 
       g_signal_handlers_block_by_func (self->power_button_row,
                                        power_button_row_changed_cb,
@@ -1374,7 +1379,7 @@ setup_general_section (CcPowerPanel *self)
 
   if (self->has_batteries)
     {
-      gtk_widget_show (GTK_WIDGET (self->battery_percentage_row));
+      gtk_widget_set_visible (GTK_WIDGET (self->battery_percentage_row), TRUE);
 
       g_settings_bind (self->interface_settings, "show-battery-percentage",
                        self->battery_percentage_switch, "active",
@@ -1422,7 +1427,7 @@ cc_power_panel_dispose (GObject *object)
   g_clear_object (&self->gsd_settings);
   g_clear_object (&self->session_settings);
   g_clear_object (&self->interface_settings);
-  g_clear_pointer ((GtkWindow **) &self->automatic_suspend_dialog, gtk_window_destroy);
+  g_clear_pointer (&self->automatic_suspend_dialog, gtk_window_destroy);
   g_clear_pointer (&self->devices, g_ptr_array_unref);
   g_clear_object (&self->up_client);
   g_clear_object (&self->iio_proxy);

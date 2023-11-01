@@ -1,0 +1,28 @@
+From: Jeremy Bicha <jeremy.bicha@canonical.com>
+Date: Tue, 15 Aug 2023 20:22:35 -0400
+Subject: Disable non working camera/microphones panels
+
+Upstream: https://gitlab.gnome.org/GNOME/gnome-control-center/issues/381
+https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/741
+https://gitlab.gnome.org/GNOME/cheese/-/issues/95
+
+Even with improved text from the original implementation, the panel
+doesn't seem to work with Snap apps. I disabled the camera and microphone
+here and the Zoom snap still works and it isn't listed as an app
+"requesting permission".
+---
+ panels/privacy/cc-privacy-panel.ui | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/panels/privacy/cc-privacy-panel.ui b/panels/privacy/cc-privacy-panel.ui
+index f60fc2c..add5810 100644
+--- a/panels/privacy/cc-privacy-panel.ui
++++ b/panels/privacy/cc-privacy-panel.ui
+@@ -76,6 +76,7 @@
+                     <child>
+                       <object class="AdwPreferencesGroup">
+                         <property name="title" translatable="yes">Devices</property>
++                        <property name="visible">False</property>
+ 
+                         <child>
+                           <object class="CcListRow">
