@@ -6,7 +6,7 @@ service = 'org.gnome.Settings.SearchProvider.service'
 configure_file(
           input : service + '.in',
          output : service,
-        install : true,
+        install : false,
     install_dir : join_paths(control_center_datadir, 'dbus-1', 'services'),
   configuration : service_conf
 )

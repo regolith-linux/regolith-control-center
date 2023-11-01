@@ -22,7 +22,7 @@ pc = 'gnome-keybindings.pc'
 configure_file(
   input: pc + '.in',
   output: pc,
-  install: true,
+  install: false,
   install_dir: join_paths(control_center_datadir, 'pkgconfig'),
   configuration: pc_conf
 )
