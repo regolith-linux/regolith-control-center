@@ -384,11 +384,38 @@ set_background (CcBackgroundPanel *self,
 }
 
 static void
+set_background_regolith (CcBackgroundItem  *item)
+{
+  const char *uri;
+
+  if (item == NULL)
+    return;
+
+  uri = cc_background_item_get_uri (item);
+
+  GSubprocess *proc;
+  GError *error = NULL;
+
+  proc = g_subprocess_new (G_SUBPROCESS_FLAGS_NONE,
+                           &error,
+                           "regolith-wallpaper",
+                           uri,
+                           NULL);
+
+  if (!proc || !g_subprocess_wait_check(proc, NULL, &error))
+    {
+      g_critical ("Failed to set wallpaper: %s", error->message);
+      exit (1);
+    }
+
+  g_object_unref (proc);
+}
+
+static void
 on_chooser_background_chosen_cb (CcBackgroundPanel *self,
                                  CcBackgroundItem  *item)
 {
-  set_background (self, self->settings, item, TRUE);
-  set_background (self, self->lock_settings, item, FALSE);
+  set_background_regolith (item);
 }
 
 static void
