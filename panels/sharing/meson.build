@@ -25,7 +25,7 @@ i18n.merge_file(
   input: polkit_in,
   output: polkit,
   po_dir: po_dir,
-  install: true,
+  install: false,
   install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
 )
 
@@ -99,4 +99,4 @@ executable(
   install_dir: control_center_libexecdir
 )
 
-subdir('icons')
+# # subdir('icons')

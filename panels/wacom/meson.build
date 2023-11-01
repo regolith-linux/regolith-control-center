@@ -79,4 +79,4 @@ executable(
             link_with : [ libwacom_calibrator_test ]
 )
 
-subdir('icons')
+# subdir('icons')
