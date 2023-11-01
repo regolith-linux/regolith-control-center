@@ -15,6 +15,11 @@ install_data(
   install_dir: join_paths(control_center_pkgdatadir, 'pixmaps')
 )
 
+install_data(
+  'regolith-wallpaper',
+  install_dir: control_center_bindir
+)
+
 common_sources = []
 
 common_sources += gnome.mkenums_simple(
