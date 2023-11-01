@@ -42,6 +42,6 @@ executable(
          dependencies : shell_deps,
                c_args : cflags,
             link_with : libs,
-              install : true,
+              install : false,
           install_dir : control_center_libexecdir
 )

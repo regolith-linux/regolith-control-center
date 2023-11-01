@@ -95,7 +95,7 @@ executable(
   include_directories: top_inc,
   dependencies: deps,
   c_args: cflags,
-  install: true,
+  install: false,
   install_dir: control_center_libexecdir
 )
 
