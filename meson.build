@@ -331,7 +331,7 @@ its_dir = join_paths(meson.project_source_root(), 'gettext')
 top_inc = include_directories('.')
 shell_inc = include_directories('shell')
 
-subdir('data/icons')
+# subdir('data/icons')
 subdir('po')
 subdir('panels')
 subdir('shell')

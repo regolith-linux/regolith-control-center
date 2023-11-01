@@ -98,4 +98,4 @@ keyboard_panel_lib = static_library(
 )
 panels_libs += keyboard_panel_lib
 
-subdir('icons')
+# subdir('icons')
