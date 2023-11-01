@@ -1,3 +1,9 @@
+regolith-control-center (1.45.0-2) mantic; urgency=medium
+
+  * fix: package depencency missing epoch
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Wed, 01 Nov 2023 07:07:32 -0700
+
 regolith-control-center (1.45.0-1) mantic; urgency=medium
 
   * Initial port from upstream
