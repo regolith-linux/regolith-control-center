@@ -37,7 +37,7 @@ if get_option('profile') == 'development'
 else
     profile = ''
 endif
-application_id = 'org.gnome.Settings@0@'.format(profile)
+application_id = 'org.regolith.Settings@0@'.format(profile)
 
 version_split = meson.project_version().split('.')
 
