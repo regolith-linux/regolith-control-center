@@ -319,7 +319,7 @@ set_user_icon_data (ActUser     *user,
         g_autoptr(GError) error = NULL;
         int fd;
 
-        fd = g_file_open_tmp ("gnome-control-center-user-icon-XXXXXX", &path, &error);
+        fd = g_file_open_tmp ("regolith-control-center-user-icon-XXXXXX", &path, &error);
 
         if (fd == -1) {
                 g_warning ("Failed to create temporary user icon: %s", error->message);

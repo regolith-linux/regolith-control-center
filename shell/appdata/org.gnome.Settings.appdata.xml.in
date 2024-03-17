@@ -83,7 +83,7 @@
     </release>
   </releases>
 
-  <translation type="gettext">gnome-control-center-2.0</translation>
+  <translation type="gettext">regolith-control-center-2.0</translation>
   <requires>
     <display_length compare="ge">360</display_length>
   </requires>

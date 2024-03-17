@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Multitasking
 Comment=Manage preferences for productivity and multitasking
-Exec=gnome-control-center multitasking
+Exec=regolith-control-center multitasking
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-multitasking-symbolic
 Terminal=false

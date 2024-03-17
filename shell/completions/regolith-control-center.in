@@ -1,4 +1,4 @@
-# gnome-control-center tab completion for bash.
+# regolith-control-center tab completion for bash.
 
 _gnome_control_center()
 {
@@ -9,7 +9,7 @@ _gnome_control_center()
 
 	case "$prev" in
 	*)
-		if [ $prev = "gnome-control-center" ] ; then
+		if [ $prev = "regolith-control-center" ] ; then
 			command_list="--verbose --version"
 			command_list="$command_list @PANELS@"
 		elif [ $prev = "--verbose" ]; then
@@ -48,4 +48,4 @@ _gnome_control_center()
 }
 
 # load the completion
-complete -F _gnome_control_center gnome-control-center
+complete -F _gnome_control_center regolith-control-center

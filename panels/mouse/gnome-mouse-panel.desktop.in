@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Mouse & Touchpad
 Comment=Change your mouse or touchpad sensitivity and select right or left-handed
-Exec=gnome-control-center mouse
+Exec=regolith-control-center mouse
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-mouse-symbolic
 Terminal=false

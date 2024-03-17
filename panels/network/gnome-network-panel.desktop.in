@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Network
 Comment=Control how you connect to the Internet
-Exec=gnome-control-center network
+Exec=regolith-control-center network
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-network-symbolic
 Terminal=false

@@ -144,7 +144,7 @@ launch_panel_activated (GSimpleAction *action,
 
   g_variant_get (parameter, "(&s@av)", &panel_id, &parameters);
 
-  g_debug ("gnome-control-center: 'launch-panel' activated for panel '%s' with %"G_GSIZE_FORMAT" arguments",
+  g_debug ("regolith-control-center: 'launch-panel' activated for panel '%s' with %"G_GSIZE_FORMAT" arguments",
            panel_id,
            g_variant_n_children (parameters));
 
@@ -197,7 +197,7 @@ cc_application_handle_local_options (GApplication *application,
 
   if (!is_supported_desktop ())
     {
-      g_printerr ("Running gnome-control-center is only supported under GNOME and Unity, exiting\n");
+      g_printerr ("Running regolith-control-center is only supported under GNOME and Unity, exiting\n");
       return 1;
     }
 
