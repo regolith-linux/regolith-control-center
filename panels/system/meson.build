@@ -15,14 +15,14 @@ i18n.merge_file(
   input: 'users/' + polkit + '.in',
   output: polkit,
   po_dir: po_dir,
-  install: true,
+  install: false,
   install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
 )
 
-install_data(
-  'org.gnome.Settings-system-symbolic.svg',
-  install_dir: join_paths(control_center_icondir, 'hicolor', 'scalable', 'apps')
-)
+# install_data(
+#   'org.gnome.Settings-system-symbolic.svg',
+#   install_dir: join_paths(control_center_icondir, 'hicolor', 'scalable', 'apps')
+# )
 
 sources = files(
   'cc-system-panel.c',

@@ -17,7 +17,7 @@ executable(
   include_directories: [ top_inc ],
   dependencies: [ print_renderer_deps ],
   c_args: cflags,
-  install: true,
+  install: false,
   install_dir: control_center_libexecdir,
 )
 
@@ -26,4 +26,4 @@ install_data(
   install_dir: join_paths(control_center_datadir, 'icons')
 )
 
-subdir('icons')
+# subdir('icons')

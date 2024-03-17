@@ -53,4 +53,4 @@ executable(
   c_args: cflags
 )
 
-subdir('icons')
+# subdir('icons')

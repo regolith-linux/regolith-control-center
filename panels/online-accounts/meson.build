@@ -63,8 +63,8 @@ executable(
   include_directories: [ top_inc ],
   dependencies: goa_helper_deps,
   c_args: goa_helper_cflags,
-  install: true,
+  install: false,
   install_dir: control_center_libexecdir,
 )
 
-subdir('icons')
+# subdir('icons')

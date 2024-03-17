@@ -10,10 +10,10 @@ i18n.merge_file(
   install_dir: control_center_desktopdir
 )
 
-install_data(
-  'noise-texture-light.png',
-  install_dir: join_paths(control_center_pkgdatadir, 'pixmaps')
-)
+# install_data(
+#   'noise-texture-light.png',
+#   install_dir: join_paths(control_center_pkgdatadir, 'pixmaps')
+# )
 
 install_data(
   'regolith-wallpaper',
@@ -90,4 +90,4 @@ panels_libs += static_library(
   c_args: cflags,
 )
 
-subdir('icons')
+# subdir('icons')

@@ -90,4 +90,4 @@ panels_libs += static_library(
   c_args: cflags
 )
 
-subdir('icons')
+# subdir('icons')
