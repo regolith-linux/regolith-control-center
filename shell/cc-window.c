@@ -737,7 +737,7 @@ cc_window_init (CcWindow *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
 
-  self->settings = g_settings_new ("org.gnome.Settings");
+  self->settings = g_settings_new ("org.regolith.Settings");
   self->previous_panels = g_queue_new ();
   self->previous_list_view = cc_panel_list_get_view (self->panel_list);
 

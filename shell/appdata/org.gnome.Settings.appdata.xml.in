@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2015 Richard Hughes <richard@hughsie.com> -->
 <component type="desktop">
-  <id>org.gnome.Settings.desktop</id>
+  <id>org.regolith.Settings.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <name>Settings</name>
-  <summary>Utility to configure the GNOME desktop</summary>
+  <summary>Utility to configure the Regolith desktop</summary>
   <description>
     <p>
       Settings is the primary interface for configuring your system.

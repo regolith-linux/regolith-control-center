@@ -5,7 +5,7 @@ service_conf = configuration_data()
 service_conf.set('bindir', control_center_bindir)
 service_conf.set('appid', application_id)
 
-service = 'org.gnome.Settings.service'
+service = 'org.regolith.Settings.service'
 
 configure_file(
           input : service + '.in',
@@ -150,6 +150,6 @@ libtestshell_deps = common_deps + [ libwidgets_dep, libtestshell_dep ]
 
 
 install_data (
-  'org.gnome.Settings.gschema.xml',
+  'org.regolith.Settings.gschema.xml',
   install_dir : control_center_schemadir
 )
