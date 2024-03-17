@@ -1,8 +1,8 @@
-usr/bin
-usr/libexec
-usr/share/applications
-usr/share/bash-completion
-usr/share/dbus-1
-usr/share/gnome-shell
-usr/share/man
-usr/share/metainfo
+debian/regolith-control-center/usr/bin/
+debian/regolith-control-center/usr/share/applications/org.regolith.Settings.desktop
+debian/regolith-control-center/usr/share/dbus-1/services/org.regolith.Settings.service
+debian/regolith-control-center/usr/share/glib-2.0/
+debian/regolith-control-center/usr/share/icons/regolith-logo.png
+debian/regolith-control-center/usr/share/man/
+debian/regolith-control-center/usr/share/metainfo/
+debian/regolith-control-center/usr/share/regolith-control-center/

@@ -1,3 +1,15 @@
+regolith-control-center (1.46.0-1) noble; urgency=medium
+
+  * chore: rename from gnome-control-center to regolith-control-center in files and content to disambiguate from upstream
+  * chore: rename from org.gnome.Settings to org.regolith.Settings in files and content to disambiguate from upstream
+  * chore: use regolith gsetting schema
+  * chore: show regolith logo in info panel
+  * fix: set regolith wallpaper
+  * chore: disable installing icon assets from upstream
+  * chore: misc fixups
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 17 Mar 2024 13:12:49 -0700
+
 gnome-control-center (1:46~beta-2) unstable; urgency=medium
 
   * Drop patch reverting switch to gcr4
