@@ -1,3 +1,9 @@
+regolith-control-center (1.46.0-3) noble; urgency=medium
+
+  * fix: switch strategy to not including upstream assets to not install via meson due to limitations in dh_install
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 17 Mar 2024 19:37:10 -0700
+
 regolith-control-center (1.46.0-2) noble; urgency=medium
 
   * fix: remove symlinks to unneeded upstream CI config
