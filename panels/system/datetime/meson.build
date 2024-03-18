@@ -3,15 +3,15 @@
 #   install_dir: join_paths(control_center_icondir, 'hicolor', 'scalable', 'apps')
 # )
 
-polkit = 'org.gnome.controlcenter.@0@.policy'.format(cappletname)
+# polkit = 'org.gnome.controlcenter.@0@.policy'.format(cappletname)
 
-i18n.merge_file(
-  input: polkit + '.in',
-  output: polkit,
-  po_dir: po_dir,
-  install: false,
-  install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
-)
+# i18n.merge_file(
+#   input: polkit + '.in',
+#   output: polkit,
+#   po_dir: po_dir,
+#   install: false,
+#   install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
+# )
 
 gdbus = 'timedated'
 gdbus_iface_xml = gdbus + '1-interface.xml'

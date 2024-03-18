@@ -338,7 +338,7 @@ shell_inc = include_directories('shell')
 subdir('po')
 subdir('panels')
 subdir('shell')
-subdir('search-provider')
+# subdir('search-provider')
 
 if get_option('tests')
   subdir('tests')
