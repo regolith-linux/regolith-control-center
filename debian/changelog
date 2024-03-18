@@ -1,3 +1,10 @@
+regolith-control-center (1.46.0-2) noble; urgency=medium
+
+  * fix: remove symlinks to unneeded upstream CI config
+  * fix: update dependency version for testing
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 17 Mar 2024 18:21:03 -0700
+
 regolith-control-center (1.46.0-1) noble; urgency=medium
 
   * chore: rename from gnome-control-center to regolith-control-center in files and content to disambiguate from upstream
