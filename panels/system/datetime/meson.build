@@ -9,7 +9,7 @@ i18n.merge_file(
   input: polkit + '.in',
   output: polkit,
   po_dir: po_dir,
-  install: true,
+  install: false,
   install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
 )
 

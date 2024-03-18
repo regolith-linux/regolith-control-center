@@ -29,7 +29,7 @@ i18n.merge_file(
         ),
        output : '@0@.desktop'.format(application_id),
        po_dir : po_dir,
-      install : true,
+      install : false,
   install_dir : control_center_desktopdir
 )
 

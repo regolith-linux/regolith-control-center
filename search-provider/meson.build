@@ -6,7 +6,7 @@ service = 'org.gnome.Settings.SearchProvider.service'
 configure_file(
           input : service + '.in',
          output : service,
-        install : true,
+        install : false,
     install_dir : join_paths(control_center_datadir, 'dbus-1', 'services'),
   configuration : service_conf
 )
@@ -35,13 +35,13 @@ libs = [
   libshell
 ]
 
-executable(
-  'gnome-control-center-search-provider',
-               sources,
-  include_directories : top_inc,
-         dependencies : shell_deps,
-               c_args : cflags,
-            link_with : libs,
-              install : true,
-          install_dir : control_center_libexecdir
-)
+# executable(
+#   'gnome-control-center-search-provider',
+#                sources,
+#   include_directories : top_inc,
+#          dependencies : shell_deps,
+#                c_args : cflags,
+#             link_with : libs,
+#               install : true,
+#           install_dir : control_center_libexecdir
+# )

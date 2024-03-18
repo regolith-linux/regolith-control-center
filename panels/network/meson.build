@@ -23,7 +23,7 @@ foreach name: panel_names
     input: desktop + '.in',
     output: desktop,
     po_dir: po_dir,
-    install: true,
+    install: false,
     install_dir: control_center_desktopdir
   )
 endforeach

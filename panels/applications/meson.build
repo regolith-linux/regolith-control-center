@@ -6,7 +6,7 @@ i18n.merge_file(
         input : desktop + '.in',
        output : desktop,
        po_dir : po_dir,
-      install : true,
+      install : false,
   install_dir : control_center_desktopdir
 )
 
