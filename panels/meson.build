@@ -10,8 +10,6 @@ panels = [
   'color',
   'display',
   'mouse',
-  'multitasking',
-  'notifications',
   'online-accounts',
   'power',
   'printers',
@@ -21,7 +19,6 @@ panels = [
   'sound',
   'system',
   'universal-access',
-  'wellbeing',
   'wwan',
 ]
 
