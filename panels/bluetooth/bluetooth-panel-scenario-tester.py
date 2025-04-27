@@ -204,7 +204,7 @@ class GccDBusTestCase(DBusTestCase):
         os.environ['GSETTINGS_BACKEND'] = 'memory'
 
         wrapper = os.environ.get('META_DBUS_RUNNER_WRAPPER')
-        args = ['gnome-control-center', '-v', 'bluetooth']
+        args = ['regolith-control-center', '-v', 'bluetooth']
         if wrapper == 'gdb':
             args = ['gdb', '-ex', 'r', '-ex', 'bt full', '--args'] + args
         elif wrapper:

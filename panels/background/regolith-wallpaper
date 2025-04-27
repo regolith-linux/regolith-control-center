@@ -1,0 +1,45 @@
+#!/bin/bash
+# This is a helper script to set wallpaper in Regolith desktop
+
+set -Eeu -o pipefail
+
+# Load common functions
+source /usr/lib/regolith/regolith-session-common.sh
+
+if [ "$#" -lt 1 ]; then
+    echo "Usage: regolith-wallpaper <image file URI>"
+    exit 1
+fi
+
+IMAGE_URI=$1
+
+WM_RELOAD="regolith-look refresh"
+
+if [ -z "$IMAGE_URI" ]; then
+    echo "Aborting, invalid file uri: $IMAGE_URI"
+    exit 1
+fi
+
+# Unset any existing values
+if [ -f "$USER_XRESOURCE_OVERRIDE_FILE" ]; then
+    # remove existing declaration comments
+    sed -i '/^!regolith.wallpaper.file/d' "$USER_XRESOURCE_OVERRIDE_FILE"
+    sed -i '/^!regolith.lockscreen.wallpaper.file/d' "$USER_XRESOURCE_OVERRIDE_FILE"
+
+    # disable existing declaration
+    sed -i 's/^regolith.wallpaper.file/\!regolith.wallpaper.file/g' "$USER_XRESOURCE_OVERRIDE_FILE"
+    sed -i 's/^regolith.lockscreen.wallpaper.file/\!regolith.lockscreen.wallpaper.file/g' "$USER_XRESOURCE_OVERRIDE_FILE"
+fi
+
+# Strip file scheme from URI if exists
+if [[ $IMAGE_URI == file* ]]; then
+    FINAL_IMAGE_URI=${IMAGE_URI:7}
+else
+    FINAL_IMAGE_URI=$IMAGE_URI
+fi
+
+# add new declaration
+echo "regolith.wallpaper.file: $FINAL_IMAGE_URI" >> "$USER_XRESOURCE_OVERRIDE_FILE"
+echo "regolith.lockscreen.wallpaper.file: $FINAL_IMAGE_URI" >> "$USER_XRESOURCE_OVERRIDE_FILE"
+
+$WM_RELOAD

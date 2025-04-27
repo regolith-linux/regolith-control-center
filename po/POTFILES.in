@@ -267,12 +267,6 @@ panels/wacom/cc-wacom-stylus-page.ui
 panels/wacom/cc-wacom-tool.c
 panels/wacom/gnome-wacom-panel.desktop.in
 panels/wacom/gsd-wacom-key-shortcut-button.c
-panels/wellbeing/cc-bar-chart.c
-panels/wellbeing/cc-break-schedule-row.c
-panels/wellbeing/cc-screen-time-statistics-row.c
-panels/wellbeing/cc-screen-time-statistics-row.ui
-panels/wellbeing/cc-wellbeing-panel.ui
-panels/wellbeing/gnome-wellbeing-panel.desktop.in
 panels/wwan/cc-wwan-apn-dialog.c
 panels/wwan/cc-wwan-apn-dialog.ui
 panels/wwan/cc-wwan-data.c
@@ -296,7 +290,7 @@ shell/cc-panel-loader.c
 shell/cc-window.c
 shell/cc-window.ui
 shell/help-overlay.ui
-shell/org.gnome.Settings.desktop.in
-shell/org.gnome.Settings.gschema.xml
+shell/org.regolith.Settings.desktop.in
+shell/org.regolith.Settings.gschema.xml
 # Please do not remove this file from POTFILES.in. Run "git submodule init && git submodule update" to get it.
 subprojects/gvc/gvc-mixer-control.c

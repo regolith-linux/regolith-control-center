@@ -1,4 +1,4 @@
-desktop = 'gnome-datetime-panel.desktop'
+desktop = 'regolith-datetime-panel.desktop'
 i18n.merge_file(
   type: 'desktop',
   input: desktop + '.in',
@@ -8,7 +8,7 @@ i18n.merge_file(
   install_dir: control_center_desktopdir
 )
 
-polkit = 'org.gnome.controlcenter.@0@.policy'.format(cappletname)
+polkit = 'org.regolith.controlcenter.@0@.policy'.format(cappletname)
 
 i18n.merge_file(
   input: polkit + '.in',

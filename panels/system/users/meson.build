@@ -1,4 +1,4 @@
-desktop = 'gnome-users-panel.desktop'
+desktop = 'regolith-users-panel.desktop'
 i18n.merge_file(
   type: 'desktop',
   input: desktop + '.in',

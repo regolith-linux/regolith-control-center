@@ -375,17 +375,14 @@ static const gchar * const panel_order[] = {
   "display",
   "sound",
   "power",
-  "multitasking",
   "background",
 
   "separator",
 
   "applications",
-  "notifications",
   "search",
   "online-accounts",
   "sharing",
-  "wellbeing",
 
   "separator",
 

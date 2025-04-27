@@ -1,4 +1,4 @@
-desktop = 'gnome-region-panel.desktop'
+desktop = 'regolith-region-panel.desktop'
 i18n.merge_file(
   type: 'desktop',
   input: desktop + '.in',

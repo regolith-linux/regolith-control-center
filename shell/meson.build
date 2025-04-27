@@ -18,13 +18,13 @@ configure_file(
 desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)
 
-desktop = 'org.gnome.Settings.desktop'
+desktop = 'org.regolith.Settings.desktop'
 
 i18n.merge_file(
          type : 'desktop',
         input : configure_file(
             input: desktop + '.in',
-            output: 'org.gnome.Settings.desktop.in',
+            output: 'org.regolith.Settings.desktop.in',
             configuration: desktop_conf
         ),
        output : '@0@.desktop'.format(application_id),
@@ -157,6 +157,6 @@ libtestshell_deps = common_deps + [ libwidgets_dep, libtestshell_dep ]
 
 
 install_data (
-  'org.gnome.Settings.gschema.xml',
+  'org.regolith.Settings.gschema.xml',
   install_dir : control_center_schemadir
 )
