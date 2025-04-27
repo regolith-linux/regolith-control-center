@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CPPFLAGS_MAINT_APPEND = -DSSHD_SERVICE=\"ssh.service\"
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs
+
+DISTRIBUTOR_LOGO := /usr/share/icons/regolith-logo.png
+DISTRIBUTOR_LOGO_DARK := /usr/share/icons/regolith-logo.png
+
+ifneq (,$(filter $(DEB_HOST_ARCH), amd64 arm64 armel armhf i386 mips64el ppc64el riscv64 s390x hppa powerpc ppc64 x32))
+MALCONTENT := -Dmalcontent=true
+else
+MALCONTENT := -Dmalcontent=false
+endif
+
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-Dprivileged_group=sudo \
+		-Ddocumentation=true \
+		-Ddistributor_logo=$(DISTRIBUTOR_LOGO) \
+		-Ddark_mode_distributor_logo=$(DISTRIBUTOR_LOGO_DARK) \
+		$(MALCONTENT)
+
+# Ubuntu-specific
+override_dh_translations:
+	dh_translations --domain=regolith-control-center-2.0
+
+override_dh_gnome_clean:

@@ -1,0 +1,116 @@
+Source: regolith-control-center
+Section: gnome
+Priority: optional
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Uploaders: Amin Bandali <bandali@ubuntu.com>,
+           Jeremy Bícha <jbicha@ubuntu.com>,
+           Laurent Bigonville <bigon@debian.org>,
+           Marco Trevisan (Treviño) <marco@ubuntu.com>
+Build-Depends: debhelper-compat (= 13),
+               desktop-file-utils,
+               dh-sequence-gnome (>= 0.22.2),
+               gnome-settings-daemon-dev (>= 41),
+               gsettings-desktop-schemas-dev (>= 46~beta),
+               gtk-doc-tools,
+               libaccountsservice-dev (>= 0.6.39),
+               libadwaita-1-dev (>= 1.4~beta),
+               libcolord-dev (>= 0.1.34),
+               libcolord-gtk4-dev (>= 0.1.24),
+               libcups2-dev,
+               libgcr-4-dev [linux-any],
+               libgdk-pixbuf-2.0-dev (>= 2.23.0),
+               libgirepository1.0-dev,
+               libglib2.0-dev (>= 2.76.6),
+               libgnome-bg-4-dev,
+               libgnome-bluetooth-ui-3.0-dev [linux-any],
+               libgnome-desktop-4-dev,
+               libgnome-rr-4-dev,
+               libgnutls28-dev,
+               libgoa-1.0-dev (>= 3.45),
+               libgoa-backend-1.0-dev (>= 3.45),
+               libgsound-dev,
+               libgtk-4-dev (>= 4.11.2),
+               libgtop2-dev,
+               libgudev-1.0-dev (>= 232) [linux-any],
+               libhandy-1-dev (>= 1.2.0),
+               libibus-1.0-dev (>= 1.5.2),
+               libjson-glib-dev,
+               libkrb5-dev,
+               libmalcontent-0-dev (>= 0.7.0) [amd64 arm64 armel armhf i386 mips64el ppc64el riscv64 s390x hppa powerpc ppc64 x32],
+               libmm-glib-dev [linux-any],
+               libnm-dev (>= 1.24.0) [linux-any],
+               libnma-gtk4-dev (>= 1.10.2) [linux-any],
+               libpolkit-gobject-1-dev (>= 0.103),
+               libpulse-dev (>= 13.0~),
+               libpwquality-dev (>= 1.2.2),
+               libsecret-1-dev,
+               libsmbclient-dev (>= 2:3.6.12-1~),
+               libsoup-3.0-dev,
+               libudisks2-dev,
+               libupower-glib-dev (>= 0.99.8),
+               libwacom-dev (>= 0.7) [linux-any],
+               libx11-dev (>= 2:1.8),
+               libxft-dev (>= 2.1.2),
+               libxi-dev (>= 2:1.2),
+               libxklavier-dev (>= 5.1),
+               libxml2-dev,
+               libxml2-utils,
+               locales,
+               meson (>= 0.57.0),
+               polkitd,
+               python3-dbusmock,
+               shared-mime-info,
+               tecla,
+               tzdata <!nocheck>,
+               xvfb
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: regolith-control-center
+Architecture: any
+Depends: accountsservice,
+         apg,
+         colord (>= 0.1.34),
+         desktop-base (>= 10.0.0),
+         desktop-file-utils,
+         gnome-control-center-data (<< 1:47),
+         gnome-control-center-data (>= 1:46~beta-1),
+         gnome-desktop3-data,
+         gnome-settings-daemon (>= 41),
+         gsettings-desktop-schemas (>= 46~beta),
+         tecla (>= 45~rc),
+         webp-pixbuf-loader,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: cracklib-runtime,
+            cups-pk-helper,
+            fwupd [linux-any],
+            gnome-bluetooth-sendto,
+            gnome-online-accounts (>= 3.25.3),
+            gnome-remote-desktop (>= 44),
+            gnome-user-docs,
+            gnome-user-share,
+            iso-codes,
+            libcanberra-pulse,
+            libnss-myhostname,
+            libspa-0.2-bluetooth | pulseaudio-module-bluetooth,
+            malcontent-gui [amd64 arm64 armel armhf i386 mips64el ppc64el riscv64 s390x hppa powerpc ppc64 x32],
+            network-manager-gnome (>= 0.9.8),
+            polkitd,
+            power-profiles-daemon,
+            realmd,
+            rygel | rygel-tracker,
+            system-config-printer-common (>= 1.4)
+Suggests: gnome-software | gnome-packagekit,
+          gstreamer1.0-pulseaudio,
+          x11-xserver-utils
+Breaks: gnome-remote-desktop (<< 42),
+        gnome-shell (<< 42)
+Description: utilities to configure the GNOME desktop
+ This package contains configuration applets for the GNOME desktop,
+ allowing to set accessibility configuration, desktop fonts, keyboard
+ and mouse properties, sound setup, desktop theme and background, user
+ interface properties, screen resolution, and other GNOME parameters.
+ .
+ It also contains a front end to these applets, which can also be
+ accessed with the GNOME panel or the Nautilus file manager.
