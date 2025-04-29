@@ -43,11 +43,6 @@ sources += gnome.gdbus_codegen(
          namespace : 'Cc'
 )
 
-install_data(
-  'org.gnome.GlobalShortcutsRebind.xml',
-  install_dir : control_center_datadir + '/dbus-1/interfaces',
-)
-
 deps = common_deps + keyboard_shortcuts_dep
 
 if host_is_linux
