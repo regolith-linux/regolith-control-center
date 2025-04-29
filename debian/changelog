@@ -1,3 +1,9 @@
+regolith-control-center (1.48.1-2) plucky; urgency=medium
+
+  * fix: remove files shipped from upstream
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Mon, 28 Apr 2025 18:59:55 -0700
+
 regolith-control-center (1.48.0-1) unstable; urgency=medium
 
   [ Ken Gilmer ]
