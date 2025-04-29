@@ -32,7 +32,7 @@ python = py.find_installation('python3')
 
 config_h.set_quoted('TEST_NM_PYTHON', python.full_path())
 
-application_id = 'org.gnome.Settings'
+application_id = 'org.regolith.Settings'
 
 if get_option('profile') == 'development'
     application_id += '.' + 'Devel'

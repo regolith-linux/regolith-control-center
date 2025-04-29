@@ -34,5 +34,3 @@ panels_libs += static_library(
   dependencies: common_deps,
   c_args: cflags
 )
-
-subdir('icons')

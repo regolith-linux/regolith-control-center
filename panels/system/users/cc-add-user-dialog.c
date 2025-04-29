@@ -164,6 +164,7 @@ create_user_done (ActUserManager  *manager,
 static void
 create_user (CcAddUserDialog *self)
 {
+        g_autofree char *debian_username = NULL;
         ActUserManager *manager;
         const gchar *username;
         const gchar *name;
@@ -175,11 +176,12 @@ create_user (CcAddUserDialog *self)
         username = gtk_editable_get_text (GTK_EDITABLE (self->username_row));
         account_type = gtk_switch_get_active (self->account_type_switch) ? ACT_USER_ACCOUNT_TYPE_ADMINISTRATOR : ACT_USER_ACCOUNT_TYPE_STANDARD;
 
-        g_debug ("Creating local user: %s", username);
+        debian_username = g_ascii_strdown (username, -1);
+        g_debug ("Creating local user: %s", debian_username);
 
         manager = act_user_manager_get_default ();
         act_user_manager_create_user_async (manager,
-                                            username,
+                                            debian_username,
                                             name,
                                             account_type,
                                             self->cancellable,

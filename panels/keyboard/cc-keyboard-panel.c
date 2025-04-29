@@ -63,6 +63,11 @@ static const CcXkbModifier LV3_MODIFIER = {
   N_("Alternate Characters Key"),
   N_("The alternate characters key can be used to enter additional characters. These are sometimes printed as a third-option on your keyboard."),
   (CcXkbOption[]){
+    /* Set xkb_option to the prefix, namely "lvl3:", to signify removal of any
+     * lvl3: option from the xkb-options Gsetting.
+     */
+    { NC_("keyboard key", "Default"), "lv3:" },
+    { NC_("keyboard key", "None"),        "lv3:ralt_alt" },
     { NC_("keyboard key", "Left Alt"),    "lv3:lalt_switch" },
     { NC_("keyboard key", "Right Alt"),   "lv3:ralt_switch" },
     { NC_("keyboard key", "Left Super"),  "lv3:lwin_switch" },
@@ -71,7 +76,7 @@ static const CcXkbModifier LV3_MODIFIER = {
     { NC_("keyboard key", "Right Ctrl"),  "lv3:switch" },
     { NULL,                               NULL }
   },
-  "lv3:ralt_switch",
+  "lv3:",
 };
 
 static const CcXkbModifier COMPOSE_MODIFIER = {

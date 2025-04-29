@@ -49,5 +49,3 @@ display_panel_lib = static_library(
 )
 
 panels_libs += display_panel_lib
-
-subdir('icons')

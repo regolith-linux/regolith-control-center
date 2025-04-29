@@ -54,5 +54,3 @@ printers_panel_lib = static_library(
   c_args: cflags + cups_cflags,
 )
 panels_libs += [ printers_panel_lib ]
-
-subdir('icons')

@@ -129,7 +129,6 @@ cflags += [
 
 subdir('about')
 subdir('datetime')
-subdir('icons')
 subdir('region')
 subdir('remote-desktop')
 subdir('secure-shell')

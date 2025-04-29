@@ -113,4 +113,3 @@ keyboard_panel_dep = declare_dependency(
   link_with: keyboard_panel_lib,
 )
 
-subdir('icons')

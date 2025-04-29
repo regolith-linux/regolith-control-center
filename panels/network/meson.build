@@ -6,7 +6,6 @@ deps = common_deps + network_manager_deps + [
 network_inc = include_directories('.')
 
 subdir('connection-editor')
-subdir('icons')
 
 panel_names = [
   cappletname,

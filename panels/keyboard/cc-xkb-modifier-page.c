@@ -117,21 +117,23 @@ set_xkb_option (CcXkbModifierPage *self,
 {
   g_autoptr(GPtrArray) array = NULL;
   g_auto(GStrv) options = NULL;
-  gboolean found;
+  gboolean found, is_prefix;
   guint i;
 
   /* Either replace the existing "<modifier>:" option in the string
-   * array, or add the option at the end
+   * array, or add the option at the end, or, in case the argument is exactly
+   * <modifier>:, remove any instance of <modifier>:
    */
   array = g_ptr_array_new ();
   options = g_settings_get_strv (self->input_source_settings, "xkb-options");
   found = FALSE;
+  is_prefix = g_strcmp0(self->modifier->prefix, xkb_option) == 0;
 
   for (i = 0; options != NULL && options[i] != NULL; i++)
     {
       if (g_str_has_prefix (options[i], self->modifier->prefix))
         {
-          if (!found && xkb_option != NULL)
+          if (!found && xkb_option != NULL && !is_prefix)
             g_ptr_array_add (array, xkb_option);
           found = TRUE;
         }
@@ -141,7 +143,7 @@ set_xkb_option (CcXkbModifierPage *self,
         }
     }
 
-  if (!found && xkb_option != NULL)
+  if (!found && xkb_option != NULL && !is_prefix)
     g_ptr_array_add (array, xkb_option);
 
   g_ptr_array_add (array, NULL);
