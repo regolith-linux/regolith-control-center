@@ -1,6 +1,7 @@
 regolith-control-center (1.48.1-7) plucky; urgency=medium
 
   * fix: remove more upstream icons
+  * fix: remove faces from packaging
 
  -- Ken Gilmer <kgilmer@gmail.com>  Tue, 29 Apr 2025 07:49:52 -0700
 

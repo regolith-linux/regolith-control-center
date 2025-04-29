@@ -28,17 +28,12 @@ image_data = files(
 
 image_dir = join_paths(control_center_datadir, 'pixmaps', 'faces')
 
-install_data(
-  image_data,
-  install_dir: image_dir
-)
-
 polkit = 'org.gnome.controlcenter.user-accounts.policy'
 i18n.merge_file(
   input: polkit + '.in',
   output: polkit,
   po_dir: po_dir,
-  install: true,
+  install: false,
   install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
 )
 
