@@ -1,3 +1,9 @@
+regolith-control-center (1.48.1-7) plucky; urgency=medium
+
+  * fix: remove more upstream icons
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Tue, 29 Apr 2025 07:49:52 -0700
+
 regolith-control-center (1.48.1-6) plucky; urgency=medium
 
   * fix: omit upstream policy files from package
