@@ -1,3 +1,9 @@
+regolith-control-center (1.48.1-6) plucky; urgency=medium
+
+  * fix: omit upstream policy files from package
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Mon, 28 Apr 2025 21:58:02 -0700
+
 regolith-control-center (1.48.1-5) plucky; urgency=medium
 
   * fix: remove upstream dbus interface

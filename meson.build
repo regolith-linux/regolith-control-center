@@ -344,11 +344,6 @@ pkg = import('pkgconfig')
 po_dir = join_paths(meson.project_source_root(), 'po')
 its_dir = join_paths(meson.project_source_root(), 'gettext')
 
-install_subdir(
-  'gettext',
-  install_dir: control_center_datadir
-)
-
 top_inc = include_directories('.')
 shell_inc = include_directories('shell')
 
