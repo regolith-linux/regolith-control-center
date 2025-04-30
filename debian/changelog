@@ -1,3 +1,9 @@
+regolith-control-center (1.48.1-9) plucky; urgency=medium
+
+  * fix: dconf namespace for regolith settings
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Tue, 29 Apr 2025 18:31:59 -0700
+
 regolith-control-center (1.48.1-8) plucky; urgency=medium
 
   * fix: don't ship upstream sound files
