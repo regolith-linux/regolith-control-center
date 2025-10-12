@@ -1,7 +1,7 @@
 completion_conf = configuration_data()
 completion_conf.set('PANELS', ' '.join(panels_list))
 
-desktop = 'gnome-control-center'
+desktop = 'regolith-control-center'
 
 desktop_in = configure_file(
   input: desktop + '.in',

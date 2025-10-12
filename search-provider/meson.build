@@ -35,13 +35,13 @@ libs = [
   libshell
 ]
 
-executable(
-  'gnome-control-center-search-provider',
-               sources,
-  include_directories : top_inc,
-         dependencies : shell_deps,
-               c_args : cflags,
-            link_with : libs,
-              install : true,
-          install_dir : control_center_libexecdir
-)
+# executable(
+#   'gnome-control-center-search-provider',
+#                sources,
+#   include_directories : top_inc,
+#          dependencies : shell_deps,
+#                c_args : cflags,
+#             link_with : libs,
+#               install : true,
+#           install_dir : control_center_libexecdir
+# )

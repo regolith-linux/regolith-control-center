@@ -49,16 +49,16 @@ sources += gnome.gdbus_codegen(
   namespace: 'Cc'
 )
 
-executable(
-  'gnome-control-center-global-shortcuts-provider',
-  sources,
-  include_directories: [top_inc],
-  dependencies:  [
-    shell_deps,
-    keyboard_panel_dep,
-    dependency('libgxdp'),
-  ],
-  c_args: cflags,
-  install: true,
-  install_dir: control_center_libexecdir
-)
+# executable(
+#   'regolith-control-center-global-shortcuts-provider',
+#   sources,
+#   include_directories: [top_inc],
+#   dependencies:  [
+#     shell_deps,
+#     keyboard_panel_dep,
+#     dependency('libgxdp'),
+#   ],
+#   c_args: cflags,
+#   install: true,
+#   install_dir: control_center_libexecdir
+# )

@@ -1,5 +1,5 @@
 project(
-  'gnome-control-center', 'c',
+  'regolith-control-center', 'c',
         version : '49.0',
         license : 'GPL2+',
   meson_version : '>= 0.60.0'
@@ -376,16 +376,16 @@ subdir('data/icons')
 subdir('po')
 subdir('panels')
 subdir('shell')
-subdir('global-shortcuts-provider')
-subdir('search-provider')
+# subdir('global-shortcuts-provider')
+# subdir('search-provider')
 
-if get_option('tests')
-  subdir('tests')
-endif
+# if get_option('tests')
+#   subdir('tests')
+# endif
 
-if get_option('documentation')
-  subdir('man')
-endif
+# if get_option('documentation')
+#   subdir('man')
+# endif
 
 gnome.post_install(
   glib_compile_schemas: true,
