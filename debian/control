@@ -1,8 +1,7 @@
-Source: gnome-control-center
+Source: regolith-control-center
 Section: gnome
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: Amin Bandali <bandali@ubuntu.com>,
            Jeremy Bícha <jbicha@ubuntu.com>,
            Laurent Bigonville <bigon@debian.org>,
@@ -58,21 +57,18 @@ Build-Depends: debhelper-compat (= 13),
                python3-dbusmock <!nocheck>,
                shared-mime-info,
                tecla (>= 47),
-               tzdata <!nocheck>,
-Standards-Version: 4.7.2
+               tzdata <!nocheck>
+Standards-Version: 4.7.0
 Rules-Requires-Root: no
-XS-Debian-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-control-center.git
-XS-Debian-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-control-center
-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-control-center.git -b ubuntu/master
-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-control-center/tree/ubuntu/master
 
-Package: gnome-control-center
+Package: regolith-control-center
 Architecture: any
 Depends: accountsservice (>= 23.11.69),
          colord,
+         desktop-base,
          desktop-file-utils,
-         gnome-control-center-data (<< ${gnome:NextVersion}),
-         gnome-control-center-data (>= ${source:Version}),
+         gnome-control-center-data (<< 1:50),
+         gnome-control-center-data (>= 1:49~beta-1),
          gnome-desktop3-data,
          gnome-online-accounts (>= 3.51.0),
          gnome-settings-daemon (>= 48~rc),
@@ -108,41 +104,14 @@ Suggests: gnome-software | gnome-packagekit,
           gnome-user-share,
           gstreamer1.0-plugins-good (>= 1.18.0),
           malcontent-gui [amd64 arm64 armel armhf i386 mips64el ppc64el riscv64 s390x hppa powerpc ppc64 x32],
-          realmd,
+          realmd
 Breaks: gnome-remote-desktop (<< 42),
         gnome-shell (<< 42)
-Description: utilities to configure the GNOME desktop
- This package contains configuration applets for the GNOME desktop,
+Description: utilities to configure the Regolith desktop
+ This package contains configuration applets for the Regolith desktop,
  allowing to set accessibility configuration, desktop fonts, keyboard
  and mouse properties, sound setup, desktop theme and background, user
  interface properties, screen resolution, and other GNOME parameters.
  .
  It also contains a front end to these applets, which can also be
  accessed with the GNOME panel or the Nautilus file manager.
-
-Package: gnome-control-center-faces
-Architecture: all
-Multi-Arch: foreign
-Depends: ${misc:Depends}
-Conflicts: unity-control-center-faces
-Replaces: unity-control-center-faces
-Provides: unity-control-center-faces
-Description: utilities to configure the GNOME desktop - faces images
- This package contains images that can be used for user profile's icon
-
-Package: gnome-control-center-dev
-Architecture: all
-Multi-Arch: foreign
-Section: devel
-Depends: gnome-control-center-data,
-         ${misc:Depends}
-Description: utilities to configure the GNOME desktop
- This package contains the file required to get the keydirs location
-
-Package: gnome-control-center-data
-Architecture: all
-Multi-Arch: foreign
-Depends: ${misc:Depends}
-Description: configuration applets for GNOME - data files
- This package contains data files (icons, pixmaps, locales files) needed by
- the configuration applets in the gnome-control-center package.
