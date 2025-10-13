@@ -1,3 +1,9 @@
+regolith-control-center (1.49.0-1) questing; urgency=medium
+
+  * Port from upstream
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 12 Oct 2025 17:37:29 -0700
+
 regolith-control-center (1.48.1-9) plucky; urgency=medium
 
   * fix: dconf namespace for regolith settings
