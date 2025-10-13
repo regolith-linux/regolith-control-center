@@ -3,13 +3,13 @@ debian/Debian-s-adduser-doesn-t-allow-uppercase-letters-by-defau.patch
 debian/Ignore-result-of-test-network-panel.patch
 ubuntu/keyboard-Add-launch-terminal-shortcut.patch
 ubuntu/sound-Allow-volume-to-be-set-above-100.patch
-ubuntu/Allow-tweaking-some-settings-for-Ubuntu-Dock.patch
+#ubuntu/Allow-tweaking-some-settings-for-Ubuntu-Dock.patch
 #ubuntu/multitasking-panel-Sync-workspace-and-monitor-isolation-d.patch
 #ubuntu/multitasking-panel-Sync-workspace-isolation-setting-on-ti.patch
 #ubuntu/lock-Add-Lock-Screen-on-Suspend-option.patch
 #ubuntu/region-Add-Language-Selector-button.patch
 #ubuntu/Adapts-the-region-capplet-and-the-language-chooser-in-the.patch
-ubuntu/connectivity-add-network-connectivity-checking-toggle.patch
+#ubuntu/connectivity-add-network-connectivity-checking-toggle.patch
 #ubuntu/diagnostics-Add-Whoopsie-support.patch
 ubuntu/online-accounts-Hide-window-after-adding-an-online-accoun.patch
 ubuntu/online-accounts-sort.patch
