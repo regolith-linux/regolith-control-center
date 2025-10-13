@@ -15,18 +15,18 @@ panel_names = [
 
 panels_list += panel_names
 
-foreach name: panel_names
-  desktop = 'gnome-' + name + '-panel.desktop'
-
-  i18n.merge_file(
-    type: 'desktop',
-    input: desktop + '.in',
-    output: desktop,
-    po_dir: po_dir,
-    install: true,
-    install_dir: control_center_desktopdir
-  )
-endforeach
+# foreach name: panel_names
+#   desktop = 'gnome-' + name + '-panel.desktop'
+# 
+#   i18n.merge_file(
+#     type: 'desktop',
+#     input: desktop + '.in',
+#     output: desktop,
+#     po_dir: po_dir,
+#     install: true,
+#     install_dir: control_center_desktopdir
+#   )
+# endforeach
 
 ui_sources = files(
   'cc-net-proxy-page.blp',

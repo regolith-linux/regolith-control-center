@@ -10,18 +10,18 @@ panels = [
   'color',
   'display',
   'mouse',
-  'multitasking',
-  'notifications',
-  'online-accounts',
+#  'multitasking',
+#  'notifications',
+#  'online-accounts',
   'power',
   'printers',
   'privacy',
-  'search',
-  'sharing',
+#  'search',
+#  'sharing',
   'sound',
   'system',
   'universal-access',
-  'wellbeing',
+#  'wellbeing',
   'wwan',
 ]
 
@@ -32,7 +32,7 @@ endif
 if host_is_linux_not_s390
   panels += [
     'bluetooth',
-    'wacom'
+ #   'wacom'
   ]
 endif
 
