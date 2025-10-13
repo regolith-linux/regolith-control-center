@@ -5,26 +5,26 @@ service_conf = configuration_data()
 service_conf.set('bindir', control_center_bindir)
 service_conf.set('appid', application_id)
 
-service = 'org.gnome.Settings.service'
-
-configure_file(
-          input : service + '.in',
-         output : '@0@.service'.format(application_id),
-        install : true,
-    install_dir : join_paths(control_center_datadir, 'dbus-1', 'services'),
-  configuration : service_conf
-)
+# service = 'org.gnome.Settings.service'
+# 
+# configure_file(
+#           input : service + '.in',
+#          output : '@0@.service'.format(application_id),
+#         install : true,
+#     install_dir : join_paths(control_center_datadir, 'dbus-1', 'services'),
+#   configuration : service_conf
+# )
 
 desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)
 
-desktop = 'org.gnome.Settings.desktop'
+desktop = 'org.regolith.Settings.desktop'
 
 i18n.merge_file(
          type : 'desktop',
         input : configure_file(
             input: desktop + '.in',
-            output: 'org.gnome.Settings.desktop.in',
+            output: 'org.regolith.Settings.desktop.in',
             configuration: desktop_conf
         ),
        output : '@0@.desktop'.format(application_id),

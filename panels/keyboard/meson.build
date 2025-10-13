@@ -1,15 +1,15 @@
 panels_list += cappletname
-desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
+# desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 keyboard_inc = include_directories('.')
 
-i18n.merge_file(
-  type: 'desktop',
-  input: desktop + '.in',
-  output: desktop,
-  po_dir: po_dir,
-  install: true,
-  install_dir: control_center_desktopdir
-)
+# i18n.merge_file(
+#   type: 'desktop',
+#   input: desktop + '.in',
+#   output: desktop,
+#   po_dir: po_dir,
+#   install: true,
+#   install_dir: control_center_desktopdir
+# )
 
 pc_conf = configuration_data()
 pc_conf.set('prefix', control_center_prefix)
