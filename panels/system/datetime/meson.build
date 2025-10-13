@@ -26,15 +26,15 @@ blueprints += custom_target(
   command: [blueprint_compiler, 'batch-compile', '@OUTDIR@', '@CURRENT_SOURCE_DIR@', '@INPUT@']
 )
 
-polkit = 'org.gnome.controlcenter.@0@.policy'.format(cappletname)
-
-i18n.merge_file(
-  input: polkit + '.in',
-  output: polkit,
-  po_dir: po_dir,
-  install: true,
-  install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
-)
+# polkit = 'org.gnome.controlcenter.@0@.policy'.format(cappletname)
+# 
+# i18n.merge_file(
+#   input: polkit + '.in',
+#   output: polkit,
+#   po_dir: po_dir,
+#   install: true,
+#   install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
+# )
 
 gdbus = 'timedated'
 gdbus_iface_xml = gdbus + '1-interface.xml'

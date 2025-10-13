@@ -18,15 +18,15 @@ pc_conf.set('datadir', control_center_datadir)
 pc_conf.set('PACKAGE', meson.project_name())
 pc_conf.set('VERSION', meson.project_version())
 
-pc = 'gnome-keybindings.pc'
-
-configure_file(
-  input: pc + '.in',
-  output: pc,
-  install: true,
-  install_dir: join_paths(control_center_datadir, 'pkgconfig'),
-  configuration: pc_conf
-)
+# pc = 'gnome-keybindings.pc'
+# 
+# configure_file(
+#   input: pc + '.in',
+#   output: pc,
+#   install: true,
+#   install_dir: join_paths(control_center_datadir, 'pkgconfig'),
+#   configuration: pc_conf
+# )
 
 xml_files = [
   '00-multimedia.xml',
@@ -141,4 +141,4 @@ keyboard_panel_dep = declare_dependency(
   link_with: keyboard_panel_lib,
 )
 
-subdir('icons')
+# subdir('icons')

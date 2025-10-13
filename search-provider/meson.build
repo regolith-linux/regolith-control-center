@@ -11,10 +11,10 @@ configure_file(
   configuration : service_conf
 )
 
-install_data(
-  'org.gnome.Settings.search-provider.ini',
-  install_dir: join_paths(control_center_datadir, 'gnome-shell', 'search-providers')
-)
+# install_data(
+#   'org.gnome.Settings.search-provider.ini',
+#   install_dir: join_paths(control_center_datadir, 'gnome-shell', 'search-providers')
+# )
 
 sources = files(
   'cc-search-provider.c',

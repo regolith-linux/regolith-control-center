@@ -10,14 +10,14 @@ panels_list += cappletname
 #   install_dir: control_center_desktopdir
 # )
 
-polkit = 'org.gnome.controlcenter.user-accounts.policy'.format(cappletname)
-i18n.merge_file(
-  input: 'users/' + polkit + '.in',
-  output: polkit,
-  po_dir: po_dir,
-  install: true,
-  install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
-)
+# polkit = 'org.gnome.controlcenter.user-accounts.policy'.format(cappletname)
+# i18n.merge_file(
+#   input: 'users/' + polkit + '.in',
+#   output: polkit,
+#   po_dir: po_dir,
+#   install: true,
+#   install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
+# )
 
 ui_sources = files(
   'cc-system-panel.blp',

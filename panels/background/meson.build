@@ -10,10 +10,10 @@ panels_list += cappletname
 #   install_dir: control_center_desktopdir
 # )
 
-install_data(
-  'noise-texture-light.png',
-  install_dir: join_paths(control_center_pkgdatadir, 'pixmaps')
-)
+# install_data(
+#   'noise-texture-light.png',
+#   install_dir: join_paths(control_center_pkgdatadir, 'pixmaps')
+# )
 
 common_sources = []
 
