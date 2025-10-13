@@ -1,3 +1,10 @@
+regolith-control-center (1.49.0-2) questing; urgency=medium
+
+  * remove upstream CI files in subprojects
+  * Avoid shipping files vended by upstream
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 12 Oct 2025 19:02:04 -0700
+
 regolith-control-center (1.49.0-1) questing; urgency=medium
 
   * Port from upstream
