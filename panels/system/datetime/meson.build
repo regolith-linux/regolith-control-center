@@ -1,12 +1,12 @@
-desktop = 'gnome-datetime-panel.desktop'
-i18n.merge_file(
-  type: 'desktop',
-  input: desktop + '.in',
-  output: desktop,
-  po_dir: po_dir,
-  install: true,
-  install_dir: control_center_desktopdir
-)
+# desktop = 'gnome-datetime-panel.desktop'
+# i18n.merge_file(
+#   type: 'desktop',
+#   input: desktop + '.in',
+#   output: desktop,
+#   po_dir: po_dir,
+#   install: true,
+#   install_dir: control_center_desktopdir
+# )
 
 ui_sources = files(
   'cc-datetime-page.blp',
