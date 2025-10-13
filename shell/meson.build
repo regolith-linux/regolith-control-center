@@ -175,7 +175,7 @@ libtestshell_dep = declare_dependency(
 libtestshell_deps = common_deps + [ libwidgets_dep, libtestshell_dep ]
 
 
-install_data (
-  'org.gnome.Settings.gschema.xml',
-  install_dir : control_center_schemadir
-)
+# install_data (
+#   'org.gnome.Settings.gschema.xml',
+#   install_dir : control_center_schemadir
+# )

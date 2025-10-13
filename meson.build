@@ -33,7 +33,7 @@ blueprint_compiler = find_program('blueprint-compiler', version: '>= 0.17')
 
 config_h.set_quoted('TEST_NM_PYTHON', python.full_path())
 
-application_id = 'org.gnome.Settings'
+application_id = 'org.regolith.Settings'
 
 if get_option('profile') == 'development'
     application_id += '.' + 'Devel'
@@ -364,15 +364,15 @@ pkg = import('pkgconfig')
 po_dir = join_paths(meson.project_source_root(), 'po')
 its_dir = join_paths(meson.project_source_root(), 'gettext')
 
-install_subdir(
-  'gettext',
-  install_dir: control_center_datadir
-)
+# install_subdir(
+#   'gettext',
+#   install_dir: control_center_datadir
+# )
 
 top_inc = include_directories('.')
 shell_inc = include_directories('shell')
 
-subdir('data/icons')
+# subdir('data/icons')
 subdir('po')
 subdir('panels')
 subdir('shell')

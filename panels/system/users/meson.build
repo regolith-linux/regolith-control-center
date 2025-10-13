@@ -1,12 +1,12 @@
-desktop = 'gnome-users-panel.desktop'
-i18n.merge_file(
-  type: 'desktop',
-  input: desktop + '.in',
-  output: desktop,
-  po_dir: po_dir,
-  install: true,
-  install_dir: control_center_desktopdir
-)
+# desktop = 'gnome-users-panel.desktop'
+# i18n.merge_file(
+#   type: 'desktop',
+#   input: desktop + '.in',
+#   output: desktop,
+#   po_dir: po_dir,
+#   install: true,
+#   install_dir: control_center_desktopdir
+# )
 
 ui_sources = files(
   'cc-avatar-chooser.blp',
@@ -28,39 +28,39 @@ blueprints += custom_target(
   command: [blueprint_compiler, 'batch-compile', '@OUTDIR@', '@CURRENT_SOURCE_DIR@', '@INPUT@']
 )
 
-image_data = files(
-  'data/faces/bicycle.jpg',
-  'data/faces/book.jpg',
-  'data/faces/calculator.jpg',
-  'data/faces/cat.jpg',
-  'data/faces/coffee2.jpg',
-  'data/faces/flower2.jpg',
-  'data/faces/gamepad.jpg',
-  'data/faces/guitar2.jpg',
-  'data/faces/headphones.jpg',
-  'data/faces/hummingbird.jpg',
-  'data/faces/mountain.jpg',
-  'data/faces/plane.jpg',
-  'data/faces/surfer.jpg',
-  'data/faces/tomatoes.jpg',
-  'data/faces/tree.jpg',
-)
+# image_data = files(
+#   'data/faces/bicycle.jpg',
+#   'data/faces/book.jpg',
+#   'data/faces/calculator.jpg',
+#   'data/faces/cat.jpg',
+#   'data/faces/coffee2.jpg',
+#   'data/faces/flower2.jpg',
+#   'data/faces/gamepad.jpg',
+#   'data/faces/guitar2.jpg',
+#   'data/faces/headphones.jpg',
+#   'data/faces/hummingbird.jpg',
+#   'data/faces/mountain.jpg',
+#   'data/faces/plane.jpg',
+#   'data/faces/surfer.jpg',
+#   'data/faces/tomatoes.jpg',
+#   'data/faces/tree.jpg',
+# )
+# 
+# image_dir = join_paths(control_center_datadir, 'pixmaps', 'faces')
+# 
+# install_data(
+#   image_data,
+#   install_dir: image_dir
+# )
 
-image_dir = join_paths(control_center_datadir, 'pixmaps', 'faces')
-
-install_data(
-  image_data,
-  install_dir: image_dir
-)
-
-polkit = 'org.gnome.controlcenter.user-accounts.policy'
-i18n.merge_file(
-  input: polkit + '.in',
-  output: polkit,
-  po_dir: po_dir,
-  install: true,
-  install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
-)
+# polkit = 'org.gnome.controlcenter.user-accounts.policy'
+# i18n.merge_file(
+#   input: polkit + '.in',
+#   output: polkit,
+#   po_dir: po_dir,
+#   install: true,
+#   install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
+# )
 
 realmd_namespace = 'org.freedesktop.realmd'
 sources += gnome.gdbus_codegen(
