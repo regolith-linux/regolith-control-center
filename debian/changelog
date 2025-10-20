@@ -1,3 +1,10 @@
+regolith-control-center (1.43.1-9) lunar; urgency=medium
+
+  [ Khosrow Moossavi ]
+  * feat: use build-only to test pull request
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Mon, 20 Oct 2025 01:25:43 +0000
+
 regolith-control-center (1.43.1-8) lunar; urgency=medium
 
   * UNRELEASED
