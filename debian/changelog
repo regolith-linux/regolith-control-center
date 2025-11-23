@@ -1,3 +1,9 @@
+regolith-control-center (1.49.0-3) questing; urgency=medium
+
+  * UNRELEASED
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 23 Nov 2025 19:00:51 +0000
+
 regolith-control-center (1.49.0-2) questing; urgency=medium
 
   * remove upstream CI files in subprojects
