@@ -1,5 +1,12 @@
 regolith-control-center (1.49.0-3) questing; urgency=medium
 
+  [ Khosrow Moossavi ]
+  * feat: enable github actions
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 06 Dec 2025 17:19:47 +0000
+
+regolith-control-center (1.49.0-3) questing; urgency=medium
+
   * UNRELEASED
 
  -- Regolith Linux <regolith.linux@gmail.com>  Sun, 23 Nov 2025 19:00:51 +0000
