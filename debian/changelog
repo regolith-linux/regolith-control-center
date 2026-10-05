@@ -1,3 +1,10 @@
+regolith-control-center (1.50.3-1) resolute; urgency=medium
+
+  * Port from upstream gnome-control-center 50.3 (ubuntu 1:50.3-0ubuntu0.2)
+  * Disable new Ubuntu-specific patches and debian keyboard-configuration helper
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Mon, 05 Oct 2026 12:00:00 -0700
+
 regolith-control-center (1.49.0-4) questing; urgency=medium
 
   * fix: remove unused ubuntu dependency for debian compat
