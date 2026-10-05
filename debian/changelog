@@ -3,6 +3,7 @@ regolith-control-center (1.50.3-1) resolute; urgency=medium
   * Port from upstream gnome-control-center 50.3 (ubuntu 1:50.3-0ubuntu0.2)
   * Disable new Ubuntu-specific patches and debian keyboard-configuration helper
   * fix: remove unused ubuntu language-selector-gnome dependency for debian compat
+  * fix: remove unneeded debian desktop-base dependency
 
  -- Ken Gilmer <kgilmer@gmail.com>  Mon, 05 Oct 2026 12:00:00 -0700
 

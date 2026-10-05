@@ -63,7 +63,6 @@ Package: regolith-control-center
 Architecture: any
 Depends: accountsservice (>= 23.11.69),
          colord,
-         desktop-base,
          desktop-file-utils,
          gnome-control-center-data (<< 1:51),
          gnome-control-center-data (>= 1:50~beta-1),
