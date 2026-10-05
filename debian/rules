@@ -1,26 +1,19 @@
 #!/usr/bin/make -f
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-export DEB_CPPFLAGS_MAINT_APPEND = -DSSHD_SERVICE=\"ssh.service\" -DSSHD_SOCKET=\"ssh.socket\"
+export DEB_CPPFLAGS_MAINT_APPEND = -DSSHD_SERVICE=\"ssh.service\"
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs
 
-ifeq ($(shell dpkg-vendor --is Ubuntu && echo yes),yes)
-DISTRIBUTOR_LOGO := /usr/share/pixmaps/ubuntu-logo-text.svg
-DISTRIBUTOR_LOGO_DARK := /usr/share/pixmaps/ubuntu-logo-text-dark.svg
-else
-DISTRIBUTOR_LOGO := /usr/share/icons/vendor/scalable/emblems/emblem-vendor.svg
-DISTRIBUTOR_LOGO_DARK := /usr/share/icons/vendor/scalable/emblems/emblem-vendor.svg
-endif
+DISTRIBUTOR_LOGO := /usr/share/icons/regolith-logo.png
+DISTRIBUTOR_LOGO_DARK := /usr/share/icons/regolith-logo.png
+
 
 %:
 	dh $@
 
 override_dh_auto_configure:
 	dh_auto_configure -- \
-		-Dlocation-services=enabled \
 		-Dprivileged_group=sudo \
-		-Dwhoopsie=true \
-		-Dinsights=true \
 		-Ddocumentation=true \
 		-Ddistributor_logo=$(DISTRIBUTOR_LOGO) \
 		-Ddark_mode_distributor_logo=$(DISTRIBUTOR_LOGO_DARK) \
@@ -28,4 +21,6 @@ override_dh_auto_configure:
 
 # Ubuntu-specific
 override_dh_translations:
-	dh_translations --domain=gnome-control-center-2.0
+	dh_translations --domain=regolith-control-center-2.0
+
+override_dh_gnome_clean:
