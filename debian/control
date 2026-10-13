@@ -55,7 +55,9 @@ Build-Depends: debhelper-compat (= 13),
                python3-dbusmock <!nocheck>,
                shared-mime-info,
                tecla (>= 47),
-               tzdata <!nocheck>
+               tzdata <!nocheck>,
+               x11-xkb-utils <!nocheck>,
+               xvfb <!nocheck>
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 

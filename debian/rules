@@ -19,6 +19,15 @@ override_dh_auto_configure:
 		-Ddark_mode_distributor_logo=$(DISTRIBUTOR_LOGO_DARK) \
 		-Dmalcontent=$(if $(filter linux,$(DEB_HOST_ARCH_OS)),true,false)
 
+# gtk_test_init() switches the GTK tests to en_US.UTF-8. Builders usually
+# have only C.UTF-8, and GTK 4.24 makes the missing locale a fatal warning.
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	mkdir -p debian/test-locales
+	localedef -i en_US -f UTF-8 debian/test-locales/en_US.UTF-8
+	LOCPATH=$(CURDIR)/debian/test-locales dh_auto_test
+endif
+
 # Ubuntu-specific
 override_dh_translations:
 	dh_translations --domain=regolith-control-center-2.0
