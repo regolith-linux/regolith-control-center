@@ -20,7 +20,7 @@ desktop_conf.set('icon', application_id)
 
 desktop = 'org.regolith.Settings.desktop'
 
-i18n.merge_file(
+settings_desktop_file = i18n.merge_file(
          type : 'desktop',
         input : configure_file(
             input: desktop + '.in',
@@ -32,6 +32,16 @@ i18n.merge_file(
       install : true,
   install_dir : control_center_desktopdir
 )
+
+desktop_file_validate = find_program('desktop-file-validate', required: false)
+if desktop_file_validate.found()
+  test(
+    'validate-desktop',
+    desktop_file_validate,
+    args: [settings_desktop_file.full_path()],
+    depends: settings_desktop_file
+  )
+endif
 
 cflags = ['-DGNOMELOCALEDIR="@0@"'.format(control_center_localedir)]
 
