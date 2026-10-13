@@ -1,0 +1,28 @@
+#!/bin/sh
+# The panels Regolith keeps are listed; the ones it disables are not.
+set -eu
+
+# The shell refuses to start outside GNOME-like desktops; this is what
+# Regolith's X11 session sets.
+export XDG_CURRENT_DESKTOP=Regolith:GNOME-Flashback:GNOME
+
+enabled="applications background bluetooth color display keyboard mouse network wifi power printers privacy sound system universal-access wwan"
+disabled="multitasking notifications online-accounts search sharing wacom wellbeing"
+
+list=$(xvfb-run -a dbus-run-session -- regolith-control-center --list |
+    sed -e 's/^[[:space:]]*//' -e '/^Available panels:$/d')
+
+status=0
+for panel in $enabled; do
+    if ! printf '%s\n' "$list" | grep -qFx "$panel"; then
+        echo "enabled panel not listed: $panel" >&2
+        status=1
+    fi
+done
+for panel in $disabled; do
+    if printf '%s\n' "$list" | grep -qFx "$panel"; then
+        echo "disabled panel listed: $panel" >&2
+        status=1
+    fi
+done
+exit $status

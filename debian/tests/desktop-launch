@@ -1,0 +1,25 @@
+#!/bin/sh
+# Launching the desktop entry through GIO, as launchers do, starts the app.
+set -eu
+
+# The shell refuses to start outside GNOME-like desktops; this is what
+# Regolith's X11 session sets.
+export XDG_CURRENT_DESKTOP=Regolith:GNOME-Flashback:GNOME
+
+# GNOME's Wi-Fi panel init needs a system bus; testbeds without one
+# (plain containers) cannot run the shell at all.
+if [ ! -S /run/dbus/system_bus_socket ]; then
+    echo "no system bus; skipping"
+    exit 77
+fi
+
+xvfb-run -a dbus-run-session -- sh -eu -c '
+    gio launch /usr/share/applications/org.regolith.Settings.desktop
+    sleep 5
+    if pgrep -f "^(/usr/bin/)?regolith-control-center( |$)" >/dev/null; then
+        pkill -f "^(/usr/bin/)?regolith-control-center( |$)"
+    else
+        echo "gio launch started no regolith-control-center process" >&2
+        exit 1
+    fi
+'

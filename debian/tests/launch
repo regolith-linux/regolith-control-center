@@ -1,0 +1,36 @@
+#!/bin/sh
+# The shell starts and stays up, and every panel finds its desktop file,
+# with only the package's own Depends installed (no stock
+# gnome-control-center).
+set -eu
+
+# The shell refuses to start outside GNOME-like desktops; this is what
+# Regolith's X11 session sets.
+export XDG_CURRENT_DESKTOP=Regolith:GNOME-Flashback:GNOME
+
+# GNOME's Wi-Fi panel init needs a system bus; testbeds without one
+# (plain containers) cannot run the shell at all.
+if [ ! -S /run/dbus/system_bus_socket ]; then
+    echo "no system bus; skipping"
+    exit 77
+fi
+
+if dpkg-query -W -f='${Status}' gnome-control-center 2>/dev/null | grep -q 'ok installed'; then
+    echo "note: stock gnome-control-center is installed; this does not test its absence"
+fi
+
+log=$(mktemp)
+trap 'rm -f "$log"' EXIT INT TERM
+
+status=0
+xvfb-run -a dbus-run-session -- timeout 10 regolith-control-center >"$log" 2>&1 || status=$?
+
+if [ "$status" -ne 124 ]; then
+    cat "$log" >&2
+    echo "regolith-control-center exited within 10 seconds (status $status)" >&2
+    exit 1
+fi
+if grep -F 'Ignoring broken panel' "$log" >&2; then
+    echo "panels without a desktop file" >&2
+    exit 1
+fi

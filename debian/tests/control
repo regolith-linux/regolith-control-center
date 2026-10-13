@@ -1,0 +1,14 @@
+Tests: panels
+Depends: @, dbus, xauth, xvfb
+Restrictions: allow-stderr
+
+Tests: launch
+Depends: @, dbus, xauth, xvfb
+Restrictions: allow-stderr, skippable
+
+Tests: desktop-launch
+Depends: @, dbus, libglib2.0-bin, procps, xauth, xvfb
+Restrictions: allow-stderr, skippable
+
+Tests: about-logo
+Depends: @
