@@ -2,7 +2,7 @@ panels_list += cappletname
 desktop = 'gnome-@0@-panel.desktop'.format(cappletname)
 keyboard_inc = include_directories('.')
 
-i18n.merge_file(
+panel_desktop_files += i18n.merge_file(
   type: 'desktop',
   input: desktop + '.in',
   output: desktop.replace('gnome-', 'regolith-'),
