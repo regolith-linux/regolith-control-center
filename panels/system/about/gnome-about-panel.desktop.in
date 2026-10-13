@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=About
 Comment=View information about your system
-Exec=gnome-control-center system about
+Exec=regolith-control-center system about
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-about-symbolic
 Terminal=false
