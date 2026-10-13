@@ -18,6 +18,21 @@ service_conf.set('appid', application_id)
 desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)
 
+# The desktop entry and the window use the application ID as icon name.
+# Install GNOME's Settings icons under that name. data/icons stays disabled
+# because gnome-control-center-data ships everything it installs.
+icon_srcdir = join_paths(meson.project_source_root(), 'data', 'icons', 'hicolor')
+install_data(
+  join_paths(icon_srcdir, 'scalable', 'apps', 'org.gnome.Settings.svg'),
+  rename: '@0@.svg'.format(application_id),
+  install_dir: join_paths(control_center_icondir, 'hicolor', 'scalable', 'apps')
+)
+install_data(
+  join_paths(icon_srcdir, 'symbolic', 'apps', 'org.gnome.Settings-symbolic.svg'),
+  rename: '@0@-symbolic.svg'.format(application_id),
+  install_dir: join_paths(control_center_icondir, 'hicolor', 'symbolic', 'apps')
+)
+
 desktop = 'org.regolith.Settings.desktop'
 
 i18n.merge_file(

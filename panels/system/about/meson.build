@@ -52,3 +52,9 @@ print_renderer_deps = [
 #   [ 'gnome-logo-text.svg', 'gnome-logo-text-dark.svg' ],
 #   install_dir: join_paths(control_center_datadir, 'icons')
 # )
+
+# debian/rules points -Ddistributor_logo and -Ddark_mode_distributor_logo here
+install_data(
+  'regolith-logo.png',
+  install_dir: join_paths(control_center_datadir, 'icons')
+)

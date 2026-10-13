@@ -3,7 +3,7 @@ Name=Settings
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=@icon@
 Exec=regolith-control-center
-DBusActivatable=true
+DBusActivatable=false
 Terminal=false
 Type=Application
 StartupNotify=true
