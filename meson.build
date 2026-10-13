@@ -411,9 +411,9 @@ subdir('shell')
 # subdir('global-shortcuts-provider')
 # subdir('search-provider')
 
-# if get_option('tests')
-#   subdir('tests')
-# endif
+if get_option('tests')
+  subdir('tests')
+endif
 
 # if get_option('documentation')
 #   subdir('man')
