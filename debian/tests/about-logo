@@ -1,0 +1,13 @@
+#!/bin/sh
+# The distributor logo the About page is built to show is installed.
+set -eu
+
+logo=/usr/share/icons/regolith-logo.png
+if ! grep -qF "$logo" /usr/bin/regolith-control-center; then
+    echo "regolith-control-center no longer refers to $logo; update this test" >&2
+    exit 1
+fi
+if [ ! -s "$logo" ]; then
+    echo "missing $logo" >&2
+    exit 1
+fi
