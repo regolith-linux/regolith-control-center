@@ -415,9 +415,9 @@ if get_option('tests')
   subdir('tests')
 endif
 
-# if get_option('documentation')
-#   subdir('man')
-# endif
+if get_option('documentation')
+  subdir('man')
+endif
 
 gnome.post_install(
   glib_compile_schemas: true,
