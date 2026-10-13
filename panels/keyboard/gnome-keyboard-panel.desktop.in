@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Keyboard
 Comment=Change keyboard shortcuts and set your typing preferences, keyboard layouts and input sources
-Exec=gnome-control-center keyboard
+Exec=regolith-control-center keyboard
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-keyboard-symbolic
 Terminal=false

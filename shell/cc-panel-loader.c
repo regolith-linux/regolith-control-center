@@ -251,7 +251,7 @@ cc_panel_loader_fill_model (CcShellModel *model)
       g_autofree gchar *desktop_name = NULL;
       gint category;
 
-      desktop_name = g_strconcat ("gnome-", panels_vtable[i].name, "-panel.desktop", NULL);
+      desktop_name = g_strconcat ("regolith-", panels_vtable[i].name, "-panel.desktop", NULL);
       app = g_desktop_app_info_new (desktop_name);
 
       if (!app)
@@ -272,7 +272,7 @@ cc_panel_loader_fill_model (CcShellModel *model)
       g_autoptr(GDesktopAppInfo) app = NULL;
       g_autofree gchar *desktop_name = NULL;
 
-      desktop_name = g_strconcat ("gnome-", subpages_vtable[i].name, "-panel.desktop", NULL);
+      desktop_name = g_strconcat ("regolith-", subpages_vtable[i].name, "-panel.desktop", NULL);
       app = g_desktop_app_info_new (desktop_name);
 
       if (!app)
