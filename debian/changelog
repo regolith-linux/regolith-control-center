@@ -1,3 +1,23 @@
+regolith-control-center (1.50.4-1) resolute; urgency=medium
+
+  [ rego-port-bot ]
+  * fix: ship panel desktop files and load them with a regolith- prefix
+  * test: validate the panel desktop files at build time
+  * fix: do not mark org.regolith.Settings.desktop as D-Bus activatable
+  * fix: install the Regolith logo shown on the About page
+  * fix: point the metainfo at org.regolith.Settings.desktop
+  * fix: register the bash completion for regolith-control-center
+  * fix: install an org.regolith.Settings icon
+  * fix: list the renamed desktop entry in POTFILES.in
+  * test: build and run the GNOME test suite again
+  * test: validate org.regolith.Settings.desktop
+  * fix: build and install the regolith-control-center man page
+  * test: build-depend on Xvfb and setxkbmap so the display tests always run
+  * chore: point the lintian override at the regolith panel desktop files
+  * test: add autopkgtests for the panels, launching and the About logo
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Tue, 13 Oct 2026 15:46:54 -0700
+
 regolith-control-center (1.50.3-1) resolute; urgency=medium
 
   * Port from upstream gnome-control-center 50.3 (ubuntu 1:50.3-0ubuntu0.2)
@@ -87,7 +107,7 @@ regolith-control-center (1.48.1-2) plucky; urgency=medium
 regolith-control-center (1.48.0-1) unstable; urgency=medium
 
   [ Ken Gilmer ]
-  * Port from GNOME 
+  * Port from GNOME
 
  -- Jeremy Bícha <jbicha@ubuntu.com>  Mon, 17 Mar 2025 16:20:22 -0400
 
