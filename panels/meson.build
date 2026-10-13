@@ -38,6 +38,7 @@ endif
 
 panels_list = []
 panels_libs = []
+panel_desktop_files = []
 foreach cappletname: dependent_panels + panels
   cflags = [
     '-DG_LOG_DOMAIN="cc-@0@-panel"'.format(cappletname),
@@ -46,3 +47,13 @@ foreach cappletname: dependent_panels + panels
 
   subdir(cappletname)
 endforeach
+
+# cc-panel-loader looks up regolith-<name>-panel.desktop for every panel and
+# subpage, and ignores a panel whose file is missing.
+if get_option('tests')
+  test(
+    'panel-desktop-files',
+    find_program('desktop-file-validate'),
+    args: panel_desktop_files,
+  )
+endif

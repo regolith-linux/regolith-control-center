@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Date & Time
 Comment=Change the date and time, including time zone
-Exec=gnome-control-center system datetime
+Exec=regolith-control-center system datetime
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-time-symbolic
 Terminal=false
