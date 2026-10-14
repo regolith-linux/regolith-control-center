@@ -17,36 +17,41 @@ functionality to generate and show an example report is also present.
 ---
  meson.build                                        |   9 +
  meson_options.txt                                  |   1 +
+ panels/common/gnome-control-center.rules.in        |   3 +-
  panels/privacy/cc-privacy-panel.blp                |  12 +-
  panels/privacy/cc-privacy-panel.c                  |   4 +-
  panels/privacy/gnome-privacy-panel.desktop.in      |   2 +-
- panels/privacy/meson.build                         |  27 +-
- panels/privacy/privacy.gresource.xml.in            |  23 +
+ panels/privacy/meson.build                         |  30 +-
+ ...vacy.gresource.xml => privacy.gresource.xml.in} |   5 +-
  .../telemetry/cc-telemetry-insights-example.blp    |  47 ++
- .../telemetry/cc-telemetry-insights-example.c      | 102 ++++
- .../telemetry/cc-telemetry-insights-example.h      |  32 ++
- panels/privacy/telemetry/cc-telemetry-page.blp     |  90 +++
- panels/privacy/telemetry/cc-telemetry-page.c       | 629 +++++++++++++++++++++
- panels/privacy/telemetry/cc-telemetry-page.h       |  33 ++
- panels/privacy/telemetry/meson.build               |  18 +
+ .../telemetry/cc-telemetry-insights-example.c      | 102 +++
+ .../telemetry/cc-telemetry-insights-example.h}     |  13 +-
+ panels/privacy/telemetry/cc-telemetry-page.blp     | 115 ++++
+ panels/privacy/telemetry/cc-telemetry-page.c       | 765 +++++++++++++++++++++
+ .../cc-telemetry-page.h}                           |  10 +-
+ .../gnome-control-center-insights-helper.c         |  62 ++
+ panels/privacy/telemetry/meson.build               |  42 ++
+ ...rolcenter.insights-system-opt-out.policy.in.in} |  11 +-
  panels/privacy/telemetry/telemetry.css             |   8 +
- po/POTFILES.in                                     |   4 +
- 16 files changed, 1029 insertions(+), 12 deletions(-)
- create mode 100644 panels/privacy/privacy.gresource.xml.in
+ po/POTFILES.in                                     |   6 +
+ 19 files changed, 1217 insertions(+), 30 deletions(-)
+ rename panels/privacy/{privacy.gresource.xml => privacy.gresource.xml.in} (88%)
  create mode 100644 panels/privacy/telemetry/cc-telemetry-insights-example.blp
  create mode 100644 panels/privacy/telemetry/cc-telemetry-insights-example.c
- create mode 100644 panels/privacy/telemetry/cc-telemetry-insights-example.h
+ copy panels/{mouse/cc-mouse-test.h => privacy/telemetry/cc-telemetry-insights-example.h} (62%)
  create mode 100644 panels/privacy/telemetry/cc-telemetry-page.blp
  create mode 100644 panels/privacy/telemetry/cc-telemetry-page.c
- create mode 100644 panels/privacy/telemetry/cc-telemetry-page.h
+ copy panels/privacy/{diagnostics/cc-diagnostics-page.h => telemetry/cc-telemetry-page.h} (73%)
+ create mode 100644 panels/privacy/telemetry/gnome-control-center-insights-helper.c
  create mode 100644 panels/privacy/telemetry/meson.build
+ copy panels/{keyboard/org.gnome.controlcenter.keyboard.policy.in.in => privacy/telemetry/org.gnome.controlcenter.insights-system-opt-out.policy.in.in} (60%)
  create mode 100644 panels/privacy/telemetry/telemetry.css
 
 diff --git a/meson.build b/meson.build
-index c4e1272..ed4f6b8 100644
+index dbbb5ba..423bad6 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -353,6 +353,14 @@ endif
+@@ -355,6 +355,14 @@ endif
  config_h.set('HAVE_WHOOPSIE', enable_whoopsie,
               description: 'Define to 1 if Whoopsie is enabled')
  
@@ -61,7 +66,7 @@ index c4e1272..ed4f6b8 100644
  if host_is_linux
    # ModemManager
    mm_dep =  dependency('mm-glib', version: '>= 0.7')
-@@ -459,6 +467,7 @@ summary({
+@@ -462,6 +470,7 @@ summary({
      'Snap': enable_snap,
      'Malcontent': enable_malcontent,
      'Whoopsie': enable_whoopsie,
@@ -70,38 +75,52 @@ index c4e1272..ed4f6b8 100644
    section: 'Optional Dependencies',
    bool_yn: true,
 diff --git a/meson_options.txt b/meson_options.txt
-index 4e1f5d9..e88d3b3 100644
+index 20de3e1..b222b2a 100644
 --- a/meson_options.txt
 +++ b/meson_options.txt
-@@ -10,3 +10,4 @@ option('malcontent', type: 'boolean', value: false, description: 'build with mal
+@@ -10,3 +10,4 @@ option('ssh_socket_activation', type: 'boolean', value: false, description: 'bui
  option('distributor_logo', type: 'string', description: 'absolute path to distributor logo for the About panel')
  option('dark_mode_distributor_logo', type: 'string', description: 'absolute path to distributor logo dark mode variant')
  option('whoopsie', type: 'boolean', value: false, description: 'build with Whoopsie support')
 +option('insights', type: 'boolean', value: false, description: 'build with Ubuntu Insights support')
+diff --git a/panels/common/gnome-control-center.rules.in b/panels/common/gnome-control-center.rules.in
+index dc0cfad..06ff442 100644
+--- a/panels/common/gnome-control-center.rules.in
++++ b/panels/common/gnome-control-center.rules.in
+@@ -6,7 +6,8 @@ polkit.addRule(function(action, subject) {
+ 	     action.id == "org.freedesktop.hostname1.set-static-hostname" ||
+ 	     action.id == "org.freedesktop.hostname1.set-hostname" ||
+ 	     action.id == "org.gnome.controlcenter.set-keyboard" ||
+-	     action.id == "org.gnome.controlcenter.datetime.configure") &&
++	     action.id == "org.gnome.controlcenter.datetime.configure" ||
++	     action.id == "org.gnome.controlcenter.insights-system-opt-out") &&
+ 	    subject.local &&
+ 	    subject.active &&
+ 	    subject.isInGroup ("@PRIVILEGED_GROUP@")) {
 diff --git a/panels/privacy/cc-privacy-panel.blp b/panels/privacy/cc-privacy-panel.blp
-index 4ef1b86..7e81a7e 100644
+index e7daa37..1685bdf 100644
 --- a/panels/privacy/cc-privacy-panel.blp
 +++ b/panels/privacy/cc-privacy-panel.blp
-@@ -43,13 +43,13 @@ template $CcPrivacyPanel: $CcPanel {
-           }
+@@ -41,13 +41,13 @@ template $CcPrivacyPanel: $CcPanel {
+         }
  
-           $CcListRow {
--            title: _("_Diagnostics");
--            subtitle: _("Automatic problem reporting");
--            icon-name: "org.gnome.Settings-device-diagnostics-symbolic";
-+            title: _("Tele_metry");
-+            subtitle: _("Control error and system reporting");
-+            icon-name: "diagnostics-symbolic";
-             show-arrow: true;
-             action-name: "navigation.push";
--            action-target: "'diagnostics'";
--            visible: bind diagnostics_page.visible;
-+            action-target: "'telemetry'";
-+            visible: bind telemetry_page.visible;
-           }
+         $CcListRow {
+-          title: _("_Diagnostics");
+-          subtitle: _("Automatic problem reporting");
+-          icon-name: "org.gnome.Settings-device-diagnostics-symbolic";
++          title: _("Tele_metry");
++          subtitle: _("Control error and system reporting");
++          icon-name: "diagnostics-symbolic";
+           show-arrow: true;
+           action-name: "navigation.push";
+-          action-target: "'diagnostics'";
+-          visible: bind diagnostics_page.visible;
++          action-target: "'telemetry'";
++          visible: bind telemetry_page.visible;
+         }
  
-           $CcListRow {
-@@ -108,7 +108,7 @@ template $CcPrivacyPanel: $CcPanel {
+         $CcListRow {
+@@ -105,7 +105,7 @@ template $CcPrivacyPanel: $CcPanel {
    $CcUsagePage {}
  
    [subpage]
@@ -111,27 +130,27 @@ index 4ef1b86..7e81a7e 100644
    [subpage]
    $CcConnectivityPage {}
 diff --git a/panels/privacy/cc-privacy-panel.c b/panels/privacy/cc-privacy-panel.c
-index d6e3fd1..efae061 100644
+index 3a295dc..f348c76 100644
 --- a/panels/privacy/cc-privacy-panel.c
 +++ b/panels/privacy/cc-privacy-panel.c
-@@ -27,7 +27,7 @@
- #endif
- #include "camera/cc-camera-page.h"
+@@ -29,7 +29,7 @@
+ #include "cc-list-row.h"
+ #include "cc-privacy-resources.h"
  #include "connectivity/cc-connectivity-page.h"
 -#include "diagnostics/cc-diagnostics-page.h"
 +#include "telemetry/cc-telemetry-page.h"
  #include "firmware-security/cc-firmware-security-page.h"
- #include "cc-list-row.h"
  #include "location/cc-location-page.h"
-@@ -74,7 +74,7 @@ cc_privacy_panel_class_init (CcPrivacyPanelClass *klass)
+ #include "screen/cc-screen-page.h"
+@@ -81,7 +81,7 @@ cc_privacy_panel_class_init (CcPrivacyPanelClass *klass)
  
-   g_type_ensure (CC_TYPE_CAMERA_PAGE);
-   g_type_ensure (CC_TYPE_CONNECTIVITY_PAGE);
--  g_type_ensure (CC_TYPE_DIAGNOSTICS_PAGE);
-+  g_type_ensure (CC_TYPE_TELEMETRY_PAGE);
-   g_type_ensure (CC_TYPE_FIRMWARE_SECURITY_PAGE);
-   g_type_ensure (CC_TYPE_LOCATION_PAGE);
-   g_type_ensure (CC_TYPE_SCREEN_PAGE);
+     g_type_ensure (CC_TYPE_CAMERA_PAGE);
+     g_type_ensure (CC_TYPE_CONNECTIVITY_PAGE);
+-    g_type_ensure (CC_TYPE_DIAGNOSTICS_PAGE);
++    g_type_ensure (CC_TYPE_TELEMETRY_PAGE);
+     g_type_ensure (CC_TYPE_FIRMWARE_SECURITY_PAGE);
+     g_type_ensure (CC_TYPE_LOCATION_PAGE);
+     g_type_ensure (CC_TYPE_SCREEN_PAGE);
 diff --git a/panels/privacy/gnome-privacy-panel.desktop.in b/panels/privacy/gnome-privacy-panel.desktop.in
 index 3704b2b..e44caf3 100644
 --- a/panels/privacy/gnome-privacy-panel.desktop.in
@@ -143,7 +162,7 @@ index 3704b2b..e44caf3 100644
 -Keywords=Privacy;Screen;Lock;Private;Usage;Recent;History;Files;Temporary;Tmp;Trash;Purge;Retain;Diagnostics;Crash;Location;Gps;Camera;Photos;Video;Webcam;Recording;Security;Firmware;Thunderbolt;Network;error;bug;whoopsie;launchpad;issue;
 +Keywords=Privacy;Screen;Lock;Private;Usage;Recent;History;Files;Telemetry;Temporary;Tmp;Trash;Purge;Retain;Diagnostics;Crash;Location;Gps;Camera;Photos;Video;Webcam;Recording;Security;Firmware;Thunderbolt;Network;error;bug;whoopsie;launchpad;issue;
 diff --git a/panels/privacy/meson.build b/panels/privacy/meson.build
-index 03078c7..5bdea29 100644
+index 03078c7..b71dcce 100644
 --- a/panels/privacy/meson.build
 +++ b/panels/privacy/meson.build
 @@ -15,7 +15,7 @@ blueprints = []
@@ -175,7 +194,7 @@ index 03078c7..5bdea29 100644
  if host_is_linux_not_s390
    sources += files(
      'bolt/bolt-client.c',
-@@ -78,9 +82,22 @@ if host_is_linux_not_s390
+@@ -78,16 +82,30 @@ if host_is_linux_not_s390
    )
  endif
  
@@ -199,7 +218,16 @@ index 03078c7..5bdea29 100644
    c_name: 'cc_' + cappletname,
    export: true,
    dependencies: blueprints,
-@@ -107,6 +124,10 @@ if enable_whoopsie
+ )
+ 
+ cflags += [
+-  '-DDATADIR="@0@"'.format(control_center_datadir)
++  '-DDATADIR="@0@"'.format(control_center_datadir),
++  '-DLIBEXECDIR="@0@"'.format(control_center_libexecdir),
+ ]
+ 
+ deps = common_deps + [
+@@ -107,6 +125,10 @@ if enable_whoopsie
    deps += whoopsie_dep
  endif
  
@@ -210,35 +238,31 @@ index 03078c7..5bdea29 100644
  panels_libs += static_library(
    cappletname,
    sources: sources,
-diff --git a/panels/privacy/privacy.gresource.xml.in b/panels/privacy/privacy.gresource.xml.in
-new file mode 100644
-index 0000000..2d44ce9
---- /dev/null
+diff --git a/panels/privacy/privacy.gresource.xml b/panels/privacy/privacy.gresource.xml.in
+similarity index 88%
+rename from panels/privacy/privacy.gresource.xml
+rename to panels/privacy/privacy.gresource.xml.in
+index 0670aa6..de0da0d 100644
+--- a/panels/privacy/privacy.gresource.xml
 +++ b/panels/privacy/privacy.gresource.xml.in
-@@ -0,0 +1,23 @@
-+<?xml version="1.0" encoding="UTF-8"?>
-+<gresources>
-+  <gresource prefix="/org/gnome/control-center/privacy">
-+    <file preprocess="xml-stripblanks">bolt/cc-bolt-device-dialog.ui</file>
-+    <file preprocess="xml-stripblanks">bolt/cc-bolt-device-entry.ui</file>
-+    <file preprocess="xml-stripblanks">bolt/cc-bolt-page.ui</file>
-+    <file preprocess="xml-stripblanks">camera/cc-camera-page.ui</file>
-+    <file preprocess="xml-stripblanks">connectivity/cc-connectivity-page.ui</file>
+@@ -6,7 +6,8 @@
+     <file preprocess="xml-stripblanks">bolt/cc-bolt-page.ui</file>
+     <file preprocess="xml-stripblanks">camera/cc-camera-page.ui</file>
+     <file preprocess="xml-stripblanks">connectivity/cc-connectivity-page.ui</file>
+-    <file preprocess="xml-stripblanks">diagnostics/cc-diagnostics-page.ui</file>
 +    <file preprocess="xml-stripblanks">telemetry/cc-telemetry-page.ui</file>
 +@telemetry_insights_example_ui@
-+    <file preprocess="xml-stripblanks">firmware-security/cc-firmware-security-boot-dialog.ui</file>
-+    <file preprocess="xml-stripblanks">firmware-security/cc-firmware-security-dialog.ui</file>
-+    <file preprocess="xml-stripblanks">firmware-security/cc-firmware-security-help-dialog.ui</file>
-+    <file preprocess="xml-stripblanks">firmware-security/cc-firmware-security-page.ui</file>
-+    <file preprocess="xml-stripblanks">location/cc-location-page.ui</file>
-+    <file preprocess="xml-stripblanks">cc-privacy-panel.ui</file>
-+    <file preprocess="xml-stripblanks">screen/cc-screen-page.ui</file>
-+    <file preprocess="xml-stripblanks">usage/cc-usage-page.ui</file>
+     <file preprocess="xml-stripblanks">firmware-security/cc-firmware-security-boot-dialog.ui</file>
+     <file preprocess="xml-stripblanks">firmware-security/cc-firmware-security-dialog.ui</file>
+     <file preprocess="xml-stripblanks">firmware-security/cc-firmware-security-help-dialog.ui</file>
+@@ -15,5 +16,7 @@
+     <file preprocess="xml-stripblanks">cc-privacy-panel.ui</file>
+     <file preprocess="xml-stripblanks">screen/cc-screen-page.ui</file>
+     <file preprocess="xml-stripblanks">usage/cc-usage-page.ui</file>
 +
 +    <file>telemetry/telemetry.css</file>
-+    <file>firmware-security/security-level.css</file>
-+  </gresource>
-+</gresources>
+   </gresource>
+ </gresources>
 diff --git a/panels/privacy/telemetry/cc-telemetry-insights-example.blp b/panels/privacy/telemetry/cc-telemetry-insights-example.blp
 new file mode 100644
 index 0000000..3f5ce2f
@@ -400,50 +424,44 @@ index 0000000..c3c36b0
 +                            -1);
 +  return GTK_WIDGET (self);
 +}
-diff --git a/panels/privacy/telemetry/cc-telemetry-insights-example.h b/panels/privacy/telemetry/cc-telemetry-insights-example.h
-new file mode 100644
-index 0000000..bb5f6cc
---- /dev/null
+diff --git a/panels/mouse/cc-mouse-test.h b/panels/privacy/telemetry/cc-telemetry-insights-example.h
+similarity index 62%
+copy from panels/mouse/cc-mouse-test.h
+copy to panels/privacy/telemetry/cc-telemetry-insights-example.h
+index a0e2126..bb5f6cc 100644
+--- a/panels/mouse/cc-mouse-test.h
 +++ b/panels/privacy/telemetry/cc-telemetry-insights-example.h
-@@ -0,0 +1,32 @@
+@@ -1,8 +1,8 @@
+-/* -*- mode: c; style: linux -*-
 +/* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*-
-+ *
+  *
+- * Copyright (C) 2012 Red Hat, Inc.
 + * Copyright (C) 2026 Canonical Ltd.
-+ *
+  *
+- * Written by: Ondrej Holy <oholy@redhat.com>
 + * Written by: Kat Kuo <kat.kuo@canonical.com>
-+ *
-+ * This program is free software; you can redistribute it and/or modify
-+ * it under the terms of the GNU General Public License as published by
-+ * the Free Software Foundation; either version 2, or (at your option)
-+ * any later version.
-+ *
-+ * This program is distributed in the hope that it will be useful,
-+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
-+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-+ * GNU General Public License for more details.
-+ *
-+ * You should have received a copy of the GNU General Public License
-+ * along with this program; if not, see <http://www.gnu.org/licenses/>.
-+ */
-+
-+#pragma once
-+
-+#include <adwaita.h>
-+
-+G_BEGIN_DECLS
-+
+  *
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+@@ -24,8 +24,9 @@
+ 
+ G_BEGIN_DECLS
+ 
+-#define CC_TYPE_MOUSE_TEST (cc_mouse_test_get_type ())
+-G_DECLARE_FINAL_TYPE (CcMouseTest, cc_mouse_test, CC, MOUSE_TEST, AdwWindow);
+-GtkWidget *cc_mouse_test_new (void);
 +#define CC_TYPE_TELEMETRY_INSIGHTS_EXAMPLE (cc_telemetry_insights_example_get_type ())
 +G_DECLARE_FINAL_TYPE (CcTelemetryInsightsExample, cc_telemetry_insights_example, CC, TELEMETRY_INSIGHTS_EXAMPLE, AdwWindow)
 +
 +GtkWidget *cc_telemetry_insights_example_new (const gchar *report);
-+
-+G_END_DECLS
+ 
+ G_END_DECLS
 diff --git a/panels/privacy/telemetry/cc-telemetry-page.blp b/panels/privacy/telemetry/cc-telemetry-page.blp
 new file mode 100644
-index 0000000..dca5f7b
+index 0000000..6fcf660
 --- /dev/null
 +++ b/panels/privacy/telemetry/cc-telemetry-page.blp
-@@ -0,0 +1,90 @@
+@@ -0,0 +1,115 @@
 +using Gtk 4.0;
 +using Adw 1;
 +
@@ -456,79 +474,104 @@ index 0000000..dca5f7b
 +    [top]
 +    Adw.HeaderBar {}
 +
-+    content: Adw.PreferencesPage {
-+      Adw.PreferencesGroup diagnostics_group {
-+        title: _("Error Reporting");
++    content: Box {
++      orientation: vertical;
 +
-+        Adw.SwitchRow abrt_row {
-+          title: _("_Automatic Error Reporting");
-+          use-underline: true;
-+        }
-+
-+        Adw.ComboRow whoopsie_combo_row {
-+          title: _("Send error reports to Canonical");
-+          visible: false;
-+          use-underline: true;
-+          notify::selected-item => $whoopsie_combo_row_changed_cb(template);
-+        }
-+
-+        LinkButton diagnostics_learn_more_link_button {
-+          label: _("Learn more about error reporting");
-+          visible: bind $string_is_not_empty(diagnostics_learn_more_link_button.uri) as <bool>;
-+          margin-top: 8;
-+          halign: start;
-+
-+          styles [
-+            "dim",
-+            "body",
-+            "link-label",
-+          ]
-+        }
-+      }
-+
-+      Adw.PreferencesGroup insights_group {
-+        title: _("System Reporting");
++      $CcPermissionInfobar permission_infobar {
 +        visible: false;
-+
-+        Adw.SwitchRow insights_linux_row {
-+          title: _("Send a system report every month");
-+          notify::active => $insights_switch_row_changed_cb();
-+        }
-+
-+        Adw.SwitchRow insights_upgrade_row {
-+          title: _("Send a system report when upgrading to a new Ubuntu version");
-+          notify::active => $insights_switch_row_changed_cb();
-+        }
 +      }
 +
-+      Adw.PreferencesGroup insights_buttons_group {
-+        separate-rows: true;
-+        visible: bind insights_group.visible;
-+
-+        Adw.ButtonRow insights_example_report_button_row {
-+          title: _("_Show Report");
-+          use-underline: true;
-+          end-icon-name: "go-next-symbolic";
-+          activated => $insights_example_report_button_row_activated_cb(template);
-+        }
-+
-+        Adw.ButtonRow insights_cancel_report_button_row {
-+          title: _("Cancel Report Generation");
++      Adw.PreferencesPage {
++        Adw.PreferencesGroup insights_group {
++          title: _("System Reporting");
 +          visible: false;
-+          activated => $insights_cancel_report_button_row_activated_cb(template);
++
++          Adw.SwitchRow insights_linux_row {
++            title: _("Send a system report every month");
++            sensitive: bind insights_system_opt_out_row.active inverted;
++            has-tooltip: bind insights_system_opt_out_row.active;
++            tooltip-text: _("System reporting is turned off for all users");
++            notify::active => $insights_switch_row_changed_cb();
++          }
++
++          Adw.SwitchRow insights_upgrade_row {
++            title: _("Send a system report when upgrading to a new Ubuntu version");
++            sensitive: bind insights_system_opt_out_row.active inverted;
++            has-tooltip: bind insights_system_opt_out_row.active;
++            tooltip-text: _("System reporting is turned off for all users");
++            notify::active => $insights_switch_row_changed_cb();
++          }
 +        }
 +
-+        LinkButton insights_learn_more_link_button {
-+          label: _("Learn more about system reporting");
-+          uri: "https://canonical.com/legal/systems-information-notice";
-+          margin-top: 8;
-+          halign: start;
++        Adw.PreferencesGroup insights_system_group {
++          visible: bind insights_group.visible;
 +
-+          styles [
-+            "dim",
-+            "body",
-+            "link-label",
-+          ]
++          Adw.SwitchRow insights_system_opt_out_row {
++            title: _("Opt out of system reporting for all users");
++            has-tooltip: bind insights_system_opt_out_row.sensitive inverted;
++            tooltip-text: _("Unlock to Change This Setting");
++            notify::active => $insights_system_opt_out_row_changed_cb(template);
++          }
++        }
++
++        Adw.PreferencesGroup insights_buttons_group {
++          separate-rows: true;
++          visible: bind insights_group.visible;
++
++          Adw.ButtonRow insights_example_report_button_row {
++            title: _("_Show Report");
++            use-underline: true;
++            end-icon-name: "go-next-symbolic";
++            activated => $insights_example_report_button_row_activated_cb(template);
++          }
++
++          Adw.ButtonRow insights_cancel_report_button_row {
++            title: _("Cancel Report Generation");
++            visible: false;
++            activated => $insights_cancel_report_button_row_activated_cb(template);
++          }
++
++          LinkButton insights_learn_more_link_button {
++            label: _("Learn more about system reporting");
++            uri: "https://canonical.com/legal/systems-information-notice";
++            margin-top: 8;
++            halign: start;
++
++            styles [
++              "dim",
++              "body",
++              "link-label",
++            ]
++          }
++        }
++
++        Adw.PreferencesGroup diagnostics_group {
++          title: _("Error Reporting");
++
++          Adw.SwitchRow abrt_row {
++            title: _("_Automatic Error Reporting");
++            use-underline: true;
++          }
++
++          Adw.ComboRow whoopsie_combo_row {
++            title: _("Send error reports to Canonical");
++            visible: false;
++            use-underline: true;
++            notify::selected-item => $whoopsie_combo_row_changed_cb(template);
++          }
++
++          LinkButton diagnostics_learn_more_link_button {
++            label: _("Learn more about error reporting");
++            visible: bind $string_is_not_empty(diagnostics_learn_more_link_button.uri) as <bool>;
++            margin-top: 8;
++            halign: start;
++
++            styles [
++              "dim",
++              "body",
++              "link-label",
++            ]
++          }
 +        }
 +      }
 +    };
@@ -536,10 +579,10 @@ index 0000000..dca5f7b
 +}
 diff --git a/panels/privacy/telemetry/cc-telemetry-page.c b/panels/privacy/telemetry/cc-telemetry-page.c
 new file mode 100644
-index 0000000..0085ad3
+index 0000000..70fabf9
 --- /dev/null
 +++ b/panels/privacy/telemetry/cc-telemetry-page.c
-@@ -0,0 +1,629 @@
+@@ -0,0 +1,765 @@
 +/* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*-
 + *
 + * Copyright (C) 2026 Canonical Ltd.
@@ -574,6 +617,12 @@ index 0000000..0085ad3
 +#include <glib/gi18n.h>
 +#include <stdio.h>
 +
++#include "cc-permission-infobar.h"
++
++#ifdef HAVE_INSIGHTS
++#include <polkit/polkit.h>
++#endif
++
 +#ifdef HAVE_WHOOPSIE
 +#include <whoopsie-preferences/libwhoopsie-preferences.h>
 +#endif
@@ -603,9 +652,13 @@ index 0000000..0085ad3
 +#ifdef HAVE_INSIGHTS
 +  AdwSwitchRow *insights_linux_row;
 +  AdwSwitchRow *insights_upgrade_row;
++  AdwSwitchRow *insights_system_opt_out_row;
 +
 +  AdwButtonRow *insights_example_report_button_row;
 +  AdwButtonRow *insights_cancel_report_button_row;
++
++  CcPermissionInfobar *permission_infobar;
++  GPermission         *permission;
 +#endif
 +
 +  GCancellable *cancellable;
@@ -618,6 +671,10 @@ index 0000000..0085ad3
 +};
 +
 +G_DEFINE_TYPE (CcTelemetryPage, cc_telemetry_page, ADW_TYPE_NAVIGATION_PAGE)
++
++#ifdef HAVE_INSIGHTS
++#define INSIGHTS_SYSTEM_OPT_OUT_PERMISSION "org.gnome.controlcenter.insights-system-opt-out"
++#endif
 +
 +/* Static init function */
 +
@@ -864,7 +921,11 @@ index 0000000..0085ad3
 +#endif
 +
 +#ifdef HAVE_INSIGHTS
-+static void update_insights_row_state (CcTelemetryPage *self, AdwSwitchRow *row);
++static void update_insights_row_state (CcTelemetryPage *self,
++                                       AdwSwitchRow    *row,
++                                       gboolean         system_opt_out);
++static void insights_system_opt_out_row_changed_cb (CcTelemetryPage *self);
++static void sync_insights_switches (CcTelemetryPage *self);
 +
 +static void
 +insights_switch_row_changed_cb (GObject    *object,
@@ -888,13 +949,16 @@ index 0000000..0085ad3
 +  if (error_msg != NULL)
 +    {
 +      g_warning ("Failed to set insights consent state for source '%s': %s", source, error_msg);
-+      update_insights_row_state (CC_TELEMETRY_PAGE (user_data), row);
++      update_insights_row_state (CC_TELEMETRY_PAGE (user_data),
++                                 row,
++                                 insights_get_system_opt_out_state (NULL));
 +    }
 +}
 +
 +static void
 +update_insights_row_state (CcTelemetryPage *self,
-+                           AdwSwitchRow    *row)
++                           AdwSwitchRow    *row,
++                           gboolean         system_opt_out)
 +{
 +  const char            *source;
 +  insights_consent_state state;
@@ -905,15 +969,95 @@ index 0000000..0085ad3
 +
 +  state = insights_get_consent_state (NULL, source);
 +  g_signal_handlers_block_by_func (row, insights_switch_row_changed_cb, self);
-+  adw_switch_row_set_active (row, state == INSIGHTS_CONSENT_TRUE);
++  adw_switch_row_set_active (row, !system_opt_out && state == INSIGHTS_CONSENT_TRUE);
 +  g_signal_handlers_unblock_by_func (row, insights_switch_row_changed_cb, self);
++}
++
++static void
++update_insights_system_opt_out_row (CcTelemetryPage *self)
++{
++  gboolean state;
++
++  state = insights_get_system_opt_out_state (NULL);
++  g_signal_handlers_block_by_func (self->insights_system_opt_out_row,
++                                   insights_system_opt_out_row_changed_cb, self);
++  adw_switch_row_set_active (self->insights_system_opt_out_row, state);
++  g_signal_handlers_unblock_by_func (self->insights_system_opt_out_row,
++                                     insights_system_opt_out_row_changed_cb, self);
++}
++
++static void
++on_set_system_opt_out_cb (GObject      *source_object,
++                          GAsyncResult *res,
++                          gpointer      user_data)
++{
++  CcTelemetryPage *self = CC_TELEMETRY_PAGE (user_data);
++  g_autoptr (GError) error = NULL;
++
++  if (!g_subprocess_wait_check_finish (G_SUBPROCESS (source_object), res, &error))
++    {
++      if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
++        return;
++
++      g_warning ("Failed to set system opt-out state: %s", error->message);
++    }
++
++  sync_insights_switches (self);
++}
++
++static void
++insights_system_opt_out_row_changed_cb (CcTelemetryPage *self)
++{
++  gboolean                  active;
++  g_autoptr (GError)        error = NULL;
++  g_autoptr (GSubprocess)   subprocess = NULL;
++  g_autoptr (GSubprocessLauncher) launcher = NULL;
++  g_auto (GStrv)            envp = NULL;
++
++  active = adw_switch_row_get_active (self->insights_system_opt_out_row);
++
++  /* The write goes through pkexec so polkit can authorize the
++   * org.gnome.controlcenter.insights-system-opt-out action. */
++  envp = g_get_environ ();
++  envp = g_environ_unsetenv (envp, "SHELL");
++  launcher = g_subprocess_launcher_new (G_SUBPROCESS_FLAGS_NONE);
++  g_subprocess_launcher_set_environ (launcher, envp);
++
++  subprocess = g_subprocess_launcher_spawn (launcher,
++                                            &error,
++                                            "/usr/bin/pkexec",
++                                            LIBEXECDIR "/gnome-control-center-insights-helper",
++                                            active ? "true" : "false",
++                                            NULL);
++
++  if (subprocess == NULL)
++    {
++      g_warning ("Failed to launch insights helper: %s", error->message);
++      update_insights_system_opt_out_row (self);
++      sync_insights_switches (self);
++      return;
++    }
++
++  g_subprocess_wait_check_async (subprocess,
++                                 self->cancellable,
++                                 on_set_system_opt_out_cb,
++                                 self);
 +}
 +
 +static void
 +sync_insights_switches (CcTelemetryPage *self)
 +{
-+  update_insights_row_state (self, self->insights_linux_row);
-+  update_insights_row_state (self, self->insights_upgrade_row);
++  gboolean system_opt_out;
++  gboolean allowed;
++
++  update_insights_system_opt_out_row (self);
++
++  allowed = (self->permission == NULL || g_permission_get_allowed (self->permission));
++  gtk_widget_set_sensitive (GTK_WIDGET (self->insights_system_opt_out_row), allowed);
++
++  system_opt_out = insights_get_system_opt_out_state (NULL);
++  update_insights_row_state (self, self->insights_linux_row, system_opt_out);
++  update_insights_row_state (self, self->insights_upgrade_row, system_opt_out);
 +}
 +
 +static void
@@ -1000,6 +1144,11 @@ index 0000000..0085ad3
 +}
 +
 +static void
++insights_system_opt_out_row_changed_cb (CcTelemetryPage *self)
++{
++}
++
++static void
 +insights_example_report_button_row_activated_cb (CcTelemetryPage *self)
 +{
 +}
@@ -1028,6 +1177,7 @@ index 0000000..0085ad3
 +#ifdef HAVE_INSIGHTS
 +  g_cancellable_cancel (self->insights_cancellable);
 +  g_clear_object (&self->insights_cancellable);
++  g_clear_object (&self->permission);
 +#endif
 +
 +  G_OBJECT_CLASS (cc_telemetry_page_parent_class)->finalize (object);
@@ -1055,13 +1205,19 @@ index 0000000..0085ad3
 +  gtk_widget_class_bind_template_child (widget_class, CcTelemetryPage, diagnostics_learn_more_link_button);
 +  gtk_widget_class_bind_template_callback (widget_class, whoopsie_combo_row_changed_cb);
 +
++  /* The template references CcPermissionInfobar unconditionally */
++  g_type_ensure (CC_TYPE_PERMISSION_INFOBAR);
++
 +#ifdef HAVE_INSIGHTS
 +  gtk_widget_class_bind_template_child (widget_class, CcTelemetryPage, insights_linux_row);
 +  gtk_widget_class_bind_template_child (widget_class, CcTelemetryPage, insights_upgrade_row);
++  gtk_widget_class_bind_template_child (widget_class, CcTelemetryPage, insights_system_opt_out_row);
 +  gtk_widget_class_bind_template_child (widget_class, CcTelemetryPage, insights_example_report_button_row);
 +  gtk_widget_class_bind_template_child (widget_class, CcTelemetryPage, insights_cancel_report_button_row);
++  gtk_widget_class_bind_template_child (widget_class, CcTelemetryPage, permission_infobar);
 +#endif
 +  gtk_widget_class_bind_template_callback (widget_class, insights_switch_row_changed_cb);
++  gtk_widget_class_bind_template_callback (widget_class, insights_system_opt_out_row_changed_cb);
 +  gtk_widget_class_bind_template_callback (widget_class, insights_example_report_button_row_activated_cb);
 +  gtk_widget_class_bind_template_callback (widget_class, insights_cancel_report_button_row_activated_cb);
 +
@@ -1092,6 +1248,7 @@ index 0000000..0085ad3
 +  g_autofree gchar *whoopsie_msg = NULL;
 +  g_autofree gchar *insights_msg = NULL;
 +  g_autoptr (GtkCssProvider) provider = NULL;
++  g_autoptr (GError) error = NULL;
 +
 +  gtk_widget_init_template (GTK_WIDGET (self));
 +
@@ -1139,7 +1296,29 @@ index 0000000..0085ad3
 +  gtk_widget_set_visible (GTK_WIDGET (self), TRUE);
 +  gtk_widget_set_visible (GTK_WIDGET (self->insights_group), TRUE);
 +
-+  g_signal_connect_swapped (self, "map", G_CALLBACK (sync_insights_switches), self);
++  self->permission = polkit_permission_new_sync (INSIGHTS_SYSTEM_OPT_OUT_PERMISSION,
++                                                 NULL, NULL, &error);
++  if (self->permission == NULL)
++    {
++      g_critical ("Cannot create '%s' permission: %s",
++                  INSIGHTS_SYSTEM_OPT_OUT_PERMISSION, error->message);
++      g_clear_error (&error);
++    }
++  else
++    {
++      gtk_widget_set_visible (GTK_WIDGET (self->permission_infobar), TRUE);
++      cc_permission_infobar_set_permission (self->permission_infobar,
++                                            self->permission);
++    }
++
++  /* Unlocking via the infobar changes "allowed"; keep the switch's
++   * sensitivity (and tooltip) in sync. */
++  if (self->permission != NULL)
++    g_signal_connect_object (self->permission, "notify::allowed",
++                             G_CALLBACK (sync_insights_switches),
++                             self, G_CONNECT_SWAPPED);
++
++  g_signal_connect (self, "map", G_CALLBACK (sync_insights_switches), NULL);
 +  g_signal_connect (self, "unmap", G_CALLBACK (on_unmap_cb), NULL);
 +#endif
 +
@@ -1169,16 +1348,50 @@ index 0000000..0085ad3
 +                                              GTK_STYLE_PROVIDER (provider),
 +                                              GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 +}
-diff --git a/panels/privacy/telemetry/cc-telemetry-page.h b/panels/privacy/telemetry/cc-telemetry-page.h
-new file mode 100644
-index 0000000..acb5f1a
---- /dev/null
+diff --git a/panels/privacy/diagnostics/cc-diagnostics-page.h b/panels/privacy/telemetry/cc-telemetry-page.h
+similarity index 73%
+copy from panels/privacy/diagnostics/cc-diagnostics-page.h
+copy to panels/privacy/telemetry/cc-telemetry-page.h
+index 22dadff..acb5f1a 100644
+--- a/panels/privacy/diagnostics/cc-diagnostics-page.h
 +++ b/panels/privacy/telemetry/cc-telemetry-page.h
-@@ -0,0 +1,33 @@
+@@ -1,5 +1,6 @@
+ /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*-
+  *
++ * Copyright (C) 2026 Canonical Ltd.
+  * Copyright (C) 2018 Red Hat, Inc
+  *
+  * This program is free software; you can redistribute it and/or modify
+@@ -15,7 +16,9 @@
+  * You should have received a copy of the GNU General Public License
+  * along with this program; if not, see <http://www.gnu.org/licenses/>.
+  *
+- * Author: Matthias Clasen <mclasen@redhat.com>
++ * Author(s):
++ *   Kat Kuo <kat.kuo@canonical.com>
++ *   Matthias Clasen <mclasen@redhat.com>
+  */
+ 
+ #pragma once
+@@ -24,6 +27,7 @@
+ 
+ G_BEGIN_DECLS
+ 
+-#define CC_TYPE_DIAGNOSTICS_PAGE (cc_diagnostics_page_get_type ())
+-G_DECLARE_FINAL_TYPE (CcDiagnosticsPage, cc_diagnostics_page, CC, DIAGNOSTICS_PAGE, AdwNavigationPage);
++#define CC_TYPE_TELEMETRY_PAGE (cc_telemetry_page_get_type ())
++G_DECLARE_FINAL_TYPE (CcTelemetryPage, cc_telemetry_page, CC, TELEMETRY_PAGE, AdwNavigationPage)
++
+ G_END_DECLS
+diff --git a/panels/privacy/telemetry/gnome-control-center-insights-helper.c b/panels/privacy/telemetry/gnome-control-center-insights-helper.c
+new file mode 100644
+index 0000000..83900da
+--- /dev/null
++++ b/panels/privacy/telemetry/gnome-control-center-insights-helper.c
+@@ -0,0 +1,62 @@
 +/* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*-
 + *
 + * Copyright (C) 2026 Canonical Ltd.
-+ * Copyright (C) 2018 Red Hat, Inc
 + *
 + * This program is free software; you can redistribute it and/or modify
 + * it under the terms of the GNU General Public License as published by
@@ -1192,28 +1405,58 @@ index 0000000..acb5f1a
 + *
 + * You should have received a copy of the GNU General Public License
 + * along with this program; if not, see <http://www.gnu.org/licenses/>.
-+ *
-+ * Author(s):
-+ *   Kat Kuo <kat.kuo@canonical.com>
-+ *   Matthias Clasen <mclasen@redhat.com>
 + */
 +
-+#pragma once
++/* Privileged helper that sets the Ubuntu Insights system-wide opt-out state.
++ * Intended to be launched via pkexec, which enforces the
++ * org.gnome.controlcenter.insights-system-opt-out polkit action. */
 +
-+#include <adwaita.h>
++#include <stdbool.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
 +
-+G_BEGIN_DECLS
++#include <insights/insights.h>
 +
-+#define CC_TYPE_TELEMETRY_PAGE (cc_telemetry_page_get_type ())
-+G_DECLARE_FINAL_TYPE (CcTelemetryPage, cc_telemetry_page, CC, TELEMETRY_PAGE, AdwNavigationPage)
++int
++main (int   argc,
++      char *argv[])
++{
++  char *error_msg = NULL;
++  bool  state;
 +
-+G_END_DECLS
++  if (argc != 2)
++    {
++      fprintf (stderr, "Usage: %s true|false\n", argv[0]);
++      return EXIT_FAILURE;
++    }
++
++  if (strcmp (argv[1], "true") == 0)
++    state = true;
++  else if (strcmp (argv[1], "false") == 0)
++    state = false;
++  else
++    {
++      fprintf (stderr, "%s: invalid state '%s', expected true or false\n", argv[0], argv[1]);
++      return EXIT_FAILURE;
++    }
++
++  error_msg = insights_set_system_opt_out_state (NULL, state);
++  if (error_msg != NULL)
++    {
++      fprintf (stderr, "Failed to set system opt-out state: %s\n", error_msg);
++      free (error_msg);
++      return EXIT_FAILURE;
++    }
++
++  return EXIT_SUCCESS;
++}
 diff --git a/panels/privacy/telemetry/meson.build b/panels/privacy/telemetry/meson.build
 new file mode 100644
-index 0000000..dffd7e8
+index 0000000..ee416bf
 --- /dev/null
 +++ b/panels/privacy/telemetry/meson.build
-@@ -0,0 +1,18 @@
+@@ -0,0 +1,42 @@
 +ui_sources = files(
 +  'cc-telemetry-page.blp',
 +)
@@ -1232,6 +1475,64 @@ index 0000000..dffd7e8
 +  output: ui_compiled,
 +  command: [blueprint_compiler, 'batch-compile', '@OUTDIR@', '@CURRENT_SOURCE_DIR@', '@INPUT@']
 +)
++
++if enable_insights
++  executable(
++    'gnome-control-center-insights-helper',
++    sources: ['gnome-control-center-insights-helper.c'],
++    dependencies: insights_dep,
++    install: true,
++    install_dir: control_center_libexecdir,
++  )
++
++  i18n.merge_file(
++    input: configure_file(
++      input: 'org.gnome.controlcenter.insights-system-opt-out.policy.in.in',
++      output: '@BASENAME@',
++      configuration: {
++        'libexecdir': control_center_libexecdir,
++      }
++    ),
++    output: '@BASENAME@',
++    po_dir: po_dir,
++    install: true,
++    install_dir: join_paths(control_center_datadir, 'polkit-1', 'actions')
++  )
++endif
+diff --git a/panels/keyboard/org.gnome.controlcenter.keyboard.policy.in.in b/panels/privacy/telemetry/org.gnome.controlcenter.insights-system-opt-out.policy.in.in
+similarity index 60%
+copy from panels/keyboard/org.gnome.controlcenter.keyboard.policy.in.in
+copy to panels/privacy/telemetry/org.gnome.controlcenter.insights-system-opt-out.policy.in.in
+index 7f550f3..511d8c2 100644
+--- a/panels/keyboard/org.gnome.controlcenter.keyboard.policy.in.in
++++ b/panels/privacy/telemetry/org.gnome.controlcenter.insights-system-opt-out.policy.in.in
+@@ -2,21 +2,20 @@
+ <!DOCTYPE policyconfig PUBLIC
+  "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+  "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+-
+ <policyconfig>
++
+   <vendor>The GNOME Project</vendor>
+   <vendor_url>http://www.gnome.org/</vendor_url>
+ 
+-  <action id="org.gnome.controlcenter.set-keyboard">
+-    <description>Change system keyboard settings</description>
+-    <message>To change global keyboard settings, you need to authenticate.</message>
++  <action id="org.gnome.controlcenter.insights-system-opt-out">
++    <description>Change system-wide telemetry reporting</description>
++    <message>Authentication is required to change system reporting for all users</message>
+     <defaults>
+       <allow_any>no</allow_any>
+       <allow_inactive>no</allow_inactive>
+       <allow_active>auth_admin_keep</allow_active>
+     </defaults>
+-    <annotate key="org.freedesktop.policykit.exec.path">@libexecdir@/gnome-control-center-set-debian-keyboard</annotate>
+-    <annotate key="org.freedesktop.policykit.imply">org.freedesktop.locale1.set-keyboard</annotate>
++    <annotate key="org.freedesktop.policykit.exec.path">@libexecdir@/gnome-control-center-insights-helper</annotate>
+   </action>
+ 
+ </policyconfig>
 diff --git a/panels/privacy/telemetry/telemetry.css b/panels/privacy/telemetry/telemetry.css
 new file mode 100644
 index 0000000..281d579
@@ -1247,10 +1548,10 @@ index 0000000..281d579
 +  min-width: 0px;
 +}
 diff --git a/po/POTFILES.in b/po/POTFILES.in
-index 7e660fb..dfb6294 100644
+index 89927a7..30191cc 100644
 --- a/po/POTFILES.in
 +++ b/po/POTFILES.in
-@@ -173,6 +173,10 @@ panels/privacy/firmware-security/cc-firmware-security-utils.c
+@@ -173,6 +173,12 @@ panels/privacy/firmware-security/cc-firmware-security-utils.c
  panels/privacy/gnome-privacy-panel.desktop.in
  panels/privacy/location/cc-location-page.blp
  panels/privacy/screen/cc-screen-page.blp
@@ -1258,6 +1559,8 @@ index 7e660fb..dfb6294 100644
 +panels/privacy/telemetry/cc-telemetry-insights-example.c
 +panels/privacy/telemetry/cc-telemetry-page.blp
 +panels/privacy/telemetry/cc-telemetry-page.c
++panels/privacy/telemetry/gnome-control-center-insights-helper.c
++panels/privacy/telemetry/org.gnome.controlcenter.insights-system-opt-out.policy.in.in
  panels/privacy/usage/cc-usage-page.blp
  panels/search/cc-search-locations-page.blp
  panels/search/cc-search-locations-page.c

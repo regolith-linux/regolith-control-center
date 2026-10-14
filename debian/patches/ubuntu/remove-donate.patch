@@ -8,14 +8,14 @@ Forwarded: not-needed
  1 file changed, 1 insertion(+)
 
 diff --git a/panels/system/about/cc-about-page.blp b/panels/system/about/cc-about-page.blp
-index 1f2800b..259c27d 100644
+index 47e8fa9..7c41cd5 100644
 --- a/panels/system/about/cc-about-page.blp
 +++ b/panels/system/about/cc-about-page.blp
-@@ -25,6 +25,7 @@ template $CcAboutPage: Adw.NavigationPage {
-       }
+@@ -27,6 +27,7 @@ template $CcAboutPage: Adw.NavigationPage {
  
-       Adw.PreferencesGroup {
-+        visible: false;
-         Adw.ActionRow {
-           title: _("Support GNOME");
-           subtitle: _("GNOME needs your help. Please donate today.");
+         Adw.PreferencesGroup {
+           Adw.ActionRow {
++            visible: false;
+             title: _("Support GNOME");
+             subtitle: _("GNOME needs your help. Please donate today.");
+ 

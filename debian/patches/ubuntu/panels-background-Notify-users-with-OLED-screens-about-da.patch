@@ -37,7 +37,7 @@ index ff2b3fb..029e770 100644
              title: _("Accent Color");
  
 diff --git a/panels/background/cc-background-panel.c b/panels/background/cc-background-panel.c
-index b2efb21..8fb7b1a 100644
+index 688bff8..b18fdbd 100644
 --- a/panels/background/cc-background-panel.c
 +++ b/panels/background/cc-background-panel.c
 @@ -27,6 +27,10 @@
@@ -51,16 +51,16 @@ index b2efb21..8fb7b1a 100644
  #include "cc-background-panel.h"
  
  #include "cc-background-chooser.h"
-@@ -71,6 +75,7 @@ struct _CcBackgroundPanel
-   CcBackgroundChooser *background_chooser;
-   CcBackgroundPreview *default_preview;
-   CcBackgroundPreview *dark_preview;
-+  GtkWidget *oled_label;
-   GtkToggleButton *default_toggle;
-   GtkToggleButton *dark_toggle;
+@@ -70,6 +74,7 @@ struct _CcBackgroundPanel {
+     CcBackgroundChooser *background_chooser;
+     CcBackgroundPreview *default_preview;
+     CcBackgroundPreview *dark_preview;
++    GtkWidget *oled_label;
+     GtkToggleButton *default_toggle;
+     GtkToggleButton *dark_toggle;
  };
-@@ -543,6 +548,91 @@ cc_background_panel_get_help_uri (CcPanel *panel)
-   return "help:gnome-help/look-background";
+@@ -477,6 +482,91 @@ cc_background_panel_get_help_uri (CcPanel *panel)
+     return "help:gnome-help/look-background";
  }
  
 +G_DEFINE_AUTOPTR_CLEANUP_FUNC (drmModeRes, drmModeFreeResources);
@@ -151,32 +151,31 @@ index b2efb21..8fb7b1a 100644
  static void
  cc_background_panel_dispose (GObject *object)
  {
-@@ -589,6 +679,7 @@ cc_background_panel_class_init (CcBackgroundPanelClass *klass)
-   gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, dark_preview);
-   gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, default_toggle);
-   gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, dark_toggle);
-+  gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, oled_label);
+@@ -524,6 +614,7 @@ cc_background_panel_class_init (CcBackgroundPanelClass *klass)
+     gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, dark_preview);
+     gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, default_toggle);
+     gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, dark_toggle);
++    gtk_widget_class_bind_template_child (widget_class, CcBackgroundPanel, oled_label);
  
-   gtk_widget_class_bind_template_callback (widget_class, on_color_scheme_toggle_active_cb);
-   gtk_widget_class_bind_template_callback (widget_class, on_chooser_background_chosen_cb);
-@@ -605,6 +696,8 @@ on_settings_changed (CcBackgroundPanel *self)
+     gtk_widget_class_bind_template_callback (widget_class, on_color_scheme_toggle_active_cb);
+     gtk_widget_class_bind_template_callback (widget_class, on_chooser_background_chosen_cb);
+@@ -540,6 +631,8 @@ on_settings_changed (CcBackgroundPanel *self)
  static void
  cc_background_panel_init (CcBackgroundPanel *self)
  {
-+  g_autoptr (GTask) task = NULL;
++    g_autoptr (GTask) task = NULL;
 +
-   g_resources_register (cc_background_get_resource ());
+     g_resources_register (cc_background_get_resource ());
  
-   gtk_widget_init_template (GTK_WIDGET (self));
-@@ -658,5 +751,9 @@ cc_background_panel_init (CcBackgroundPanel *self)
-                             got_transition_proxy_cb,
-                             self);
+     gtk_widget_init_template (GTK_WIDGET (self));
+@@ -579,4 +672,8 @@ cc_background_panel_init (CcBackgroundPanel *self)
  
-+  task = g_task_new (self, NULL, on_oled_check_done, NULL);
-+  g_task_set_return_on_cancel (task, TRUE);
-+  g_task_run_in_thread (task, check_has_oled_page_thread);
+     g_dbus_proxy_new_for_bus (G_BUS_TYPE_SESSION, G_DBUS_PROXY_FLAGS_NONE, NULL, "org.gnome.Shell", "/org/gnome/Shell",
+                               "org.gnome.Shell", NULL, got_transition_proxy_cb, self);
 +
-   load_custom_css (self);
++    task = g_task_new (self, NULL, on_oled_check_done, NULL);
++    g_task_set_return_on_cancel (task, TRUE);
++    g_task_run_in_thread (task, check_has_oled_page_thread);
  }
 diff --git a/panels/background/meson.build b/panels/background/meson.build
 index 87c615b..1b40e9c 100644

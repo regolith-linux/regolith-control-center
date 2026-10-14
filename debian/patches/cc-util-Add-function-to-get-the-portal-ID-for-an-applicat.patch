@@ -6,80 +6,79 @@ It's used widely in permissions, so let's expose it more
 
 Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/3353
 ---
- panels/applications/cc-applications-panel.c | 35 +++--------------------------
- panels/common/cc-util.c                     | 31 +++++++++++++++++++++++++
+ panels/applications/cc-applications-panel.c | 34 +++--------------------------
+ panels/common/cc-util.c                     | 31 ++++++++++++++++++++++++++
  panels/common/cc-util.h                     |  3 +++
- 3 files changed, 37 insertions(+), 32 deletions(-)
+ 3 files changed, 37 insertions(+), 31 deletions(-)
 
 diff --git a/panels/applications/cc-applications-panel.c b/panels/applications/cc-applications-panel.c
-index 24e7b2e..2b48afa 100644
+index ae31f34..3832199 100644
 --- a/panels/applications/cc-applications-panel.c
 +++ b/panels/applications/cc-applications-panel.c
-@@ -252,35 +252,6 @@ set_portal_permissions (CcApplicationsPanel *self,
-     g_warning ("Error setting portal permissions: %s", error->message);
+@@ -269,34 +269,6 @@ set_portal_permissions (CcApplicationsPanel *self, const gchar *table, const gch
+         g_warning ("Error setting portal permissions: %s", error->message);
  }
  
 -static gchar *
 -get_portal_app_id (GAppInfo *info)
 -{
--  if (G_IS_DESKTOP_APP_INFO (info))
--    {
--      g_autofree gchar *snap_name = NULL;
--      gchar *flatpak_id;
+-    if (G_IS_DESKTOP_APP_INFO (info)) {
+-        g_autofree gchar *snap_name = NULL;
+-        gchar *flatpak_id;
 -
--      flatpak_id = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-Flatpak");
--      if (flatpak_id != NULL)
--        return flatpak_id;
+-        flatpak_id = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-Flatpak");
+-        if (flatpak_id != NULL)
+-            return flatpak_id;
 -
--      snap_name = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-SnapInstanceName");
--      if (snap_name != NULL)
--        {
--          g_autofree gchar *snap_app_name = NULL;
+-        snap_name = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-SnapInstanceName");
+-        if (snap_name != NULL)
+-          {
+-            g_autofree gchar *snap_app_name = NULL;
 -
--          snap_app_name = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-SnapAppName");
+-            snap_app_name = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-SnapAppName");
 -
--          if (!snap_app_name || g_str_equal (snap_name, snap_app_name))
--            return g_strconcat (PORTAL_SNAP_PREFIX, snap_name, NULL);
+-            if (!snap_app_name || g_str_equal (snap_name, snap_app_name))
+-                return g_strconcat (PORTAL_SNAP_PREFIX, snap_name, NULL);
 -
--          return g_strconcat (PORTAL_SNAP_PREFIX, snap_name, snap_app_name, NULL);
--        }
+-            return g_strconcat (PORTAL_SNAP_PREFIX, snap_name, snap_app_name, NULL);
+-          }
 -    }
 -
--  return NULL;
+-    return NULL;
 -}
 -
  static inline char *
  get_snap_name_from_portal_id (const char *portal_app_id)
  {
-@@ -967,7 +938,7 @@ update_permissions_group (CcApplicationsPanel *self,
-                             GAppInfo            *info)
+@@ -904,7 +876,7 @@ static void
+ update_permissions_group (CcApplicationsPanel *self, GAppInfo *info)
  {
-   g_autofree gchar *app_id = get_app_id (info);
--  g_autofree gchar *portal_app_id = get_portal_app_id (info);
-+  g_autofree gchar *portal_app_id = cc_util_app_get_portal_id (info);
-   gboolean set, allowed, disabled;
-   gboolean has_any = FALSE;
+     g_autofree gchar *app_id = get_app_id (info);
+-    g_autofree gchar *portal_app_id = get_portal_app_id (info);
++    g_autofree gchar *portal_app_id = cc_util_app_get_portal_id (info);
+     gboolean set, allowed, disabled;
+     gboolean has_any = FALSE;
  
-@@ -1548,7 +1519,7 @@ static void
- update_usage_section (CcApplicationsPanel *self,
-                       GAppInfo            *info)
+@@ -1427,7 +1399,7 @@ update_global_shortcuts_section (CcApplicationsPanel *self)
+ static void
+ update_usage_section (CcApplicationsPanel *self, GAppInfo *info)
  {
--  g_autofree gchar *portal_app_id = get_portal_app_id (info);
-+  g_autofree gchar *portal_app_id = cc_util_app_get_portal_id (info);
-   gboolean has_builtin = FALSE, has_global_shortcuts;
-   g_autofree char *app_id = get_app_id (info);
-   g_autofree char *app_path;
-@@ -1613,7 +1584,7 @@ update_panel (CcApplicationsPanel *self,
+-    g_autofree gchar *portal_app_id = get_portal_app_id (info);
++    g_autofree gchar *portal_app_id = cc_util_app_get_portal_id (info);
+     gboolean has_builtin = FALSE, has_global_shortcuts;
+     g_autofree char *app_id = get_app_id (info);
+     g_autofree char *app_path;
+@@ -1486,7 +1458,7 @@ update_panel (CcApplicationsPanel *self, GtkListBoxRow *row)
  
-   g_set_object (&self->current_app_info, info);
-   self->current_app_id = get_app_id (info);
--  self->current_portal_app_id = get_portal_app_id (info);
-+  self->current_portal_app_id = cc_util_app_get_portal_id (info);
+     g_set_object (&self->current_app_info, info);
+     self->current_app_id = get_app_id (info);
+-    self->current_portal_app_id = get_portal_app_id (info);
++    self->current_portal_app_id = cc_util_app_get_portal_id (info);
  
-   /* Don't show the "Open" button for Settings itself. */
-   gtk_widget_set_visible (GTK_WIDGET (self->launch_button),
+     /* Don't show the "Open" button for Settings itself. */
+     gtk_widget_set_visible (GTK_WIDGET (self->launch_button), g_strcmp0 (self->current_app_id, APPLICATION_ID) != 0);
 diff --git a/panels/common/cc-util.c b/panels/common/cc-util.c
-index 9e153bb..c984f3f 100644
+index 10d1916..ef19a9c 100644
 --- a/panels/common/cc-util.c
 +++ b/panels/common/cc-util.c
 @@ -25,6 +25,8 @@
@@ -91,9 +90,9 @@ index 9e153bb..c984f3f 100644
  /* Combining diacritical mark?
   *  Basic range: [0x0300,0x036F]
   *  Supplement:  [0x1DC0,0x1DFF]
-@@ -265,3 +267,32 @@ cc_util_get_localized_weekday_name (gint iso_weekday_number)
+@@ -234,3 +236,32 @@ cc_util_get_localized_weekday_name (gint iso_weekday_number)
  
-   return g_date_time_format (item_date, "%A");
+     return g_date_time_format (item_date, "%A");
  }
 +
 +char *
@@ -125,20 +124,20 @@ index 9e153bb..c984f3f 100644
 +  return NULL;
 +}
 diff --git a/panels/common/cc-util.h b/panels/common/cc-util.h
-index a6d10e5..7900d83 100644
+index 5a21792..cbae415 100644
 --- a/panels/common/cc-util.h
 +++ b/panels/common/cc-util.h
-@@ -21,6 +21,7 @@
+@@ -20,6 +20,7 @@
  #pragma once
  
  #include <glib.h>
 +#include <gio/gio.h>
  
- char * cc_util_normalize_casefold_and_unaccent (const char *str);
- char * cc_util_get_smart_date                  (GDateTime *date);
-@@ -28,3 +29,5 @@ char * cc_util_get_smart_date_time             (GDateTime *date);
- char * cc_util_time_to_string_text             (gint64 msecs);
- char * cc_util_app_id_to_display_name          (const char *app_id);
- char * cc_util_get_localized_weekday_name      (gint iso_weekday_number);
+ char *cc_util_normalize_casefold_and_unaccent (const char *str);
+ char *cc_util_get_smart_date (GDateTime *date);
+@@ -27,3 +28,5 @@ char *cc_util_get_smart_date_time (GDateTime *date);
+ char *cc_util_time_to_string_text (gint64 msecs);
+ char *cc_util_app_id_to_display_name (const char *app_id);
+ char *cc_util_get_localized_weekday_name (gint iso_weekday_number);
 +
-+char * cc_util_app_get_portal_id               (GAppInfo *app_info);
++char * cc_util_app_get_portal_id (GAppInfo *app_info);

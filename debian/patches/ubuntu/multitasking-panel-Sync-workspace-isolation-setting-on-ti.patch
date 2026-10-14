@@ -8,19 +8,19 @@ Subject: multitasking-panel: Sync workspace isolation setting on tiling
  1 file changed, 42 insertions(+)
 
 diff --git a/panels/multitasking/cc-multitasking-panel.c b/panels/multitasking/cc-multitasking-panel.c
-index 74dccbf..59a34c7 100644
+index f94a999..8fb7bb0 100644
 --- a/panels/multitasking/cc-multitasking-panel.c
 +++ b/panels/multitasking/cc-multitasking-panel.c
-@@ -33,6 +33,7 @@ struct _CcMultitaskingPanel
-   GSettings       *session_settings;
-   GSettings       *shell_settings;
-   GSettings       *dock_settings;
-+  GSettings       *tiling_assistant_settings;
-   GSettings       *wm_settings;
+@@ -31,6 +31,7 @@ struct _CcMultitaskingPanel {
+     GSettings *session_settings;
+     GSettings *shell_settings;
+     GSettings *dock_settings;
++    GSettings *tiling_assistant_settings;
+     GSettings *wm_settings;
  
-   CcIllustratedRow *active_screen_edges_row;
-@@ -136,6 +137,25 @@ check_session_supports_save_restore (CcMultitaskingPanel *self)
-                           self);
+     CcIllustratedRow *active_screen_edges_row;
+@@ -116,6 +117,25 @@ check_session_supports_save_restore (CcMultitaskingPanel *self)
+         G_DBUS_CALL_FLAGS_NONE, -1, cc_panel_get_cancellable (CC_PANEL (self)), query_supports_restore_cb, self);
  }
  
 +static void
@@ -45,15 +45,15 @@ index 74dccbf..59a34c7 100644
  /* GObject overrides */
  
  static void
-@@ -148,6 +168,7 @@ cc_multitasking_panel_finalize (GObject *object)
-   g_clear_object (&self->session_settings);
-   g_clear_object (&self->shell_settings);
-   g_clear_object (&self->dock_settings);
-+  g_clear_object (&self->tiling_assistant_settings);
-   g_clear_object (&self->wm_settings);
+@@ -128,6 +148,7 @@ cc_multitasking_panel_finalize (GObject *object)
+     g_clear_object (&self->session_settings);
+     g_clear_object (&self->shell_settings);
+     g_clear_object (&self->dock_settings);
++    g_clear_object (&self->tiling_assistant_settings);
+     g_clear_object (&self->wm_settings);
  
-   G_OBJECT_CLASS (cc_multitasking_panel_parent_class)->finalize (object);
-@@ -294,5 +315,26 @@ cc_multitasking_panel_init (CcMultitaskingPanel *self)
+     G_OBJECT_CLASS (cc_multitasking_panel_parent_class)->finalize (object);
+@@ -252,5 +273,26 @@ cc_multitasking_panel_init (CcMultitaskingPanel *self)
                         self->dock_each_monitor_radio,
                         "active",
                         G_SETTINGS_BIND_DEFAULT);

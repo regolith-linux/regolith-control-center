@@ -9,12 +9,12 @@ We hardcode the sound to a specific file for now
  2 files changed, 46 insertions(+)
 
 diff --git a/panels/sound/cc-sound-panel.blp b/panels/sound/cc-sound-panel.blp
-index 2bc416b..a418ff1 100644
+index b840242..eb91214 100644
 --- a/panels/sound/cc-sound-panel.blp
 +++ b/panels/sound/cc-sound-panel.blp
-@@ -222,6 +222,11 @@ template $CcSoundPanel: $CcPanel {
-             show-arrow: true;
-             activated => $alert_sound_activated_cb(template);
+@@ -117,6 +117,11 @@ template $CcSoundPanel: $CcPanel {
+               hexpand: true;
+             }
            }
 +
 +          Adw.SwitchRow startup_sound_row {
@@ -22,30 +22,30 @@ index 2bc416b..a418ff1 100644
 +            use-underline: true;
 +          }
          }
-       };
-     }
+ 
+         Adw.PreferencesRow subwoofer_row {
 diff --git a/panels/sound/cc-sound-panel.c b/panels/sound/cc-sound-panel.c
-index 7cc90a0..8cce92c 100644
+index 8ad08cd..97582ee 100644
 --- a/panels/sound/cc-sound-panel.c
 +++ b/panels/sound/cc-sound-panel.c
-@@ -54,6 +54,7 @@ struct _CcSoundPanel
-   CcVolumeSlider      *output_volume_slider;
-   CcBalanceSlider     *balance_slider;
-   AdwSwitchRow        *allow_amplify_row;
-+  AdwSwitchRow        *startup_sound_row;
-   AdwPreferencesRow   *fade_row;
-   CcFadeSlider        *fade_slider;
-   AdwPreferencesRow   *subwoofer_row;
-@@ -250,6 +251,7 @@ cc_sound_panel_class_init (CcSoundPanelClass *klass)
-   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, output_profile_combo_row);
-   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, output_volume_slider);
-   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, allow_amplify_row);
-+  gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, startup_sound_row);
-   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, balance_slider);
-   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, fade_row);
-   gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, fade_slider);
-@@ -278,6 +280,28 @@ cc_sound_panel_class_init (CcSoundPanelClass *klass)
-   g_type_ensure (CC_TYPE_LIST_ROW);
+@@ -49,6 +49,7 @@ struct _CcSoundPanel {
+     CcVolumeSlider *output_volume_slider;
+     CcBalanceSlider *balance_slider;
+     AdwSwitchRow *allow_amplify_row;
++    AdwSwitchRow *startup_sound_row;
+     AdwPreferencesRow *fade_row;
+     CcFadeSlider *fade_slider;
+     AdwPreferencesRow *subwoofer_row;
+@@ -235,6 +236,7 @@ cc_sound_panel_class_init (CcSoundPanelClass *klass)
+     gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, output_profile_combo_row);
+     gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, output_volume_slider);
+     gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, allow_amplify_row);
++    gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, startup_sound_row);
+     gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, balance_slider);
+     gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, fade_row);
+     gtk_widget_class_bind_template_child (widget_class, CcSoundPanel, fade_slider);
+@@ -263,6 +265,28 @@ cc_sound_panel_class_init (CcSoundPanelClass *klass)
+     g_type_ensure (CC_TYPE_LIST_ROW);
  }
  
 +static gboolean
@@ -73,29 +73,29 @@ index 7cc90a0..8cce92c 100644
  static void
  cc_sound_panel_init (CcSoundPanel *self)
  {
-@@ -300,8 +324,25 @@ cc_sound_panel_init (CcSoundPanel *self)
-   if (desktops && g_strv_contains ((const gchar * const *) desktops, "ubuntu")) {
-     g_settings_bind (self->sound_settings, "allow-volume-above-100-percent",
-                      self->allow_amplify_row, "active", G_SETTINGS_BIND_DEFAULT);
+@@ -282,8 +306,25 @@ cc_sound_panel_init (CcSoundPanel *self)
+     if (desktops && g_strv_contains ((const gchar * const *) desktops, "ubuntu")) {
+         g_settings_bind (self->sound_settings, "allow-volume-above-100-percent",
+                          self->allow_amplify_row, "active", G_SETTINGS_BIND_DEFAULT);
 +
-+    GSettingsSchemaSource *schema_source = g_settings_schema_source_get_default ();
-+    g_autoptr(GSettingsSchema) ubuntu_shell_schema = NULL;
-+    ubuntu_shell_schema = g_settings_schema_source_lookup (schema_source,
-+                                                           "org.gnome.shell.ubuntu",
-+                                                           TRUE);
-+    if (ubuntu_shell_schema &&
-+        g_settings_schema_has_key (ubuntu_shell_schema, "startup-sound")) {
-+        g_autoptr(GSettings) ubuntu_shell_settings = g_settings_new ("org.gnome.shell.ubuntu");
-+        g_settings_bind_with_mapping (ubuntu_shell_settings, "startup-sound",
-+                                      self->startup_sound_row, "active",
-+                                      G_SETTINGS_BIND_DEFAULT,
-+                                      startup_sound_get_mapping,
-+                                      startup_sound_set_mapping,
-+                                      NULL, NULL);
-+    }
-   } else {
-     gtk_widget_set_visible (GTK_WIDGET (self->allow_amplify_row), FALSE);
-+    gtk_widget_set_visible (GTK_WIDGET (self->startup_sound_row), FALSE);
-   }
++        GSettingsSchemaSource *schema_source = g_settings_schema_source_get_default ();
++        g_autoptr(GSettingsSchema) ubuntu_shell_schema = NULL;
++        ubuntu_shell_schema = g_settings_schema_source_lookup (schema_source,
++                                                               "org.gnome.shell.ubuntu",
++                                                               TRUE);
++        if (ubuntu_shell_schema &&
++            g_settings_schema_has_key (ubuntu_shell_schema, "startup-sound")) {
++            g_autoptr(GSettings) ubuntu_shell_settings = g_settings_new ("org.gnome.shell.ubuntu");
++            g_settings_bind_with_mapping (ubuntu_shell_settings, "startup-sound",
++                                          self->startup_sound_row, "active",
++                                          G_SETTINGS_BIND_DEFAULT,
++                                          startup_sound_get_mapping,
++                                          startup_sound_set_mapping,
++                                          NULL, NULL);
++        }
+     } else {
+         gtk_widget_set_visible (GTK_WIDGET (self->allow_amplify_row), FALSE);
++        gtk_widget_set_visible (GTK_WIDGET (self->startup_sound_row), FALSE);
+     }
  
-   self->mixer_control = gvc_mixer_control_new ("GNOME Settings");
+     self->mixer_control = gvc_mixer_control_new ("GNOME Settings");

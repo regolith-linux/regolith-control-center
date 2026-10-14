@@ -11,54 +11,52 @@ contexts.
 
 Bug-Ubuntu: https://bugs.launchpad.net/mutter/+bug/2110515
 ---
- panels/display/cc-display-panel.blp | 12 +++++-
- panels/display/cc-display-panel.c   | 81 ++++++++++++++++++++++++++++++++++++-
- 2 files changed, 90 insertions(+), 3 deletions(-)
+ panels/display/cc-display-panel.blp | 10 +++++
+ panels/display/cc-display-panel.c   | 79 +++++++++++++++++++++++++++++++++++++
+ 2 files changed, 89 insertions(+)
 
 diff --git a/panels/display/cc-display-panel.blp b/panels/display/cc-display-panel.blp
-index f40b2cf..8c08af0 100644
+index 010df7b..f974eb7 100644
 --- a/panels/display/cc-display-panel.blp
 +++ b/panels/display/cc-display-panel.blp
-@@ -15,7 +15,7 @@ template $CcDisplayPanel: $CcPanel {
-   Adw.NavigationPage {
-     title: _("Displays");
- 
--    child: Adw.ToolbarView {
-+    child: Adw.ToastOverlay toast_overlay { child: Adw.ToolbarView {
-       [top]
-       Adw.HeaderBar apply_titlebar {
-         visible: bind template.showing-apply-titlebar;
-@@ -107,6 +107,14 @@ template $CcDisplayPanel: $CcPanel {
-           visible: false;
-         }
- 
-+        Adw.PreferencesGroup scale_legacy_apps_row_group {
-+          Adw.SwitchRow scale_legacy_apps_row {
-+            title: C_("display setting", "Built-in Scaling for Legacy Apps");
-+            subtitle: C_("display setting", "Legacy apps that support scaling will look crisp, but some might not scale at all.");
-+            use-underline: true;
-+          }
-+        }
-+
-         Adw.PreferencesGroup {
-           $CcListRow night_light_row {
-             /* Translators: This is the redshift functionality where we suppress blue light when the sun has gone down */
-@@ -118,7 +126,7 @@ template $CcDisplayPanel: $CcPanel {
-           }
-         }
-       };
--    };
-+    }; };
+@@ -13,6 +13,7 @@ template $CcDisplayPanel: $CcPanel {
+     }
    }
  
++  child: Adw.ToastOverlay toast_overlay {
+   child: Adw.ToolbarView {
+     [top]
+     Adw.HeaderBar apply_titlebar {
+@@ -105,6 +106,14 @@ template $CcDisplayPanel: $CcPanel {
+         visible: false;
+       }
+ 
++      Adw.PreferencesGroup scale_legacy_apps_row_group {
++        Adw.SwitchRow scale_legacy_apps_row {
++          title: C_("display setting", "Built-in Scaling for Legacy Apps");
++          subtitle: C_("display setting", "Legacy apps that support scaling will look crisp, but some might not scale at all.");
++          use-underline: true;
++        }
++      }
++
+       Adw.PreferencesGroup {
+         $CcListRow night_light_row {
+           /* Translators: This is the redshift functionality where we suppress blue light when the sun has gone down */
+@@ -117,6 +126,7 @@ template $CcDisplayPanel: $CcPanel {
+       }
+     };
+   };
++  };
+ 
    [subpage]
+   Adw.NavigationPage {
 diff --git a/panels/display/cc-display-panel.c b/panels/display/cc-display-panel.c
-index 8a4f5dc..c102432 100644
+index eb2ddb3..9927948 100644
 --- a/panels/display/cc-display-panel.c
 +++ b/panels/display/cc-display-panel.c
-@@ -43,6 +43,9 @@
+@@ -44,6 +44,9 @@
  
- #define DISPLAY_SCHEMA   "org.gnome.settings-daemon.plugins.color"
+ #define DISPLAY_SCHEMA "org.gnome.settings-daemon.plugins.color"
  
 +#define MUTTER_WAYLAND_SCHEMA "org.gnome.mutter.wayland"
 +#define MUTTER_XWAYLAND_SCALING_FACTOR "xwayland-scaling-factor"
@@ -66,84 +64,81 @@ index 8a4f5dc..c102432 100644
  #define DISPLAY_CONFIG_JOIN_NAME "join"
  #define DISPLAY_CONFIG_CLONE_NAME "clone"
  
-@@ -73,6 +76,10 @@ struct _CcDisplayPanel
-   CcNightLightPage *night_light_page;
-   CcListRow        *night_light_row;
+@@ -73,6 +76,10 @@ struct _CcDisplayPanel {
+     CcNightLightPage *night_light_page;
+     CcListRow *night_light_row;
  
-+  AdwToastOverlay  *toast_overlay;
-+  GtkWidget        *scale_legacy_apps_row;
-+  GtkWidget        *scale_legacy_apps_row_group;
++    AdwToastOverlay *toast_overlay;
++    GtkWidget *scale_legacy_apps_row;
++    GtkWidget *scale_legacy_apps_row_group;
 +
-   UpClient *up_client;
-   gboolean lid_is_closed;
+     UpClient *up_client;
+     gboolean lid_is_closed;
  
-@@ -101,6 +108,7 @@ struct _CcDisplayPanel
-   GtkShortcut *escape_shortcut;
+@@ -101,6 +108,7 @@ struct _CcDisplayPanel {
+     GtkShortcut *escape_shortcut;
  
-   GSettings           *display_settings;
-+  GSettings           *mutter_wayland_settings;
+     GSettings *display_settings;
++    GSettings *mutter_wayland_settings;
  };
  
  enum {
-@@ -436,6 +444,7 @@ cc_display_panel_dispose (GObject *object)
-   g_clear_object (&self->up_client);
+@@ -400,6 +408,7 @@ cc_display_panel_dispose (GObject *object)
+     g_clear_object (&self->up_client);
  
-   g_clear_object (&self->shell_proxy);
-+  g_clear_object (&self->mutter_wayland_settings);
+     g_clear_object (&self->shell_proxy);
++    g_clear_object (&self->mutter_wayland_settings);
  
-   g_signal_handlers_disconnect_by_data (toplevel, self);
+     g_signal_handlers_disconnect_by_data (toplevel, self);
  
-@@ -602,6 +611,9 @@ cc_display_panel_class_init (CcDisplayPanelClass *klass)
-   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, escape_shortcut);
-   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, night_light_page);
-   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, night_light_row);
-+  gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, toast_overlay);
-+  gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, scale_legacy_apps_row);
-+  gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, scale_legacy_apps_row_group);
-   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, primary_display_row);
-   gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, single_display_settings_group);
+@@ -553,6 +562,9 @@ cc_display_panel_class_init (CcDisplayPanelClass *klass)
+     gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, escape_shortcut);
+     gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, night_light_page);
+     gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, night_light_row);
++    gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, toast_overlay);
++    gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, scale_legacy_apps_row);
++    gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, scale_legacy_apps_row_group);
+     gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, primary_display_row);
+     gtk_widget_class_bind_template_child (widget_class, CcDisplayPanel, single_display_settings_group);
  
-@@ -727,6 +739,7 @@ rebuild_ui (CcDisplayPanel *self)
-   guint n_usable_outputs;
-   GList *outputs, *l;
-   CcDisplayConfigType type;
-+  gboolean any_scaled = FALSE;
+@@ -669,6 +681,7 @@ rebuild_ui (CcDisplayPanel *self)
+     guint n_usable_outputs;
+     GList *outputs, *l;
+     CcDisplayConfigType type;
++    gboolean any_scaled = FALSE;
  
-   if (!cc_display_config_manager_get_apply_allowed (self->manager))
-     {
-@@ -748,8 +761,9 @@ rebuild_ui (CcDisplayPanel *self)
-       self->monitor_rows = g_list_remove_link (self->monitor_rows, self->monitor_rows);
+     if (!cc_display_config_manager_get_apply_allowed (self->manager)) {
+         gtk_widget_set_visible (self->display_settings_disabled_group, TRUE);
+@@ -688,6 +701,7 @@ rebuild_ui (CcDisplayPanel *self)
      }
  
--  if (!self->current_config)
-+  if (!self->current_config && self->scale_legacy_apps_row_group)
-     {
-+      gtk_widget_set_visible (self->scale_legacy_apps_row_group, FALSE);
-       self->rebuilding_counter--;
-       return;
+     if (!self->current_config) {
++        gtk_widget_set_visible (self->scale_legacy_apps_row_group, FALSE);
+         self->rebuilding_counter--;
+         return;
      }
-@@ -774,6 +788,9 @@ rebuild_ui (CcDisplayPanel *self)
-             adw_combo_row_set_selected (self->primary_display_row,
-                                         g_list_model_get_n_items (G_LIST_MODEL (self->primary_display_list)) - 1);
+@@ -710,6 +724,9 @@ rebuild_ui (CcDisplayPanel *self)
+                 adw_combo_row_set_selected (self->primary_display_row,
+                                             g_list_model_get_n_items (G_LIST_MODEL (self->primary_display_list)) - 1);
  
-+          if (!G_APPROX_VALUE (cc_display_monitor_get_scale (output), 1.0, FLT_EPSILON))
-+            any_scaled = TRUE;
++            if (!G_APPROX_VALUE (cc_display_monitor_get_scale (output), 1.0, FLT_EPSILON))
++                any_scaled = TRUE;
 +
-           /* Ensure that an output is selected; note that this doesn't ensure
-            * the selected output is any useful (i.e. when switching types).
-            */
-@@ -820,6 +837,9 @@ rebuild_ui (CcDisplayPanel *self)
+             /* Ensure that an output is selected; note that this doesn't ensure
+              * the selected output is any useful (i.e. when switching types).
+              */
+@@ -751,6 +768,9 @@ rebuild_ui (CcDisplayPanel *self)
  
-   cc_panel_set_selected_type (self, type);
+     cc_panel_set_selected_type (self, type);
  
-+  if (self->scale_legacy_apps_row_group)
-+    gtk_widget_set_visible (self->scale_legacy_apps_row_group, any_scaled);
++    if (self->scale_legacy_apps_row_group)
++        gtk_widget_set_visible (self->scale_legacy_apps_row_group, any_scaled);
 +
-   self->rebuilding_counter--;
-   update_apply_button (self);
+     self->rebuilding_counter--;
+     update_apply_button (self);
  }
-@@ -1053,6 +1073,39 @@ session_bus_ready (GObject        *source,
-                            G_CONNECT_SWAPPED);
+@@ -969,6 +989,39 @@ session_bus_ready (GObject *source, GAsyncResult *res, CcDisplayPanel *self)
+     g_signal_connect_object (self->manager, "changed", G_CALLBACK (on_screen_changed), self, G_CONNECT_SWAPPED);
  }
  
 +static gboolean
@@ -182,36 +177,36 @@ index 8a4f5dc..c102432 100644
  static void
  cc_display_panel_init (CcDisplayPanel *self)
  {
-@@ -1136,6 +1189,32 @@ cc_display_panel_init (CcDisplayPanel *self)
-                            self,
-                            G_CONNECT_SWAPPED);
-   on_night_light_enabled_changed_cb (self);
+@@ -1025,6 +1078,32 @@ cc_display_panel_init (CcDisplayPanel *self)
+     g_signal_connect_object (self->display_settings, "changed::night-light-enabled",
+                              G_CALLBACK (on_night_light_enabled_changed_cb), self, G_CONNECT_SWAPPED);
+     on_night_light_enabled_changed_cb (self);
 +
-+  self->mutter_wayland_settings = g_settings_new (MUTTER_WAYLAND_SCHEMA);
 +
-+  g_autoptr(GSettingsSchema) mutter_wayland_schema = NULL;
-+  g_object_get (self->mutter_wayland_settings, "settings-schema",
++    self->mutter_wayland_settings = g_settings_new (MUTTER_WAYLAND_SCHEMA);
++
++    g_autoptr(GSettingsSchema) mutter_wayland_schema = NULL;
++    g_object_get (self->mutter_wayland_settings, "settings-schema",
 +                &mutter_wayland_schema, NULL);
 +
-+  if (!g_settings_schema_has_key (mutter_wayland_schema, MUTTER_XWAYLAND_SCALING_FACTOR))
-+    {
-+      /* FIXME: Remove this when we can rely on mutter 50 schemas. */
-+      gtk_widget_set_visible (self->scale_legacy_apps_row_group, FALSE);
-+      self->scale_legacy_apps_row_group = NULL;
-+      return;
++    if (!g_settings_schema_has_key (mutter_wayland_schema, MUTTER_XWAYLAND_SCALING_FACTOR)) {
++        /* FIXME: Remove this when we can rely on mutter 50 schemas. */
++        gtk_widget_set_visible (self->scale_legacy_apps_row_group, FALSE);
++        self->scale_legacy_apps_row_group = NULL;
++        return;
 +    }
 +
-+  g_settings_bind_with_mapping (self->mutter_wayland_settings,
-+                                MUTTER_XWAYLAND_SCALING_FACTOR,
-+                                self->scale_legacy_apps_row, "active",
-+                                G_SETTINGS_BIND_DEFAULT,
-+                                get_automatic_xwayland_scaling_factor,
-+                                set_automatic_xwayland_scaling_factor,
-+                                NULL, NULL);
++    g_settings_bind_with_mapping (self->mutter_wayland_settings,
++                                  MUTTER_XWAYLAND_SCALING_FACTOR,
++                                  self->scale_legacy_apps_row, "active",
++                                  G_SETTINGS_BIND_DEFAULT,
++                                  get_automatic_xwayland_scaling_factor,
++                                  set_automatic_xwayland_scaling_factor,
++                                  NULL, NULL);
 +
-+  g_signal_connect_object (self->scale_legacy_apps_row, "notify::active",
-+                           G_CALLBACK (notify_scaling_update), self,
-+                           G_CONNECT_SWAPPED);
++    g_signal_connect_object (self->scale_legacy_apps_row, "notify::active",
++                             G_CALLBACK (notify_scaling_update), self,
++                             G_CONNECT_SWAPPED);
  }
  
  CcDisplayConfigManager *

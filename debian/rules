@@ -14,6 +14,7 @@ DISTRIBUTOR_LOGO_DARK := /usr/share/icons/regolith-logo.png
 override_dh_auto_configure:
 	dh_auto_configure -- \
 		-Dprivileged_group=sudo \
+		-Dssh_socket_activation=true \
 		-Ddocumentation=true \
 		-Ddistributor_logo=$(DISTRIBUTOR_LOGO) \
 		-Ddark_mode_distributor_logo=$(DISTRIBUTOR_LOGO_DARK) \

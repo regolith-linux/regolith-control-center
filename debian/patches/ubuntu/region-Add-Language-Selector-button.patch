@@ -9,10 +9,10 @@ Workaround for https://launchpad.net/bugs/1631750
  2 files changed, 34 insertions(+)
 
 diff --git a/panels/system/region/cc-region-page.blp b/panels/system/region/cc-region-page.blp
-index 1bf0c37..4bfa03b 100644
+index 4818f92..d977b30 100644
 --- a/panels/system/region/cc-region-page.blp
 +++ b/panels/system/region/cc-region-page.blp
-@@ -21,6 +21,20 @@ template $CcRegionPage: Adw.NavigationPage {
+@@ -21,6 +21,20 @@ template $CcRegionPage: $CcPanel {
        Adw.PreferencesPage {
          description: _("The language setting is used for interface text and web pages. Formats are used for numbers, dates, and currencies.");
  
@@ -34,11 +34,11 @@ index 1bf0c37..4bfa03b 100644
            title: _("Your Account");
  
 diff --git a/panels/system/region/cc-region-page.c b/panels/system/region/cc-region-page.c
-index dc8389f..c183fab 100644
+index 7402395..272cf57 100644
 --- a/panels/system/region/cc-region-page.c
 +++ b/panels/system/region/cc-region-page.c
-@@ -576,6 +576,25 @@ setup_language_section (CcRegionPage *self)
-         update_region_from_setting (self);
+@@ -530,6 +530,25 @@ setup_language_section (CcRegionPage *self)
+     update_region_from_setting (self);
  }
  
 +static void
@@ -63,11 +63,11 @@ index dc8389f..c183fab 100644
  static void
  update_login_region (CcRegionPage *self)
  {
-@@ -849,6 +868,7 @@ cc_region_page_class_init (CcRegionPageClass * klass)
-         gtk_widget_class_bind_template_callback (widget_class, on_user_formats_row_activated_cb);
-         gtk_widget_class_bind_template_callback (widget_class, on_user_language_row_activated_cb);
-         gtk_widget_class_bind_template_callback (widget_class, restart_now);
-+        gtk_widget_class_bind_template_callback (widget_class, show_language_support);
+@@ -779,6 +798,7 @@ cc_region_page_class_init (CcRegionPageClass *klass)
+     gtk_widget_class_bind_template_callback (widget_class, on_user_formats_row_activated_cb);
+     gtk_widget_class_bind_template_callback (widget_class, on_user_language_row_activated_cb);
+     gtk_widget_class_bind_template_callback (widget_class, restart_now);
++    gtk_widget_class_bind_template_callback (widget_class, show_language_support);
  }
  
  static void

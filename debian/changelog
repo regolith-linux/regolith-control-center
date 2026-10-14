@@ -1,3 +1,15 @@
+regolith-control-center (1.51.0-1) stonking; urgency=medium
+
+  * Port from upstream gnome-control-center 51.0 (ubuntu 1:51.0-1ubuntu1)
+  * Track regolith/51 and depend on gnome-control-center-data 51
+  * Disable the new Ubuntu certification page patch
+  * Drop the fingerprint popover patch, obsolete in GNOME 51
+  * Build with SSH socket activation (new in GNOME 51)
+  * Depend on libgtk-3-common, needed by Date & Time
+  * Remove upstream CI file added in GNOME 51
+
+ -- rego-port-bot <339843353+rego-port-bot@users.noreply.github.com>  Wed, 14 Oct 2026 12:03:14 +0000
+
 regolith-control-center (1.50.4-1) resolute; urgency=medium
 
   [ rego-port-bot ]
