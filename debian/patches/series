@@ -34,4 +34,4 @@ ubuntu/remove-donate.patch
 #ubuntu/cc-privacy-panel-Add-action-row-to-launch-the-Ubuntu-Secu.patch
 #ubuntu/panels-background-Notify-users-with-OLED-screens-about-da.patch
 #ubuntu/panels-search-Add-ability-to-change-the-search-extensions.patch
-ubuntu/panels-Add-certification-program-page.patch
+#ubuntu/panels-Add-certification-program-page.patch
