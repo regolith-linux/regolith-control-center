@@ -7,24 +7,24 @@ https://github.com/ubuntu/app-center/issues/1572
 
 TODO: Launch GNOME Software for Flatpaks since snap-store can't handle those
 ---
- panels/applications/cc-applications-panel.c | 58 +++++++++++++++++++++++++++--
- 1 file changed, 54 insertions(+), 4 deletions(-)
+ panels/applications/cc-applications-panel.c | 52 ++++++++++++++++++++++++++++-
+ 1 file changed, 51 insertions(+), 1 deletion(-)
 
 diff --git a/panels/applications/cc-applications-panel.c b/panels/applications/cc-applications-panel.c
-index 1f2628b..aaa4010 100644
+index b32e1da..d60bd90 100644
 --- a/panels/applications/cc-applications-panel.c
 +++ b/panels/applications/cc-applications-panel.c
-@@ -166,6 +166,8 @@ static void update_handler_dialog (CcApplicationsPanel *self, GAppInfo *info);
+@@ -159,6 +159,8 @@ static void update_handler_dialog (CcApplicationsPanel *self, GAppInfo *info);
  
  static void update_usage_section (CcApplicationsPanel *self, GAppInfo *info);
  
 +static char *get_snap_name_from_portal_id (const char *portal_app_id);
 +
- enum
- {
-   PROP_0,
-@@ -179,8 +181,43 @@ gnome_software_is_installed (void)
-   return path != NULL;
+ enum {
+     PROP_0,
+     PROP_PARAMETERS
+@@ -173,7 +175,41 @@ gnome_software_is_installed (void)
+     return info != NULL;
  }
  
 +static gboolean
@@ -35,7 +35,6 @@ index 1f2628b..aaa4010 100644
 +}
 +
  /* Callbacks */
- 
 +static void
 +launch_snap_store (CcApplicationsPanel *self,
 +                   const char          *snap_name)
@@ -63,59 +62,43 @@ index 1f2628b..aaa4010 100644
 +  if (!g_app_info_launch (app_info, NULL, G_APP_LAUNCH_CONTEXT (context), &error))
 +    g_warning ("Error launching Snap Store for %s: %s", snap_name, error->message);
 +}
-+
+ 
  static void
- open_software_cb (CcApplicationsPanel *self)
- {
-@@ -192,11 +229,17 @@ open_software_cb (CcApplicationsPanel *self)
-   else if (g_str_has_prefix (self->current_app_id, "org.gnome.Epiphany.WebApp_"))
-     /* GNOME Software only shows info on the webapp desktop file itself */
-     argv_app_id = g_strdup_printf ("%s.desktop", self->current_app_id);
-+  else if (self->current_portal_app_id &&
-+           g_str_has_prefix (self->current_portal_app_id, PORTAL_SNAP_PREFIX) &&
-+           snap_store_is_installed ())
-+    {
-+      argv_app_id = get_snap_name_from_portal_id (self->current_portal_app_id);
-+      launch_snap_store (self, argv_app_id);
-+      return;
+ open_software_details_cb (GObject *source_object, GAsyncResult *result, gpointer user_data)
+@@ -197,6 +233,14 @@ open_software_cb (CcApplicationsPanel *self)
+     GVariantBuilder params_builder;
+     g_autofree gchar *app_id = NULL;
+ 
++    if (self->current_portal_app_id &&
++        g_str_has_prefix (self->current_portal_app_id, PORTAL_SNAP_PREFIX) &&
++        snap_store_is_installed ()) {
++        app_id = get_snap_name_from_portal_id (self->current_portal_app_id);
++        launch_snap_store (self, app_id);
++        return;
 +    }
-   else
-     argv_app_id = g_strdup (self->current_app_id);
- 
--  argv[2] = argv_app_id;
--
-   g_spawn_async (NULL, (char **)argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
- }
- 
-@@ -1572,7 +1615,8 @@ update_panel (CcApplicationsPanel *self,
-   adw_navigation_page_set_title (self->app_settings_page,
-                                  g_app_info_get_display_name (info));
-   cc_panel_push_subpage (CC_PANEL (self), self->app_settings_page);
--  gtk_widget_set_visible (GTK_WIDGET (self->view_details_button), gnome_software_is_installed ());
-+  gtk_widget_set_visible (GTK_WIDGET (self->view_details_button),
-+                          gnome_software_is_installed ());
- 
-   g_clear_pointer (&self->current_app_id, g_free);
-   g_clear_pointer (&self->current_portal_app_id, g_free);
-@@ -1586,6 +1630,11 @@ update_panel (CcApplicationsPanel *self,
-   self->current_app_id = cc_util_app_get_app_id (info);
-   self->current_portal_app_id = cc_util_app_get_portal_id (info);
- 
-+  if (self->current_portal_app_id &&
-+      g_str_has_prefix (self->current_portal_app_id, PORTAL_SNAP_PREFIX) &&
-+      snap_store_is_installed ())
-+    gtk_widget_set_visible (GTK_WIDGET (self->view_details_button), TRUE);
 +
-   /* Don't show the "Open" button for Settings itself. */
-   gtk_widget_set_visible (GTK_WIDGET (self->launch_button),
-                           g_strcmp0 (self->current_app_id, APPLICATION_ID) != 0);
-@@ -2020,7 +2069,8 @@ cc_applications_panel_init (CcApplicationsPanel *self)
+     if (!self->current_app_id) {
+         g_autoptr (GAppInfo) info = G_APP_INFO (g_desktop_app_info_new (GNOME_SOFTWARE_DESKTOP_ID));
+         if (info)
+@@ -1460,6 +1504,11 @@ update_panel (CcApplicationsPanel *self, GtkListBoxRow *row)
+     self->current_app_id = cc_util_app_get_app_id (info);
+     self->current_portal_app_id = cc_util_app_get_portal_id (info);
  
-   gtk_widget_init_template (GTK_WIDGET (self));
++    if (self->current_portal_app_id &&
++        g_str_has_prefix (self->current_portal_app_id, PORTAL_SNAP_PREFIX) &&
++        snap_store_is_installed ())
++        gtk_widget_set_visible (GTK_WIDGET (self->view_details_button), TRUE);
++
+     /* Don't show the "Open" button for Settings itself. */
+     gtk_widget_set_visible (GTK_WIDGET (self->launch_button), g_strcmp0 (self->current_app_id, APPLICATION_ID) != 0);
+ }
+@@ -1852,7 +1901,8 @@ cc_applications_panel_init (CcApplicationsPanel *self)
  
--  gtk_widget_set_visible (GTK_WIDGET (self->install_button), gnome_software_is_installed ());
-+  gtk_widget_set_visible (GTK_WIDGET (self->install_button),
-+                          gnome_software_is_installed () || snap_store_is_installed ());
+     gtk_widget_init_template (GTK_WIDGET (self));
  
-   g_signal_connect_object (self->app_listbox, "row-activated",
-                            G_CALLBACK (row_activated_cb), self, G_CONNECT_SWAPPED);
+-    gtk_widget_set_visible (GTK_WIDGET (self->install_button), gnome_software_is_installed ());
++    gtk_widget_set_visible (GTK_WIDGET (self->install_button),
++                            gnome_software_is_installed () || snap_store_is_installed ());
+ 
+     g_signal_connect_object (self->app_listbox, "row-activated", G_CALLBACK (row_activated_cb), self,
+                              G_CONNECT_SWAPPED);

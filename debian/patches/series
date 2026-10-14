@@ -23,7 +23,6 @@ ubuntu/update-manager.patch
 #ubuntu/sound-Add-a-button-to-select-the-default-theme.patch
 #ubuntu/applications-Launch-snap-store-if-it-is-installed.patch
 ubuntu/display-Add-setting-to-configure-X11-apps-scaling.patch
-ubuntu/CVE-2023-5616.patch
 #ubuntu/background-Update-legacy-theme-settings-matching-the-acce.patch
 #ubuntu/background-Add-brown-accent-color-support.patch
 #ubuntu/sound-Add-toggle-for-the-startup-sound.patch
@@ -35,6 +34,4 @@ ubuntu/remove-donate.patch
 #ubuntu/cc-privacy-panel-Add-action-row-to-launch-the-Ubuntu-Secu.patch
 #ubuntu/panels-background-Notify-users-with-OLED-screens-about-da.patch
 #ubuntu/panels-search-Add-ability-to-change-the-search-extensions.patch
-ubuntu/remote-desktop-Correctly-handle-nullable-error-from-secre.patch
-ubuntu/Revert-feat-Allow-changing-password-with-remote-user.patch
-ubuntu/system-users-Keep-fingerprint-add-print-popover-visible-w.patch
+ubuntu/panels-Add-certification-program-page.patch

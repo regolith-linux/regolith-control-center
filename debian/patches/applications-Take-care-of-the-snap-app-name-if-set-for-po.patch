@@ -12,27 +12,27 @@ Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/335
  1 file changed, 36 insertions(+), 6 deletions(-)
 
 diff --git a/panels/applications/cc-applications-panel.c b/panels/applications/cc-applications-panel.c
-index a2012de..0691977 100644
+index fbaddea..3f597fa 100644
 --- a/panels/applications/cc-applications-panel.c
 +++ b/panels/applications/cc-applications-panel.c
-@@ -266,12 +266,38 @@ get_portal_app_id (GAppInfo *info)
+@@ -282,12 +282,38 @@ get_portal_app_id (GAppInfo *info)
  
-       snap_name = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-SnapInstanceName");
-       if (snap_name != NULL)
--        return g_strdup_printf ("%s%s", PORTAL_SNAP_PREFIX, snap_name);
-+        {
-+          g_autofree gchar *snap_app_name = NULL;
+         snap_name = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-SnapInstanceName");
+         if (snap_name != NULL)
+-            return g_strdup_printf ("%s%s", PORTAL_SNAP_PREFIX, snap_name);
++          {
++            g_autofree gchar *snap_app_name = NULL;
 +
-+          snap_app_name = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-SnapAppName");
++            snap_app_name = g_desktop_app_info_get_string (G_DESKTOP_APP_INFO (info), "X-SnapAppName");
 +
-+          if (!snap_app_name || g_str_equal (snap_name, snap_app_name))
-+            return g_strconcat (PORTAL_SNAP_PREFIX, snap_name, NULL);
++            if (!snap_app_name || g_str_equal (snap_name, snap_app_name))
++                return g_strconcat (PORTAL_SNAP_PREFIX, snap_name, NULL);
 +
-+          return g_strconcat (PORTAL_SNAP_PREFIX, snap_name, snap_app_name, NULL);
-+        }
++            return g_strconcat (PORTAL_SNAP_PREFIX, snap_name, snap_app_name, NULL);
++          }
      }
  
-   return NULL;
+     return NULL;
  }
  
 +static inline char *
@@ -53,42 +53,42 @@ index a2012de..0691977 100644
 +}
 +
  static GFile *
- get_flatpak_app_dir (const gchar *app_id,
-                      const gchar *subdir)
-@@ -730,9 +756,9 @@ remove_snap_permissions (CcApplicationsPanel *self)
- static gboolean
- add_snap_permissions (CcApplicationsPanel *self,
-                       GAppInfo            *info,
--                      const gchar         *app_id)
-+                      const gchar         *portal_app_id)
+ get_flatpak_app_dir (const gchar *app_id, const gchar *subdir)
  {
--  const gchar *snap_name;
-+  g_autofree char *snap_name = NULL;
-   g_autoptr(CcSnapdClient) client = NULL;
-   g_autoptr(JsonArray) plugs = NULL;
-   g_autoptr(JsonArray) slots = NULL;
-@@ -740,9 +766,10 @@ add_snap_permissions (CcApplicationsPanel *self,
-   g_autoptr(GError) error = NULL;
-   g_autoptr(GError) interfaces_error = NULL;
+@@ -687,9 +713,9 @@ remove_snap_permissions (CcApplicationsPanel *self)
+ }
  
--  if (!g_str_has_prefix (app_id, PORTAL_SNAP_PREFIX))
-+  snap_name = get_snap_name_from_portal_id (portal_app_id);
+ static gboolean
+-add_snap_permissions (CcApplicationsPanel *self, GAppInfo *info, const gchar *app_id)
++add_snap_permissions (CcApplicationsPanel *self, GAppInfo *info, const gchar *portal_app_id)
+ {
+-    const gchar *snap_name;
++    g_autofree char *snap_name = NULL;
+     g_autoptr(CcSnapdClient) client = NULL;
+     g_autoptr(JsonArray) plugs = NULL;
+     g_autoptr(JsonArray) slots = NULL;
+@@ -697,9 +723,10 @@ add_snap_permissions (CcApplicationsPanel *self, GAppInfo *info, const gchar *ap
+     g_autoptr(GError) error = NULL;
+     g_autoptr(GError) interfaces_error = NULL;
+ 
+-    if (!g_str_has_prefix (app_id, PORTAL_SNAP_PREFIX))
++    snap_name = get_snap_name_from_portal_id (portal_app_id);
 +
-+  if (!snap_name)
-     return FALSE;
--  snap_name = app_id + strlen (PORTAL_SNAP_PREFIX);
++    if (!snap_name)
+         return FALSE;
+-    snap_name = app_id + strlen (PORTAL_SNAP_PREFIX);
  
-   client = cc_snapd_client_new ();
+     client = cc_snapd_client_new ();
  
-@@ -1466,7 +1493,10 @@ update_app_row (CcApplicationsPanel *self,
-   g_autofree gchar *formatted_size = NULL;
+@@ -1352,7 +1379,10 @@ update_app_row (CcApplicationsPanel *self, const gchar *app_id)
+     g_autofree gchar *formatted_size = NULL;
  
-   if (g_str_has_prefix (app_id, PORTAL_SNAP_PREFIX))
--    self->app_size = get_snap_app_size (app_id + strlen (PORTAL_SNAP_PREFIX));
-+    {
-+      g_autofree char *snap_name = get_snap_name_from_portal_id (app_id);
-+      self->app_size = get_snap_app_size (snap_name);
-+    }
-   else
-     self->app_size = get_flatpak_app_size (app_id);
+     if (g_str_has_prefix (app_id, PORTAL_SNAP_PREFIX))
+-        self->app_size = get_snap_app_size (app_id + strlen (PORTAL_SNAP_PREFIX));
++      {
++        g_autofree char *snap_name = get_snap_name_from_portal_id (app_id);
++        self->app_size = get_snap_app_size (snap_name);
++      }
+     else
+         self->app_size = get_flatpak_app_size (app_id);
  

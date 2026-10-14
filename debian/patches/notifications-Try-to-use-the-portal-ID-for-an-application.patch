@@ -12,18 +12,18 @@ Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/335
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/panels/notifications/cc-notifications-panel.c b/panels/notifications/cc-notifications-panel.c
-index 087151f..6b3d6dc 100644
+index 871d38e..95ebf5e 100644
 --- a/panels/notifications/cc-notifications-panel.c
 +++ b/panels/notifications/cc-notifications-panel.c
-@@ -457,7 +457,10 @@ select_app (CcNotificationsPanel *self,
+@@ -432,7 +432,10 @@ select_app (CcNotificationsPanel *self, GtkListBoxRow *row)
  
-   app = g_object_get_qdata (G_OBJECT (row), application_quark ());
+     app = g_object_get_qdata (G_OBJECT (row), application_quark ());
  
--  app_id = cc_util_app_get_app_id (app->app_info);
-+  app_id = cc_util_app_get_portal_id (app->app_info);
+-    app_id = cc_util_app_get_app_id (app->app_info);
++    app_id = cc_util_app_get_portal_id (app->app_info);
 +
-+  if (!app_id)
-+    app_id = cc_util_app_get_app_id (app->app_info);
++    if (!app_id)
++        app_id = cc_util_app_get_app_id (app->app_info);
  
-   page = cc_app_notifications_page_new (app_id, g_app_info_get_name (app->app_info), app->settings, self->master_settings, self->perm_store);
-   cc_panel_push_subpage (CC_PANEL (self), ADW_NAVIGATION_PAGE (page));
+     page = cc_app_notifications_page_new (app_id, g_app_info_get_name (app->app_info), app->settings,
+                                           self->master_settings, self->perm_store);

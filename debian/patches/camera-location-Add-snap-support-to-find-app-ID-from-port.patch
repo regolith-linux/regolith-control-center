@@ -23,14 +23,14 @@ Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/335
  panels/common/cc-util.c                    | 100 +++++++++++++++++++++++++++++
  panels/common/cc-util.h                    |   3 +
  panels/privacy/camera/cc-camera-page.c     |   9 +--
- panels/privacy/location/cc-location-page.c |  16 ++---
- 4 files changed, 115 insertions(+), 13 deletions(-)
+ panels/privacy/location/cc-location-page.c |  17 +++--
+ 4 files changed, 116 insertions(+), 13 deletions(-)
 
 diff --git a/panels/common/cc-util.c b/panels/common/cc-util.c
-index 76741fb..f137602 100644
+index d6d5876..d17c829 100644
 --- a/panels/common/cc-util.c
 +++ b/panels/common/cc-util.c
-@@ -307,3 +307,103 @@ cc_util_app_get_portal_id (GAppInfo *info)
+@@ -276,3 +276,103 @@ cc_util_app_get_portal_id (GAppInfo *info)
  
    return NULL;
  }
@@ -135,18 +135,18 @@ index 76741fb..f137602 100644
 +  return (GAppInfo *) g_steal_pointer (&app_info);
 +}
 diff --git a/panels/common/cc-util.h b/panels/common/cc-util.h
-index 8c4eab2..409a9aa 100644
+index 29f8bc7..5f0916f 100644
 --- a/panels/common/cc-util.h
 +++ b/panels/common/cc-util.h
-@@ -32,3 +32,6 @@ char * cc_util_get_localized_weekday_name      (gint iso_weekday_number);
+@@ -31,3 +31,6 @@ char *cc_util_get_localized_weekday_name (gint iso_weekday_number);
  
- char * cc_util_app_get_app_id                  (GAppInfo *app_info);
- char * cc_util_app_get_portal_id               (GAppInfo *app_info);
+ char * cc_util_app_get_app_id (GAppInfo *app_info);
+ char * cc_util_app_get_portal_id (GAppInfo *app_info);
 +
 +GAppInfo * cc_util_lookup_app_info_by_portal_id (GHashTable  **snaps_app_ids_cache_ptr,
 +                                                 const gchar  *portal_app_id);
 diff --git a/panels/privacy/camera/cc-camera-page.c b/panels/privacy/camera/cc-camera-page.c
-index 3feb175..c0e5512 100644
+index 0f25a03..d5c5659 100644
 --- a/panels/privacy/camera/cc-camera-page.c
 +++ b/panels/privacy/camera/cc-camera-page.c
 @@ -21,7 +21,6 @@
@@ -157,44 +157,44 @@ index 3feb175..c0e5512 100644
  #include <glib/gi18n.h>
  
  #define APP_PERMISSIONS_TABLE "devices"
-@@ -43,6 +42,8 @@ struct _CcCameraPage
-   GHashTable   *camera_app_switches;
-   GHashTable   *camera_app_rows;
+@@ -42,6 +41,8 @@ struct _CcCameraPage {
+     GHashTable *camera_app_switches;
+     GHashTable *camera_app_rows;
  
-+  GHashTable   *snaps_app_ids;
++    GHashTable   *snaps_app_ids;
 +
-   GtkSizeGroup *camera_icon_size_group;
+     GtkSizeGroup *camera_icon_size_group;
  };
  
-@@ -180,7 +181,7 @@ add_camera_app (CcCameraPage *self,
+@@ -153,7 +154,7 @@ add_camera_app (CcCameraPage *self, const gchar *app_id, gboolean enabled)
  {
-   g_autofree gchar *desktop_id = NULL;
-   CameraAppStateData *data;
--  g_autoptr(GDesktopAppInfo) app_info = NULL;
-+  g_autoptr(GAppInfo) app_info = NULL;
-   GtkWidget *row, *w;
-   GIcon *icon;
+     g_autofree gchar *desktop_id = NULL;
+     CameraAppStateData *data;
+-    g_autoptr(GDesktopAppInfo) app_info = NULL;
++    g_autoptr(GAppInfo) app_info = NULL;
+     GtkWidget *row, *w;
+     GIcon *icon;
  
-@@ -191,8 +192,7 @@ add_camera_app (CcCameraPage *self,
-       return;
+@@ -163,8 +164,7 @@ add_camera_app (CcCameraPage *self, const gchar *app_id, gboolean enabled)
+         return;
      }
  
--  desktop_id = g_strdup_printf ("%s.desktop", app_id);
--  app_info = g_desktop_app_info_new (desktop_id);
-+  app_info = cc_util_lookup_app_info_by_portal_id (&self->snaps_app_ids, app_id);
-   if (!app_info)
-     return;
+-    desktop_id = g_strdup_printf ("%s.desktop", app_id);
+-    app_info = g_desktop_app_info_new (desktop_id);
++    app_info = cc_util_lookup_app_info_by_portal_id (&self->snaps_app_ids, app_id);
+     if (!app_info)
+         return;
  
-@@ -400,6 +400,7 @@ cc_camera_page_finalize (GObject *object)
-   g_clear_pointer (&self->camera_apps_data, g_variant_unref);
-   g_clear_pointer (&self->camera_app_switches, g_hash_table_unref);
-   g_clear_pointer (&self->camera_app_rows, g_hash_table_unref);
-+  g_clear_pointer (&self->snaps_app_ids, g_hash_table_unref);
+@@ -328,6 +328,7 @@ cc_camera_page_finalize (GObject *object)
+     g_clear_pointer (&self->camera_apps_data, g_variant_unref);
+     g_clear_pointer (&self->camera_app_switches, g_hash_table_unref);
+     g_clear_pointer (&self->camera_app_rows, g_hash_table_unref);
++    g_clear_pointer (&self->snaps_app_ids, g_hash_table_unref);
  
-   G_OBJECT_CLASS (cc_camera_page_parent_class)->finalize (object);
+     G_OBJECT_CLASS (cc_camera_page_parent_class)->finalize (object);
  }
 diff --git a/panels/privacy/location/cc-location-page.c b/panels/privacy/location/cc-location-page.c
-index b169c1c..242cf34 100644
+index c05ea4a..b9f1803 100644
 --- a/panels/privacy/location/cc-location-page.c
 +++ b/panels/privacy/location/cc-location-page.c
 @@ -21,8 +21,6 @@
@@ -206,62 +206,61 @@ index b169c1c..242cf34 100644
  #define LOCATION_ENABLED "enabled"
  #define APP_PERMISSIONS_TABLE "location"
  #define APP_PERMISSIONS_ID "location"
-@@ -43,6 +41,8 @@ struct _CcLocationPage
-   GHashTable   *location_app_switches;
-   GHashTable   *location_app_rows;
+@@ -42,6 +40,8 @@ struct _CcLocationPage {
+     GHashTable *location_app_switches;
+     GHashTable *location_app_rows;
  
-+  GHashTable   *snaps_app_ids;
++    GHashTable   *snaps_app_ids;
 +
-   GtkSizeGroup *location_icon_size_group;
+     GtkSizeGroup *location_icon_size_group;
  };
  
-@@ -171,12 +171,11 @@ add_location_app (CcLocationPage *self,
-                   gint64          last_used)
+@@ -144,12 +144,11 @@ static void
+ add_location_app (CcLocationPage *self, const gchar *app_id, gboolean enabled, gint64 last_used)
  {
-   LocationAppStateData *data;
--  g_autoptr(GDesktopAppInfo) app_info = NULL;
-+  g_autoptr(GAppInfo) app_info = NULL;
-   g_autoptr(GDateTime) t = NULL;
-   GtkWidget *row, *w;
-   GIcon *icon;
-   gchar *last_used_str;
--  gchar *desktop_id;
+     LocationAppStateData *data;
+-    g_autoptr(GDesktopAppInfo) app_info = NULL;
++    g_autoptr(GAppInfo) app_info = NULL;
+     g_autoptr(GDateTime) t = NULL;
+     GtkWidget *row, *w;
+     GIcon *icon;
+     gchar *last_used_str;
+-    g_autofree gchar *desktop_id = NULL;
  
-   w = g_hash_table_lookup (self->location_app_switches, app_id);
-   if (w != NULL)
-@@ -185,16 +184,14 @@ add_location_app (CcLocationPage *self,
-       return;
+     w = g_hash_table_lookup (self->location_app_switches, app_id);
+     if (w != NULL) {
+@@ -157,22 +156,21 @@ add_location_app (CcLocationPage *self, const gchar *app_id, gboolean enabled, g
+         return;
      }
  
--  desktop_id = g_strdup_printf ("%s.desktop", app_id);
--  app_info = g_desktop_app_info_new (desktop_id);
--  g_free (desktop_id);
-+  app_info = cc_util_lookup_app_info_by_portal_id (&self->snaps_app_ids, app_id);
-   if (app_info == NULL)
-       return;
+-    desktop_id = g_strdup_printf ("%s.desktop", app_id);
+-    app_info = g_desktop_app_info_new (desktop_id);
++    app_info = cc_util_lookup_app_info_by_portal_id (&self->snaps_app_ids, app_id);
+     if (app_info == NULL)
+-        return;
++      return;
  
-   row = adw_action_row_new ();
-   gtk_list_box_append (self->location_apps_list_box, row);
+     row = adw_action_row_new ();
+     gtk_list_box_append (self->location_apps_list_box, row);
  
--  icon = g_app_info_get_icon (G_APP_INFO (app_info));
-+  icon = g_app_info_get_icon (app_info);
-   w = gtk_image_new_from_gicon (icon);
-   gtk_image_set_icon_size (GTK_IMAGE (w), GTK_ICON_SIZE_LARGE);
-   gtk_widget_set_valign (w, GTK_ALIGN_CENTER);
-@@ -202,7 +199,7 @@ add_location_app (CcLocationPage *self,
-   adw_action_row_add_prefix (ADW_ACTION_ROW (row), w);
+-    icon = g_app_info_get_icon (G_APP_INFO (app_info));
++    icon = g_app_info_get_icon (app_info);
+     w = gtk_image_new_from_gicon (icon);
+     gtk_image_set_icon_size (GTK_IMAGE (w), GTK_ICON_SIZE_LARGE);
+     gtk_widget_set_valign (w, GTK_ALIGN_CENTER);
+     gtk_size_group_add_widget (self->location_icon_size_group, w);
+     adw_action_row_add_prefix (ADW_ACTION_ROW (row), w);
  
-   adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row),
--                                 g_app_info_get_name (G_APP_INFO (app_info)));
-+                                 g_app_info_get_name (app_info));
+-    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), g_app_info_get_name (G_APP_INFO (app_info)));
++    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), g_app_info_get_name (app_info));
  
-   t = g_date_time_new_from_unix_utc (last_used);
-   last_used_str = cc_util_get_smart_date (t);
-@@ -409,6 +406,7 @@ cc_location_page_finalize (GObject *object)
-   g_clear_pointer (&self->location_apps_data, g_variant_unref);
-   g_clear_pointer (&self->location_app_switches, g_hash_table_unref);
-   g_clear_pointer (&self->location_app_rows, g_hash_table_unref);
-+  g_clear_pointer (&self->snaps_app_ids, g_hash_table_unref);
+     t = g_date_time_new_from_unix_utc (last_used);
+     last_used_str = cc_util_get_smart_date (t);
+@@ -334,6 +332,7 @@ cc_location_page_finalize (GObject *object)
+     g_clear_pointer (&self->location_apps_data, g_variant_unref);
+     g_clear_pointer (&self->location_app_switches, g_hash_table_unref);
+     g_clear_pointer (&self->location_app_rows, g_hash_table_unref);
++    g_clear_pointer (&self->snaps_app_ids, g_hash_table_unref);
  
-   G_OBJECT_CLASS (cc_location_page_parent_class)->finalize (object);
+     G_OBJECT_CLASS (cc_location_page_parent_class)->finalize (object);
  }

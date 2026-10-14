@@ -1,0 +1,2415 @@
+From: Sergio Costas Rodriguez <sergio.costas@canonical.com>
+Date: Tue, 7 Jul 2026 13:09:12 +0200
+Subject: panels: Add certification program page
+
+This PR adds the Ubuntu Certification program page with the new,
+varlink-based protocol.
+---
+ meson.build                                        |   4 +
+ panels/system/cc-system-panel.blp                  |  28 +-
+ panels/system/cc-system-panel.c                    |  54 ++
+ panels/system/certification-client.c               | 555 +++++++++++++++++++++
+ panels/system/certification-client.h               |  88 ++++
+ panels/system/com.ubuntu.hwctl.varlink             |  39 ++
+ panels/system/icons/meson.build                    |   3 +
+ .../scalable/org.canonical.certified-symbolic.svg  |  11 +
+ .../org.canonical.certified_neutral-symbolic.svg   |  10 +
+ .../org.canonical.certified_unknown-symbolic.svg   |  12 +
+ panels/system/meson.build                          |   3 +
+ panels/system/system.gresource.xml                 |   4 +
+ .../ubuntu-certified/assets/certified-logo.svg     | 130 +++++
+ .../ubuntu-certified/cc-ubuntu-certified-page.blp  | 149 ++++++
+ .../ubuntu-certified/cc-ubuntu-certified-page.c    | 287 +++++++++++
+ .../ubuntu-certified/cc-ubuntu-certified-page.h}   |   5 +-
+ .../gnome-ubuntu-certified-panel.desktop.in}       |  10 +-
+ .../{region => ubuntu-certified}/meson.build       |  10 +-
+ po/POTFILES.in                                     |   3 +
+ shell/cc-application.c                             |  19 +-
+ shell/cc-panel-loader.c                            |   1 +
+ tests/certification_emulator.py                    | 215 ++++++++
+ tests/certified_ubuntu/meson.build                 |  19 +
+ tests/certified_ubuntu/test-certified-ubuntu.c     | 140 ++++++
+ tests/certified_ubuntu/test-certified.py           | 227 +++++++++
+ tests/meson.build                                  |   1 +
+ 26 files changed, 2006 insertions(+), 21 deletions(-)
+ create mode 100644 panels/system/certification-client.c
+ create mode 100644 panels/system/certification-client.h
+ create mode 100644 panels/system/com.ubuntu.hwctl.varlink
+ create mode 100644 panels/system/icons/scalable/org.canonical.certified-symbolic.svg
+ create mode 100644 panels/system/icons/scalable/org.canonical.certified_neutral-symbolic.svg
+ create mode 100644 panels/system/icons/scalable/org.canonical.certified_unknown-symbolic.svg
+ create mode 100644 panels/system/ubuntu-certified/assets/certified-logo.svg
+ create mode 100644 panels/system/ubuntu-certified/cc-ubuntu-certified-page.blp
+ create mode 100644 panels/system/ubuntu-certified/cc-ubuntu-certified-page.c
+ copy panels/{applications/cc-default-apps-page.h => system/ubuntu-certified/cc-ubuntu-certified-page.h} (81%)
+ copy panels/{background/gnome-background-panel.desktop.in => system/ubuntu-certified/gnome-ubuntu-certified-panel.desktop.in} (65%)
+ copy panels/system/{region => ubuntu-certified}/meson.build (74%)
+ create mode 100755 tests/certification_emulator.py
+ create mode 100644 tests/certified_ubuntu/meson.build
+ create mode 100644 tests/certified_ubuntu/test-certified-ubuntu.c
+ create mode 100755 tests/certified_ubuntu/test-certified.py
+
+diff --git a/meson.build b/meson.build
+index 423bad6..6c09ea4 100644
+--- a/meson.build
++++ b/meson.build
+@@ -133,6 +133,9 @@ gtk_version = '>= 4.23.0'
+ goa_req_version = '>= 3.51.0'
+ pulse_req_version = '>= 2.0'
+ malcontent_version = '>= 0.14.alpha'
++varlink_dep = dependency(
++  'libsystemd'
++)
+ 
+ gtk_dep = dependency(
+   'gtk4',
+@@ -253,6 +256,7 @@ common_deps = [
+   dependency('gio-unix-2.0'),
+   dependency('gthread-2.0'),
+   gtk_dep,
++  varlink_dep,
+ ]
+ 
+ polkit_gobject_dep = dependency('polkit-gobject-1', version: '>= 0.103')
+diff --git a/panels/system/cc-system-panel.blp b/panels/system/cc-system-panel.blp
+index fa39bf6..2bd555a 100644
+--- a/panels/system/cc-system-panel.blp
++++ b/panels/system/cc-system-panel.blp
+@@ -9,6 +9,25 @@ template $CcSystemPanel: $CcPanel {
+     Adw.HeaderBar {}
+ 
+     content: Adw.PreferencesPage {
++      Adw.PreferencesGroup {
++        $CcListRow about_row {
++          title: _("_About");
++          subtitle: _("Hardware details and software versions");
++          icon-name: "org.gnome.Settings-about-symbolic";
++          show-arrow: true;
++          action-name: "navigation.push";
++          action-target: "'about'";
++        }
++
++        $CcListRow certification_row {
++          title: _("Check if this computer is Ubuntu Certified");
++          icon-name: "org.canonical.check-certified-symbolic";
++          show-arrow: true;
++          action-name: "navigation.push";
++          action-target: "'ubuntu-certified'";
++        }
++      }
++
+       Adw.PreferencesGroup {
+         $CcListRow region_row {
+           title: _("_Region &amp; Language");
+@@ -54,15 +73,6 @@ template $CcSystemPanel: $CcPanel {
+           show-arrow: true;
+           activated => $on_secure_shell_row_clicked(template);
+         }
+-
+-        $CcListRow about_row {
+-          title: _("_About");
+-          subtitle: _("Hardware details and software versions");
+-          icon-name: "org.gnome.Settings-about-symbolic";
+-          show-arrow: true;
+-          action-name: "navigation.push";
+-          action-target: "'about'";
+-        }
+       }
+ 
+       Adw.PreferencesGroup software_updates_group {
+diff --git a/panels/system/cc-system-panel.c b/panels/system/cc-system-panel.c
+index d8e7c70..8f824f7 100644
+--- a/panels/system/cc-system-panel.c
++++ b/panels/system/cc-system-panel.c
+@@ -29,16 +29,19 @@
+ #include "cc-systemd-service.h"
+ 
+ #include "about/cc-about-page.h"
++#include "certification-client.h"
+ #include "datetime/cc-datetime-page.h"
+ #include "region/cc-region-page.h"
+ #include "remote-desktop/cc-remote-desktop-page.h"
+ #include "secure-shell/cc-secure-shell-page.h"
++#include "ubuntu-certified/cc-ubuntu-certified-page.h"
+ #include "users/cc-users-page.h"
+ 
+ struct _CcSystemPanel {
+     CcPanel parent_instance;
+ 
+     AdwActionRow *about_row;
++    AdwActionRow *certification_row;
+     AdwActionRow *datetime_row;
+     AdwActionRow *region_row;
+     AdwActionRow *remote_desktop_row;
+@@ -46,6 +49,8 @@ struct _CcSystemPanel {
+ 
+     CcSecureShellPage *secure_shell_dialog;
+     AdwNavigationPage *software_updates_group;
++
++    CertificationClient *certification_client;
+ };
+ 
+ CC_PANEL_REGISTER (CcSystemPanel, cc_system_panel)
+@@ -134,14 +139,47 @@ on_secure_shell_row_clicked (CcSystemPanel *self)
+     adw_dialog_present (ADW_DIALOG (self->secure_shell_dialog), GTK_WIDGET (self));
+ }
+ 
++static void
++update_certification_status (CcSystemPanel *self, gpointer user_data)
++{
++    if (!certification_client_get_is_connected (self->certification_client)) {
++        gtk_widget_set_visible (GTK_WIDGET (self->certification_row), false);
++    } else {
++        gtk_widget_set_visible (GTK_WIDGET (self->certification_row), true);
++        if ((certification_client_get_certification_status (self->certification_client) == CERTIFICATION_STATUS_CERTIFIED) &&
++            (certification_client_get_remote_access_enabled (self->certification_client))) {
++            adw_action_row_set_icon_name (ADW_ACTION_ROW (self->certification_row), "org.canonical.certified-symbolic");
++            adw_preferences_row_set_title (ADW_PREFERENCES_ROW (self->certification_row), _("This computer is Ubuntu Certified"));
++        } else {
++            adw_action_row_set_icon_name (ADW_ACTION_ROW (self->certification_row), "org.canonical.certified_unknown-symbolic");
++            adw_preferences_row_set_title (ADW_PREFERENCES_ROW (self->certification_row), _("Check if this computer is Ubuntu Certified"));
++        }
++    }
++}
++
++static void
++cc_system_panel_dispose (GObject *object)
++{
++    CcSystemPanel *self = CC_SYSTEM_PANEL (object);
++
++    g_clear_object (&self->certification_client);
++
++    G_OBJECT_CLASS (cc_system_panel_parent_class)->dispose (object);
++}
++
++
+ static void
+ cc_system_panel_class_init (CcSystemPanelClass *klass)
+ {
+     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
++    GObjectClass *object_class = G_OBJECT_CLASS (klass);
++
++    object_class->dispose = cc_system_panel_dispose;
+ 
+     gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/control-center/system/cc-system-panel.ui");
+ 
+     gtk_widget_class_bind_template_child (widget_class, CcSystemPanel, about_row);
++    gtk_widget_class_bind_template_child (widget_class, CcSystemPanel, certification_row);
+     gtk_widget_class_bind_template_child (widget_class, CcSystemPanel, datetime_row);
+     gtk_widget_class_bind_template_child (widget_class, CcSystemPanel, region_row);
+     gtk_widget_class_bind_template_child (widget_class, CcSystemPanel, remote_desktop_row);
+@@ -157,6 +195,7 @@ cc_system_panel_class_init (CcSystemPanelClass *klass)
+     g_type_ensure (CC_TYPE_REGION_PAGE);
+     g_type_ensure (CC_TYPE_REMOTE_DESKTOP_PAGE);
+     g_type_ensure (CC_TYPE_SECURE_SHELL_PAGE);
++    g_type_ensure (CC_TYPE_UBUNTU_CERTIFIED_PAGE);
+     g_type_ensure (CC_TYPE_USERS_PAGE);
+ }
+ 
+@@ -178,5 +217,20 @@ cc_system_panel_init (CcSystemPanel *self)
+     cc_panel_add_static_subpage (CC_PANEL (self), "datetime", CC_TYPE_DATE_TIME_PAGE);
+     cc_panel_add_static_subpage (CC_PANEL (self), "region", CC_TYPE_REGION_PAGE);
+     cc_panel_add_static_subpage (CC_PANEL (self), "remote-desktop", CC_TYPE_REMOTE_DESKTOP_PAGE);
++    cc_panel_add_static_subpage (CC_PANEL (self), "ubuntu-certified", CC_TYPE_UBUNTU_CERTIFIED_PAGE);
+     cc_panel_add_static_subpage (CC_PANEL (self), "users", CC_TYPE_USERS_PAGE);
++    self->certification_client = certification_client_get_default ();
++    g_signal_connect_swapped (self->certification_client,
++                              "changed",
++                              G_CALLBACK (update_certification_status),
++                              self);
++    // try just to connect to the socket to quickly check if there is a service running
++    if (certification_client_connect (self->certification_client)) {
++        // if it is running, get the status from the cache to get it as fast as possible
++        certification_client_update_certification_status_async (self->certification_client,
++                                                                g_getenv ("CERTIFICATION_SERVER_URL"),
++                                                                CERTIFICATION_SOURCE_CACHE,
++                                                                NULL, NULL);
++    }
++    update_certification_status (self, self->certification_client);
+ }
+diff --git a/panels/system/certification-client.c b/panels/system/certification-client.c
+new file mode 100644
+index 0000000..637d116
+--- /dev/null
++++ b/panels/system/certification-client.c
+@@ -0,0 +1,555 @@
++/* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*-
++ *
++ * Copyright (C) 2026 Canonical Ltd.
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, see <http://www.gnu.org/licenses/>.
++ *
++ */
++
++/*
++ * Certification Client
++ *
++ * A GObject that allows to query the certification status of the system,
++ * and to enable/disable remote access.
++ */
++
++#include "certification-client.h"
++#include <systemd/sd-varlink.h>
++#include <sys/stat.h>
++
++struct _CertificationClient {
++    GObject parent_instance;
++
++    struct sd_varlink *connection;
++
++    GTask *task;
++    GQueue *pending_calls;
++
++    CertificationStatus current_status;
++    char *certified_url;
++    bool stale;
++    bool remote_access_enabled;
++};
++
++G_DEFINE_TYPE (CertificationClient, certification_client, G_TYPE_OBJECT)
++
++static CertificationClient *default_certification_client = NULL;
++
++typedef struct {
++    const char *command;
++    sd_json_variant *parameters;
++    sd_json_variant *received_state;
++    GAsyncReadyCallback callback;
++    gpointer callback_data;
++    gpointer async_function_tag;
++} VarlinkTaskData;
++
++static void
++free_varlink_task_data (VarlinkTaskData *data)
++{
++    // The "command" field is currently a pointer to a static string,
++    // so it must not be freed.
++    // The received_state field belongs to the VarLink connection object
++    // and is freed by it when needed, so must not be freed neither.
++    sd_json_variant_unref (data->parameters);
++    g_free (data);
++}
++
++G_DEFINE_AUTOPTR_CLEANUP_FUNC (VarlinkTaskData, free_varlink_task_data)
++
++static void send_message (CertificationClient *client, VarlinkTaskData *message);
++
++
++static const char *
++get_string_from_variant_object (sd_json_variant *variant,
++                                const char      *key)
++{
++    sd_json_variant *value = sd_json_variant_by_key (variant, key);
++    return sd_json_variant_string (value);
++}
++
++static bool
++get_boolean_from_variant_object (sd_json_variant *variant,
++                                 const char      *key)
++{
++    sd_json_variant *value = sd_json_variant_by_key (variant, key);
++    return sd_json_variant_boolean (value);
++}
++
++/*
++ * After the certification status has been obtained from the service,
++ * this function is called with the result to update the data here,
++ * in the main thread.
++ */
++static void
++update_inner_status (CertificationClient *client,
++                     sd_json_variant     *received_state)
++{
++    sd_json_variant *state = NULL;
++    const char *str_status = NULL;
++
++    state = sd_json_variant_by_key (received_state, "state");
++
++    g_free (client->certified_url);
++    client->certified_url = g_strdup (get_string_from_variant_object (state, "certified_url"));
++
++    client->stale = get_boolean_from_variant_object (state, "stale");
++    client->remote_access_enabled = get_boolean_from_variant_object (state, "remote_access_enabled");
++
++    str_status = get_string_from_variant_object (state, "status");
++    if (g_str_equal (str_status, "Certified"))
++        client->current_status = CERTIFICATION_STATUS_CERTIFIED;
++    else if (g_str_equal (str_status, "NotSeen"))
++        client->current_status = CERTIFICATION_STATUS_NOT_SEEN;
++    else if (g_str_equal (str_status, "CertifiedImageExists"))
++        client->current_status = CERTIFICATION_STATUS_CERTIFIED_IMAGE_EXISTS;
++    else if (g_str_equal (str_status, "RelatedCertifiedSystemExists"))
++        client->current_status = CERTIFICATION_STATUS_RELATED_CERTIFIED_SYSTEM_EXISTS;
++    else
++        client->current_status = CERTIFICATION_STATUS_UNKNOWN;
++}
++
++static void
++process_next_message (CertificationClient *client)
++{
++    // We must keep the task pointer until here because a client could add new
++    // messages inside the signal handler, and we are using the task pointer
++    // to know whether a message must be queued or a new task be created.
++    g_clear_object (&client->task);
++
++    if (g_queue_is_empty (client->pending_calls))
++        return;
++
++    send_message (client, g_queue_pop_head (client->pending_calls));
++}
++
++/**
++ * Performs a varlink query in an independent thread
++ * to avoid blocking the main thread. The result is processed in the task_completed()
++ * function, which updates the last_certification_status and emits the "changed" signal.
++ */
++static void
++query_varlink_method (GTask        *task,
++                      gpointer      source_object,
++                      gpointer      task_data,
++                      GCancellable *cancellable)
++{
++    sd_json_variant *out_data = NULL;
++    const char *error_id = NULL;
++    int rv;
++
++    CertificationClient *client = CERTIFICATION_CLIENT (source_object);
++    VarlinkTaskData *data = g_task_get_task_data (task);
++
++    // This call is not thread-safe, but since we are serializing all the
++    // queries, it's safe to call it from a different thread than the main one.
++    rv = sd_varlink_call (
++         client->connection,
++         data->command,
++         data->parameters,
++         &out_data,
++         &error_id
++    );
++
++    if ((rv < 0) || (error_id != NULL)) {
++        g_autoptr(GError) error = NULL;
++
++        if (error_id == NULL)
++            g_set_error (&error, G_IO_ERROR, G_IO_ERROR_FAILED,
++                        "Failed to call certification service method %s: %s",
++                        data->command,
++                        strerror (rv));
++        else
++            g_set_error (&error, G_IO_ERROR, G_IO_ERROR_FAILED,
++                        "Failed to call certification service method %s: %s",
++                        data->command,
++                        error_id);
++        g_warning ("%s", error->message);
++        g_task_return_error (task, g_steal_pointer (&error));
++    } else {
++        data->received_state = out_data;
++        g_task_return_boolean (task, TRUE);
++    }
++}
++
++static void
++task_completed_cb (CertificationClient *client, GAsyncResult *res, gpointer user_data)
++{
++
++    VarlinkTaskData *task_data = (VarlinkTaskData *) user_data;
++    if (!g_task_had_error (G_TASK (res))) {
++        if (g_async_result_is_tagged (res, certification_client_update_certification_status_async))
++            update_inner_status (client, task_data->received_state);
++        else if (g_async_result_is_tagged (res, certification_client_set_remote_access_async))
++            client->remote_access_enabled = get_boolean_from_variant_object (task_data->parameters, "enabled");
++    } else {
++        client->current_status = CERTIFICATION_STATUS_API_NOT_AVAILABLE;
++    }
++
++    if (task_data->callback != NULL)
++        task_data->callback (G_OBJECT (client), res, task_data->callback_data);
++
++    g_signal_emit_by_name (client, "changed");
++    process_next_message (client);
++}
++
++static void
++send_message (CertificationClient *client,
++              VarlinkTaskData     *message)
++{
++    client->task = g_task_new (client, NULL, (GAsyncReadyCallback) task_completed_cb, message);
++    g_task_set_task_data (client->task, message, (GDestroyNotify) free_varlink_task_data);
++    g_task_set_source_tag (client->task, message->async_function_tag);
++    g_task_run_in_thread (client->task, (GTaskThreadFunc) query_varlink_method);
++}
++
++static void
++enqueue_message (CertificationClient *client,
++                 VarlinkTaskData     *message)
++{
++    if (client->task != NULL)
++        g_queue_push_tail (client->pending_calls, message);
++    else
++        send_message (client, message);
++}
++
++
++/**
++ * certification_client_update_certification_status_async:
++ * @client: the #CertificationClient instance
++ * @server_url: the URL of the certification server to query. If NULL, the default
++ *   server URL will be used.
++ * @source: the source from which to retrieve the certification status. This can
++ *   be one of the following values:
++ *   - #CERTIFICATION_SOURCE_CACHE: Retrieve the status from the cache.
++ *   - #CERTIFICATION_SOURCE_SERVER: Retrieve the status from the server.
++ *   - #CERTIFICATION_SOURCE_AUTO: Automatically choose the source.
++ * @callback: a #GAsyncReadyCallback to call when the operation is finished
++ * @user_data: user data to pass to the callback
++ *
++ * Returns: true if the operation was successfully initiated, false otherwise.
++ */
++bool
++certification_client_update_certification_status_async (CertificationClient *client,
++                                                        const gchar         *server_url,
++                                                        CertificationSource  source,
++                                                        GAsyncReadyCallback  callback,
++                                                        gpointer             user_data)
++{
++    const char *source_str = NULL;
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), false);
++
++    if (!certification_client_connect (client)) {
++        return false;
++    }
++
++    g_autoptr(VarlinkTaskData) data = g_new0 (VarlinkTaskData, 1);
++    data->command = "com.ubuntu.hwctl.GetCertificationStatus";
++    switch (source) {
++    case CERTIFICATION_SOURCE_CACHE:
++        source_str = "cache";
++        break;
++    case CERTIFICATION_SOURCE_SERVER:
++        source_str = "server";
++        break;
++    case CERTIFICATION_SOURCE_AUTO:
++        source_str = "auto";
++        break;
++    }
++    sd_json_variant_set_field_string (&data->parameters, "source", source_str);
++    if (server_url != NULL) {
++        sd_json_variant_set_field_string (&data->parameters, "server_url", server_url);
++    }
++    data->callback = callback;
++    data->callback_data = user_data;
++    data->async_function_tag = certification_client_update_certification_status_async;
++
++    enqueue_message (client, g_steal_pointer (&data));
++    return true;
++}
++
++/**
++ * certification_client_update_certification_status_finish:
++ * @client: the #CertificationClient instance
++ * @res: the #GAsyncResult passed to the callback
++ * @error: return location for a #GError, or NULL
++ *
++ * Finishes an asynchronous operation started with
++ * certification_client_update_certification_status_async().
++ *
++ * Returns: true if the operation was successful, false otherwise.
++ */
++bool
++certification_client_update_certification_status_finish (CertificationClient *client,
++                                                         GAsyncResult        *res,
++                                                         GError             **error)
++{
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), false);
++    g_return_val_if_fail (G_IS_TASK (res), false);
++    g_return_val_if_fail (g_task_is_valid (res, client), false);
++    g_return_val_if_fail (g_async_result_is_tagged (res, certification_client_update_certification_status_async), false);
++
++    return g_task_propagate_boolean (G_TASK (res), error);
++}
++
++
++/**
++ * certification_client_set_remote_access_async:
++ * @client: the #CertificationClient instance
++ * @enabled: whether remote access should be enabled or disabled
++ * @callback: a #GAsyncReadyCallback to call when the operation is finished
++ * @user_data: user data to pass to the callback
++ *
++ * Sets the remote access status for the certification client.
++ *
++ * Returns: true if the operation was successfully initiated, false otherwise.
++ */
++bool
++certification_client_set_remote_access_async (CertificationClient *client,
++                                              bool                 enabled,
++                                              GAsyncReadyCallback  callback,
++                                              gpointer             user_data)
++{
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), false);
++
++    if (!certification_client_connect (client)) {
++        return false;
++    }
++
++    g_autoptr(VarlinkTaskData) data = g_new0 (VarlinkTaskData, 1);
++    data->command = "com.ubuntu.hwctl.SetRemoteAccess";
++    sd_json_variant_set_field_boolean (&data->parameters, "enabled", enabled);
++    data->callback = callback;
++    data->callback_data = user_data;
++    data->async_function_tag = certification_client_set_remote_access_async;
++
++    enqueue_message (client, g_steal_pointer (&data));
++    return true;
++}
++
++/**
++ * certification_client_set_remote_access_finish:
++ * @client: the #CertificationClient instance
++ * @res: the #GAsyncResult passed to the callback
++ * @error: return location for a #GError, or NULL
++ *
++ * Finishes an asynchronous operation started with
++ * certification_client_set_remote_access_async().
++ *
++ * Returns: true if the operation was successful, false otherwise.
++ */
++bool
++certification_client_set_remote_access_finish (CertificationClient *client,
++                                               GAsyncResult        *res,
++                                               GError             **error)
++{
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), false);
++    g_return_val_if_fail (G_IS_TASK (res), false);
++    g_return_val_if_fail (g_task_is_valid (res, client), false);
++    g_return_val_if_fail (g_async_result_is_tagged (res, certification_client_set_remote_access_async), false);
++
++    return g_task_propagate_boolean (G_TASK (res), error);
++}
++
++
++/**
++ * certification_client_get_remote_access_enabled:
++ * @client: the #CertificationClient instance
++ *
++ * Returns: true if remote access is enabled in the daemon, false otherwise.
++ */
++bool
++certification_client_get_remote_access_enabled (CertificationClient *client)
++{
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), false);
++
++    return client->remote_access_enabled;
++}
++
++/**
++ * certification_client_get_stale:
++ * @client: the #CertificationClient instance
++ *
++ * Returns: true if the certification status is stale, false otherwise.
++ */
++bool
++certification_client_get_stale (CertificationClient *client)
++{
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), false);
++
++    return client->stale;
++}
++
++/**
++ * certification_client_get_certification_status:
++ * @client: the #CertificationClient instance
++ *
++ * Returns: the current certification status of the client.
++ */
++CertificationStatus
++certification_client_get_certification_status (CertificationClient *client)
++{
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), CERTIFICATION_STATUS_API_NOT_AVAILABLE);
++
++    return client->current_status;
++}
++
++/**
++ * certification_client_get_certified_url:
++ * @client: the #CertificationClient instance
++ *
++ * Returns: (nullable) (transfer none): the URL of the certified image, or NULL if not available.
++ */
++const char *
++certification_client_get_certified_url (CertificationClient *client)
++{
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), NULL);
++
++    return client->certified_url;
++}
++
++/**
++ * certification_client_get_is_connected:
++ * @client: the #CertificationClient instance
++ *
++ * Returns: true if the client is connected to the daemon, false otherwise.
++ */
++bool
++certification_client_get_is_connected (CertificationClient *client)
++{
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), false);
++
++    return client->connection != NULL;
++}
++
++static const char *
++get_socket_path (void)
++{
++    const char *socket_path;
++    struct stat statbuf;
++
++    // first, search the environment variable
++    socket_path = g_getenv ("HWCTL_SOCKET_PATH");
++    if ((socket_path != NULL) && (socket_path[0] != 0) && (stat (socket_path, &statbuf) == 0))
++        return socket_path;
++
++    // if not found, or not valid, search for the snapped socket
++    socket_path = SOCKET_PATH_SNAPPED;
++    if (stat (socket_path, &statbuf) == 0)
++        return socket_path;
++
++    // if not found, try with the unconfined socket
++    socket_path = SOCKET_PATH_UNCONFINED;
++    if (stat (socket_path, &statbuf) == 0) {
++        return socket_path;
++    }
++    return NULL;
++}
++
++/**
++ * certification_client_connect:
++ * @client: the #CertificationClient instance
++ *
++ * Connects to the certification service and returns true if the connection was
++ * successful, false otherwise. It can be used to check if the service is available.
++ *
++ * Returns: true if the connection was successful, false otherwise
++ */
++bool
++certification_client_connect (CertificationClient *client)
++{
++    const gchar *socket_path;
++
++    g_return_val_if_fail (CERTIFICATION_IS_CLIENT (client), false);
++
++    if (client->connection != NULL)
++        return true;
++
++    socket_path = get_socket_path ();
++    if (socket_path == NULL)
++        return false;
++
++    return sd_varlink_connect_address (&client->connection, socket_path) >= 0;
++}
++
++static void
++certification_client_dispose (GObject *gobject)
++{
++    CertificationClient *client = CERTIFICATION_CLIENT (gobject);
++    g_clear_object (&client->task);
++    g_clear_pointer (&client->connection, sd_varlink_unref);
++    g_clear_pointer (&client->certified_url, g_free);
++    if (client->pending_calls != NULL) {
++        g_queue_free_full (client->pending_calls, (GDestroyNotify) free_varlink_task_data);
++        client->pending_calls = NULL;
++    }
++    G_OBJECT_CLASS (certification_client_parent_class)->dispose (gobject);
++}
++
++static void
++certification_client_class_init (CertificationClientClass *klass)
++{
++    GObjectClass *object_class = G_OBJECT_CLASS (klass);
++
++    g_signal_new ("changed",
++                  G_TYPE_FROM_CLASS (klass),
++                  G_SIGNAL_RUN_LAST,
++                  0,NULL, NULL, NULL,
++                  G_TYPE_NONE,
++                  0);
++
++    object_class->dispose = certification_client_dispose;
++}
++
++static void
++certification_client_init (CertificationClient *self)
++{
++    self->current_status = CERTIFICATION_STATUS_UNKNOWN;
++    self->pending_calls = g_queue_new ();
++}
++
++/**
++ * certification_client_new:
++ *
++ * Creates a new #CertificationClient. It is recommended to use
++ * certification_client_get_default() instead, which returns a
++ * singleton instance, which is shared across the application.
++ *
++ * Returns: (transfer full): a new #CertificationClient
++ */
++CertificationClient *
++certification_client_new (void)
++{
++    return g_object_new (CERTIFICATION_TYPE_CLIENT, NULL);
++}
++
++/**
++ * certification_client_get_default
++ *
++ * Returns the default CertificationClient instance. The transfer is
++ * full, so the caller is responsible for unreffing the returned object.
++ *
++ * Return: (transfer full): the default CertificationClient instance.
++ */
++CertificationClient *
++certification_client_get_default (void)
++{
++    if (default_certification_client == NULL) {
++        default_certification_client = certification_client_new ();
++        g_object_add_weak_pointer (G_OBJECT (default_certification_client), (gpointer) &default_certification_client);
++    } else {
++        g_object_ref (default_certification_client);
++    }
++    return default_certification_client;
++}
+\ No newline at end of file
+diff --git a/panels/system/certification-client.h b/panels/system/certification-client.h
+new file mode 100644
+index 0000000..aa7f9e4
+--- /dev/null
++++ b/panels/system/certification-client.h
+@@ -0,0 +1,88 @@
++/* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*-
++ *
++ * Copyright (C) 2026 Canonical Ltd.
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, see <http://www.gnu.org/licenses/>.
++ *
++ */
++
++#pragma once
++#include <stdbool.h>
++#include <glib-object.h>
++#include <glib.h>
++#include <gio/gio.h>
++
++typedef enum {
++    CERTIFICATION_SOURCE_AUTO = 0,
++    CERTIFICATION_SOURCE_CACHE = 1,
++    CERTIFICATION_SOURCE_SERVER = 2
++} CertificationSource;
++
++typedef enum {
++    CERTIFICATION_STATUS_UNKNOWN,
++    CERTIFICATION_STATUS_CERTIFIED,
++    CERTIFICATION_STATUS_NOT_SEEN,
++    CERTIFICATION_STATUS_CERTIFIED_IMAGE_EXISTS,
++    CERTIFICATION_STATUS_RELATED_CERTIFIED_SYSTEM_EXISTS,
++    CERTIFICATION_STATUS_API_NOT_AVAILABLE,
++    CERTIFICATION_STATUS_CHECKING,
++} CertificationStatus;
++
++#define SOCKET_PATH_SNAPPED "/var/snap/hwctl/common/hwctl.varlink"
++#define SOCKET_PATH_UNCONFINED "/run/hwctl/hwctl.varlink"
++
++typedef void (*StatusCallback)(const gchar *status, gpointer user_data);
++
++G_BEGIN_DECLS
++
++#define CERTIFICATION_TYPE_CLIENT certification_client_get_type()
++G_DECLARE_FINAL_TYPE (CertificationClient, certification_client, CERTIFICATION, CLIENT, GObject)
++
++CertificationClient *certification_client_new (void);
++
++CertificationClient *certification_client_get_default (void);
++
++bool certification_client_connect (CertificationClient *);
++
++bool certification_client_set_remote_access_async (CertificationClient *,
++                                                   bool,
++                                                   GAsyncReadyCallback,
++                                                   gpointer);
++
++bool certification_client_set_remote_access_finish (CertificationClient *,
++                                                    GAsyncResult *,
++                                                    GError **);
++
++bool certification_client_update_certification_status_async (CertificationClient *,
++                                                             const gchar *,
++                                                             CertificationSource,
++                                                             GAsyncReadyCallback,
++                                                             gpointer);
++
++bool certification_client_update_certification_status_finish (CertificationClient *,
++                                                              GAsyncResult *,
++                                                              GError **);
++
++bool certification_client_get_remote_access_enabled (CertificationClient *);
++
++bool certification_client_get_stale (CertificationClient *);
++
++CertificationStatus certification_client_get_certification_status (CertificationClient *);
++
++const char *certification_client_get_certified_url (CertificationClient *);
++
++bool certification_client_get_is_connected (CertificationClient *);
++
++void certification_client_cancel_certification_status_update (CertificationClient *);
++G_END_DECLS
+\ No newline at end of file
+diff --git a/panels/system/com.ubuntu.hwctl.varlink b/panels/system/com.ubuntu.hwctl.varlink
+new file mode 100644
+index 0000000..d8e56d8
+--- /dev/null
++++ b/panels/system/com.ubuntu.hwctl.varlink
+@@ -0,0 +1,39 @@
++interface com.ubuntu.hwctl
++
++type CertificationSource (auto, cache, server)
++
++type CertificationStatus (Unknown, Certified, NotSeen, CertifiedImageExists, RelatedCertifiedSystemExists)
++
++type Kernel (
++    name: ?string,
++    version: string,
++    signature: ?string,
++    loaded_modules: []string
++)
++type OS (
++    codename: string,
++    distributor: string,
++    version: string,
++    kernel: Kernel
++)
++type State (
++    status: CertificationStatus,
++    certified_url: ?string,
++    available_releases: ?[]OS,
++    valid_cache: bool,
++    hardware_mismatch: bool,
++    stale: bool,
++    stale_reason: ?string,
++    source: CertificationSource,
++    remote_access_enabled: bool,
++    server_url: string
++)
++
++method GetCertificationStatus(
++    source: CertificationSource,
++    server_url: ?string
++) -> (state: State)
++
++error CannotCollectSystemData ()
++
++method SetRemoteAccess(enabled: bool) -> ()
+\ No newline at end of file
+diff --git a/panels/system/icons/meson.build b/panels/system/icons/meson.build
+index d29060a..9fbce2e 100644
+--- a/panels/system/icons/meson.build
++++ b/panels/system/icons/meson.build
+@@ -7,5 +7,8 @@ install_data(
+   'scalable/org.gnome.Settings-system-symbolic.svg',
+   'scalable/org.gnome.Settings-time-symbolic.svg',
+   'scalable/org.gnome.Settings-users-symbolic.svg',
++  'scalable/org.canonical.certified_unknown-symbolic.svg',
++  'scalable/org.canonical.certified_neutral-symbolic.svg',
++  'scalable/org.canonical.certified-symbolic.svg',
+   install_dir: join_paths(control_center_icondir, 'hicolor', 'scalable', 'apps')
+ )
+diff --git a/panels/system/icons/scalable/org.canonical.certified-symbolic.svg b/panels/system/icons/scalable/org.canonical.certified-symbolic.svg
+new file mode 100644
+index 0000000..ea13d61
+--- /dev/null
++++ b/panels/system/icons/scalable/org.canonical.certified-symbolic.svg
+@@ -0,0 +1,11 @@
++<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
++<g clip-path="url(#clip0_6387_24212)">
++<path d="M11.3565 4.80913L7.30767 8.92144L4.64361 6.21538L5.3565 5.51421L7.30767 7.49566L10.6436 4.10796L11.3565 4.80913Z" fill="#808080"/>
++<path fill-rule="evenodd" clip-rule="evenodd" d="M6.86919 0.474172C7.49014 -0.158175 8.51003 -0.158265 9.13091 0.474172C9.44807 0.796927 9.88596 0.966859 10.3321 0.946828L10.5235 0.92632C11.3973 0.780041 12.2219 1.37912 12.3526 2.25542C12.429 2.76682 12.7501 3.20943 13.2129 3.43999C14.0061 3.83518 14.3207 4.80453 13.9112 5.59038C13.6724 6.04909 13.6722 6.59659 13.9112 7.05523C14.3203 7.84104 14.006 8.81055 13.2129 9.20562L13.046 9.30132C12.6734 9.54751 12.4193 9.94263 12.3526 10.3902L12.3194 10.5513C12.1575 11.1824 11.6264 11.6394 11.0001 11.7251V15.9996L8.00005 14.397L5.00005 15.9996V11.7251C4.37364 11.6394 3.84258 11.1825 3.68072 10.5513L3.64751 10.3902C3.58085 9.9426 3.3267 9.54751 2.95415 9.30132L2.78716 9.20562C2.04359 8.83534 1.72102 7.96003 2.02056 7.20464L2.08892 7.05523C2.29805 6.6539 2.3238 6.18432 2.16705 5.76616L2.08892 5.59038C1.70501 4.85378 1.95732 3.95612 2.64361 3.52105L2.78716 3.43999C3.24989 3.20939 3.57114 2.76675 3.64751 2.25542C3.77819 1.37906 4.60277 0.779918 5.47662 0.92632C5.98652 1.0118 6.50682 0.842919 6.86919 0.474172ZM10.0001 11.7203C9.67417 11.7747 9.36855 11.9295 9.13091 12.1714L9.00982 12.2828C8.42583 12.7665 7.57427 12.7666 6.99029 12.2828L6.86919 12.1714C6.6316 11.9295 6.32586 11.7748 6.00005 11.7203V14.3306L8.00005 13.2632L10.0001 14.3306V11.7203ZM8.38287 1.20855C8.17261 0.994375 7.82756 0.994467 7.61724 1.20855C7.0152 1.82142 6.15106 2.10158 5.30376 1.95952C5.00784 1.90991 4.728 2.11299 4.68365 2.40972C4.55685 3.25955 4.02308 3.99537 3.25396 4.37847C2.9858 4.51244 2.87921 4.84006 3.01763 5.10601C3.4146 5.86811 3.41476 6.77756 3.01763 7.5396C2.87959 7.80558 2.98569 8.1334 3.25396 8.26714C4.02322 8.65035 4.55703 9.38583 4.68365 10.2359C4.72831 10.5322 5.00814 10.7355 5.30376 10.6861C6.15126 10.544 7.01518 10.8239 7.61724 11.4371C7.82744 11.6507 8.17265 11.6507 8.38287 11.4371C8.98497 10.8239 9.84885 10.5439 10.6963 10.6861C10.992 10.7355 11.2718 10.5322 11.3165 10.2359C11.4431 9.38586 11.9769 8.65036 12.7461 8.26714C13.0142 8.13332 13.1205 7.80551 12.9825 7.5396C12.5853 6.77754 12.5855 5.86814 12.9825 5.10601C13.1208 4.84006 13.0143 4.5124 12.7461 4.37847C11.9769 3.99541 11.4433 3.25963 11.3165 2.40972C11.2721 2.11305 10.9922 1.91003 10.6963 1.95952C9.84903 2.10158 8.98491 1.82145 8.38287 1.20855Z" fill="#808080"/>
++</g>
++<defs>
++<clipPath id="clip0_6387_24212">
++<rect width="16" height="16" fill="white"/>
++</clipPath>
++</defs>
++</svg>
+\ No newline at end of file
+diff --git a/panels/system/icons/scalable/org.canonical.certified_neutral-symbolic.svg b/panels/system/icons/scalable/org.canonical.certified_neutral-symbolic.svg
+new file mode 100644
+index 0000000..a012ae6
+--- /dev/null
++++ b/panels/system/icons/scalable/org.canonical.certified_neutral-symbolic.svg
+@@ -0,0 +1,10 @@
++<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
++<g clip-path="url(#clip0_6387_24235)">
++<path fill-rule="evenodd" clip-rule="evenodd" d="M6.86911 0.473873C7.49002 -0.158218 8.50999 -0.158348 9.13083 0.473873C9.44799 0.796648 9.88586 0.966557 10.332 0.946529L10.5234 0.926021C11.397 0.77975 12.2216 1.37905 12.3525 2.25512C12.4289 2.76643 12.7501 3.20915 13.2129 3.43969C14.006 3.83477 14.3204 4.80424 13.9111 5.59008C13.6724 6.04865 13.6723 6.59642 13.9111 7.05493C14.3202 7.84069 14.0058 8.81022 13.2129 9.20532L13.0459 9.30102C12.6736 9.54712 12.4193 9.94258 12.3525 10.3899L12.3193 10.551C12.1574 11.182 11.6262 11.6391 11 11.7248V15.9993L7.99997 14.3967L4.99997 15.9993V11.7248C4.37361 11.6391 3.84254 11.1821 3.68063 10.551L3.64743 10.3899C3.58065 9.94244 3.32655 9.54712 2.95407 9.30102L2.78708 9.20532C2.0436 8.83507 1.7211 7.95967 2.02047 7.20434L2.08883 7.05493C2.29778 6.65371 2.32363 6.18387 2.16696 5.76586L2.08883 5.59008C1.70517 4.85358 1.95742 3.95579 2.64352 3.52075L2.78708 3.43969C3.24966 3.20911 3.57099 2.76629 3.64743 2.25512C3.77834 1.37902 4.60285 0.779646 5.47653 0.926021C5.98642 1.01155 6.5067 0.842561 6.86911 0.473873ZM9.99997 11.72C9.67421 11.7744 9.36842 11.9293 9.13083 12.1711L9.00973 12.2825C8.42572 12.7662 7.57414 12.7663 6.9902 12.2825L6.86911 12.1711C6.6315 11.9292 6.32577 11.7745 5.99997 11.72V14.3303L7.99997 13.2629L9.99997 14.3303V11.72ZM8.38278 1.20825C8.17257 0.994292 7.82744 0.994423 7.61715 1.20825C7.01508 1.82106 6.15096 2.10133 5.30368 1.95922C5.00792 1.90964 4.72815 2.11295 4.68356 2.40942C4.5567 3.2591 4.02286 3.9951 3.25387 4.37817C2.98589 4.51212 2.87938 4.83985 3.01755 5.10571C3.41442 5.86768 3.41448 6.77735 3.01755 7.5393C2.87968 7.80523 2.9857 8.13312 3.25387 8.26684C4.02308 8.64996 4.55682 9.38566 4.68356 10.2356C4.72831 10.5318 5.00813 10.7352 5.30368 10.6858C6.15111 10.5437 7.01509 10.8237 7.61715 11.4368C7.82731 11.6504 8.17254 11.6503 8.38278 11.4368C8.98487 10.8238 9.84886 10.5436 10.6963 10.6858C10.9919 10.7353 11.2716 10.5318 11.3164 10.2356C11.4431 9.38581 11.977 8.65 12.7461 8.26684C13.0141 8.133 13.1203 7.80516 12.9824 7.5393C12.5854 6.77737 12.5856 5.8677 12.9824 5.10571C13.1205 4.83977 13.0142 4.51199 12.7461 4.37817C11.9769 3.99513 11.4432 3.25924 11.3164 2.40942C11.2718 2.11298 10.992 1.90974 10.6963 1.95922C9.84894 2.10127 8.98482 1.82116 8.38278 1.20825Z" fill="#808080"/>
++</g>
++<defs>
++<clipPath id="clip0_6387_24235">
++<rect width="16" height="16" fill="white"/>
++</clipPath>
++</defs>
++</svg>
+\ No newline at end of file
+diff --git a/panels/system/icons/scalable/org.canonical.certified_unknown-symbolic.svg b/panels/system/icons/scalable/org.canonical.certified_unknown-symbolic.svg
+new file mode 100644
+index 0000000..14e6882
+--- /dev/null
++++ b/panels/system/icons/scalable/org.canonical.certified_unknown-symbolic.svg
+@@ -0,0 +1,12 @@
++<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
++<g clip-path="url(#clip0_6387_24225)">
++<path d="M8.01559 8.37329C8.22711 8.37329 8.41084 8.44508 8.56637 8.58813C8.72815 8.72502 8.80954 8.9148 8.80954 9.15747C8.80949 9.40004 8.72811 9.59252 8.56637 9.73559C8.41082 9.87247 8.22714 9.94165 8.01559 9.94165C7.80423 9.94155 7.61768 9.87238 7.45602 9.73559C7.30064 9.59254 7.22266 9.39994 7.22262 9.15747C7.22262 8.91486 7.30054 8.72501 7.45602 8.58813C7.61768 8.44512 7.80423 8.37339 8.01559 8.37329Z" fill="#808080"/>
++<path d="M8.14645 3.20239C8.53215 3.20239 8.84973 3.25229 9.0986 3.3518C9.34749 3.45136 9.54338 3.5826 9.68649 3.74438C9.83574 3.89988 9.93909 4.07049 9.99508 4.25708C10.0573 4.44374 10.0879 4.6213 10.0879 4.7893C10.0879 5.05685 10.0319 5.29039 9.91989 5.4895C9.81417 5.68223 9.68371 5.86263 9.52829 6.03051C9.37895 6.19229 9.22584 6.34798 9.07028 6.49731C8.91484 6.64656 8.78085 6.805 8.66891 6.9729C8.56318 7.13461 8.51075 7.31845 8.51071 7.52368V7.65454C8.51071 7.698 8.51428 7.73836 8.52047 7.77563H7.45602C7.44361 7.71349 7.43391 7.6451 7.4277 7.57055V7.35571C7.42773 7.10076 7.47507 6.88018 7.56833 6.6936C7.66166 6.50071 7.77616 6.32572 7.91305 6.17016C8.04992 6.01464 8.18732 5.86855 8.32419 5.73169C8.46086 5.59499 8.57567 5.45822 8.66891 5.32153C8.76225 5.17842 8.80954 5.0253 8.80954 4.86352C8.80943 4.67089 8.73761 4.52195 8.59469 4.41626C8.4578 4.30426 8.26802 4.24829 8.02536 4.24829C7.80766 4.24829 7.5994 4.27631 7.40036 4.33227C7.20748 4.38205 6.9958 4.46601 6.76559 4.58422L6.41989 3.65063C6.63767 3.51374 6.90272 3.40437 7.21383 3.32348C7.52468 3.24271 7.83561 3.20241 8.14645 3.20239Z" fill="#808080"/>
++<path fill-rule="evenodd" clip-rule="evenodd" d="M6.86911 0.473873C7.49002 -0.158218 8.50999 -0.158348 9.13083 0.473873C9.44799 0.796648 9.88586 0.966557 10.332 0.946529L10.5234 0.926021C11.397 0.77975 12.2216 1.37905 12.3525 2.25512C12.4289 2.76643 12.7501 3.20915 13.2129 3.43969C14.006 3.83477 14.3204 4.80424 13.9111 5.59008C13.6724 6.04865 13.6723 6.59642 13.9111 7.05493C14.3202 7.84069 14.0058 8.81022 13.2129 9.20532L13.0459 9.30102C12.6736 9.54712 12.4193 9.94258 12.3525 10.3899L12.3193 10.551C12.1574 11.182 11.6262 11.6391 11 11.7248V15.9993L7.99997 14.3967L4.99997 15.9993V11.7248C4.37361 11.6391 3.84254 11.1821 3.68063 10.551L3.64743 10.3899C3.58065 9.94244 3.32655 9.54712 2.95407 9.30102L2.78708 9.20532C2.0436 8.83507 1.7211 7.95967 2.02047 7.20434L2.08883 7.05493C2.29778 6.65371 2.32363 6.18387 2.16696 5.76586L2.08883 5.59008C1.70517 4.85358 1.95742 3.95579 2.64352 3.52075L2.78708 3.43969C3.24966 3.20911 3.57099 2.76629 3.64743 2.25512C3.77834 1.37902 4.60285 0.779646 5.47653 0.926021C5.98642 1.01155 6.5067 0.842561 6.86911 0.473873ZM9.99997 11.72C9.67421 11.7744 9.36842 11.9293 9.13083 12.1711L9.00973 12.2825C8.42572 12.7662 7.57414 12.7663 6.9902 12.2825L6.86911 12.1711C6.6315 11.9292 6.32577 11.7745 5.99997 11.72V14.3303L7.99997 13.2629L9.99997 14.3303V11.72ZM8.38278 1.20825C8.17257 0.994292 7.82744 0.994423 7.61715 1.20825C7.01508 1.82106 6.15096 2.10133 5.30368 1.95922C5.00792 1.90964 4.72815 2.11295 4.68356 2.40942C4.5567 3.2591 4.02286 3.9951 3.25387 4.37817C2.98589 4.51212 2.87938 4.83985 3.01755 5.10571C3.41442 5.86768 3.41448 6.77735 3.01755 7.5393C2.87968 7.80523 2.9857 8.13312 3.25387 8.26684C4.02308 8.64996 4.55682 9.38566 4.68356 10.2356C4.72831 10.5318 5.00813 10.7352 5.30368 10.6858C6.15111 10.5437 7.01509 10.8237 7.61715 11.4368C7.82731 11.6504 8.17254 11.6503 8.38278 11.4368C8.98487 10.8238 9.84886 10.5436 10.6963 10.6858C10.9919 10.7353 11.2716 10.5318 11.3164 10.2356C11.4431 9.38581 11.977 8.65 12.7461 8.26684C13.0141 8.133 13.1203 7.80516 12.9824 7.5393C12.5854 6.77737 12.5856 5.8677 12.9824 5.10571C13.1205 4.83977 13.0142 4.51199 12.7461 4.37817C11.9769 3.99513 11.4432 3.25924 11.3164 2.40942C11.2718 2.11298 10.992 1.90974 10.6963 1.95922C9.84894 2.10127 8.98482 1.82116 8.38278 1.20825Z" fill="#808080"/>
++</g>
++<defs>
++<clipPath id="clip0_6387_24225">
++<rect width="16" height="16" fill="white"/>
++</clipPath>
++</defs>
++</svg>
+\ No newline at end of file
+diff --git a/panels/system/meson.build b/panels/system/meson.build
+index 1282449..1db460b 100644
+--- a/panels/system/meson.build
++++ b/panels/system/meson.build
+@@ -40,6 +40,7 @@ sources = files(
+   'cc-password-utils.c',
+   'cc-system-panel.c',
+   'cc-systemd-service.c',
++  'certification-client.c',
+   'about/cc-about-page.c',
+   'about/info-cleanup.c',
+   'datetime/cc-datetime-page.c',
+@@ -58,6 +59,7 @@ sources = files(
+   'remote-desktop/cc-tls-certificate.c',
+   'secure-shell/cc-secure-shell.c',
+   'secure-shell/cc-secure-shell-page.c',
++  'ubuntu-certified/cc-ubuntu-certified-page.c',
+   'users/cc-add-user-dialog.c',
+   'users/cc-avatar-chooser.c',
+   'users/cc-crop-area.c',
+@@ -145,6 +147,7 @@ subdir('icons')
+ subdir('region')
+ subdir('remote-desktop')
+ subdir('secure-shell')
++subdir('ubuntu-certified')
+ subdir('users')
+ 
+ sources += gnome.compile_resources(
+diff --git a/panels/system/system.gresource.xml b/panels/system/system.gresource.xml
+index 3eb6981..b1a7011 100644
+--- a/panels/system/system.gresource.xml
++++ b/panels/system/system.gresource.xml
+@@ -16,6 +16,7 @@
+     <file preprocess="xml-stripblanks">remote-desktop/cc-remote-login-page.ui</file>
+     <file preprocess="xml-stripblanks">remote-desktop/cc-desktop-sharing-page.ui</file>
+     <file preprocess="xml-stripblanks">secure-shell/cc-secure-shell-page.ui</file>
++    <file preprocess="xml-stripblanks">ubuntu-certified/cc-ubuntu-certified-page.ui</file>
+     <file preprocess="xml-stripblanks">users/cc-add-user-dialog.ui</file>
+     <file preprocess="xml-stripblanks">users/cc-avatar-chooser.ui</file>
+     <file preprocess="xml-stripblanks">users/cc-entry-feedback.ui</file>
+@@ -33,5 +34,8 @@
+     <file preprocess="xml-stripblanks">icons/scalable/status/fingerprint-detection-symbolic.svg</file>
+     <file preprocess="xml-stripblanks">icons/scalable/status/fingerprint-detection-warning-symbolic.svg</file>
+   </gresource>
++  <gresource prefix="/org/canonical">
++    <file preprocess="xml-stripblanks">ubuntu-certified/assets/certified-logo.svg</file>
++  </gresource>
+ 
+ </gresources>
+diff --git a/panels/system/ubuntu-certified/assets/certified-logo.svg b/panels/system/ubuntu-certified/assets/certified-logo.svg
+new file mode 100644
+index 0000000..b5e2c46
+--- /dev/null
++++ b/panels/system/ubuntu-certified/assets/certified-logo.svg
+@@ -0,0 +1,130 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<svg
++   width="80"
++   height="113.57183"
++   viewBox="0 0 79.999998 113.57183"
++   fill="none"
++   version="1.1"
++   id="svg22"
++   sodipodi:docname="certified-logo.svg"
++   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
++   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
++   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
++   xmlns="http://www.w3.org/2000/svg"
++   xmlns:svg="http://www.w3.org/2000/svg">
++  <defs
++     id="defs22" />
++  <sodipodi:namedview
++     id="namedview22"
++     pagecolor="#ffffff"
++     bordercolor="#000000"
++     borderopacity="0.25"
++     inkscape:showpageshadow="2"
++     inkscape:pageopacity="0.0"
++     inkscape:pagecheckerboard="0"
++     inkscape:deskcolor="#d1d1d1"
++     showgrid="false"
++     inkscape:zoom="2.3565217"
++     inkscape:cx="58.348709"
++     inkscape:cy="136.64207"
++     inkscape:window-width="2493"
++     inkscape:window-height="1292"
++     inkscape:window-x="0"
++     inkscape:window-y="0"
++     inkscape:window-maximized="1"
++     inkscape:current-layer="svg22" />
++  <g
++     id="g22"
++     transform="scale(0.49379058)">
++    <path
++       d="M 162.012,0 H 0 v 230 h 162.012 z"
++       fill="#e95420"
++       id="path1" />
++    <path
++       d="m 39.3763,208.827 c -1.183,0 -2.2601,-0.198 -3.2318,-0.592 -0.9724,-0.397 -1.807,-0.972 -2.5035,-1.729 -0.6965,-0.758 -1.2358,-1.693 -1.6156,-2.804 -0.3814,-1.11 -0.5713,-2.383 -0.5713,-3.816 0,-1.433 0.2146,-2.703 0.6439,-3.814 0.4293,-1.113 1.0086,-2.046 1.7375,-2.803 0.7292,-0.758 1.5798,-1.335 2.5515,-1.729 0.9725,-0.394 2.0088,-0.593 3.1106,-0.593 0.6965,0 1.3245,0.049 1.8836,0.147 0.5592,0.101 1.0452,0.214 1.4582,0.345 0.4133,0.134 0.7493,0.266 1.0085,0.397 0.2587,0.132 0.4373,0.23 0.5347,0.297 l -0.6805,1.976 c -0.1461,-0.101 -0.3566,-0.206 -0.6321,-0.322 -0.2757,-0.116 -0.587,-0.23 -0.9356,-0.345 -0.3486,-0.116 -0.7284,-0.212 -1.1417,-0.286 -0.4134,-0.073 -0.8305,-0.111 -1.2518,-0.111 -0.891,0 -1.6929,0.157 -2.4062,0.471 -0.713,0.312 -1.3203,0.766 -1.8222,1.358 -0.5025,0.593 -0.8869,1.312 -1.1544,2.16 -0.2672,0.847 -0.4012,1.798 -0.4012,2.852 0,1.02 0.1172,1.951 0.3527,2.791 0.2345,0.84 0.587,1.561 1.057,2.161 0.47,0.601 1.057,1.067 1.7615,1.394 0.7052,0.33 1.5269,0.495 2.4669,0.495 1.0851,0 1.9841,-0.116 2.6974,-0.345 0.7132,-0.232 1.2476,-0.436 1.6042,-0.619 l 0.6071,1.977 c -0.1131,0.082 -0.3159,0.185 -0.6071,0.309 -0.2919,0.124 -0.6565,0.242 -1.0938,0.358 -0.4373,0.114 -0.9477,0.214 -1.5308,0.297 -0.5834,0.082 -1.2152,0.123 -1.8957,0.123 z"
++       fill="#ffffff"
++       id="path2" />
++    <path
++       d="m 46.6025,201.861 c 0,-1.173 0.1662,-2.193 0.5007,-3.067 0.3334,-0.873 0.7756,-1.597 1.3262,-2.174 0.5507,-0.578 1.1848,-1.008 1.9024,-1.299 0.7174,-0.286 1.452,-0.43 2.2029,-0.43 1.7519,0 3.0949,0.554 4.0298,1.664 0.9345,1.111 1.4019,2.804 1.4019,5.074 v 0.397 c 0,0.159 -0.009,0.309 -0.0255,0.443 h -8.9108 c 0.1002,1.376 0.4921,2.417 1.1768,3.128 0.6836,0.714 1.7519,1.069 3.2039,1.069 0.8176,0 1.5056,-0.072 2.065,-0.216 0.5589,-0.142 0.9804,-0.284 1.2639,-0.42 l 0.3254,1.984 c -0.2837,0.155 -0.78,0.314 -1.4891,0.484 -0.7099,0.17 -1.5143,0.255 -2.4159,0.255 -1.1348,0 -2.115,-0.175 -2.9409,-0.523 -0.8258,-0.347 -1.5063,-0.827 -2.0397,-1.435 -0.5347,-0.611 -0.931,-1.337 -1.1889,-2.175 -0.259,-0.84 -0.3881,-1.76 -0.3881,-2.759 z m 8.9356,-1.299 c 0.0165,-1.069 -0.2463,-1.945 -0.7879,-2.633 -0.5432,-0.686 -1.2894,-1.029 -2.2408,-1.029 -0.5341,0 -1.0051,0.106 -1.4143,0.317 -0.4092,0.212 -0.755,0.487 -1.0387,0.828 -0.2834,0.337 -0.5045,0.729 -0.663,1.169 -0.1587,0.441 -0.2631,0.889 -0.3131,1.348 z"
++       fill="#ffffff"
++       id="path3" />
++    <path
++       d="m 66.5867,195.293 c 0.1992,0 0.4273,0.013 0.6849,0.039 0.2574,0.025 0.5107,0.059 0.7591,0.1 0.2495,0.044 0.4775,0.085 0.6849,0.126 0.207,0.044 0.3608,0.083 0.4605,0.116 l -0.3981,2.049 c -0.1832,-0.067 -0.4857,-0.147 -0.9091,-0.24 -0.4233,-0.093 -0.9668,-0.139 -1.6305,-0.139 -0.4316,0 -0.8591,0.046 -1.2825,0.139 -0.4233,0.093 -0.7011,0.155 -0.8338,0.188 v 11.057 h -2.3155 v -12.6 c 0.5479,-0.201 1.2279,-0.392 2.0418,-0.57 0.8125,-0.175 1.7257,-0.265 2.7383,-0.265 z"
++       fill="#ffffff"
++       id="path4" />
++    <path
++       d="m 74.269,195.421 h 4.9507 v 1.995 H 74.269 v 6.127 c 0,0.665 0.0502,1.214 0.1507,1.649 0.1008,0.433 0.251,0.773 0.4522,1.021 0.2013,0.247 0.4523,0.422 0.7543,0.523 0.3009,0.103 0.6532,0.154 1.0551,0.154 0.7037,0 1.2696,-0.082 1.6963,-0.244 0.4272,-0.16 0.7243,-0.276 0.8926,-0.343 l 0.4519,1.966 c -0.235,0.119 -0.6449,0.268 -1.2316,0.446 -0.5865,0.178 -1.2565,0.268 -2.0099,0.268 -0.8885,0 -1.621,-0.114 -2.1992,-0.343 -0.5777,-0.232 -1.0428,-0.577 -1.3946,-1.036 -0.352,-0.458 -0.5996,-1.025 -0.7416,-1.698 -0.1424,-0.672 -0.2136,-1.451 -0.2136,-2.337 v -11.85 l 2.3374,-0.407 z"
++       fill="#ffffff"
++       id="path5" />
++    <path
++       d="m 83.0581,192.834 c -0.4249,0 -0.7862,-0.141 -1.083,-0.428 -0.2969,-0.283 -0.4458,-0.667 -0.4458,-1.151 0,-0.482 0.1489,-0.866 0.4458,-1.152 0.2968,-0.284 0.6581,-0.425 1.083,-0.425 0.4238,0 0.7851,0.141 1.0827,0.425 0.2968,0.286 0.4458,0.67 0.4458,1.152 0,0.484 -0.149,0.868 -0.4458,1.151 -0.2976,0.287 -0.6589,0.428 -1.0827,0.428 z m 1.1974,15.894 h -2.3691 v -13.461 h 2.3691 z"
++       fill="#ffffff"
++       id="path6" />
++    <path
++       d="m 93.6227,188.708 c 0.5924,0 1.1,0.039 1.5233,0.116 0.4226,0.077 0.7277,0.152 0.9143,0.219 l -0.3301,2.064 c -0.1866,-0.067 -0.4406,-0.142 -0.7617,-0.219 -0.3216,-0.077 -0.7109,-0.116 -1.1675,-0.116 -1.1008,0 -1.8702,0.307 -2.3103,0.917 -0.4406,0.611 -0.6599,1.43 -0.6599,2.464 v 1.159 h 5.0769 v 2.013 h -5.0769 v 11.402 h -2.3611 v -14.626 c 0,-1.721 0.4144,-3.048 1.2436,-3.986 0.8291,-0.938 2.1325,-1.407 3.9094,-1.407 z m 5.9154,4.179 c -0.4234,0 -0.7833,-0.141 -1.0791,-0.425 -0.2961,-0.283 -0.4443,-0.667 -0.4443,-1.149 0,-0.479 0.1482,-0.863 0.4443,-1.147 0.2958,-0.283 0.6557,-0.425 1.0791,-0.425 0.4226,0 0.7829,0.142 1.0779,0.425 0.297,0.284 0.445,0.668 0.445,1.147 0,0.482 -0.148,0.866 -0.445,1.149 -0.295,0.284 -0.6553,0.425 -1.0779,0.425 z m 1.1929,15.84 h -2.3607 v -13.415 h 2.3607 z"
++       fill="#ffffff"
++       id="path7" />
++    <path
++       d="m 104.488,202.062 c 0,-1.175 0.167,-2.201 0.503,-3.077 0.335,-0.876 0.778,-1.605 1.331,-2.182 0.553,-0.58 1.19,-1.013 1.91,-1.304 0.72,-0.289 1.458,-0.436 2.212,-0.436 1.759,0 3.107,0.56 4.046,1.675 0.938,1.116 1.407,2.812 1.407,5.095 v 0.396 c 0,0.16 -0.009,0.31 -0.025,0.446 h -8.947 c 0.101,1.379 0.495,2.425 1.182,3.141 0.686,0.714 1.759,1.072 3.217,1.072 0.82,0 1.511,-0.072 2.073,-0.216 0.561,-0.145 0.984,-0.286 1.269,-0.423 l 0.326,1.992 c -0.284,0.154 -0.783,0.317 -1.495,0.487 -0.712,0.17 -1.52,0.255 -2.425,0.255 -1.139,0 -2.124,-0.175 -2.953,-0.523 -0.829,-0.351 -1.512,-0.83 -2.048,-1.443 -0.537,-0.613 -0.934,-1.34 -1.193,-2.183 -0.26,-0.845 -0.39,-1.767 -0.39,-2.772 z m 8.971,-1.301 c 0.017,-1.075 -0.247,-1.954 -0.791,-2.644 -0.545,-0.691 -1.294,-1.033 -2.25,-1.033 -0.536,0 -1.009,0.105 -1.419,0.317 -0.411,0.213 -0.758,0.492 -1.043,0.829 -0.285,0.343 -0.507,0.735 -0.666,1.175 -0.159,0.443 -0.264,0.894 -0.314,1.356 z"
++       fill="#ffffff"
++       id="path8" />
++    <path
++       d="m 128.107,189.183 2.32,-0.405 v 19.29 c -0.533,0.152 -1.214,0.304 -2.046,0.456 -0.831,0.152 -1.787,0.227 -2.868,0.227 -0.998,0 -1.896,-0.16 -2.694,-0.482 -0.798,-0.32 -1.481,-0.776 -2.046,-1.369 -0.565,-0.59 -1.001,-1.314 -1.309,-2.167 -0.308,-0.852 -0.461,-1.811 -0.461,-2.875 0,-1.015 0.128,-1.946 0.386,-2.791 0.258,-0.842 0.636,-1.569 1.135,-2.177 0.499,-0.611 1.11,-1.082 1.834,-1.42 0.723,-0.34 1.55,-0.508 2.481,-0.508 0.749,0 1.409,0.101 1.984,0.305 0.573,0.203 1.001,0.396 1.284,0.582 z m 0,8.872 c -0.283,-0.238 -0.69,-0.464 -1.222,-0.683 -0.532,-0.222 -1.115,-0.33 -1.746,-0.33 -0.666,0 -1.235,0.121 -1.709,0.366 -0.474,0.245 -0.861,0.582 -1.16,1.015 -0.299,0.43 -0.516,0.941 -0.648,1.533 -0.134,0.593 -0.2,1.224 -0.2,1.902 0,1.536 0.374,2.723 1.123,3.561 0.748,0.835 1.745,1.255 2.993,1.255 0.632,0 1.16,-0.031 1.584,-0.09 0.424,-0.06 0.752,-0.122 0.985,-0.189 z"
++       fill="#ffffff"
++       id="path9" />
++    <path
++       d="m 50.5323,69.956 c 5.9391,0 10.754,-4.8927 10.754,-10.9282 0,-6.0355 -4.8149,-10.9282 -10.754,-10.9282 -5.9394,0 -10.754,4.8927 -10.754,10.9282 0,6.0355 4.8146,10.9282 10.754,10.9282 z"
++       fill="#ffffff"
++       id="path10" />
++    <path
++       d="m 95.3182,45.9931 c 5.9398,0 10.7538,-4.8927 10.7538,-10.9282 0,-6.0355 -4.814,-10.9282 -10.7538,-10.9282 -5.9391,0 -10.7537,4.8927 -10.7537,10.9282 0,6.0355 4.8146,10.9282 10.7537,10.9282 z"
++       fill="#ffffff"
++       id="path11" />
++    <path
++       d="m 74.7795,87.1506 c -7.7461,-1.6865 -14.2207,-6.715 -17.8601,-13.842 -2.8663,1.3255 -6.0909,1.7298 -9.1948,1.1484 4.4044,10.9883 13.7428,18.9705 25.2051,21.4666 2.5159,0.548 5.08,0.8142 7.6364,0.7985 -1.9751,-2.6383 -3.0751,-5.8193 -3.1488,-9.1366 -0.8856,-0.1 -1.7704,-0.2461 -2.6378,-0.4349 z"
++       fill="#ffffff"
++       id="path12" />
++    <path
++       d="m 92.8927,98.1415 c 5.9393,0 10.7543,-4.8927 10.7543,-10.9281 0,-6.0355 -4.815,-10.9282 -10.7543,-10.9282 -5.9391,0 -10.754,4.8927 -10.754,10.9282 0,6.0354 4.8149,10.9281 10.754,10.9281 z"
++       fill="#ffffff"
++       id="path13" />
++    <path
++       d="m 107.863,83.1978 c 3.345,-4.2823 5.698,-9.3476 6.833,-14.7302 1.979,-9.3855 0.131,-19.2317 -5.07,-27.2196 -1.238,2.9648 -3.342,5.4735 -6.048,7.1971 2.902,5.5575 3.785,11.9733 2.484,18.1423 -0.636,3.0194 -1.761,5.8651 -3.345,8.4687 2.529,2.109 4.318,4.9465 5.146,8.1417 z"
++       fill="#ffffff"
++       id="path14" />
++    <path
++       d="m 49.6973,43.3539 c 0.2728,-0.0155 0.546,-0.0227 0.8191,-0.0227 1.0858,0 2.1714,0.1173 3.2462,0.3512 1.7532,0.3816 3.4015,1.0567 4.9094,2.0088 4.8417,-7.0767 12.6533,-11.3224 21.1187,-11.4778 0.0448,-0.825 0.1533,-1.6498 0.3244,-2.46 0.4934,-2.3404 1.5009,-4.5304 2.938,-6.4026 C 69.5299,24.2626 56.3896,31.354 49.6973,43.3539 Z"
++       fill="#ffffff"
++       id="path15" />
++    <path
++       d="m 29.2319,143.67 c -1.823,0 -3.3755,-0.283 -4.6567,-0.848 -1.2816,-0.561 -2.3185,-1.342 -3.1108,-2.334 -0.7929,-0.992 -1.3675,-2.154 -1.7241,-3.484 -0.3569,-1.329 -0.5352,-2.76 -0.5352,-4.29 v -17.559 h 2.695 v 17.198 c 0,1.531 0.1783,2.853 0.5352,3.966 0.3566,1.115 0.8518,2.033 1.4862,2.759 0.6339,0.724 1.4,1.263 2.2985,1.611 0.898,0.35 1.9024,0.523 3.0119,0.523 1.1098,0 2.1135,-0.173 3.012,-0.523 0.898,-0.348 1.6645,-0.887 2.2987,-1.611 0.6341,-0.726 1.1296,-1.644 1.4862,-2.759 0.3566,-1.113 0.535,-2.435 0.535,-3.966 v -17.198 h 2.695 v 17.559 c 0,1.53 -0.1783,2.961 -0.535,4.29 -0.3566,1.33 -0.9312,2.489 -1.7241,3.484 -0.7926,0.992 -1.8297,1.773 -3.1108,2.334 -1.282,0.565 -2.8339,0.848 -4.657,0.848 z"
++       fill="#ffffff"
++       id="path16" />
++    <path
++       d="m 48.0965,123.493 c 0.4488,-0.349 1.169,-0.718 2.16,-1.108 0.9908,-0.389 2.1599,-0.584 3.5072,-0.584 1.4796,0 2.7942,0.269 3.9435,0.806 1.1494,0.537 2.1204,1.289 2.913,2.255 0.7926,0.967 1.3932,2.115 1.8032,3.444 0.4094,1.328 0.6143,2.785 0.6143,4.369 0,1.693 -0.2446,3.208 -0.7331,4.55 -0.4894,1.343 -1.1761,2.484 -2.0609,3.425 -0.8856,0.94 -1.9418,1.657 -3.1707,2.154 -1.2283,0.497 -2.5958,0.745 -4.1016,0.745 -1.8233,0 -3.3292,-0.121 -4.5181,-0.364 -1.1891,-0.239 -2.1667,-0.494 -2.9328,-0.765 v -30.123 l 2.576,-0.484 z m 0,17.116 c 0.3965,0.134 0.984,0.263 1.7635,0.384 0.7792,0.121 1.8034,0.18 3.0717,0.18 2.2193,0 4.0027,-0.732 5.3501,-2.195 1.3476,-1.464 2.0214,-3.564 2.0214,-6.303 0,-1.154 -0.119,-2.248 -0.3569,-3.282 -0.2378,-1.034 -0.6209,-1.933 -1.1492,-2.699 -0.5287,-0.765 -1.2224,-1.375 -2.0807,-1.832 -0.8588,-0.456 -1.9222,-0.685 -3.1902,-0.685 -0.6082,0 -1.1892,0.061 -1.744,0.182 -0.5547,0.12 -1.0701,0.275 -1.5455,0.463 -0.4757,0.188 -0.8918,0.389 -1.2484,0.604 -0.3566,0.215 -0.654,0.417 -0.8918,0.604 z"
++       fill="#ffffff"
++       id="path17" />
++    <path
++       d="m 83.8124,142.341 c -0.7665,0.216 -1.797,0.458 -3.0913,0.726 -1.2948,0.268 -2.88,0.402 -4.7558,0.402 -1.5327,0 -2.8138,-0.229 -3.8443,-0.685 -1.0304,-0.456 -1.8627,-1.101 -2.4968,-1.933 -0.6342,-0.832 -1.09,-1.837 -1.3672,-3.02 -0.2776,-1.18 -0.4162,-2.484 -0.4162,-3.906 v -11.68 h 2.576 v 10.835 c 0,1.476 0.1054,2.723 0.3172,3.744 0.211,1.02 0.5548,1.847 1.0304,2.476 0.4757,0.631 1.0897,1.087 1.8426,1.371 0.7532,0.281 1.6708,0.422 2.7546,0.422 1.2149,0 2.2719,-0.067 3.1704,-0.201 0.8982,-0.134 1.4664,-0.255 1.7042,-0.363 v -18.284 h 2.5762 z"
++       fill="#ffffff"
++       id="path18" />
++    <path
++       d="m 89.8984,122.971 c 0.7658,-0.215 1.7963,-0.457 3.0911,-0.725 1.2943,-0.268 2.8795,-0.403 4.7559,-0.403 1.5586,0 2.8596,0.228 3.9036,0.685 1.043,0.457 1.876,1.107 2.497,1.953 0.62,0.846 1.063,1.859 1.328,3.04 0.263,1.182 0.396,2.484 0.396,3.907 v 11.64 h -2.576 v -10.794 c 0,-1.477 -0.099,-2.725 -0.297,-3.746 -0.199,-1.02 -0.529,-1.852 -0.991,-2.497 -0.463,-0.644 -1.07,-1.107 -1.823,-1.389 -0.7532,-0.282 -1.6981,-0.423 -2.834,-0.423 -1.2157,0 -2.2657,0.067 -3.1505,0.202 -0.8857,0.134 -1.4603,0.255 -1.7241,0.362 v 18.285 h -2.576 z"
++       fill="#ffffff"
++       id="path19" />
++    <path
++       d="m 114.206,122.245 h 8.164 v 2.215 h -8.164 v 11.075 c 0,1.181 0.099,2.142 0.297,2.879 0.198,0.739 0.482,1.309 0.852,1.713 0.37,0.402 0.819,0.67 1.348,0.804 0.528,0.134 1.109,0.201 1.743,0.201 1.083,0 1.955,-0.126 2.616,-0.381 0.66,-0.255 1.175,-0.49 1.546,-0.706 l 0.634,2.174 c -0.37,0.243 -1.018,0.518 -1.942,0.828 -0.925,0.306 -1.929,0.463 -3.012,0.463 -1.268,0 -2.332,-0.17 -3.19,-0.505 -0.859,-0.335 -1.546,-0.845 -2.061,-1.53 -0.516,-0.686 -0.879,-1.536 -1.09,-2.556 -0.212,-1.021 -0.317,-2.229 -0.317,-3.626 v -19.17 l 2.576,-0.483 z"
++       fill="#ffffff"
++       id="path20" />
++    <path
++       d="m 142.342,142.341 c -0.766,0.216 -1.797,0.458 -3.091,0.726 -1.295,0.268 -2.88,0.402 -4.755,0.402 -1.533,0 -2.815,-0.229 -3.845,-0.685 -1.03,-0.456 -1.862,-1.101 -2.497,-1.933 -0.634,-0.832 -1.09,-1.837 -1.367,-3.02 -0.277,-1.18 -0.416,-2.484 -0.416,-3.906 v -11.68 h 2.576 v 10.835 c 0,1.476 0.105,2.723 0.317,3.744 0.211,1.02 0.555,1.847 1.03,2.476 0.476,0.631 1.09,1.087 1.843,1.371 0.753,0.281 1.671,0.422 2.755,0.422 1.215,0 2.272,-0.067 3.17,-0.201 0.898,-0.134 1.467,-0.255 1.704,-0.363 v -18.284 h 2.576 z"
++       fill="#ffffff"
++       id="path21" />
++    <path
++       d="M 0,168.507 H 162.012"
++       stroke="#ffffff"
++       stroke-width="1.1"
++       stroke-miterlimit="10"
++       id="path22" />
++  </g>
++</svg>
+diff --git a/panels/system/ubuntu-certified/cc-ubuntu-certified-page.blp b/panels/system/ubuntu-certified/cc-ubuntu-certified-page.blp
+new file mode 100644
+index 0000000..3facbd5
+--- /dev/null
++++ b/panels/system/ubuntu-certified/cc-ubuntu-certified-page.blp
+@@ -0,0 +1,149 @@
++using Gtk 4.0;
++using Adw 1;
++
++template $CcUbuntuCertifiedPage: Adw.NavigationPage {
++  title: _("Ubuntu Certified");
++  tag: "ubuntu-certified";
++
++  child: Adw.ToolbarView {
++    [top]
++    Adw.HeaderBar {}
++
++    content: Adw.PreferencesPage prefs_page {
++
++      Adw.PreferencesGroup certified_logo_group {
++        visible: false;
++        Adw.Clamp {
++          orientation: vertical;
++
++          child: Picture certified_logo {
++            can-shrink: false;
++            content-fit: scale_down;
++            alternative-text: _("Certified Logo");
++            visible: true;
++          };
++        }
++      }
++
++      Adw.PreferencesGroup certified_status_group {
++        visible: true;
++
++        Adw.ActionRow current_status_certified {
++          visible: false;
++          title: _("This computer is Ubuntu Certified");
++          [prefix]
++          Gtk.Image {
++            icon-name: "emblem-ok-symbolic";
++          }
++          [suffix]
++          Gtk.Image {
++            icon-name: "adw-external-link-symbolic";
++          }
++          activatable: true;
++          activated => $on_is_certified_clicked_cb(template);
++        }
++
++        Adw.ActionRow current_status_certified_image_exists {
++          visible: false;
++          title: _("This computer is certified for a different Ubuntu version");
++          [prefix]
++          Gtk.Image {
++            icon-name: "dialog-information-symbolic";
++          }
++          [suffix]
++          Gtk.Image {
++            icon-name: "adw-external-link-symbolic";
++          }
++          activatable: true;
++          activated => $on_certified_image_exists_clicked_cb(template);
++        }
++
++        Adw.ActionRow current_status_related_certified_systems_exists {
++          visible: false;
++          title: _("This computer is not Ubuntu Certified");
++          subtitle: _("A similar computer is certified, check for compatibility");
++          [prefix]
++          Gtk.Image {
++            icon-name: "dialog-information-symbolic";
++          }
++          [suffix]
++          Gtk.Image {
++            icon-name: "adw-external-link-symbolic";
++          }
++          activatable: true;
++          activated => $on_related_certified_systems_exists_clicked_cb(template);
++        }
++
++        Adw.ActionRow current_status_not_seen {
++          visible: false;
++          title: _("This computer is not Ubuntu Certified");
++          [prefix]
++          Gtk.Image {
++            icon-name: "dialog-error-symbolic";
++          }
++        }
++
++        Adw.ActionRow current_status_api_not_available {
++          visible: false;
++          title: _("Unable to check if this computer is Ubuntu Certified");
++          subtitle: _("Check your internet connection or try again later");
++          [prefix]
++          Gtk.Image {
++            icon-name: "warning-symbolic";
++          }
++          [suffix]
++          Gtk.Image {
++            icon-name: "emblem-synchronizing-symbolic";
++          }
++          activatable: true;
++          activated => $on_retry_certification_clicked_cb(template);
++        }
++
++        Adw.ActionRow current_status_checking {
++          visible: false;
++          title: _("Checking...");
++          [prefix]
++          Adw.Spinner {}
++        }
++
++        Adw.ActionRow current_status_unknown {
++          visible: true;
++          title: _("Certification status unknown");
++          [prefix]
++          Gtk.Image {
++            icon-name: "dialog-question-symbolic";
++          }
++        }
++
++        Adw.SwitchRow current_status_enable_checking {
++          title: _("Enable Ubuntu Certified checks");
++          subtitle: _("Hardware details will be sent regularly to Canonical servers to provide an accurate certification status. No personal data is included. <a href=\"https://canonical.com/legal/systems-information-notice\">Legal notice</a>");
++          activatable: true;
++        }
++      }
++
++      Adw.PreferencesGroup {
++
++        Gtk.Box {
++          orientation: vertical;
++
++          Gtk.Label label1 {
++            visible: true;
++            margin-top: 10;
++            wrap: true;
++            label: _("Certified devices are tested for reliability and performance, ensuring the best Ubuntu experience.");
++            xalign: 0;
++          }
++
++          Gtk.Label label2 {
++            visible: true;
++            margin-top: 10;
++            label: _("<a href=\"https://ubuntu.com/certified\">Learn about Ubuntu Certified</a>");
++            use-markup: true;
++            xalign: 0;
++          }
++        }
++      }
++    };
++  };
++}
+\ No newline at end of file
+diff --git a/panels/system/ubuntu-certified/cc-ubuntu-certified-page.c b/panels/system/ubuntu-certified/cc-ubuntu-certified-page.c
+new file mode 100644
+index 0000000..b9dc0af
+--- /dev/null
++++ b/panels/system/ubuntu-certified/cc-ubuntu-certified-page.c
+@@ -0,0 +1,287 @@
++/* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*-
++ *
++ * Copyright (C) 2026 Canonical Ltd.
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, see <http://www.gnu.org/licenses/>.
++ *
++ */
++
++
++#include "cc-ubuntu-certified-page.h"
++
++#include <config.h>
++#include <glib/gi18n.h>
++#include <../certification-client.h>
++
++
++#define CERTIFIED_LOGO "/org/canonical/ubuntu-certified/assets/certified-logo.svg"
++
++struct _CcUbuntuCertifiedPage
++{
++    AdwNavigationPage parent_instance;
++
++    GtkWidget *certified_logo;
++    GtkWidget *certified_logo_group;
++    GtkWidget *current_status_certified;
++    GtkWidget *current_status_certified_image_exists;
++    GtkWidget *current_status_related_certified_systems_exists;
++    GtkWidget *current_status_not_seen;
++    GtkWidget *current_status_api_not_available;
++    GtkWidget *current_status_unknown;
++    GtkWidget *current_status_checking;
++    GtkWidget *current_status_enable_checking;
++
++    CertificationClient *certification_client;
++
++    char *certified_url;
++
++    CertificationStatus current_status;
++
++    gulong enabled_switch_id;
++};
++
++G_DEFINE_TYPE (CcUbuntuCertifiedPage, cc_ubuntu_certified_page, ADW_TYPE_NAVIGATION_PAGE)
++
++static void launch_certification (CcUbuntuCertifiedPage *self);
++
++static void
++set_status (CcUbuntuCertifiedPage *self, CertificationStatus status)
++{
++    self->current_status = status;
++
++    gtk_widget_set_visible (self->current_status_certified,
++                            status == CERTIFICATION_STATUS_CERTIFIED);
++    gtk_widget_set_visible (self->current_status_certified_image_exists,
++                            status == CERTIFICATION_STATUS_CERTIFIED_IMAGE_EXISTS);
++    gtk_widget_set_visible (self->current_status_related_certified_systems_exists,
++                            status == CERTIFICATION_STATUS_RELATED_CERTIFIED_SYSTEM_EXISTS);
++    gtk_widget_set_visible (self->current_status_not_seen,
++                            status == CERTIFICATION_STATUS_NOT_SEEN);
++    gtk_widget_set_visible (self->current_status_api_not_available,
++                            status == CERTIFICATION_STATUS_API_NOT_AVAILABLE);
++    gtk_widget_set_visible (self->current_status_checking,
++                            status == CERTIFICATION_STATUS_CHECKING);
++    gtk_widget_set_visible (self->certified_logo_group,
++                            status == CERTIFICATION_STATUS_CERTIFIED);
++    gtk_widget_set_visible (self->current_status_unknown,
++                            status == CERTIFICATION_STATUS_UNKNOWN);
++}
++
++static void
++remote_access_cb (CertificationClient *obj, GAsyncResult *res, gpointer user_data)
++{
++    CcUbuntuCertifiedPage *self = CC_UBUNTU_CERTIFIED_PAGE (user_data);
++
++    if (!certification_client_set_remote_access_finish (obj, res, NULL)) {
++        return;
++    }
++
++    if (certification_client_get_remote_access_enabled (self->certification_client))
++        launch_certification (self);
++    else
++        set_status (self, CERTIFICATION_STATUS_UNKNOWN);
++}
++
++static void
++update_enable_checking_switch (CcUbuntuCertifiedPage *self, bool state)
++{
++    g_signal_handler_block (self->current_status_enable_checking, self->enabled_switch_id);
++    adw_switch_row_set_active (ADW_SWITCH_ROW (self->current_status_enable_checking), state);
++    g_signal_handler_unblock (self->current_status_enable_checking, self->enabled_switch_id);
++}
++
++static void
++updated_state_cb (CertificationClient *obj, GAsyncResult *res, gpointer user_data)
++{
++    CcUbuntuCertifiedPage *self = CC_UBUNTU_CERTIFIED_PAGE (user_data);
++
++    if (!certification_client_update_certification_status_finish (obj, res, NULL)) {
++        set_status (self, CERTIFICATION_STATUS_API_NOT_AVAILABLE);
++        return;
++    }
++
++    if (certification_client_get_stale (self->certification_client)) {
++        set_status (self, CERTIFICATION_STATUS_API_NOT_AVAILABLE);
++        return;
++    }
++    CertificationStatus current_status = certification_client_get_certification_status (self->certification_client);
++    set_status (self, current_status);
++    switch (current_status) {
++        case CERTIFICATION_STATUS_CERTIFIED:
++        case CERTIFICATION_STATUS_CERTIFIED_IMAGE_EXISTS:
++        case CERTIFICATION_STATUS_RELATED_CERTIFIED_SYSTEM_EXISTS:
++            g_clear_pointer (&self->certified_url, g_free);
++            self->certified_url = g_strdup (certification_client_get_certified_url (self->certification_client));
++            break;
++        default:
++            break;
++    }
++}
++
++
++static void
++launch_certification (CcUbuntuCertifiedPage *self)
++{
++    g_autoptr(GError) error = NULL;
++
++    g_clear_pointer (&self->certified_url, g_free);
++
++    set_status (self, CERTIFICATION_STATUS_CHECKING);
++
++    const gchar *server_url = g_getenv ("CERTIFICATION_SERVER_URL");
++
++    certification_client_update_certification_status_async (self->certification_client,
++                                                            server_url,
++                                                            CERTIFICATION_SOURCE_AUTO,
++                                                            (GAsyncReadyCallback) updated_state_cb,
++                                                            self);
++}
++
++
++static void
++on_is_certified_clicked_cb (CcUbuntuCertifiedPage *self)
++{
++    g_app_info_launch_default_for_uri (self->certified_url, NULL, NULL);
++}
++
++
++static void
++on_certified_image_exists_clicked_cb (CcUbuntuCertifiedPage *self)
++{
++    g_app_info_launch_default_for_uri (self->certified_url, NULL, NULL);
++}
++
++
++static void
++on_related_certified_systems_exists_clicked_cb (CcUbuntuCertifiedPage *self)
++{
++    g_app_info_launch_default_for_uri (self->certified_url, NULL, NULL);
++}
++
++
++static void
++on_retry_certification_clicked_cb (CcUbuntuCertifiedPage *self)
++{
++    launch_certification (self);
++}
++
++
++#ifdef DARK_MODE_CERTIFIED_LOGO
++static gboolean
++use_dark_theme (CcUbuntuCertifiedPage *self)
++{
++    AdwStyleManager *style_manager = adw_style_manager_get_default ();
++
++    return adw_style_manager_get_dark (style_manager);
++}
++#endif
++
++
++static void
++setup_certified_logo (CcUbuntuCertifiedPage *self)
++{
++#ifdef DARK_MODE_CERTIFIED_LOGO
++    if (use_dark_theme (self)) {
++        gtk_picture_set_resource (GTK_PICTURE (self->certified_logo), DARK_MODE_CERTIFIED_LOGO);
++        return;
++    }
++#endif
++    gtk_picture_set_resource (GTK_PICTURE (self->certified_logo), CERTIFIED_LOGO);
++}
++
++
++static void
++cc_ubuntu_certified_page_dispose (GObject *object)
++{
++    CcUbuntuCertifiedPage *self = CC_UBUNTU_CERTIFIED_PAGE (object);
++
++    g_clear_object (&self->certification_client);
++
++    g_clear_pointer (&self->certified_url, g_free);
++
++    G_OBJECT_CLASS (cc_ubuntu_certified_page_parent_class)->dispose (object);
++}
++
++static void
++current_status_enable_checking_changed_cb (CcUbuntuCertifiedPage *self, GParamSpec *pspec)
++{
++    bool enabled = adw_switch_row_get_active (ADW_SWITCH_ROW (self->current_status_enable_checking));
++    certification_client_set_remote_access_async (self->certification_client,
++                                                  enabled,
++                                                  (GAsyncReadyCallback) remote_access_cb,
++                                                  self);
++}
++
++static void
++show_cb (CcUbuntuCertifiedPage *self)
++{
++    bool remote_access_enabled = certification_client_get_remote_access_enabled (self->certification_client);
++
++    update_enable_checking_switch (self, remote_access_enabled);
++
++    if (remote_access_enabled) {
++        launch_certification (self);
++    } else {
++        set_status (self, CERTIFICATION_STATUS_UNKNOWN);
++    }
++}
++
++static void
++cc_ubuntu_certified_page_class_init (CcUbuntuCertifiedPageClass *klass)
++{
++    GObjectClass *object_class = G_OBJECT_CLASS (klass);
++    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
++    AdwNavigationPageClass *panel_class = ADW_NAVIGATION_PAGE_CLASS (klass);
++
++    object_class->dispose = cc_ubuntu_certified_page_dispose;
++
++    gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/control-center/system/ubuntu-certified/cc-ubuntu-certified-page.ui");
++
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, certified_logo);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, certified_logo_group);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, current_status_certified);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, current_status_certified_image_exists);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, current_status_related_certified_systems_exists);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, current_status_not_seen);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, current_status_api_not_available);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, current_status_checking);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, current_status_enable_checking);
++    gtk_widget_class_bind_template_child (widget_class, CcUbuntuCertifiedPage, current_status_unknown);
++
++    gtk_widget_class_bind_template_callback (widget_class, on_is_certified_clicked_cb);
++    gtk_widget_class_bind_template_callback (widget_class, on_certified_image_exists_clicked_cb);
++    gtk_widget_class_bind_template_callback (widget_class, on_related_certified_systems_exists_clicked_cb);
++    gtk_widget_class_bind_template_callback (widget_class, on_retry_certification_clicked_cb);
++
++    panel_class->showing = (void (*)(AdwNavigationPage *)) show_cb;
++}
++
++static void
++cc_ubuntu_certified_page_init (CcUbuntuCertifiedPage *self)
++{
++    AdwStyleManager *style_manager;
++
++    self->certification_client = certification_client_get_default ();
++    gtk_widget_init_template (GTK_WIDGET (self));
++
++    style_manager = adw_style_manager_get_default ();
++    g_signal_connect_object (style_manager, "notify::dark", G_CALLBACK (setup_certified_logo), self, G_CONNECT_SWAPPED);
++    setup_certified_logo (self);
++
++    self->enabled_switch_id = g_signal_connect_swapped (self->current_status_enable_checking,
++                                                        "notify::active",
++                                                        G_CALLBACK (current_status_enable_checking_changed_cb),
++                                                        self);
++
++}
+diff --git a/panels/applications/cc-default-apps-page.h b/panels/system/ubuntu-certified/cc-ubuntu-certified-page.h
+similarity index 81%
+copy from panels/applications/cc-default-apps-page.h
+copy to panels/system/ubuntu-certified/cc-ubuntu-certified-page.h
+index ea35f79..dc08d47 100644
+--- a/panels/applications/cc-default-apps-page.h
++++ b/panels/system/ubuntu-certified/cc-ubuntu-certified-page.h
+@@ -23,6 +23,7 @@
+ 
+ G_BEGIN_DECLS
+ 
+-#define CC_TYPE_DEFAULT_APPS_PAGE (cc_default_apps_page_get_type ())
+-G_DECLARE_FINAL_TYPE (CcDefaultAppsPage, cc_default_apps_page, CC, DEFAULT_APPS_PAGE, AdwNavigationPage);
++#define CC_TYPE_UBUNTU_CERTIFIED_PAGE (cc_ubuntu_certified_page_get_type ())
++G_DECLARE_FINAL_TYPE (CcUbuntuCertifiedPage, cc_ubuntu_certified_page, CC, UBUNTU_CERTIFIED_PAGE, AdwNavigationPage)
++
+ G_END_DECLS
+diff --git a/panels/background/gnome-background-panel.desktop.in b/panels/system/ubuntu-certified/gnome-ubuntu-certified-panel.desktop.in
+similarity index 65%
+copy from panels/background/gnome-background-panel.desktop.in
+copy to panels/system/ubuntu-certified/gnome-ubuntu-certified-panel.desktop.in
+index a6a044c..10660f4 100644
+--- a/panels/background/gnome-background-panel.desktop.in
++++ b/panels/system/ubuntu-certified/gnome-ubuntu-certified-panel.desktop.in
+@@ -1,9 +1,9 @@
+ [Desktop Entry]
+-Name=Appearance
+-Comment=Change your background image or the UI colors
+-Exec=gnome-control-center background
++Name=Ubuntu Certified
++Comment=Check your device certification status
++Exec=gnome-control-center system ubuntu-certified
+ # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+-Icon=org.gnome.Settings-appearance-symbolic
++Icon=org.canonical.certified_neutral-symbolic.svg
+ Terminal=false
+ Type=Application
+ NoDisplay=true
+@@ -11,4 +11,4 @@ StartupNotify=true
+ Categories=GNOME;GTK;Settings;DesktopSettings;X-GNOME-Settings-Panel;X-GNOME-PersonalizationSettings;
+ OnlyShowIn=GNOME;
+ # Translators: Search terms to find the Appearance panel. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+-Keywords=Background;Wallpaper;Screen;Desktop;Style;Light;Dark;Appearance;
++Keywords=Ubuntu;Certificate
+diff --git a/panels/system/region/meson.build b/panels/system/ubuntu-certified/meson.build
+similarity index 74%
+copy from panels/system/region/meson.build
+copy to panels/system/ubuntu-certified/meson.build
+index 44fa40e..a063317 100644
+--- a/panels/system/region/meson.build
++++ b/panels/system/ubuntu-certified/meson.build
+@@ -1,4 +1,4 @@
+-desktop = 'gnome-region-panel.desktop'
++desktop = 'gnome-ubuntu-certified-panel.desktop'
+ i18n.merge_file(
+   type: 'desktop',
+   input: desktop + '.in',
+@@ -9,9 +9,7 @@ i18n.merge_file(
+ )
+ 
+ ui_sources = files(
+-  'cc-format-chooser.blp',
+-  'cc-format-preview.blp',
+-  'cc-region-page.blp',
++  'cc-ubuntu-certified-page.blp',
+ )
+ 
+ ui_compiled = []
+@@ -24,3 +22,7 @@ blueprints += custom_target(
+   output: ui_compiled,
+   command: [blueprint_compiler, 'batch-compile', '@OUTDIR@', '@CURRENT_SOURCE_DIR@', '@INPUT@']
+ )
++
++install_data(
++  install_dir: join_paths(control_center_datadir, 'icons')
++)
+diff --git a/po/POTFILES.in b/po/POTFILES.in
+index e034bab3..84214e4 100644
+--- a/po/POTFILES.in
++++ b/po/POTFILES.in
+@@ -229,6 +229,9 @@ panels/system/remote-desktop/org.gnome.controlcenter.remote-session-helper.polic
+ panels/system/secure-shell/cc-secure-shell-page.blp
+ panels/system/secure-shell/cc-secure-shell-page.c
+ panels/system/secure-shell/org.gnome.controlcenter.remote-login-helper.policy.in.in
++panels/system/ubuntu-certified/gnome-ubuntu-certified-panel.desktop.in
++panels/system/ubuntu-certified/cc-ubuntu-certified-page.c
++panels/system/ubuntu-certified/cc-ubuntu-certified-page.blp
+ panels/system/users/cc-add-user-dialog.blp
+ panels/system/users/cc-add-user-dialog.c
+ panels/system/users/cc-avatar-chooser.blp
+diff --git a/shell/cc-application.c b/shell/cc-application.c
+index 67c44d2..873cb8a 100644
+--- a/shell/cc-application.c
++++ b/shell/cc-application.c
+@@ -52,6 +52,8 @@ static void about_activated (GSimpleAction *action, GVariant *parameter, gpointe
+ 
+ static gboolean cmd_verbose_cb (const char *option_name, const char *value, gpointer data, GError **error);
+ 
++static void ubuntu_certified_activated (GSimpleAction *action, GVariant *parameter, gpointer user_data);
++
+ G_DEFINE_FINAL_TYPE (CcApplication, cc_application, ADW_TYPE_APPLICATION)
+ 
+ const GOptionEntry all_options[] = {
+@@ -70,7 +72,8 @@ static const GActionEntry cc_app_actions[] = {
+     { "launch-single-panel-mode", launch_single_panel_mode_activated, "(sav)", NULL, NULL, { 0 } },
+     { "help", help_activated, NULL, NULL, NULL, { 0 } },
+     { "quit", cc_application_quit, NULL, NULL, NULL, { 0 } },
+-    { "about", about_activated, NULL, NULL, NULL, { 0 } }
++    { "about", about_activated, NULL, NULL, NULL, { 0 } },
++    { "ubuntu-certified", ubuntu_certified_activated, NULL, NULL, NULL, { 0 } }
+ };
+ 
+ static void
+@@ -113,6 +116,20 @@ about_activated (GSimpleAction *action, GVariant *parameter, gpointer user_data)
+     adw_dialog_present (about_dialog, GTK_WIDGET (self->window));
+ }
+ 
++static void
++ubuntu_certified_activated (GSimpleAction *action,
++                            GVariant      *parameter,
++                            gpointer       user_data)
++
++{
++    CcApplication *self = CC_APPLICATION (user_data);
++    AdwDialog *ubuntu_certified_dialog;
++
++    ubuntu_certified_dialog = adw_about_dialog_new_from_appdata ("/org/gnome/Settings/metainfo", NULL);
++
++    adw_dialog_present (ubuntu_certified_dialog, GTK_WIDGET (self->window));
++}
++
+ static gboolean
+ cmd_verbose_cb (const char *option_name, const char *value, gpointer data, GError **error)
+ {
+diff --git a/shell/cc-panel-loader.c b/shell/cc-panel-loader.c
+index c835668..8253415 100644
+--- a/shell/cc-panel-loader.c
++++ b/shell/cc-panel-loader.c
+@@ -136,6 +136,7 @@ static CcSubpageLoaderVtable default_subpages[] = {
+     { CC_CATEGORY_SYSTEM, "about" },
+     { CC_CATEGORY_SYSTEM, "datetime" },
+     { CC_CATEGORY_SYSTEM, "region" },
++    {CC_CATEGORY_SYSTEM, "ubuntu-certified"},
+     { CC_CATEGORY_SYSTEM, "users" },
+ };
+ static CcSubpageLoaderVtable *subpages_vtable = default_subpages;
+diff --git a/tests/certification_emulator.py b/tests/certification_emulator.py
+new file mode 100755
+index 0000000..ef9bbd9
+--- /dev/null
++++ b/tests/certification_emulator.py
+@@ -0,0 +1,215 @@
++#!/usr/bin/env python3
++import os
++import sys
++import http.server
++import time
++
++response_code = 200
++response_contents = '{"status": "certified", "certified_url": "https://certification.ubuntu.com/certified/"}'
++
++class mysimpleHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
++
++    def do_GET(self):
++        global response_code, response_contents
++
++        time.sleep(3)
++        self.send_response(response_code)
++        self.send_header('Content-type', 'application/json')
++        self.end_headers()
++        # Return a sample JSON response
++        self.wfile.write(response_contents.encode('utf-8'))
++
++
++    def do_POST(self):
++        self.do_GET()
++
++def run_server():
++    global response_code, response_contents
++    port = 8000
++    handler = mysimpleHTTPRequestHandler
++    status = sys.argv[1]
++    if status == "certified":
++        response_contents = """{
++  "status": "Certified",
++  "certified_url": "https://ubuntu.com/certified/202405-34051",
++  "architecture": "amd64",
++  "bios": {
++    "vendor": "Dell",
++    "version": "1.7.0",
++    "revision": null,
++    "firmware_revision": "1.9",
++    "release_date": null
++  },
++  "board": {
++    "manufacturer": "Dell",
++    "product_name": "02395C",
++    "version": "X04"
++  },
++  "chassis": null,
++  "available_releases": [
++    {
++      "distributor": "Ubuntu",
++      "version": "24.04",
++      "codename": "noble",
++      "kernel": {
++        "name": null,
++        "version": "6.8.0-1009-oem",
++        "signature": null,
++        "loaded_modules": []
++      }
++    }
++  ]
++}
++"""
++    elif status == "not-certified":
++        response_contents = """{
++  "status": "Not Seen",
++  "certified_url": "https://ubuntu.com/certified/202405-34051",
++  "architecture": "amd64",
++  "bios": {
++    "vendor": "Dell",
++    "version": "1.7.0",
++    "revision": null,
++    "firmware_revision": "1.9",
++    "release_date": null
++  },
++  "board": {
++    "manufacturer": "Dell",
++    "product_name": "02395C",
++    "version": "X04"
++  },
++  "chassis": null,
++  "available_releases": [
++    {
++      "distributor": "Ubuntu",
++      "version": "24.04",
++      "codename": "noble",
++      "kernel": {
++        "name": null,
++        "version": "6.8.0-1009-oem",
++        "signature": null,
++        "loaded_modules": []
++      }
++    }
++  ]
++}
++"""
++    elif status == "image-exists":
++        response_contents = """{
++  "status": "Certified Image Exists",
++  "certified_url": "https://ubuntu.com/certified/202405-34051",
++  "architecture": "amd64",
++  "bios": {
++    "vendor": "Dell",
++    "version": "1.7.0",
++    "revision": null,
++    "firmware_revision": "1.9",
++    "release_date": null
++  },
++  "board": {
++    "manufacturer": "Dell",
++    "product_name": "02395C",
++    "version": "X04"
++  },
++  "chassis": null,
++  "available_releases": [
++    {
++      "distributor": "Ubuntu",
++      "version": "24.04",
++      "codename": "noble",
++      "kernel": {
++        "name": null,
++        "version": "6.8.0-1009-oem",
++        "signature": null,
++        "loaded_modules": []
++      }
++    }
++  ]
++}
++"""
++    elif status == "system-exists":
++        response_contents = """{
++  "status": "Related Certified System Exists",
++  "certified_url": "https://ubuntu.com/certified/202405-34051",
++  "architecture": "amd64",
++  "bios": {
++    "vendor": "Dell",
++    "version": "1.7.0",
++    "revision": null,
++    "firmware_revision": "1.9",
++    "release_date": null
++  },
++  "board": {
++    "manufacturer": "Dell",
++    "product_name": "02395C",
++    "version": "X04"
++  },
++  "chassis": null,
++  "available_releases": [
++    {
++      "distributor": "Ubuntu",
++      "version": "24.04",
++      "codename": "noble",
++      "kernel": {
++        "name": null,
++        "version": "6.8.0-1009-oem",
++        "signature": null,
++        "loaded_modules": []
++      }
++    }
++  ],
++  "pci_peripherals": [],
++  "usb_peripherals": []
++}
++"""
++    elif status == "error-data":
++        response_contents = """{
++  "status": "Related Certified System Exists",
++  "certified_url": "https://ubuntu.com/certified/202405-34051",
++  "architecture": "amd64",
++  "bios": {
++    "vendor": "Dell",
++    "version": "1.7.0",
++    "revision": null,
++    "firmware_revision": "1.9",
++    "release_date": null
++  },
++  "board": {
++    "manufacturer": "Dell",
++    "product_name": "02395C",
++    "version": "X04"
++  },
++  "chassis": null,
++  "available_releases": [
++    {
++      "distributor": "Ubuntu",
++      "version": "24.04",
++      "codename": "noble",
++      "kernel": {
++        "name": null,
++        "version": "6.8.0-1009-oem",
++        "signature": null,
++        "loaded_modules": []
++      }
++    }
++  ],
++  "pci_peripherals": [],
++  "usb_peripherals": [],
++}
++"""
++    elif status == "error":
++        response_code = 500
++        response_contents = """{
++  "status": "Error"
++}"""
++    with http.server.HTTPServer(("", port), handler) as httpd:
++        print(f"Serving on port {port} with status '{status}'...")
++        httpd.serve_forever()
++
++if __name__ == "__main__":
++    if len(sys.argv) != 2:
++        print("Usage: python3 certification_emulator.py <status>")
++        print(" with <status> being one of: certified, not-certified, image-exists, system-exists, error, error-data")
++        sys.exit(1)
++    run_server()
++
+diff --git a/tests/certified_ubuntu/meson.build b/tests/certified_ubuntu/meson.build
+new file mode 100644
+index 0000000..011faf0
+--- /dev/null
++++ b/tests/certified_ubuntu/meson.build
+@@ -0,0 +1,19 @@
++
++unit = 'test-certified-ubuntu'
++
++includes = [top_inc, include_directories('../../panels/system')]
++cflags = '-DTEST_SRCDIR="@0@"'.format(meson.current_source_dir())
++
++certified_exe = executable(
++    unit,
++    [unit + '.c', '../../panels/system/certification-client.c'],
++    include_directories : includes,
++    dependencies : common_deps,
++    c_args : cflags
++)
++
++test(unit,
++     find_program('test-certified.py'),
++     args: [meson.current_source_dir(), meson.current_build_dir()],
++     env: ['HWCTL_SOCKET_PATH=/tmp/test.varlink'])
++
+diff --git a/tests/certified_ubuntu/test-certified-ubuntu.c b/tests/certified_ubuntu/test-certified-ubuntu.c
+new file mode 100644
+index 0000000..e8df796
+--- /dev/null
++++ b/tests/certified_ubuntu/test-certified-ubuntu.c
+@@ -0,0 +1,140 @@
++#include "certification-client.h"
++#include <glib-object.h>
++#include <glib.h>
++#include <gio/gio.h>
++
++static int e_argc;
++static char **e_argv;
++
++void do_test (GApplication *, gpointer);
++void data_changed (CertificationClient *, GApplication *);
++void test0(CertificationClient *);
++void test1(CertificationClient *);
++void test2(CertificationClient *);
++void test3(CertificationClient *);
++void test4(CertificationClient *, GApplication *);
++void status_cb (CertificationClient *client, GAsyncResult *res, gpointer user_data);
++
++void data_changed (CertificationClient *client, GApplication *app) {
++    g_print("Remote access enabled: %s\n", certification_client_get_remote_access_enabled (client) ? "true" : "false");
++    g_print("Stale: %s\n", certification_client_get_stale (client) ? "true" : "false");
++    g_print("Status: %d\n", certification_client_get_certification_status (client));
++    g_print("URL: '%s'\n", certification_client_get_certified_url (client));
++    g_object_unref (client);
++    g_application_release (app);
++}
++
++void status_cb (CertificationClient *client, GAsyncResult *res, gpointer user_data) {
++    g_autoptr(GError) error = NULL;
++    if (!certification_client_update_certification_status_finish (client, res, &error)) {
++        g_print("Error updating certification status: %s\n", error->message);
++        g_object_unref (client);
++        g_application_release (G_APPLICATION (user_data));
++        return;
++    }
++    data_changed (client, G_APPLICATION (user_data));
++}
++
++void test1(CertificationClient *client) {
++    g_assert(e_argc == 4);
++    CertificationSource source;
++    char *server = NULL;
++
++    if (g_str_equal (e_argv[2], "auto"))
++        source = CERTIFICATION_SOURCE_AUTO;
++    else if (g_str_equal (e_argv[2], "cache"))
++        source = CERTIFICATION_SOURCE_CACHE;
++    else if (g_str_equal (e_argv[2], "server"))
++        source = CERTIFICATION_SOURCE_SERVER;
++    else
++        exit(-1);
++
++    if (!g_str_equal (e_argv[3], "NULL"))
++        server = e_argv[3];
++
++    certification_client_update_certification_status_async(client, server, source, NULL, NULL);
++}
++
++void test2(CertificationClient *client) {
++    certification_client_set_remote_access_async (client, true, NULL, NULL);
++}
++
++void test3(CertificationClient *client) {
++    certification_client_set_remote_access_async (client, false, NULL, NULL);
++}
++
++void test4(CertificationClient *client, GApplication *app) {
++    g_assert(e_argc == 5);
++    CertificationSource source;
++    char *server = NULL;
++
++    // send several commands to the daemon, to test that the petitions are processed in order.
++    certification_client_set_remote_access_async (client, e_argv[2][0] == '1' ? true : false, NULL, NULL);
++    certification_client_set_remote_access_async (client, e_argv[2][0] == '1' ? false : true, NULL, NULL);
++    certification_client_set_remote_access_async (client, e_argv[2][0] == '1' ? true : false, NULL, NULL);
++
++    if (g_str_equal (e_argv[3], "auto"))
++        source = CERTIFICATION_SOURCE_AUTO;
++    else if (g_str_equal (e_argv[3], "cache"))
++        source = CERTIFICATION_SOURCE_CACHE;
++    else if (g_str_equal (e_argv[3], "server"))
++        source = CERTIFICATION_SOURCE_SERVER;
++    else
++        exit(-1);
++
++    if (!g_str_equal (e_argv[4], "NULL"))
++        server = e_argv[4];
++
++    certification_client_update_certification_status_async(client,
++                                                           server,
++                                                           source,
++                                                           (GAsyncReadyCallback) status_cb,
++                                                           app);
++}
++
++void do_test (GApplication *app, gpointer data) {
++    int test_n = GPOINTER_TO_INT (data);
++
++    g_application_hold(app);
++    CertificationClient *client = certification_client_get_default();
++
++
++    switch (test_n) {
++    default:
++        g_signal_connect (client, "changed", (GCallback) data_changed, app);
++        test1(client);
++        break;
++    case 2:
++        g_signal_connect (client, "changed", (GCallback) data_changed, app);
++        test2(client);
++        break;
++    case 3:
++        g_signal_connect (client, "changed", (GCallback) data_changed, app);
++        test3(client);
++        break;
++    case 4:
++        test4(client, app);
++        break;
++    }
++}
++
++int main(int argc, char **argv) {
++    int test = 0;
++    if (argc == 1) {
++        g_print("Usage:\n");
++        g_print("test-certified-ubuntu #TEST ...");
++        g_print("test-certified-ubuntu 1 CERT_S url (CERT_S = cache, server or auto)\n");
++        g_print("test-certified-ubuntu 2 -> enable remote access\n");
++        g_print("test-certified-ubuntu 3 -> disable remote access\n");
++        g_print("test-certified-ubuntu 4 0/1 CERT_S url -> 0=disable 1=enable remote access (CERT_S = cache, server or auto)\n");
++        return 0;
++    }
++    if (argc >= 2) {
++        test = atoi(argv[1]);
++    }
++    e_argc = argc;
++    e_argv = argv;
++    g_autoptr (GApplication) app = g_application_new ("com.canonical.test-certified-ubuntu", G_APPLICATION_DEFAULT_FLAGS);
++    g_signal_connect (app, "activate", (GCallback) do_test, GINT_TO_POINTER(test));
++    g_application_run (app, 1, argv);
++}
+\ No newline at end of file
+diff --git a/tests/certified_ubuntu/test-certified.py b/tests/certified_ubuntu/test-certified.py
+new file mode 100755
+index 0000000..660488d
+--- /dev/null
++++ b/tests/certified_ubuntu/test-certified.py
+@@ -0,0 +1,227 @@
++#!/usr/bin/env python3
++import sys
++import varlink
++import os
++import subprocess
++import threading
++
++source_path = sys.argv[1]
++build_path = sys.argv[2]
++
++service = varlink.Service(
++    vendor = "Canonical",
++    product = "Certified Ubuntu tester",
++    version = "1",
++    interface_dir = os.path.join(source_path, "../../panels/system")
++)
++
++remote_access_enabled = True
++
++current_test = 0
++tests = [
++    {# check basic communication
++        "client_parameters": ["1", "cache", "NULL"], # the command line parameters to pass to the client
++        "client_source": "cache", # must match the second parameter in "client_parameters"
++        "client_server_url": None, # must match the third parameter in "client_parameters" (even if it is "NULL")
++        "client_return_code": 0, # the exit code for the client
++        "client_output": { # each of the lines of the client and the values
++            "Remote access enabled": "true",
++            "Stale": "false",
++            "Status": "0",
++            "URL": "'http://first_url'"
++        },
++        "status": "Unknown", # the certified status that the emulated service must put
++        "stale": False, # the stale state that the emulated service must put
++        "url": "http://first_url", # the url that the emulated service must put
++        "source": "cache" # the source that the emulated service must put
++    }, {# check source answer, and Certified status
++        "client_parameters": ["1", "server", "NULL"],
++        "client_source": "server",
++        "client_server_url": None,
++        "client_return_code": 0,
++        "client_output": {
++            "Remote access enabled": "true",
++            "Stale": "false",
++            "Status": "1",
++            "URL": "'http://first_url'"
++        },
++        "status": "Certified",
++        "stale": False,
++        "url": "http://first_url",
++        "source": "server"
++    }, {# check auto parameter and passed URL and NotSeen
++        "client_parameters": ["1", "auto", "https://a.test"],
++        "client_source": "auto",
++        "client_server_url": "https://a.test",
++        "client_return_code": 0,
++        "client_output": {
++            "Remote access enabled": "true",
++            "Stale": "false",
++            "Status": "2",
++            "URL": "'http://first_url'"
++        },
++        "status": "NotSeen",
++        "stale": False,
++        "url": "http://first_url",
++        "source": "server"
++    }, {# check CertifiedImageExists
++        "client_parameters": ["1", "auto", "https://a.test"],
++        "client_source": "auto",
++        "client_server_url": "https://a.test",
++        "client_return_code": 0,
++        "client_output": {
++            "Remote access enabled": "true",
++            "Stale": "false",
++            "Status": "3",
++            "URL": "'http://first_url'"
++        },
++        "status": "CertifiedImageExists",
++        "stale": False,
++        "url": "http://first_url",
++        "source": "server"
++    }, {# check RelatedCertifiedSystemExists
++        "client_parameters": ["1", "auto", "https://a.test"],
++        "client_source": "auto",
++        "client_server_url": "https://a.test",
++        "client_return_code": 0,
++        "client_output": {
++            "Remote access enabled": "true",
++            "Stale": "false",
++            "Status": "4",
++            "URL": "'http://first_url'"
++        },
++        "status": "RelatedCertifiedSystemExists",
++        "stale": False,
++        "url": "http://first_url",
++        "source": "server"
++    }, {# check enable remote access
++        "client_parameters": ["2"],
++        "client_source": "auto",
++        "client_server_url": "https://test",
++        "client_return_code": 0,
++        "client_output": {
++            "Remote access enabled": "true",
++            "Stale": "false",
++            "Status": "0",
++            "URL": "'(null)'"
++        },
++        "status": "Unknown",
++        "stale": False,
++        "url": "http://first_url",
++        "source": "cache",
++    }, {# check two commands
++        "client_parameters": ["4", "0", "auto", "https://a.test"],
++        "client_source": "auto",
++        "client_server_url": "https://a.test",
++        "client_return_code": 0,
++        "client_output": {
++            "Remote access enabled": "false",
++            "Stale": "false",
++            "Status": "0",
++            "URL": "'(null)'"
++        },
++        "status": "Unknown",
++        "stale": False,
++        "url": "http://first_url",
++        "source": "cache",
++    }
++]
++
++@service.interface("com.ubuntu.hwctl")
++class HWCTL:
++    def GetCertificationStatus(self, source, server_url):
++        global current_test
++        global tests
++        global remote_access_enabled
++
++        test = tests[current_test]
++
++        print(f'Received GetCertificationStatus with {source} and {server_url}')
++        assert(source == test["client_source"])
++        assert(server_url == test["client_server_url"])
++        return {
++            "state": {
++                "status": test["status"],
++                "stale": test["stale"],
++                "certified_url": test["url"],
++                "remote_access_enabled": remote_access_enabled,
++                "valid_cache": True,
++                "source": test["source"],
++                "available_releases": None,
++                "stale_reason": "",
++                "hardware_mismatch": False,
++                "server_url": "",
++            }
++        }
++
++    def SetRemoteAccess(self, enabled):
++        global current_test
++        global remote_access_enabled
++
++        print(f"Setting remote access {enabled}")
++        remote_access_enabled = enabled
++        return {}
++
++    def launch_test(self, params):
++        testpath = os.path.join(os.getenv("BUILDDIR"), "test-certified-ubuntu")
++        subprocess.Popen(testpath)
++
++class ServiceRequestHandler(varlink.RequestHandler):
++    service = service
++
++
++def run_test(test_number):
++    global current_test
++    global tests
++
++    current_test = test_number
++    assert(current_test < len(tests))
++
++    try:
++        os.remove(os.getenv("HWCTL_SOCKET_PATH"))
++    except:
++        pass
++
++    class VarlinkServer(threading.Thread):
++        def run(self):
++            server.serve_forever()
++
++    server = varlink.ThreadingServer("unix:"+os.getenv("HWCTL_SOCKET_PATH"), ServiceRequestHandler)
++    vserver = VarlinkServer()
++    vserver.start()
++
++    test = tests[current_test]
++
++    params = [os.path.join(build_path, 'test-certified-ubuntu')]+test["client_parameters"]
++    result = subprocess.run(params, capture_output=True, text=True)
++    assert(result.returncode == test["client_return_code"])
++
++    output = result.stdout.split("\n")
++    print("Output:")
++    print(output)
++    for line in output:
++        params = line.split(":")
++        if len(params) != 2:
++            continue
++        key = params[0].strip()
++        val = params[1].strip()
++        if (key not in test["client_output"]) or (test["client_output"][key] != val):
++            print(f"Failed {test["client_output"][key]} == {val}")
++            server.shutdown()
++            vserver.join()
++            sys.exit(-1)
++
++    server.shutdown()
++    vserver.join()
++
++if len(sys.argv) == 3:
++    for t in range(len(tests)):
++        print(f"Running test {t}")
++        run_test(t)
++    sys.exit(0)
++
++os.remove(os.getenv("HWCTL_SOCKET_PATH"))
++current_test = int(sys.argv[3])
++
++server = varlink.ThreadingServer("unix:"+os.getenv("HWCTL_SOCKET_PATH"), ServiceRequestHandler)
++server.serve_forever()
+\ No newline at end of file
+diff --git a/tests/meson.build b/tests/meson.build
+index 66f79d8..ff0d4ba 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -16,3 +16,4 @@ endif
+ 
+ subdir('printers')
+ subdir('keyboard')
++subdir('certified_ubuntu')

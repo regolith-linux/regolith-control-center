@@ -8,88 +8,88 @@ Origin: https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/335
 ---
  panels/applications/cc-applications-panel.c   |  8 ++++----
  panels/applications/utils.c                   | 11 -----------
- panels/applications/utils.h                   |  1 -
+ panels/applications/utils.h                   |  2 --
  panels/common/cc-util.c                       | 11 +++++++++++
  panels/common/cc-util.h                       |  1 +
  panels/notifications/cc-notifications-panel.c |  5 ++---
- 6 files changed, 18 insertions(+), 19 deletions(-)
+ 6 files changed, 18 insertions(+), 20 deletions(-)
 
 diff --git a/panels/applications/cc-applications-panel.c b/panels/applications/cc-applications-panel.c
-index 2b48afa..1f2628b 100644
+index 3832199..b32e1da 100644
 --- a/panels/applications/cc-applications-panel.c
 +++ b/panels/applications/cc-applications-panel.c
-@@ -859,7 +859,7 @@ add_static_permissions (CcApplicationsPanel *self,
-     keyfile = get_flatpak_metadata (portal_app_id);
+@@ -800,7 +800,7 @@ add_static_permissions (CcApplicationsPanel *self, GAppInfo *info, const gchar *
+         keyfile = get_flatpak_metadata (portal_app_id);
  
-   is_sandboxed = (keyfile != NULL) || is_snap;
--  app_id = get_app_id (info);
-+  app_id = cc_util_app_get_app_id (info);
-   update_sandbox_banner (self, app_id, is_sandboxed);
-   if (keyfile == NULL)
-     return FALSE;
-@@ -937,7 +937,7 @@ static void
- update_permissions_group (CcApplicationsPanel *self,
-                             GAppInfo            *info)
+     is_sandboxed = (keyfile != NULL) || is_snap;
+-    app_id = get_app_id (info);
++    app_id = cc_util_app_get_app_id (info);
+     update_sandbox_banner (self, app_id, is_sandboxed);
+     if (keyfile == NULL)
+         return FALSE;
+@@ -875,7 +875,7 @@ update_header_section (CcApplicationsPanel *self, GAppInfo *info)
+ static void
+ update_permissions_group (CcApplicationsPanel *self, GAppInfo *info)
  {
--  g_autofree gchar *app_id = get_app_id (info);
-+  g_autofree gchar *app_id = cc_util_app_get_app_id (info);
-   g_autofree gchar *portal_app_id = cc_util_app_get_portal_id (info);
-   gboolean set, allowed, disabled;
-   gboolean has_any = FALSE;
-@@ -1521,7 +1521,7 @@ update_usage_section (CcApplicationsPanel *self,
+-    g_autofree gchar *app_id = get_app_id (info);
++    g_autofree gchar *app_id = cc_util_app_get_app_id (info);
+     g_autofree gchar *portal_app_id = cc_util_app_get_portal_id (info);
+     gboolean set, allowed, disabled;
+     gboolean has_any = FALSE;
+@@ -1401,7 +1401,7 @@ update_usage_section (CcApplicationsPanel *self, GAppInfo *info)
  {
-   g_autofree gchar *portal_app_id = cc_util_app_get_portal_id (info);
-   gboolean has_builtin = FALSE, has_global_shortcuts;
--  g_autofree char *app_id = get_app_id (info);
-+  g_autofree char *app_id = cc_util_app_get_app_id (info);
-   g_autofree char *app_path;
+     g_autofree gchar *portal_app_id = cc_util_app_get_portal_id (info);
+     gboolean has_builtin = FALSE, has_global_shortcuts;
+-    g_autofree char *app_id = get_app_id (info);
++    g_autofree char *app_id = cc_util_app_get_app_id (info);
+     g_autofree char *app_path;
  
-   if (portal_app_id != NULL)
-@@ -1583,7 +1583,7 @@ update_panel (CcApplicationsPanel *self,
-   update_usage_section (self, info);
+     if (portal_app_id != NULL)
+@@ -1457,7 +1457,7 @@ update_panel (CcApplicationsPanel *self, GtkListBoxRow *row)
+     update_usage_section (self, info);
  
-   g_set_object (&self->current_app_info, info);
--  self->current_app_id = get_app_id (info);
-+  self->current_app_id = cc_util_app_get_app_id (info);
-   self->current_portal_app_id = cc_util_app_get_portal_id (info);
+     g_set_object (&self->current_app_info, info);
+-    self->current_app_id = get_app_id (info);
++    self->current_app_id = cc_util_app_get_app_id (info);
+     self->current_portal_app_id = cc_util_app_get_portal_id (info);
  
-   /* Don't show the "Open" button for Settings itself. */
+     /* Don't show the "Open" button for Settings itself. */
 diff --git a/panels/applications/utils.c b/panels/applications/utils.c
-index 310293a..6490058 100644
+index fa809d4..fa2fad3 100644
 --- a/panels/applications/utils.c
 +++ b/panels/applications/utils.c
-@@ -244,14 +244,3 @@ get_snap_app_size (const gchar *snap_name)
-   return 0;
+@@ -213,14 +213,3 @@ get_snap_app_size (const gchar *snap_name)
+     return 0;
  #endif
  }
 -
 -char *
 -get_app_id (GAppInfo *info)
 -{
--  gchar *app_id = g_strdup (g_app_info_get_id (info));
+-    gchar *app_id = g_strdup (g_app_info_get_id (info));
 -
--  if (g_str_has_suffix (app_id, ".desktop"))
--    app_id[strlen (app_id) - strlen (".desktop")] = '\0';
+-    if (g_str_has_suffix (app_id, ".desktop"))
+-        app_id[strlen (app_id) - strlen (".desktop")] = '\0';
 -
--  return app_id;
+-    return app_id;
 -}
 diff --git a/panels/applications/utils.h b/panels/applications/utils.h
-index 8205b97..e9fce88 100644
+index 45c1789..ca8770d 100644
 --- a/panels/applications/utils.h
 +++ b/panels/applications/utils.h
-@@ -50,6 +50,5 @@ guint64   get_flatpak_app_size (const gchar         *app_id);
+@@ -39,6 +39,4 @@ guint64 get_flatpak_app_size (const gchar *app_id);
  
- guint64   get_snap_app_size    (const gchar         *snap_name);
+ guint64 get_snap_app_size (const gchar *snap_name);
  
--gchar*    get_app_id           (GAppInfo            *info);
- 
+-gchar *get_app_id (GAppInfo *info);
+-
  G_END_DECLS
 diff --git a/panels/common/cc-util.c b/panels/common/cc-util.c
-index c984f3f..76741fb 100644
+index ef19a9c..d6d5876 100644
 --- a/panels/common/cc-util.c
 +++ b/panels/common/cc-util.c
-@@ -268,6 +268,17 @@ cc_util_get_localized_weekday_name (gint iso_weekday_number)
-   return g_date_time_format (item_date, "%A");
+@@ -237,6 +237,17 @@ cc_util_get_localized_weekday_name (gint iso_weekday_number)
+     return g_date_time_format (item_date, "%A");
  }
  
 +char *
@@ -107,35 +107,35 @@ index c984f3f..76741fb 100644
  cc_util_app_get_portal_id (GAppInfo *info)
  {
 diff --git a/panels/common/cc-util.h b/panels/common/cc-util.h
-index 7900d83..8c4eab2 100644
+index cbae415..29f8bc7 100644
 --- a/panels/common/cc-util.h
 +++ b/panels/common/cc-util.h
-@@ -30,4 +30,5 @@ char * cc_util_time_to_string_text             (gint64 msecs);
- char * cc_util_app_id_to_display_name          (const char *app_id);
- char * cc_util_get_localized_weekday_name      (gint iso_weekday_number);
+@@ -29,4 +29,5 @@ char *cc_util_time_to_string_text (gint64 msecs);
+ char *cc_util_app_id_to_display_name (const char *app_id);
+ char *cc_util_get_localized_weekday_name (gint iso_weekday_number);
  
-+char * cc_util_app_get_app_id                  (GAppInfo *app_info);
- char * cc_util_app_get_portal_id               (GAppInfo *app_info);
++char * cc_util_app_get_app_id (GAppInfo *app_info);
+ char * cc_util_app_get_portal_id (GAppInfo *app_info);
 diff --git a/panels/notifications/cc-notifications-panel.c b/panels/notifications/cc-notifications-panel.c
-index 3fa7780..087151f 100644
+index 0b21884..871d38e 100644
 --- a/panels/notifications/cc-notifications-panel.c
 +++ b/panels/notifications/cc-notifications-panel.c
 @@ -31,6 +31,7 @@
+ #include "cc-notifications-panel.h"
  #include "cc-notifications-resources.h"
- #include "cc-app-notifications-page.h"
  #include "cc-ui-util.h"
 +#include "cc-util.h"
  
  #define MASTER_SCHEMA "org.gnome.desktop.notifications"
  #define APP_SCHEMA MASTER_SCHEMA ".application"
-@@ -456,9 +457,7 @@ select_app (CcNotificationsPanel *self,
+@@ -431,9 +432,7 @@ select_app (CcNotificationsPanel *self, GtkListBoxRow *row)
  
-   app = g_object_get_qdata (G_OBJECT (row), application_quark ());
+     app = g_object_get_qdata (G_OBJECT (row), application_quark ());
  
--  app_id = g_strdup (g_app_info_get_id (app->app_info));
--  if (g_str_has_suffix (app_id, ".desktop"))
--    app_id[strlen (app_id) - strlen (".desktop")] = '\0';
-+  app_id = cc_util_app_get_app_id (app->app_info);
+-    app_id = g_strdup (g_app_info_get_id (app->app_info));
+-    if (g_str_has_suffix (app_id, ".desktop"))
+-        app_id[strlen (app_id) - strlen (".desktop")] = '\0';
++    app_id = cc_util_app_get_app_id (app->app_info);
  
-   page = cc_app_notifications_page_new (app_id, g_app_info_get_name (app->app_info), app->settings, self->master_settings, self->perm_store);
-   cc_panel_push_subpage (CC_PANEL (self), ADW_NAVIGATION_PAGE (page));
+     page = cc_app_notifications_page_new (app_id, g_app_info_get_name (app->app_info), app->settings,
+                                           self->master_settings, self->perm_store);

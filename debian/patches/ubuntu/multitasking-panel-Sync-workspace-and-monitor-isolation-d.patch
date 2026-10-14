@@ -50,27 +50,27 @@ index 2564ac3..4ecede2 100644
    };
  }
 diff --git a/panels/multitasking/cc-multitasking-panel.c b/panels/multitasking/cc-multitasking-panel.c
-index 372f463..74dccbf 100644
+index 1ab247e..f94a999 100644
 --- a/panels/multitasking/cc-multitasking-panel.c
 +++ b/panels/multitasking/cc-multitasking-panel.c
-@@ -32,6 +32,7 @@ struct _CcMultitaskingPanel
-   GSettings       *mutter_settings;
-   GSettings       *session_settings;
-   GSettings       *shell_settings;
-+  GSettings       *dock_settings;
-   GSettings       *wm_settings;
+@@ -30,6 +30,7 @@ struct _CcMultitaskingPanel {
+     GSettings *mutter_settings;
+     GSettings *session_settings;
+     GSettings *shell_settings;
++    GSettings *dock_settings;
+     GSettings *wm_settings;
  
-   CcIllustratedRow *active_screen_edges_row;
-@@ -40,6 +41,8 @@ struct _CcMultitaskingPanel
-   GtkCheckButton  *current_workspace_radio;
-   GtkCheckButton  *dynamic_workspaces_radio;
-   GtkCheckButton  *fixed_workspaces_radio;
-+  GtkCheckButton  *dock_monitors_isolation_radio;
-+  GtkCheckButton  *dock_each_monitor_radio;
-   CcIllustratedRow *hot_corner_row;
-   GtkSwitch       *hot_corner_switch;
-   AdwSpinRow      *number_of_workspaces_spin_row;
-@@ -52,6 +55,24 @@ struct _CcMultitaskingPanel
+     CcIllustratedRow *active_screen_edges_row;
+@@ -38,6 +39,8 @@ struct _CcMultitaskingPanel {
+     GtkCheckButton *current_workspace_radio;
+     GtkCheckButton *dynamic_workspaces_radio;
+     GtkCheckButton *fixed_workspaces_radio;
++    GtkCheckButton *dock_monitors_isolation_radio;
++    GtkCheckButton *dock_each_monitor_radio;
+     CcIllustratedRow *hot_corner_row;
+     GtkSwitch *hot_corner_switch;
+     AdwSpinRow *number_of_workspaces_spin_row;
+@@ -50,6 +53,24 @@ struct _CcMultitaskingPanel {
  
  CC_PANEL_REGISTER (CcMultitaskingPanel, cc_multitasking_panel)
  
@@ -95,36 +95,36 @@ index 372f463..74dccbf 100644
  static void
  fixed_workspaces_changed_cb (CcMultitaskingPanel *self)
  {
-@@ -126,6 +147,7 @@ cc_multitasking_panel_finalize (GObject *object)
-   g_clear_object (&self->mutter_settings);
-   g_clear_object (&self->session_settings);
-   g_clear_object (&self->shell_settings);
-+  g_clear_object (&self->dock_settings);
-   g_clear_object (&self->wm_settings);
+@@ -106,6 +127,7 @@ cc_multitasking_panel_finalize (GObject *object)
+     g_clear_object (&self->mutter_settings);
+     g_clear_object (&self->session_settings);
+     g_clear_object (&self->shell_settings);
++    g_clear_object (&self->dock_settings);
+     g_clear_object (&self->wm_settings);
  
-   G_OBJECT_CLASS (cc_multitasking_panel_parent_class)->finalize (object);
-@@ -158,12 +180,18 @@ cc_multitasking_panel_class_init (CcMultitaskingPanelClass *klass)
-   gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, workspaces_primary_display_radio);
-   gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, workspaces_span_displays_radio);
+     G_OBJECT_CLASS (cc_multitasking_panel_parent_class)->finalize (object);
+@@ -139,12 +161,18 @@ cc_multitasking_panel_class_init (CcMultitaskingPanelClass *klass)
+     gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, workspaces_primary_display_radio);
+     gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, workspaces_span_displays_radio);
  
-+  gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, dock_monitors_isolation_radio);
-+  gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, dock_each_monitor_radio);
++    gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, dock_monitors_isolation_radio);
++    gtk_widget_class_bind_template_child (widget_class, CcMultitaskingPanel, dock_each_monitor_radio);
 +
-   gtk_widget_class_bind_template_callback (widget_class, fixed_workspaces_changed_cb);
+     gtk_widget_class_bind_template_callback (widget_class, fixed_workspaces_changed_cb);
  }
  
  static void
  cc_multitasking_panel_init (CcMultitaskingPanel *self)
  {
-+  GSettingsSchemaSource *schema_source = g_settings_schema_source_get_default ();
-+  g_autoptr(GSettingsSchema) schema = NULL;
++    GSettingsSchemaSource *schema_source = g_settings_schema_source_get_default ();
++    g_autoptr(GSettingsSchema) schema = NULL;
 +
-   g_resources_register (cc_multitasking_get_resource ());
+     g_resources_register (cc_multitasking_get_resource ());
  
-   gtk_widget_init_template (GTK_WIDGET (self));
-@@ -239,4 +267,32 @@ cc_multitasking_panel_init (CcMultitaskingPanel *self)
-       cc_illustrated_row_set_resource (self->active_screen_edges_row,
-                                        "/org/gnome/control-center/multitasking/assets/active-screen-edges-rtl.svg");
+     gtk_widget_init_template (GTK_WIDGET (self));
+@@ -197,4 +225,32 @@ cc_multitasking_panel_init (CcMultitaskingPanel *self)
+         cc_illustrated_row_set_resource (self->active_screen_edges_row,
+                                          "/org/gnome/control-center/multitasking/assets/active-screen-edges-rtl.svg");
      }
 +
 +  schema = g_settings_schema_source_lookup (schema_source,
