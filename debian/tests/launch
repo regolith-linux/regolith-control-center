@@ -1,7 +1,8 @@
 #!/bin/sh
 # The shell starts and stays up, and every panel finds its desktop file,
 # with only the package's own Depends installed (no stock
-# gnome-control-center).
+# gnome-control-center). The Date & Time page also opens: it reads
+# GTK 3's org.gtk.Settings.FileChooser schema when it is created.
 set -eu
 
 # The shell refuses to start outside GNOME-like desktops; this is what
@@ -22,15 +23,24 @@ fi
 log=$(mktemp)
 trap 'rm -f "$log"' EXIT INT TERM
 
-status=0
-xvfb-run -a dbus-run-session -- timeout 10 regolith-control-center >"$log" 2>&1 || status=$?
+# usage: run <description> [regolith-control-center arguments]
+run () {
+    what=$1
+    shift
+    status=0
+    xvfb-run -a dbus-run-session -- timeout 10 regolith-control-center "$@" >"$log" 2>&1 || status=$?
 
-if [ "$status" -ne 124 ]; then
-    cat "$log" >&2
-    echo "regolith-control-center exited within 10 seconds (status $status)" >&2
-    exit 1
-fi
-if grep -F 'Ignoring broken panel' "$log" >&2; then
-    echo "panels without a desktop file" >&2
-    exit 1
-fi
+    if [ "$status" -ne 124 ]; then
+        cat "$log" >&2
+        echo "regolith-control-center ($what) exited within 10 seconds (status $status)" >&2
+        exit 1
+    fi
+    if grep -F 'Ignoring broken panel' "$log" >&2; then
+        echo "panels without a desktop file" >&2
+        exit 1
+    fi
+    echo "$what: still running after 10 seconds"
+}
+
+run "no panel"
+run "Date & Time" system datetime
