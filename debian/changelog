@@ -1,3 +1,11 @@
+regolith-control-center (1.50.4-2) resolute; urgency=medium
+
+  [ rego-port-bot ]
+  * fix: depend on libgtk-3-common for the Date & Time panel
+  * test: open the Date & Time page in the launch autopkgtest
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Mon, 19 Oct 2026 16:03:05 -0700
+
 regolith-control-center (1.50.4-1) resolute; urgency=medium
 
   [ rego-port-bot ]
