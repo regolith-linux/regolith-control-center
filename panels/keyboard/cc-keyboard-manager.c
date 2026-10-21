@@ -504,8 +504,9 @@ reload_sections (CcKeyboardManager *self)
   GDir *dir;
   gchar *default_wm_keybindings[] = { "Mutter", "GNOME Shell", NULL };
   g_auto(GStrv) wm_keybindings = NULL;
+  const gchar * const keybinding_dirs[] = { "regolith-control-center", "gnome-control-center" };
   const gchar * const * data_dirs;
-  guint i;
+  guint i, j;
 
   /* Clear previous models and hash tables */
   gtk_list_store_clear (GTK_LIST_STORE (self->sections_store));
@@ -538,38 +539,43 @@ reload_sections (CcKeyboardManager *self)
 
   loaded_files = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
 
+  /* Our own keybinding files come first. Other packages (for example
+   * gnome-flashback with its screenshot shortcuts) install theirs in the
+   * GNOME directory, so read that too; a file name that was already
+   * loaded from our directory is skipped there. */
   data_dirs = g_get_system_data_dirs ();
-  for (i = 0; data_dirs[i] != NULL; i++)
-    {
-      g_autofree gchar *dir_path = NULL;
-      const gchar *name;
+  for (j = 0; j < G_N_ELEMENTS (keybinding_dirs); j++)
+    for (i = 0; data_dirs[i] != NULL; i++)
+      {
+        g_autofree gchar *dir_path = NULL;
+        const gchar *name;
 
-      dir_path = g_build_filename (data_dirs[i], "regolith-control-center", "keybindings", NULL);
+        dir_path = g_build_filename (data_dirs[i], keybinding_dirs[j], "keybindings", NULL);
 
-      dir = g_dir_open (dir_path, 0, NULL);
-      if (!dir)
-        continue;
+        dir = g_dir_open (dir_path, 0, NULL);
+        if (!dir)
+          continue;
 
-      for (name = g_dir_read_name (dir) ; name ; name = g_dir_read_name (dir))
-        {
-          g_autofree gchar *path = NULL;
+        for (name = g_dir_read_name (dir) ; name ; name = g_dir_read_name (dir))
+          {
+            g_autofree gchar *path = NULL;
 
-          if (g_str_has_suffix (name, ".xml") == FALSE)
-            continue;
-
-          if (g_hash_table_lookup (loaded_files, name) != NULL)
-            {
-              g_debug ("Not loading %s, it was already loaded from another directory", name);
+            if (g_str_has_suffix (name, ".xml") == FALSE)
               continue;
-            }
 
-          g_hash_table_insert (loaded_files, g_strdup (name), GINT_TO_POINTER (1));
-          path = g_build_filename (dir_path, name, NULL);
-          append_sections_from_file (self, path, data_dirs[i], wm_keybindings);
-        }
+            if (g_hash_table_lookup (loaded_files, name) != NULL)
+              {
+                g_debug ("Not loading %s, it was already loaded from another directory", name);
+                continue;
+              }
 
-      g_dir_close (dir);
-    }
+            g_hash_table_insert (loaded_files, g_strdup (name), GINT_TO_POINTER (1));
+            path = g_build_filename (dir_path, name, NULL);
+            append_sections_from_file (self, path, data_dirs[i], wm_keybindings);
+          }
+
+        g_dir_close (dir);
+      }
 
   g_hash_table_destroy (loaded_files);
 
