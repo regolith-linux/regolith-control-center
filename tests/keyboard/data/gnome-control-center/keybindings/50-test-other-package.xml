@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Installed by another package, for example gnome-flashback -->
+<KeyListEntries group="system" schema="org.gnome.desktop.wm.keybindings" name="Test Other Package Section">
+	<KeyListEntry name="move-to-workspace-12" description="Test other package shortcut"/>
+</KeyListEntries>

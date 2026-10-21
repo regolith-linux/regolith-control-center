@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Same file name as in regolith-control-center/keybindings: must be skipped -->
+<KeyListEntries group="system" schema="org.gnome.desktop.wm.keybindings" name="Test Duplicate Section">
+	<KeyListEntry name="move-to-workspace-11" description="Test duplicate shortcut"/>
+</KeyListEntries>
