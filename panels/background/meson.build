@@ -15,6 +15,12 @@ panel_desktop_files += i18n.merge_file(
 #   install_dir: join_paths(control_center_pkgdatadir, 'pixmaps')
 # )
 
+install_data(
+  'regolith-wallpaper',
+  install_dir: control_center_libexecdir,
+  install_mode: 'rwxr-xr-x'
+)
+
 common_sources = []
 
 common_sources += gnome.mkenums_simple(
@@ -79,6 +85,7 @@ deps = common_deps + [
 
 cflags += [
   '-DDATADIR="@0@"'.format(control_center_datadir),
+  '-DLIBEXECDIR="@0@"'.format(control_center_libexecdir),
   '-DGNOME_DESKTOP_USE_UNSTABLE_API'
 ]
 
