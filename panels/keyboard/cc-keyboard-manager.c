@@ -594,14 +594,36 @@ append_sections_from_global_shortcuts_settings (CcKeyboardManager *self,
     }
 }
 
+/* The window managers whose keybinding files (wm_name) apply in this
+ * session. GNOME assumes GNOME Shell and Mutter. In the Regolith X11 session
+ * i3 manages windows and GNOME Flashback takes the screenshot keys; in the
+ * Regolith Wayland session sway handles all of them, so the keys of GNOME
+ * Shell and Mutter would have no effect there. */
+static GStrv
+get_wm_keybindings (void)
+{
+  const gchar *default_wm_keybindings[] = { "Mutter", "GNOME Shell", NULL };
+  const gchar *regolith_x11_wm_keybindings[] = { "GNOME Flashback", NULL };
+  const gchar *regolith_wayland_wm_keybindings[] = { NULL };
+  g_auto(GStrv) desktops = NULL;
+
+  desktops = g_strsplit (g_getenv ("XDG_CURRENT_DESKTOP") ?: "", ":", -1);
+
+  if (g_strv_contains ((const gchar * const *) desktops, "Regolith-Wayland"))
+    return g_strdupv ((gchar **) regolith_wayland_wm_keybindings);
+  if (g_strv_contains ((const gchar * const *) desktops, "Regolith"))
+    return g_strdupv ((gchar **) regolith_x11_wm_keybindings);
+
+  return g_strdupv ((gchar **) default_wm_keybindings);
+}
+
 static void
 reload_sections (CcKeyboardManager *self)
 {
   GHashTable *loaded_files;
   GDir *dir;
-  gchar *default_wm_keybindings[] = { "Mutter", "GNOME Shell", NULL };
   /* Load WM keybindings */
-  g_auto(GStrv) wm_keybindings = g_strdupv (default_wm_keybindings);
+  g_auto(GStrv) wm_keybindings = get_wm_keybindings ();
   const gchar * const * data_dirs;
   guint i;
 

@@ -26,6 +26,19 @@ if setxkbmap.found() and Xvfb.found()
     )
   endforeach
 
+  # Runs CcKeyboardManager on the keybinding files in data/
+  executable(
+    'test-keyboard-manager',
+    ['test-keyboard-manager.c'],
+    # CcKeyboardManager also needs cc-util from the common library
+    dependencies : common_deps + [liblanguage_dep],
+    include_directories : includes,
+    link_with : [keyboard_panel_lib],
+    c_args : cflags + [
+      '-DGSETTINGS_SCHEMAS_DIR="@0@"'.format(gio_dep.get_variable(pkgconfig: 'schemasdir'))
+    ]
+  )
+
   test(
     'test-keyboard',
     find_program('test-keyboard.py'),

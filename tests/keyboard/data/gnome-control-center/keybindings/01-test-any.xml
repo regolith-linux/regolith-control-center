@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<KeyListEntries schema="org.gnome.desktop.wm.keybindings" group="system" name="Test Any Section">
+  <KeyListEntry name="switch-to-workspace-9" description="Test any shortcut"/>
+</KeyListEntries>
