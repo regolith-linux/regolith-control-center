@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<KeyListEntries schema="org.gnome.desktop.wm.keybindings" group="system" name="Test Shell Section" wm_name="GNOME Shell">
+  <KeyListEntry name="switch-to-workspace-11" description="Test shell shortcut"/>
+</KeyListEntries>
