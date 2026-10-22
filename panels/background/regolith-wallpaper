@@ -1,45 +1,85 @@
 #!/bin/bash
-# This is a helper script to set wallpaper in Regolith desktop
+# Keep a wallpaper chosen in Settings > Background as the user's Regolith
+# wallpaper, and show it in the Wayland session at once.
+#
+# The X11 session draws the wallpaper from org.gnome.desktop.background,
+# which the panel has already set. Sway draws regolith.wallpaper.file
+# (regolith-set-swaybg), so the file is written to the user's Xresources
+# override, like 'regolith-look set' does for the look; there it also
+# survives a new login, 'regolith-look refresh' and a change of look.
+# Sway is not reloaded: a reload would undo output settings made at runtime,
+# such as a rotation.
 
 set -Eeu -o pipefail
 
-# Load common functions
-source /usr/lib/regolith/regolith-session-common.sh
+USER_XRESOURCE_OVERRIDE_FILE="$HOME/.config/regolith3/Xresources"
 
-if [ "$#" -lt 1 ]; then
-    echo "Usage: regolith-wallpaper <image file URI>"
+usage() {
+    echo "Usage: regolith-wallpaper [--options <picture-options>] <image> [<lock screen image>]" >&2
+    echo "Images are file paths or file:// URIs." >&2
     exit 1
+}
+
+options=
+if [ "${1-}" = "--options" ]; then
+    [ "$#" -ge 2 ] || usage
+    options=$2
+    shift 2
+fi
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ] || [ -z "$1" ]; then
+    usage
 fi
 
-IMAGE_URI=$1
+to_path() { # to_path <path or file:// URI>
+    local p=$1
+    if [[ $p == file://* ]]; then
+        p=${p#file://}
+        p=${p#localhost}
+        p=$(printf '%b' "${p//%/\\x}")
+    fi
+    if [[ $p != /* ]] || [[ $p == *$'\n'* ]]; then
+        echo "regolith-wallpaper: not a local file: $1" >&2
+        exit 1
+    fi
+    printf '%s' "$p"
+}
 
-WM_RELOAD="regolith-look refresh"
+wallpaper=$(to_path "$1")
+lock_wallpaper=$(to_path "${2:-$1}")
 
-if [ -z "$IMAGE_URI" ]; then
-    echo "Aborting, invalid file uri: $IMAGE_URI"
-    exit 1
+resources=$(
+    printf 'regolith.wallpaper.file: %s\n' "$wallpaper"
+    printf 'regolith.lockscreen.wallpaper.file: %s\n' "$lock_wallpaper"
+    if [ -n "$options" ]; then
+        printf 'regolith.wallpaper.options: %s\n' "$options"
+        printf 'regolith.lockscreen.wallpaper.options: %s\n' "$options"
+    fi
+)
+
+# Comment out the user's previous values (dropping older comments), then add
+# the new ones, as 'regolith-look set' does for regolith.look.path.
+mkdir -p "$(dirname "$USER_XRESOURCE_OVERRIDE_FILE")"
+touch "$USER_XRESOURCE_OVERRIDE_FILE"
+while IFS= read -r line; do
+    key=${line%%:*}
+    pattern=${key//./\\.}
+    sed -i -e "/^![[:space:]]*${pattern}[[:space:]]*:/d" \
+           -e "s/^\([[:space:]]*${pattern}[[:space:]]*:\)/!\1/" \
+           "$USER_XRESOURCE_OVERRIDE_FILE"
+done <<< "$resources"
+printf '%s\n' "$resources" >> "$USER_XRESOURCE_OVERRIDE_FILE"
+
+# Update the running session's resources, and the sway background.
+if [ -n "${WAYLAND_DISPLAY-}" ]; then
+    if command -v trawldb > /dev/null && swaymsg -t get_version > /dev/null 2>&1; then
+        tmp=$(mktemp)
+        trap 'rm -f "$tmp"' EXIT
+        printf '%s\n' "$resources" > "$tmp"
+        trawldb --merge "$tmp"
+        if command -v regolith-set-swaybg > /dev/null; then
+            regolith-set-swaybg > /dev/null
+        fi
+    fi
+elif [ -n "${DISPLAY-}" ] && command -v xrdb > /dev/null; then
+    printf '%s\n' "$resources" | xrdb -nocpp -merge || true
 fi
-
-# Unset any existing values
-if [ -f "$USER_XRESOURCE_OVERRIDE_FILE" ]; then
-    # remove existing declaration comments
-    sed -i '/^!regolith.wallpaper.file/d' "$USER_XRESOURCE_OVERRIDE_FILE"
-    sed -i '/^!regolith.lockscreen.wallpaper.file/d' "$USER_XRESOURCE_OVERRIDE_FILE"
-
-    # disable existing declaration
-    sed -i 's/^regolith.wallpaper.file/\!regolith.wallpaper.file/g' "$USER_XRESOURCE_OVERRIDE_FILE"
-    sed -i 's/^regolith.lockscreen.wallpaper.file/\!regolith.lockscreen.wallpaper.file/g' "$USER_XRESOURCE_OVERRIDE_FILE"
-fi
-
-# Strip file scheme from URI if exists
-if [[ $IMAGE_URI == file* ]]; then
-    FINAL_IMAGE_URI=${IMAGE_URI:7}
-else
-    FINAL_IMAGE_URI=$IMAGE_URI
-fi
-
-# add new declaration
-echo "regolith.wallpaper.file: $FINAL_IMAGE_URI" >> "$USER_XRESOURCE_OVERRIDE_FILE"
-echo "regolith.lockscreen.wallpaper.file: $FINAL_IMAGE_URI" >> "$USER_XRESOURCE_OVERRIDE_FILE"
-
-$WM_RELOAD
