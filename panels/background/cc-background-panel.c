@@ -393,12 +393,60 @@ set_background (CcBackgroundPanel *self, GSettings *settings, CcBackgroundItem *
 }
 
 static void
+on_regolith_wallpaper_done_cb (GObject *source, GAsyncResult *result, gpointer user_data)
+{
+    g_autoptr(GError) error = NULL;
+
+    if (!g_subprocess_wait_check_finish (G_SUBPROCESS (source), result, &error))
+        g_warning ("regolith-wallpaper failed: %s", error->message);
+}
+
+/* Regolith: the X11 session draws the background from the settings set
+ * above, sway from the Regolith resources. Pass the picture the X11 session
+ * shows (the dark one with the dark style) to regolith-wallpaper, which
+ * stores it as the user's Regolith wallpaper and updates sway at once. */
+static void
+set_background_regolith (CcBackgroundPanel *self)
+{
+    g_autoptr(GSubprocess) proc = NULL;
+    g_autoptr(GError) error = NULL;
+    g_autofree gchar *uri = NULL;
+    g_autofree gchar *lock_uri = NULL;
+    g_autofree gchar *options = NULL;
+    g_autofree gchar *path = NULL;
+    g_autofree gchar *lock_path = NULL;
+    gboolean dark;
+
+    dark = g_settings_get_enum (self->interface_settings, INTERFACE_COLOR_SCHEME_KEY)
+           == G_DESKTOP_COLOR_SCHEME_PREFER_DARK;
+
+    uri = g_settings_get_string (self->settings, dark ? WP_URI_DARK_KEY : WP_URI_KEY);
+    lock_uri = g_settings_get_string (self->lock_settings, WP_URI_KEY);
+    options = g_settings_get_string (self->settings, WP_OPTIONS_KEY);
+
+    path = g_filename_from_uri (uri, NULL, NULL);
+    if (path == NULL)
+        return;
+    lock_path = g_filename_from_uri (lock_uri, NULL, NULL);
+
+    proc = g_subprocess_new (G_SUBPROCESS_FLAGS_NONE, &error, LIBEXECDIR "/regolith-wallpaper", "--options", options,
+                             path, lock_path ? lock_path : path, NULL);
+    if (proc == NULL) {
+        g_warning ("Failed to run regolith-wallpaper: %s", error->message);
+        return;
+    }
+
+    g_subprocess_wait_check_async (proc, NULL, on_regolith_wallpaper_done_cb, NULL);
+}
+
+static void
 on_chooser_background_chosen_cb (CcBackgroundPanel *self, CcBackgroundItem *item)
 {
     g_signal_handlers_block_by_func (self->settings, on_settings_changed, self);
 
     set_background (self, self->settings, item, TRUE);
     set_background (self, self->lock_settings, item, FALSE);
+    set_background_regolith (self);
 
     on_settings_changed (self);
 
