@@ -6,8 +6,8 @@ set -eu
 # Regolith's X11 session sets.
 export XDG_CURRENT_DESKTOP=Regolith:GNOME-Flashback:GNOME
 
-enabled="applications background bluetooth color display keyboard mouse network wifi power printers privacy sound system universal-access wwan"
-disabled="multitasking notifications online-accounts search sharing wacom wellbeing"
+enabled="applications background bluetooth color display keyboard mouse network wifi power printers privacy sound system universal-access wacom wwan"
+disabled="multitasking notifications online-accounts search sharing wellbeing"
 
 list=$(xvfb-run -a dbus-run-session -- regolith-control-center --list |
     sed -e 's/^[[:space:]]*//' -e '/^Available panels:$/d')
