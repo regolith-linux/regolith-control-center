@@ -1,3 +1,4 @@
+subdir('background')
 subdir('common')
 #subdir('datetime')
 if host_is_linux
