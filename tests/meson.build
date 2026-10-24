@@ -1,6 +1,7 @@
 setxkbmap = find_program('setxkbmap', required: false)
 Xvfb = find_program('Xvfb', required: false)
 
+subdir('background')
 subdir('common')
 #subdir('datetime')
 
