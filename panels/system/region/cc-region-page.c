@@ -345,6 +345,66 @@ set_system_region (CcRegionPage *self,
 }
 
 static void
+set_formats_locale_cb (GObject      *source,
+                       GAsyncResult *res,
+                       gpointer      user_data)
+{
+        g_autoptr(GVariant) ret = NULL;
+        g_autoptr(GError) error = NULL;
+
+        ret = g_dbus_connection_call_finish (G_DBUS_CONNECTION (source), res, &error);
+        if (ret != NULL)
+                return;
+
+        /* Only Ubuntu's accountsservice has SetFormatsLocale; elsewhere the
+         * session takes the formats from the region setting alone. */
+        if (g_error_matches (error, G_DBUS_ERROR, G_DBUS_ERROR_UNKNOWN_METHOD))
+                g_debug ("accountsservice has no SetFormatsLocale: %s", error->message);
+        else
+                g_warning ("Couldn't set the formats locale: %s", error->message);
+}
+
+/* Ubuntu's gnome-session ignores the region setting. There the session's
+ * LC_* variables come from accountsservice's FormatsLocale property, which
+ * accountsservice saves to ~/.pam_environment, so the formats are stored in
+ * both places. */
+static void
+set_formats_locale (CcRegionPage *self,
+                    const gchar  *locale)
+{
+        g_autoptr(GDBusConnection) bus = NULL;
+        g_autoptr(GError) error = NULL;
+        g_autofree gchar *path = NULL;
+
+        if (locale == NULL || locale[0] == '\0')
+                return;
+
+        bus = g_bus_get_sync (G_BUS_TYPE_SYSTEM, NULL, &error);
+        if (bus == NULL) {
+                g_warning ("Couldn't set the formats locale: %s", error->message);
+                return;
+        }
+
+        if (self->user != NULL && act_user_get_object_path (self->user) != NULL)
+                path = g_strdup (act_user_get_object_path (self->user));
+        else
+                path = g_strdup_printf ("/org/freedesktop/Accounts/User%u", getuid ());
+
+        g_dbus_connection_call (bus,
+                                "org.freedesktop.Accounts",
+                                path,
+                                "org.freedesktop.Accounts.User",
+                                "SetFormatsLocale",
+                                g_variant_new ("(s)", locale),
+                                NULL,
+                                G_DBUS_CALL_FLAGS_NONE,
+                                -1,
+                                NULL,
+                                set_formats_locale_cb,
+                                NULL);
+}
+
+static void
 update_region (CcRegionPage   *self,
                CcLocaleTarget  target,
                const gchar    *region)
@@ -353,10 +413,14 @@ update_region (CcRegionPage   *self,
         case USER:
                 if (g_strcmp0 (region, self->region) == 0)
                         return;
-                if (region == NULL || region[0] == '\0')
+                if (region == NULL || region[0] == '\0') {
                         g_settings_reset (self->locale_settings, KEY_REGION);
-                else
+                        /* The formats follow the new language. */
+                        set_formats_locale (self, self->language);
+                } else {
                         g_settings_set_string (self->locale_settings, KEY_REGION, region);
+                        set_formats_locale (self, region);
+                }
 
                 set_accountservice_languages (self);
 
