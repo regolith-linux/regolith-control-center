@@ -1,4 +1,4 @@
-regolith-control-center (1.50.4-3) resolute; urgency=medium
+regolith-control-center (1.50.5-1) resolute; urgency=medium
 
   [ rego-port-bot ]
   * keyboard: show the window manager keys of the Regolith sessions (#30)
