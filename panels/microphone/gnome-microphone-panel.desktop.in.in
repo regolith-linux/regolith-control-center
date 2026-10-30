@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Microphone
 Comment=Protect your conversations
-Exec=gnome-control-center microphone
+Exec=regolith-control-center microphone
 # FIXME
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-microphone-symbolic
