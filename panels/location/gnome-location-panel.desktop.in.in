@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Location Services
 Comment=Protect your location information
-Exec=gnome-control-center location
+Exec=regolith-control-center location
 # FIXME
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-location-symbolic

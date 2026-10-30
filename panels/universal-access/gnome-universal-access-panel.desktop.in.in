@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Accessibility
 Comment=Make it easier to see, hear, type, point and click
-Exec=gnome-control-center universal-access
+Exec=regolith-control-center universal-access
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-accessibility
 Terminal=false

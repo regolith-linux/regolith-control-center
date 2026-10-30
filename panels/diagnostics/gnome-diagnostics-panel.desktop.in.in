@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Diagnostics
 Comment=Report your problems
-Exec=gnome-control-center diagnostics
+Exec=regolith-control-center diagnostics
 # FIXME
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=org.gnome.Settings-diagnostics-symbolic
