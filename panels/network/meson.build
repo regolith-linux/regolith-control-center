@@ -21,9 +21,9 @@ foreach name: panel_names
   i18n.merge_file(
     type: 'desktop',
     input: desktop + '.in',
-    output: desktop,
+    output: desktop.replace('gnome-', 'regolith-'),
     po_dir: po_dir,
-    install: false,
+    install: true,
     install_dir: control_center_desktopdir
   )
 endforeach
