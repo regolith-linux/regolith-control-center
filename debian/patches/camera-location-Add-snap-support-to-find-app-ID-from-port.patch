@@ -194,7 +194,7 @@ index 0f25a03..d5c5659 100644
      G_OBJECT_CLASS (cc_camera_page_parent_class)->finalize (object);
  }
 diff --git a/panels/privacy/location/cc-location-page.c b/panels/privacy/location/cc-location-page.c
-index c05ea4a..b9f1803 100644
+index d2d7fe3..67da4ef 100644
 --- a/panels/privacy/location/cc-location-page.c
 +++ b/panels/privacy/location/cc-location-page.c
 @@ -21,8 +21,6 @@
@@ -215,21 +215,19 @@ index c05ea4a..b9f1803 100644
      GtkSizeGroup *location_icon_size_group;
  };
  
-@@ -144,12 +144,11 @@ static void
+@@ -144,10 +144,9 @@ static void
  add_location_app (CcLocationPage *self, const gchar *app_id, gboolean enabled, gint64 last_used)
  {
      LocationAppStateData *data;
 -    g_autoptr(GDesktopAppInfo) app_info = NULL;
 +    g_autoptr(GAppInfo) app_info = NULL;
-     g_autoptr(GDateTime) t = NULL;
      GtkWidget *row, *w;
      GIcon *icon;
-     gchar *last_used_str;
 -    g_autofree gchar *desktop_id = NULL;
  
      w = g_hash_table_lookup (self->location_app_switches, app_id);
      if (w != NULL) {
-@@ -157,22 +156,21 @@ add_location_app (CcLocationPage *self, const gchar *app_id, gboolean enabled, g
+@@ -155,22 +154,21 @@ add_location_app (CcLocationPage *self, const gchar *app_id, gboolean enabled, g
          return;
      }
  
@@ -254,9 +252,9 @@ index c05ea4a..b9f1803 100644
 -    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), g_app_info_get_name (G_APP_INFO (app_info)));
 +    adw_preferences_row_set_title (ADW_PREFERENCES_ROW (row), g_app_info_get_name (app_info));
  
-     t = g_date_time_new_from_unix_utc (last_used);
-     last_used_str = cc_util_get_smart_date (t);
-@@ -334,6 +332,7 @@ cc_location_page_finalize (GObject *object)
+     w = gtk_switch_new ();
+     gtk_switch_set_active (GTK_SWITCH (w), enabled);
+@@ -322,6 +320,7 @@ cc_location_page_finalize (GObject *object)
      g_clear_pointer (&self->location_apps_data, g_variant_unref);
      g_clear_pointer (&self->location_app_switches, g_hash_table_unref);
      g_clear_pointer (&self->location_app_rows, g_hash_table_unref);
