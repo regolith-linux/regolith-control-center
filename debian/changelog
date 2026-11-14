@@ -1,3 +1,10 @@
+regolith-control-center (1.43.1-10) lunar; urgency=medium
+
+  [ rego-port-bot ]
+  * fix: ship panel desktop files and load them with a regolith- prefix
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 14 Nov 2026 10:39:50 -0800
+
 regolith-control-center (1.43.1-9) lunar; urgency=medium
 
   [ Khosrow Moossavi ]
