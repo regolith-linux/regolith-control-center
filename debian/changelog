@@ -1,3 +1,15 @@
+regolith-control-center (1.49.0-5) questing; urgency=medium
+
+  [ rego-port-bot ]
+  * fix: show the Graphics Tablet panel again
+  * region: store the formats in accountsservice too, for Ubuntu's session
+  * fix: ship panel desktop files and load them with a regolith- prefix
+  * test: validate the panel desktop files at build time
+  * chore: point the lintian override at the regolith panel desktop files
+  * fix: install the Graphics Tablet panel desktop file too
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 14 Nov 2026 10:25:22 -0800
+
 regolith-control-center (1.49.0-4) questing; urgency=medium
 
   * fix: remove unused ubuntu dependency for debian compat
