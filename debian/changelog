@@ -1,3 +1,13 @@
+regolith-control-center (1.46.0-6) noble; urgency=medium
+
+  [ rego-port-bot ]
+  * keyboard: also read keybindings from gnome-control-center/keybindings
+  * background: show the chosen wallpaper in sway without reloading it
+  * region: store the formats in accountsservice too, for Ubuntu's session
+  * fix: ship panel desktop files and load them with a regolith- prefix
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 14 Nov 2026 10:33:23 -0800
+
 regolith-control-center (1.46.0-5) noble; urgency=medium
 
   [ Khosrow Moossavi ]
