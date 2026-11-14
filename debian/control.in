@@ -115,6 +115,6 @@ Architecture: all
 Multi-Arch: foreign
 Section: devel
 Depends: ${misc:Depends},
-         regolith-control-center-data
+         regolith-control-center (>= ${source:Version})
 Description: utilities to configure the Regolith desktop
  This package contains the file required to get the keydirs location
