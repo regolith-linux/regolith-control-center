@@ -1,3 +1,10 @@
+regolith-control-center (1.50.5-2) resolute; urgency=medium
+
+  [ rego-port-bot ]
+  * region: store the formats in accountsservice too, for Ubuntu's session
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 14 Nov 2026 10:38:59 -0800
+
 regolith-control-center (1.50.5-1) resolute; urgency=medium
 
   [ rego-port-bot ]
