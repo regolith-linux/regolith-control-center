@@ -1,3 +1,10 @@
+regolith-control-center (1.48.1-11) plucky; urgency=medium
+
+  [ rego-port-bot ]
+  * fix: load the regolith- panel desktop files this package ships
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 14 Nov 2026 10:38:01 -0800
+
 regolith-control-center (1.48.1-10) plucky; urgency=medium
 
   * UNRELEASED
