@@ -1,3 +1,11 @@
+regolith-control-center (1.48.1-12) plucky; urgency=medium
+
+  [ Carlos Fernandez Sanz ]
+  * fix(debian): suggest gnome-online-accounts and optional panel backends
+  * fix(debian): recommend bluez, which came only through gnome-bluetooth-sendto
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Tue, 17 Nov 2026 10:38:13 -0800
+
 regolith-control-center (1.48.1-11) plucky; urgency=medium
 
   [ rego-port-bot ]
