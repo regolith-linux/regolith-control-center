@@ -1,3 +1,13 @@
+regolith-control-center (1.51.1-1) stonking; urgency=medium
+
+  [ rego-port-bot ]
+  * Update to upstream gnome-control-center 51.1
+  * Refresh the snap location patch for 51.1
+  * fix: remove .git-blame-ignore-revs so the source package builds (#47)
+  * ci: run the release and unstable workflows on regolith/51
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Wed, 25 Nov 2026 14:58:27 -0800
+
 regolith-control-center (1.51.0-2) stonking; urgency=medium
 
   [ rego-port-bot ]
