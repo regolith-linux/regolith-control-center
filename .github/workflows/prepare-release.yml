@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - regolith/50
+      - regolith/51
     paths:
       - debian/changelog
 

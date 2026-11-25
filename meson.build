@@ -1,6 +1,6 @@
 project(
   'regolith-control-center', 'c',
-        version : '51.0',
+        version : '51.1',
         license : 'GPL2+',
   meson_version : '>= 0.60.0'
 )
